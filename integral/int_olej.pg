@@ -1,0 +1,33 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$radio = RadioButtons(
+["Počet litrů, které vytečou z nádrže za první tři hodiny.",
+ "Rychlost, s jakou vytéká olej po prvních třech hodinách.",
+ "Počet litrů oleje, které po třech hodinách zůstane v nádrži.",
+ "Průměrná rychlost s jakou vytéká olej během prvních tří hodin."
+],0);  # První odpověď správná
+
+
+BEGIN_PGML
+
+Olej vytéká z nádrže rychlostí [`r(t)`] litrů za minutu, kde [`t`] je čas v minutách. Co vyjadřuje integrál [``\int_{0}^{\,180} {r(t)}\,\mathrm dt``]?
+
+[_]{$radio}
+    
+END_PGML
+
+
+ENDDOCUMENT();
+

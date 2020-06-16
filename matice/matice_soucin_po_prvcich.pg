@@ -1,0 +1,74 @@
+##################
+#  Initialization
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "AnswerFormatHelp.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+
+##################
+#  Setup
+
+Context("Matrix");
+
+$A = Matrix([
+[random(-3,3,1),random(-5,5,1),random(-5,5,1)],
+[random(-5,5,1),random(-5,5,1),random(-5,8,1)],
+[random(-5,6,1),random(-5,5,1),random(-5,8,1)],
+]);
+
+$B = Matrix([
+[random(-5,5,1)],
+[random(-5,5,1)],
+[random(-5,5,1)],
+]);
+
+$AA = Matrix([
+[random(-3,3,1),random(-5,5,1)],
+[random(-5,5,1),random(-5,5,1)],
+[random(-5,6,1),random(-5,5,1)],
+]);
+
+$BB = Matrix([
+[2],
+[-1],
+]);
+
+$answer = $A * $B;
+$answerr = $AA * $BB;
+
+
+##################
+#  Main text
+
+BEGIN_PGML
+Součin matice [`A`] a sloupcového vektoru [`\vec b`] je možno chápat jako jakési zobrazení množiny vektorů. Výsledkem je tedy opět sloupcový vektor. Jeho souřadnice dostaneme jako lineární kombinaci sloupců matice [`A`]. Koeficienty v této lineární kombinaci jsou souřadnice vektoru [`\vec b`].
+Například platí
+[```[$AA] [$BB] = [$answerr]```]
+a výsledný vektor je dvojnásobek prvního sloupce minus druhý sloupec matice, stojící v maticovém součinu vlevo.
+
+Je dána matice [``A``] a vektor [``\vec b``].
+>> [``A = [$A] \ \ \mbox{and} \ \ \vec b = [$B]. ``] <<
+Vypočtěte obraz vektoru [``\vec b``] při zobrazení reprezentovaném maticí [``A``].
+
+>>[`` A B = {}``][_____]*{$answer}<<
+END_PGML
+
+
+########################
+#  Solution
+
+
+COMMENT('Uses PGML.');
+
+ENDDOCUMENT();
+

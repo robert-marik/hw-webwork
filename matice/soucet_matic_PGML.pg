@@ -1,0 +1,52 @@
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "parserPopUp.pl",
+  "AnswerFormatHelp.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+$showPartialCorrectAnswers = 1;
+TEXT(beginproblem()); 
+
+Context('Matrix');
+
+do {
+
+$A = Matrix([
+[non_zero_random(-5,5,1),non_zero_random(-5,5,1)],
+[non_zero_random(-5,5,1),non_zero_random(-5,5,1)],
+]);
+
+$B = Matrix([
+[non_zero_random(-5,5,1),non_zero_random(-5,5,1)],
+[non_zero_random(-5,5,1),non_zero_random(-5,5,1)],
+]);
+
+} until ( $A!= $B );
+
+$answer = $A + $B;
+
+$popup = PopUp(['Vyberte odpověď','Pravda','Nepravda'],'Pravda');
+
+Context()->texStrings;
+
+BEGIN_PGML
+Nechť 
+[``` A = [$A],\qquad B = [$B].```]
+Sečtěte matice, pokud je tato operace definována.
+
+[``A + B ={} ``][_____]*{$answer}
+
+[``B + A ={} ``][_____]*{$answer}
+
+Zvolte správnou odpověď: [` A + B = B + A `] pro každou dvojici matic 
+[`A`] a [`B`] se stejným počtem řádků a sloupců.
+[@ $popup->menu() @]*
+
+END_PGML
+
+ANS( $popup->cmp() );
+
+ENDDOCUMENT();

@@ -1,0 +1,28 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]],'dr'=>'Real', 'r'=>'Real');
+
+BEGIN_PGML
+
+Objem koule je dán vztahem [```V=\frac 43 \pi r^3```] a poloměr se zvětšuje zadanou rychlostí [``\frac{\mathrm d r}{\mathrm dt}``]. Jak rychle roste objem?
+
+Pište *dr/dt* pro rychlost s jakou roste poloměr.
+
+[``\frac{\mathrm dV}{\mathrm dt}=``]
+[_____________________]{4*pi*r^2*dr/dt}.
+
+
+END_PGML
+
+
+ENDDOCUMENT();

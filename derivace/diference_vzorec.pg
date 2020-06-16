@@ -1,0 +1,33 @@
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+#  "PGunion.pl",
+  "parserFunctionPrime.pl",
+  "PGcourse.pl"
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Numeric");
+Context()->variables->are(
+x=>"Real",
+h=>"Real"
+);
+parser::FunctionPrime->Enable();
+parserFunction("f(x)" => "3sin(x^2)+e^(pi*x)-2.63"); # something students are not going to guess
+
+BEGIN_PGML
+Derivaci funkce zadané v ekvidistatních krocích umíme numericky aproximovat. Nejpoužívanějšími vztahy jsou dopředná a centrální diference.
+
+Nechť je funkce [`f`] dána funkční hodnotou v bodě [`x`] a v bodech o [`h`] dopředu i dozadu. Napište aproximace derivace v bodě [`x`].
+
+Pro funkční hodnoty funkce [`f`] pište například f(x), f(x+h), f(x-h).
+
+* Dopředná diference: [``\frac{\mathrm df}{\mathrm dx} \approx ``] [_________________________________]{(f(x+h)-f(x))/h}
+* Centrální diference: [``\frac{\mathrm df}{\mathrm dx} \approx ``] [_________________________________]{(f(x+h)-f(x-h))/(2*h)}
+END_PGML
+
+ENDDOCUMENT();

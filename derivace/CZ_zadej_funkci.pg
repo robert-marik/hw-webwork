@@ -1,0 +1,26 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+
+BEGIN_PGML
+
+Zapište funkci [``` \frac {4}{(x+\pi)^3}. ```]
+
+Pište *pi* pro [`\pi`].
+
+[_____________________]{4/(x+pi)^3}.
+
+
+END_PGML
+
+
+ENDDOCUMENT();

@@ -1,0 +1,34 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+TEXT(beginproblem());
+
+
+$radio = RadioButtons(
+[["Nárůst hmotnosti stromu v kilogramech mezi pátým a desátým rokem.",
+"Nárůst hmotnosti stromu za prvních pět let života.",
+"Průměrná rychlost růstu hmotnosti stromu v kilogramech za rok za prvních pět let života.",
+"Průměrná rychlost růstu hmotnosti stromu v kilogramech za rok mezi pátým a desátým rokem.",
+"Okamžitá rychlost růstu hmotnosti v kilogramech za rok po pěti letech života.",
+"Okamžitá rychlost růstu hmotnosti v kilogramech za pět let po pěti letech života.",
+]],
+0);  # První odpověď správná, odpovedi se permutuji
+
+BEGIN_PGML
+
+Nechť [`w'(t)`] označuje rychlost růstu hmotnosti stromu v kilogramech za rok. Jak je možno interpretovat integrál [``` \int_{5}^{\,10} {w'(t)}\,\mathrm dt```] pro tento případ?
+
+[_]{$radio}
+
+
+
+END_PGML
+
+ENDDOCUMENT();

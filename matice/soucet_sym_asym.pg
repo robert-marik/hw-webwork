@@ -1,0 +1,70 @@
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "parserPopUp.pl",
+  "AnswerFormatHelp.pl",
+  "PGcourse.pl"
+);
+$showPartialCorrectAnswers = 0;
+TEXT(beginproblem()); 
+
+Context('Matrix');
+do {
+
+$A = Matrix([
+[non_zero_random(-5,5),non_zero_random(-5,5)],
+[non_zero_random(-5,5),non_zero_random(-5,5)]
+]);
+
+$AA = Matrix([
+[non_zero_random(-2,2),non_zero_random(-2,2)],
+[random(-1,2,1),non_zero_random(-5,5)]
+]);
+
+} until (($A->transpose) != $A);
+
+$answer1 = 1/2*($A + ($A->transpose));
+$answer2 = 1/2*($A -1*($A->transpose));
+
+$answer11 = 1/2*($AA + ($AA->transpose));
+$answer22 = 1/2*($AA -1*($AA->transpose));
+
+
+Context()->texStrings;
+BEGIN_TEXT
+Někdy je důležitým úkolem být schopen rozložit matici na součet symetrické a antisymetrické matice.
+Například
+\[$AA=$answer11+$answer22 .\]
+
+S touto operací se setkáváme například u popis deformace tělesa, kdy matici popisující změnu tvaru rozložíme na část, která je antisymetrická a souvisí s rotací (tj. s operací která nemění tvar tělesa ale pouze jeho orientaci v prostoru) a na část, která je symetrická a souvisí se změnou tvaru (tedy s materiálovou odezvou na působení vnější síly).
+
+Uvažujte matici
+\[ A = $A.\]
+Matici \(A\) rozložte na součet symetrické a antisymetrické části. (\(A^T\) označuje transponovanou matici.)
+$BR
+$BR
+$BCENTER
+\( \displaystyle A_{\mathrm{sym}}=\frac{A + A^T}{2} = \)
+\{ $answer1->ans_array() \}
+$ECENTER
+$BR
+$BR
+$BCENTER
+\( \displaystyle A_{\mathrm{asym}}=\frac{A - A^T}{2} = \)
+\{ $answer2->ans_array() \}
+$ECENTER
+$BR
+
+END_TEXT
+Context()->normalStrings;
+
+install_problem_grader(~~&std_problem_grader);
+
+ANS( $answer1->cmp() );
+ANS( $answer2->cmp() );
+
+
+
+
+ENDDOCUMENT();

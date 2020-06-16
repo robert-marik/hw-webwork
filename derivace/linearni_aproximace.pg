@@ -1,0 +1,32 @@
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "PGunion.pl",
+  "answerHints.pl",
+  "parserFunctionPrime.pl",
+  "PGcourse.pl"
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Numeric");
+Context()->variables->are(
+x=>"Real",
+h=>"Real"
+);
+parser::FunctionPrime->Enable();
+parserFunction("f(x)" => "3sin(x^2)+e^(pi*x)-2.63");
+
+
+BEGIN_PGML
+Zapište vzorec pro lineární aproximaci funkce. Na pravé straně rovnice doplňte výraz lineární v proměnné [``h``] takový, aby byl lineární aproximací  funkce [``f(x+h)``] v okolí bodu [``x``].
+
+[``f(x+h)\approx{}``][___________________________]{"f(x)+f'(x)*h"}
+
+END_PGML
+#ANS( $Fp1->cmp );
+
+ENDDOCUMENT();

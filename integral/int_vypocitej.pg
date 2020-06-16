@@ -1,0 +1,44 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "parserFormulaUpToConstant.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$a=random(2,10,1);
+$b=random(2,10,1);
+$c=random(1,10,1)*random(-1,1,2);
+$d=random(0,1,1);
+
+Context("Numeric")->variables->add(C=>'Real');
+$showPartialCorrectAnswers = 1;
+
+if ($d==0)
+{
+    $funkce=Formula("$b+e^($c*x)");
+    $int=Formula("$b*x+e^($c*x)/($c)");
+}
+else
+{ 
+    $funkce=Formula("$b*e^($c*x)"); 
+    $int=Formula("$b*exp($c*x)/($c)");
+}
+
+# $funkce -> reduce();
+
+BEGIN_PGML
+
+
+Vypočtěte integrál.
+>>[``\int [$funkce]\,dx ={}``][_________________________]{$int->cmp(upToConstant=>1)}[``{}+C``] <<
+
+END_PGML
+
+
+
+ENDDOCUMENT();

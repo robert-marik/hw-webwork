@@ -1,0 +1,40 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+TEXT(beginproblem());
+
+
+$radio = RadioButtons(
+["Kladná v každém bodě, protože v každém bodě se kostka ohřívá.","Záporná  v každém bodě, protože v každém bodě se kostka ohřívá.","Nulová, vzhledem k symetrii úlohy.","Vepředu kladná, vzadu záporná, protože teplota roste od stěn směrem dovnitř, tj. vzadu ve směru osy a vepředu proti směru osy. Na ostatních stěnách je situace analogická.","Vepředu záporná, vzadu kladná, protože teplota roste od stěn dovnitř, tj. vzadu ve směru osy a vepředu proti směru osy. Na ostatních stěnách je situace analogická."],
+0);  # První odpověď správná
+
+$radio2 = RadioButtons(
+["Kladná v každém bodě, protože v každém bodě se kostka ohřívá.","Záporná  v každém bodě, protože v každém bodě se kostka ohřívá.","Nulová, vzhledem k symetrii úlohy.","Vepředu kladná, vzadu záporná, protože teplota roste od stěn směrem dovnitř, tj. vzadu ve směru osy a vepředu proti směru osy.","Vepředu záporná, vzadu kladná, protože teplota roste od stěn dovnitř, tj. vzadu ve směru osy a vepředu proti směru osy."],
+4);  
+
+
+
+BEGIN_PGML
+
+Dřevěnou kostku o délce strany [``10\,\mathrm{cm}``] dáme do pece k teplotní modifikaci a pec zapneme. Co se bude dít s jednotlivými parciálními derivacemi teploty? Pro jednoznačnost orientujme souřadnicové osy podle obrázku.
+
+[@ image("http://user.mendelu.cz/marik/images/drevena_kostka.png") @]*
+
+Jaké znaménko má derivace podle času, tj. [``\frac{\partial T}{\partial t}``]?
+
+[_]{$radio}
+
+Jaké znaménko má derivace podle polohy? Pro konkrétnost uvažujme například derivaci ve směru osy [`x`], tj. [``\frac{\partial T}{\partial x}``].
+
+[_]{$radio2}
+
+END_PGML
+
+ENDDOCUMENT();

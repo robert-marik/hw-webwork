@@ -1,0 +1,66 @@
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "parserPopUp.pl",
+  "AnswerFormatHelp.pl",
+  "PGcourse.pl"
+);
+$showPartialCorrectAnswers = 0;
+TEXT(beginproblem()); 
+
+Context('Matrix');
+Context()->parens->set("[" => {formMatrix => 1});
+
+do {
+
+$A = Matrix([
+[non_zero_random(-5,5,1),non_zero_random(-5,5,1),non_zero_random(-5,5,1)],
+[non_zero_random(-5,5,1),non_zero_random(-5,5,1),non_zero_random(-5,5,1)],
+]);
+
+$B = Matrix([
+[non_zero_random(-5,5,1),non_zero_random(-5,5,1),non_zero_random(-5,5,1)],
+[non_zero_random(-5,5,1),non_zero_random(-5,5,1),non_zero_random(-5,5,1)],
+]);
+
+} until ( $A!= $B );
+
+$popup = PopUp(['Choose','True','False'],'True');
+
+Context()->texStrings;
+BEGIN_TEXT
+Nechť 
+\[ A = $A,\]
+\[ B = $B.\]
+Sečtěte matice, pokud je tato operace definována.
+$BR
+$BR
+Pište například ${BBOLD}[[1,2],[3,4]]${EBOLD} pro matici \(\begin{pmatrix} 1&2\\3&4\end{pmatrix}\).
+$BR
+$BR
+Pokud součet neexistuje, napište ${BBOLD}DNE${EBOLD} (Does Not Exist).
+$BR
+$BR
+\( A + B = \)
+\{ ans_box(3,30).$SPACE.AnswerFormatHelp('matrices') \}
+$BR
+$BR
+\( B + A = \)
+\{ ans_box(3,30).$SPACE.AnswerFormatHelp('matrices') \}
+$BR
+$BR
+\{ $popup->menu \} Zvolte správnou odpověď: \( A + B = B + A \) pro každou dvojici matic 
+\( A \) a \( B \) se stejným počtem řádků a sloupců.
+END_TEXT
+Context()->normalStrings;
+
+install_problem_grader(~~&std_problem_grader);
+
+ANS( ($A + $B)->cmp() );
+ANS( ($B + $A)->cmp() );
+ANS( $popup->cmp );
+
+
+
+ENDDOCUMENT();
