@@ -1,22 +1,9 @@
-## DBsubject(Calculus - single variable)
-## DBchapter(Integrals)
-## DBsection(Conceptual understanding of integration)
-## Institution(UCSB)
-## MLT(integral_concept_areainterp_ab)
-## Level(2)
-## Static(1)
-## TitleText1('Calculus: Early Transcendentals')
-## AuthorText1('Stewart')
-## EditionText1('5')
-## Section1('5.2')
-## Problem1('47')
-## KEYWORDS('integrals', 'definite integrals')
-
 DOCUMENT();
 
 loadMacros(
   "PGstandard.pl",
   "PGchoicemacros.pl",
+  "PGML.pl",
   "PGcourse.pl"
 );
 
@@ -26,13 +13,17 @@ $a=random(1,10,1);
 $b=random(1,10,1)*random(-1,1,2);
 $c=random(1,10,1)*random(-1,1,2);
 
+BEGIN_PGML
+## Aditivita integrálu vzhledem k mezi
+END_PGML
+
 BEGIN_TEXT
 $PAR
-The sum 
+Součet integrálů
 \[\int_{-2}^{\,2} {f(x)}\, dx + \int_{2}^{\,5} {f(x)}\, dx - \int_{-2}^{\,-1} {f(x)}\, dx\]
-can be written as a single integral in the form
-\[\int_{a}^{\,b} {f(x)}\, dx\]
-Determine \(a\) and \(b\).
+může být zapsán jako jediný integrál ve tvaru
+\[\int_{a}^{\,b} {f(x)}\, dx.\]
+Určete \(a\) a \(b\).
 
 $PAR
 \(a =\) \{ans_rule(40)\}
