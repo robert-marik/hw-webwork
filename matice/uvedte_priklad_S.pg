@@ -21,7 +21,7 @@ BEGIN_PGML
 END_PGML
 
 BEGIN_TEXT
-Symetrické matice jsou důležitou třídou matic v aplikacích. Z obecnějších úvah plyne, že materiálové vlastnoti jsou v anizotroních materiálech, jako je například dřevo, popisovány právě symetrickými maticemi. Symetrické matice mají spoustu užitečných vlastností. Například je možné otočit soustavu souřadnic tak, že příslušná materiálová vlastnost je dokonce popsána diagonální maticí. To nastane, pokud volíme soustavu souřadnic tak, že ve směru os je materiálová odezva na podnět stejného směru jako podnět. U dřeva to jsou anatomické směry dřeva (podélný, radiální, tangenciální). Pokud nemáme možnost nebo není vhodné volit soustavu souřadnic v anatomických směrech dřeva, pracujeme s obecnými symetrickými maticemi (přesněji, se symetrickými tenzory).
+Symetrické matice jsou důležitou třídou matic v aplikacích. Z obecnějších úvah plyne, že materiálové vlastnosti jsou v anizotropních materiálech, jako je například dřevo, popisovány právě symetrickými maticemi. Symetrické matice mají spoustu užitečných vlastností. Například je možné otočit soustavu souřadnic tak, že příslušná materiálová vlastnost je dokonce popsána diagonální maticí. To nastane, pokud volíme soustavu souřadnic tak, že ve směru os je materiálová odezva na podnět stejného směru jako podnět. U dřeva to jsou anatomické směry dřeva (podélný, radiální, tangenciální). Pokud nemáme možnost nebo není vhodné volit soustavu souřadnic v anatomických směrech dřeva, pracujeme s obecnými symetrickými maticemi (přesněji, se symetrickými tenzory).
 
 $BR
 $BR
