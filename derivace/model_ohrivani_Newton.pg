@@ -16,7 +16,7 @@ Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]],'dT'=>'Real', 
 
 BEGIN_PGML
 
-## Newtonův zákon tepelné výměny [@ image("../images/cold-drink.jpg") @]*
+## Newtonův zákon tepelné výměny
 
 Newtonův zákon tepelné výměny je možné použít
 pro studium tepelné výměny pro tělesa, u nichž nehraje podstatnou roli vedení tepla. Při jisté aproximaci by takovým tělesem mohla být sklenice chladného nápoje. Podle tohoto zákona je  rychlost s jakou roste teplota chladného tělesa v kontaktu s okolím přímo úměrná rozdílu teplot. 

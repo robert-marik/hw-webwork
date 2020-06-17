@@ -24,6 +24,8 @@ $answer = $f->D($var);   # derivace
 
 BEGIN_PGML
 
+## Derivace funkce s parametrem
+
 Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$f] .```]
 
 >>[`` f'([$var])=\frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$f]\Bigr) ={}``] 

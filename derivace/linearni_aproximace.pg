@@ -22,6 +22,9 @@ parserFunction("f(x)" => "3sin(x^2)+e^(pi*x)-2.63");
 
 
 BEGIN_PGML
+
+## Lineární aproximace funkce
+
 Zapište vzorec pro lineární aproximaci funkce. Na pravé straně rovnice doplňte výraz lineární v proměnné [``h``] takový, aby byl lineární aproximací  funkce [``f(x+h)``] v okolí bodu [``x``].
 
 >>[``f(x+h)\approx{}``][___________________________]{"f(x)+f'(x)*h"}<<

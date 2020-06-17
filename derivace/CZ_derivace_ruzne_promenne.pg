@@ -23,6 +23,9 @@ $answer = $f->D();   # derivace
 
 Context()->texStrings;
 BEGIN_PGML
+
+## Derivace funkce
+
 Napište derivaci [`f'([$var])`] funkce [`f([$var])=[$f].`]
 
 >>[``f'([$var])={}``][_____________]{$answer}<<

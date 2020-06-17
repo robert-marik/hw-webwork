@@ -21,6 +21,9 @@ $f=Formula("$a*x^m+x^$b")->reduce();   # funkce
 $answer = $f->D($var);   # derivace
 
 BEGIN_PGML
+
+## Derivace mocninné funkce s parametrem
+
 Derivace mocninné funkce je dána vzorcem [```\left(x^n\right)'=\frac{\mathrm d}{\mathrm dx}\left(x^n\right)=n x^{n-1}```]
 a kromě toho víme, že derivace součtu je součet derivací a derivace konstantního násobku je konstantní nádobek derivace. Můžeme tedy psát (pomocí zkrácené Lagrangeovy notace)
 [```(3x^6+8x^3)'=3(x^6)'+8(x^3)'=3\cdot 6 x^5+8\cdot 3x^2=18x^5 + 24x^2.```]

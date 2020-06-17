@@ -20,6 +20,9 @@ parser::FunctionPrime->Enable();
 parserFunction("f(x)" => "3sin(x^2)+e^(pi*x)-2.63"); # something students are not going to guess
 
 BEGIN_PGML
+
+## Numerická aproximace derivace
+
 Derivaci funkce zadané v ekvidistatních krocích umíme numericky aproximovat. Nejpoužívanějšími vztahy jsou dopředná a centrální diference.
 
 Nechť je funkce [`f`] dána funkční hodnotou v bodě [`x`] a v bodech o [`h`] dopředu i dozadu. Napište aproximace derivace v bodě [`x`].

@@ -60,10 +60,12 @@ $ml->choose_extra(2);
 
 BEGIN_PGML
 
-Derivace funkce [``f``] proměnné [``x``] je definována vztahem 
-[```\lim_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}.```]
+## Definice derivace funkce jedné proměnné
 
-Podáme slovní interpretaci této definice. Uvažujme veličinu [``f``], která se mění v čase, tj. je funkcí proměnné [``t``]. Přepište jednotlivé části definice derivace do proměnné [``t``] a podejte jejich slovní interpretaci.
+Derivace funkce [``f``] proměnné [``x``] je definována vztahem 
+[```\lim_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}.```] Pro správné pochopení toho, co derivace vyjadřuje, je nutno rozumět jednolivým částem tohoto definičního vztahu.
+
+Podáme slovní jednolitvých vcelků, ze kterých se skádá definice derivace. Uvažujme veličinu [``f``], která se mění v čase, tj. je funkcí proměnné [``t``]. Přepište jednotlivé části definice derivace do proměnné [``t``] a podejte jejich slovní interpretaci.
 
 END_PGML
 
