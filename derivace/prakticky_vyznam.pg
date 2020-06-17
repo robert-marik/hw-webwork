@@ -52,7 +52,7 @@ BEGIN_PGML
 
 ## Slovní interpretace derivace
 
-Derivace vyjadřuje rychlost s jakou se mění závislá veličina při změně nezávislé veličiny. Například pokud kapka vody v atmosféře roste, je rychlost s jakou se mění její objem v čase vyjádřena derivací [``\frac{\mathrm dV}{\mathrm dt}``] a rychlost s jakou roste její poloměr dána derivací [``\frac{\mathrm dr}{\mathrm dt}``]. Má smysl se ptát například i na rychlost s jakou roste objem jako funkce poloměru, tj. jaká je změna objemu ne za jednotku času, ale při změně poloměru o jednotku. Toto by bylo vyjádřeno derivací [`\frac{\mathrm dV}{\mathrm dr}`].
+Derivace vyjadřuje rychlost s jakou se mění závislá veličina při změně nezávislé veličiny. Například pokud kapka vody v atmosféře roste, je rychlost s jakou se mění její objem v čase vyjádřena derivací [``\frac{\mathrm dV}{\mathrm dt}``] a rychlost s jakou roste její poloměr dána derivací [``\frac{\mathrm dr}{\mathrm dt}``]. Má smysl se ptát například i na rychlost s jakou roste objem jako funkce poloměru, tj. jaká je změna objemu ne za jednotku času, ale při změně poloměru o jednotku. Toto by bylo vyjádřeno derivací [``\frac{\mathrm dV}{\mathrm dr}``].
 
 -----
 

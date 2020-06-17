@@ -14,6 +14,8 @@ Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]],'dr'=>'Real', 
 
 BEGIN_PGML
 
+## Souvislost mezi rychlostmi změn dvou veličin
+
 Objem koule je dán vztahem [```V=\frac 43 \pi r^3```] a poloměr se zvětšuje zadanou rychlostí [``\frac{\mathrm d r}{\mathrm dt}``]. Jak rychle roste objem?
 
 Pište *dr/dt* pro rychlost s jakou roste poloměr.

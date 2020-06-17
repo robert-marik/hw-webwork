@@ -13,6 +13,8 @@ $showPartialCorrectAnswers = 1;
 
 BEGIN_PGML
 
+## Trénink zápisu funkce
+
 Zapište funkci [``` \frac {4}{(x+\pi)^3}. ```]
 
 Pište *pi* pro [`\pi`].
