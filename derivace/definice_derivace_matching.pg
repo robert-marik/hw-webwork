@@ -27,7 +27,7 @@ $ml->rf_print_q(~~&pop_up_list_print_q);
 $ml->ra_pop_up_list([
 "No answer" => "?",
 "A" => "A", "B" => "B", "C" => "C", 
-"D" => "D", "E" => "E", "F" => "F"
+"D" => "D", "E" => "E"
 ]);
 
 #
@@ -65,9 +65,15 @@ Derivace funkce [``f``] proměnné [``x``] je definována vztahem
 
 Podáme slovní interpretaci této definice. Uvažujme veličinu [``f``], která se mění v čase, tj. je funkcí proměnné [``t``]. Přepište jednotlivé části definice derivace do proměnné [``t``] a podejte jejich slovní interpretaci.
 
-[@ ColumnMatchTable($ml) @]***
-
 END_PGML
+
+BEGIN_TEXT
+
+\{ $ml->print_q() \}
+$BR
+\{ $ml->print_a() \}
+
+END_TEXT
 
 
 ############################
