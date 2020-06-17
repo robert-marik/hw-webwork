@@ -18,7 +18,7 @@ BEGIN_PGML
 
 ## Matematické modely se dvěma procesy
 
-Derivace popisuje rychlost změny a proto je vhodná pro popis dějů probíhajících rychlostí, která se mění v čase. Někdy na rychlost změny má vliv více procesů a potom se jejich vlivy sčítají. Například při dopadu konstantního tepelného výkonu na těleso se zvyšuje teplota tohoto tělesa absorbováním dopadající energie. Teplota tedy roste konstantní rychlostí. Označme tuto konstantu [`k_1`]. Kromě toho těleso také vyzařuje teplo a toto vyzařování je podle vyzařovacího zákona úměrné čtvrté mocnině teploty. Proto vlivem vyzařování teplota klesá rychlostí úměrnou [`T^4`]. Označme tuto konstantu [`k_2`]. Matematický model celého procesu je poté [``` \frac{\mathrm dT}{\mathrm dt} =k_1 - k_2 T^4```]
+Derivace popisuje rychlost změny a proto je vhodná pro popis dějů probíhajících rychlostí, která se mění v čase. Někdy na rychlost změny má vliv více procesů a potom se jejich vlivy sčítají. Například při dopadu konstantního tepelného výkonu na těleso se zvyšuje teplota tohoto tělesa absorbováním dopadající energie. Teplota tedy roste konstantní rychlostí. Označme tuto konstantu [`k_1`]. Kromě toho těleso také vyzařuje teplo a toto vyzařování je podle vyzařovacího zákona úměrné čtvrté mocnině teploty. Proto vlivem vyzařování teplota klesá rychlostí úměrnou [`T^4`]. Označme tuto konstantu [`k_2`]. Matematický model celého procesu je poté [``` \frac{\mathrm dT}{\mathrm dt} =k_1 - k_2 T^4.```]
 
 Pokusíme se o podobné u modelů podobných procesů.
 
