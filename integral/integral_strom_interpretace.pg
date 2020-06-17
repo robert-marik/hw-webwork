@@ -13,7 +13,7 @@ TEXT(beginproblem());
 
 $radio = RadioButtons(
 [["Nárůst hmotnosti stromu v kilogramech mezi pátým a desátým rokem.",
-"Nárůst hmotnosti stromu za prvních pět let života.",
+"Nárůst hmotnosti stromu v kilogramech za prvních pět let života.",
 "Průměrná rychlost růstu hmotnosti stromu v kilogramech za rok za prvních pět let života.",
 "Průměrná rychlost růstu hmotnosti stromu v kilogramech za rok mezi pátým a desátým rokem.",
 "Okamžitá rychlost růstu hmotnosti v kilogramech za rok po pěti letech života.",
