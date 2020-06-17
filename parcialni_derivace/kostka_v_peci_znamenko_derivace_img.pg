@@ -27,11 +27,13 @@ Dřevěnou kostku o délce strany [``10\,\mathrm{cm}``] dáme do pece k teplotn�
 
 [@ image("http://user.mendelu.cz/marik/images/drevena_kostka.png") @]*
 
-Jaké znaménko má derivace podle času, tj. [``\frac{\partial T}{\partial t}``]?
+*Část 1:* Jaké znaménko má derivace podle času, tj. [``\frac{\partial T}{\partial t}``]?
 
 [_]{$radio}
 
-Jaké znaménko má derivace podle polohy? Pro konkrétnost uvažujme například derivaci ve směru osy [`x`], tj. [``\frac{\partial T}{\partial x}``].
+-------
+
+*Část 2:* Jaké znaménko má derivace podle polohy? Pro konkrétnost uvažujme například derivaci ve směru osy [`x`], tj. [``\frac{\partial T}{\partial x}``].
 
 [_]{$radio2}
 
