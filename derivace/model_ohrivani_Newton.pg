@@ -34,7 +34,7 @@ Na pravou stranu napište výraz, který udává, že tato rychlost je úměrná
 
 Čas označte [`t`], derivaci teploty podle času [`` \frac{\mathrm dT}{\mathrm dt } ``] zapište jako *dT/dt*. Konstantu úměrnosti volte [`k`] a model naformulujte tak, aby tato konstanta byla kladná.
 
-[_____________________]{"dT/dt"}[``{}={}``][_____________________]{"k*([$T0]-T)"}
+>>[_____________________]{"dT/dt"}[``{}={}``][_____________________]{"k*([$T0]-T)"}<<
 
 
 END_PGML
