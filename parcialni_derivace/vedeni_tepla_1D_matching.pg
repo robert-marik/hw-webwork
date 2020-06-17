@@ -96,9 +96,7 @@ $showPartialCorrectAnswers = 0;
 install_problem_grader(~~&custom_problem_grader_fluid);
 $ENV{'grader_numright'} = [2,4,7];
 $ENV{'grader_scores'} = [0.3,0.6,1];
-$ENV{'grader_message'} = "You can earn " .
-"30% partial credit for 2 - 3 correct answers, and ".
-"60% partial credit for 4 - 5 correct answers.";
+$ENV{'grader_message'} = "Můžete mít částečné hodnocení za částečně správnou odpověď.";
 
 #
 #  All or nothing grader
