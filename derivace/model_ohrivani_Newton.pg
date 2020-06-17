@@ -16,6 +16,19 @@ Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]],'dT'=>'Real', 
 
 BEGIN_PGML
 
+## Derivace v matematických modelech
+
+Derivace popisuje rychlost změny a proto je vhodná pro popis dějů probíhajících rychlostí, která se mění v čase. Vlastně je to jediný nástroj, který můžeme na takové úlohy použít. Například kapka vody v atmosféře při kondenzaci roste tak, že rychlost s jakou roste objem [`V`] je úměrná povrchu [`S`]. Matematicky vyjádřeno, platí  [```\frac{\mathrm dV}{\mathrm dt}=kS,```]
+kde [`k`] je konstanta související s volbou jednotek, s tvarem kapky, "ochotě" vody kondenzovat a dalšími parametry úlohy. Proto nás takové konstanty úměrnosti příliš nezajímají a pracujeme s nimi jako s parametry. Vždy se však snažíme, aby tyto konstanty byly kladné. Proto například při vypařování kapky, které se opět děje rychlostí úměrnou povrchu, píšeme
+[```-\frac{\mathrm dV}{\mathrm dt}=kS,```]
+nebo elegantněji
+[```\frac{\mathrm dV}{\mathrm dt}=-kS.```]
+Objem se totiž při vypařování zmenšuje, jeho derivace je záporná a rychlost vypařování je záporně vzatá změna objemu.
+
+Pokusíme se o podobné u modelu tepelné výměny.
+
+-----
+
 ## Newtonův zákon tepelné výměny
 
 Newtonův zákon tepelné výměny je možné použít
@@ -28,11 +41,9 @@ Nejprve zapište, jaký je rozdíl teplot místnosti a nápoje. Pořadí v rozd�
 
 Dále sestavte matematický model. 
 
-Na levou stranu rovnice napište rychlost, s jakou roste teplota nápoje v čase.
-
-Na pravou stranu napište výraz, který udává, že tato rychlost je úměrná  rozdílu teplot. 
-
-Čas označte [`t`], derivaci teploty podle času [`` \frac{\mathrm dT}{\mathrm dt } ``] zapište jako *dT/dt*. Konstantu úměrnosti volte [`k`] a model naformulujte tak, aby tato konstanta byla kladná.
+* Na levou stranu rovnice napište rychlost, s jakou roste teplota nápoje v čase.
+* Na pravou stranu napište výraz, který udává, že tato rychlost je úměrná  rozdílu teplot. 
+* Čas označte [`t`], derivaci teploty podle času [`` \frac{\mathrm dT}{\mathrm dt } ``] zapište jako *dT/dt*. Konstantu úměrnosti volte [`k`] a model naformulujte tak, aby tato konstanta byla kladná.
 
 >>[_____________________]{"dT/dt"}[``{}={}``][_____________________]{"k*([$T0]-T)"}<<
 

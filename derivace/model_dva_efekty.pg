@@ -1,0 +1,39 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]],'dT'=>'Real', 'dx'=>'Real', 'dc'=>'Real', 'T'=>'Real', 't'=>'Real', 'k'=>'Real','p'=>'Real','c'=>'Real','x'=>'Real');
+
+$k=random(15,28,1);
+
+BEGIN_PGML
+
+## Matematické modely se dvěma procesy
+
+Derivace popisuje rychlost změny a proto je vhodná pro popis dějů probíhajících rychlostí, která se mění v čase. Někdy na rychlost změny má vliv více procesů a potom se jejich vlivy sčítají. Například při dopadu konstantního tepelného výkonu na těleso se zvyšuje teplota tohoto tělesa absorbováním dopadající energie. Teplota tedy roste konstantní rychlostí. Označme tuto konstantu [`k_1`]. Kromě toho těleso také vyzařuje teplo a toto vyzařování je podle vyzařovacího zákona úměrné čtvrté mocnině teploty. Proto vlivem vyzařování teplota klesá rychlostí úměrnou [`T^4`]. Označme tuto konstantu [`k_2`]. Matematický model celého procesu je poté [``` \frac{\mathrm dT}{\mathrm dt} =k_1 - k_2 T^4```]
+
+Pokusíme se o podobné u modelů podobných procesů.
+
+-----
+
+* Do chráněné lokality proudí znečišťující látky. Rychlost s jakou v dané lokalitě přibývají je [`[$k]`] jednotek za týden. Naštěstí je však látka nestabilní a rozkládá se. Za týden se samovolně rozloží polovina, tj. 50 procent látky. Napište výsledný matematický model pro vývoj množství znečišťující látky v dané lokalitě. Množství látky označte [`x`] a sledujte jej jako funkci času. Jednotku času volte pro větší pohodlí jeden týden. (Nezapomeňte procenta převést na desetinné číslo.)
+>> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{"[$k]-0.5*x"}<<
+* Nechť [`x(t)`] označuje velikost populace zvěře v dané lokalitě. Předpokládejme, že rychlost s jakou roste populace je úměrná velikosti populace. Konstantu úměrnosti označme [`k`]. Předpokládejme dále, že populace je vystavena lovu konstantní intenzity. Tuto intenzitu označme [`p`]. Napište výsledný matematický model pro růst takové populace.
+>> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{"k*x-p"}<<
+* Nechť [`c(t)`] označuje koncentraci léku v krvi pacienta. Z farmakokinetiky ja známo, že díky odbourávání klesá koncentrace rychlostí úměrnou této koncentraci. Konstantu úměrnosti označme [`k`]. Předpokládejme dále, že pacient je napojený na infuzi, která mu zvyšuje koncentraci léku v krvi konstantní rychostí.  Tuto rychlost označme [`p`]. Napište výsledný matematický model pro růst takové populace.
+>> [``\frac{\mathrm dc}{\mathrm dt}=``][__________]{"p-c*k"}<<
+
+
+END_PGML
+
+
+
+ENDDOCUMENT();
