@@ -15,10 +15,10 @@ $a=non_zero_random(1,8);
 do { $b=non_zero_random(1,9) } until ( $b != $a );
 $c=non_zero_random(-10,10);
 
-Context("Numeric")->variables->are($var=>'Real', 'mu'=>['Real',[1,5]], 'a'=>'Real');
+Context("Numeric")->variables->are($var=>'Real', 'm'=>['Real',[1,5]], 'a'=>'Real');
 
-$f=Formula("$a*x^mu+x^$b")->reduce();   # funkce
-$answer = $f->D();   # derivace
+$f=Formula("$a*x^m+x^$b")->reduce();   # funkce
+$answer = $f->D($var);   # derivace
 
 BEGIN_PGML
 Derivace mocninné funkce je dána vzorcem [```\left(x^n\right)'=\frac{\mathrm d}{\mathrm dx}\left(x^n\right)=n x^{n-1}```]
@@ -28,8 +28,8 @@ Tento výsledek můžeme zapsat například ve tvaru *18\*x^5 + 24\*x^2*.
 
 Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$f] .```]
 
-Derivace [``` f'([$var])=\frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$f]\Bigr) ```] je rovna 
-[_____________________]{$answer}.
+>>[`` f'([$var])=\frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$f]\Bigr) ={} ``]
+[_____________________]{$answer}<<
 
 END_PGML
 

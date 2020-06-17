@@ -28,8 +28,8 @@ Tento výsledek můžeme zapsat například ve tvaru *18\*x^5 + 24\*x^2*.
 
 Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$f] .```]
 
-Derivace [``` f'([$var])=\frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$f]\Bigr) ```] je rovna 
-[_____________________]{$answer}.
+>>[`` f'([$var])=\frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$f]\Bigr) ={}``]
+[_____________________]{$answer}<<
 
 END_PGML
 
