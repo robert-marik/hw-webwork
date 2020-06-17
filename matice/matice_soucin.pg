@@ -46,6 +46,9 @@ $B = Matrix([
 } until ( $A * $B != $B * $A );
 
 Context()->texStrings;
+
+
+
 BEGIN_TEXT
 Let 
 \[ A = $A,\]

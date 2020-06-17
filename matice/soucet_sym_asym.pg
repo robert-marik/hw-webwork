@@ -4,6 +4,7 @@ loadMacros(
   "MathObjects.pl",
   "parserPopUp.pl",
   "AnswerFormatHelp.pl",
+  "PGML.pl",
   "PGcourse.pl"
 );
 $showPartialCorrectAnswers = 0;
@@ -32,6 +33,11 @@ $answer22 = 1/2*($AA -1*($AA->transpose));
 
 
 Context()->texStrings;
+
+BEGIN_PGML
+## Rozklad na součet symetrické a antisymetrické matice
+END_PGML
+
 BEGIN_TEXT
 Někdy je důležitým úkolem být schopen rozložit matici na součet symetrické a antisymetrické matice.
 Například

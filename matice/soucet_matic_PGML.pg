@@ -26,22 +26,38 @@ $B = Matrix([
 
 } until ( $A!= $B );
 
+
+$C = Matrix([
+[non_zero_random(-5,5,1),non_zero_random(-5,5,1)],
+[non_zero_random(-5,5,1),non_zero_random(-5,5,1)],
+]);
+
+
 $answer = $A + $B;
+$answerB = $A + $B;
+$answer2 = $A + $C;
 
 $popup = PopUp(['Vyberte odpověď','Pravda','Nepravda'],'Pravda');
 
 Context()->texStrings;
 
 BEGIN_PGML
+
+## Součet matice
+
+Součet matice je snadná operace: provádí se po složkách, tj. sečtou se čísla na pozicích, které si odpovídají. Například platí následující.
+[``` [$A] + [$C] = [$answer2]```]
+
+
 Nechť 
 [``` A = [$A],\qquad B = [$B].```]
 Sečtěte matice, pokud je tato operace definována.
 
-[``A + B ={} ``][_____]*{$answer}
+>>[``A + B ={} ``][_____]*{$answer}<<
 
-[``B + A ={} ``][_____]*{$answer}
+>>[``B + A ={} ``][_____]*{$answerB}<<
 
-Zvolte správnou odpověď: [` A + B = B + A `] pro každou dvojici matic 
+Rozhodněte o pravdivosti následujícího tvrzení: Platí [` A + B = B + A `] pro každou dvojici matic 
 [`A`] a [`B`] se stejným počtem řádků a sloupců.
 [@ $popup->menu() @]*
 

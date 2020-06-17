@@ -51,6 +51,9 @@ $answerr = $AA * $BB;
 #  Main text
 
 BEGIN_PGML
+
+## Součin matice a vektoru
+
 Součin matice [`A`] a sloupcového vektoru [`\vec b`] je možno chápat jako jakési zobrazení množiny vektorů. Výsledkem je tedy opět sloupcový vektor. Jeho souřadnice dostaneme jako lineární kombinaci sloupců matice [`A`]. Koeficienty v této lineární kombinaci jsou souřadnice vektoru [`\vec b`].
 Například platí
 [```[$AA] [$BB] = [$answerr]```]

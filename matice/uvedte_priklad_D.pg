@@ -5,6 +5,7 @@ loadMacros(
   "MathObjects.pl",
   "parserMultiAnswer.pl",
   "AnswerFormatHelp.pl",
+  "PGML.pl",
   "PGcourse.pl"
 );
 $showPartialCorrectAnswers = 0;
@@ -17,6 +18,9 @@ $Z = Matrix([[0,0,0],[0,0,0],[0,0,0]]);
 
 Context()->texStrings;
 BEGIN_TEXT
+
+## Diagonální matice
+
 Diagonální matice jsou důležitou třídou symetrických matic. Diagonální matice zobrazuje jednotkové vektory ve směru os na jejich násobky. Pokud tedy u materiálu volíme soustavu souřadnic tak, že ve směru os je materiálová odezva na podnět stejného směru jako podnět, bude příslušná matice popisující danou materiálovou vlasnost diagonální. U dřeva to jsou anatomické směry dřeva (podélný, radiální, tangenciální).
 
 $BR
