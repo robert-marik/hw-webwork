@@ -47,7 +47,7 @@ BEGIN_PGML
 
 [@ image("http://user.mendelu.cz/marik/images/clovek_lampa.png", width=>400) @]*
 
-Na obrázku je člověk, který v noci ze chůze míjí svítící lampu. Jak se vzdaluje od lampy, jeho stín se prodlužuje. Chceme zjistit, jak souvisí rychlost chůze s rychlostí, s jakou se prodlužuje stín a s rychlostí pohybu stínu hlavy. Které veličiny nás zajímají? Použijme označení jako podle obrázku. Tedy [`H`] je výška lampy, [`h`] je výška člověka, [`a`] je vzdálenost člověka od paty lampy, [`b`] je délka stínu, [`c`] je vzdálenost stínu hlavy od lampy a [`\alpha`] je úhel v naznačeném trojúhelníku.
+Na obrázku je člověk, který v noci ze chůze míjí svítící lampu. Jak se vzdaluje od lampy, jeho stín se prodlužuje. Chceme zjistit, jak souvisí rychlost chůze s rychlostí, s jakou se prodlužuje stín a s rychlostí pohybu stínu hlavy. Které veličiny nás zajímají? Použijme označení podle obrázku. Tedy [`H`] je výška lampy, [`h`] je výška člověka, [`a`] je vzdálenost člověka od paty lampy, [`b`] je délka stínu, [`c`] je vzdálenost stínu hlavy od lampy a [`\alpha`] je úhel v naznačeném trojúhelníku. Čas je [`t`] a v rozbalovacím menu jsou derivace podle času.
 
 
 [@ $tf -> print_q() @]*
