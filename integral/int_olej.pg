@@ -22,6 +22,8 @@ $radio = RadioButtons(
 
 BEGIN_PGML
 
+## Vytékající olej
+
 Olej vytéká z nádrže rychlostí [`r(t)`] litrů za minutu, kde [`t`] je čas v minutách. Co vyjadřuje integrál [``\int_{0}^{\,180} {r(t)}\,\mathrm dt``]?
 
 [_]{$radio}

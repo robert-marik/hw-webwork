@@ -14,7 +14,7 @@ $b=random(6,10,1);
 
 BEGIN_PGML
 
-## Praktický význam integrálu
+## Vytékající voda a praktický význam integrálu
 
 Voda vytéká z dolní strany nádrže rychlostí  [`r(t)=200-4t`] litrů za minutu, kde [`0 \le t \le 50.`]  Najděte objem vody (v litrech), který vyteče z nádrže za  [$a] minut.
 

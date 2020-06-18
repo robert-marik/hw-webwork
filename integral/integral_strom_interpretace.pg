@@ -23,7 +23,7 @@ $radio = RadioButtons(
 
 BEGIN_PGML
 
-## Slovní interpretace integrálu
+## Růst stromu a slovní interpretace integrálu
 
 Nechť [`w'(t)`] označuje rychlost růstu hmotnosti stromu v kilogramech za rok. Jak je možno interpretovat integrál [``` \int_{5}^{\,10} {w'(t)}\,\mathrm dt```] pro tento případ?
 

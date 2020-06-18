@@ -35,7 +35,11 @@ BEGIN_PGML
 
 ## Výpočet neurčitého integrálu
 
-Vypočtěte integrál.
+Integrál exponenciální funkce s lineární vnitřní složkou můžeme vypočítat  pomocí vzorce [``\int e^{ax}\,\mathrm dx=\frac 1a e^{ax}+C``]. Například tedy platí
+[``` \int 5+3e^{7x}\,\mathrm dx= 5x + \frac 37 e^{7x}+C.```]
+Tento výsledek je možné zapsat jako *5x+3/7 \* exp(7x)* nebo *5x + 3/7 \* e^(7x)*.
+
+Vypočtěte následující integrál.
 >>[``\int [$funkce]\,dx ={}``][_________________________]{$int->cmp(upToConstant=>1)}[``{}+C``] <<
 
 END_PGML
