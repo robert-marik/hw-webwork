@@ -33,6 +33,7 @@ else
 
 BEGIN_PGML
 
+## Výpočet neurčitého integrálu
 
 Vypočtěte integrál.
 >>[``\int [$funkce]\,dx ={}``][_________________________]{$int->cmp(upToConstant=>1)}[``{}+C``] <<
