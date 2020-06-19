@@ -43,7 +43,7 @@ Uvažujte následující funkci danou tabulkou. Udává závilost teploty [`T`] 
   [
     [["\\(t\\ [\\mathrm{min}]\\)", midrule => 1,headerrow=>1],@x],["\\(T\\ [{}^\\circ\\mathrm{C}]\\)",@fx]
   ], 
-  caption => 'Funkce zadaná tabulkou',  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:separate;"
+  caption => 'Funkce zadaná tabulkou'
 ); @]*
 
 
