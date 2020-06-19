@@ -1,0 +1,62 @@
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGnumericalmacros.pl",
+  "niceTables.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$ka = random(1,5,.001);
+$kb = random(1,5,.001);
+$K=random(1,5,.1);
+$index=random(1,7,1);
+$step=random(2,5,1);
+
+
+@xx=(0,1,2,3,4,5,6,7,8);
+
+@fx=();
+@x=();
+for (my $i = 0; $i < 9; $i++) {
+    push @x, 1.0*$step*$xx[$i];
+    push @fx, int($K*exp($xx[$i]/20)*100)/100;
+}
+
+Context()->flags->set(tolerance => 0.001, tolType => "absolute");
+
+BEGIN_PGML
+
+Definice derivace [```\frac{\mathrm df}{\mathrm dx}=\lim_{h\to 0}\frac{f(x+h)-f(x)}h```] nás může inspirovat k aproximaci derivace pomocí dopředné diference vztahem
+[```\frac{\mathrm df}{\mathrm dx}\approx \frac{f(x+h)-f(x)}h.```]
+Z analýzy pomocí Taylorova polynomu však víme o přesnější aproximaci, pomocí centrální diference vztahem
+[```\frac{\mathrm df}{\mathrm dx}\approx \frac{f(x+h)-f(x-h)}{2h}.```]
+
+Uvažujte následující funkci danou tabulkou. 
+
+[@ DataTable(
+  [
+    [["[`x`]", midrule => 1,headerrow=>1],@x],["[`f(x)`]",@fx]
+  ], 
+  caption => 'Funkce zadaná tabulkou',  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:separate;"
+); @]*
+
+
+Určete pomocí centrální diference odhad derivace v bodě [`x=[$x[$index]]`].
+
+>>
+[``\left.\frac{\mathrm df}{\mathrm dx}\right|_{x=[$x[$index]]}\approx{}``]
+[_________________________________]{($fx[$index+1]-$fx[$index-1])/(2*$step)}
+<<
+
+Přesnost vyhodnocování je pro tuto úlohu nastavena na tři desetinná místa. Abyste se vyhnuli použití kalkulaček, nemusíte derivaci zadávat jedním desetinným číslem, ale můžete napsat, jak bude vypadat dosazení do vzorce. Desetinné číslo reprezentující odpověď uvidíte po stisknutí "Preview My Answers". Můžete však odpověď nechat v původním neupraveném tvaru a odeslat ke kontrole správnosti.
+
+END_PGML
+
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.
