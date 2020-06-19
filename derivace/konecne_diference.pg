@@ -14,7 +14,7 @@ $showPartialCorrectAnswers = 1;
 
 $ka = random(1,5,.001);
 $kb = random(1,5,.001);
-$K=random(1,5,.1);
+$K=random(5,10,.1);
 $index=random(1,7,1);
 $step=random(2,5,1);
 
@@ -25,7 +25,7 @@ $step=random(2,5,1);
 @x=();
 for (my $i = 0; $i < 9; $i++) {
     push @x, 1.0*$step*$xx[$i];
-    push @fx, int($K*exp($xx[$i]/20)*100)/100;
+    push @fx, 15.02+int($K*exp($xx[$i]/10)*100)/100;
 }
 
 Context()->flags->set(tolerance => 0.001, tolType => "absolute");
@@ -37,20 +37,20 @@ Definice derivace [```\frac{\mathrm df}{\mathrm dx}=\lim_{h\to 0}\frac{f(x+h)-f(
 Z analýzy pomocí Taylorova polynomu však víme o přesnější aproximaci, pomocí centrální diference vztahem
 [```\frac{\mathrm df}{\mathrm dx}\approx \frac{f(x+h)-f(x-h)}{2h}.```]
 
-Uvažujte následující funkci danou tabulkou. 
+Uvažujte následující funkci danou tabulkou. Udává závilost teploty [`T`] na čase [`t`] po vystavení vzorku zdroji tepla.
 
 [@ DataTable(
   [
-    [["[`x`]", midrule => 1,headerrow=>1],@x],["[`f(x)`]",@fx]
+    [["\\(t\\ [\\mathrm{min}]\\)", midrule => 1,headerrow=>1],@x],["\\(T\\ [{}^\\circ\\mathrm{C}]\\)",@fx]
   ], 
   caption => 'Funkce zadaná tabulkou',  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:separate;"
 ); @]*
 
 
-Určete pomocí centrální diference odhad derivace v bodě [`x=[$x[$index]]`].
+Určete pomocí centrální diference odhad derivace v čase [`t=[$x[$index]]\, \mathrm{min}`].
 
 >>
-[``\left.\frac{\mathrm df}{\mathrm dx}\right|_{x=[$x[$index]]}\approx{}``]
+[``\left.\frac{\mathrm dT}{\mathrm dt}\right|_{t=[$x[$index]]}\approx{}``]
 [_________________________________]{($fx[$index+1]-$fx[$index-1])/(2*$step)}
 <<
 
