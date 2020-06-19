@@ -19,13 +19,13 @@ $radio = RadioButtons(
 "Okamžitá rychlost růstu hmotnosti v kilogramech za rok po pěti letech života.",
 "Okamžitá rychlost růstu hmotnosti v kilogramech za pět let po pěti letech života.",
 ]],
-0);  # První odpověď správná, odpovedi se permutuji
+3);  # odpovedi se permutuji
 
 BEGIN_PGML
 
 ## Růst stromu a slovní interpretace integrálu
 
-Nechť [`w'(t)`] označuje rychlost růstu hmotnosti stromu v kilogramech za rok. Jak je možno interpretovat integrál [``` \int_{5}^{\,10} {w'(t)}\,\mathrm dt```] pro tento případ?
+Nechť [`w'(t)`] označuje rychlost růstu hmotnosti stromu v kilogramech za rok. Jak je možno interpretovat integrál [``` \frac{1}{10-5}\int_{5}^{\,10} {w'(t)}\,\mathrm dt```] pro tento případ?
 
 [_]{$radio}
 
