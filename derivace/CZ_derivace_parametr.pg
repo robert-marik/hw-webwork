@@ -30,17 +30,23 @@ BEGIN_PGML
 
 Odmocniny derivujeme jako mocniny s racionálním exponentem. Například (použitím derivace mocninné funkce a derivace složené funkce) dostáváme
 [``` \frac{\mathrm d}{\mathrm dx}\left(\sqrt{5x+2}\right)= \frac{\mathrm d}{\mathrm dx}\left(5x+2\right)^{\frac 12}=\frac 12 (5x+2)^{-\frac 12} \cdot 5
-=\frac 5{2 \sqrt{5x+2}}```]
+=\frac 5{2 \sqrt{5x+2}}.```] Následující příklad je podobný tomuto, s tím rozdílem, že namísto jednoho koeficientu (čísla) je přítomen parametr. Pracuje se s ním naprosto stejně jako s reálným číslem.
 
 -------------
 
-Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$f] .```]
+Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$f],```] kde [`[$var]\in\mathbb R`] je reálný parametr.
 
 >>[`` f'([$var])=\frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$f]\Bigr) ={}``] 
 [_____________________]{$answer}<<
 
 
 END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[``` f'([$var])=[$answer->reduce();]```]
+
+END_PGML_SOLUTION
 
 
 ENDDOCUMENT();

@@ -63,9 +63,9 @@ BEGIN_PGML
 ## Definice derivace funkce jedné proměnné
 
 Derivace funkce [``f``] proměnné [``x``] je definována vztahem 
-[```\lim_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}.```] Pro správné pochopení toho, co derivace vyjadřuje, je nutno rozumět jednolivým částem tohoto definičního vztahu.
+[```\lim_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}.```] Pro správné pochopení toho, co derivace vyjadřuje, je nutno rozumět jednotlivým částem tohoto definičního vztahu.
 
-Podáme slovní jednolitvých vcelků, ze kterých se skádá definice derivace. Uvažujme veličinu [``f``], která se mění v čase, tj. je funkcí proměnné [``t``]. Přepište jednotlivé části definice derivace do proměnné [``t``] a podejte jejich slovní interpretaci.
+Podáme slovní jednotlivých celků, ze kterých se skládá definice derivace. Uvažujme veličinu [``f``], která se mění v čase, tj. je funkcí proměnné [``t``]. Přepište jednotlivé části definice derivace do proměnné [``t``] a podejte jejich slovní interpretaci.
 
 END_PGML
 
@@ -106,7 +106,7 @@ ANS( str_cmp( $ml->ra_correct_ans ) );
 $answerstring = join(", ", @correct);
 
 BEGIN_PGML_SOLUTION
-Řešení je [$answerstring]. Derivace je okamžitá rychlost změny a je to limita průměrné rychlosti změny. Tato průměrná rychlost změny je podílem změny a času, za který nastala. Varianty "průměrná rychlost v okažiku ..." a "okamžitá rychlost na intervalu ..." nejdávají smysl, okamžitá rychlost se nemůže vztahovat k intervalu, naopak průměrná rychlost s k intervalu vztahovat musí.
+Řešení je [$answerstring]. Derivace je okamžitá rychlost změny a je to limita průměrné rychlosti změny. Tato průměrná rychlost změny je podílem změny a času, za který nastala. Varianty "průměrná rychlost v okamžiku ..." a "okamžitá rychlost na intervalu ..." nedávají smysl, okamžitá rychlost se nemůže vztahovat k intervalu, naopak průměrná rychlost s k intervalu vztahovat musí.
 END_PGML_SOLUTION
 
 COMMENT('MathObject version. Uses PGML.');

@@ -37,7 +37,7 @@ Definice derivace [```\frac{\mathrm df}{\mathrm dx}=\lim_{h\to 0}\frac{f(x+h)-f(
 Z analýzy pomocí Taylorova polynomu však víme o přesnější aproximaci, pomocí centrální diference vztahem
 [```\frac{\mathrm df}{\mathrm dx}\approx \frac{f(x+h)-f(x-h)}{2h}.```]
 
-Uvažujte následující funkci danou tabulkou. Udává závilost teploty [`T`] na čase [`t`] po vystavení vzorku zdroji tepla.
+Uvažujte následující funkci danou tabulkou. Udává závislost teploty [`T`] na čase [`t`] po vystavení vzorku zdroji tepla.
 
 [@ DataTable(
   [

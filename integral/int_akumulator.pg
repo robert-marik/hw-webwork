@@ -38,7 +38,7 @@ BEGIN_PGML
 
 Teplota studeného akumulátoru přeneseného v 18:00 z venkovního prostředí o teplotě [`-10 ^\circ\mathrm C`] do místnosti o pokojové teplotě [`22 ^\circ\mathrm C`] roste rychlostí [`` r(t) {}^\circ\mathrm{C}/\mathrm{hod}``], kde [`t`] je čas v hodinách od okamžiku přinesení akumulátoru.
 
-Vyjadřete pomocí těchto informací změnu teploty mezi okamžikem přinesení a půlnocí a teplotu akumulátoru o půlnoci.
+Vyjádřete pomocí těchto informací změnu teploty mezi okamžikem přinesení a půlnocí a teplotu akumulátoru o půlnoci.
 
 ----
 

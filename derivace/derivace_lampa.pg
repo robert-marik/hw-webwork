@@ -78,7 +78,8 @@ ANS( str_cmp( $tf->ra_correct_ans() ) );
 
 
 BEGIN_PGML_SOLUTION
-Řešení je [$tf->print_a]* Rychlost chůze a rychlost s jakou se pohybuje sítn hlavy jsou derivace vzdálenosti od libovolného nepohyblivého bodu, v tomto případě je možno použít patu lampy. Rychlost s jakou roste délka stínu je derivace délky stínu podle času.
+Rychlost s jakou roste délka stínu je derivace délky stínu podle času, tj. [``\frac{\mathrm db}{\mathrm dt}``], protože délka stínu je [`b`].
+Rychlost chůze a rychlost s jakou se pohybuje stín hlavy jsou derivace vzdálenosti od libovolného nepohyblivého bodu, v tomto případě je možno použít patu lampy. Rychlost chůze je tedy  [``\frac{\mathrm da}{\mathrm dt}``] a rychlost s jakou se pohybuje stín hlavy je  [``\frac{\mathrm dc}{\mathrm dt}``].
 END_PGML_SOLUTION
 
 COMMENT("Uses PGML.");

@@ -36,5 +36,11 @@ Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$f] .```]
 
 END_PGML
 
+BEGIN_PGML_SOLUTION
+
+[``` f'([$var])=[$answer->reduce();]```]
+
+END_PGML_SOLUTION
+
 
 ENDDOCUMENT();

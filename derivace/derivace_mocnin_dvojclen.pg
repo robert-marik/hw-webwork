@@ -37,6 +37,8 @@ Můžeme tedy psát
 Tento výsledek můžeme zapsat například ve tvaru *130\*x\*(5\*x^2+7)^(12)* nebo (pokud se nám nechce násobit a přeskládávat součinitele)
 *13\*(5x^2+7)^(12)\*5\*2x*
 
+-----
+
 Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$f] .```]
 
 >>[`` f'([$var])=\frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$f]\Bigr) ={}``]

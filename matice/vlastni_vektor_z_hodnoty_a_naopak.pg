@@ -31,7 +31,7 @@ $min = max(-9,-9-$a,-9-$b*$c);  $max = min(9,9-$a,9-$b*$c);
 do { $phase = non_zero_random($min,$max,1); } until ((abs($a+$b*$c+$phase) < 12) and ($a!= -$phase) and ($b*$c != -$phase));
 
 
-$A11 =  $phase;  $A12 =  -$neg*$a*$c;
+$A11 =  $phase;  $A12 =  -$neg*$a*$c;x
 $A21 = $neg*$b;  $A22 =  $a+$b*$c+$phase;
 
 $l1= Real("$b*$c+$phase");
