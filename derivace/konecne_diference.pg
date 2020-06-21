@@ -63,7 +63,7 @@ BEGIN_PGML_SOLUTION
 Dosazením hodnot z tabulky do vzorce 
 [```\frac{\mathrm df}{\mathrm dx}\approx \frac{f(x+h)-f(x-h)}{2h}```]
 dostáváme
-[```\frac{\mathrm df}{\mathrm dx}\approx \frac{[$fx[$index+1]]-[$fx[$index-1]]}{2 \cdot [$step]}.```]
+[```\left.\frac{\mathrm dT}{\mathrm dt}\right|_{t=[$x[$index]]}\approx \frac{[$fx[$index+1]]-[$fx[$index-1]]}{2 \cdot [$step]}.```]
 END_PGML_SOLUTION
 
 ENDDOCUMENT();       # This should be the last executable line in the problem.
