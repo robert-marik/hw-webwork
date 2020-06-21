@@ -13,7 +13,10 @@ $showPartialCorrectAnswers = 1;
 
 Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]], 'dx'=>'Real', 't'=>'Real', 'k'=>'Real', 'x'=>'Real','h'=>'Real','K'=>'Real','r'=>'Real');
 
-$k=random(15,28,1);
+$r1=Formula("k*x");
+$r2=Formula("r*x*(1-x/K)");
+$r3=Formula("r*x*(1-x/K)-h");
+$r4=Formula("r*x*(1-x/K)-h*x");
 
 BEGIN_PGML
 
@@ -21,24 +24,25 @@ BEGIN_PGML
 
 Derivace popisuje rychlost změny a proto je vhodná pro popis dějů probíhajících rychlostí, která se mění v čase. Někdy na rychlost změny má vliv více procesů a potom se jejich vlivy sčítají. Například při dopadu konstantního tepelného výkonu na těleso se zvyšuje teplota tohoto tělesa absorbováním dopadající energie. Teplota tedy roste konstantní rychlostí. Označme tuto konstantu [`k_1`]. Kromě toho těleso také vyzařuje teplo a toto vyzařování je podle vyzařovacího zákona úměrné čtvrté mocnině teploty. Proto vlivem vyzařování teplota klesá rychlostí úměrnou [`T^4`]. Označme tuto konstantu [`k_2`]. Matematický model celého procesu je poté [``` \frac{\mathrm dT}{\mathrm dt} =k_1 - k_2 T^4.```]
 
-Někdy potřebujeme vyjádřit, že rychlst změny je úměrná dvěma veličinám. Například při chemické reakci ve které reaguje látka [`X`] s látkoku [`Y`] je rychlost s jakou klesá veličina [`x`] udávající množství látky [`X`] úměrná současně sama sobě a současně veličině [`y`] udávající množství látky [`Y`]. Existuje tedy konstanta [`k`] taková, že platí [```\frac{\mathrm dx}{\mathrm dt}=-kxy.```]
+Někdy potřebujeme vyjádřit, že rychlost změny je úměrná dvěma veličinám. Například při chemické reakci ve které reaguje látka [`X`] s látkoku [`Y`] je rychlost s jakou klesá veličina [`x`] udávající množství látky [`X`] úměrná současně sama sobě a současně veličině [`y`] udávající množství látky [`Y`]. Existuje tedy konstanta [`k`] taková, že platí [```\frac{\mathrm dx}{\mathrm dt}=-kxy.```]
 
 Pokusíme se o podobné u modelů podobných procesů.
 
 -----
 
 * *Růst úměrný velikosti.* Populace se rozmnožuje tak, že její velikost je úměrná velikosti [`x`] populace. Napište diferenciální rovnici popisující takovýto růst. Konstantu úměnrosti volte [`k`].
->> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{"k*x"}<<
+>> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{$r1}<<
 * *Logistický růst.*  Populace v prostředí s omezenou nosnou kapacitou prostředí [`K`] se rozmnožuje tak, že její velikost je úměrná velikosti [`x`] populace a  procentu volného místa v lokalitě, tj. výrazu [``\left(1-\frac xK\right)``]. Napište diferenciální rovnici popisující takovýto růst. Konstantu úměrnosti volte [`r`] (z anglického **rate**).
->> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{"r x (1-x/K)"} <<
+>> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{$r2} <<
 * *Logistický růst a lov konstantní intenzity.* Populace v prostředí s omezenou nosnou kapacitou prostředí [`K`] se rozmnožuje tak, že její velikost je úměrná velikosti [`x`] populace a  procentu volného místa v lokalitě, tj. výrazu [``\left(1-\frac xK\right)``]. Kromě toho je populace vystavena lovu konstnantní intenzity. Napište diferenciální rovnici popisující takovýto růst. Konstantu úměrnosti volte [`r`] (z anglického **rate**), konstantu charakterizující intenzitu lovu [`h`] (z anglického **harvesting**).
->> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{"r x (1-x/K)-h"} <<
+>> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{$r3} <<
 * *Logistický růst a lov úměrný velikosti.* Populace v prostředí s omezenou nosnou kapacitou prostředí [`K`] se rozmnožuje tak, že její velikost je úměrná velikosti [`x`] populace a  procentu volného místa v lokalitě, tj. výrazu [``\left(1-\frac xK\right)``]. Kromě toho je populace vystavena lovu o velikosti úměrné velikosti populace. Napište diferenciální rovnici popisující takovýto růst. Konstantu úměrnosti pro rychlost růstu volte [`r`] (z anglického **rate**), konstantu úměrnosti pro lov volte [`h`] (z anglického **harvesting effort**).
->> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{"r x (1-x/K)-h x"} <<
+>> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{$r4} <<
 
 
 END_PGML
 
+COMMENT('Uses PGML.');
 
 
 ENDDOCUMENT();

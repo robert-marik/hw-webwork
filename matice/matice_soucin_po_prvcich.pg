@@ -22,8 +22,8 @@ Context("Matrix");
 
 $A = Matrix([
 [random(-3,3,1),random(-5,5,1),random(-5,5,1)],
-[random(-5,5,1),random(-5,5,1),random(-5,8,1)],
-[random(-5,6,1),random(-5,5,1),random(-5,8,1)],
+[random(-3,5,1),random(-3,5,1),random(-5,8,1)],
+[random(-3,5,1),random(-3,5,1),random(-5,8,1)],
 ]);
 
 $B = Matrix([
@@ -59,8 +59,11 @@ Například platí
 [```[$AA] [$BB] = [$answerr]```]
 a výsledný vektor je dvojnásobek prvního sloupce minus druhý sloupec matice, stojící v maticovém součinu vlevo.
 
+
+---------------
+
 Je dána matice [``A``] a vektor [``\vec b``].
->> [``A = [$A] \ \ \mbox{and} \ \ \vec b = [$B]. ``] <<
+>> [``A = [$A] \ \ \mbox{a} \ \ \vec b = [$B]. ``] <<
 Vypočtěte obraz vektoru [``\vec b``] při zobrazení reprezentovaném maticí [``A``].
 
 >>[`` A B = {}``][_____]*{$answer}<<
@@ -69,6 +72,21 @@ END_PGML
 
 ########################
 #  Solution
+
+BEGIN_PGML_SOLUTION
+Výsledek je
+[``` [$B->element(1,1)]
+\begin{pmatrix}[$A->element(1,1)] \\ [$A->element(2,1)] \\ [$A->element(3,1)]\end{pmatrix}
++
+([$B->element(2,1)])
+\begin{pmatrix}[$A->element(1,2)] \\ [$A->element(2,2)] \\ [$A->element(3,2)]\end{pmatrix}
++
+([$B->element(3,1)])
+\begin{pmatrix}[$A->element(1,3)] \\ [$A->element(2,3)] \\ [$A->element(3,3)]\end{pmatrix}
+=
+\begin{pmatrix}[$answer->element(1,1)] \\ [$answer->element(2,1)] \\ [$answer->element(3,1)]\end{pmatrix}
+.```]
+END_PGML_SOLUTION
 
 
 COMMENT('Uses PGML.');
