@@ -26,5 +26,10 @@ Pište *dr/dt* pro rychlost s jakou roste poloměr.
 
 END_PGML
 
+BEGIN_PGML_SOLUTION
+Použitím derivace složené funkce dostáváme
+[``` \frac{\mathrm dV}{\mathrm dt} = \frac{\mathrm dV}{\mathrm dr} \frac{\mathrm dr}{\mathrm dt} = 4\pi r^2 \frac{\mathrm dr}{\mathrm dt}.```]
+END_PGML_SOLUTION
+
 
 ENDDOCUMENT();

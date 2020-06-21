@@ -64,6 +64,9 @@ $v21 = Real("$a");
 $v22 = Real("-$neg*$b");
 
 
+
+$v2 = ColumnVector([$v21,$v22]);
+
 ## Ulozeni do matic
 
 Context("Matrix");
@@ -71,8 +74,6 @@ Context("Matrix");
 #Context()->lists->set(Matrix => {open => "(", close => ")"});
 #Context()->lists->set(Vector => {open => "(", close => ")"});
 
-
-$v2 = ColumnVector([$v21,$v22]);
 
 $A=Matrix([[$A11,$A12],[$A21,$A22]]);
 $B=Matrix([[$B11,$B12],[$B21,$B22]]);
@@ -101,10 +102,8 @@ Protože jsme použili hodnotu [`\lambda`] rovnu vlastnímu číslu, má tato so
 
 ------
 
-Matice [``A=[$B]``] má vlastní hodnotu [`\lambda=[$l2]`].
-Najděte vlastní vektor [`\vec v`] příslušný této vlastní hodnotě.
-Vektor zapište pomocí souřadnic oddělených čárkami a pomocí ostrých závorek < a > ohraničujících začátek a konec vektoru, tj. pomocí znaků používaných například pro nerovnice. Například vektor [`\begin{pmatrix}3\\-1\end{pmatrix}`] zapište jako *< 3 , -1 >*
->> [``\vec v=``][_________]{$v2->cmp(parallel=>true)}<<
+Matice [``A=[$B]``] má vlastní hodnotu [`\lambda=[$l2]`]. Najděte vlastní vektor [`\vec v`] příslušný této vlastní hodnotě. Vektor zapište buď jako lineární kombinaci jednotkových vektorů [`\vec i`] a [`\vec j`], nebo pomocí souřadnic oddělených čárkami a pomocí ostrých závorek < a > ohraničujících začátek a konec vektoru, tj. pomocí znaků používaných například pro nerovnice. Například vektor [`\begin{pmatrix}3\\-1\end{pmatrix}`] zapíšete  buď jako *3i-j* nebo jako *< 3 , -1 >*.
+>> [``\vec v=``][_________]*{$v2->cmp(parallel=>true)}<<
 
 ------------------
 

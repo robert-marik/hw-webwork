@@ -26,13 +26,23 @@ Pokusíme se o podobné u modelů podobných procesů.
 
 * Do chráněné lokality proudí znečišťující látky. Rychlost s jakou v dané lokalitě přibývají je [`[$k]`] jednotek za týden. Naštěstí je však látka nestabilní a rozkládá se. Za týden se samovolně rozloží polovina, tj. 50 procent látky. Napište výsledný matematický model pro vývoj množství znečišťující látky v dané lokalitě. Množství látky označte [`x`] a sledujte jej jako funkci času. Jednotku času volte pro větší pohodlí jeden týden. (Nezapomeňte procenta převést na desetinné číslo.)
 >> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{Formula("[$k]-0.5*x")}<<
-* Nechť [`x(t)`] označuje velikost populace zvěře v dané lokalitě. Předpokládejme, že rychlost s jakou roste populace je úměrná velikosti populace. Konstantu úměrnosti označme [`k`]. Předpokládejme dále, že populace je vystavena lovu konstantní intenzity. Tuto intenzitu označme [`p`]. Napište výsledný matematický model pro růst takové populace.
+* Nechť [`x`] označuje velikost populace zvěře v dané lokalitě. Předpokládejme, že rychlost s jakou roste populace je úměrná velikosti populace. Konstantu úměrnosti označme [`k`]. Předpokládejme dále, že populace je vystavena lovu konstantní intenzity. Tuto intenzitu označme [`p`]. Napište výsledný matematický model pro růst takové populace.
 >> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{Formula("k*x-p")}<<
-* Nechť [`c(t)`] označuje koncentraci léku v krvi pacienta. Z farmakokinetiky ja známo, že díky odbourávání klesá koncentrace rychlostí úměrnou této koncentraci. Konstantu úměrnosti označme [`k`]. Předpokládejme dále, že pacient je napojený na infuzi, která mu zvyšuje koncentraci léku v krvi konstantní rychostí.  Tuto rychlost označme [`p`]. Napište výsledný matematický model pro růst takové populace.
+* Nechť [`c`] označuje koncentraci léku v krvi pacienta. Z farmakokinetiky ja známo, že díky odbourávání klesá koncentrace rychlostí úměrnou této koncentraci. Konstantu úměrnosti označme [`k`]. Předpokládejme dále, že pacient je napojený na infuzi, která mu zvyšuje koncentraci léku v krvi konstantní rychostí.  Tuto rychlost označme [`p`]. Napište výsledný matematický model pro růst takové populace.
 >> [``\frac{\mathrm dc}{\mathrm dt}=``][__________]{Formula("p-c*k")}<<
 
 
 END_PGML
+
+
+BEGIN_PGML_SOLUTION
+Přímým přepisem slovního zadání do kvantitativních pojmů dostáváme pro jednotlivé modely rovnice
+[``` \frac{\mathrm dx}{\mathrm dt}= [$k]-\frac 12 x,```]
+[``` \frac{\mathrm dx}{\mathrm dt}= kx-p```]
+a
+[``` \frac{\mathrm dc}{\mathrm dt}= p-kc.```]
+
+END_PGML_SOLUTION
 
 
 

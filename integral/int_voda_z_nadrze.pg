@@ -24,5 +24,11 @@ Odpověď: Vyteče [________________]{200*$a-2*($a**2)} litrů vody.
 END_PGML
 
 
+BEGIN_PGML_SOLUTION
+Množství vody bude integrál z rychlosti, se kterou voda vytéká.
+[``` \int_0^{[$a]} 200-4t \,\mathrm dt = \left[200 t - 2t^2 \right] _{0}^{[$a]}=200\cdot[$a] - 2\cdot ([$a])^2\cdots```]
+END_PGML_SOLUTION
+
+
 
 ENDDOCUMENT();

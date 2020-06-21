@@ -42,7 +42,15 @@ Pokusíme se o podobné u modelů podobných procesů.
 
 END_PGML
 
-COMMENT('Uses PGML.');
+BEGIN_PGML_SOLUTION
+Model s rychlostí úměrnou velikosti populace je [``` \frac{\mathrm dx}{\mathrm dt}=kx.```] Logistický růst s rychlostí úměrnou jak velikosti populace tak volnému místu v prostředí je postupně (bez lovu, s konstantním lovem a s lovem úměrným velikosti)
+[``` \frac{\mathrm dx}{\mathrm dt}=rx \left(1-\frac xK\right),```]
+[``` \frac{\mathrm dx}{\mathrm dt}=rx \left(1-\frac xK\right)-h```]
+a
+[``` \frac{\mathrm dx}{\mathrm dt}=rx \left(1-\frac xK\right)-hx.```]
+END_PGML_SOLUTION
+
+COMMENT('Používá PGML, obsahuje 4 modely (Malthus, logisticka, logisticka se dvema strategiemi lovu).');
 
 
 ENDDOCUMENT();

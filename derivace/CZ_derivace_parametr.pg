@@ -12,8 +12,9 @@ $showPartialCorrectAnswers = 1;
 
 @var_array = ( 'w', 'x', 'y', 'z' );  # promenne
 $var_index = random(0,3,1);
-$a=random(1,6,1);
-$b=non_zero_random(-4,4);
+$b=non_zero_random(-1,1)*random(2,6,1);
+do { $a=non_zero_random(-1,1)*random(1,8,1); } until (abs($a)!=abs($b));
+
 $var = $var_array[$var_index];
 $par = 'a';
 
@@ -25,6 +26,13 @@ $answer = $f->D($var);   # derivace
 BEGIN_PGML
 
 ## Derivace funkce s parametrem
+
+
+Odmocniny derivujeme jako mocniny s racionálním exponentem. Například (použitím derivace mocninné funkce a derivace složené funkce) dostáváme
+[``` \frac{\mathrm d}{\mathrm dx}\left(\sqrt{5x+2}\right)= \frac{\mathrm d}{\mathrm dx}\left(5x+2\right)^{\frac 12}=\frac 12 (5x+2)^{-\frac 12} \cdot 5
+=\frac 5{2 \sqrt{5x+2}}```]
+
+-------------
 
 Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$f] .```]
 

@@ -51,4 +51,12 @@ Dále sestavte matematický model.
 END_PGML
 
 
+BEGIN_PGML_SOLUTION
+Teplota místnosti je [`[$T0]{}^\circ\mathrm {C}`]. Teplota nápoje je [`T`] a tato teplota je menší než teplota místnosti. Rozdíl teplot je roven výrazu
+>> [`` [$T0]-T ``] <<
+a výsledná rovnice má tvar
+[``` \frac{\mathrm dT}{\mathrm dt} = k\cdot ([$T0]-T).```]
+END_PGML_SOLUTION
+
+
 ENDDOCUMENT();
