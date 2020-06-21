@@ -29,7 +29,7 @@ else
     $int=Formula("$b*exp($c*x)/($c)");
 }
 
-$funkce -> reduce();
+$funkce=$funkce -> reduce();
 
 BEGIN_PGML
 
