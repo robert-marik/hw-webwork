@@ -33,4 +33,9 @@ Pro funkční hodnoty funkce [`f`] pište například f(x), f(x+h), f(x-h).
 * Centrální diference: [``\frac{\mathrm df}{\mathrm dx} \approx ``] [_________________________________]{(f(x+h)-f(x-h))/(2*h)}
 END_PGML
 
+
+BEGIN_PGML_SOLUTION
+Viz přednášky.
+END_PGML_SOLUTION
+
 ENDDOCUMENT();

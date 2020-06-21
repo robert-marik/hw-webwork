@@ -32,4 +32,9 @@ Nechť [`w'(t)`] označuje rychlost růstu hmotnosti stromu v kilogramech za rok
 
 END_PGML
 
+BEGIN_PGML_SOLUTION
+Určitým integrálem rychlosti v příslušných mezích je vyjářena změna měnící se veličiny.
+END_PGML_SOLUTION
+
+
 ENDDOCUMENT();

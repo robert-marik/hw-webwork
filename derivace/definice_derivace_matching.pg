@@ -106,7 +106,7 @@ ANS( str_cmp( $ml->ra_correct_ans ) );
 $answerstring = join(", ", @correct);
 
 BEGIN_PGML_SOLUTION
-The correct answers are [$answerstring].
+Řešení je [$answerstring]. Derivace je okamžitá rychlost změny a je to limita průměrné rychlosti změny. Tato průměrná rychlost změny je podílem změny a času, za který nastala. Varianty "průměrná rychlost v okažiku ..." a "okamžitá rychlost na intervalu ..." nejdávají smysl, okamžitá rychlost se nemůže vztahovat k intervalu, naopak průměrná rychlost s k intervalu vztahovat musí.
 END_PGML_SOLUTION
 
 COMMENT('MathObject version. Uses PGML.');

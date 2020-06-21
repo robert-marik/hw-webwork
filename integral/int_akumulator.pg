@@ -55,6 +55,11 @@ Vyberte výraz, který udává teplotu akumulátoru v okamžiku půlnoci.
 END_PGML
 
 
+
+BEGIN_PGML_SOLUTION
+Změna je vyjádřena určitým integrálem rychlosti v příslušných mezích. Celková hodnota po uplynutí daného času je součtem počáteční hodnoty a změny.
+END_PGML_SOLUTION
+
 ENDDOCUMENT();
 
 
