@@ -23,7 +23,7 @@ do{
     $matice=$invmatice*Matrix([[2,0],[0,non_zero_random(-1,1)]])*$matice;
     $ans=$invmatice*$v1;
 }
-until (max(abs($matice->element(1,1)),abs($matice->element(1,2)),abs($matice->element(2,1)),abs($matice->element(2,1)),abs($ans->element(1,1)),abs($ans->element(2,1)))<10);
+until (max(abs($matice->element(1,1)),abs($matice->element(1,2)),abs($matice->element(2,1)),abs($matice->element(2,1)),abs($ans->element(1,1)),abs($ans->element(2,1)))<8);
 $matice1=$matice;
 $ans1=$ans;
 
@@ -39,7 +39,7 @@ do{
     $matice=$invmatice*Matrix([[2,0],[non_zero_random(-1,1),non_zero_random(-1,1)]])*$matice;
     $ans=$invmatice*$v1;
 }
-until (max(abs($matice->element(1,1)),abs($matice->element(1,2)),abs($matice->element(2,1)),abs($matice->element(2,1)),abs($ans->element(1,1)),abs($ans->element(2,1)))<10);
+until (max(abs($matice->element(1,1)),abs($matice->element(1,2)),abs($matice->element(2,1)),abs($matice->element(2,1)),abs($ans->element(1,1)),abs($ans->element(2,1)))<8);
 $matice2=$matice;
 $ans2=$ans;
 
@@ -56,7 +56,7 @@ do{
     $matice=$invmatice*Matrix([[2,0],[0,non_zero_random(-1,1)]])*$matice;
     $ans=$invmatice*$v1;
 }
-until (max(abs($matice->element(1,1)),abs($matice->element(1,2)),abs($matice->element(2,1)),abs($matice->element(2,1)),abs($ans->element(1,1)),abs($ans->element(2,1)))<10);
+until (max(abs($matice->element(1,1)),abs($matice->element(1,2)),abs($matice->element(2,1)),abs($matice->element(2,1)),abs($ans->element(1,1)),abs($ans->element(2,1)))<8);
 $matice3=$matice;
 $ans3=$ans;
 
@@ -73,7 +73,7 @@ do{
     $matice=$invmatice*Matrix([[2,0],[non_zero_random(-1,1),non_zero_random(-1,1)]])*$matice;
     $ans=$invmatice*$v1;
 }
-until (max(abs($matice->element(1,1)),abs($matice->element(1,2)),abs($matice->element(2,1)),abs($matice->element(2,1)),abs($ans->element(1,1)),abs($ans->element(2,1)))<10);
+until (max(abs($matice->element(1,1)),abs($matice->element(1,2)),abs($matice->element(2,1)),abs($matice->element(2,1)),abs($ans->element(1,1)),abs($ans->element(2,1)))<8);
 $matice4=$matice;
 $ans4=$ans;
 
