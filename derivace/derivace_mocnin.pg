@@ -11,8 +11,8 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
 $var='x';
-$a=non_zero_random(1,8);
-do { $b=non_zero_random(1,9) } until ( $b != $a );
+$a=non_zero_random(2,8);
+do { $b=non_zero_random(2,9) } until ( $b != $a );
 $c=non_zero_random(-10,10);
 
 Context("Numeric")->variables->are($var=>'Real');
@@ -35,6 +35,13 @@ Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$f] .```]
 [_____________________]{$answer}<<
 
 END_PGML
+
+$showHint = 3;
+BEGIN_PGML_HINT
+Platí [```\left(x^{[$a]}\right)'=[$a]\cdot x^{[$a-1]}```] a
+[```\left(x^{[$b]}\right)'=[$b]\cdot x^{[$b-1]}.```] Využijte tyto derivace a věty pro počítání s derivacemi, jako derivace součtu a derivace konstantního násobku.
+END_PGML_HINT
+
 
 BEGIN_PGML_SOLUTION
 
