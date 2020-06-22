@@ -1,0 +1,56 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"parserRadioButtons.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+
+$showPartialCorrectAnswers = 1;
+
+
+$radio1 = RadioButtons(
+[[
+"\(\displaystyle q=4\pi r^2 \frac{\mathrm dr}{\mathrm dt}\)",
+"\(\displaystyle \frac{\mathrm dV}{\mathrm dt}+q=\displaystyle \frac 43\pi r^2 \frac{\mathrm dr}{\mathrm dt}\)",
+"\(\displaystyle \frac{\mathrm dV}{\mathrm dt}=\displaystyle \frac 43\pi r^2 q\)",
+"\(\displaystyle \frac{\mathrm dV}{\mathrm dt}=\displaystyle 4\pi r^3 q\)",
+"\(\displaystyle \frac{\mathrm dV}{\mathrm dt}=\displaystyle \frac 43\pi r^2 \frac{\mathrm dr}{\mathrm dt}- q\)",
+]],0,separator=>"$BR$BR");  # První odpověď správná
+
+
+
+BEGIN_PGML
+
+## Nafukování balonu
+
+Objem balonu ve tvaru koule je dán vztahem [```V=\frac 43 \pi r^3.```] Poloměr této koule je [`r`] a v této situaci balon nafukujeme tak, že jeho objem roste rychlostí [`q`].  Jak rychle roste poloměr?
+
+Vyberte vztah, který nejlépe charakterizuje zadanou situaci a umožňuje vypočítat rychlost růstu poloměru.
+
+[_]{$radio1}
+
+
+END_PGML
+
+$showHint = 3;
+BEGIN_PGML_HINT
+Známe derivaci objemu podle času a potřebujeme znát derivaci poloměru podle času. Protože známe objem jako funkci poloměru, můžeme najít derivaci objemu podle poloměru. K derivaci objemu podle času se poté dostaneme, pokud budeme závislost objemu na čase brát zprostředkovaně přes poloměr. Poté se použije zadaná rychlost nafukování a dostaneme rovnici umožnující určit hlednou veličinu.
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Použitím derivace složené funkce dostáváme
+[``` \frac{\mathrm dV}{\mathrm dt} = 4\pi r^2 \frac{\mathrm dr}{\mathrm dt} ```]
+a ze zadnání plyne, že levá strana je rovna [`q`], tj. že platí
+[``` q = 4\pi r^2 \frac{\mathrm dr}{\mathrm dt}.```]
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
