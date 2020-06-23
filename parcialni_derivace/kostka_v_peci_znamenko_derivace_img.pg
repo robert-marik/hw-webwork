@@ -12,12 +12,12 @@ TEXT(beginproblem());
 
 
 $radio = RadioButtons(
-["Kladná v každém bodě, protože v každém bodě se kostka ohřívá.","Záporná  v každém bodě, protože v každém bodě se kostka ohřívá.","Nulová, vzhledem k symetrii úlohy.","Vepředu kladná, vzadu záporná, protože teplota roste od stěn směrem dovnitř, tj. vzadu ve směru osy a vepředu proti směru osy. Na ostatních stěnách je situace analogická.","Vepředu záporná, vzadu kladná, protože teplota roste od stěn dovnitř, tj. vzadu ve směru osy a vepředu proti směru osy. Na ostatních stěnách je situace analogická."],
+["Kladná v každém bodě, protože v každém bodě se kostka ohřívá.","Záporná  v každém bodě, protože v každém bodě se kostka ohřívá.","Nulová, vzhledem k symetrii úlohy.","Vepředu kladná, vzadu záporná, protože stěny se ohřejí rychle a teplota od stěn směrem dovnitř klesá.","Vepředu záporná, vzadu kladná, protože stěny se ohřejí rychle a teplota od stěn dovnitř klesá."],
 0);  # První odpověď správná
 
 $radio2 = RadioButtons(
-["Kladná v každém bodě, protože v každém bodě se kostka ohřívá.","Záporná  v každém bodě, protože v každém bodě se kostka ohřívá.","Nulová, vzhledem k symetrii úlohy.","Vepředu kladná, vzadu záporná, protože teplota roste od stěn směrem dovnitř, tj. vzadu ve směru osy a vepředu proti směru osy.","Vepředu záporná, vzadu kladná, protože teplota roste od stěn dovnitř, tj. vzadu ve směru osy a vepředu proti směru osy."],
-4);  
+["Kladná v každém bodě, protože v každém bodě se kostka ohřívá.","Záporná  v každém bodě, protože v každém bodě se kostka ohřívá.","Nulová, vzhledem k symetrii úlohy.","Vepředu kladná, vzadu záporná, protože stěny se ohřejí rychle a teplota od stěn směrem dovnitř klesá.","Vepředu záporná, vzadu kladná, protože stěny se ohřejí rychle a teplota od stěn dovnitř klesá."],
+3);  
 
 
 
@@ -38,5 +38,20 @@ Dřevěnou kostku o délce strany [``10\,\mathrm{cm}``] dáme do pece k teplotn�
 [_]{$radio2}
 
 END_PGML
+
+
+$showHint = 3;
+
+BEGIN_PGML_HINT
+Pro derivaci podle času přemýšlejte, jestli teplota s časem roste, či klesá a jak tato monotonie souvisí s derivací.
+
+Pro derivaci podle polohy uvažte, že stěny se ohřejí a předávají teplo dovnitř kostky. Můžete si nakreslit průběh teploty jako funkci polohy. Na začátku a na konci bude teplota vyšší než uprostřed a proto bude průběh mít tvar písmene "U". Z tohoto rozboru poznáte monotonii a znaménko derivace. Potom je již pořeba jen správně určit, který konec odpovídá přední a který zadní stěně.
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Pokud umístíme kostku do pece, její teplota v každém bodě poroste s časem a derivace podle času je kladná v každém bodě.
+
+O znaménku derivace podle polohy rozhoduje to, zda teplota ve směru osy roste či klesá. Nejprve se ohřejí stěny a od nich se ohřívá vnitřek. Teplota na zadní straně tedy ve směru osy [`x`] klesá (osa míří dovnitř kostky) a vepředu roste (osa míří ven z kostky). Proto je vzadu derivace záporná a vepředu kladná. 
+END_PGML_SOLUTION
 
 ENDDOCUMENT();

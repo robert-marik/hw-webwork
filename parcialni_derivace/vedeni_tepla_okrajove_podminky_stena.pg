@@ -117,7 +117,11 @@ ANS( str_cmp( $ml->ra_correct_ans ) );
 $answerstring = join(", ", @correct);
 
 BEGIN_PGML_SOLUTION
-The correct answers are [$answerstring].
+Správné odpovědi jsou [$answerstring].
+
+* Pokud se podmínka týká vnitřní strany stěny, formulujeme ji pro [`x=0`], pokud vnější, formulujeme podmínku pro [`x=L`], protože takto je úloha zadána.
+* Pokud je podmínkou zadána konstantní teplota, je ve formulaci podmínky hodnota [`T`] v příslušném bodě.
+* Pokud je předepsaný tok, ať již nulový, nebo konstantní nebo úměrný rozdílu teplot, je podmínka formulována pro tok, tj. po úpravě pro gradient teploty, protože tok je násobkem gradientu. Je-li zadán konstantní tok, i nulový, je předepsána hodnota tohoto toku či gradientu. Je-li zadána souvilost mezi tokem a a teplotou, je tím zadán vztah gradientu teploty a teploty v daném místě.
 END_PGML_SOLUTION
 
 COMMENT('MathObject version. Uses PGML.');
