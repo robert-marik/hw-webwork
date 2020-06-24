@@ -21,7 +21,7 @@ BEGIN_PGML
 
 ## Poldr
 
-Uvažujme krychli o objemu [`V`] a délce strany [`a`]. Tyto veličiny spolu souvisí vztahem [``` V=a^3.```] Pokud se délka strany mění rychlostí [``\frac{\mathrm da}{\mathrm dt},``]
+Uvažujme krychli o objemu [`V`] a délce hrany [`a`]. Tyto veličiny spolu souvisí vztahem [``` V=a^3.```] Pokud se délka hrany mění rychlostí [``\frac{\mathrm da}{\mathrm dt},``]
 můžeme vypočítat rychlost s jakou roste objem krychle vztahem
 [```\frac{\mathrm dV}{\mathrm dt} = \frac{\mathrm dV}{\mathrm da} \frac{\mathrm da}{\mathrm dt}=3a^2 \frac{\mathrm da}{\mathrm dt}.```]
 V následujícím příkladu se pokusíme o něco podobného pro známé hodnoty měnící se veličiny a rychlosti její změny.
