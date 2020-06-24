@@ -23,9 +23,9 @@ $radio2 = RadioButtons(
 
 BEGIN_PGML
 
-Dřevěnou kostku o délce strany [``10\,\mathrm{cm}``] dáme do pece k teplotní modifikaci a pec zapneme. Co se bude dít s jednotlivými parciálními derivacemi teploty? Pro jednoznačnost orientujme souřadnicové osy podle obrázku.
+Dřevěnou kostku o délce strany [``10\,\mathrm{cm}``] dáme do pece k teplotní modifikaci a pec zapneme. Pec se ohřeje rychle, od vzduchu v peci se rychle ohřejí stěny a ty potom předávají teplo dál do kostky. Co se bude dít s jednotlivými parciálními derivacemi teploty? Pro jednoznačnost orientujme souřadnicové osy podle obrázku.
 
-[@ image("/parcialni_derivace/drevena_kostka.png", width=>300) @]*
+[@ image("drevena_kostka.png", width=>300) @]*
 
 *Část 1:* Jaké znaménko má derivace podle času, tj. [``\frac{\partial T}{\partial t}``]?
 
@@ -51,7 +51,7 @@ END_PGML_HINT
 BEGIN_PGML_SOLUTION
 Pokud umístíme kostku do pece, její teplota v každém bodě poroste s časem a derivace podle času je kladná v každém bodě.
 
-O znaménku derivace podle polohy rozhoduje to, zda teplota ve směru osy roste či klesá. Nejprve se ohřejí stěny a od nich se ohřívá vnitřek. Teplota na zadní straně tedy ve směru osy [`x`] klesá (osa míří dovnitř kostky) a vepředu roste (osa míří ven z kostky). Proto je vzadu derivace záporná a vepředu kladná. 
+O znaménku derivace podle polohy rozhoduje to, zda teplota ve směru osy roste či klesá. Nejprve se ohřejí stěny a od nich se ohřívá vnitřek. Teplota na zadní straně tedy ve směru osy [`x`] klesá (osa míří dovnitř kostky a od stěny dovnitř klesá teplota) a vepředu roste (osa míří ven z kostky a z vnitřku kostky na stěnu teplota roste). Proto je vzadu derivace záporná a vepředu kladná. 
 END_PGML_SOLUTION
 
 ENDDOCUMENT();

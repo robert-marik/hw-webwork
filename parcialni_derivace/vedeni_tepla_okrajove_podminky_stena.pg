@@ -70,7 +70,9 @@ BEGIN_PGML
 Rovnice vedení tepla v jedné dimenzi je rovnice
 [```m \varrho \frac{\partial T}{\partial t}=\frac{\partial}{\partial x}
 \left(\lambda \frac{\partial T}{\partial x}\right).```]
-Tato rovnice může modelovat teplotní pole ve stěně ve které zanedbáváme efekty spojené s chováním teplotního pole v rozích. Proto je nutné tuto rovnici doplnit ještě dalšími informacemi charakterizujícími podmínky, ve kterých se tato stěna nachází.
+Tato rovnice může modelovat teplotní pole ve stěně, ve které zanedbáváme efekty spojené s chováním teplotního pole v rozích. Proto je nutné tuto rovnici doplnit ještě dalšími informacemi charakterizujícími podmínky, ve kterých se tato stěna nachází.
+
+[@ image("stena.png", width=>300) @]*
 
 Stěna je na intervalu [`x\in[0,L]`], [`x=0`] je vnitřní okraj a [`x=L`] je vnější okraj. Výraz [``-\lambda\frac{\partial T}{\partial x}``] udává tok tepla ve směru osy [`x`]. Tok ve směru osy [`x`] má kladné znaménko. 
 
@@ -121,7 +123,7 @@ Správné odpovědi jsou [$answerstring].
 
 * Pokud se podmínka týká vnitřní strany stěny, formulujeme ji pro [`x=0`], pokud vnější, formulujeme podmínku pro [`x=L`], protože takto je úloha zadána.
 * Pokud je podmínkou zadána konstantní teplota, je ve formulaci podmínky hodnota [`T`] v příslušném bodě.
-* Pokud je předepsaný tok, ať již nulový, nebo konstantní nebo úměrný rozdílu teplot, je podmínka formulována pro tok, tj. po úpravě pro gradient teploty, protože tok je násobkem gradientu. Je-li zadán konstantní tok, i nulový, je předepsána hodnota tohoto toku či gradientu. Je-li zadána souvilost mezi tokem a a teplotou, je tím zadán vztah gradientu teploty a teploty v daném místě.
+* Pokud je předepsaný tok, ať již nulový, nebo konstantní, nebo úměrný rozdílu teplot, je podmínka formulována pro tok, tj. po úpravě pro gradient teploty, protože tok je násobkem gradientu. Je-li zadán konstantní tok, i nulový, je předepsána hodnota tohoto toku či gradientu. Je-li zadána souvilost mezi tokem a a teplotou, je tím zadán vztah gradientu teploty a teploty v daném místě.
 END_PGML_SOLUTION
 
 COMMENT('MathObject version. Uses PGML.');

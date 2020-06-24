@@ -26,7 +26,7 @@ Derivace popisuje rychlost změny a proto je vhodná pro popis dějů probíhaj�
 
 Někdy potřebujeme vyjádřit, že rychlost změny je úměrná dvěma veličinám. Například při chemické reakci ve které reaguje látka [`X`] s látkou [`Y`] je rychlost s jakou klesá veličina [`x`] udávající množství látky [`X`] úměrná současně sama sobě a současně veličině [`y`] udávající množství látky [`Y`]. Existuje tedy konstanta [`k`] taková, že platí [```\frac{\mathrm dx}{\mathrm dt}=-kxy.```]
 
-Pokusíme se o podobné u modelů podobných procesů.
+Pokusíme se o formulaci matematických modelů podobných procesů.
 
 -----
 

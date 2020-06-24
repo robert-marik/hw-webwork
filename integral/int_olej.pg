@@ -31,5 +31,9 @@ Olej vytéká z nádrže rychlostí [`r(t)`] litrů za minutu, kde [`t`] je čas
 END_PGML
 
 
+BEGIN_SOLUTION
+Doba 180 minut odpovídá třem hodinám.
+END_SOLUTION
+
 ENDDOCUMENT();
 

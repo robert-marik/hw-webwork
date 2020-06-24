@@ -48,7 +48,7 @@ END_PGML_HINT
 BEGIN_PGML_SOLUTION
 Použitím derivace složené funkce dostáváme
 [``` \frac{\mathrm dV}{\mathrm dt} = 4\pi r^2 \frac{\mathrm dr}{\mathrm dt} ```]
-a ze zadnání plyne, že levá strana je rovna [`q`], tj. že platí
+a ze zadání plyne, že levá strana je rovna [`q`], tj. že platí
 [``` q = 4\pi r^2 \frac{\mathrm dr}{\mathrm dt}.```]
 END_PGML_SOLUTION
 

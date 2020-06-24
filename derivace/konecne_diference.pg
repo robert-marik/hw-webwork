@@ -28,6 +28,9 @@ for (my $i = 0; $i < 9; $i++) {
     push @fx, 15.02+int($K*exp($xx[$i]/10)*100)/100;
 }
 
+
+$answer=($fx[$index+1]-$fx[$index-1])/(2*$step);
+
 Context()->flags->set(tolerance => 0.001, tolType => "absolute");
 
 BEGIN_PGML
@@ -37,7 +40,7 @@ Definice derivace [```\frac{\mathrm df}{\mathrm dx}=\lim_{h\to 0}\frac{f(x+h)-f(
 Z analýzy pomocí Taylorova polynomu však víme o přesnější aproximaci, pomocí centrální diference vztahem
 [```\frac{\mathrm df}{\mathrm dx}\approx \frac{f(x+h)-f(x-h)}{2h}.```]
 
-Uvažujte následující funkci danou tabulkou. Udává závislost teploty [`T`] na čase [`t`] po vystavení vzorku zdroji tepla.
+Uvažujte následující funkci danou tabulkou. Udává závislost teploty [`T`] na čase [`t`] po vystavení vzorku dřeva zdroji tepla.
 
 [@ DataTable(
   [
@@ -63,7 +66,7 @@ BEGIN_PGML_SOLUTION
 Dosazením hodnot z tabulky do vzorce 
 [```\frac{\mathrm df}{\mathrm dx}\approx \frac{f(x+h)-f(x-h)}{2h}```]
 dostáváme
-[```\left.\frac{\mathrm dT}{\mathrm dt}\right|_{t=[$x[$index]]}\approx \frac{[$fx[$index+1]]-[$fx[$index-1]]}{2 \cdot [$step]}.```]
+[```\left.\frac{\mathrm dT}{\mathrm dt}\right|_{t=[$x[$index]]}\approx \frac{[$fx[$index+1]]-[$fx[$index-1]]}{2 \cdot [$step]}=[$answer].```]
 END_PGML_SOLUTION
 
 ENDDOCUMENT();       # This should be the last executable line in the problem.

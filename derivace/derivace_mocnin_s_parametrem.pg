@@ -29,7 +29,10 @@ a kromě toho víme, že derivace součtu je součet derivací a derivace konsta
 [```(3x^6+8x^3)'=3(x^6)'+8(x^3)'=3\cdot 6 x^5+8\cdot 3x^2=18x^5 + 24x^2.```]
 Tento výsledek můžeme zapsat například ve tvaru *18\*x^5 + 24\*x^2*.
 
+----------------------------
+
 Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$f] .```]
+Příklad je analogický výše uvedenému vzoru.
 
 >>[`` f'([$var])=\frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$f]\Bigr) ={} ``]
 [_____________________]{$answer}<<

@@ -65,7 +65,7 @@ END_PGML
 
 $showHint = 3;
 BEGIN_PGML_HINT
-Musíte sečíst součqasnou velikost populace a nárůst za nejbližší tři roky.
+Musíte sečíst současnou velikost populace a nárůst za nejbližší tři roky.
 END_PGML_HINT
 
 
