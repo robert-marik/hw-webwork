@@ -19,7 +19,7 @@ BEGIN_PGML
 ## Derivace v matematických modelech
 
 Derivace popisuje rychlost změny a proto je vhodná pro popis dějů probíhajících rychlostí, která se mění v čase. Vlastně je to jediný nástroj, který můžeme na takové úlohy použít. Například kapka vody v atmosféře při kondenzaci roste tak, že rychlost s jakou roste objem [`V`] je úměrná povrchu [`S`]. Matematicky vyjádřeno, platí  [```\frac{\mathrm dV}{\mathrm dt}=kS,```]
-kde [`k`] je konstanta související s volbou jednotek, s tvarem kapky, "ochotě" vody kondenzovat a dalšími parametry úlohy. Proto nás takové konstanty úměrnosti příliš nemohou zajímat. V matematice totiž o nich nazjistíme žádné  a pracujeme s nimi jako s parametry. Vždy se však snažíme, aby tyto konstanty byly kladné. Proto například při vypařování kapky, které se opět děje rychlostí úměrnou povrchu, píšeme
+kde [`k`] je konstanta související s volbou jednotek, s tvarem kapky, "ochotě" vody kondenzovat a dalšími parametry úlohy. Vzhledem k výše vyjmenované široké škále podmínek na nichž závisí velikost konstanty [`k`] o ní čistě s použitím matematiky nemůžeme nic říct. Proto nás nebude zajímat její hodnota a budeme s touto konstantou pracovat jako s parametrem. Vždy se však snažíme, aby konstanty úměrnosti v modelech byly kladné. Proto například při vypařování kapky, které se opět děje rychlostí úměrnou povrchu, píšeme
 [```-\frac{\mathrm dV}{\mathrm dt}=kS,```]
 nebo elegantněji
 [```\frac{\mathrm dV}{\mathrm dt}=-kS.```]
