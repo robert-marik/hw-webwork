@@ -34,7 +34,7 @@ Odmocniny derivujeme jako mocniny s racionálním exponentem. Například (použ
 
 -------------
 
-Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$f],```] kde [`[$var]\in\mathbb R`] je reálný parametr.
+Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$f],```] kde [`[$par]\in\mathbb R`] je reálný parametr.
 
 >>[`` f'([$var])=\frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$f]\Bigr) ={}``] 
 [_____________________]{$answer}<<
