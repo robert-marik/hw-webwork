@@ -68,7 +68,7 @@ Vlastní hodnoty (vlastní čísla) jsou
 END_PGML
 
 BEGIN_PGML_SOLUTION
-Stačí vynásobit matici a vektory a podívat se, na jaký násobek se vektor transformuje. Pokud je jistota že vektory jsou vlastními vektory (pokud je zadání korektní), stačí se orientovat podle první nenulové souřadnice.
+Stačí vynásobit matici a vektory a podívat se, na jaký násobek se vektor transformuje. Pokud je jistota, že vektory jsou vlastními vektory (pokud je zadání korektní), stačí se orientovat podle první nenulové souřadnice.
 END_PGML_SOLUTION
 
 ENDDOCUMENT() ;

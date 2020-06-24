@@ -43,7 +43,7 @@ Někdy je důležitým úkolem být schopen rozložit matici na součet symetric
 Například
 \[$AA=$answer11+$answer22 .\]
 
-S touto operací se setkáváme například u popis deformace tělesa, kdy matici popisující změnu tvaru rozložíme na část, která je antisymetrická a souvisí s rotací (tj. s operací která nemění tvar tělesa ale pouze jeho orientaci v prostoru) a na část, která je symetrická a souvisí se změnou tvaru (tedy s materiálovou odezvou na působení vnější síly).
+S touto operací se setkáváme například u popisu deformace tělesa, kdy matici popisující změnu tvaru rozložíme na část, která je antisymetrická a souvisí s rotací (tj. s operací která nemění tvar tělesa ale pouze jeho orientaci v prostoru) a na část, která je symetrická a souvisí se změnou tvaru (tedy s materiálovou odezvou na působení vnější síly).
 
 Uvažujte matici
 \[ A = $A.\]

@@ -1,0 +1,43 @@
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl",
+  "PGML.pl"
+);
+$showPartialCorrectAnswers = 0;
+TEXT(beginproblem()); 
+
+Context('Matrix');
+Context()->parens->set("[" => {formMatrix => 1});
+
+do {
+
+$A = Matrix([
+[non_zero_random(-5,5,1),non_zero_random(-5,5,1)],
+[non_zero_random(-5,5,1),non_zero_random(-5,5,1)],
+]);
+
+$B = Matrix([
+[non_zero_random(-5,5,1),non_zero_random(-5,5,1)],
+[non_zero_random(-5,5,1),non_zero_random(-5,5,1)],
+]);
+
+} until ( $A!= $B );
+
+Context()->texStrings;
+BEGIN_PGML
+Nechť 
+[``` A = [$A], \quad  B = [$B].```]
+Sečtěte matice, pokud je tato operace definována.
+
+>>[`` A + B = {}``] [______]*{$A+$B}<<
+
+_Matice se posuzuje jako celek. Aby byla odpověď vyhodnocena jako správná, musí být správně celá matice, tj. všechny čtyři pozice._
+
+END_PGML
+Context()->normalStrings;
+
+
+
+ENDDOCUMENT();
