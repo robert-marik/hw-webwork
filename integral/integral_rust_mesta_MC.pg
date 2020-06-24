@@ -48,7 +48,7 @@ $radio1 = RadioButtons(
 BEGIN_PGML
 
 
-## Město rostoucí měnící se rychlolstí
+## Město rostoucí měnící se rychlostí
 
 Předpokládejme, že [`t`] měsíců od současnosti je rychlost růstu počtu obyvatel města
 [``` g(t)=50+10\sqrt t```]
