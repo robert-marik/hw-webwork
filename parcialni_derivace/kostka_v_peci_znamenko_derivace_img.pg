@@ -25,7 +25,7 @@ BEGIN_PGML
 
 Dřevěnou kostku o délce strany [``10\,\mathrm{cm}``] dáme do pece k teplotní modifikaci a pec zapneme. Co se bude dít s jednotlivými parciálními derivacemi teploty? Pro jednoznačnost orientujme souřadnicové osy podle obrázku.
 
-[@ image("http://user.mendelu.cz/marik/images/drevena_kostka.png") @]*
+[@ image("parcialni_derivace/drevena_kostka.png", width=>300) @]*
 
 *Část 1:* Jaké znaménko má derivace podle času, tj. [``\frac{\partial T}{\partial t}``]?
 
