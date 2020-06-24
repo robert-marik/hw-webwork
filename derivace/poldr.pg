@@ -31,7 +31,7 @@ V následujícím příkladu se pokusíme o něco podobného pro známé hodnoty
 [@ image("poldr.png", width=>400) @]*
 
 Poldr má tvar koryta s trojúhelníkovým průřezem. Objem [`V`] vody v poldru souvisí s hloubkou [`h`] vody vztahem [```V=kh^2,```]
-kde [`k`] je konstanta. (Numerická hodnota konstanty závisí na tom, jaký úhel je u dna poldru, jak je poldr dlouhý, a také na tom, jaké jednotky používáme pro hloubku vody a jaké jednotky pro objem vody.) Nechť je konstanta [`k`] zvolena tak, že vzorec má na vstupu hloubku vody v centimetrech a objem vody v poldru vychází numericky v metrech. Jednotka času bude hodina.
+kde [`k`] je konstanta. (Numerická hodnota konstanty závisí na tom, jaký úhel je u dna poldru, jak je poldr dlouhý, a také na tom, jaké jednotky používáme pro hloubku vody a jaké jednotky pro objem vody.) Nechť je konstanta [`k`] zvolena tak, že vzorec má na vstupu hloubku vody v centimetrech a objem vody v poldru vychází numericky v metrech krychlových. Jednotka času bude hodina.
 
 
 Předpokládejme, že hloubka vody v poldru je [``h=[$h]\mathrm{cm}``] a hloubka roste (v běžné řeči používáme spíše obrat hladina roste) rychlostí [``\frac{\mathrm dh}{\mathrm dt}=[$dhdt] \mathrm{cm}/\mathrm{hod}.``] Jak rychle přibývá celkové množství vody v poldru, tj. jak rychle v této situaci roste objem vody v poldru?
