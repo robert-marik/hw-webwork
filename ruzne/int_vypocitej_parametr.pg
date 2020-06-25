@@ -27,13 +27,18 @@ else
     $int=Formula("$b*exp($c*a*x)/($c*a)");
 }
 
-# $funkce -> reduce();
+sub mycheck {
+  my ($correct, $student, $ansHash) = @_;
+  Value->Error("Try again") if cos($student)==sqrt(3)/2;
+  return $correct->D(x) == $student->D(x);
+}
+
 
 BEGIN_PGML
 
 
 Vypočtěte integrál.
->>[``\int [$funkce]\,dx ={}``][_________________________]{$int->cmp(upToConstant=>1,vars=>["x","a"])}[``{}+C``] <<
+>>[``\int [$funkce]\,dx ={}``][_________________________]{$int->cmp(vars=>["x","a"] , checker=>~~&mycheck )}[``{}+C``] <<
 
 END_PGML
 
