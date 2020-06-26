@@ -14,11 +14,11 @@ $showPartialCorrectAnswers = 1;
 
 $radio1 = RadioButtons(
 [[
-"\(\displaystyle \frac{\mathrm dm}{\mathrm dt}=-k(m-e)\)$BR$BR",
-"\(\displaystyle \frac{\mathrm dm}{\mathrm dt}=-km-e\)$BR$BR",
-"\(\displaystyle \frac{\mathrm dm}{\mathrm dt}=-\frac{k}{m-e}\)$BR$BR",
-"\(\displaystyle \frac{\mathrm dm}{\mathrm dt}=-\frac{e}{km}\)$BR$BR",
-"\(\displaystyle \frac{\mathrm dm}{\mathrm dt}=-k(e-m)\)$BR$BR",
+"\(\displaystyle \frac{\mathrm dm}{\mathrm dt}=-k(m-e)\)",
+"\(\displaystyle \frac{\mathrm dm}{\mathrm dt}=-km-e\)",
+"\(\displaystyle \frac{\mathrm dm}{\mathrm dt}=-\frac{k}{m-e}\)",
+"\(\displaystyle \frac{\mathrm dm}{\mathrm dt}=-\frac{e}{km}\)",
+"\(\displaystyle \frac{\mathrm dm}{\mathrm dt}=-k(e-m)\)",
 ]],0);  # První odpověď správná
 
 
@@ -27,6 +27,8 @@ BEGIN_PGML
 
 
 ## Model sušení dřevěné štěpky
+
+[@ image("stepka.jpg", width=>400) @]*
 
 Uvažujme model sušení dřeva, kdy nemá vliv difuze vody ve dřevě. Například by se mohlo jednat o sušení štěpky, která je promíchávána.
 
