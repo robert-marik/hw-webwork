@@ -33,7 +33,7 @@ Tento výsledek můžeme zapsat například ve tvaru *18\*x^5 + 24\*x^2*.
 ----------------------------
 
 Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$f] .```]
-Příklad je analogický výše uvedenému vzoru. Jako drobné zobecnění obsahuje namísto konkrétního čísla parametr [`m\in'mathbb R`]. S tímto parametrem se pracuje jako s libovolným jiným reálným číslem. Odpověď bude obsahovat proměnnou [`x`] a parametr [`m`].
+Příklad je analogický výše uvedenému vzoru. Jako drobné zobecnění obsahuje namísto konkrétního čísla parametr [`m\in\mathbb R`]. S tímto parametrem se pracuje jako s libovolným jiným reálným číslem. Odpověď bude obsahovat proměnnou [`x`] a parametr [`m`].
 
 >>[`` f'([$var])=\frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$f]\Bigr) ={} ``]
 [_____________________]{$answer}<<
