@@ -1,0 +1,57 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$radio1 = RadioButtons(
+[[
+"\(\displaystyle \frac{\mathrm dm}{\mathrm dt}=-k(m-e)\)$BR$BR",
+"\(\displaystyle \frac{\mathrm dm}{\mathrm dt}=-km-e\)$BR$BR",
+"\(\displaystyle \frac{\mathrm dm}{\mathrm dt}=-\frac{k}{m-e}\)$BR$BR",
+"\(\displaystyle \frac{\mathrm dm}{\mathrm dt}=-\frac{e}{km}\)$BR$BR",
+"\(\displaystyle \frac{\mathrm dm}{\mathrm dt}=-k(e-m)\)$BR$BR",
+]],0);  # První odpověď správná
+
+
+
+BEGIN_PGML
+
+
+## Model sušení dřevěné štěpky
+
+Uvažujme model sušení dřeva, kdy nemá vliv difuze vody ve dřevě. Například by se mohlo jednat o sušení štěpky, která je promíchávána.
+
+Označme veličinami [`m`] a [`e`] aktuální množství vody v materiálu a množství vody v materiálu po dosaženbí rovnovážného stavu (z anglického "moisture content" a "equilibrium moisture content"). Je známo, že rychlost s jakou se snižuje množství vody v materiálu je úměrná rozdílu mezi aktuální vlhkostí a rovnovážnou vlhkostí.
+
+Vyberte v následující nabídce matematický model, který tento děj popisuje kvantitativně. 
+
+[_]{$radio1}
+    
+    
+END_PGML
+
+$showHint = 3;
+BEGIN_PGML_HINT
+Jedná se o prakticky stejný model, jako o ochlazování podle Newtonova zákona tepelné výměny. Podívejte se do úvodních pasáží semestru.
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Rozdíl vlhkosti a rovnovážné vlhkosti je [`(m-e)`] a rychlost s jakou klesá vlhkost, tj. derivace vlhkosti podle času s převrácenýjm znaménkem, je této veličině úměrná. Excistuje tedy konstanta [`k`] taková, že platí
+[```\frac{\mathrm dm}{\mathrm dt}=-k(m-e).```]
+END_PGML_SOLUTION
+
+ENDDOCUMENT();
+
+
+
+
+

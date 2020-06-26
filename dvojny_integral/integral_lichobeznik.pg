@@ -1,30 +1,3 @@
-## DESCRIPTION
-## Estimating double integrals  
-## ENDDESCRIPTION
-
-
-## DBsubject(Calculus - multivariable)
-## DBchapter(Integration of multivariable functions)
-## DBsection(Double integrals over general regions)
-## Date(10/31/09)
-## Institution(Fort Lewis College)
-## Author(Paul Pearson)
-## MLT(GivenRegionSetUpLimits)
-## MLTleader(1)
-## Level(2)
-## MO(1)
-## TitleText1('Calculus')
-## AuthorText1('Hughes-Hallett')
-## EditionText1('4')
-## Section1('16.2')
-## Problem1('14')
-## TitleText2('Calculus')
-## AuthorText2('Hughes-Hallett')
-## EditionText2('5')
-## Section2('16.2')
-## Problem2('14')
-## KEYWORDS('Double Integral')
-
 DOCUMENT();        
 
 loadMacros(
@@ -34,6 +7,7 @@ loadMacros(
   "PGgraphmacros.pl",
   "unionTables.pl",
   "alignedChoice.pl",
+  "PGML.pl",
   "PGcourse.pl"
 );
 
@@ -98,16 +72,21 @@ $gr->fillRegion([$xmin+0.1,$ymid+0.1,"lightgreen"]);
 #  Main text
 
 Context()->texStrings;
+
+BEGIN_PGML
+## Dvojný integrál přes lichoběžník se svislými základnami
+END_PGML
+
+
 BEGIN_TEXT
 \{
 ColumnTable(
-"Nechť \(R\) je množina na obrázku a \( f(x,y) \) je funkce spojitá na \( R \).  Najděte meze pro následující dvojnásobný integrál.".
+"Nechť \(M\) je množina na obrázku a \( f(x,y) \) je funkce spojitá na \( M \).  Najděte meze pro následující dvojnásobný integrál.".
 $PAR.
-"(a)
-\( \displaystyle
-\iint\limits_R f(x,y) \, dA
+"\( \displaystyle
+\iint\limits_M f(x,y) \, dA
 =
-\int_A^B \!\! \int_C^D f(x,y) \, dy \, dx
+\int_A^B \!\! \int_C^D f(x,y) \, \mathrm dy \, \mathrm dx
 \)".
 $al1->print_q(),
 $BCENTER.
@@ -129,14 +108,17 @@ ANS($al1->correct_ans );
 Context("Fraction");
 $m=Compute("$dy/$dx");
 Context()->texStrings;
-BEGIN_SOLUTION
-$PAR SOLUTION $BR $BR
-The region is bounded below by the line through the points
-\( ( $xmin, $ymin) , ( $xmax , $ymid) \). This line has equation 
-\( y = $m (x-$xmin) + $ymin \).
-$BR
-The upper bound is the line \( y = $ymax\), while \( $xmin \le x \le $xmax\). $BR
-Thus \[ \iint_R  f(x,y) dA = \int_{$xmin}^{$xmax} \int_{$m (x-$xmin) + $ymin }^{$ymax}
-f(x,y) \, dy \, dx \]
-END_SOLUTION
+
+BEGIN_PGML_SOLUTION
+
+* Zleva a zprava je množina ohraničena svislými přímkami [`` x=[$xmin] ``] a [`` x=[$xmax] ``].
+* Shora je množina ohraničena vodorovnou přímkou [`` y=[$ymax] ``].
+* Zdola je množina ohračená přímkou procházející body 
+[`` ( [$xmin], [$ymin]) ``] a [`` ( [$xmax] , [$ymid]) ``]. Tato přímka má rovnici 
+[`` y = [$m] (x-[$xmin]) + [$ymin] ``].
+
+Odsud [``` \iint_R  f(x,y) dA = \int_{[$xmin]}^{[$xmax]} \int_{[$m] (x-[$xmin]) + [$ymin] }^{[$ymax]}
+f(x,y) \, \mathrm dy \, \mathrm dx ```]
+END_PGML_SOLUTION
+
 ENDDOCUMENT();

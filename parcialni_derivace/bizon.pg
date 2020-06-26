@@ -1,0 +1,86 @@
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "unionTables.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+
+##############################################
+#  Setup
+
+
+$ml = new_match_list();
+$ml->qa(
+"Slunce pohybující se výš a výš na obloze.",
+"\( \displaystyle \frac{\partial H}{\partial t} \) $BR",
+"Přicházející studená fronta z východu.",
+"\( \displaystyle \frac{\partial H}{\partial x} \frac{\partial x}{\partial t} \) $BR",
+"Změna zeměpisné šířky při pohybu bizona.",
+"\( \displaystyle \frac{\partial H}{\partial y} \frac{\partial y}{\partial t} \) $BR",
+);
+
+# use pop-up-lists
+$ml->rf_print_q(~~&pop_up_list_print_q);
+# you may need to add more letters D=>"D", etc. 
+$ml->ra_pop_up_list([No_answer=>"?",A=>"A",B=>"B",C=>"C"]);
+
+$ml->choose(3);
+
+
+
+##############################################
+#  Main text
+
+BEGIN_PGML
+## Bizon na prérii
+
+[@ image("bizon.jpg", width=>400) @]*
+END_PGML
+
+BEGIN_TEXT
+Jedno ráno se po prérii pohybuje bizon. Jeho pohyb je popsán prostorovými souřadnicemi \( (x,y) \) a časem \( t \), 
+kde \( x \) a \( y \) jsou funkce času \(t\) (bizon se pohybuje). Osa \(y\) míří na sever.  Směrem na sever ja také nižší teplota.
+Jak se Slunce pohybuje po obloze výš a výš, dodává více tepla na jednotkovou plochu Země ("více hřeje"). Kromě toho z východu přichází studená fonta. V čase \(t\) je teplota vzduchu v místě, kde je bizon,  \(H\) a tato teplota závisí na čase a poloze, tj. 
+\( H = f(x,y,t) \).  Pomocí řetězového pravidla pro derivaci funkce více proměnných je možné vyjádřit rychlost změny teploty podle času, tj. 
+derivaci \( \mathrm dH / \mathrm dt \), jako součet tří členů:
+$BR
+\[
+\frac{\mathrm dH}{\mathrm dt} 
+= 
+\frac{\partial H}{\partial x} \frac{\partial x}{\partial t}
++
+\frac{\partial H}{\partial y} \frac{\partial y}{\partial t}
++
+\frac{\partial H}{\partial t}.
+\]
+$BR
+Identifikujte u každého z těchto členů jeho reálnou fyzikální podstatu.
+$BR
+\{
+ColumnTable(
+$ml->print_q(),
+$ml->print_a(),
+indent => 0, separation => 20, valign => "MIDDLE"
+); 
+\}
+END_TEXT
+
+
+##################################################
+#  Answers
+
+#install_problem_grader(~~&std_problem_grader);
+
+ANS(str_cmp($ml->ra_correct_ans) );
+
+
+ENDDOCUMENT(); 
