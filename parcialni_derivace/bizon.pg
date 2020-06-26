@@ -20,11 +20,11 @@ $showPartialCorrectAnswers = 1;
 
 $ml = new_match_list();
 $ml->qa(
-"Slunce pohybující se výš a výš na obloze.",
+"Změna teploty způsobená tím, že se Slunce pohybuje na obloze a tím, že přichází studená fronta.",
 "\( \displaystyle \frac{\partial H}{\partial t} \) $BR",
-"Přicházející studená fronta z východu.",
+"Společný vliv studené fonty a posunu bizona východo-západním směrem.",
 "\( \displaystyle \frac{\partial H}{\partial x} \frac{\partial x}{\partial t} \) $BR",
-"Změna zeměpisné šířky při pohybu bizona.",
+"Společný vliv závislosti teploty na zeměpisné šířce a pohybu bizona severo-jižním směrem.",
 "\( \displaystyle \frac{\partial H}{\partial y} \frac{\partial y}{\partial t} \) $BR",
 );
 
@@ -48,9 +48,10 @@ END_PGML
 
 BEGIN_TEXT
 Jedno ráno se po prérii pohybuje bizon. Jeho pohyb je popsán prostorovými souřadnicemi \( (x,y) \) a časem \( t \), 
-kde \( x \) a \( y \) jsou funkce času \(t\) (bizon se pohybuje). Osa \(y\) míří na sever.  Směrem na sever ja také nižší teplota.
-Jak se Slunce pohybuje po obloze výš a výš, dodává více tepla na jednotkovou plochu Země ("více hřeje"). Kromě toho z východu přichází studená fonta. V čase \(t\) je teplota vzduchu v místě, kde je bizon,  \(H\) a tato teplota závisí na čase a poloze, tj. 
-\( H = f(x,y,t) \).  Pomocí řetězového pravidla pro derivaci funkce více proměnných je možné vyjádřit rychlost změny teploty podle času, tj. 
+kde \( x \) a \( y \) jsou funkce času \(t\) (bizon se pohybuje). Osa \(y\) míří na sever.  Směrem na sever je vždy nižší teplota.
+Jak Slunce po obloze stoupá, dodává více tepla na jednotkovou plochu Země ("více hřeje"). Kromě toho z východu přichází studená fonta a proto se plota mění i východo-západním směrem.
+
+Teplotu vzduchu v místě kde je bizon  označíme \(H\). Tato teplota závisí na čase (protože Slunce na obloze stoupá) na poloze bizona (vlivem teplotních změn severo-jižním a východo-západním směrem). Platí tedy \( H = f(x,y,t) \). Pomocí řetězového pravidla pro derivaci funkce více proměnných je možné vyjádřit rychlost změny teploty podle času, tj. 
 derivaci \( \mathrm dH / \mathrm dt \), jako součet tří členů:
 $BR
 \[

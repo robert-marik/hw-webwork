@@ -30,6 +30,8 @@ BEGIN_PGML
 
 ## Nafukování balonu
 
+[@ image("balon.jpg", width=>400) @]*
+
 Objem balonu ve tvaru koule je dán vztahem [```V=\frac 43 \pi r^3.```] Poloměr této koule je [`r`] a v této situaci balon nafukujeme tak, že jeho objem roste rychlostí [`q`].  Jak rychle roste poloměr?
 
 Vyberte vztah, který nejlépe charakterizuje zadanou situaci a umožňuje vypočítat rychlost růstu poloměru.
