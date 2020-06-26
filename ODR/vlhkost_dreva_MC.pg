@@ -30,7 +30,7 @@ BEGIN_PGML
 
 Uvažujme model sušení dřeva, kdy nemá vliv difuze vody ve dřevě. Například by se mohlo jednat o sušení štěpky, která je promíchávána.
 
-Označme veličinami [`m`] a [`e`] aktuální množství vody v materiálu a množství vody v materiálu po dosaženbí rovnovážného stavu (z anglického "moisture content" a "equilibrium moisture content"). Je známo, že rychlost s jakou se snižuje množství vody v materiálu je úměrná rozdílu mezi aktuální vlhkostí a rovnovážnou vlhkostí.
+Označme veličinami [`m`] a [`e`] aktuální množství vody v materiálu a množství vody v materiálu po dosažení rovnovážného stavu (z anglického "moisture content" a "equilibrium moisture content"). Je známo, že rychlost s jakou se snižuje množství vody v materiálu je úměrná rozdílu mezi aktuální vlhkostí a rovnovážnou vlhkostí.
 
 Vyberte v následující nabídce matematický model, který tento děj popisuje kvantitativně. 
 
@@ -45,7 +45,7 @@ Jedná se o prakticky stejný model, jako o ochlazování podle Newtonova zákon
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
-Rozdíl vlhkosti a rovnovážné vlhkosti je [`(m-e)`] a rychlost s jakou klesá vlhkost, tj. derivace vlhkosti podle času s převrácenýjm znaménkem, je této veličině úměrná. Excistuje tedy konstanta [`k`] taková, že platí
+Rozdíl vlhkosti a rovnovážné vlhkosti je [`(m-e)`] a rychlost s jakou klesá vlhkost, tj. derivace vlhkosti podle času s převráceným znaménkem, je této veličině úměrná. Existuje tedy konstanta [`k`] taková, že platí
 [```\frac{\mathrm dm}{\mathrm dt}=-k(m-e).```]
 END_PGML_SOLUTION
 
