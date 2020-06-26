@@ -157,8 +157,8 @@ END_PGML
 
 BEGIN_TEXT
 
-$BR.
-$BR.
+$BR
+
 
 
 \{
@@ -176,10 +176,10 @@ $ECENTER.
 $PAR.
 $BR.
 $BR.
-"A = ".$multians1->ans_rule(20).$BR.
-"B = ".$multians1->ans_rule(20).$BR.
-"C = ".$multians2->ans_rule(20).$BR.
-"D = ".$multians2->ans_rule(20).$BR,
+"\( A = {}\)".$multians1->ans_rule(20).$BR.
+"\( B = {}\)".$multians1->ans_rule(20).$BR.
+"\( C = {}\)".$multians2->ans_rule(20).$BR.
+"\( D = {}\)".$multians2->ans_rule(20).$BR,
 $BCENTER.
 image(insertGraph($gr),width=>300,height=>300,tex_size=>700).
 $BR.

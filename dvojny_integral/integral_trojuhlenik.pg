@@ -5,8 +5,6 @@ loadMacros(
   "MathObjects.pl",
   "contextFraction.pl",
   "PGgraphmacros.pl",
-  "unionTables.pl",
-  "alignedChoice.pl",
   "PGML.pl",
   "PGcourse.pl"
 );
@@ -28,24 +26,6 @@ $dx = $xmax - $xmin;
 $ymin = random(-4,-1,1);
 $ymax = random(1,4,1);
 $dy = $ymax - $ymin;
-
-Context()->texStrings;
-
-$al1 = new_aligned_list(ans_rule_len=>30, numbered=>0, tex_spacing=>"3pt");
-$al1->qa(
-"A",Compute("$xmin")->cmp,
-"B",Compute("$xmax")->cmp,
-"C",Compute("$ymin")->cmp,
-"D",Compute("$ymin + ($dy / $dx) * (x - $xmin)")->reduce->cmp,
-);
-
-$al2 = new_aligned_list(ans_rule_len=>30, numbered=>0, tex_spacing=>"3pt");
-$al2->qa(
-"E",Compute("$ymin")->cmp,
-"F",Compute("$ymax")->cmp,
-"G",Compute("$xmin")->cmp,
-"H",Compute("$xmin + ($dx / $dy) * (y - $ymin)")->reduce->cmp,
-);
 
 Context()->normalStrings;
 
@@ -73,6 +53,7 @@ $gr->lineTo($xmax,$ymin,"darkgreen",2); # bottom edge
 $gr->lineTo($xmin,$ymin,"darkgreen",2);
 $gr->fillRegion([$xmax-0.1,$ymin+0.1,"lightgreen"]);
 
+$output=image(insertGraph($gr),width=>400,height=>400,tex_size=>600);
 
 ##############################################
 #  Main text
@@ -80,40 +61,41 @@ $gr->fillRegion([$xmax-0.1,$ymin+0.1,"lightgreen"]);
 Context()->texStrings;
 BEGIN_PGML
 ## Dvojný integrál přes pravoúhlý trojúhelník
+
+[$output]*
+
+Nechť [`M`] je trojúhelník na obrázku a [`f(x,y)`] je spojitá funkce na [`M`].
+Rozepište dvojný integrál jako dvojnásobný pro obě pořadí integrace.
+Klikněte na obrázek pro zvětšení. Šikmá přímka má rovnici [``` [$dx] (y - [$ymax]) = [$dy] (x - [$xmax]),  ```]
+protože vodorovná a svislá vzdálenost mezi krajními body strany trojúhelníka,
+které leží na této přímce, jsou po řadě [`[$dx]`] a [`[$dy]`].
+
+
+(a)   [`` \iint\limits_M f(x,y) \, \mathrm dx \mathrm dy = \int_A^B \!\! \int_C^D f(x,y) \, \mathrm dy \mathrm dx ``]
+
+[`A={}`][_____________]{"$xmin"}
+
+[`B={}`][_____________]{"$xmax"}
+
+[`C={}`][_____________]{Formula("$ymin")}
+
+[`D={}`][_____________]{Formula("$ymin + ($dy / $dx) * (x - $xmin)")}
+
+(b) [`` \iint\limits_M f(x,y) \, \mathrm dx \mathrm dy = \int_E^F \!\! \int_G^H f(x,y) \, \mathrm dx \mathrm dy ``]
+
+[`E={}`][_____________]{"$ymin"}
+
+[`F={}`][_____________]{"$ymax"}
+
+[`G={}`][_____________]{Formula("$xmin")}
+
+[`H={}`][_____________]{Formula("$xmin + ($dx / $dy) * (y - $ymin)")}
+
+
+
+
 END_PGML
 
-BEGIN_TEXT
-$BR
-$BR
-\{
-ColumnTable(
-"Nechť \(M\) je trojúhelník na obrázku a \( f(x,y) \) je spojitá funkce na  \( M \).  Rozepište dvojný integrál jako dvojnásobný pro obě pořadí integrace.
-Klikněte na obrázek pro zvětšení. Šikmá přímka má rovnici \[ $dx (y - $ymax) = $dy (x - $xmax),  \]
-protože vodorovná a svislá vzdálenost mezi krajními body strany trojúhelníka, které leží na této přímce, jsou po řadě \( $dx \) a \( $dy\).
-".
-$PAR.
-"(a)  
-\( \displaystyle
-\iint\limits_M f(x,y) \, \mathrm dx \mathrm dy
-=
-\int_A^B \!\! \int_C^D f(x,y) \, \mathrm dy \mathrm dx
-\)".
-$al1->print_q().
-$PAR.
-"(b)  
-\( \displaystyle
-\iint\limits_M f(x,y) \, \mathrm dx \mathrm dy
-=
-\int_E^F \!\! \int_G^H f(x,y) \, \mathrm dx \mathrm dy
-\)".
-$al2->print_q(),
-$BCENTER.
-image(insertGraph($gr),width=>400,height=>400,tex_size=>600).
-$ECENTER,
-indent => 0, separation => 30, valign => "TOP"
-)
-\}
-END_TEXT
 Context()->normalStrings;
 
 
@@ -121,17 +103,15 @@ Context()->normalStrings;
 #  Answers
 
 $showPartialCorrectAnswers = 1;
-ANS($al1->correct_ans );
-ANS($al2->correct_ans );
 
-Context("Fraction");
-$m1=Compute("$dy/$dx");
-$m2=Compute("$dx/$dy");
+ Context("Fraction");
+ $m1=Compute("$dy/$dx");
+ $m2=Compute("$dx/$dy");
 
 Context()->texStrings;
 BEGIN_SOLUTION
-$PAR SOLUTION $BR $BR
-$BR
+$PAR Řešení $BR $BR
+
 (a) Množina je zdola ohraničena přímkou  \( y = $ymin\) a shora přímkou  \( y  = $m1 (x - $xmax) + $ymax\). $BR 
 Meze pro  \(x\) jsou \( $xmin \le x \le $xmax \). Odsud
 \[ \iint_M f(x,y) \,\mathrm dx\, \mathrm dy = \int_{$xmin}^{$xmax} \int_{$ymin}^{$m1(x-$xmax)+$ymax} f(x,y) \mathrm dy \mathrm dx \]
