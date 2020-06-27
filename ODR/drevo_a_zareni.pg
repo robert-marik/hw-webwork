@@ -25,7 +25,7 @@ BEGIN_PGML
 [@ image("chata.jpg", width=>400) @]*
 
 
-Dřevo z něhož jsou stěny dřevěné chaty je ve podmínkách s konstantní teplotou [`[$T0]{}^\circ\mathrm{C}`] vystaveno slunečnímu záření. Díky tomu teplota roste konstantní rychlostí [`r`]. Kromě toho teplota klesá díky předávání tepla do okolí. Tento proces předávání tepla do okolí probíhá rychlostí úměrnou velikosti rozdílu teploty dřeva a teploty okolí (o teplotě [`[$T0]{}^\circ\mathrm{C}`]).
+Dřevo z něhož jsou stěny dřevěné chaty je v prostředí s konstantní teplotou [`[$T0]{}^\circ\mathrm{C}`] vystaveno slunečnímu záření. Díky tomu teplota roste konstantní rychlostí [`r`]. Kromě toho teplota klesá díky předávání tepla do okolí. Tento proces předávání tepla do okolí probíhá rychlostí úměrnou velikosti rozdílu teploty dřeva a teploty okolí (o teplotě [`[$T0]{}^\circ\mathrm{C}`]).
 
 Napište matematický model popisující danou situaci. Konstantu úměrnosti označte [`k`], teplotu označte [`T`]. Model formulujte tak, aby konstanta úměrnosti byla kladná.
 >> [``\frac{\mathrm dT}{\mathrm dt}=``][__________]{$r1}<<
