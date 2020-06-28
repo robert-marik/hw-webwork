@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-06-28 20:15+0200\n"
+"PO-Revision-Date: 2020-06-29 00:18+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -161,12 +161,12 @@ msgstr "Heslo uživatele %1 bylo aktualizováno."
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Login.pm:58
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:1139
 msgid "%1: Problem %2"
-msgstr ""
+msgstr "%1: Úloha %2"
 
 #. ($setID, $problemID)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ShowMeAnother.pm:354
 msgid "%1: Problem %2 Show Me Another"
-msgstr ""
+msgstr "%1: Úloha %2 Alternativa"
 
 #. ($archive_courseID)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/CourseAdmin.pm:1911
@@ -216,7 +216,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:1613
 msgid "(This problem will not count towards your grade.)"
-msgstr ""
+msgstr "(Tato úloha se nezapočítává do celkového bodového zisku)"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:1990
 msgid ""
@@ -5324,7 +5324,7 @@ msgstr ""
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetList.pm:651
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/UserList.pm:652
 msgid "Show"
-msgstr ""
+msgstr "Zobrazit"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:1367
 msgid "Show Auxiliary Resources"
@@ -5410,7 +5410,7 @@ msgstr ""
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Hardcopy.pm:577
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:1325
 msgid "Show:"
-msgstr ""
+msgstr "Zobrazit:"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetList.pm:593
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/UserList.pm:572
@@ -5452,7 +5452,7 @@ msgstr "Řešení:"
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Hardcopy.pm:599
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/SetMaker.pm:392
 msgid "Solutions"
-msgstr ""
+msgstr "Řešení"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/Utils/AttemptsTable.pm:398
 msgid "Some answers will be graded later."
