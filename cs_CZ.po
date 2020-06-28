@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-06-29 00:58+0200\n"
+"PO-Revision-Date: 2020-06-29 01:16+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1445,7 +1445,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:554
 msgid "Closed, answers available."
-msgstr ""
+msgstr "Uzavřeno, řešení jsou zpřístupněna."
 
 #. ($self->formatDateTime($set->answer_date,undef,$ce->{studentDateDisplayFormat})
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:550
@@ -1458,7 +1458,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:506
 msgid "Closed."
-msgstr ""
+msgstr "Uzavřeno."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetDetail2.pm:124
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/Stats_old.pm:85
