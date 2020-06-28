@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-06-29 00:18+0200\n"
+"PO-Revision-Date: 2020-06-29 00:39+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5847,6 +5847,7 @@ msgid "The answer above is correct."
 msgstr "Zadaná odpověď je správně."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:452
+#, fuzzy
 msgid "The answer will be graded later."
 msgstr "Odpověď bude vyhodnocena později."
 
@@ -6600,7 +6601,7 @@ msgstr ""
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:527
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSet.pm:90
 msgid "This set is %1"
-msgstr ""
+msgstr "Toto zadání je %1"
 
 #. ($reducedScoringPerCent)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSet.pm:375
