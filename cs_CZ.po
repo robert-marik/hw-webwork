@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-06-29 00:39+0200\n"
+"PO-Revision-Date: 2020-06-29 00:58+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -124,7 +124,7 @@ msgstr ""
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:429
 #: /opt/webwork/webwork2/lib/WeBWorK/Utils/AttemptsTable.pm:278
 msgid "%1% correct"
-msgstr ""
+msgstr "%1% správně"
 
 #. ($e_user_name)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Options.pm:187
@@ -1591,11 +1591,11 @@ msgstr "Správné odpovědi"
 #. ($total_correct,$num_of_problems)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:967
 msgid "Correct: %1/%2"
-msgstr ""
+msgstr "Správně: %1/%2"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:1331
 msgid "CorrectAnswers"
-msgstr ""
+msgstr "Správné odpovědi"
 
 #. ($newBlankProblems, $MAX_NEW_PROBLEMS)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetDetail.pm:1627
@@ -5650,7 +5650,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:1512
 msgid "Submit Answers"
-msgstr "Odeslat odpovědi"
+msgstr "Uložit odpovědi"
 
 #. ($effectiveUser)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:1509
@@ -5847,7 +5847,6 @@ msgid "The answer above is correct."
 msgstr "Zadaná odpověď je správně."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:452
-#, fuzzy
 msgid "The answer will be graded later."
 msgstr "Odpověď bude vyhodnocena později."
 
@@ -6438,7 +6437,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:450
 msgid "This answer is correct."
-msgstr ""
+msgstr "Zadaná odpověď je správně."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/Localize.pm:95
 msgid ""
@@ -6601,7 +6600,7 @@ msgstr ""
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:527
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSet.pm:90
 msgid "This set is %1"
-msgstr "Toto zadání je %1"
+msgstr ""
 
 #. ($reducedScoringPerCent)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSet.pm:375
@@ -8469,7 +8468,7 @@ msgstr ""
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:426
 #: /opt/webwork/webwork2/lib/WeBWorK/Utils/AttemptsTable.pm:276
 msgid "incorrect"
-msgstr "chyba"
+msgstr "nesprávně"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/Scoring.pm:595
 msgid "index"
