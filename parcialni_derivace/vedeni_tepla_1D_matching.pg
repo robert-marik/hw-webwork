@@ -65,6 +65,8 @@ $ml->choose(7);
 
 BEGIN_PGML
 
+## Fyzikální interpretace členů z jednorozměrné rovnice vedení tepla
+
 Rovnice vedení tepla v jedné dimenzi má tvar (pro fyzikální interpretaci
 ponecháváme bez úpravy záporná znaménka)
 [```m \rho  \frac{\partial T}{\partial t}=-\frac{\partial}{\partial x}

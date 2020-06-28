@@ -16,6 +16,14 @@ BEGIN_PGML
 
 ## Souvislost mezi rychlostmi změn dvou veličin
 
+[@ image("koreny.jpg", width=>400) @]*
+
+V prvním cvičení z Matematiky jsme sledovali požár suché trávy šířící se v kruhu a ze vztahu [```S=\pi r^2```] a ze známé rychlosti [``\frac{\mathrm dr}{\mathrm dt}``] s jakou se zvětšuje poloměr spáleniště jsme dokázali určit rychlost s jakou roste obsah spáleniště vztahem [```\frac{\mathrm dS}{\mathrm dt}=2\pi r \frac{\mathrm dr}{\mathrm dt}.```]
+
+Nyní se pokusíme o podobný výpočet o dimenzi výše, tj. pro kouli. Můžeme si představit, že sledujeme kulové bakterie žijící na kořenech stromů, pod mikroskopem určujeme rychlost s jakou se mění jejich poloměr a chceme určit rychlost, s jakou se mění jejich objem. (Že bakterie není přesně ve tvaru koule nevadí, obdobný výpočet jenom s jinou konstantou úměrnosti mezi objemem a třetí mocninou vhodného délkového parametru platí i pro bakterie jiného tvaru.)
+
+------------
+
 Objem koule je dán vztahem [```V=\frac 43 \pi r^3```] a poloměr se zvětšuje zadanou rychlostí [``\frac{\mathrm d r}{\mathrm dt}``]. Jak rychle roste objem?
 
 Pište *dr/dt* pro rychlost s jakou roste poloměr.

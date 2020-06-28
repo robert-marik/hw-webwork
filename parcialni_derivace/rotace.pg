@@ -1,0 +1,108 @@
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+Context("Vector");
+Context()->flags->set(ijk=>1 );
+Context()->constants->set(
+  i => {TeX => "\,\mathit{\vec i}"},
+  j => {TeX => "\,\mathit{\vec j}"},
+  k => {TeX => "\,\mathit{\vec k}"},
+);
+$showPartialCorrectAnswers = 1;
+
+$a = non_zero_random(-8,8,1);
+$b = non_zero_random(-8,8,1);
+$c = non_zero_random(-8,8,1);
+$w = list_random(1,2,3);
+
+if ( $w == 1 ) {
+    $fvec = Vector( Compute("$a*x")->reduce(), Compute("$b*z")->reduce(),
+		    Compute("$c*y")->reduce() );
+    $curl = Vector( Compute("-$b + $c"), Compute(0), Compute(0) );
+} elsif ( $w == 2 ) {
+    $fvec = Vector( Compute("$a*y")->reduce(), Compute("$b*x")->reduce(),
+		    Compute("$c*z")->reduce() );
+    $curl = Vector( Compute(0), Compute(0), Compute("-$a + $b") );
+} else {
+    $fvec = Vector( Compute("$a*z")->reduce(), Compute("$b*y")->reduce(),
+		    Compute("$c*x")->reduce() );
+    $curl = Vector( Compute(0), Compute("$a - $c"), Compute(0) );
+}
+
+Context()->texStrings;
+TEXT(beginproblem());
+BEGIN_PGML
+
+## Rotace vektorového pole
+
+[@ image("les_mlha.jpg", width=>400) @]*
+
+Rotace vektorového pole je veličina, která je důležitá při testování, zda práce (křivkový integrál druhého druhu) závisí či nezávisí na integrační cestě a tedy zda je či není možné ve studované úloze zavést potenciál a potenciální energii. Například při studiu evapotranspirace rostlin a stromů pracujeme s pojmem vodního potenciálu, který s křivkovým integrálem a tedy i s rotací souvisí už tím, jak je tato veličina definována. Tím získáme vhodný nástroj k měření intenzity tak důležitého procesu, jako je předávání vody do atmosféry prostřednictvím lesů a udržování koloběhu vody a života na Zemi.
+
+Připoměňme si výpočet rotace. Uvažujme vektorové pole 
+[``` \vec F = 3y\vec i + 2\vec k. ```]
+Platí
+[``` \begin{aligned}\nabla\times \vec F&= \begin{vmatrix}\vec i&\vec j&\vec k\\ \frac{\partial }{\partial x}&\frac{\partial }{\partial y}&\frac{\partial }{\partial z}\\ 3y&0&2 \end{vmatrix} \\& = \vec i \left(\frac{\partial }{\partial y}(2) - \frac{\partial }{\partial z}(0)\right) + \vec j \left(\frac{\partial }{\partial z}(3y) - \frac{\partial }{\partial x}(2)\right) + \vec k \left(\frac{\partial }{\partial x}(0) - \frac{\partial }{\partial y}(3y)\right)\\&=-3\vec k.\end{aligned}```]
+Výsledek je možno zapsat ve tvaru *<0,0,-3>* nebo *-3 k*.
+
+-------
+
+Vypočtěte rotaci vektorového pole
+[``` \vec F = [$fvec]. ```]
+
+>>[`` \nabla \times \vec F = {}``][__________________________________]{$curl} <<
+
+END_PGML
+Context()->normalStrings;
+
+@f = $fvec->value();
+
+Context()->texStrings;
+
+$showHint = 3;
+
+BEGIN_PGML_HINT
+Formálně je rotaci možno vyjádřit ve tvaru determinantu
+[```
+\nabla \times ([$fvec]) = \left|
+\begin{array}{ccc}
+ \quad\vec i\quad &\quad  \vec j\quad &\quad \vec k\quad \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & 
+\frac{\partial}{\partial z}\\
+[$f[0]] & [$f[1]] & [$f[2]]
+\end{array}
+\right|.
+```]
+Tento determinant musím vypočítat.
+
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Platí
+[```
+\nabla \times ([$fvec]) = \left|
+\begin{array}{ccc}
+ \quad\vec i\quad &\quad  \vec j\quad &\quad \vec k\quad \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & 
+\frac{\partial}{\partial z}\\
+[$f[0]] & [$f[1]] & [$f[2]]
+\end{array}
+\right| = [$curl].
+```]
+
+END_PGML_SOLUTION
+Context()->normalStrings;
+
+COMMENT("");
+
+ENDDOCUMENT();
