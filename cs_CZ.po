@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-06-29 08:44+0200\n"
+"PO-Revision-Date: 2020-06-29 23:03+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5627,7 +5627,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Hardcopy.pm:581
 msgid "Student answers"
-msgstr ""
+msgstr "Odpovědi studenta"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/SendMail.pm:394
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/SendMail.pm:566
@@ -5646,11 +5646,11 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Achievements.pm:254
 msgid "Submit"
-msgstr ""
+msgstr "Odeslat"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:1512
 msgid "Submit Answers"
-msgstr "Odeslat odpovědi"
+msgstr "Odeslat odpověd(-i)"
 
 #. ($effectiveUser)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:1509
@@ -6433,7 +6433,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:456
 msgid "This answer is NOT correct."
-msgstr ""
+msgstr "Odpověď NENÍ správně."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:450
 msgid "This answer is correct."
@@ -6451,11 +6451,11 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:1598
 msgid "This homework set is closed."
-msgstr ""
+msgstr "Odevzdávání tohoto zadání bylo ukončeno."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:1596
 msgid "This homework set is not yet open."
-msgstr ""
+msgstr "Toto zadání ještě nemá otevřené odevzdávání."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/PGProblemEditor2.pm:926
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/PGProblemEditor3.pm:1005
@@ -7372,7 +7372,7 @@ msgstr ""
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:463
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:518
 msgid "Will open on %1."
-msgstr "Bude otevřeno %1."
+msgstr "Termín otevření je %1."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSet.pm:414
 msgid "Worth"
@@ -7632,7 +7632,7 @@ msgstr "Počet zbývajících pokusů:  %negquant(%1,bez omezení,pokus,pokusů)
 msgid ""
 "You have %quant(%1,attempt,attempts) left before new version will be "
 "requested."
-msgstr "Počet pokusů do před vygenrováním nové verze úlohy je %1."
+msgstr "Počet pokusů do před vygenerováním nové verze úlohy je %1."
 
 #. ($attempts)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:1616
@@ -8268,7 +8268,7 @@ msgstr ""
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/Stats_old.pm:513
 #: /opt/webwork/webwork2/lib/WeBWorK/Utils/AttemptsTable.pm:267
 msgid "correct"
-msgstr ""
+msgstr "správně"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/Index.pm:413
 msgid "course files"
