@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-06-29 06:56+0200\n"
+"PO-Revision-Date: 2020-06-29 07:13+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8034,48 +8034,48 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/AchievementList.pm:265
 msgid "_ACHIEVEMENTS_EDITOR_DESCRIPTION"
-msgstr ""
+msgstr "_ACHIEVEMENTS_EDITOR_DESCRIPTION"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ShowAnswers.pm:419
 msgid "_ANSWER_LOG_DESCRIPTION"
-msgstr ""
+msgstr "_ANSWER_LOG_DESCRIPTION"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/UserList2.pm:467
 msgid "_CLASSLIST_EDITOR_DESCRIPTION"
-msgstr ""
+msgstr "_CLASSLIST_EDITOR_DESCRIPTION"
 
 #. (CGI::strong($r->maketext($course)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Login.pm:199
 msgid "_EXTERNAL_AUTH_MESSAGE"
-msgstr ""
+msgstr "_EXTERNAL_AUTH_MESSAGE"
 
 #. (CGI::b($r->maketext("Guest Login")
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Login.pm:285
 msgid "_GUEST_LOGIN_MESSAGE"
-msgstr ""
+msgstr "_GUEST_LOGIN_MESSAGE"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetList2.pm:528
 msgid "_HMWKSETS_EDITOR_DESCRIPTION"
-msgstr ""
+msgstr "_HMWKSETS_EDITOR_DESCRIPTION"
 
 #. (CGI::b($r->maketext("Remember Me")
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Login.pm:207
 msgid "_LOGIN_MESSAGE"
-msgstr ""
+msgstr "_LOGIN_MESSAGE"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetList2.pm:2761
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetList2.pm:2763
 msgid "_PROBLEM_SET_SUMMARY"
-msgstr ""
+msgstr "_PROBLEM_SET_SUMMARY"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator.pm:2094
 msgid "_REQUEST_ERROR"
-msgstr ""
+msgstr "_REQUEST_ERROR"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/UserList2.pm:1871
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/UserList2.pm:1873
 msgid "_USER_TABLE_SUMMARY"
-msgstr ""
+msgstr "_USER_TABLE_SUMMARY"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/AchievementList.pm:707
 msgid "a duplicate of the first selected achievement."
