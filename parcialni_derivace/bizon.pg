@@ -47,9 +47,10 @@ BEGIN_PGML
 END_PGML
 
 BEGIN_TEXT
-Jedno ráno se po prérii pohybuje bizon. Jeho pohyb je popsán prostorovými souřadnicemi \( (x,y) \) a časem \( t \), 
-kde \( x \) a \( y \) jsou funkce času \(t\) (bizon se pohybuje). Osa \(y\) míří na sever.  Směrem na sever je vždy nižší teplota.
-Jak Slunce po obloze stoupá, dodává více tepla na jednotkovou plochu Země ("více hřeje"). Kromě toho z východu přichází studená fonta a proto se plota mění i východo-západním směrem.
+
+Jedno ráno studujeme bizona na prérii.  Jeho pohyb je popsán prostorovými souřadnicemi \( (x,y) \) a časem \( t \).  Protože je bizon pohybuje, jsou jeho prostorové souřadnice  \( x \) a \( y \)  funkcemi času \(t\).  Jak Slunce po obloze stoupá, dodává více tepla na jednotkovou plochu Země ("více hřeje").
+
+Osa \(y\) míří na sever a směrem na sever je vždy nižší teplota. Kromě toho z východu přichází studená fonta a proto se teplota mění i východo-západním směrem.
 
 Teplotu vzduchu v místě kde je bizon  označíme \(H\). Tato teplota závisí na čase (protože Slunce na obloze stoupá) na poloze bizona (vlivem teplotních změn severo-jižním a východo-západním směrem). Platí tedy \( H = f(x,y,t) \). Pomocí řetězového pravidla pro derivaci funkce více proměnných je možné vyjádřit rychlost změny teploty podle času, tj. 
 derivaci \( \mathrm dH / \mathrm dt \), jako součet tří členů:
