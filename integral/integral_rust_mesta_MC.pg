@@ -50,9 +50,11 @@ BEGIN_PGML
 
 ## Město rostoucí měnící se rychlostí
 
-Předpokládejme, že [`t`] měsíců od současnosti je rychlost růstu počtu obyvatel města
-[``` g(t)=50+10\sqrt t```]
-obyvatel za měsíc. V současnosti má město 5000 obyvatel. Kolik obyvatel bude město mít za tři roky?
+[@ image("parkour.jpg", width=>400) @]*
+
+Město je také typický organismus rostoucí proměnnou rychlostí. Více obyvatel má způsobí větší porodnost a rychlejší růst, své ovšem hraje i prostor pro rozšiřování a další růst, dostupnost zdrojů a další faktory. Ač se nám může zdát, že tyto faktory jsou exaktně neuchopitelné, dají se dopředu do jisté míry odhadnout a tento odhad budoucího růstu je důležitý pro jakékoliv plánování.
+
+Předpokládejme, že [`t`] měsíců od současnosti je rychlost růstu počtu obyvatel města [``` g(t)=50+10\sqrt t```] obyvatel za měsíc. V současnosti má město 5000 obyvatel. Kolik obyvatel bude město mít za tři roky?
 
 ----
 
