@@ -22,9 +22,11 @@ $radio = RadioButtons(
 
 BEGIN_PGML
 
-## Vytékající olej
+## Unikající toxický odpad
 
-Olej vytéká z nádrže rychlostí [`r(t)`] litrů za minutu, kde [`t`] je čas v minutách. Co vyjadřuje integrál [``\int_{0}^{\,180} {r(t)}\,\mathrm dt``]?
+[@ image("toxicky_odpad.jpg", width=>400) @]*
+
+Toxický odpad uniká z barelu rychlostí [`r(t)`] litrů za minutu, kde [`t`] je čas v minutách. Co vyjadřuje integrál [``\int_{0}^{\,180} {r(t)}\,\mathrm dt``]?
 
 [_]{$radio}
     
@@ -32,7 +34,7 @@ END_PGML
 
 
 BEGIN_SOLUTION
-Doba 180 minut odpovídá třem hodinám.
+Doba 180 minut odpovídá třem hodinám. Na tomto intervalu integrujeme rychlost s jakou vytéká olej. Výsledkem po integraci je množství oleje, které za danou dobu vyteklo.
 END_SOLUTION
 
 ENDDOCUMENT();
