@@ -16,7 +16,11 @@ BEGIN_PGML
 
 ## Vytékající voda a praktický význam integrálu
 
-Voda vytéká z dolní strany nádrže rychlostí  [`r(t)=200-4t`] litrů za minutu, kde [`0 \le t \le 50.`]  Najděte objem vody (v litrech), který vyteče z nádrže za  [$a] minut.
+[@ image("cisterna.jpg", width=>400) @]*
+
+Při zásobování vodou se někdy musíme uchýlit k použití cisteren. Cisterna nemusí být ideální a může z ní voda unikat. Toto je typický děj probíhající proměnnou rychlostí, protože během vytékání se snižuje tlak v místě úniku a rychlost vytékání se snižuje.
+
+Předpokládejme, že voda vytéká z dolní strany nádrže rychlostí  [`r(t)=200-4t`] litrů za minutu, kde [`0 \le t \le 50.`]  Najděte objem vody (v litrech), který vyteče z nádrže za  [$a] minut.
 
 
 Odpověď: Vyteče [________________]{200*$a-2*($a**2)} litrů vody.
