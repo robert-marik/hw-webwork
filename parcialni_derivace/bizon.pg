@@ -52,7 +52,7 @@ Jedno ráno studujeme bizona na prérii.  Jeho pohyb je popsán prostorovými so
 
 Osa \(y\) míří na sever a směrem na sever je vždy nižší teplota. Kromě toho z východu přichází studená fonta a proto se teplota mění i východo-západním směrem.
 
-Teplotu vzduchu v místě kde je bizon  označíme \(H\). Tato teplota závisí na čase (protože Slunce na obloze stoupá) na poloze bizona (vlivem teplotních změn severo-jižním a východo-západním směrem). Platí tedy \( H = f(x,y,t) \). Pomocí řetězového pravidla pro derivaci funkce více proměnných je možné vyjádřit rychlost změny teploty podle času, tj. 
+Teplotu vzduchu v místě kde je bizon  označíme \(H\). Tato teplota závisí na čase (protože Slunce na obloze stoupá) a na poloze bizona (vlivem teplotních změn severo-jižním a východo-západním směrem). Platí tedy \( H = f(x,y,t) \). Pomocí řetězového pravidla pro derivaci funkce více proměnných je možné vyjádřit rychlost změny teploty podle času, tj. 
 derivaci \( \mathrm dH / \mathrm dt \), jako součet tří členů:
 $BR
 \[
