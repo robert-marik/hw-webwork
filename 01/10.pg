@@ -35,7 +35,7 @@ Toto platí i pro případ záporného exponentu
 
 Můžeme tedy psát
 [```\frac{\mathrm d}{\mathrm dx} \frac{9}{(5x^2+7)^6}=\frac{\mathrm d}{\mathrm dx} 9(5x^2+7)^{-6} =9\cdot (-6) (5x^2+7)^{-7} 10x =-\frac{540}{(5x^2+7)^7}```]
-Tento výsledek můžeme zapsat například ve tvaru *-540/((5x^2+7)^(-7))* nebo (pokud se nám nechce násobit a psát dlouhou závorku do jmenovatele)
+Tento výsledek můžeme zapsat například ve tvaru *-540/((5x^2+7)^7)* nebo (pokud se nám nechce násobit a psát dlouho závorku do jmenovatele)
 *-9\*6\*10\*x\*(5x^2+7)^(-7)*
 
 ----
@@ -47,6 +47,15 @@ Příklad je analogický výše uvedenému vzoru.
 [_____________________]{$answer}<<
 
 END_PGML
+
+
+BEGIN_PGML_SOLUTION
+[```  \frac{\mathrm df}{\mathrm d[$var]}=[$answer->reduce();]```]
+
+(Automaticky vygenerované řešení, které je pravděpodobně možné dále upravit.)
+
+END_PGML_SOLUTION
+
 
 
 ENDDOCUMENT();

@@ -1,0 +1,57 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$var = 'x';
+$par = 'a';
+
+$a=non_zero_random(2,4);
+do { $b=non_zero_random(2,8) } until ( $b != $a );
+$c=non_zero_random(1,10);
+do {$d=non_zero_random(-10,10); } until ( $c != $d );
+
+Context("Numeric")->variables->are($var=>['Real',limits=>[1,100]],$par=>['Real',limits=>[1,100]]);
+
+$f=Formula("$par*[$var]^$a+$d*[$var]^$b+$c")->reduce();   # funkce
+$answer = $f->D($var);   # derivace
+
+BEGIN_PGML
+
+## Derivace funkce s parametrem namísto koeficientu
+
+Tento příklad je stejného typu jako příklady předchozí. Rozdíl je jenom v tom, že namísto jedné z konstant pracujeme s parametrem. Postup výpočtu derivace je (až na detail v zápise kdy místo konkrétního čísla pracujeme s parametrem) zcela totožný. Odpověď bude funkcí proměnné [`[$var]`] a bude obsahovat parametr [$par]. Jinými slovy: stejně jako v zadání funkce, i v odpovědi budou dvě písmenka.
+
+------------
+
+Napište derivaci [`` \frac{\mathrm df}{\mathrm d[$var]} ``] funkce [``` f([$var])=[$f] ```]  proměnné [`[$var]`] závislé na parametru [`[$par]`].
+
+>>[`` \frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$f]\Bigr) ={}``]
+[_____________________]{$answer}<<
+
+END_PGML
+
+$showHint = 3;
+BEGIN_PGML_HINT
+Platí [```\frac{\mathrm d}{\mathrm d[$var]}[$var]^{[$a]}=[$a]\cdot [$var]^{[$a-1]},```] 
+[```\frac{\mathrm d}{\mathrm d[$var]}[$var]^{[$b]}=[$b]\cdot [$var]^{[$b-1]}```] a [``` \frac{\mathrm d}{\mathrm d[$var]}$c =0.```] Využijte tyto derivace a věty pro počítání s derivacemi, jako derivace součtu a derivace konstantního násobku.
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+[```  \frac{\mathrm df}{\mathrm d[$var]}=[$answer->reduce();]```]
+
+(Automaticky vygenerované řešení, které je pravděpodobně možné dále upravit.)
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

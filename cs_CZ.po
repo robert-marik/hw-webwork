@@ -7,12 +7,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-06-30 14:57+0200\n"
+"PO-Revision-Date: 2020-06-30 22:23+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.3\n"
 "Last-Translator: Robert Mařík\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
 "Language: cs_CZ\n"
@@ -149,7 +149,7 @@ msgstr "Nové heslo uživatele %1"
 #. ($e_user_name)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Options.pm:121
 msgid "%1's new password cannot be blank."
-msgstr ""
+msgstr "Nové heslo uživatele %1 nemůže být prázdné."
 
 #. ($e_user_name)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Options.pm:107
@@ -237,7 +237,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Hardcopy.pm:1261
 msgid "(correct)"
-msgstr ""
+msgstr "(správně)"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetDetail2.pm:221
 msgid "(gw/quiz) After version answer date"
@@ -245,7 +245,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Hardcopy.pm:1263
 msgid "(incorrect)"
-msgstr ""
+msgstr "(nesprávně)"
 
 #. ($recScore)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Hardcopy.pm:1265
@@ -4082,7 +4082,7 @@ msgstr ""
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/StudentProgress.pm:838
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/StudentProgress.pm:866
 msgid "Out Of"
-msgstr "z celkových"
+msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:449
 msgid "Over time, closed."
@@ -8969,7 +8969,7 @@ msgstr ""
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetDetail2.pm:357
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSet.pm:506
 msgid "unlimited"
-msgstr "bez omezení"
+msgstr ""
 
 #. ($userID)
 #: /opt/webwork/webwork2/lib/WeBWorK/Authen/LTIBasic.pm:564
