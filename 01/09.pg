@@ -24,7 +24,7 @@ $answer = $f->D();   # derivace
 
 BEGIN_PGML
 
-## Derivace mocninné funkce s vnitřní složkou
+## Derivace mocninné funkce s polynomiální vnitřní složkou
 
 Derivace složené funkce je [``` (f(g(x)))' = f'(g(x)) g'(x).```]
 Lépe to je vidět na konkrétním příkladě. Například, pokud je vnější funkce       mocninná funkce, 

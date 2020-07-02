@@ -38,7 +38,7 @@ Tento příklad je opět podobného stejného typu jako příklad předchozí. J
 
 ------------
 
-Vypočtěte následující derivaci funkce jedné proměnné s parametrem [$i].
+Vypočtěte následující derivaci funkce jedné proměnné s parametrem.
 
 >>[`` \frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$f]\Bigr) ={}``]
 [_____________________]{$answer}<<
