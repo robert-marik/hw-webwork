@@ -41,7 +41,7 @@ END_PGML
 $showHint = 3;
 BEGIN_PGML_HINT
 Platí [```\frac{\mathrm d}{\mathrm d[$var]}[$var]^{[$a]}=[$a]\cdot [$var]^{[$a-1]},```] 
-[```\frac{\mathrm d}{\mathrm d[$var]}[$var]^{[$b]}=[$b]\cdot [$var]^{[$b-1]}```] a [``` \frac{\mathrm d}{\mathrm d[$var]}$c =0.```] Využijte tyto derivace a věty pro počítání s derivacemi, jako derivace součtu a derivace konstantního násobku.
+[```\frac{\mathrm d}{\mathrm d[$var]}[$var]^{[$b]}=[$b]\cdot [$var]^{[$b-1]}```] a [``` \frac{\mathrm d}{\mathrm d[$var]}[$c] =0.```] Využijte tyto derivace a věty pro počítání s derivacemi, jako derivace součtu a derivace konstantního násobku.
 END_PGML_HINT
 
 
