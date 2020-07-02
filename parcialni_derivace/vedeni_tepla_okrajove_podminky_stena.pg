@@ -69,8 +69,9 @@ BEGIN_PGML
 
 Rovnice vedení tepla v jedné dimenzi je rovnice
 [```m \varrho \frac{\partial T}{\partial t}=\frac{\partial}{\partial x}
-\left(\lambda \frac{\partial T}{\partial x}\right).```]
-Tato rovnice může modelovat teplotní pole ve stěně, ve které zanedbáváme efekty spojené s chováním teplotního pole v rozích. Proto je nutné tuto rovnici doplnit ještě dalšími informacemi charakterizujícími podmínky, ve kterých se tato stěna nachází.
+\left(\lambda \frac{\partial T}{\partial x}\right).```] Zde [`T`] je teplota v daném místě a čase, derivace podle času [``\frac{\partial T}{\partial t}``] označuje rychlost s jakou se mění (roste) teplota a [``\frac{\partial T}{\partial x}``] je gradient teploty (prostorová změna teploty). Gradient úzce souvisí s tokem podle Fourierova zákona a proto můžeme tok přepočítávat na gradient a naopak.
+
+Uvedená rovnice může modelovat teplotní pole ve stěně, ve které zanedbáváme efekty spojené s chováním teplotního pole v rozích. Proto je nutné tuto rovnici doplnit ještě dalšími informacemi charakterizujícími podmínky, ve kterých se tato stěna nachází.
 
 [@ image("stena.png", width=>300) @]*
 
@@ -117,6 +118,13 @@ ANS( str_cmp( $ml->ra_correct_ans ) );
 
 @correct = @{$ml->ra_correct_ans()};
 $answerstring = join(", ", @correct);
+
+$showHint = 3;
+
+BEGIN_PGML_HINT
+* Ujasněte si, kdy pracujeme s vnější a kdy vnitřní stěnou a která hodnota [`x`] k tomuto patří.
+* Ujasněte si, zda je v podmínce pevně definována teplota, nebo tok (a zprostředkovaně gradient) nebo vztah mezi teplotou a tokem (a zprostředkovaně tok mezi teplotou a gradientem).
+END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 Správné odpovědi jsou [$answerstring].
