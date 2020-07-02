@@ -42,10 +42,18 @@ Tento výsledek můžeme zapsat například ve tvaru *65\*(5\*x+7)^(12)* nebo (p
 Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$f] .```]
 Příklad je analogický výše uvedenému vzoru.
 
->>[`` f'([$var])=\frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$f]\Bigr) ={}``]
+>>[`` f'([$var])=\frac{\mathrm d}{\mathrm d[$var]} [$f] ={}``]
 [_____________________]{$answer}<<
 
 END_PGML
+
+
+$showHint = 3;
+
+BEGIN_PGML_HINT
+Použijte 
+[``` \frac{\mathrm d}{\mathrm dx} (g(x))^[$c]  = [$c](g(x))^{[$c-1]} \frac{\mathrm dg}{\mathrm dx}.```]
+END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 [```  \frac{\mathrm df}{\mathrm d[$var]}=[$answer->reduce();]```]

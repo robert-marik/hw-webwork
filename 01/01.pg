@@ -24,7 +24,8 @@ BEGIN_PGML
 ## Derivace mocninné funkce
 
 Derivace mocninné funkce je dána vzorcem [```\left(x^n\right)'=\frac{\mathrm d}{\mathrm dx}\left(x^n\right)=n x^{n-1}.```]
-Slovy: "mocninnou funkci derivujeme tak, že exponent použijeme před funkcí jako konstantní násobek a zmenšíme jej o jedničku."
+Slovy: _mocninnou funkci derivujeme tak, že exponent použijeme před funkcí jako konstantní násobek a zmenšíme jej o jedničku._
+
 Kromě toho víme, že derivace konstantního násobku je konstantní násobek derivace. Můžeme tedy psát (pomocí zkrácené Lagrangeovy notace)
 [```(3x^6)'=3(x^6)'=3\cdot 6 x^5=18x^5.```]
 Tento výsledek můžeme zapsat například ve tvaru *18\*x^5* nebo *3\*6x^5*.
@@ -40,7 +41,9 @@ END_PGML
 
 $showHint = 3;
 BEGIN_PGML_HINT
-Podle vzorce, kdy uvažujeme [`n=[$a]`] platí [```\left(x^{[$a]}\right)'=[$a]\cdot x^{[$a-1]}.```] Kromě toho máme násobek uvedeného vzorce.
+Ve vzorci
+[```\left(x^n\right)'=\frac{\mathrm d}{\mathrm dx}\left(x^n\right)=n x^{n-1}```]
+uvažujte [`n=[$a]`]. Kromě toho vezměte v úvahu, že máme násobek uvedeného vzorce.
 END_PGML_HINT
 
 

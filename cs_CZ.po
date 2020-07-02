@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-06-30 22:23+0200\n"
+"PO-Revision-Date: 2020-07-02 21:48+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -129,12 +129,12 @@ msgstr "%1% správně"
 #. ($e_user_name)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Options.pm:187
 msgid "%1's Current Address"
-msgstr "Současná adresa uživatele %1."
+msgstr "Současná adresa uživatele %1"
 
 #. ($user_name)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Options.pm:142
 msgid "%1's Current Password"
-msgstr "Současné heslo uživatele %1."
+msgstr "Současné heslo uživatele %1"
 
 #. ($e_user_name)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Options.pm:191
@@ -191,7 +191,7 @@ msgstr ""
 #. ($numBlanks)
 #: /opt/webwork/webwork2/lib/WeBWorK/Utils/AttemptsTable.pm:416
 msgid "%quant(%1,of the questions remains,of the questions remain) unanswered."
-msgstr "%quant(%1,otázka,otázek) bez odpovědi."
+msgstr "Nebylo odpovězené na %quant(%1,otázku,otázky)."
 
 #. ($succeeded_count)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/CourseAdmin.pm:3144
@@ -1445,7 +1445,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:554
 msgid "Closed, answers available."
-msgstr "Odevzdávání ukončeno, řešení jsou zpřístupněna."
+msgstr "Odevzdávání ukončeno, řešení jsou k dispozici."
 
 #. ($self->formatDateTime($set->answer_date,undef,$ce->{studentDateDisplayFormat})
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:550
@@ -1454,7 +1454,7 @@ msgstr "Odevzdávání ukončeno. Termín zpřístupnění řešení je %1."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:552
 msgid "Closed, answers recently available."
-msgstr ""
+msgstr "Odevzdávání ukončeno, řešení byla nedávno uvolněna."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:506
 msgid "Closed."
@@ -2079,11 +2079,11 @@ msgstr ""
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSet.pm:359
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSet.pm:454
 msgid "Download PDF or TeX Hardcopy for Current Set"
-msgstr "Stáhnout zadání v PDF formátu."
+msgstr "Stáhnout zadání v PDF formátu"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:325
 msgid "Download PDF or TeX Hardcopy for Selected Sets"
-msgstr "Stáhnout zadání v PDF formátu."
+msgstr "Stáhnout zadání v PDF formátu"
 
 #. ($selected_set_id, $Users[0]->first_name." ".$Users[0]->last_name)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Hardcopy.pm:560
@@ -7914,7 +7914,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Feedback.pm:323
 msgid "Your message was sent successfully."
-msgstr "Zpráva byla úspěšně toodeslána. "
+msgstr "Zpráva byla úspěšně odeslána."
 
 #. ($lastScore,$notCountedMessage)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:1620

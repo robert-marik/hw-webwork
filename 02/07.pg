@@ -28,9 +28,9 @@ BEGIN_PGML
 Bazální metabolismus [`M`] souvisí s hmotností [`W`] vztahem
 [```M = AW^n```] kde [`n`] je pro mnoho živočišných druhů blízké
 číslu [`0.75`] a [`A`] je konstanta, která je specifická
-pro daný druh a v rámci daného druhu klesá s věkem. Tento vztah je v literatuře znám jako Kleiberův zákon. Vysvětluje se pomocí něj rozdílná délka života ruzných živočišných druhů.
+pro daný druh a v rámci daného druhu klesá s věkem. Tento vztah je v literatuře znám jako Kleiberův zákon. Vysvětluje se pomocí něj rozdílná délka života různých živočišných druhů.
 
-Pro zadaný druh a věk jedince můžeme pro relativní porovnávání zvolit jednotky v nichž měříme bazální metebolismus tak, že konstanta [`A`] je rovna jedné. Vztah mezi metabolismem a hmotností se tím redukuje na [``` M=W^{0.75}.```]
+Pro zadaný druh a věk jedince můžeme pro relativní porovnávání zvolit jednotky v nichž měříme bazální metabolismus tak, že konstanta [`A`] je rovna jedné. Vztah mezi metabolismem a hmotností se tím redukuje na [``` M=W^{0.75}.```]
 
 Uvažujme tento zjednodušený vztah a jedince o hmotnosti [``W=[$W]``], jehož hmotnost roste rychlostí [``\frac{\mathrm dW}{\mathrm dt}=[$dW].``] Určete jak rychle roste bazální metabolismus. (Veškré údaje v jednotkách kompatibilních s řešenou úlohou a proto jednotky nemusíte uvažovat.)
 

@@ -76,6 +76,10 @@ $ENV{'grader_message'} = "Za částečně správnou odpověď získáte částe�
 
 ANS( str_cmp( $tf->ra_correct_ans() ) );
 
+$showHint = 3;
+BEGIN_PGML_HINT
+Pozorně čtěte, jakou rychlost sledujeme a v obrázku najděte příslušnou měnící se veličinu a její označení.
+END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 Rychlost s jakou roste délka stínu je derivace délky stínu podle času, tj. [``\frac{\mathrm db}{\mathrm dt}``], protože délka stínu je [`b`].

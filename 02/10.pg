@@ -13,6 +13,7 @@ $showPartialCorrectAnswers = 1;
 Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]],'dT'=>'Real', 'dx'=>'Real', 'dc'=>'Real', 'T'=>'Real', 't'=>'Real', 'k'=>'Real','p'=>'Real','c'=>'Real','x'=>'Real');
 
 $k=random(15,28,1);
+$p=random(25,58,1);
 
 BEGIN_PGML
 
@@ -20,15 +21,17 @@ BEGIN_PGML
 
 [@ image("pozarnik.jpg", width=>400) @]*
 
-Derivace popisuje rychlost změny a proto je vhodná pro popis dějů probíhajících rychlostí, která se mění v čase. Někdy na rychlost změny má vliv více procesů a potom se jejich vlivy sčítají. Například při dopadu konstantního tepelného výkonu na těleso se zvyšuje teplota tohoto tělesa absorbováním dopadající energie. Teplota tedy roste konstantní rychlostí. Označme tuto konstantu [`k_1`]. Kromě toho těleso také vyzařuje teplo a toto vyzařování je podle vyzařovacího zákona úměrné čtvrté mocnině teploty. Proto vlivem vyzařování teplota klesá rychlostí úměrnou [`T^4`]. Označme tuto konstantu [`k_2`]. Matematický model celého procesu je poté [``` \frac{\mathrm dT}{\mathrm dt} =k_1 - k_2 T^4.```] Tento matematický model je užitečný například při posouzení odolnosti ochranných obleků proti požáru, kde fyzikálními vlastnostmi a způsobem výroby umíme ovlivnit velikosti příslušných konstant a řešením modelu posoudit vlastnosti ochranného obleku dříve, než vyrobíme testovací vzorek.
+Derivace popisuje rychlost změny a proto je vhodná pro popis dějů probíhajících známou rychlostí. Toto nevylučuje ani rychlosti, které se mění v čase a v těchto případech je derivace vlastně přirozený nástroj pro studium zadaného problému.
 
-Pokusíme se o podobné u modelů podobných procesů.
+Někdy na rychlost změny má vliv více procesů a potom se jejich vlivy sčítají. Například při dopadu konstantního tepelného výkonu na těleso se zvyšuje teplota tohoto tělesa absorbováním dopadající energie. Teplota tedy roste konstantní rychlostí. Označme tuto konstantu [`k_1`]. Kromě toho těleso také vyzařuje teplo a toto vyzařování je podle vyzařovacího zákona úměrné čtvrté mocnině teploty. Proto vlivem vyzařování teplota klesá rychlostí úměrnou [`T^4`]. Označme tuto konstantu [`k_2`]. Matematický model celého procesu je poté [``` \frac{\mathrm dT}{\mathrm dt} =k_1 - k_2 T^4.```] Tento matematický model je užitečný například při posouzení odolnosti ochranných obleků proti požáru, kde fyzikálními vlastnostmi a způsobem výroby umíme ovlivnit velikosti příslušných konstant. Řešením matematického modelu umíme prozkoumat vlastnosti ochranného obleku dříve, než vyrobíme testovací vzorek.
+
+Pokusíme se o podobné u modelů dalších procesů. Vždy budou hrát roli dva faktory a jejich působení se budou sčítat resp. odečítat.
 
 -----
 
-* Do chráněné lokality proudí znečišťující látky. Rychlost s jakou v dané lokalitě přibývají je [`[$k]`] jednotek za týden. Naštěstí je však látka nestabilní a rozkládá se. Za týden se samovolně rozloží polovina, tj. 50 procent látky. Napište výsledný matematický model pro vývoj množství znečišťující látky v dané lokalitě. Množství látky označte [`x`] a sledujte jej jako funkci času. Jednotku času volte pro větší pohodlí jeden týden. (Nezapomeňte procenta převést na desetinné číslo.)
->> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{Formula("[$k]-0.5*x")}<<
-* Nechť [`x`] označuje velikost populace zvěře v dané lokalitě. Předpokládejme, že rychlost s jakou roste populace je úměrná velikosti populace. Konstantu úměrnosti označme [`k`]. Předpokládejme dále, že populace je vystavena lovu konstantní intenzity. Tuto intenzitu označme [`p`]. Napište výsledný matematický model pro růst takové populace.
+* Do chráněné lokality proudí znečišťující látky. Rychlost s jakou v dané lokalitě přibývají je [`[$k]`] jednotek za týden. Naštěstí je však látka nestabilní a rozkládá se. Za týden se samovolně rozloží [$p] procent látky. Napište výsledný matematický model pro vývoj množství znečišťující látky v dané lokalitě. Množství látky označte [`x`] a sledujte jej jako funkci času. Jednotku času volte pro maximální pohodlí jeden týden. (Nezapomeňte procenta převést na desetinné číslo.)
+>> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{Formula("[$k]-[$p]*x/100")}<<
+* Nechť [`x`] označuje velikost populace zvěře v dané lokalitě. Předpokládejme, že rychlost s jakou roste populace je úměrná velikosti populace. Konstantu úměrnosti označme [`k`]. Předpokládejme dále, že populace je vystavena lovu konstantní intenzity. Tuto intenzitu (množství odlovené zvěře za jednotku času) označme [`p`]. Napište výsledný matematický model pro růst takové populace.
 >> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{Formula("k*x-p")}<<
 * Nechť [`c`] označuje koncentraci léku v krvi pacienta. Z farmakokinetiky ja známo, že díky odbourávání klesá koncentrace rychlostí úměrnou této koncentraci. Konstantu úměrnosti označme [`k`]. Předpokládejme dále, že pacient je napojený na infuzi, která mu zvyšuje koncentraci léku v krvi konstantní rychostí.  Tuto rychlost označme [`p`]. Napište výsledný matematický model pro růst takové populace.
 >> [``\frac{\mathrm dc}{\mathrm dt}=``][__________]{Formula("p-c*k")}<<

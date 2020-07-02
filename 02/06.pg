@@ -43,7 +43,7 @@ END_PGML
 
 $showHint = 3;
 BEGIN_PGML_HINT
-Známe derivaci objemu podle času a potřebujeme znát derivaci poloměru podle času. Protože známe objem jako funkci poloměru, můžeme najít derivaci objemu podle poloměru. K derivaci objemu podle času se poté dostaneme, pokud budeme závislost objemu na čase brát zprostředkovaně přes poloměr. Poté se použije zadaná rychlost nafukování a dostaneme rovnici umožnující určit hlednou veličinu.
+Známe derivaci objemu podle času a potřebujeme znát derivaci poloměru podle času. Protože známe objem jako funkci poloměru, můžeme najít derivaci objemu podle poloměru. K derivaci objemu podle času se poté dostaneme, pokud budeme závislost objemu na čase brát zprostředkovaně přes poloměr. Poté se použije zadaná rychlost nafukování a dostaneme rovnici umožnující určit hlednou veličinu. Ve výsledné rovnici budou rychlost změny objmeu (označená [`q`], poloměr a rychlost změny poloměru).
 END_PGML_HINT
 
 

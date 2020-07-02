@@ -38,7 +38,7 @@ Předpokládejme, že hloubka vody v poldru je [``h=[$h]\mathrm{cm}``] a hloubka
 
 >>[``\frac{\mathrm dV}{\mathrm dt}={}``] [______________]{$answer}[``\mathrm {m}^3/\mathrm{hod}``]<<
 
-_Vaše odpověď by měla obsahovat konstantu [`k`], jejíž hodnota nebyla zadána._
+_Vaše odpověď by měla obsahovat konstantu [`k`], jejíž hodnota nebyla zadána. Vše je v jednotkách kompatibilních se zadaným vzorcem (hloubka v centimetrech, objem v metrech krychlových) a jednotky není nutné uvažovat._
 
 END_PGML
 

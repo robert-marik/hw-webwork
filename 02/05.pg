@@ -24,7 +24,7 @@ $radio1 = RadioButtons(
 BEGIN_PGML
 
 
-## Aplikace derivací a šíření ondatry
+## Derivace a rychlost šíření výskytu ondatry
 
 [@ image("ondatra.jpg", width=>400) @]*
 
@@ -33,12 +33,19 @@ párů ondatry, které dovezl z Ameriky. Ondatra se díky absenci
 přirozených nepřátel rychle rozšířila po celé Evropě. Předpokládejme,
 že oblast zasažená rozšířením ondatry má tvar kruhu o poloměru [``230\,
 \mathrm{km}``] a tento poloměr roste rychlostí [``30
-\,\mathrm{km}/\mathrm{rok}``]. Vyznačte výpočet který udává rychlost s jakou se šíří plocha uzemí, zasažení ondatrou (tj. rychlost s jakou roste obsah kruhu).
+\,\mathrm{km}/\mathrm{rok}``]. Vyznačte výpočet který udává rychlost s jakou se šíří plocha uzemí zasaženého ondatrou (tj. rychlost s jakou roste obsah kruhu).
 Vycházíme ze vzorce pro obsah kruhu [```S=\pi r^2.```]
 
 [_]{$radio1}
        
 END_PGML
+
+$showHint = 3;
+BEGIN_PGML_HINT
+Úloha je analogická úloze na rozšiřování požáru z úvodního cvičení k předmětu Matematika.
+END_PGML_HINT
+
+
 
 BEGIN_PGML_SOLUTION
 Potřebujeme znát derivaci obsahu podle času. Protože známe obsah jako funkci poloměru, můžeme najít derivaci obsahu podle poloměru. K derivaci obsahu podle času se dostaneme použitím derivace složené funkce.

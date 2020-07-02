@@ -27,7 +27,7 @@ BEGIN_PGML
 
 ## Derivace funkce s parametrem namísto koeficientu
 
-Tento příklad je stejného typu jako příklady předchozí. Rozdíl je jenom v tom, že namísto jedné z konstant pracujeme s parametrem. Postup výpočtu derivace je (až na detail v zápise kdy místo konkrétního čísla pracujeme s parametrem) zcela totožný. Odpověď bude funkcí proměnné [`[$var]`] a bude obsahovat parametr [$par]. Jinými slovy: stejně jako v zadání funkce, i v odpovědi budou dvě písmenka.
+Tento příklad je stejného typu jako příklady předchozí. Rozdíl je jenom v tom, že namísto jedné z konstant pracujeme s parametrem. Postup výpočtu derivace je (až na detail v zápise kdy místo konkrétního čísla pracujeme s parametrem) zcela totožný. Odpověď bude funkcí proměnné [`[$var]`] a bude obsahovat parametr [`[$par]`]. Jinými slovy: stejně jako v zadání funkce, i v odpovědi budou dvě písmenka.
 
 ------------
 
