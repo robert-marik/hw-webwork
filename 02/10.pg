@@ -33,7 +33,7 @@ Pokusíme se o podobné u modelů dalších procesů. Vždy budou hrát roli dva
 >> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{Formula("[$k]-[$p]*x/100")}<<
 * Nechť [`x`] označuje velikost populace zvěře v dané lokalitě. Předpokládejme, že rychlost s jakou roste populace je úměrná velikosti populace. Konstantu úměrnosti označme [`k`]. Předpokládejme dále, že populace je vystavena lovu konstantní intenzity. Tuto intenzitu (množství odlovené zvěře za jednotku času) označme [`p`]. Napište výsledný matematický model pro růst takové populace.
 >> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{Formula("k*x-p")}<<
-* Nechť [`c`] označuje koncentraci léku v krvi pacienta. Z farmakokinetiky ja známo, že díky odbourávání klesá koncentrace rychlostí úměrnou této koncentraci. Konstantu úměrnosti označme [`k`]. Předpokládejme dále, že pacient je napojený na infuzi, která mu zvyšuje koncentraci léku v krvi konstantní rychostí.  Tuto rychlost označme [`p`]. Napište výsledný matematický model pro růst takové populace.
+* Nechť [`c`] označuje koncentraci léku v krvi pacienta. Z farmakokinetiky je známo, že díky odbourávání klesá koncentrace rychlostí úměrnou této koncentraci. Konstantu úměrnosti označme [`k`]. Předpokládejme dále, že pacient je napojený na infuzi, která mu zvyšuje koncentraci léku v krvi konstantní rychostí.  Tuto rychlost označme [`p`]. Napište výsledný matematický model pro růst takové populace.
 >> [``\frac{\mathrm dc}{\mathrm dt}=``][__________]{Formula("p-c*k")}<<
 
 
