@@ -48,7 +48,7 @@ END_PGML
 
 BEGIN_PGML_HINT
 Použijte 
-[``` \frac{\mathrm d}{\mathrm dx} \frac{(g(x))^[$c]}  = -[$c]\frac1{(g(x))^{[$c+1]}} \frac{\mathrm dg}{\mathrm dx}.```]
+[``` \frac{\mathrm d}{\mathrm dx} \frac 1{(g(x))^[$c]}  = -[$c]\frac 1{(g(x))^{[$c+1]}} \frac{\mathrm dg}{\mathrm dx}.```]
 END_PGML_HINT
 
 

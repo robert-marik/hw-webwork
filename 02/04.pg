@@ -36,7 +36,6 @@ $tf -> qa (
 "Vyberte z rozbalovací nabídky veličinu vyjadřující rychlost, s jakou stoupá zátěž.","dh/dt",
 "Vyberte z rozbalovací nabídky veličinu vyjadřující rychlost, s jakou se mění délka lana. (Tato derivace bude nulová pro neprotažitelné lano, které držíme stále ve stejném místě. Bude kladná buď pro elastické lano, které se prodlužuje, nebo pro lano které klouže mezi prsty. Bude záporná v případě, že člověk při vytahování lano přechytává a tím zkracuje část lana nesoucí zátěž.)","dL/dt",
 "Vyberte z rozbalovací nabídky veličinu vyjadřující rychlost, s jakou se mění výška ve které se nachází kladka. (Bude nulová pro pevně ukotvenou kladku, což je asi prakticky nejvíce využitelný případ.)","dH/dt",
-"Vyberte z rozbalovací nabídky veličinu vyjadřující rychlost, s jakou se mění výška ve které držíme konec lana.","db/dt",
 );
 
 # How many questions to use
@@ -53,7 +52,7 @@ Na obrázku je člověk, který tahá přes kladku na provaze délky [`L`] zát�
 
 * Výška ve které je umístěna kladka je [`H`].
 * Výška ve které je zátěž je [`h`].
-* Vška ve které člověk drží lano je [`b`].
+* Výška ve které člověk drží lano je [`b`].
 
 Čas označíme [`t`] a v rozbalovacím menu jsou derivace podle času. Vyberte ke každé rychlosti změny správnou derivaci.
 

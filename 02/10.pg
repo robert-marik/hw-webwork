@@ -42,7 +42,7 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 Přímým přepisem slovního zadání do kvantitativních pojmů dostáváme pro jednotlivé modely rovnice
-[``` \frac{\mathrm dx}{\mathrm dt}= [$k]-\frac 12 x,```]
+[``` \frac{\mathrm dx}{\mathrm dt}= [$k]-[$p/100] x,```]
 [``` \frac{\mathrm dx}{\mathrm dt}= kx-p```]
 a
 [``` \frac{\mathrm dc}{\mathrm dt}= p-kc.```]
