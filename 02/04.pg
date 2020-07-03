@@ -39,7 +39,7 @@ $tf -> qa (
 );
 
 # How many questions to use
-$tf->choose(5);
+$tf->choose(4);
 
 
 BEGIN_PGML
