@@ -34,7 +34,7 @@ Tento příklad je stejného typu jako příklad předchozí. Rozdíl je jenom v
 Napište derivaci [`` \frac{\mathrm df}{\mathrm d[$var]} ``] funkce [``` f([$var])=[$f] ```]  proměnné [`[$var]`] závislé na parametru [`[$par]`].
 
 >>[`` \frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$f]\Bigr) ={}``]
-[_____________________]{$answer}<<
+[_____________________]{$answer->cmp(limits=>[[1,2],[1,2]])}<<
 
 END_PGML
 
