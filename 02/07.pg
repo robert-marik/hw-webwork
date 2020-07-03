@@ -32,7 +32,7 @@ pro daný druh a v rámci daného druhu klesá s věkem. Tento vztah je v litera
 
 Pro zadaný druh a věk jedince můžeme pro relativní porovnávání zvolit jednotky v nichž měříme bazální metabolismus tak, že konstanta [`A`] je rovna jedné. Vztah mezi metabolismem a hmotností se tím redukuje na [``` M=W^{0.75}.```]
 
-Uvažujme tento zjednodušený vztah a jedince o hmotnosti [``W=[$W]``], jehož hmotnost roste rychlostí [``\frac{\mathrm dW}{\mathrm dt}=[$dW].``] Určete jak rychle roste bazální metabolismus. (Veškré údaje v jednotkách kompatibilních s řešenou úlohou a proto jednotky nemusíte uvažovat.)
+Uvažujme tento zjednodušený vztah a jedince o hmotnosti [``W=[$W]``], jehož hmotnost roste rychlostí [``\frac{\mathrm dW}{\mathrm dt}=[$dW].``] Určete jak rychle roste bazální metabolismus. (Veškeré údaje v jednotkách kompatibilních s řešenou úlohou a proto jednotky nemusíte uvažovat.)
 
 >>[``\frac{\mathrm dM}{\mathrm dt}=``][_______________________]{$answer}<<
 
@@ -44,12 +44,12 @@ END_PGML
 
 $showHint = 3;
 BEGIN_PGML_HINT
-Známe derivaci [``\frac{\mathrm dW}{\mathrm dt}=[$dW],``] ze vztahu [``` M=W^{0.75}```] umíme vypočítat [``\frac{\mathrm dM}{\mathrm dW}``] a díky vzorci pro derivaci složemé funkce víme, jak tyto výrazy zkombinovat, abychom dostali [``\frac{\mathrm dM}{\mathrm dt}.``]
+Známe derivaci [``\frac{\mathrm dW}{\mathrm dt}=[$dW],``] ze vztahu [``` M=W^{0.75}```] umíme vypočítat [``\frac{\mathrm dM}{\mathrm dW}``] a díky vzorci pro derivaci složené funkce víme, jak tyto výrazy zkombinovat, abychom dostali [``\frac{\mathrm dM}{\mathrm dt}.``]
 END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
-Známe derivaci [``\frac{\mathrm dW}{\mathrm dt}=[$dW],``] ze vztahu [``` M=W^{0.75}```] umíme vypočítat [``\frac{\mathrm dM}{\mathrm dW}=0.75 W^{-0.75}``] a díky vzorci pro derivaci složemé funkce máme [```\frac{\mathrm dM}{\mathrm dt}=0.75 W^{-0.25}\frac{\mathrm dW}{\mathrm dt}.```]
+Známe derivaci [``\frac{\mathrm dW}{\mathrm dt}=[$dW],``] ze vztahu [``` M=W^{0.75}```] umíme vypočítat [``\frac{\mathrm dM}{\mathrm dW}=0.75 W^{-0.25}``] a díky vzorci pro derivaci složené funkce máme [```\frac{\mathrm dM}{\mathrm dt}=0.75 W^{-0.25}\frac{\mathrm dW}{\mathrm dt}.```]
 Pro zadané hodnoty dostáváme
 [```\frac{\mathrm dM}{\mathrm dt}=0.75 ([$W])^{-0.25}[$dW]=[$answer].```]
 

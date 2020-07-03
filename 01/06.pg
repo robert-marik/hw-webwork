@@ -56,8 +56,6 @@ BEGIN_PGML_SOLUTION
 
 [```  \frac{\mathrm d}{\mathrm d[$var]}\left( [$f] \right)=[$answer->reduce();]```]
 
-(Automaticky vygenerované řešení, které je pravděpodobně možné dále upravit.)
-
 END_PGML_SOLUTION
 
 
