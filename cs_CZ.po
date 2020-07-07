@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-07-03 09:30+0200\n"
+"PO-Revision-Date: 2020-07-07 09:45+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -341,6 +341,9 @@ msgid ""
 "check that no problems are missing and that they are all legible. If not, "
 "please inform your instructor."
 msgstr ""
+"Tištěná verze byla vytvořena, ale může být nekompletní nebo nesprávně "
+"formátována. Zkontrolujte prosím, že žádná úloha nechybí a není "
+"nesrozumitelná. V případě problémů kontaktujte vyučujícího."
 
 #. ($locationID)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/CourseAdmin.pm:2714
@@ -2069,7 +2072,7 @@ msgstr ""
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:261
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:267
 msgid "Download Hardcopy"
-msgstr ""
+msgstr "Stáhnout PDF"
 
 #. ($pl)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:317
@@ -2925,7 +2928,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Hardcopy.pm:472
 msgid "Generate Hardcopy"
-msgstr ""
+msgstr "Stáhnout"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Hardcopy.pm:472
 msgid "Generate hardcopy for selected sets and selected users"
@@ -3041,12 +3044,12 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Hardcopy.pm:605
 msgid "Hardcopy Format:"
-msgstr ""
+msgstr "Formát:"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/URLPath.pm:295
 #: /opt/webwork/webwork2/lib/WeBWorK/URLPath.pm:304
 msgid "Hardcopy Generator"
-msgstr ""
+msgstr "Stažení tištěné verze"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetDetail2.pm:100
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetList.pm:448
@@ -7676,6 +7679,8 @@ msgid ""
 "and solutions are only available %1 after the answer date of the homework "
 "set."
 msgstr ""
+"Následující data je možné zahrnout do tištěné verze. Správné odpovědi, "
+"nápověda a řešení jsou k dispozici %1 po zveřejnění řešení."
 
 #: /opt/webwork/pg/macros/compoundProblem.pl:610
 msgid "You may not change your answers when going on to the next part!"
