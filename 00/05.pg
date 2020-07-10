@@ -29,10 +29,10 @@ MATLAB je možné si stáhnout pro libivolný operační systém na vlastní po�
 
 MATLAB umožňuje výpočty derivací, které nás budou provázet na začátku semestru, obzvlášť skvělý je však při práci s mnohorozměrnými objekty, které budeme nazývat matice. V menu programu MATLAB (na počítači nebo v online verzi) si vyberte "New Live script" a zapište (překopírujte) následující příkazy.
 
-:   A=toeplitz([2,-1,zeros(1,18)])
+:   A=toeplitz(\[2,-1,zeros(1,18)\])
 :   det(A)
 
-V pravé části okna uvidíte po spuštění (zelená šipka Run) matici 20 krát 20, tj. obsahující celkem 400 prvků jako výsledek výpočtu v prvním řádku a pod tím tzv determinant matice matice uvozený rovností *ans = * a poté číslem. Toto číslo je odpovědí na otázku v této úloze. 
+V pravé části okna uvidíte po spuštění (zelená šipka Run) matici 20 krát 20, tj. obsahující celkem 400 prvků jako výsledek výpočtu v prvním řádku a pod tím tzv determinant matice matice uvozený rovností *ans =* a poté číslem. Toto číslo je odpovědí na otázku v této úloze. 
 
 >>Výsledek výpočtu je ans = [__________________]{$f}.<<
 

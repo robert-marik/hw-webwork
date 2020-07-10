@@ -20,9 +20,9 @@ $f=Formula("sqrt(2)")->reduce();   # funkce
 
 BEGIN_PGML
 
-## Otázka na níž je odpovědí číslo, podruhé
+## Otázka s odpovědí ve tvaru čísla podruhé
 
-Kladné řešení rovnice [```x^2-2=0```] je [``\sqrt 2``]. Aby systém správně odpověď vyhodnotil je nutné zapsat tuto hodnotu přesně, tj. pomocí funkce udávající druhou odmocninu. Například druhou odmocninu z pěti, [``\sqrt 5``] můžeme zapsat jako *sqrt(5)* nebo *5^(1/2)* nebo *5\*\*(1/2)*. (Odmocnina je totéž co mocnina na jednu polovinu a mocninu zapisujeme pomocí znaku *^* nebo pomocí dvojice znaků *\*\**.) Alternativou, která je také správneě rozpoznána ale není preferována, je použít více desetinných míst, než je nastavená přesnost.
+Kladné řešení rovnice [```x^2-2=0```] je [``\sqrt 2``]. Aby systém správně odpověď vyhodnotil je nutné zapsat tuto hodnotu přesně, tj. pomocí funkce udávající druhou odmocninu. Například druhou odmocninu z pěti, [``\sqrt 5``] můžeme zapsat jako *sqrt(5)* nebo *5^(1/2)* nebo *5\*\*(1/2)*. (Odmocnina je totéž co mocnina na jednu polovinu a mocninu zapisujeme pomocí znaku *^* nebo pomocí dvojice znaků *\*\**.) Alternativou, která je také správně rozpoznána ale není preferována, je použít více desetinných míst, než je nastavená přesnost.
 
 >>Kladné řešení rovnice [``x^2-2=0``] je [`x={}`][__________]{$f}.<<
 

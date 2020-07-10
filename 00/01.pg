@@ -20,7 +20,7 @@ $f=Formula("10")->reduce();   # funkce
 
 BEGIN_PGML
 
-## Otázka na níž je odpovědí číslo
+## Otázka s odpovědí ve tvaru čísla
 
 Na některou otázku v systému je odpovědí číslo. Toto číslo se posuzuje numericky s danou přesností. Odpovědí na následující otázku je číslo [`10`], ale například i součin [`2\times 5`] (zapíšeme jako *2\*5*).
 
