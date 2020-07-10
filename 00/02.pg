@@ -1,0 +1,40 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+$a=non_zero_random(2,8);
+$c=non_zero_random(-10,10);
+
+Context("Numeric")->variables->are($var=>'Real');
+
+$f=Formula("sqrt(2)")->reduce();   # funkce
+
+BEGIN_PGML
+
+## Otázka na níž je odpovědí číslo, podruhé
+
+Kladné řešení rovnice [```x^2-2=0```] je [``\sqrt 2``]. Aby systém správně odpověď vyhodnotil je nutné zapsat tuto hodnotu přesně, tj. pomocí funkce udávající druhou odmocninu. Například druhou odmocninu z pěti, [``\sqrt 5``] můžeme zapsat jako *sqrt(5)* nebo *5^(1/2)* nebo *5\*\*(1/2)*. (Odmocnina je totéž co mocnina na jednu polovinu a mocninu zapisujeme pomocí znaku *^* nebo pomocí dvojice znaků *\*\**.) Alternativou, která je také správneě rozpoznána ale není preferována, je použít více desetinných míst, než je nastavená přesnost.
+
+>>Kladné řešení rovnice [``x^2-2=0``] je [`x={}`][__________]{$f}.<<
+
+
+END_PGML
+
+
+BEGIN_PGML_SOLUTION
+
+Výsledek je [`\sqrt{2}`], zapíšeme jej jako *sqrt(2)*.
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
