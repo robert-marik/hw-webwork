@@ -31,7 +31,7 @@ Derivaci funkce [``f(x)``] označujeme buď pomocí Lagrangeovy notace výrazem 
 
 >>Derivace funkce [``g``] v bodě [``x``] je [___________________________]{"g'(x)"}<<
 
-V úlohách očekávajících v odpovědi derivaci bude předepsáno, jak máte derivaci zapsat: jestli pomocí čárky nebo pomocí podílu diferenciálů. Tuto formu zápisu musíte použít, protože podle toho bude nastaven parser na rozpoznání správnosti odpovědi. Ještě buďte opatrní a nezaměňte čárku označující derivaci, tj. apostrof ' na anglické klávesnici, za podobný znak jako je například zpětný apostrof, jednoduchá uvozovka nebo nějaká jiná čárka nalezená ve fontu používaném na daném počítači. (Při nesprávném znaku je po stisku tlačítka pro vygenerování náhledu ohlášena chyba "Unexpected character".)
+V úlohách očekávajících v odpovědi derivaci bude předepsáno, jak máte derivaci zapsat: jestli pomocí čárky nebo pomocí podílu diferenciálů. Tuto formu zápisu musíte použít, protože podle toho bude nastaven parser na rozpoznání správnosti odpovědi. Ještě buďte opatrní a nezaměňte čárku označující derivaci, tj. apostrof \' na anglické klávesnici, za podobný znak jako je například zpětný apostrof, jednoduchá uvozovka nebo nějaká jiná čárka nalezená ve fontu používaném na daném počítači. (Při nesprávném znaku je po stisku tlačítka pro vygenerování náhledu ohlášena chyba "Unexpected character".)
 
 END_PGML
 
