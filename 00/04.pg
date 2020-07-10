@@ -21,7 +21,7 @@ BEGIN_PGML
 
 ## Zkouška spojení: Sage
 
-Mnoho výpočtů za nás dokáží provést počítače. Programy, které pracují s funkcemi jako s objekty jsou systémy počítačové algebry, Computer algebra systems, CAS. Jedním ze snadno použitelných je Sage. Je volně šiřitelný, postavený na moderním jazyce Python a má i webové rozhraní, kde je možné používat tento program bez instalace. 
+Mnoho výpočtů za nás dokáží provést počítače. Programy pracující s matematickými funkcemi jsou systémy počítačové algebry, Computer algebra systems, CAS. Jedním ze snadno použitelných je Sage. Je volně šiřitelný, postavený na moderním jazyce Python a má i webové rozhraní, kde je možné používat tento program bez instalace. 
 
 Následující [@ htmlLink("https://sagecell.sagemath.org/?z=eJxVyzEKgDAMQNFd8A4Bh7bi5O5VhFBTKGpbQlvi7Y2j01_e78jWCKBxMMFB54WMnqBobqrcAKFwviklGodgxW0kxeIs-_o_QkunV3PEEOwHF3Ggoj8le6oqOXaFLyajJOo=&lang=sage&interacts=eJyLjgUAARUAuQ==","odkaz") @]* spustí v programu Sage kód pro výpočet derivace funkce [``f(x)=e^{a x^2}``].
 
@@ -29,7 +29,7 @@ Následující [@ htmlLink("https://sagecell.sagemath.org/?z=eJxVyzEKgDAMQNFd8A4
 :   f(x)=exp(a*x^2) # deklarace funkce
 :   diff(f(x),x)    # vypocet derivace
 
-Vaším úkolem je tento kód modifikovat a po modifikaci spustit (tlačítkem Evaluate) tak, aby vypočítal derivaci funkce [``f(x)=e^{-a x^2}``]. Funkce se tedy liší přidáním znaménka minus do exponentu. Výsledek překopírujte do tlačítka s opovědí.
+Vaším úkolem je tento kód modifikovat a po modifikaci spustit (tlačítkem Evaluate) tak, aby vypočítal derivaci funkce [``f(x)=e^{-a x^2}``]. Funkce se tedy liší přidáním znaménka minus do exponentu. Výsledek překopírujte do pole s odpovědí.
 
 >>[``\frac{\mathrm d}{\mathrm dx} e^{-a x^2}={}``][__________________]{$f}.<<
 
@@ -51,7 +51,7 @@ END_PGML
 
 $showHint = 3;
 BEGIN_PGML_HINT
-Předpřipravená ukázka je pro funkci  [``e^{ax^2}``] a musíte ji modifikovat tak, že tuto funkci nahradíte funkcí [``e^{-ax^2}``] (tj. na správné místo přidat záporné znaménko) a tlačítkem Evaluate spustit výpočet s novým zadáním.
+Předpřipravená ukázka je pro funkci  [``e^{ax^2}``]. Musíte ji modifikovat tak, že tuto funkci nahradíte funkcí [``e^{-ax^2}``] (tj. na správné místo přidat záporné znaménko) a tlačítkem Evaluate spustit výpočet s novým zadáním.
 END_PGML_HINT
 
 

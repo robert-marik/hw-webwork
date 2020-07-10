@@ -25,7 +25,7 @@ BEGIN_PGML
 
 Mnoho výpočtů za nás dokáží provést počítače. V předchozí úloze jsme viděli SAGE, v této úloze se podíváme na MATLAB. MATLAB je poměrně vyspělý komerční program, který máme na MENDELU možnost využívat pro akademické účely. Musíte si založit účet a spárovat s účtem na MENDELU postupem popsaným  [@ htmlLink("http://user.mendelu.cz/marik/wiki/doku.php?id=matlab","zde") @]*.
 
-MATLAB je možné si stáhnout pro libivolný operační systém na vlastní počítač, ale pro první pokusy nám postačí online prostředí a výpočty v cloudu. Zápisníky programu MATLAB s řešením příkladů ze cvičení máte [@ htmlLink("https://drive.matlab.com/sharing/bfbc9cb1-14ac-421d-ae44-8054beda46e9@","k dispozici zde']*. Otevřete si libovolný z ních ("Open in MATLAB Online") a spusťte výpočty kliknutím na zelenou šipku "Run". 
+MATLAB je možné si stáhnout pro libovolný operační systém na vlastní počítač, ale pro první pokusy nám postačí online prostředí a výpočty v cloudu. Zápisníky programu MATLAB s řešením příkladů ze cvičení máte [@ htmlLink("https://drive.matlab.com/sharing/bfbc9cb1-14ac-421d-ae44-8054beda46e9@","k dispozici zde']*. Otevřete si libovolný z ních ("Open in MATLAB Online") a spusťte výpočty kliknutím na zelenou šipku "Run". 
 
 MATLAB umožňuje výpočty derivací, které nás budou provázet na začátku semestru, obzvlášť skvělý je však při práci s mnohorozměrnými objekty, které budeme nazývat matice. V menu programu MATLAB (na počítači nebo v online verzi) si vyberte "New Live script" a zapište (překopírujte) následující příkazy.
 
