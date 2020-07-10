@@ -1,0 +1,44 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]],'dr'=>'Real', 'r'=>'Real', 'V'=>'Real', 't'=>'Real', 'dV'=>'Real');
+
+BEGIN_PGML
+
+## Označení derivace podílem diferenciálů
+
+V předchozím příkladu jsme si řekli, že derivaci funkce [``f(x)``] označujeme buď pomocí Lagrangeovy notace výrazem [`f'(x)`], nebo pomocí Leibnizovy notace výrazem [``\frac{\mathrm df}{\mathrm dx}``]. Zkráceně: derivaci označujeme buď čárkou nebo jako podíl diferenciálů. Druhou variantu bychom na počítači zapsali jako *df/dx*.
+
+
+Podíl diferenciálů používáme zejména v aplikacích, kdy používáme funkce s parametry a proměnná je jiná než tradiční [`x`]. Zapište derivaci funkce [``r``] v bodě [``t``] pomocí podílu diferenciálů. 
+
+>>Derivace veličiny [``r``] podle [``t``] je [___________________________]{"dr/dt"}<<
+
+Použijte zápis pomocí diferenicálů. Odpověď tedy bude složena z dvouznakového dr, dvouznakového dt a znak pro dělení, tj. lomítko /.
+
+
+END_PGML
+
+$showHint = 3;
+BEGIN_PGML_HINT
+Řešením je podíl výrazů dr a dt.
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Řešením je dr/dt.
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

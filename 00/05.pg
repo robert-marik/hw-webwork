@@ -1,0 +1,58 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a=non_zero_random(2,8);
+$c=non_zero_random(-10,10);
+
+Context("Numeric")->variables->are('x'=>'Real','a'=>'Real');
+
+$f=Formula("21")->reduce();   # funkce
+
+BEGIN_PGML
+
+## Zkouška spojení: MATLAB
+
+[@ image("matlab.png", width=>400) @]*
+
+Mnoho výpočtů za nás dokáží provést počítače. V předchozí úloze jsme viděli SAGE, v této úloze se podíváme na MATLAB. MATLAB je poměrně vyspělý komerční program, který máme na MENDELU možnost využívat pro akademické účely. Musíte si založit účet a spárovat s účtem na MENDELU postupem popsaným  [@ htmlLink("http://user.mendelu.cz/marik/wiki/doku.php?id=matlab","zde") @]*.
+
+MATLAB je možné si stáhnout pro libivolný operační systém na vlastní počítač, ale pro první pokusy nám postačí online prostředí a výpočty v cloudu. Zápisníky programu MATLAB s řešením příkladů ze cvičení máte [@ htmlLink("https://drive.matlab.com/sharing/bfbc9cb1-14ac-421d-ae44-8054beda46e9@","k dispozici zde']*. Otevřete si libovolný z ních ("Open in MATLAB Online") a spusťte výpočty kliknutím na zelenou šipku "Run". 
+
+MATLAB umožňuje výpočty derivací, které nás budou provázet na začátku semestru, obzvlášť skvělý je však při práci s mnohorozměrnými objekty, které budeme nazývat matice. V menu programu MATLAB (na počítači nebo v online verzi) si vyberte "New Live script" a zapište (překopírujte) následující příkazy.
+
+:   A=toeplitz([2,-1,zeros(1,18)])
+:   det(A)
+
+V pravé části okna uvidíte po spuštění (zelená šipka Run) matici 20 krát 20, tj. obsahující celkem 400 prvků jako výsledek výpočtu v prvním řádku a pod tím tzv determinant matice matice uvozený rovností *ans = * a poté číslem. Toto číslo je odpovědí na otázku v této úloze. 
+
+>>Výsledek výpočtu je ans = [__________________]{$f}.<<
+
+(Slovo ans označuje odpověď, anglicky answer, a do této proměnné se ukládá poslední výsledek, pokud není uložen do jiné proměnné.)
+
+Po správném zodpovězení otázky zkuste tytéž příkazy v open source alternativě k MATLABu, v programu Octave. Můžete použít [@ htmlLink("https://sagecell.sagemath.org/?z=eJxztC3JTy3IySyp0og20tE11KlKLcov1jDUMbTQjNUEAJs0CTU=&lang=octave&interacts=eJyLjgUAARUAuQ==","stejný server jako pro program Sage")@]* a jenom si vpravo v rozbalovacím menu "Language" překliknout Sage na Octave (v odkazu výše již je provedeno a je i zadán první řádek) nebo server [@ htmlLink("https://octave-online.net/","Octave Online")@]*. Výsledek obdržíte identický.
+
+END_PGML
+
+
+$showHint = 3;
+BEGIN_PGML_HINT
+Pokud něco nefunguje, zkuste předmětový chat v MS Teams.
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Výsledek je 21.
+
+END_PGML_SOLUTION
+
+ENDDOCUMENT();
