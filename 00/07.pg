@@ -23,7 +23,7 @@ Podíl diferenciálů používáme zejména v aplikacích, kdy používáme funk
 
 >>Derivace veličiny [``r``] podle [``t``] je [___________________________]{"dr/dt"}<<
 
-Použijte zápis pomocí diferenicálů. Odpověď tedy bude složena z dvouznakového dr, dvouznakového dt a znak pro dělení, tj. lomítko /.
+Použijte zápis pomocí diferenciálů. Odpověď tedy bude obsahovat dvouznakové slovo *dr*, dvouznakové slovo *dt* a znak pro dělení, tj. lomítko */*.
 
 
 END_PGML
