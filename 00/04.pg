@@ -19,7 +19,7 @@ $f=Formula("-2*a*x*exp(-a*x^2)")->reduce();   # funkce
 
 BEGIN_PGML
 
-## Zkouška spojení: Sage
+## Zkouška spojení 1/2: Sage
 
 Mnoho výpočtů za nás dokáží provést počítače. Programy pracující s matematickými funkcemi jsou systémy počítačové algebry, Computer algebra systems, CAS. Jedním ze snadno použitelných je Sage. Je volně šiřitelný, postavený na moderním jazyce Python a má i webové rozhraní, kde je možné používat tento program bez instalace. 
 
