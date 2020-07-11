@@ -1,0 +1,48 @@
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "parserVectorUtils.pl",
+  "PGML.pl",
+  "PGcourse.pl",
+);
+
+$showPartialCorrectAnswers = 1;
+
+TEXT(beginproblem());
+
+##############################################
+
+Context("Vector");
+
+$f=Vector("<5,0,x^2>");
+Context()->texStrings;
+BEGIN_PGML
+
+## Otázka s odpovědí  ve tvaru vektoru
+
+Na některé otázky jsou odpovědí vektory nebo body. Body zadáváme jako uspořádané dvojice nebo trojice oddělené čárkou a ohraničené závorkami. Přesně jak jsme zvyklí při ručním zápise.
+
+Vektory jsou v programu WeBWorK také uspořádané dvojice nebo trojice (nebo n-tice), ale neohraničujeme je kulatými závorkami, jako při ručním zápise, ale ostrými závorkami. Ostré závorky jsou tvořeny znaky "menší než" a "větší než", které jsou k nalezení na anglické klávesnici v dolní řadě vedle písmene M.
+
+Další možností je je použít ijk-notaci, kdy jednotkové vektory ve směru os označujeme po řadě i, j, k a vektor vyjařujeme jako jejich lineární kombinaci.
+
+Například vektor [`(5,\sqrt \pi,a^3)`] zapíšeme ve tvaru *<5,sqrt(pi),a^3>* nebo *5\*i+sqrt(pi)\*j+a^3\*k*.
+
+Vyzkoušejte si obě varianty.
+
+>> [`(1,0,-8)={}`][_________]{Vector("<1,0,-8>")}<<
+
+>> [`(0,x^3,3)={}`][_________]{Vector("<0,x^3,3>")}<<
+
+Další možnost je podobná jako u matic. Každou komponentu zadáme do svého políčka.
+
+>> [`\left(2,-\frac \pi2,0\right)={}`][_________]*{Vector("<2,-pi/2,0>")}<<
+
+Pokud u vektoru tvořeného čísly některou komponentu nezadáte správně, narozdíl od matice se zobrazí informace, která komponenta vektoru je špatně (pokud tuto vlastnost autor otázky nevypne). U vektorů, jejichž některá komponenta je funkce, tuto vlastnost nemáme.
+
+END_PGML
+##################################################
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

@@ -1,0 +1,46 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+$a=non_zero_random(2,8);
+$c=non_zero_random(-10,10);
+
+Context("Numeric")->variables->are($var=>'Real');
+
+$f=Formula("16");   # funkce
+
+BEGIN_PGML
+
+## Otázka s více políčky pro odpověď
+
+V některých otázkách je více políček pro vepsání odpovědi. Každé políčko se vyhodnocuje samostatně. Ve všech políčkách níže je správnou odpovědí číslo 16. Zkuste ho zapsat různými způsoby (přímo, jako součin, jako součet, jako mocninu) a v některém z případů třeba s překlepem.  Po odeslání se dozvíte, které odpovědi jsou správně a které ne.
+
+Za částečně správnou odpověď (některá políčka chybně) obržíte částečné hodnocení.
+
+
+>>[``16={}``][__________]{$f}<<
+
+>>[``16={}``][__________]{$f}<<
+
+>>[``16={}``][__________]{$f}<<
+
+>>[``16={}``][__________]{$f}<<
+
+>>[``16={}``][__________]{$f}<<
+
+>>[``16={}``][__________]{$f}<<
+
+
+END_PGML
+
+
+ENDDOCUMENT();

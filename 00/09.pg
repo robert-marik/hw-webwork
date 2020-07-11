@@ -1,0 +1,42 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Matrix");
+
+
+$f=Matrix([[-2,1,0,0],[1,-2,1,0],[0,1,-2,1],[0,0,1,-2]]);   # funkce
+
+BEGIN_PGML
+
+## Otázka s odpovědí ve tvaru matice
+
+Matice jsou objekty obsahující čísla nebo funkce sestavené do obdélníkového schematu. Následující matice je důležitá při numerickém řešení úloh spojených s difuzí (například vody ve dřevě) nebo vedením tepla (například ve stěně stavby) metodou konečných diferencí. Obsahuje v hlavní diagonále (z levého horního rohu do pravého dolního rohu) číslice [`-2`], podél hlavní diagonály nahoře i dole číslice [`1`] a jinak nuly. Je v MATLABu nebo v Octave výstupem příkazu
+
+:   toeplitz(\[-2,1,0,0\])
+
+>>[______]*{$f}<<
+
+Matice se posuzuje jako celek. Stačí jeden prvek nezadaný nebo špatně a odpověď je vyhodnocena jako nesprávná. Nedozvíte se, který prvek je v pořádku a který ne.
+
+END_PGML
+
+$showHint = 3;
+BEGIN_PGML_HINT
+Musíte zapsat matici [``[$f]``].
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Výsledkem je matice [``[$f]``].
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
