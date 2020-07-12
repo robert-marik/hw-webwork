@@ -40,6 +40,14 @@ Po spuštění (zelená šipka Run) uvidíte na výstpu matici 20 krát 20, tj. 
 
 Po správném zodpovězení otázky zkuste tytéž příkazy v open source alternativě k MATLABu, v programu Octave. Můžete použít [@ htmlLink("https://sagecell.sagemath.org/?z=eJxztC3JTy3IySyp0ojWNdIx1KlKLcov1jDUMbTQjNXkSkkt0XDUBADjLQsO&lang=octave&interacts=eJyLjgUAARUAuQ==","stejný server jako pro program Sage")@]* a jenom si vpravo v rozbalovacím menu "Language" překliknout Sage na Octave (v odkazu výše již je provedeno a je i zadán první řádek) nebo server [@ htmlLink("https://octave-online.net/","Octave Online")@]*. Výsledek obdržíte identický. (Octave online má nainstalovánu i knihovnu pro symbolické operace s funkcemi a je zde možné počítat derivace nebo integrály stejně jako v MATLABu. Sage rozhraní tuto knihovnu nemá, ale Sage má vlastní lepší prostředky pro takové výpočty.)
 
+_Tip_: Předchozí příklad můžete v MATLABu vypočítat následujícími příkazy.
+
+:   syms x a
+:   f(x)=exp(-a*x^2)
+:   diff(f,x)
+
+Pokud tyto příkazy zadáte v prostředí Live Script, zobrazí se obrázek ve dvourozměrné formě, jak jsme zvyklí psát matematické výrazy. Pokud výsledek označíte myší a stisknete ctrl+C pro Copy, můžete jej poté vložit (pomocí ctrl+V) na místo, kde se očekává počítačově formátovaný zápis, tj. vstupní text MATLABu, odpovědní políčko WEBWorKu, nebo funkce Excelu.
+
 END_PGML
 
 

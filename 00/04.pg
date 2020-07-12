@@ -57,7 +57,7 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 
-Výsledek je [``-2a e^{-ax^2}``], zapíšeme jej jako *-2\*a\*x\*e^(-a\*x^2)*.
+Výsledek je [``-2ax e^{-ax^2}``], zapíšeme jej jako *-2\*a\*x\*e^(-a\*x^2)*.
 
 END_PGML_SOLUTION
 

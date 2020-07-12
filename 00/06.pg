@@ -4,8 +4,6 @@ loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
   "PGML.pl",
-  "PGunion.pl",
-  "answerHints.pl",
   "parserFunctionPrime.pl",
   "PGcourse.pl"
 );
@@ -27,13 +25,20 @@ BEGIN_PGML
 
 Jedním z ústředních pojmů se kterými budeme pracovat bude rychlost s jakou se mění funkce. Tato rychlost se nazývá derivace funkce. V této úloze si uvedeme jednu z možností, jak odpovídat na otázku, kde odpověď obsahuje derivaci. 
 
-Derivaci funkce [``f(x)``] označujeme buď pomocí Lagrangeovy notace výrazem [`f'(x)`], nebo pomocí Leibnizovy notace výrazem [``\frac{\mathrm df}{\mathrm dx}``]. Protože terminologie by se mohla plést, nepoužíváme obraty Lagrangeova nebo Leibnizova notace ale říkáme, že derivaci označujeme čárkou nebo jako podíl diferenciálů. Zapište derivaci funkce [``g``] v bodě [``x``] pomocí čárky. 
+Derivaci funkce [``f(x)``] označujeme buď pomocí Lagrangeovy notace výrazem [`f'(x)`], nebo pomocí Leibnizovy notace výrazem [``\frac{\mathrm df}{\mathrm dx}``]. Protože terminologie by se mohla plést, nepoužíváme obraty Lagrangeova nebo Leibnizova notace ale říkáme, že derivaci označujeme čárkou nebo jako podíl diferenciálů. Zapište derivaci funkce [``g(x)``] pomocí čárky. 
 
->>Derivace funkce [``g``] v bodě [``x``] je [___________________________]{"g'(x)"}<<
+>>Derivace funkce [``g(x)``] je [___________________________]{"g'(x)"}<<
 
-V úlohách očekávajících v odpovědi derivaci bude předepsáno, jak máte derivaci zapsat: jestli pomocí čárky nebo pomocí podílu diferenciálů. Tuto formu zápisu musíte použít, protože podle toho bude nastaven parser na rozpoznání správnosti odpovědi. Ještě buďte opatrní a nezaměňte čárku označující derivaci, tj. apostrof \' na anglické klávesnici, za podobný znak jako je například zpětný apostrof, jednoduchá uvozovka nebo nějaká jiná čárka nalezená ve fontu používaném na daném počítači. (Při nesprávném znaku je po stisku tlačítka pro vygenerování náhledu ohlášena chyba "Unexpected character".)
+V úlohách očekávajících v odpovědi derivaci bude předepsáno, jak máte derivaci zapsat: jestli pomocí čárky nebo pomocí podílu diferenciálů. Tuto formu zápisu musíte použít, protože podle toho bude nastaven parser na rozpoznání správnosti odpovědi. Ještě buďte opatrní a nezaměňte čárku označující derivaci, tj. apostrof \' na anglické klávesnici, za podobný znak jako je například zpětný apostrof, jednoduchá uvozovka nebo nějaká jiná čárka nalezená ve fontu používaném na daném počítači. (Při nesprávném znaku je po stisku tlačítka pro vygenerování náhledu ohlášena chyba "Unexpected character". Apostrof na anglické klávesnici naleznete v prostřední řadě, napravo od trojice "k, l,  středník".)
 
 END_PGML
+
+$showHint = 3;
+BEGIN_PGML_HINT
+Derivace funkce [`g(x)`] je [`g'(x)`].
+END_PGML_HINT
+
+
 
 BEGIN_PGML_SOLUTION
 
