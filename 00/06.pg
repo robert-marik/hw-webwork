@@ -39,7 +39,6 @@ Derivace funkce [`g(x)`] je [`g'(x)`].
 END_PGML_HINT
 
 
-
 BEGIN_PGML_SOLUTION
 
 Výsledek je g\'(x).

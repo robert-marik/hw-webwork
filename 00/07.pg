@@ -30,7 +30,7 @@ END_PGML
 
 $showHint = 3;
 BEGIN_PGML_HINT
-Řešením je podíl výrazů dr a dt.
+Řešením je "podíl" výrazů dr a dt.
 END_PGML_HINT
 
 
