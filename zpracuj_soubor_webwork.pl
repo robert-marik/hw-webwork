@@ -32,7 +32,11 @@ while (my $line = <$data>) {
     my @data = split /;/, $line;
     $heslo=$setA[rand @setA].$seth[rand @seth].$seta[rand @seta].".".$seta[rand @seta].$seth[rand @seth];
     $zakodovane_heslo=crypt($heslo,join"",(".","/",0..9,"A".."Z","a".."z")[rand 64,rand 64]);
-    $txt_kod=$txt_kod.$data[3].",".$data[1].",".$data[2].",,,,,".$data[4].",".$data[5].",".$zakodovane_heslo.",\n";
+    my @detail = split / /, $data[6];
+    $comment = $detail[1];
+    $section = $detail[2];
+    $recitation = $detail[2];
+    $txt_kod=$txt_kod.$data[3].",".$data[1].",".$data[2].",C,".$comment.",".$section.",".$recitation.",".$data[4].",".$data[5].",".$zakodovane_heslo.",\n";
     $mydata{"\"".$data[5]."\""}=$heslo;
 }
 
@@ -57,5 +61,3 @@ print FH $newfile;
 close(FH);
 
 print "Finish\n";
-
-

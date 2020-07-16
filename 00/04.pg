@@ -5,6 +5,7 @@ loadMacros(
 "PGstandard.pl",
 "PGML.pl",
 "MathObjects.pl",
+"answerHints.pl",
 "PGcourse.pl",
 );
 TEXT(beginproblem());
@@ -23,17 +24,19 @@ BEGIN_PGML
 
 Mnoho výpočtů za nás dokáží provést počítače. Programy pracující s matematickými funkcemi jsou systémy počítačové algebry, Computer algebra systems, CAS. Jedním ze snadno použitelných je Sage. Je volně šiřitelný, postavený na moderním jazyce Python a má i webové rozhraní, kde je možné používat tento program bez instalace. 
 
-Následující [@ htmlLink("https://sagecell.sagemath.org/?z=eJxVyzEKgDAMQNFd8A4Bh7bi5O5VhFBTKGpbQlvi7Y2j01_e78jWCKBxMMFB54WMnqBobqrcAKFwviklGodgxW0kxeIs-_o_QkunV3PEEOwHF3Ggoj8le6oqOXaFLyajJOo=&lang=sage&interacts=eJyLjgUAARUAuQ==","odkaz") @]* spustí v programu Sage kód pro výpočet derivace funkce [``f(x)=e^{a x^2}``].
+Následující [@ htmlLink("https://sagecell.sagemath.org/?z=eJxVyzEKgDAMQNFd8A4Bh7bi5O5VhFBTKGpbQlvi7Y2j01_e78jWCKBxMMFB54WMnqBobqrcAKFwviklGodgxW0kxeIs-_o_QkunV3PEEOwHF3Ggoj8le6oqOXaFLyajJOo=&lang=sage&interacts=eJyLjgUAARUAuQ==","odkaz") @]* spustí v programu Sage kód pro výpočet derivace funkce [```f(x)=e^{a x^2}.```]
 
 :   var(\'x a\')      # deklarace parametru a promenne
 :   f(x)=exp(a*x^2) # deklarace funkce
 :   diff(f(x),x)    # vypocet derivace
 
-Vaším úkolem je tento kód modifikovat a po modifikaci spustit (tlačítkem Evaluate) tak, aby vypočítal derivaci funkce [``f(x)=e^{-a x^2}``]. Funkce se tedy liší přidáním znaménka minus do exponentu. Výsledek překopírujte do pole s odpovědí.
+Vaším úkolem je tento kód modifikovat a po modifikaci spustit (tlačítkem Evaluate) tak, aby vypočítal derivaci funkce [```f(x)=e^{-a x^2}```]. Funkce se tedy liší přidáním znaménka minus do exponentu. Výsledek překopírujte do pole s odpovědí (zápis můžete nechat tak jak je zobrazí Sage).
 
->>[``\frac{\mathrm d}{\mathrm dx} e^{-a x^2}={}``][__________________]{$f}.<<
+>>[``\frac{\mathrm d}{\mathrm dx} e^{-a x^2}={}``][__________________]{$f->cmp()->withPostFilter(AnswerHints(Formula("2*a*x*e^(a*x^2)") => "Toto je derivace původní funkce. Nezapomeňte, že máte přidat znaménko minus do exponentu."))}.<<
 
-_Poznámka:_ Pro pěkné zobrazení funkce a její derivace můžete psát například [@ htmlLink("https://sagecell.sagemath.org/?z=eJxVjsENwjAMRe9I7GCJQ1PEiTurIJnGEVHaOAptCN2BCZihU7SDkQAFerK-_P7TD-hFEQGLEjYgydTosSJw6TTU-g4QnOeGrKX1SolYHig6gdt43C8bqrOmSszlzFeh8q_nk8eerP7-JHkdEpw1UislsnAXS0h0uDmuqIWZ-ZjmuBT-oD_la847QUiD2DfYdnl-kht22nPAXGZwXI_DdDcIF2DpOEwPOQ5P8cleOA==&lang=sage&interacts=eJyLjgUAARUAuQ==","následující") @]*.
+_Poznámka 1:_ V tomto příkladě je ještě jedna funkcionalita, která bude využívána vyjímečně, ale někdy pomůže. Pokud odešlete jako odpověď derivaci původní funkce bez změněného znaménka v exponentu, zobrazí se informace, v čem je problém. Můžete si to vyzkoušet buď před nebo i po odeslání správné odpovědi. 
+
+_Poznámka 2:_ Pro pěkné zobrazení funkce a její derivace můžete psát například [@ htmlLink("https://sagecell.sagemath.org/?z=eJxVjsENwjAMRe9I7GCJQ1PEiTurIJnGEVHaOAptCN2BCZihU7SDkQAFerK-_P7TD-hFEQGLEjYgydTosSJw6TTU-g4QnOeGrKX1SolYHig6gdt43C8bqrOmSszlzFeh8q_nk8eerP7-JHkdEpw1UislsnAXS0h0uDmuqIWZ-ZjmuBT-oD_la847QUiD2DfYdnl-kht22nPAXGZwXI_DdDcIF2DpOEwPOQ5P8cleOA==&lang=sage&interacts=eJyLjgUAARUAuQ==","následující") @]*.
 
 :   var(\'x a\')                # deklarace parametru a promenne
 :   f(x)=exp(a*x^2)           # deklarace funkce
