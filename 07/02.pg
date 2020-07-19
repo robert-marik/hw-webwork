@@ -9,6 +9,7 @@ loadMacros(
   );
 $showPartialCorrectAnswers = 0;
 TEXT(beginproblem()); 
+$showHint = 3;
 
 Context('Matrix');
 
@@ -18,10 +19,12 @@ Context()->texStrings;
 
 BEGIN_PGML
 ## Symetrická matice
+
+Symetrické matice jsou matice, kde platí [`a_{ij}=a_{ji}`]. Jinými slovy, prvky ležící symetricky podle hlavní diagonály jsou stejné. Například prvek v prvním řádku a třetím sloupci je stejný jako prvek ve třetím řádkku a prvním sloupci. Pro matice [`3\times 3`] odsud plynou tři podmínky: [``` a_{12}=a_{21}, a_{13}=a_{31}, a_{23}=a_{32}.```] Symetrická [`3\times 3`] matice má tedy sice devět prvků, ale jenom šest prvků je nezávislých. Tři zbylé prvky jsou definovány podmínkou symetrie. 
 END_PGML
 
 BEGIN_TEXT
-Symetrické matice jsou důležitou třídou matic v aplikacích. Z obecnějších úvah plyne, že materiálové vlastnosti jsou v anizotropních materiálech, jako je například dřevo, popisovány právě symetrickými maticemi. Symetrické matice mají spoustu užitečných vlastností. Například je možné otočit soustavu souřadnic tak, že příslušná materiálová vlastnost je dokonce popsána diagonální maticí. To nastane, pokud volíme soustavu souřadnic tak, že ve směru os je materiálová odezva na podnět stejného směru jako podnět. U dřeva to jsou anatomické směry dřeva (podélný, radiální, tangenciální). Pokud nemáme možnost nebo není vhodné volit soustavu souřadnic v anatomických směrech dřeva, pracujeme s obecnými symetrickými maticemi (přesněji, se symetrickými tenzory).
+Symetrické matice jsou důležitou třídou matic v aplikacích. Z obecnějších úvah plyne, že materiálové vlastnosti jsou v materiálech popisovány právě symetrickými maticemi. Symetrické matice mají spoustu užitečných vlastností. Například je možné otočit soustavu souřadnic tak, že příslušná materiálová vlastnost je dokonce popsána diagonální maticí. To nastane, pokud volíme soustavu souřadnic tak, že ve směru os je materiálová odezva na podnět stejného směru jako podnět. U dřeva to jsou anatomické směry dřeva (podélný, radiální, tangenciální). Pokud nemáme možnost nebo není vhodné volit soustavu souřadnic v anatomických směrech dřeva, pracujeme s obecnými symetrickými maticemi (přesněji, se symetrickými tenzory).
 
 $BR
 $BR
@@ -34,6 +37,16 @@ $BCENTER
 $ECENTER
 
 END_TEXT
+
+BEGIN_PGML_HINT
+Na třech prvcích v hlavní diagonále nezáleží, sem můžete napsat libovolné číslo. Ze zbylých třech prvů zvolte jeden neulový, stejný prvek i na místo symetricky podle hlavní diagonály a zbytek doplňte buď podpobným způsobem, nebo nulami. 
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+[``` \begin{pmatrix}0&0&1\\0&0&0\\1&0&0\end{pmatrix}```]
+END_PGML_SOLUTION
+
 Context()->normalStrings;
 
 install_problem_grader(~~&std_problem_grader);

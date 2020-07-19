@@ -20,6 +20,9 @@ Context()->texStrings;
 
 BEGIN_PGML
 ## Diagonální matice
+
+Diagonální matice mají mimo hlavní diagonálu nuly.
+
 END_PGML
 
 BEGIN_TEXT
@@ -36,6 +39,17 @@ $BCENTER
 \{ $A->ans_array(3,3,5) \}
 $ECENTER
 END_TEXT
+
+BEGIN_PGML_HINT
+Na třech prvcích v hlavní diagonále nezáleží, sem můžete napsat libovolné číslo. Zbylé prvky zadejte nulové. 
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+[``` \begin{pmatrix}1&0&0\\0&1918&0\\0&0&2020\end{pmatrix}```]
+END_PGML_SOLUTION
+
+
 Context()->normalStrings;
 
 install_problem_grader(~~&std_problem_grader);
