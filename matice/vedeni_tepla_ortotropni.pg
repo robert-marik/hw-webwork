@@ -18,17 +18,16 @@ Context('Matrix');
 $a=random(0,9,1);
 $b=random(-9,9,1);
 
-$u = Matrix([
-[Formula("x+$b*y")->reduce()],
-[Formula("$a*x-y")->reduce()]
-]);
+$u1=Formula("x+$b*y")->reduce();
+$u2=Formula("$a*x-y")->reduce();
+$u = Matrix([[$u1],[$u2]]);
 
 $lambda1 = non_zero_random(0.1,0.9,0.1);
 do {$lambda2 = non_zero_random(0.1,0.9,0.1); } until ($lambda2 != $lambda1);
 
 $ans = Matrix([
-[Formula("-$lambda1*($u->element(1,1))")],
-[Formula("-$lambda2*($u->element(2,1))")]
+[Formula("-$lambda1*($u1)")],
+[Formula("-$lambda2*($u2)")]
 ]);
 
 Context()->texStrings;

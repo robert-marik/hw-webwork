@@ -18,16 +18,15 @@ Context('Matrix');
 $a=random(0,9,1);
 $b=random(-9,9,1);
 
-$u = Matrix([
-[Formula("x+$b*y")->reduce()],
-[$a]
-]);
+$u1=Formula("x+$b*y")->reduce();
+$u2=Formula("$a")->reduce();
+$u = Matrix([[$u1],[$u2]]);
 
 $lambda = non_zero_random(0.1,0.9,0.1);
 
 $ans = Matrix([
-[-$lambda*($u->element(1,1))],
-[-$lambda*($u->element(2,1))]
+[-$lambda*($u1)],
+[-$lambda*($u2)]
 ]);
 
 Context()->texStrings;
