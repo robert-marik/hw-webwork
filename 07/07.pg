@@ -57,7 +57,7 @@ a
 \begin{pmatrix}26\\36\end{pmatrix}. ```]
 Proto platí
 [```\begin{pmatrix}4&2\\-2&6\end{pmatrix}\begin{pmatrix}1&3\\-5&7\end{pmatrix}=\begin{pmatrix}-6&26\\-32&36\end{pmatrix}, ```]
-jak nám potvrdí například i MATLAB nebo [@ htmlLink("https://sagecell.sagemath.org/?z=eJxztI02UTCyVtA1UjCL5eVyso02VDAGck0VzIFcRy0nAHGXBnc=&lang=octave&interacts=eJyLjgUAARUAuQ==","Octave")@]*. (Uvedené výpočetní nástroje použijte jenom v krajní nouzi. Raději si na předchozím příkladu ještě jednou prohlédněte, která matice je zdrojem vektorů do lineárních kombinací, která matice obsahuje koeficienty do lineárních kombinací a jak sestavíme výsledek. Aby se vám lépe hledalo, je první matice sestavena za sudých a druhá z lichých čísel.)
+jak nám potvrdí například i MATLAB nebo [@ htmlLink("https://sagecell.sagemath.org/?z=eJxztI02UTCyVtA1UjCL5eVyso02VDAGck0VzIFcRy0nAHGXBnc=&lang=octave&interacts=eJyLjgUAARUAuQ==","Octave")@]*. (Uvedené výpočetní nástroje použijte jenom v krajní nouzi. Raději si na předchozím příkladu ještě jednou prohlédněte, která matice je zdrojem vektorů do lineárních kombinací, která matice obsahuje koeficienty do lineárních kombinací a jak sestavíme výsledek. Aby se vám lépe hledalo, je první matice sestavena ze sudých a druhá z lichých čísel.)
 
 Následující příklad je podobného typu, opět násobíme dvě čtvercové [`2\times 2`] matice. Opět jsou v tomto součinu schovány dvě lineární kombinace sloupců první matice, přičemž koeficienty této lineární kombinace jsou ve sloupcích druhé matice. Díky použitému programu jsou matice ohraničeny hranatými závorkami namísto kulatých, to však na naše počítání nebude mít vliv.
 
