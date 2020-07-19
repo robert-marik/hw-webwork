@@ -1,0 +1,71 @@
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 3;
+
+Context("Numeric")->variables->are('x'=>'Real','y'=>'Real');
+
+Context('Matrix');
+
+$a=random(0,9,1);
+$b=random(-9,9,1);
+
+$u1=Formula("x+$b*y")->reduce();
+$u2=Formula("$a*x-y")->reduce();
+$u = Matrix([[$u1],[$u2]]);
+
+$lambda1 = non_zero_random(0.1,0.9,0.1);
+do {$lambda2 = non_zero_random(0.1,0.9,0.1); } until ($lambda2 != $lambda1);
+
+$ans = Matrix([
+[Formula("-$lambda1*($u1)")],
+[Formula("-$lambda2*($u2)")]
+]);
+
+Context()->texStrings;
+BEGIN_PGML
+
+## Vedení tepla v homogenním ortotropním prostředí
+
+Uvažujme dvourozměrný homogenní a ortotropní  materiál, kde jsou osy zvoleny v charakteristckých směrech. Díky těmto vlastnostem jsou koeficient tepelné vodivosti a difuzní koeficient konstantní a tok (tepla nebo difuzní tok) jsou diagonální matice a násobení matic se redukuje na relativně snadný případ. Konkrétně pro gradient teploty daný vektorem [`\nabla T=\begin{pmatrix} x+y\\3y^2\end{pmatrix}`] a koeficient tepelné vodivosti [`\lambda=\begin{pmatrix}0.3&0\\0&0.5\end{pmatrix}`], je tok tepla dán vztahem
+[```\vec q=-\lambda \nabla T=-\begin{pmatrix}0.3&0\\0&0.5\end{pmatrix} \begin{pmatrix} x+y\\3y^2\end{pmatrix}
+=\begin{pmatrix} -0.3-0.3y\\-1.5y^2\end{pmatrix}.
+```]
+Připomeňme, že při násobení diagonální matice a sloupcového vektoru násobíme jednotlivé řádky (komponenty) vektoru odpovídajícími čísly z diagonály matice. 
+
+Následující příklad je analogický, jenom s jinými čísly, jinými funkcemi. Z důvodů vynucených programem jsou matice ohraničeny hranatými závorkami namísto kulatých.
+
+Typickým případem ortotropního materiálu je ten nejdostupnější a nejkrásnější, dřevo. Také látky, kde nějakým způsobem došlo k upořádání stavebních elementů, byť původně uspořádaných chaoticky. Například kov válcovaný za studena nebo napnutá guma. 
+
+----------------
+
+
+Pro  homogenní ortotropní materiál s koeficientem tepelné vodivosti [`\lambda=\begin{bmatrix}[$lambda1]&0\\0&[$lambda2]\end{bmatrix}`] určete tok tepla v místě, ve kterém je gradient teploty dán vektorem
+[``\nabla T=[$u]``].
+>> [``\vec q=-\lambda \nabla T =-\begin{bmatrix}[$lambda1]&0\\0&[$lambda2]\end{bmatrix}[$u]={}``][_________________]*{$ans}<<
+
+END_PGML
+Context()->normalStrings;
+
+BEGIN_PGML_HINT
+Musíte násobit první komponentu vektoru číslem [$lambda1] a druhou číslem [$lambda2]. 
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Přímým násobením vidíme, že
+[``-\lambda \nabla T =[$ans->reduce()]``].
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

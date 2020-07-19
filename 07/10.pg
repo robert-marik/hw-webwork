@@ -1,0 +1,77 @@
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 3;
+
+Context("Numeric")->variables->are('x'=>'Real','y'=>'Real');
+
+Context('Matrix');
+
+$a=random(0,9,1);
+$b=random(-9,9,1);
+
+$u1=Formula("$b*y")->reduce();
+$u2=Formula("$a*x-2")->reduce();
+$u = Matrix([[$u1],[$u2]]);
+
+$lambda1 = non_zero_random(0.1,0.9,0.1);
+do {$lambda2 = non_zero_random(0.1,0.9,0.1); } until ($lambda2 != $lambda1);
+$lambda3 = non_zero_random(0.1,0.3,0.1); 
+
+$ans = Matrix([
+[Formula("-$lambda1*($u1)-$lambda3*($u2)")->reduce()],
+[Formula("-$lambda3*($u1)-$lambda2*($u2)")->reduce()]
+]);
+
+Context()->texStrings;
+BEGIN_PGML
+
+## Vedení tepla v homogenním anizotropním prostředí
+
+Uvažujme dvourozměrný materiál, kde nemáme zvoleny osy tak, aby koeficient tepelné vodivosti a difuzní koeficient byly diagonální. Třeba by te nemuselo být výhodné vzhledem ke geometrii problému  (např. dřevo nařezané šikmo po letech).  Konkrétně pro gradient teploty daný vektorem [`\nabla T=\begin{pmatrix} x+y\\3y^2\end{pmatrix}`] a koeficient tepelné vodivosti [`\lambda=\begin{pmatrix}0.3&0.1\\0.1&0.5\end{pmatrix}`], je tok tepla dán vztahem
+[```\vec q=-\lambda \nabla T=-\begin{pmatrix}0.3&0.1\\0.1&0.5\end{pmatrix} \begin{pmatrix} x+y\\3y^2\end{pmatrix}
+=\begin{pmatrix} -0.3x-0.3y-0.1\cdot 3y^2\\-0.1(x+y)-0.5\cdot 3y^2\end{pmatrix}
+=\begin{pmatrix} -0.3(x+y)-0.1\cdot 3y^2\\-0.1x-0.1y-1.5y^2\end{pmatrix}
+.
+```]
+Připomeňme, že při násobení diagonální matice a sloupcového vektoru násobíme jednotlivé řádky (komponenty) vektoru odpovídajícími čísly z diagonály matice. Viz též [@ htmlLink("https://sagecell.sagemath.org/?z=eJwrSyzSUK9QqFTX5OXysc1NLCnKrNCIjjbQM9Yx0DOM1QGyDIEs09hYoAKXEISKCu1KoKyxVmWcEViuOCO_XEPXR8slRBMA4w4Xeg==&lang=sage&interacts=eJyLjgUAARUAuQ==","SageCell")@]*.
+
+Následující příklad je analogický, jenom s jinými čísly, jinými funkcemi. Z důvodů vynucených programem jsou matice ohraničeny hranatými závorkami namísto kulatých.
+
+Tato situace s nediagonální maticí nás může potkat i u ortotropních materiálů v situaci, kdy nemůžeme nebo nechceme volit osy ve směru symetrie materiálu (například u dřeva v anatomických směrech).
+
+----------------
+
+
+Pro  homogenní izotropní materiál s koeficientem tepelné vodivosti [`\lambda=\begin{bmatrix}[$lambda1]&[$lambda3]\\[$lambda3]&[$lambda2]\end{bmatrix}`] určete tok tepla v místě, ve kterém je gradient teploty dán vektorem
+[``\nabla T=[$u]``].
+>> [``\vec q=-\lambda \nabla T =-\begin{bmatrix}[$lambda1]&[$lambda3]\\[$lambda3]&[$lambda2]\end{bmatrix}[$u]={}``][_____________________________]*{$ans}<<
+
+END_PGML
+Context()->normalStrings;
+
+BEGIN_PGML_HINT
+Musíte násobit matice stejně jako jsme se učili v úvodním cvičení k lineární algebře. Protože druhá matice je jenom jeden sloupec, budeme počítat lineární kombinace sloupců matice [`\lambda`], přičemž koeficienty jsou složky vektoru [`u`] a celek je násobený záporným znaménkem.
+
+
+V případě problémů použijte MATLAB, Octave nebo Sage a poznáte, zda máte chybu v úvaze a jenom špatně násobíte matice, nebo zda se jedná jenom o numerickou chybu. 
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Přímým násobením vidíme, že
+[``-\lambda \nabla T =[$ans->reduce()]``].
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
