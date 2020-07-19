@@ -61,7 +61,7 @@ a výsledný vektor je dvojnásobek prvního sloupce minus druhý sloupec matice
 [``` 2\begin{pmatrix}[$AA->element(1,1)]\\[$AA->element(2,1)]\\[$AA->element(3,1)]\end{pmatrix}-\begin{pmatrix}[$AA->element(1,2)]\\[$AA->element(2,2)]\\[$AA->element(3,2)]\end{pmatrix}=\begin{pmatrix}[$answerr->element(1,1)]\\[$answerr->element(2,1)]\\[$answerr->element(3,1)]\end{pmatrix}.```]
 
 
-Následující příklad je analogický. Z programových důvodů je matice ohraničena hranatými závorkami namísto závorek kulatých. Matice má o jeden sloupec víc a vektor je také o jeden sloupec delší. Proto budete počítat lineární kombinaci tří vektorů. Postup je však naprosto stejný. Odpověď nemusí být ve tvaru jednoho čísla, ale můžete zapsat každou komponentu i jako součet. 
+Následující příklad je analogický. Z důvodů implementace v programu je matice ohraničena hranatými závorkami namísto závorek kulatých. Matice má o jeden sloupec víc a vektor je také o jeden sloupec delší, než je v úvodu tohoto příkladu. Proto budete počítat lineární kombinaci tří vektorů. Postup je však naprosto stejný. Odpověď nemusí být ve tvaru jednoho čísla, ale můžete zapsat každou komponentu i jako součet. 
 ---------------
 
 Je dána matice [``A``] a vektor [``\vec b``].
