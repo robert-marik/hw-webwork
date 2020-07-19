@@ -5,12 +5,13 @@ loadMacros(
 "PGstandard.pl",
 "PGML.pl",
 "MathObjects.pl",
+"answerHints.pl",
 "PGcourse.pl",
 );
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
-Context("Numeric")->variables->are('h'=>'Real', 'k'=>'Real', 'V'=>'Real', 't'=>'Real');
+Context("Numeric")->variables->are('h'=>'Real', 'dh'=>'Real', 'k'=>'Real', 'V'=>'Real', 't'=>'Real', 'dt'=>'Real');
 
 $h=random(10,20,1);
 $dhdt=random(1,8,1)/10;
@@ -36,9 +37,9 @@ kde [`k`] je konstanta. (Numerická hodnota konstanty závisí na tom, jaký úh
 
 Předpokládejme, že hloubka vody v poldru je [``h=[$h]\mathrm{cm}``] a hloubka roste (v běžné řeči používáme spíše obrat hladina roste) rychlostí [``\frac{\mathrm dh}{\mathrm dt}=[$dhdt] \mathrm{cm}/\mathrm{hod}.``] Jak rychle přibývá celkové množství vody v poldru, tj. jak rychle v této situaci roste objem vody v poldru?
 
->>[``\frac{\mathrm dV}{\mathrm dt}={}``] [______________]{$answer}[``\mathrm {m}^3/\mathrm{hod}``]<<
+>>[``\frac{\mathrm dV}{\mathrm dt}={}``] [______________]{$answer->cmp()->withPostFilter(AnswerHints(Formula("2*k*h*dh/dt") => "Jste na dobré cestě, ale ještě je nutno dosadit zadané hodnoty pro h a dh/dt."))}[``\mathrm {m}^3/\mathrm{hod}``]<<
 
-_Vaše odpověď by měla obsahovat konstantu [`k`], jejíž hodnota nebyla zadána. Vše je v jednotkách kompatibilních se zadaným vzorcem (hloubka v centimetrech, objem v metrech krychlových) a jednotky není nutné uvažovat._
+*Poznámka:* Vaše odpověď by měla obsahovat konstantu [`k`], jejíž hodnota nebyla zadána a kromě toho již jen číslené údaje. Vše je v jednotkách kompatibilních se zadaným vzorcem (hloubka v centimetrech, objem v metrech krychlových) a jednotky není nutné uvažovat. Nehledejte v příkladě žádný chyták, nepřevádějte žádné jednotky, jenom vyjádřete rychlost a dosaďte zadané hodnoty. Nezapomeňte, že můžete zadat i součin čísel, nemusíte násobení provádět bokem na kalkulačce a psát až výslednou odpověď.
 
 END_PGML
 

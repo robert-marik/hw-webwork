@@ -3,7 +3,7 @@ loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
   "parserMultiAnswer.pl",
-  "AnswerFormatHelp.pl",
+  "PGML.pl",
   "PGcourse.pl"
 );
 $showPartialCorrectAnswers = 0;
@@ -23,14 +23,14 @@ $multians = MultiAnswer($A, $B)->with(
       my @s = @{$student};
       my @c = @{$correct};
       $s0 = Matrix($s[0]); $s1 = Matrix($s[1]);
-      return 0 if $s0 == $Z or $s1 == $Z or $s0 == $I or $s1 == $I;
+      return 0 if $s0 == $Z or $s1 == $Z or $s0 == $I or $s1 == $I or $s1 == $s0;
       return $s0 * $s1 == $s1 * $s0;
   }
 );
 
 Context()->texStrings;
 BEGIN_TEXT
-Uveďte příklad matic \( 3 \times 3 \) takových, že \( A \) a \( B \) jsou obě nenulové matice, různé od jednotkové matice a jejich součin komutuje, tj. \( AB = BA \).
+Uveďte příklad dvou různých matic \( 3 \times 3 \) takových, že \( A \) a \( B \) jsou obě nenulové matice, různé od jednotkové matice a jejich součin komutuje, tj. \( AB = BA \). 
 $BR
 $BR
 \( A = \)
@@ -39,13 +39,31 @@ $BR
 $BR
 \( B = \)
 \{ $multians->ans_array(3,3,5) \}
+
+$BR
+$BR
+Poznámka: Řešení je celá řada, ale obvzlášť dobře se bude hledat mezi maticemi, které jsou diagonální.  Jeden z příkladů ve cvičení ukazuje, jak se chová součin matic v případě, že alespoň jedna (tj. klidně i obě dvě) matice budou diagonální. Pokud se Vám nepodaří takové matice najít, po několika málo pokusech dostanete další nápovědu. Násobení můžete pro větší jistotu provést v programech jako je \{ htmlLink("https://sagecell.sagemath.org/?z=eJxztM1NLCnKrNCIjjbUMdAxiNWJNtAxhNJAVmysJi-XEzGKijPyyxU0lBxtlXQcEVwnINcJSVYLJAAkkVRogbQASbgQSMQWpAYAWjwmdg==&lang=sage&interacts=eJyLjgUAARUAuQ==","Sage") \}, \{ htmlLink("https://sagecell.sagemath.org/?z=eJxztI02VDBQMLAGEkCGtYGOgY5hLC-XEw5xRy0noKSWIwAuJQpP&lang=octave&interacts=eJyLjgUAARUAuQ==","Octave") \} nebo MATLAB. (Odkazy pro Sage a Octave otevřou přednastavný formulář násobící dvě jednotkové matice. To určitě není odpověď na otázku, ale je to dobrý výchozí bod. Stačí kód modifikovat.)
+
 END_TEXT
+
 Context()->normalStrings;
 
 install_problem_grader(~~&std_problem_grader);
 
 ANS( $multians->cmp() );
 
+$showHint = 1;
+BEGIN_PGML_HINT
+Pokud je jedna matice nulová nebo jednotková, součin je komutativní. To je případ, který nechceme, ale můžeme hledat mezi maticemi, které nejsou od této nejjednodušší volby daleko. Zkuste hledat mezi maticemi, které nejsou ani jednotkové ani nulové, ale jsou k nim poměrně blízké. Například zkuste hledat mezi maticemi, které mají mimo hlavní diagonálu nuly a v hlavní diagonále jenom jeden nenulový prvek.
+
+Jiným příkladem je jakákoliv regulární matice a matice k ní inverzní. Při konstrukci takového příkladu je pochopitelně nejjednodušší použít matici, pro kterou se inverzní matice určí snadno. Třeba jednotková matice, ve které jeden diagonální prvek zvětšíme na dvojku nebo mu změníme znaménko.
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Například pro matice [``A=\begin{pmatrix}3& 0 &0 \\ 0 & 0& 0\\ 0& 0&0\end{pmatrix}``] a [``B=\begin{pmatrix}2& 0 &0 \\ 0 & 0& 0\\ 0& 0&0\end{pmatrix}``] platí
+[``` AB=BA = \begin{pmatrix}6& 0 &0 \\ 0 & 0& 0\\ 0& 0&0\end{pmatrix}.```] 
+END_PGML_SOLUTION
 
 
 ENDDOCUMENT();

@@ -1,0 +1,67 @@
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 3;
+
+Context("Numeric")->variables->are('x'=>'Real','y'=>'Real');
+
+Context('Matrix');
+
+$a=random(0,9,1);
+$b=random(-9,9,1);
+
+$u = Matrix([
+[Formula("x+$b*y")->reduce()],
+[$a]
+]);
+
+$lambda = non_zero_random(0.1,0.9,0.1);
+
+$ans = Matrix([
+[-$lambda*($u->element(1,1))],
+[-$lambda*($u->element(2,1))]
+]);
+
+Context()->texStrings;
+BEGIN_PGML
+
+## Vedení tepla v homogenním izotropním prostředí
+
+Uvažujme dvourozměrný homogenní a iztoropní materiál. Díky těmto vlatnostem jsou koeficient tepelné vodivosti a difuzní koeficient konstnatní a tok (tepla nebo difuzní tok) je konstantním násobkem gradientu (teploty nebo koncentrace). Například je-li gradient teploty dán vektorem [`\nabla T=\begin{pmatrix} x+y\\3y^2\end{pmatrix}`] a koeficient tepelné vodivosti [`\lambda=0.4`], je tok tepla dán vztahem
+[```\vec q=-\lambda \nabla T=-0.4 \begin{pmatrix} x+y\\3y^2\end{pmatrix}
+=\begin{pmatrix} -0.4x-0.4y\\-1.2y^2\end{pmatrix}.
+```]
+Připomeňme, že při násobení čísla s vektorem násobíme každou komponentu vektoru. 
+
+
+----------------
+
+Pro  homogenní izotropní materiál s koeficientem tepelné vodivosti [`\lambda=[$lambda]`] určete tok tepla v místě, ve kterém je gradient teploty dán vektorem
+[``\nabla T=[$u]``].
+>> [``\vec q=-\lambda \nabla T =-[$lambda][$u]={}``][_________________]*{$ans}<<
+
+END_PGML
+Context()->normalStrings;
+
+BEGIN_PGML_HINT
+Musíte násobit každou komponentu vektoru daným číslem a záporným znaménkem. 
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Přímým násobením vidíme, že
+[``-\lambda \nabla T =[$ans->reduce()]``].
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

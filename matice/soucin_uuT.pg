@@ -1,29 +1,9 @@
-## DESCRIPTION
-## Linear Algebra
-## ENDDESCRIPTION
-
-## Tagged by tda2d
-
-## DBsubject(Linear algebra)
-## DBchapter(Matrices)
-## DBsection(Transpose and trace)
-## Date(July 2013)
-## Institution(TCNJ and Hope College)
-## Author(Paul Pearson)
-## Level(2)
-## MO(1)
-## TitleText1('Linear Algebra with Applications')
-## AuthorText1('Jeffrey Holt')
-## EditionText1('1')
-## Section1('3.2')
-## Problem1('')
-## KEYWORDS('matrix' 'product')
-
 DOCUMENT();
 
 loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
+  "PGML.pl",
   "PGcourse.pl"
 );
 
@@ -33,9 +13,9 @@ $showPartialCorrectAnswers = 1;
 Context('Matrix');
 
 $u = Matrix([
-[non_zero_random(-9,9,1)],
-[non_zero_random(-9,9,1)],
-[non_zero_random(-9,9,1)],
+[non_zero_random(-5,6,1)],
+[non_zero_random(-5,6,1)],
+[non_zero_random(-5,6,1)],
 ]);
 
 $ut = $u->transpose;
@@ -44,18 +24,29 @@ $ans1 = $u * $ut;
 $ans2 = $ut * $u;
 
 Context()->texStrings;
-BEGIN_TEXT
-If 
-\[ u = $u \]
-then
-$BR
-$BR
-\( u u^T = \) \{ $ans1->ans_array(15) \} and
-\( u^T u = \) \{ $ans2->ans_array(15) \}.
-END_TEXT
+BEGIN_PGML
+
+## Maticové operace s vektorem
+
+Vektor je možno také chápat jako matici. Řádkový vektor jako matici s jediným řádkem, sloupcový vektor jako matici s jediným sloupcem. Transpozice řádkového vektoru je sloupcový vektor a naopak. Operace jsou definovány stejně jako pro matice. Počítání je jednodušší, protože vektor má méně elementů než matice, ale v přílišné jednoduchosti někdy mohou být zádrhely. Pro konkrétnost, pokud pro sloupcový vektor [`v=\begin{pmatrix}2\\3\\-1\end{pmatrix}`] vypočteme součin [```v^T v= \begin{pmatrix}2 & 3 &-1\end{pmatrix} \begin{pmatrix}2\\3\\-1\end{pmatrix},```] dostaneme lineární kombinaci jednorozměrných vektorů (sloupce první matice) s koeficienty ve sloupci druhé matice, tj. [``` v^T v=(2\cdot 2 + 3\cdot 3 + (-1)\cdot (-1)) =(4+9+1)=(10).```] Pokud naopak vypočteme součin [```v v^T = \begin{pmatrix}2\\3\\-1\end{pmatrix} \begin{pmatrix}2 & 3 &-1\end{pmatrix}, ```] dostáváme extrémně jednoduché lineární kombinace jednoho sloupce. Tj. výsledekm je matice, kde všechny sloupce jsou násobkem vektoru $v$ vždy s příslušnou komponentou. Tedy [```v v^T = \begin{pmatrix}2\\3\\-1\end{pmatrix} \begin{pmatrix}2 & 3 &-1\end{pmatrix} = \begin{pmatrix}2&6&-2\\6&9&-3\\-2&-3&1\end{pmatrix}. ```] Všimněte si, že jedna z matice degeneruje na číslo (geometricky rovno druhéí mocnině délky vektoru) a druhá z matic je symetrická. 
+
+----------------
+
+Pro  vektor
+[``` u = [$u] ```]
+platí
+>> [``u^T u ={}``]=[_________________]*{$ans2}<<
+a
+>> [``u u^T ={}``]=[_____]*{$ans1}.<<
+
+END_PGML
 Context()->normalStrings;
 
-ANS($ans1->cmp);
-ANS($ans2->cmp);
-;
+BEGIN_PGML_SOLUTION
+
+Platí [``u^T u = ([$u->element(1,1)])\cdot([$u->element(1,1)]) + ([$u->element(2,1)])\cdot([$u->element(2,1)]) + ([$u->element(3,1)])\cdot([$u->element(3,1)])=[$ans2]``] a [``u u^T = [$ans1]``].
+
+END_PGML_SOLUTION
+
+
 ENDDOCUMENT();
