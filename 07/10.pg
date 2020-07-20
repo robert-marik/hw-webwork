@@ -37,11 +37,7 @@ BEGIN_PGML
 ## Vedení tepla v homogenním anizotropním prostředí
 
 Uvažujme dvourozměrný materiál, kde nemáme zvoleny osy tak, aby koeficient tepelné vodivosti a difuzní koeficient byly diagonální. Třeba by to nemuselo být výhodné vzhledem ke geometrii problému  (např. dřevo nařezané šikmo po letech).  Konkrétně pro gradient teploty daný vektorem [`\nabla T=\begin{pmatrix} x+y\\3y^2\end{pmatrix}`] a koeficient tepelné vodivosti [`\lambda=\begin{pmatrix}0.3&0.1\\0.1&0.5\end{pmatrix}`], je tok tepla dán vztahem
-[```\vec q=-\lambda \nabla T=-\begin{pmatrix}0.3&0.1\\0.1&0.5\end{pmatrix} \begin{pmatrix} x+y\\3y^2\end{pmatrix}
-=\begin{pmatrix} -0.3x-0.3y-0.1\cdot 3y^2\\-0.1(x+y)-0.5\cdot 3y^2\end{pmatrix}
-=\begin{pmatrix} -0.3(x+y)-0.1\cdot 3y^2\\-0.1x-0.1y-1.5y^2\end{pmatrix}
-.
-```]
+[```\vec q=-\lambda \nabla T=-\begin{pmatrix}0.3&0.1\\0.1&0.5\end{pmatrix} \begin{pmatrix} x+y\\3y^2\end{pmatrix}=-(x+y)\begin{pmatrix} 0.3\\0.1\end{pmatrix}-3y^2\begin{pmatrix} 0.1\\0.5\end{pmatrix}=\begin{pmatrix} -0.3x-0.3y-0.3y^2\\-0.1x-0.1y-1.5y^2\end{pmatrix}.```]
 Připomeňme, že při násobení matice a sloupcového vektoru počítáme lineární kombinace sloupců matice, kdy koeficienty v lineární kombinaci jsou komponenty sloupcového vektoru. Viz též [@ htmlLink("https://sagecell.sagemath.org/?z=eJwrSyzSUK9QqFTX5OXysc1NLCnKrNCIjjbQM9Yx0DOM1QGyDIEs09hYoAKXEISKCu1KoKyxVmWcEViuOCO_XEPXR8slRBMA4w4Xeg==&lang=sage&interacts=eJyLjgUAARUAuQ==","SageCell")@]*.
 
 Následující příklad je analogický, jenom s jinými čísly, jinými funkcemi. Z důvodů vynucených programem jsou matice ohraničeny hranatými závorkami namísto kulatých.

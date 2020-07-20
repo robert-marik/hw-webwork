@@ -45,7 +45,7 @@ BEGIN_PGML
 
 ## Součet matic
 
-Součet matice je snadná operace: provádí se po složkách, tj. sečtou se čísla na pozicích, které si odpovídají. Například platí následující.
+Součet matic je snadná operace: provádí se po složkách, tj. sečtou se čísla na pozicích, které si odpovídají. Například platí následující.
 [``` [$A] + [$C] = [$answer2]```]
 
 
