@@ -20,15 +20,20 @@ Context()->texStrings;
 BEGIN_PGML
 ## Symetrická matice
 
-Symetrické matice jsou matice, kde platí [`a_{ij}=a_{ji}`]. Jinými slovy, prvky ležící symetricky podle hlavní diagonály jsou stejné. Například prvek v prvním řádku a třetím sloupci je stejný jako prvek ve třetím řádkku a prvním sloupci. Pro matice [`3\times 3`] odsud plynou tři podmínky: [``` a_{12}=a_{21},\ a_{13}=a_{31},\ a_{23}=a_{32}.```] Symetrická [`3\times 3`] matice má tedy sice devět prvků, ale jenom šest prvků je nezávislých. Tři zbylé prvky jsou definovány podmínkou symetrie. 
+Symetrické matice jsou matice, kde platí [`a_{ij}=a_{ji}`]. Jinými slovy, prvky ležící symetricky podle hlavní diagonály jsou stejné. Například prvek v prvním řádku a třetím sloupci je stejný jako prvek ve třetím řádku a prvním sloupci.
+
+Pro matice [`3\times 3`] odsud plynou tři podmínky: [``` a_{12}=a_{21},\quad a_{13}=a_{31},\quad a_{23}=a_{32}.```] Symetrická [`3\times 3`] matice má tedy sice devět prvků, ale jenom šest prvků je nezávislých. Tři zbylé prvky jsou definovány podmínkou symetrie, která je pro [`3\times 3`] matice realizována třemi výše uvedenými  vztahy.
+
+Matice [``` \begin{pmatrix}0&2&4\\1&-1&7\\4&7&3\end{pmatrix}```] není symetrická, symetrii "kazí" dvojice čísel [`2`] a [`1`]. Na číslech v hlavní diaogonále nezáleží a zbylé dva páry symetricky položených prvků jsou v pořádku.
+
 END_PGML
 
 BEGIN_TEXT
-Symetrické matice jsou důležitou třídou matic v aplikacích. Z obecnějších úvah plyne, že materiálové vlastnosti jsou v materiálech popisovány právě symetrickými maticemi. Symetrické matice mají spoustu užitečných vlastností. Například je možné otočit soustavu souřadnic tak, že příslušná materiálová vlastnost je dokonce popsána diagonální maticí. To nastane, pokud volíme soustavu souřadnic tak, že ve směru os je materiálová odezva na podnět stejného směru jako podnět. U dřeva to jsou anatomické směry dřeva (podélný, radiální, tangenciální). Pokud nemáme možnost nebo není vhodné volit soustavu souřadnic v anatomických směrech dřeva, pracujeme s obecnými symetrickými maticemi (přesněji, se symetrickými tenzory).
+Symetrické matice jsou důležitou třídou matic v aplikacích. Z obecnějších úvah plyne, že materiálové vlastnosti jsou v materiálech popisovány právě symetrickými maticemi. Symetrické matice mají spoustu užitečných vlastností. Například je možné otočit soustavu souřadnic tak, že příslušná materiálová vlastnost je dokonce popsána diagonální maticí. To nastane, pokud volíme soustavu souřadnic tak, že ve směru os je materiálová odezva na podnět stejného směru jako podnět. Má-li materiál patrnou vnitřní strukturu a potřebnou symetrii, jsou tyto osy dobře patrné. To je příklad vlnité lepenky nebo dřeva. Proto u dřeva zpravidla volíme při popisu osy v anatomických směrech dřeva (podélný, radiální, tangenciální). V něktterých případech však takovou možnost nemáme a potom ztrácíme výhodu popisu pomocí diagonálních matice a pracujeme s obecnými symetrickými maticemi (přesněji, se symetrickými tenzory).
 
 $BR
 $BR
-Uveďte příklad \( 3 \times 3 \) symetrické matice \( A \), která není diagonální.
+Diagonální matice jsou vždy symetrické, protože mají mimo hlavní diagonálu všechny prvky stejné, totiž nuly. Uveďte příklad \( 3 \times 3 \) symetrické matice \( A \), která není diagonální.
 $BR
 $BR
 $BCENTER

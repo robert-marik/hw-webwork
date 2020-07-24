@@ -96,8 +96,8 @@ Pokud chceme ze známého vlastního čísla [`\lambda`] určit vlastní vektor 
 [``` (A-\lambda I)\vec v = 0```] a najít její libovolné nenulové řešení. Zde [`I`] je jednotková matice. V případě naší matice a vlastního čísla [`2`] dostaneme
 v souřadnicích
 soustavu
-[``` \begin{pmatrix}3-2&-2\\1&0-2\end{pmatrix} \begin{pmatrix} v_1\\v_2\end{pmatrix}= \begin{pmatrix}1&-2\\1&-2\end{pmatrix} \begin{pmatrix} v_1\\v_2\end{pmatrix}=0.```]
-Protože jsme použili hodnotu [`\lambda`] rovnu vlastnímu číslu, má tato soustava nenulové řešení a ve dvourozměrném případě to znamená, že obě rovnice jsou stejné, nebo je jedna násobkem druhé. Je proto snadné najít nějaké nenulové řešení, stačí zvolit libovolnou nenulovou jednu souřadnici vektoru [`\vec v`] a dopočítat druhou.
+[``` \begin{pmatrix}3-2&-2\\1&0-2\end{pmatrix} \begin{pmatrix} v_1\\v_2\end{pmatrix}= \begin{pmatrix}1&-2\\1&-2\end{pmatrix} \begin{pmatrix} v_1\\v_2\end{pmatrix}=\begin{pmatrix}0\\0\end{pmatrix}.```]
+Protože jsme použili hodnotu [`\lambda`] rovnu vlastnímu číslu, má tato soustava nenulové řešení a ve dvourozměrném případě to znamená, že obě rovnice jsou stejné, nebo je jedna násobkem druhé. V našem případě [``` v_1-2v_2=0.```] Je proto snadné najít nějaké nenulové řešení, stačí zvolit libovolnou nenulovou jednu souřadnici vektoru [`\vec v`] a dopočítat druhou. Například pro [`v_2=1`] dostáváme [`v_1=2`] a vlastním vektorem je například vektor [``\vec v=\begin{pmatrix}2\\1\end{pmatrix}``].
 
 
 ------
