@@ -42,7 +42,7 @@ Připomeňme, že při násobení matice a sloupcového vektoru počítáme line
 
 Následující příklad je analogický, jenom s jinými čísly, jinými funkcemi. Z důvodů vynucených programem jsou matice ohraničeny hranatými závorkami namísto kulatých.
 
-Tato situace s nediagonální maticí nás může potkat i u ortotropních materiálů v situaci, kdy nemůžeme nebo nechceme volit osy ve směru symetrie materiálu (například u dřeva v anatomických směrech).
+Tato situace s nediagonální maticí nás může potkat i u ortotropních materiálů v situaci, kdy nemůžeme nebo nechceme volit osy ve směru symetrie materiálu. To může nastat například u dřeva nařezaného našikmo. Často potřebujeme volit osy podle geometrie zkoumaného objektu a to u dřeva nařezaného našikmo nekoresponduje s volbou, která diagonalizuje materiálové vlastnosti.
 
 ----------------
 
