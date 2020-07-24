@@ -52,6 +52,8 @@ Pro  homogenní izotropní materiál s koeficientem tepelné vodivosti [`\lambda
 [``\nabla T=[$u]``].
 >> [``\vec q=-\lambda \nabla T =-[$lambda][$u]={}``][_________________]*{$ans}<<
 
+Odpověď je vyhodnocována jako jediný objekt, vektor. Proto musí být obě komponenty správně. Pokud je správně jenom jedna komponenta nebo žádná, celá odpověď je vyhodnocena jako nesprávná. 
+
 END_PGML
 Context()->normalStrings;
 

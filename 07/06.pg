@@ -54,7 +54,7 @@ BEGIN_PGML
 
 ## Součin matice a vektoru
 
-Součin matice [`A`] a sloupcového vektoru [`\vec b`] je možno chápat jako jakési zobrazení množiny vektorů. Výsledkem je tedy opět sloupcový vektor. Jeho souřadnice dostaneme jako lineární kombinaci sloupců matice [`A`]. Koeficienty v této lineární kombinaci jsou souřadnice vektoru [`\vec b`].
+Součin čtvercové matice [`A`] a sloupcového vektoru [`\vec b`] je možno chápat jako jakési zobrazení množiny vektorů do sebe. Výsledkem je tedy opět sloupcový vektor. Jeho souřadnice dostaneme jako lineární kombinaci sloupců matice [`A`]. Koeficienty v této lineární kombinaci jsou souřadnice vektoru [`\vec b`].
 Například platí
 [```[$AA] [$BB] = [$answerr]```]
 a výsledný vektor je dvojnásobek prvního sloupce minus druhý sloupec matice, stojící v maticovém součinu vlevo. Vskutku,
@@ -66,7 +66,7 @@ Následující příklad je analogický. Z důvodů implementace v programu je m
 
 Je dána matice [``A``] a vektor [``\vec b``].
 >> [``A = [$A] \ \ \mbox{a} \ \ \vec b = [$B]. ``] <<
-Vypočtěte obraz vektoru [``\vec b``] při zobrazení reprezentovaném maticí [``A``].
+Vypočtěte obraz vektoru [``\vec b``] při zobrazení reprezentovaném maticí [``A``]. Jinými slovy: vynásobte uvedené matice v požadovaném pořadí.
 
 >>[`` A \vec b = {}``][_____]*{$answer}<<
 END_PGML
