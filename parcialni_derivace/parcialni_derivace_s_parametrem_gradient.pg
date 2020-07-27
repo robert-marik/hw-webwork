@@ -46,7 +46,7 @@ Tento výsledek je možno zapsat jako uspořádanou dvojici *<2xy^m+1,mx^2y^(m-1
 
 Vypočtěte gradient funkce [``` f(x,y)=[$funkce],```] kde [`a \in\mathbb{R}`] je reálný parametr.
 
->>[``\nabla f(x,y)={}``][____________________________________]{$gradient}<<
+>>[``\nabla f(x,y)={}``][____________________________________]*{$gradient}<<
 
 END_PGML
 

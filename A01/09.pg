@@ -1,0 +1,66 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGML.pl",
+"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+
+$radio = RadioButtons(
+["Záporná, protože lék se odbourává a jeho množství s časem klesá.","Kladná, protože čas nemůže klesat","Kladná, protože při větší dávce léku je v těle větší koncentrace léku.","Pro malou dávku záporná, pro velkou dávku kladná, protože při použití derivace součinu dostaneme funkci měníci znaménko.","Nulová, protože po podání počáteční dávky se další lék nepodává.","Pro malou dávku kladná a pro velkou dávku záporná, protože od jisté koncentrace je lék již nebezpečný"],
+0);  # První odpověď správná
+
+$radio2 = RadioButtons(
+["Záporná, protože lék se odbourává a jeho množství s časem klesá.","Kladná, protože čas nemůže klesat","Kladná, protože při větší dávce léku je v těle větší koncentrace léku.","Pro malou dávku záporná, pro velkou dávku kladná, protože při použití derivace součinu dostaneme funkci měníci znaménko.","Nulová, protože po podání počáteční dávky se další lék nepodává.","Pro malou dávku kladná a pro velkou dávku záporná, protože od jisté koncentrace je lék již nebezpečný"],
+2);  
+
+BEGIN_PGML
+
+## Koncentrace léku v těle
+
+[@ image("lek.png", width=>300) @]*
+
+Pacientovi je jednorázově podán lék. Tento lék se v těle s časem odbourává podle farmakokinetických zákonů. Předpokládejme, že lék se rychle vstřebá do krve a čas mezi podáním léku a dosažením odpovídající koncentrace léku v krvi pacienta je prakticky nulový.
+
+Uvažujme koncentraci [`C`] (v jednotce mg/litr) léku v těle pacienta jako funkci počáteční dávky [`x`] a času od aplikace [`t`]. Tato funkce by mohla mít tvar například 
+[```
+C (x,t) = a t e^{ - (k - x) t }
+```]
+ pro [` 0 \leq x \leq k`] mg a [`t \geq 0 `] hodin, kde [`a`] a [`k`] jsou kladné konstanty. 
+
+
+*Část 1:* Jaké znaménko má derivace podle času, tj. [``\frac{\partial C}{\partial t}``]? Je tato derivace kladná nebo záporná? Nebo není možné rozhodnout?
+
+[_]{$radio}
+
+-------
+
+*Část 2:* Jaké znaménko má derivace podle počáteční dávky, tj. [``\frac{\partial C}{\partial x}``]?
+
+[_]{$radio2}
+
+END_PGML
+
+
+$showHint = 3;
+
+BEGIN_PGML_HINT
+Jednorázově byla navýšena koncentrace léku v těle, lék se postupně odobourává. Ani v jednom případě není nutné nic počítat, jenom rozmyslete jak lék funguje a jak se to projeví na derivacích.
+
+Pro derivaci podle času přemýšlejte, jestli při stejné počáteční dávce koncentrace léku roste či klesá s časem.
+
+Pro derivaci podle počáteční dávky uvažujte třeba dva pacienty, kteří obdrželi každý jinou počáteční dávku a rozmyslete, který z pacientů bude mít po uplynutí referenční doby jaký obsah léku v těle.
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Derivace podle času je záporná. Lék se totiž odbourává a množství i koncentrace léku klesají.
+
+Derivace podle počáteční dávky je kladná. Větší počáteční dávka způsobí větší obsah léku v těle a větší koncentraci léku v těle. 
+END_PGML_SOLUTION
+
+ENDDOCUMENT();

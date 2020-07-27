@@ -4,8 +4,8 @@ loadMacros(
 "PGstandard.pl",
 "MathObjects.pl",
 "parserRadioButtons.pl",
+"PGML.pl",
 "PGcourse.pl",
-"PGML.pl"
 );
 
 TEXT(beginproblem());
@@ -29,13 +29,14 @@ Dřevěnou kostku o délce strany [``10\,\mathrm{cm}``] dáme do pece k teplotn�
 
 [@ image("drevena_kostka.png", width=>300) @]*
 
-*Část 1:* Jaké znaménko má derivace podle času, tj. [``\frac{\partial T}{\partial t}``]?
+*Část 1:* Jaké znaménko má derivace podle času, tj. [``\frac{\partial T}{\partial t}``]? Je tato derivace kladná nebo záporná? Nebo nulová? Vyberte správnou odpověď a správné zdůvodnění.
 
 [_]{$radio}
 
 -------
 
 *Část 2:* Jaké znaménko má derivace podle polohy? Pro konkrétnost uvažujme například derivaci ve směru osy [`x`], tj. [``\frac{\partial T}{\partial x}``].
+Je tato derivace kladná nebo záporná? Nebo nulová? Vyberte správnou odpověď a správné zdůvodnění.
 
 [_]{$radio2}
 
