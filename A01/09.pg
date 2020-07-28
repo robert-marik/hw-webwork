@@ -23,7 +23,7 @@ BEGIN_PGML
 
 ## Koncentrace léku v těle
 
-[@ image("lek.png", width=>300) @]*
+[@ image("lek.jpg", width=>300) @]*
 
 Pacientovi je jednorázově podán lék. Tento lék se v těle s časem odbourává podle farmakokinetických zákonů. Předpokládejme, že lék se rychle vstřebá do krve a čas mezi podáním léku a dosažením odpovídající koncentrace léku v krvi pacienta je prakticky nulový.
 
