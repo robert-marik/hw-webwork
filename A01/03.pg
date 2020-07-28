@@ -23,7 +23,7 @@ $funkce=Formula("$b*x^$k*y^$l*z^$l - 3*e^(-x+$m*z)")->reduce();
 
 $dfx=Formula("$b*$k*x^($k-1)*y^$l*z^$l + 3*e^(-x+$m*z)")->reduce();
 $dfy=Formula("$b*$l*x^$k*y^($l-1)*z^$l")->reduce();
-$dfz=Formula("$b*$l*x^$k*y^$l*z^($l-1) - 3*$m*e^(x+$m*z)")->reduce();
+$dfz=Formula("$b*$l*x^$k*y^$l*z^($l-1) - 3*$m*e^(-x+$m*z)")->reduce();
 
 
 $n=random(1,3,1);
