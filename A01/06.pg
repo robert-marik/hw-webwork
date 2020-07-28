@@ -31,7 +31,7 @@ BEGIN_PGML
 
 ## Smíšené parciální derivace druhého řádu
 
-Parciální derivace můžeme aplikovat i opakovaně a nemusíme přitom derivovat vždy podle stejné proměnné. Například pro funkci [```f(x,y)=(2x+5y^2)^6```] dostáváme p5i derivování podle [`x`] první derivaci ve tvaru
+Parciální derivace můžeme aplikovat i opakovaně a nemusíme přitom derivovat vždy podle stejné proměnné. Například pro funkci [```f(x,y)=(2x+5y^2)^6```] dostáváme při derivování podle [`x`] první derivaci ve tvaru
 [``` \frac{\partial f}{\partial x}=12(2x+5y^2)^5```] a pokud tento výsledek derivujeme podle [`y`], dostaneme smíšenou derivaci
 [``` \frac{\partial^2 f}{\partial x\partial y}=12\cdot 5 \cdot 5\cdot 2 y(2x+5y^2)^4.```]
 Stejný výsledek bychom obdrželi, kdybychom derivovali nejprve podle [`y`] na vztah
