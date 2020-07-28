@@ -22,7 +22,7 @@ Context("Numeric")->variables->add(y=>"Real", a=>"Real");
 $funkce=Formula("$b*x^$k*y^$l*e^(-a*y)")->reduce();
 
 $dfx=Formula("$b*$k*x^($k-1)*y^$l*e^(-a*y)")->reduce();
-$dfy=Formula("$b*$k*x^($k-1)*($l*y^($l-1)*e^(-a*y)+(-a)*y^$l*e^(-a*y))")->reduce();
+$dfy=Formula("$b*$k*x^($k-1)*($l*y^($l-1)+(-a)*y^$l)*e^(-a*y)")->reduce();
 
 
 BEGIN_PGML

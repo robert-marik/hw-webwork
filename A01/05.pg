@@ -18,7 +18,7 @@ Context("Numeric")->variables->add(y=>"Real");
 	
 $funkce=Formula("y*e^(x^$m+$k*y)")->reduce();
 $dfx=Formula("$m*x^($m - 1)*y*e^(x^$m+$k*y)")->reduce();
-$ddfx=Formula("$m^2*x^(2*$m - 2)*y*e^($k*y + x^$m) + ($m - 1)*$m*x^($m - 2)*y*e^($k*y + x^$m)")->reduce();
+$ddfx=Formula("( $m^2*x^(2*$m - 2)*y + ($m - 1)*$m*x^($m - 2)*y) *e^($k*y + x^$m)")->reduce();
 
 
 BEGIN_PGML

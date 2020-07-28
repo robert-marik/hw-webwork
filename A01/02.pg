@@ -41,4 +41,20 @@ END_PGML
 
 
 
+BEGIN_PGML_HINT
+
+Derivujte každý sčítanec zvlášť (stejně jako v předchozím příkladě) a výsledky sečtěte. Pokud v některém sčítanci některá proměnná chybí, chová se tento sčítanec jako konstanta a protože derivace konstanty je nula, tak se ve výsledku neuplatní.
+
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+
+[```\frac{\partial f}{\partial x} =[$dfx]```]
+
+[```\frac{\partial f}{\partial y} =[$dfy]```]
+
+
+END_PGML_SOLUTION
+
+
 ENDDOCUMENT();
