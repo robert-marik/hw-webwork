@@ -32,7 +32,7 @@ BEGIN_PGML
 
 ## Gradient funkce tří proměnných s parametrem
 
-V následujícícm příkladě si zkusíme vypočítat gradient funkce tří proměnných s parametrem. Postupuje se stejně jako v předchozím příkladě, pouze máme navíc parametr, stejně jako v příkladě číslo 2.
+V následujícím příkladě si zkusíme vypočítat gradient funkce tří proměnných s parametrem. Postupuje se stejně jako v předchozím příkladě, pouze máme navíc parametr, stejně jako v příkladě číslo 2.
 
 
 ---------------
@@ -51,7 +51,7 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 
-Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu.
+Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu a přepis do elegantnějšího tvaru.
 
 [``` \frac{\partial f}{\partial x}=[$dfx] ```]
 

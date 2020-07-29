@@ -45,7 +45,7 @@ Její gradient je proto (zapsáno jako sloupcový vektor)
 [``` \nabla f=\begin{pmatrix}2xy^3+1 \\ 3x^2y^2+5\end{pmatrix}.```]
 Pomocí jednotkových vektorů ve směru souřadnicových os můžeme tentýž výsledek psát také
 [``` \nabla f=(2xy^3+1)\vec i +(3x^2y^2+5)\vec j.```]
-Tento výsledek je možno zapsat jako supořádanou dvojici ohraničenou ostrými závorkami, nebo pomocí jednotkových vektorů. tj. *<2xy^3+1,3x^2y^2+5>* nebo *(2xy^3+1)\*i +(3x^2y+5)\*j.*
+Tento výsledek je možno zapsat jako uspořádanou dvojici ohraničenou ostrými závorkami, nebo pomocí jednotkových vektorů. tj. *<2xy^3+1,3x^2y^2+5>* nebo *(2xy^3+1)\*i +(3x^2y+5)\*j.*
 
 ---------------
 
@@ -63,7 +63,7 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 
-Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu.
+Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu a přepis do elegantnějšího tvaru.
 
 [``` \frac{\partial f}{\partial x}=[$dfx] ```]
 

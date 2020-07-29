@@ -44,7 +44,7 @@ V minulém příkladě jsme hledali Jacobiho matici pro zobrazení mezi vektory.
 
 V tomto příkladě se posuneme naznačeným směrem. Vypočteme matici stejně jako v příkladě předchozím a dosadíme do matice bod, který je počátkem a vyjadřuje nulový materiálový podnět (například nulový gradient teploty, nebo nulový gradient koncentrace). 
 
-Například pro vektorovou funkci [``` \vec F=x^3-x+4y\vec i + \sin (x)\vec j ```] má Jacobiho matice tvar
+Například pro vektorovou funkci [``` \vec F=(x^3-x+4y)\vec i + \sin (x)\vec j ```] má Jacobiho matice tvar
 [``` J(x,y) = \begin{pmatrix}3x^2-1 & 4 \\ \cos (x) & 0\end{pmatrix}```] a Jacobiho matice v nule je
 [``` J(0,0) = \begin{pmatrix}-1 & 4 \\ 1 & 0\end{pmatrix}.```]
 

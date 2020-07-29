@@ -68,7 +68,7 @@ Stačí vypočítat funkční hodnotu a obě derivace (tj. gradient) v bodě [`(
 
 Přímým použitím těchto hodnot a vzorce dostáváme 
 [``` f(x,y)\approx [$aproximace]. ```]
-(Vzorec je automaticky vygenerovaný je možné, že se dá zapsat v úspornějším a přehlednějším tvaru.)
+(Vzorec je automaticky vygenerovaný a je možné, že se dá zapsat v úspornějším a přehlednějším tvaru.)
 
 
 END_PGML_SOLUTION

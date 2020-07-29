@@ -40,7 +40,7 @@ Funkce
 [``` f(x,y)=x^2y^m+x ```]
 je funkce dvou proměnných [`x`] a [`y`] a s parametrem [`m`]. Při výpočtu parciální derivace tento parametr považujeme za konstantu, stejně jako proměnné, přes které se nederivuje. Funkce má (po výpočtu parciálních derivací) gradient
 [``` \nabla f=(2xy^m +1) \vec i  + m x^2y^{m-1}\vec j.```]
-Tento výsledek je možno zapsat jako uspořádanou dvojici *<2xy^m+1,mx^2y^(m-1)>* nebo nebo pomocí jednotkových vektorů *(2xy^m+1)\*i + mx^2y^(m-1)\*j.*
+Tento výsledek je možno zapsat jako uspořádanou dvojici *<2xy^m+1,mx^2y^(m-1)>* nebo pomocí jednotkových vektorů *(2xy^m+1)\*i + mx^2y^(m-1)\*j.*
 
 ---------------
 
@@ -59,7 +59,7 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 
-Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu.
+Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu a přepis do elegantnějšího tvaru.
 
 [``` \frac{\partial f}{\partial x}=[$dfx] ```]
 
