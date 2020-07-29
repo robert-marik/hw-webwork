@@ -10,6 +10,7 @@ loadMacros(
 TEXT(beginproblem());
 
 $showPartialCorrectAnswers = 1;
+$showHint = 3;
 
 $b=random(2,10,1);
 $c=non_zero_random(-4,7,1);
@@ -20,13 +21,11 @@ $m=non_zero_random(-9,9,1);
 
 Context("Vector");
 	
-#$funkce=Formula("$b*x^$k*y^$l+$c*x^$m*y-y^($m+2)")->reduce();
 $funkce=Formula("$b*x^$k*y^$l+$m*x+6")->reduce();
 $dfx=$funkce->D("x");
 $dfy=$funkce->D("y");
 
 $gradient = Vector("<$dfx, $dfy>");
-
 
 BEGIN_PGML
 
@@ -55,6 +54,27 @@ Vypočtěte gradient funkce [``` f(x,y)=[$funkce].```]
 >>[``\nabla f(x,y)={}``][____________________________________]{$gradient}<<
 
 END_PGML
+
+BEGIN_PGML_HINT
+Pozorně počítejte derivace. Například derivace podle [`x`] je [``` \frac{\partial f}{\partial x}=[$dfx]. ```]
+a toto je možné zapsat jako [$dfx] .
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu.
+
+[``` \frac{\partial f}{\partial x}=[$dfx] ```]
+
+[``` \frac{\partial f}{\partial y}=[$dfy] ```]
+
+Vektor sestavený z těchto parciálních derivací je gradient.
+
+[``` \nabla f=\begin{pmatrix}[$dfx]\\[$dfy]\end{pmatrix}```]
+
+END_PGML_SOLUTION
+
 
 
 
