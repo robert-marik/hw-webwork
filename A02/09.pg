@@ -31,15 +31,19 @@ BEGIN_PGML
 
 ## Gradient teploty
 
-Při posouzení toho, zda v daném objektu za daných podmínek teče teplo či nikoliv je zásadní gradient teploty. To je vektor ve směru maximálního růstu teploty. Tedy vektor mířící přesně v opačném směru než je tendence materiálu předávat si energii a tedy vést teplo. Hnacím faktorem při tepelné výměně je totiž právě nerovnoměrnost v rozložení teploty (tj. fakt že v materiálu jsou některá místa teplejší než ostatní). Teplo se předává z míst o vyšší teplotě do míst o nižší teplotě, tj. ve směru záporně vzatého gradientu. Tímto směrem skutečně teče teplo u izotropních materiálů. Tyto tendence ještě mohou být odkloněny strukturou materiálů a jeho anizotropiíexistence nenulo má tendenci téct ve směru záporně vzatého gradientu (i když geometrie materiálu může tyto tendence ovlivnit, jak si ukážeme v následujícím příkladě). Zopakujeme si nejprve první příklad z této série domácích úloh, výpočet gradientu.
+Při posouzení toho, zda v daném objektu za daných podmínek teče teplo či nikoliv je zásadní gradient teploty. To je vektor ve směru maximálního růstu teploty. Tedy vektor mířící přesně v opačném směru než je tendence materiálu předávat si energii a tedy vést teplo. Hnacím faktorem při tepelné výměně je totiž právě nerovnoměrnost v rozložení teploty (tj. fakt že v materiálu jsou některá místa teplejší než ostatní). Teplo se předává z míst o vyšší teplotě do míst o nižší teplotě, tj. ve směru záporně vzatého gradientu. Tímto směrem skutečně teče teplo u izotropních materiálů. Tyto tendence ještě mohou být odkloněny strukturou materiálů a jeho anizotropií existence nenulo má tendenci téct ve směru záporně vzatého gradientu (i když geometrie materiálu může tyto tendence ovlivnit, jak si ukážeme v následujícím příkladě). Zopakujeme si nejprve první příklad z této série domácích úloh, výpočet gradientu.
 
 -------------------
 
-Teplota v místě [`(x,y)`] dvourozměrné desky je dána vztahem [``` T(x,y)=[$funkce].```] Určte její gradient. Zápis vektoru je stejý jako v úvodních příkladech této série.
+Teplota v místě [`(x,y)`] dvourozměrné desky je dána vztahem [``` T(x,y)=[$funkce].```] Určete její gradient. Zápis vektoru je stejný jako v úvodních příkladech této série. 
 
 >>[``\nabla T(x,y)={}``][____________________________________]{$gradient}<<
 
-_Poznámka: Funkce které jsou  ve tvaru zlomku a v čitateli zlomku je jenom konstanta je pro potřeby derivování často vhodné převést do tvaru mocninné funkce kdy jmenovatel je umocněn mocninou [`-1`] a derivovat jako složenou funkci. Výpočet je zpravidla kratší a vede k jednodušší derivaci než aplikace vzorce pro derivaci podílu._
+_Poznámka 1: Funkce které jsou  ve tvaru zlomku a v čitateli zlomku je jenom konstanta je pro potřeby derivování často vhodné převést do tvaru mocninné funkce kdy jmenovatel je umocněn mocninou [`-1`] a derivovat jako složenou funkci. Výpočet je zpravidla kratší a vede k jednodušší derivaci než aplikace vzorce pro derivaci podílu._
+
+_Poznámka 2: Pokud jsou obě komponenty násobky stejného výrazu, je možné gradient zapsat jako součin vektoru a skaláru. Například vektor
+[`` \frac {x}{x^2+y^2} \vec i + \frac {y}{x^2+y^2} \vec j ``] je možné chápat jako [`` \frac {1}{x^2+y^2} (x \vec i + y \vec j) ``]  a zapsat jako
+*1/(x^2+y^2) \* <x,y>* nebo *1/(x^2+y^2) \* (x\*i+y\*j)*._
 
 END_PGML
 
@@ -61,7 +65,7 @@ Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně p
 
 Vektor sestavený z těchto parciálních derivací je gradient.
 
-[``` \nabla T=\begin{pmatrix}[$dfx]\\[$dfy]\end{pmatrix}```]
+[``` \nabla T=\begin{pmatrix}[$dfx]\\[$dfy]\end{pmatrix}=-\frac {[$b]}{(x^2+[$k]*y^2)^2} \begin{pmatrix} 2x \\ 2\cdot [$k] \cdot y\end{pmatrix}```]
 
 END_PGML_SOLUTION
 
