@@ -12,25 +12,19 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 $showHint = 3;
 
-$a=random(2,4,1);
-$b=random(-10,10,1);
-$c=non_zero_random(2,7,1);
-$k=random(2,4,1);
-do  { $l=random(2,6,1); } until ($l != $k);
-#do  { $m=random(3,9,1); } until (($m != $k) and ($m != $k));
-$m=non_zero_random(-9,9,1);
-
+$b=random(2,4,1);
+$c=random(-6,6,1);
 
 Context("Numeric")->variables->add(y=>"Real", a=>"Real");
 
 	
-$P=Formula("x^2*y^($a-1)")->reduce();
-$dP=Formula("2*x*y^($a-1)")->reduce();
+$P=Formula("x^2*y^($b-1)")->reduce();
+$dP=Formula("2*x*y^($b-1)")->reduce();
 
-$Q=Formula("x*y^$a")->reduce();
-$dQ=Formula("$a*x*y^($a-1)+$b")->reduce();
+$Q=Formula("a*x*y^$b")->reduce();
+$dQ=Formula("$b*a*x*y^($b-1)+$c")->reduce();
 
-$ans=Formula("-$a/2")->reduce;
+$ans=Formula("-$b/2")->reduce;
 $divergence = Formula("$dP+$dQ")->reduce;
 
 BEGIN_PGML
