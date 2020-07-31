@@ -40,7 +40,7 @@ jsou parciální derivace
 a
 [``` \frac{\partial }{\partial y}(x+ay^2)=2ay```]
 a divergence je
-[``` \nabla \cdot \vec F (x,y)=2xy+2ay=y(1+2a).```]
+[``` \nabla \cdot \vec F (x,y)=y+2ay=y(1+2a).```]
 Pro [`a=-\frac 12`] platí
 [``` \nabla \cdot \vec F (x,y)=0```]
 a pro tuto hodnotu parametru je vektorové pole nezřídlové.
@@ -73,7 +73,7 @@ Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně p
 
 Součet těchto parciálních derivací je divergence.
 
-[``` \nabla \cdot F(x,y)=[$divergence]```]
+[``` \nabla \cdot \vec F(x,y)=[$divergence]```]
 
 Divergence je nulová pro [```a=[$ans].```]
 
