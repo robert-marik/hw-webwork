@@ -21,8 +21,8 @@ Context("Numeric")->variables->add(y=>"Real", a=>"Real");
 $P=Formula("x^2*y^($b-1)")->reduce();
 $dP=Formula("2*x*y^($b-1)")->reduce();
 
-$Q=Formula("a*x*y^$b")->reduce();
-$dQ=Formula("$b*a*x*y^($b-1)+$c")->reduce();
+$Q=Formula("a*x*y^$b+$c")->reduce();
+$dQ=Formula("$b*a*x*y^($b-1)")->reduce();
 
 $ans=Formula("-2/$b")->reduce;
 $divergence = Formula("$dP+$dQ")->reduce;
