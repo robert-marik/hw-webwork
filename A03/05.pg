@@ -24,7 +24,7 @@ $dP=Formula("2*x*y^($b-1)")->reduce();
 $Q=Formula("a*x*y^$b")->reduce();
 $dQ=Formula("$b*a*x*y^($b-1)+$c")->reduce();
 
-$ans=Formula("-$b/2")->reduce;
+$ans=Formula("-2/$b")->reduce;
 $divergence = Formula("$dP+$dQ")->reduce;
 
 BEGIN_PGML
@@ -54,8 +54,10 @@ Určete, pro kterou hodnotu parametru [`a`] je vektorového pole [``` \vec F(x,y
 END_PGML
 
 BEGIN_PGML_HINT
-Pozorně počítejte derivace. Například derivace druhé komponenty podle [`y`] je [``` \frac{\partial }{\partial y}([$Q])=[$dQ]. ```]
-a toto je možné zapsat jako [$dQ] .
+Pozorně počítejte derivace. Platí
+[``` \frac{\partial }{\partial y}([$P])=[$dP]. ```]
+a
+[``` \frac{\partial }{\partial y}([$Q])=[$dQ]. ```]
 END_PGML_HINT
 
 
