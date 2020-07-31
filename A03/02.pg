@@ -1,0 +1,83 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "MathObjects.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 3;
+
+$b=random(2,10,1);
+$c=non_zero_random(2,7,1);
+$k=random(2,4,1);
+do  { $l=random(2,6,1); } until ($l != $k);
+#do  { $m=random(3,9,1); } until (($m != $k) and ($m != $k));
+$m=non_zero_random(-9,9,1);
+
+
+Context("Numeric")->variables->add(y=>"Real", a=>"Real");
+
+	
+$P=Formula("$b*y^3")->reduce();
+$dP=Formula("0")->reduce();
+
+$Q=Formula("a*x^2*y^$l+$m*y^$c")->reduce();
+$dQ=Formula("$l*a*x^2*y^($l-1)+$m*$c*y^($c-1)")->reduce();
+
+$divergence = Formula("$dP+$dQ")->reduce;
+
+BEGIN_PGML
+
+## Divergence dvourozměrného vektorového pole s parametrem
+
+Tento příklad je analogický jako příklad předešlý, obsahuje navíc parametr, který se při počítání chová jako reálná konstanta, tj. číslo.
+
+Například pro vektorové pole
+[``` \vec F(x,y)=x^2y\vec i + (x+ay^2)\vec j ```]
+jsou parciální derivace 
+[``` \frac{\partial }{\partial x}(x^2y)=2xy```]
+a
+[``` \frac{\partial }{\partial y}(x+ay^2)=2ay```]
+a divergence je
+[``` \nabla \cdot \vec F (x,y)=2xy+2ay=2y(x+a).```]
+Tento výsledek je možno zapsat například jako *2x(y+a)* nebo opatrněji (s explicitně napsaným násobením) *2\*x\*(y+a)*.
+
+---------------
+
+Vypočtěte divergenci vektorového pole [``` \vec F(x,y)=[$P]\vec i +\left([$Q]\right)\vec j.```]
+
+>>[``\nabla \cdot \vec F(x,y)={}``][____________________________________]{$divergence}<<
+
+END_PGML
+
+BEGIN_PGML_HINT
+Pozorně počítejte derivace. Například derivace druhé komponenty podle [`y`] je [``` \frac{\partial }{\partial y}([$Q])=[$dQ]. ```]
+a toto je možné zapsat jako [$dQ] .
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu a přepis do elegantnějšího tvaru. 
+
+[``` P=[$P]\qquad Q=[$Q]```]
+
+[``` \frac{\partial P}{\partial x}=[$dP] ```]
+
+[``` \frac{\partial Q}{\partial y}=[$dQ] ```]
+
+Součet těchto parciálních derivací je divergence.
+
+[``` \nabla \cdot F(x,y)=[$divergence]```]
+
+END_PGML_SOLUTION
+
+
+
+
+ENDDOCUMENT();

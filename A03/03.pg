@@ -1,0 +1,86 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "MathObjects.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 3;
+
+$b=random(2,10,1);
+$c=non_zero_random(2,7,1);
+$k=non_zero_random(-9,9,1);
+do  { $l=random(2,6,1); } until ($l != $k);
+#do  { $m=random(3,9,1); } until (($m != $k) and ($m != $k));
+$m=non_zero_random(-9,9,1);
+
+Context("Numeric")->variables->add(y=>"Real",z=>"Real");
+	
+$P=Formula("$k*x*z")->reduce();
+$dP=Formula("$k*z")->reduce();
+
+$Q=Formula("x*y^$l*z")->reduce();
+$dQ=Formula("$l*x*y^($l-1)*z")->reduce();
+
+$R=Formula("$c*x*z")->reduce();
+$dR=Formula("$c*x")->reduce();
+
+$divergence = Formula("$dP+$dQ+$dR")->reduce;
+
+BEGIN_PGML
+
+## Divergence trojrozměrného vektorového pole
+
+
+Divergence trojrozměrného vektorového pole [`` \vec F=P\vec i+Q\vec j+R\vec k``] v kartézských souřadnicích vypočteme pomocí vztahu [``` \nabla \cdot \vec F=\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}.```] Například pro vektorové pole
+[``` \vec F(x,y,z)=x^2z\vec i + (x+y^2)\vec j + xy\vec k```]
+jsou parciální derivace 
+[``` \frac{\partial }{\partial x}(x^2y)=2xz,```]
+[``` \frac{\partial }{\partial y}(x+y^2)=2y```]
+a
+[``` \frac{\partial }{\partial z}(xy)=0.```]
+Divergence je
+[``` \nabla \cdot \vec F (x,y,z)=2xz+2y.```]
+Tento výsledek je možno zapsat například jako *2xz+2y* nebo opatrněji (s explicitně napsaným násobením) *2\*x\*z+2\*y*.
+
+---------------
+
+Vypočtěte divergenci vektorového pole [``` \vec F(x,y,z)=[$P]\vec i +[$Q]\vec j+[$R]\vec k.```]
+
+>>[``\nabla \cdot \vec F(x,y,z)={}``][____________________________________]{$divergence}<<
+
+END_PGML
+
+BEGIN_PGML_HINT
+Pozorně počítejte derivace. Například derivace první komponenty podle [`x`] je [``` \frac{\partial }{\partial x}([$P])=[$dP]. ```]
+a toto je možné zapsat jako [$dP] .
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu a přepis do elegantnějšího tvaru. 
+
+[``` P=[$P]\qquad Q=[$Q]\qquad R=[$R]```]
+
+[``` \frac{\partial P}{\partial x}=[$dP] ```]
+
+[``` \frac{\partial Q}{\partial y}=[$dQ] ```]
+
+[``` \frac{\partial R}{\partial z}=[$dR] ```]
+
+Součet těchto parciálních derivací je divergence.
+
+[``` \nabla \cdot F(x,y,z)=[$divergence]```]
+
+END_PGML_SOLUTION
+
+
+
+
+ENDDOCUMENT();
