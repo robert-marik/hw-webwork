@@ -27,11 +27,7 @@ BEGIN_PGML
 
 Pacientovi je jednorázově podán lék. Tento lék se v těle s časem odbourává podle farmakokinetických zákonů. Předpokládejme, že lék se rychle vstřebá do krve a čas mezi podáním léku a dosažením odpovídající koncentrace léku v krvi pacienta je prakticky nulový.
 
-Uvažujme koncentraci [`C`] (v jednotce mg/litr) léku v těle pacienta jako funkci počáteční dávky [`x`] a času od aplikace [`t`]. Tato funkce by mohla mít tvar například 
-[```
-C (x,t) = a t e^{ - (k - x) t }
-```]
- pro [` 0 \leq x \leq k`] mg a [`t \geq 0 `] hodin, kde [`a`] a [`k`] jsou kladné konstanty. 
+Uvažujme koncentraci [`C(x,t)`] (v jednotce mg/litr) léku v těle pacienta jako funkci počáteční dávky [`x`] a času od aplikace [`t`]. 
 
 
 *Část 1:* Jaké znaménko má derivace podle času, tj. [``\frac{\partial C}{\partial t}``]? Je tato derivace kladná nebo záporná? Nebo není možné rozhodnout?
