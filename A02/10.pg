@@ -1,0 +1,90 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "MathObjects.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 3;
+
+
+$c=non_zero_random(140,280,1);
+$k=non_zero_random(-4,4,1);
+
+$a11=2;
+$a22=random(2,4,1);
+$a12=0.1*random(2,4,1);
+
+Context("Vector");
+
+$y=2;
+$funkce=Formula("$c-x^2+$k*y")->reduce();
+$dfx=Formula("-2x")->reduce();
+$dfy=Formula("$k*y")->reduce();
+$g1=-2;
+$g2=$k*$y;
+
+
+$gradient = Vector("<$g1, $g2>");
+$tok1=-1*($a11*$g1+$a12*$g2);
+$tok2=-1*($a21*$g1+$a22*$g2);
+$tok = Vector("<$tok1, $tok2>");
+
+BEGIN_PGML
+
+## Gradient teploty v anizotropním prostředí
+
+Pro převod gradientu teploty na tok tepla je nutno tento gradient vynásobit mínusem abychom dostali směr odpovídající poklesu tpeloty a poté koeficientem tepelné vodivosti, který zprostředkovává vztah mezi tepelným tokem a gradientem. V anizotropním prostředí je tento koeficient matiový a násobíme tedy matici a vektor (sloupcový vektor, tj. matici s jedním sloupcem) pomocí klasického maticového násobení. 
+
+-------------------
+
+Teplota v místě [`(x,y)`] dvourozměrné desky je dána vztahem [``` T(x,y)=[$funkce].```] Určete gradient teploty v bodě [`(1,2)`] a tok v tomto bodě, je-li známo, že koeficient tepelné vodivosti je
+[``` \lambda = \begin{pmatrix}[$a11]&[$a12]\\ [$a12] & [$a22]\end{pmatrix}.```]
+
+>>[``\nabla T(1,2)={}``][____________________________________]{$gradient}<<
+
+>>[``\vec q=-\lambda \nabla T(1,2)={}``][____________________________________]{$tok}<<
+
+
+END_PGML
+
+BEGIN_PGML_HINT
+Při výpočtu gradientu pozorně počítejte derivace. Například derivace podle [`x`] je [``` \frac{\partial T}{\partial x}=[$dfx] ```] a derivace podle [`y`] je 
+[`y`] je [``` \frac{\partial T}{\partial y}=[$dfy]. ```]
+
+Násobení matice a vektoru provádějte pomocí pravidel pro násobení matice a vektoru (zopakujte si případně v základním prváckém kurzu matematiky).
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu a přepis do elegantnějšího tvaru.
+
+[``` \frac{\partial T}{\partial x}=[$dfx] ```]
+
+[``` \frac{\partial T}{\partial y}=[$dfy] ```]
+
+Vektor sestavený z těchto parciálních derivací je gradient.
+
+[``` \nabla T=\begin{pmatrix}[$dfx]\\[$dfy]\end{pmatrix}.```]
+
+V bodě [`(1,2)`] dostáváme
+[``` \nabla T(1,2)= \begin{pmatrix} [$g1]\\ [$g2] \end{pmatrix}```]
+a po maticovém násobení
+[``` \vec q(1,2)=-\lambda \nabla T(1,2)=
+-$g1 \begin{pmatrix} [$a11]\\ [$a12] \end{pmatrix}
+-$g2 \begin{pmatrix} [$a12]\\ [$a22] \end{pmatrix}
+=\begin{pmatrix} [$tok1]\\ [$tok2] \end{pmatrix}.```]
+
+
+END_PGML_SOLUTION
+
+
+
+ENDDOCUMENT();

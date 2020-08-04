@@ -31,7 +31,7 @@ BEGIN_PGML
 
 ## Gradient teploty
 
-Při posouzení toho, zda v daném objektu za daných podmínek dochází k tepelné výměně či nikoliv je zásadní gradient teploty. To je vektor ve směru maximálního růstu teploty. Tedy vektor mířící přesně v opačném směru než je tendence těles předávat si energii a tedy vést teplo. Hnacím faktorem při tepelné výměně je totiž právě nerovnoměrnost v rozložení teploty (tj. fakt že ve studovaném objektu jsou některá místa teplejší než ostatní).
+Při posouzení toho, zda v daném objektu za daných podmínek dochází k tepelné výměně či nikoliv je zásadní gradient teploty. To je vektor ve směru maximálního růstu teploty. Tedy vektor mířící přesně v opačném směru než je tendence těles předávat si energii a tedy vést teplo. Hnacím faktorem při tepelné výměně je totiž právě nerovnoměrnost v rozložení teploty (tj. fakt, že ve studovaném objektu jsou některá místa teplejší než ostatní).
 
 Teplo se předává z míst o vyšší teplotě do míst o nižší teplotě. Směr nejintenzivnějšího poklesu teploty je směr záporně vzatého gradientu. Tímto směrem také skutečně teče teplo u izotropních materiálů. Zopakujeme si v tomto kontextu nejprve první příklad z této série domácích úloh, prostý výpočet gradientu.
 
