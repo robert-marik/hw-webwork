@@ -50,6 +50,7 @@ Teplota v místě [`(x,y)`] dvourozměrné desky je dána vztahem [``` T(x,y)=[$
 
 >>[``\vec q=-\lambda \nabla T(1,2)={}``][____________________________________]{$tok}<<
 
+Vektory zapisujte stejně jako v úvodních příkladech této série, tj. do ostrých závorek nebo pomocí ij-notace.
 
 END_PGML
 
