@@ -78,8 +78,8 @@ V bodě [`(1,2)`] dostáváme
 [``` \nabla T(1,2)= \begin{pmatrix} [$g1]\\ [$g2] \end{pmatrix}```]
 a po maticovém násobení
 [``` \vec q(1,2)=-\lambda \nabla T(1,2)=
--$g1 \begin{pmatrix} [$a11]\\ [$a12] \end{pmatrix}
--$g2 \begin{pmatrix} [$a12]\\ [$a22] \end{pmatrix}
+-([$g1]) \begin{pmatrix} [$a11]\\ [$a12] \end{pmatrix}
+-([$g2]) \begin{pmatrix} [$a12]\\ [$a22] \end{pmatrix}
 =\begin{pmatrix} [$tok1]\\ [$tok2] \end{pmatrix}.```]
 
 
