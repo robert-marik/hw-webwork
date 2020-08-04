@@ -39,7 +39,7 @@ BEGIN_PGML
 
 ## Gradient teploty v anizotropním prostředí
 
-Pro převod gradientu teploty na tok tepla je nutno tento gradient vynásobit mínusem abychom dostali směr odpovídající poklesu tpeloty a poté koeficientem tepelné vodivosti, který zprostředkovává vztah mezi tepelným tokem a gradientem. V anizotropním prostředí je tento koeficient matiový a násobíme tedy matici a vektor (sloupcový vektor, tj. matici s jedním sloupcem) pomocí klasického maticového násobení. 
+Pro převod gradientu teploty na tok tepla je nutno tento gradient vynásobit minus jedničkou, abychom dostali směr odpovídající poklesu teploty a poté koeficientem tepelné vodivosti, který zprostředkovává vztah mezi tepelným tokem a gradientem. V anizotropním prostředí je tento koeficient matiový a násobíme tedy matici a vektor (sloupcový vektor, tj. matici s jedním sloupcem) pomocí klasického maticového násobení. 
 
 -------------------
 
