@@ -7427,7 +7427,7 @@ msgid ""
 "You are currently checking answers to a different version of your problem - "
 "these will not be recorded, and you should remember to return to your "
 "original problem once you are done here."
-msgstr ""
+msgstr "Byly zkontrolovány odpovědi na cvičnou verzi Vašeho zadání. Výsledky nebyly uloženy a jakmile zakončíte práci na  cvičné verzi, musíte se vrátit původní ostré verzi."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ShowMeAnother.pm:460
 msgid ""
