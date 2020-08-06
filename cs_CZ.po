@@ -3080,7 +3080,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ShowMeAnother.pm:479
 msgid "Here is a new version of your problem."
-msgstr ""
+msgstr "Toto je nová verze řešené úlohy."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetList2.pm:914
 msgid "Hidden"
@@ -4597,7 +4597,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ShowMeAnother.pm:480
 msgid "Remember to return to your original problem when you're finished here!"
-msgstr ""
+msgstr "Nezapomeňte se odsud vrátit k původní otázce."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/CourseAdmin.pm:1173
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/FileManager.pm:160
@@ -5385,7 +5385,7 @@ msgstr ""
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetDetail2.pm:361
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:1522
 msgid "Show me another"
-msgstr ""
+msgstr "Ukázat podobnou otázku"
 
 #. ($exhausted)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:1535
@@ -6363,7 +6363,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ShowMeAnother.pm:472
 msgid "There is a written solution available"
-msgstr ""
+msgstr "Řešení úlohy je k dispozici."
 
 #. ($message_file, $merge_file)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Grades.pm:101
@@ -7674,7 +7674,7 @@ msgstr ""
 msgid ""
 "You may check your answers to this problem without affecting the maximum "
 "number of tries to your original problem."
-msgstr ""
+msgstr "Můžete vyzkoušet odpovědět na tuto otázku aniž byste ovlivnili počet pokusů na původní otázku."
 
 #. ($phrase_for_privileged_users)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Hardcopy.pm:575

@@ -26,7 +26,7 @@ $tf->rf_print_q(~~&pop_up_list_print_q);
 
 # Choices presented to students
 $tf->ra_pop_up_list( [ 
-"Vyberte odpověď" => "?", 
+"???" => "?", 
 "dV/dt"  => "dV/dt", 
 "dh/dt"  => "dh/dt", 
 "dV/dh"  => "dV/dh", 
@@ -95,7 +95,13 @@ ANS( str_cmp( $tf->ra_correct_ans() ) );
 
 
 BEGIN_PGML_SOLUTION
-The answer is [$tf->print_a]*.
+
+* Rychlost, s jakou se roste objem hromady v čase je derivace objemu podle času, tj. [`` \frac{\mathrm dV}{\mathrm dt}``].
+* Rychlost, s jakou se roste výška hromady v čase je derivace výšky podle  času,  tj. [`` \frac{\mathrm dh}{\mathrm dt}``].
+* Rychlost, s jakou se roste výška hromady jako funkce objemu je derivace výšky podle objemu, tj. [`` \frac{\mathrm dh}{\mathrm dV}``].
+* Rychlost, s jakou se roste objem hromady jako funkce výšky je derivace objemu podle výšky, tj. [`` \frac{\mathrm dV}{\mathrm dh}``].
+
+Řešení je [$tf->print_a]*.
 END_PGML_SOLUTION
 
 COMMENT("Uses PGML.");
