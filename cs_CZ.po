@@ -166,7 +166,7 @@ msgstr "%1: Úloha %2"
 #. ($setID, $problemID)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ShowMeAnother.pm:354
 msgid "%1: Problem %2 Show Me Another"
-msgstr "%1: Úloha %2 Alternativa"
+msgstr "%1: Úloha %2, cvičná verze"
 
 #. ($archive_courseID)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/CourseAdmin.pm:1911
