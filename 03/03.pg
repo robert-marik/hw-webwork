@@ -1,0 +1,82 @@
+DOCUMENT();  
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGchoicemacros.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+
+###########################
+#  Setup
+
+$mc = new_checkbox_multiple_choice();
+
+@a=("Spojitá funkce, která má v bodech \(a\) a \(b\) funkèní hodnoty s opaèným znaménkem, má mezi body \(a\) a \(b\) nulový bod.",
+"Funkce mù¾e zmìnit znaménko pouze v bodì nespojitosti nebo v nulovém bodì.",
+"Spojitá funkce, která nemá na intervalu \((a,b)\) nulové body má na tomto intervalu stále stejné znaménko.",
+"Pokud funkce mìní znaménko na intervalu, kde nemá nulový bod, musí mít na tomto intervalu bod nespojitosti.");
+
+$n=random(0,3,1);
+splice @a, $n, 1;
+
+$mc -> qa ("", @a);
+
+
+@b=("Spojitá funkce, která má v bodech \(a\) a \(b\) stejné znaménko, nemá na intervalu \((a,b)\) nulový bod.",
+"Jestli¾e funkce má na intervalu \((a,b)\) nulový bod a platí \(f(a) f(b)<0\), potom je tato funkce na intervalu \([a,b]\) spojitá.",
+"Jestli¾e je funkce  na intervalu \([a,b]\) spojitá a má zde nulový bod, platí \(f(a)f(b)<0\)."
+);
+
+$m=random(0,2,1);
+splice @b, $m, 1;
+
+$mc -> extra(@b);
+$mc->makeLast("®ádná z uvedených variant.");
+
+###########################
+#  Main text
+
+BEGIN_PGML
+Bolzanova vìta je  dùle¾ité tvrzení v diferenciálním poètu. Její znìní je následující.
+
+*Vìta (Bolzanova vìta).* _Nech» [`f`] je spojitá funkce na intervalu [`[a,b]`] a [`f(a)f(b)<0`]. Potom existuje [`c`] na intervalu [`(a,b)`] takové, ¾e platí [`f(c)=0.`]_
+
+Podmínku [`f(a)f(b)<0`] je mo¾né slovnì vyjádøit tak, ¾e funkce [`f`] mezi body [`a`] a [`b`] mìní znaménko. To plyne ze skuteènosti, ¾e souèin dvou èísel je záporný jedinì pro dvì èísla s opaèným znaménkem.
+
+Vyberte, která tvrzení jsou slovní formulací Bolzanovy vìty nebo z ní vyplývají.
+
+[@ $mc -> print_a() @]***
+END_PGML
+
+
+############################
+#  Answer evaluation
+
+$showPartialCorrectAnswers = 1;
+
+ANS( checkbox_cmp( $mc->correct_ans() ) );
+
+
+############################
+#  Solution
+
+BEGIN_PGML_SOLUTION
+
+Nabízená varianta _"Spojitá funkce, která má v bodech [`a`] a [`b`] stejné znaménko, nemá na intervalu [`(a,b)`] nulový bod."_ není správnì. Bolzanova vìta mluví o spojitých funkcích, které mají znaménkovou zmìnu. O funkcích, které mají stále stejné znaménko (nemají znaménkovou zmìnu) nic neøíká. 
+
+Nabízená varianta _"Jestli¾e funkce má na intervalu [`(a,b)`] nulový bod a platí [`f(a) f(b)<0`], potom je tato funkce na intervalu [`[a,b]`] spojitá."_ není správnì. Spojitost je pro Bolzanovu vìtu pøedpokladem a nikdy z ní proto nemù¾e vyplynout.
+
+Nabízená varianta _"Jestli¾e je funkce  na intervalu [`[a,b]`] spojitá a má zde nulový bod, platí [`f(a)f(b)<0`]."_ není správnì. Toto tvrzení má oproti Bolzanovì vìtì pøehozený pøedpoklad a závìr. ®e takvé tvrzení neplatí uká¾e pøíklad funkce [`y=x^2`], která je na intervalu [`[-1,1]`] spojitá, ale je v¹ude nezáporná a tvrzení [`f(-1)f(1)<0`] neplatí, proto¾e [```f(-1)f(1)=(-1)^2(1)^2=1>0.```]
+
+
+Správné odpovìdi jsou [$mc->correct_ans()].
+END_PGML_SOLUTION
+
+COMMENT('MathObject version. Uses PGML.');
+
+ENDDOCUMENT();
