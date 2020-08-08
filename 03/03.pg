@@ -1,79 +1,64 @@
-DOCUMENT();  
+##################################################
 
+DOCUMENT(); 
 loadMacros(
-  "PGstandard.pl",
-  "MathObjects.pl",
-  "PGchoicemacros.pl",
-  "PGML.pl",
-  "PGcourse.pl"
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
 );
-
 TEXT(beginproblem());
-
-
-###########################
-#  Setup
-
-$mc = new_checkbox_multiple_choice();
-
-@a=("Spojitá funkce, která má v bodech \(a\) a \(b\) funkční hodnoty s opačným znaménkem, má mezi body \(a\) a \(b\) nulový bod.",
-"Funkce může změnit znaménko pouze v bodě nespojitosti nebo v nulovém bodě.",
-"Spojitá funkce, která nemá na intervalu \((a,b)\) nulové body má na tomto intervalu stále stejné znaménko.",
-"Pokud funkce mění znaménko na intervalu, kde nemá nulový bod, musí mít na tomto intervalu bod nespojitosti.");
-
-$n=random(0,3,1);
-splice @a, $n, 1;
-
-$mc -> qa ("", @a);
-
-@b=("Spojitá funkce, která má v bodech \(a\) a \(b\) stejné znaménko, nemá na intervalu \((a,b)\) nulový bod.",
-"Jestliže funkce má na intervalu \((a,b)\) nulový bod a platí \(f(a) f(b)<0\), potom je tato funkce na intervalu \([a,b]\) spojitá.",
-"Jestliže je funkce  na intervalu \([a,b]\) spojitá a má zde nulový bod, platí \(f(a)f(b)<0\)."
-);
-
-$m=random(0,2,1);
-splice @b, $m, 1;
-
-$mc -> extra(@b);
-$mc->makeLast("Žádná z uvedených variant.");
-
-BEGIN_PGML
-Bolzanova věta je  důležité tvrzení v diferenciálním počtu. Její znění je následující.
-
-*Věta (Bolzanova věta).* _Nechť [`f`] je spojitá funkce na intervalu [`[a,b]`] a [`f(a)f(b)<0`]. Potom existuje [`c`] na intervalu [`(a,b)`] takové, že platí [`f(c)=0.`]_
-
-Podmínku [`f(a)f(b)<0`] je možné slovně vyjádřit tak, že funkce [`f`] mezi body [`a`] a [`b`] mění znaménko. To plyne ze skutečnosti, že součin dvou čísel je záporný jedině pro dvě čísla s opačným znaménkem.
-
-Vyberte, která tvrzení jsou slovní formulací Bolzanovy věty nebo z ní vyplývají.
-
-[@ $mc -> print_a() @]***
-END_PGML
-
-
-############################
-#  Answer evaluation
-
 $showPartialCorrectAnswers = 1;
 
-ANS( checkbox_cmp( $mc->correct_ans() ) );
+$var='x';
+$a=non_zero_random(-4,4,1);
+do { $b=non_zero_random(-8,8,1) } until ( abs($b) > 1 );
+$c=non_zero_random(-10,10);
+
+Context("Numeric")->variables->are($var=>'Real');
+
+$answer=Formula("$a+$b*($var-$c)")->reduce();   # funkce
 
 
-############################
-#  Solution
+BEGIN_PGML
+
+## Lineární aproximace 
+
+Derivaci je možno využít k lineární aproximaci funkcí. K přibližnému nahrazení funkce mající derivaci lineární funkcí využíváme vzorec
+[``` f(x)\approx f(a)+f'(a)(x-a),```]
+kde [`a`] je bod v jehož okolí aproximaci provádíme a [`f(a)`] a [`f'(a)`] jsou funkční hodnota a hodnota derivace v tomto bodě. Aproximace je pouze lokální a platí pouze v nějakém okolí bodu [`a`], ale jedná se o mocný inženýrský nástroj a na přednáškách jsme si ukázali mnoho aplikací tohoto vzorce.
+
+Jako konkrétní příklad, má-li funkce v bodě [`a=2`] funkční hodnotu a derivaci postupně
+[``` f(2)=4,\quad f'(2)=-5,```]
+je funkce v okolí bodu [`x=2`] přibližně dána vzorcem
+[``` f(x)\approx 4-5(x-2)```]
+
+------------
+
+Najděte lineární aproximaci funkce [`f(x)`] v okolí bodu [`a=[$c]`], jestliže platí
+[``` f([$c])=[$a],\quad f'([$c])=[$b].```]
+Příklad je analogický výše uvedenému vzoru.
+
+>>[`` f'([$var])\approx {}``]
+[_____________________]{$answer}<<
+
+END_PGML
+
+$showHint = 3;
+BEGIN_PGML_HINT
+Použijte vzorec pro lineární aproximaci a dosaďte do něj bod, ve kterém aproximaci píšeme a funkční hodnotu a derivaci v tomto bodě. Inspirujte se příkladem uvedeným v zadání.
+
+END_PGML_HINT
+
 
 BEGIN_PGML_SOLUTION
 
-Nabízená varianta _"Spojitá funkce, která má v bodech [`a`] a [`b`] stejné znaménko, nemá na intervalu [`(a,b)`] nulový bod."_ není správně. Bolzanova věta mluví o spojitých funkcích, které mají znaménkovou změnu. O funkcích, které mají stále stejné znaménko (nemají znaménkovou změnu) nic neříká. 
+Prostým dosazením zadaných hodnot do vzorce dostáváme
+[``` f([$var])\approx[$answer].```]
 
-Nabízená varianta _"Jestliže funkce má na intervalu [`(a,b)`] nulový bod a platí [`f(a) f(b)<0`], potom je tato funkce na intervalu [`[a,b]`] spojitá."_ není správně. Spojitost je pro Bolzanovu větu předpokladem a nikdy z ní proto nemůže vyplynout.
+(V závislosti na znaménku může počítač zaměnit pořadí sčítanců, což však nehraje roli.)
 
-Nabízená varianta _"Jestliže je funkce  na intervalu [`[a,b]`] spojitá a má zde nulový bod, platí [`f(a)f(b)<0`]."_ není správně. Toto tvrzení má oproti Bolzanově větě přehozený předpoklad a závěr. Že takvé tvrzení neplatí ukáže příklad funkce [`y=x^2`], která je na intervalu [`[-1,1]`] spojitá, ale je všude nezáporná a tvrzení [`f(-1)f(1)<0`] neplatí, protože [```f(-1)f(1)=(-1)^2(1)^2=1>0.```]
-
-
-Správné odpovědi jsou [$mc->correct_ans()].
 END_PGML_SOLUTION
 
-COMMENT('MathObject version. Uses PGML.');
 
 ENDDOCUMENT();
-
