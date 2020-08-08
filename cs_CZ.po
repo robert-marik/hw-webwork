@@ -2718,7 +2718,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:1534
 msgid "Feature exhausted for this problem"
-msgstr ""
+msgstr "Tato možnost je již pro zadanou úlohu vyčerpána"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/URLPath.pm:230
 msgid "Feedback"
@@ -5390,7 +5390,7 @@ msgstr "Ukázat podobnou otázku"
 #. ($exhausted)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:1535
 msgid "Show me another %1"
-msgstr ""
+msgstr "Ukázat podobnou otázku %1"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/SetMaker.pm:1113
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/SetMaker.pm:1114
@@ -7541,7 +7541,7 @@ msgstr ""
 msgid ""
 "You can use this feature %quant(%1,more time,more times,as many times as you "
 "want) on this problem"
-msgstr ""
+msgstr "Tuto volbu můžete použít ještě %quant(%1,-krát,-krát,opakovaně bez omezení)"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/FileManager.pm:866
 msgid "You can't download directories"
@@ -7710,7 +7710,7 @@ msgstr ""
 msgid ""
 "You must attempt this problem %quant(%1,time,times) before this feature is "
 "available"
-msgstr ""
+msgstr "Tato možnost ae aktivuje až po %quant(%1,dalším neúspěšném pokusu,dalších neúspěšnýh pokusech)"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/CourseAdmin.pm:649
 msgid "You must confirm the password for the initial instructor."
