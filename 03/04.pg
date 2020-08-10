@@ -1,0 +1,92 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"niceTables.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+$a=non_zero_random(-4,4,1);
+$b=non_zero_random(-8,8,1);
+$c=non_zero_random(-10,10);
+$x0=non_zero_random(-2,4);
+$x0=$x0-1;
+
+Context("Numeric")->variables->are($var=>'Real');
+
+$funkce=Formula("$a*$var^2+$b*$var+$c")->reduce();   # funkce
+$derivacefunkce=Formula("2*$a*$var+$b")->reduce();   # funkce
+
+$hodnota=$a*$x0*$x0+$b*$x0+$c;
+$derivace=2*$a*$x0+$b;
+$hodnota1=$a-$b+$c;
+$derivace1=-2*$a+$b;
+
+$answer=Formula("$hodnota+$derivace*(x-$x0)")->reduce();   # tecna
+$answer1=Formula("$hodnota1+$derivace1*(x+1)")->reduce();   # tecna
+
+
+@xx=(-3,-2,-1,0,1,2,3);
+
+@fx=();
+@dx=();
+@x=();
+for (my $i = -3; $i < 4; $i++) {
+    push @x, $i;
+    push @fx, $a*($i)*($i)+$b*($i)+$c;
+    push @dfx, 2*$a*($i)+$b;
+}
+
+
+BEGIN_PGML
+
+## Lineární aproximace funkce dané tabulkou
+
+Budeme postupovat podobně jako v předchozím příkladě, ale potřebné údaje pro vzorec [``` f(x)\approx f(a)+f'(a)(x-a)```] si musíte najít v tabulce.
+
+Uvažujme funkci
+[```f(x)=[$funkce], ```]
+která má funkční hodnoty a hodnoty derivace v následující tabulce.
+[@ DataTable(
+  [
+    [["\\(x\\)", midrule => 1,headerrow=>1],@x],["\\(f(x)\\)",@fx],["\\(f'(x)\\)",@dfx]
+  ], 
+  caption => 'Funkční hodnoty a hodnoty derivace pro zadanou funkci'
+); @]*
+
+
+Jako konkrétní příklad, lineární aproximace této funkce v bodě [`a=-1`] je 
+[``` f(x)\approx [$answer1].```]
+
+------------
+
+Najděte lineární aproximaci funkce [```f(x)=[$funkce]```] v okolí bodu [`a=[$x0]`]. Funkční hodnoty a hodnoty derivace jsou v tabulce. 
+>>[`` f([$var])\approx {}``]
+[_____________________]{$answer}<<
+
+END_PGML
+
+$showHint = 3;
+BEGIN_PGML_HINT
+Použijte vzorec pro lineární aproximaci a dosaďte do něj bod, ve kterém aproximaci píšeme a funkční hodnotu a derivaci v tomto bodě. Inspirujte se příkladem uvedeným v zadání. Správnou funkční hodnotu a hodnotu derivace najděte v tabulce.
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Prostým dosazením zadaných hodnot do vzorce dostáváme
+[``` f([$var])\approx[$answer].```]
+
+(V závislosti na znaménku může počítač zaměnit pořadí sčítanců, což však nehraje roli.)
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

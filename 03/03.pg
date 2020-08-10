@@ -39,7 +39,7 @@ Najděte lineární aproximaci funkce [`f(x)`] v okolí bodu [`a=[$c]`], jestli�
 [``` f([$c])=[$a],\quad f'([$c])=[$b].```]
 Příklad je analogický výše uvedenému vzoru.
 
->>[`` f'([$var])\approx {}``]
+>>[`` f([$var])\approx {}``]
 [_____________________]{$answer}<<
 
 END_PGML
