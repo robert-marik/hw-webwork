@@ -24,7 +24,7 @@ BEGIN_PGML
 
 ## Lineární aproximace 
 
-Derivaci je možno využít k lineární aproximaci funkcí. K přibližnému nahrazení funkce mající derivaci lineární funkcí využíváme vzorec
+Derivaci je možno využít k lineární aproximaci funkcí. Pracujme s funkcí, která mají derivaci. Existence derivace mimo jiné zajistí spojitost funkce. K přibližnému nahrazení funkce využíváme vzorec
 [``` f(x)\approx f(a)+f'(a)(x-a),```]
 kde [`a`] je bod v jehož okolí aproximaci provádíme a [`f(a)`] a [`f'(a)`] jsou funkční hodnota a hodnota derivace v tomto bodě. Aproximace je pouze lokální a platí pouze v nějakém okolí bodu [`a`], ale jedná se o mocný inženýrský nástroj a na přednáškách jsme si ukázali mnoho aplikací tohoto vzorce.
 
