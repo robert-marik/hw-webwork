@@ -34,7 +34,7 @@ $answer=Formula("$hodnota+$hodnotaderivace*(x-1)")->reduce();   # tecna
 
 BEGIN_PGML
 
-## Lineární aproximace funkce funkčním předpisem
+## Lineární aproximace funkce zadané funkčním předpisem
 
 Budeme postupovat podobně jako v předchozím příkladě, ale potřebné údaje pro vzorec [``` f(x)\approx f(a)+f'(a)(x-a)```] si musíte vypočítat sami.
 
