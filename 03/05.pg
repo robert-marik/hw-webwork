@@ -51,7 +51,7 @@ END_PGML
 
 $showHint = 3;
 BEGIN_PGML_HINT
-Použijte vzorec pro lineární aproximaci a dosaďte do něj bod, ve kterém aproximaci píšeme a funkční hodnotu a derivaci v tomto bodě. Postup je analogický výše uvedeným příkladům a pokud jste tyto příklady zvládli, jediná chyba může být v dosazování hodnot. Vezměte si na pomoc kalkulačku, nebo MATLAB nebo Sage.
+Použijte vzorec pro lineární aproximaci a dosaďte do něj bod, ve kterém aproximaci píšeme a funkční hodnotu a derivaci v tomto bodě. Postup je analogický dříve uvedeným příkladům a pokud jste tyto příklady zvládli, jediná chyba může být v dosazování hodnot. Vezměte si na pomoc kalkulačku, nebo MATLAB nebo Sage.
 
 END_PGML_HINT
 
