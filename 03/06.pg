@@ -1,0 +1,82 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"niceTables.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+$x0=random(-2,2);
+$a=non_zero_random(-1,2,1);
+$b=random(-4,4,1);
+$c=random(-2,2,1);
+
+Context("Numeric")->variables->are($var=>'Real');
+Context()->flags->set(
+     reduceConstants => 0,
+     reduceConstantFunctions => 0,
+   );
+
+$funkce=Formula("$a*$var^2+$b*$var+$c")->reduce();   # funkce
+$derivacefunkce=Formula("2*$a*$var+$b")->reduce();   # derivace funkce
+
+$hodnota=$a*$x0*$x0+$b*$x0+$c;
+$hodnotaSol=Formula("$a*$x0^2+$b*$x0+$c");
+
+$hodnotaDer=Formula("2*$a*$x0+$b");
+$hodnotaderivace=2*$a*$x0+$b;
+$answer=Formula("$hodnota+$hodnotaderivace*(x-$x0)")->reduce();   # tecna
+
+BEGIN_PGML
+
+## Lineární aproximace funkce zadané funkčním předpisem II
+
+Budeme postupovat podobně jako v předchozím příkladě, ale potřebné údaje pro vzorec [``` f(x)\approx f(a)+f'(a)(x-a)```] si musíte vypočítat sami. Narozdíl od předešlého přikladu si musíte sami vypočítat i derivaci. 
+
+Uvažujme funkci
+[```f(x)=[$funkce] ```]
+a budeme hledat lineární aproximaci v bodě [`a=[$x0]`]
+
+Derivace funkce je
+>>[``f'(x)={}``]
+[_____________________]{$derivacefunkce}.<<
+
+Lineární aproximace této funkce v okolí bodu [`a=[$x0]`] je  
+>>[`` f([$var])\approx {}``]
+[_____________________]{$answer}<<
+
+(Pokud si nejste jisti s derivací, můžete v prvním pokusu odpovědět jenom na derivaci a až budete mít jistotu, že derivací máte správně, můžete pokračovat a odeslat celé řešení.)
+
+END_PGML
+
+$showHint = 3;
+BEGIN_PGML_HINT
+Použijte vzorec pro lineární aproximaci a dosaďte do něj bod, ve kterém aproximaci píšeme a funkční hodnotu a derivaci v tomto bodě. Postup je analogický dříve uvedeným příkladům a pokud jste tyto příklady zvládli, jediná chyba může být v derivování nebo v dosazování hodnot. Trpělivě si překontrolujte derivaci i dosazení a v případě nouze si vezměte na pomoc kalkulačku, nebo MATLAB nebo Sage.
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Funkční hodnota v bodě [`[$x0]`]
+[``` f([$x0])=[$hodnotaSol]=[$hodnota]```]
+Derivace a hodnota derivace v bodě [`[$x0]`] jsou
+[```f'(x)=[$derivacefunkce]```]
+a
+[``` f'([$x0])=[$hodnotaderivace].```]
+
+Prostým dosazením těchto hodnot do vzorce dostáváme (s desetinnými čísly)
+[``` f([$var])\approx[$answer].```]
+
+(V závislosti na znaménku může počítač zaměnit pořadí sčítanců, což však nehraje roli.)
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
