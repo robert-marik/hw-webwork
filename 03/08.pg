@@ -16,38 +16,41 @@ TEXT(beginproblem());
 
 $mc = new_checkbox_multiple_choice();
 
-@a=("Spojitá funkce, která má v bodech \(a\) a \(b\) funkční hodnoty s opačným znaménkem, má mezi body \(a\) a \(b\) nulový bod.",
-"Funkce může změnit znaménko pouze v bodě nespojitosti nebo v nulovém bodě.",
-"Spojitá funkce, která nemá na intervalu \((a,b)\) nulové body má na tomto intervalu stále stejné znaménko.",
-"Pokud funkce mění znaménko na intervalu, kde nemá nulový bod, musí mít na tomto intervalu bod nespojitosti.");
+@a=("Pokud funkce v daném bodě má nenulovou derivaci, není v tomto bodě lokální  extrém.",
+"Pokud má funkce v daném bodě lokální extrém i derivaci, je derivace v tomto bodě rovna nule.",
+"Pokud má funkce v daném bodě lokální extrém a derivace v tomto bodě není nulová, potom derivace v tomto bodě vůbec není definována."
+);
 
-$n=random(0,3,1);
+$n=random(0,2,1);
 splice @a, $n, 1;
 
 $mc -> qa ("", @a);
 
-@b=("Spojitá funkce, která má v bodech \(a\) a \(b\) stejné znaménko, nemá na intervalu \((a,b)\) nulový bod.",
-"Jestliže funkce má na intervalu \((a,b)\) nulový bod a platí \(f(a) f(b)<0\), potom je tato funkce na intervalu \([a,b]\) spojitá.",
-"Jestliže je funkce  na intervalu \([a,b]\) spojitá a má zde nulový bod, platí \(f(a)f(b)<0\)."
+@b=("Jestliže má funkce v daném bodě derivaci a tato derivace je nulová, má funkce v daném  bodě lokální extrém.",
+"V bodě, ve kterém má funkce lokální extrém, derivace vždy existuje a je nulová.",
+"V bodě, ve kterém má funkce kladnou derivaci, je lokální maximum.",
+"V bodě, ve kterém má funkce zápornou derivaci, je lokální minimum.",
 );
 
-$m=random(0,2,1);
+$m=random(0,3,1);
 splice @b, $m, 1;
 
 $mc -> extra(@b);
 $mc->makeLast("Žádná z uvedených variant.");
 
 BEGIN_PGML
-Bolzanova věta je  důležité tvrzení v diferenciálním počtu. Její znění je následující.
 
-*Věta (Bolzanova věta).* _Nechť [`f`] je spojitá funkce na intervalu [`[a,b]`] a [`f(a)f(b)<0`]. Potom existuje [`c`] na intervalu [`(a,b)`] takové, že platí [`f(c)=0.`]_
+## Lokální extrémy funkce
 
-Podmínku [`f(a)f(b)<0`] je možné slovně vyjádřit tak, že funkce [`f`] mezi body [`a`] a [`b`] mění znaménko. To plyne ze skutečnosti, že součin dvou čísel je záporný jedině pro dvě čísla s opačným znaménkem.
+Fermatova věta je další důležité tvrzení v diferenciálním počtu. Umožňuje vytipovat body, kde by funkce mohla mít lokální extrém. Její znění je následující.
 
-Vyberte, která tvrzení jsou slovní formulací Bolzanovy věty nebo z ní vyplývají.
-Více odpovědí může být správně.
+*Věta (Fermatova věta o lokálním extrému).* _Má-li funkce [`f`] v bodě [`x_0`] lokální extrém, potom je derivace funkce [`f`] v bodě [`x_0`] nulová, nebo neexistuje._
 
-Ta tvrzení ze seznamu níže, která nevyplývají z Bolzanovy věty, jsou nepravdivé výroky. Pokuste se pro každý z nich najít příklad ukazující, že tato tvrzení neplatí. 
+Zpravidla naprostá většina bodů z definičního oboru funkce podmínku z výše uvedené věty nesplňuje a tím nám zůstane jenom několik málo bodů, ve kterých by lokální extrém mohl nastat.
+
+Vyberte v následujícím seznamu pravdivá tvrzení. Více odpovědí může být správně. Tato tvrzení jsou jinou slovní formulací Bolzanovy věty nebo z ní vyplývají. 
+
+K tvrzením ze seznamu níže, která jsou tvořena nepravdivými výroky, se pokuste najít příklad ukazující, že tato tvrzení neplatí. 
 
 [@ $mc -> print_a() @]***
 END_PGML
@@ -66,16 +69,16 @@ ANS( checkbox_cmp( $mc->correct_ans() ) );
 
 BEGIN_PGML_SOLUTION
 
-Nabízená varianta _"Spojitá funkce, která má v bodech [`a`] a [`b`] stejné znaménko, nemá na intervalu [`(a,b)`] nulový bod."_ není správně. Bolzanova věta mluví o spojitých funkcích, které mají znaménkovou změnu. O funkcích, které mají stále stejné znaménko (nemají znaménkovou změnu) nic neříká.
-Že takové tvrzení neplatí ukáže příklad funkce [`y=x^2`], která je na intervalu [`[-1,1]`] spojitá, v krajních bodech intervalu má stejné zanménko, ale přesto má na tomto intervalu nulový bod [`x=0`].
+Nabízená varianta _Jestliže má funkce v daném bodě derivaci a tato derivace je nulová, má funkce v daném  bodě lokální extrém._ není pravdivá. Například funkce [`y=x^3`] má v nule nulovou derivaci, ale extrém zde není, protože funkce je rostoucí. Existenci lokálního extrému zaručí například to, že derivace v daném bodě mění znaménko.
 
-Nabízená varianta _"Jestliže funkce má na intervalu [`(a,b)`] nulový bod a platí [`f(a) f(b)<0`], potom je tato funkce na intervalu [`[a,b]`] spojitá."_ není správně. Spojitost je pro Bolzanovu větu předpokladem a nikdy z ní proto nemůže vyplynout. 
-Že takové tvrzení neplatí ukáže příklad funkce [`y=1`] pro [`x>0`], [`y=-1`] pro [`x<0`] a [`y=0`] pro [`x=0`]. Jedná se o funkci určující znaménko. Tato funkce má v  krajních bodech intervalu [`[-1,1]`] zmenu znaménka, má uprostřed tohoto intervalu nulový bod, ale přesto není spojitá.
+Nabízená varianta _V bodě, ve kterém má funkce lokální extrém, derivace vždy existuje a je nulová._ není pravdivá. Derivace v bodě lokálního extrému nemusí existovat. Například funkce [`y=|x|`] (absolutní hodnota) v nule nemá derivaci, ale má zde lokální minimum.
 
-Nabízená varianta _"Jestliže je funkce  na intervalu [`[a,b]`] spojitá a má zde nulový bod, platí [`f(a)f(b)<0`]."_ není správně. Toto tvrzení má oproti Bolzanově větě přehozený předpoklad a závěr. Že takové tvrzení neplatí ukáže příklad funkce [`y=x^2`], která je na intervalu [`[-1,1]`] spojitá, ale je všude nezáporná a tvrzení [`f(-1)f(1)<0`] neplatí, protože [```f(-1)f(1)=(-1)^2(1)^2=1>0.```]
+Nabízená varianta _V bodě, ve kterém má funkce kladnou derivaci, je lokální maximum._ není pravdivá. Funkce, která má kladnou derivaci, je rostoucí a nemá lokální extrém. Například funkce [`y=x`].
 
+Nabízená varianta _V bodě, ve kterém má funkce zápornou derivaci, je lokální minimum._  není pravdivá. Funkce, která má zápornou derivaci, je rostoucí a nemá lokální maximum. Například funkce [`y=-x`].
 
 Správné odpovědi jsou [$mc->correct_ans()].
+
 END_PGML_SOLUTION
 
 COMMENT('MathObject version. Uses PGML.');
