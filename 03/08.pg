@@ -49,9 +49,9 @@ Lineární aproximaci využíváme i k detekci toho, jak citlivě reagují funk�
 Například výroba krystalů pro elektronická zařízení raketoplánů musí probíhat za přesně definované teploty. Předpokládejme v jednoduchém modelu, že teplota krystalu je v každém okamžiku dána jednoznačně příkonem zařízení (tj. teplota reaguje na změnu příkonu bez zpoždění a nezohledňuje historii) a funkce udávající teplotu jako funkci příkonu ohřívače je
 [``` T(x)=[$funkce].```]
 
-Uvažujme příkon [`x=[$w] \,\mathrm{W}`]. Předpokládejme, že jsme schopni tuto hodnotu udržovat s přesností [`\Delta x=\pm [$dx] \,\mathrm{W}`].
+Uvažujme příkon [`x=[$w] \,\mathrm{W}`]. Předpokládejme, že jsme schopni tuto hodnotu udržovat s přesností [`\Delta x=[$dx] \,\mathrm{W}`].
 
-Vypočtěte teplotu za těchto podmínek a rozkolísání teploty způsobené změnou příkonu o [`\Delta x=\pm[$dx] \,\mathrm{W}`].
+Vypočtěte teplotu za těchto podmínek a rozkolísání teploty způsobené změnou příkonu o [`\Delta x=[$dx] \,\mathrm{W}`].
 
 >> [``T([$w])={}``][_______________________]{$hodnotaSol} <<
 
@@ -68,7 +68,7 @@ BEGIN_PGML_HINT
 
 Teplotu určíme přímým dosazením hodnoty [`x=[$w]`] do funkce [```T(x)=[$funkce].```]
 
-Po zderivování funkce, dosazení hodnoty [`x=[$w]`] do derivace a dosazení hodnoty [`Delta x=$dx`] určíte odpověď na druhou část otázky.
+Po zderivování funkce, dosazení hodnoty [`x=[$w]`] do derivace a dosazení hodnoty [`\Delta x=[$dx]`] určíte odpověď na druhou část otázky.
 
 END_PGML_HINT
 
@@ -76,9 +76,9 @@ END_PGML_HINT
 BEGIN_PGML_SOLUTION
 
 Teplotu určíme přímým dosazením hodnoty [`x=[$w]`] do funkce [```T(x)=[$funkce].```] Vychází
-[``` T([$w])=```]
+[``` T([$w])=[$hodnotaSol]```]
 
-Po zderivování funkce, dosazení hodnoty [`x=[$w]`] do derivace a vynásobení hodnotou [`Delta x=[$dx]`] určíte odpověď na druhou část otázky.
+Po zderivování funkce, dosazení hodnoty [`x=[$w]`] do derivace a vynásobení hodnotou [`\Delta x=[$dx]`] určíte odpověď na druhou část otázky.
 
 
 END_PGML_SOLUTION
