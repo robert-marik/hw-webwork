@@ -44,7 +44,7 @@ BEGIN_PGML
 
 [@ image("raketoplan.jpg", width=>400) @]*
 
-Lineární aproximaci využíváme i k detekci toho, jak citlivě reagují funkční hodnoty na změny ve vstupních datech. Hodnotu derivace je možno chápat jako hoidnotu za
+Lineární aproximaci využíváme i k detekci toho, jak citlivě reagují funkční hodnoty na změny ve vstupních datech. Hodnotu derivace je možno chápat jako velikost zakolísání funkčních hodnot při jednotkové změně vstupních dat. Pokud je změna vstupních dat predikovatelná (například se jedná o známou chybu měření nebo známou toleranci se kterou dokážeme vyrobit nějakou součástku nebo se kterou dokážeme udržovat sledovanou veličinu na konstantní hodnotě), stačí hodnotu derivace vynásobit odchylkou, která může nastat ve vstupních datech. 
 
 Například výroba krystalů pro elektronická zařízení raketoplánů musí probíhat za přesně definované teploty. Předpokládejme v jednoduchém modelu, že teplota krystalu je v každém okamžiku dána jednoznačně příkonem zařízení (tj. teplota reaguje na změnu příkonu bez zpoždění a nezohledňuje historii) a funkce udávající teplotu jako funkci příkonu ohřívače je
 [``` T(x)=[$funkce].```]
