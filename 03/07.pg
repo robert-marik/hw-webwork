@@ -76,7 +76,7 @@ Lineární aproximace této funkce v okolí bodu [`a=[$x0]`] je
 >>[`` f([$var])\approx {}``]
 [_____________________]{$answer}.<<
 
-Rozhodněte pomocí druhé derivace, zda lineární aproximace podhodnocuje či nahodnocuje skutečnou funkční hodnotu.
+Rozhodněte pomocí druhé derivace, zda lineární aproximace uvedená v této úloze podhodnocuje či nadhodnocuje skutečnou funkční hodnotu.
 
 [_]{$mc1}
 
