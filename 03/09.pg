@@ -1,0 +1,87 @@
+DOCUMENT();  
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGchoicemacros.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+
+###########################
+#  Setup
+
+$mc = new_checkbox_multiple_choice();
+
+@a=("Spojitá funkce, která má v bodech \(a\) a \(b\) funkční hodnoty s opačným znaménkem, má mezi body \(a\) a \(b\) nulový bod.",
+"Funkce může změnit znaménko pouze v bodě nespojitosti nebo v nulovém bodě.",
+"Spojitá funkce, která nemá na intervalu \((a,b)\) nulové body má na tomto intervalu stále stejné znaménko.",
+"Pokud funkce mění znaménko na intervalu, kde nemá nulový bod, musí mít na tomto intervalu bod nespojitosti.");
+
+$n=random(0,3,1);
+splice @a, $n, 1;
+
+$mc -> qa ("", @a);
+
+@b=("Spojitá funkce, která má v bodech \(a\) a \(b\) stejné znaménko, nemá na intervalu \((a,b)\) nulový bod.",
+"Jestliže funkce má na intervalu \((a,b)\) nulový bod a platí \(f(a) f(b)<0\), potom je tato funkce na intervalu \([a,b]\) spojitá.",
+"Jestliže je funkce  na intervalu \([a,b]\) spojitá a má zde nulový bod, platí \(f(a)f(b)<0\)."
+);
+
+$m=random(0,2,1);
+splice @b, $m, 1;
+
+$mc -> extra(@b);
+$mc->makeLast("Žádná z uvedených variant.");
+
+BEGIN_PGML
+
+## Bolzanova věta
+
+Bolzanova věta je  důležité tvrzení v diferenciálním počtu. Její znění je následující.
+
+*Věta (Bolzanova věta).* _Nechť [`f`] je spojitá funkce na intervalu [`[a,b]`] a [`f(a)f(b)<0`]. Potom existuje [`c`] na intervalu [`(a,b)`] takové, že platí [`f(c)=0.`]_
+
+Podmínku [`f(a)f(b)<0`] je možné slovně vyjádřit tak, že funkce [`f`] mezi body [`a`] a [`b`] mění znaménko. To plyne ze skutečnosti, že součin dvou čísel je záporný jedině pro dvě čísla s opačným znaménkem.
+
+Vyberte, která tvrzení jsou slovní formulací Bolzanovy věty nebo z ní vyplývají.
+Více odpovědí může být správně.
+
+Ta tvrzení ze seznamu níže, která nevyplývají z Bolzanovy věty, jsou nepravdivé výroky. Pokuste se pro každý z nich najít příklad ukazující, že tato tvrzení neplatí. 
+
+[@ $mc -> print_a() @]***
+END_PGML
+
+
+############################
+#  Answer evaluation
+
+$showPartialCorrectAnswers = 1;
+
+ANS( checkbox_cmp( $mc->correct_ans() ) );
+
+
+############################
+#  Solution
+
+BEGIN_PGML_SOLUTION
+
+Nabízená varianta _"Spojitá funkce, která má v bodech [`a`] a [`b`] stejné znaménko, nemá na intervalu [`(a,b)`] nulový bod."_ není správně. Bolzanova věta mluví o spojitých funkcích, které mají znaménkovou změnu. O funkcích, které mají stále stejné znaménko (nemají znaménkovou změnu) nic neříká.
+Že takové tvrzení neplatí ukáže příklad funkce [`y=x^2`], která je na intervalu [`[-1,1]`] spojitá, v krajních bodech intervalu má stejné zanménko, ale přesto má na tomto intervalu nulový bod [`x=0`].
+
+Nabízená varianta _"Jestliže funkce má na intervalu [`(a,b)`] nulový bod a platí [`f(a) f(b)<0`], potom je tato funkce na intervalu [`[a,b]`] spojitá."_ není správně. Spojitost je pro Bolzanovu větu předpokladem a nikdy z ní proto nemůže vyplynout. 
+Že takové tvrzení neplatí ukáže příklad funkce [`y=1`] pro [`x>0`], [`y=-1`] pro [`x<0`] a [`y=0`] pro [`x=0`]. Jedná se o funkci určující znaménko. Tato funkce má v  krajních bodech intervalu [`[-1,1]`] zmenu znaménka, má uprostřed tohoto intervalu nulový bod, ale přesto není spojitá.
+
+Nabízená varianta _"Jestliže je funkce  na intervalu [`[a,b]`] spojitá a má zde nulový bod, platí [`f(a)f(b)<0`]."_ není správně. Toto tvrzení má oproti Bolzanově větě přehozený předpoklad a závěr. Že takové tvrzení neplatí ukáže příklad funkce [`y=x^2`], která je na intervalu [`[-1,1]`] spojitá, ale je všude nezáporná a tvrzení [`f(-1)f(1)<0`] neplatí, protože [```f(-1)f(1)=(-1)^2(1)^2=1>0.```]
+
+
+Správné odpovědi jsou [$mc->correct_ans()].
+END_PGML_SOLUTION
+
+COMMENT('MathObject version. Uses PGML.');
+
+ENDDOCUMENT();
+

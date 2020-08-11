@@ -1,87 +1,87 @@
-DOCUMENT();  
+##################################################
 
+DOCUMENT(); 
 loadMacros(
-  "PGstandard.pl",
-  "MathObjects.pl",
-  "PGchoicemacros.pl",
-  "PGML.pl",
-  "PGcourse.pl"
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
 );
-
 TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+$dx=0.1*random(3,8,1);
+$a=0.1;
+$b=2+0.01*random(200,600,1);
+$c=random(10,30,1);
+$w=random(30,40,0.1);
+$x0=$w;
+
+Context("Numeric")->variables->are($var=>'Real');
+Context()->flags->set(
+     reduceConstants => 0,
+     reduceConstantFunctions => 0,
+   );
+
+$funkce=Formula("$a*$var^2+$b*$var+$c")->reduce();   # funkce
+$derivacefunkce=Formula("2*$a*$var+$b")->reduce();   # derivace funkce
 
 
-###########################
-#  Setup
+$hodnota=$a*$x0*$x0+$b*$x0+$c;
 
-$mc = new_checkbox_multiple_choice();
+$hodnotaSol=Formula("$a*$x0^2+$b*$x0+$c");
 
-@a=("Pokud funkce v daném bodě má nenulovou derivaci, není v tomto bodě lokální  extrém.",
-"Pokud má funkce v daném bodě lokální extrém i derivaci, je derivace v tomto bodě rovna nule.",
-"Pokud má funkce v daném bodě lokální extrém a derivace v tomto bodě není nulová, potom derivace v tomto bodě vůbec není definována."
-);
+$hodnotaDer=Formula("2*$a*$x0+$b");
+$hodnotaderivace=2*$a*$x0+$b;
 
-$n=random(0,2,1);
-splice @a, $n, 1;
+$answer=Formula("(2*$a*$x0+$b)*$dx");   # tecna
 
-$mc -> qa ("", @a);
-
-@b=("Jestliže má funkce v daném bodě derivaci a tato derivace je nulová, má funkce v daném  bodě lokální extrém.",
-"V bodě, ve kterém má funkce lokální extrém, derivace vždy existuje a je nulová.",
-"V bodě, ve kterém má funkce kladnou derivaci, je lokální maximum.",
-"V bodě, ve kterém má funkce zápornou derivaci, je lokální minimum.",
-);
-
-$m=random(0,3,1);
-splice @b, $m, 1;
-
-$mc -> extra(@b);
-$mc->makeLast("Žádná z uvedených variant.");
 
 BEGIN_PGML
 
-## Lokální extrémy funkce
+## Citlivostní analýza
 
-Fermatova věta je další důležité tvrzení v diferenciálním počtu. Umožňuje vytipovat body, kde by funkce mohla mít lokální extrém. Její znění je následující.
+[@ image("raketoplan.jpg", width=>400) @]*
 
-*Věta (Fermatova věta o lokálním extrému).* _Má-li funkce [`f`] v bodě [`x_0`] lokální extrém, potom je derivace funkce [`f`] v bodě [`x_0`] nulová, nebo neexistuje._
+Lineární aproximaci využíváme i k detekci toho, jak citlivě reagují funkční hodnoty na změny ve vstupních datech. Hodnotu derivace je možno chápat jako hoidnotu za
 
-Zpravidla naprostá většina bodů z definičního oboru funkce podmínku z výše uvedené věty nesplňuje a tím nám zůstane jenom několik málo bodů, ve kterých by lokální extrém mohl nastat.
+Například výroba krystalů pro elektronická zařízení raketoplánů musí probíhat za přesně definované teploty. Předpokládejme v jednoduchém modelu, že teplota krystalu je v každém okamžiku dána jednoznačně příkonem zařízení (tj. teplota reaguje na změnu příkonu bez zpoždění a nezohledňuje historii) a funkce udávající teplotu jako funkci příkonu ohřívače je
+[``` T(x)=[$funkce].```]
 
-Vyberte v následujícím seznamu pravdivá tvrzení. Více odpovědí může být správně. Tato tvrzení jsou jinou slovní formulací Bolzanovy věty nebo z ní vyplývají. 
+Uvažujme příkon [`x=[$w] \,\mathrm{W}`]. Předpokládejme, že jsme schopni tuto hodnotu udržovat s přesností [`\Delta x=\pm [$dx] \,\mathrm{W}`].
 
-K tvrzením ze seznamu níže, která jsou tvořena nepravdivými výroky, se pokuste najít příklad ukazující, že tato tvrzení neplatí. 
+Vypočtěte teplotu za těchto podmínek a rozkolísání teploty způsobené změnou příkonu o [`\Delta x=\pm[$dx] \,\mathrm{W}`].
 
-[@ $mc -> print_a() @]***
+>> [``T([$w])={}``][_______________________]{$hodnotaSol} <<
+
+>> [``\frac{\mathrm dT}{\mathrm dt}([$w]) \Delta x={}``][_______________________]{$answer} <<
+
+
+
+(Zpracováno podle Stewart: Calculus.)
+
 END_PGML
 
+$showHint = 3;
+BEGIN_PGML_HINT
 
-############################
-#  Answer evaluation
+Teplotu určíme přímým dosazením hodnoty [`x=[$w]`] do funkce [```T(x)=[$funkce].```]
 
-$showPartialCorrectAnswers = 1;
+Po zderivování funkce, dosazení hodnoty [`x=[$w]`] do derivace a dosazení hodnoty [`Delta x=$dx`] určíte odpověď na druhou část otázky.
 
-ANS( checkbox_cmp( $mc->correct_ans() ) );
+END_PGML_HINT
 
-
-############################
-#  Solution
 
 BEGIN_PGML_SOLUTION
 
-Nabízená varianta _Jestliže má funkce v daném bodě derivaci a tato derivace je nulová, má funkce v daném  bodě lokální extrém._ není pravdivá. Například funkce [`y=x^3`] má v nule nulovou derivaci, ale extrém zde není, protože funkce je rostoucí. Existenci lokálního extrému zaručí například to, že derivace v daném bodě mění znaménko.
+Teplotu určíme přímým dosazením hodnoty [`x=[$w]`] do funkce [```T(x)=[$funkce].```] Vychází
+[``` T([$w])=```]
 
-Nabízená varianta _V bodě, ve kterém má funkce lokální extrém, derivace vždy existuje a je nulová._ není pravdivá. Derivace v bodě lokálního extrému nemusí existovat. Například funkce [`y=|x|`] (absolutní hodnota) v nule nemá derivaci, ale má zde lokální minimum.
+Po zderivování funkce, dosazení hodnoty [`x=[$w]`] do derivace a vynásobení hodnotou [`Delta x=[$dx]`] určíte odpověď na druhou část otázky.
 
-Nabízená varianta _V bodě, ve kterém má funkce kladnou derivaci, je lokální maximum._ není pravdivá. Funkce, která má kladnou derivaci, je rostoucí a nemá lokální extrém. Například funkce [`y=x`].
-
-Nabízená varianta _V bodě, ve kterém má funkce zápornou derivaci, je lokální minimum._  není pravdivá. Funkce, která má zápornou derivaci, je rostoucí a nemá lokální maximum. Například funkce [`y=-x`].
-
-Správné odpovědi jsou [$mc->correct_ans()].
 
 END_PGML_SOLUTION
 
-COMMENT('MathObject version. Uses PGML.');
 
 ENDDOCUMENT();
-
