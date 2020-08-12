@@ -1,0 +1,59 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 3;
+
+$b=random(2,10,1);
+$c=random(-1,1,2);
+
+Context("Numeric")->variables->add(a=>"Real");
+$showPartialCorrectAnswers = 1;
+
+if ($d==0)
+{
+    $funkce=Formula("$b+e^($c*a*x)")->reduce();
+    $int=Formula("$b*x+e^($c*a*x)/($c*a)")->reduce();
+}
+else
+{ 
+    $funkce=Formula("$b*e^($c*a*x)")->reduce(); 
+    $int=Formula("$b*exp($c*a*x)/($c*a)")->reduce();
+}
+
+sub mycheck {
+  my ($correct, $student, $ansHash) = @_;
+  Value->Error("Try again") if cos($student)==sqrt(3)/2;
+  return $correct->D(x) == $student->D(x);
+}
+
+
+BEGIN_PGML
+
+
+Vypočtěte integrál.
+>>[``\int [$funkce]\,\mathrm dx ={}``][_________________________]{$int->cmp(vars=>["x","a"] , checker=>~~&mycheck )}[``{}+C``] <<
+
+END_PGML
+
+BEGIN_PGML_HINT
+Úloha je podobná jako předchozí, jenom je místo čísla parametr [`a`].
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+
+[```\int [$funkce]\,\mathrm dx =[$int]+C```]
+
+END_PGML_SOLUTION
+
+
+
+
+ENDDOCUMENT();
