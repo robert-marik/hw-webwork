@@ -39,7 +39,7 @@ Integrál exponenciální funkce s lineární vnitřní složkou můžeme vypoč
 Tento výsledek je možné zapsat jako *5x+3/7 \* exp(7x)* nebo *5x + 3/7 \* e^(7x)*.
 
 Vypočtěte následující integrál.
->>[``\int [$funkce]\,dx ={}``][_________________________]{$int->cmp(upToConstant=>1)}[``{}+C``] <<
+>>[``\int [$funkce]\,\mathrm dx ={}``][_________________________]{$int->cmp(upToConstant=>1)}[``{}+C``] <<
 
 END_PGML
 
@@ -55,7 +55,7 @@ V tomto případě se vzorec [```\int e^{ax}\,\mathrm dx=\frac 1a e^{ax}+C```] r
 [```\int e^{[$c]x}\,\mathrm dx=\frac 1{[$c]} e^{[$c]x}+C.```]
 Odsud
 
->>[```\int [$funkce]\,dx = [$int] +C```] <<
+>>[```\int [$funkce]\,\mathrm dx = [$int] +C```] <<
 
 END_PGML_SOLUTION
 

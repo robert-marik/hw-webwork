@@ -41,7 +41,7 @@ kdy ve vzorci pro integál mocninné funkce používáme postupně [`n=9`], [`n=
 Tento výsledek je možno zapsat jako *3/10 \* x^(10) + 5/3 \* x^3 + 97x*. 
 
 Vypočtěte následující integrál.
->>[``\int [$funkce]\,dx ={}``][_________________________]{$int->cmp(upToConstant=>1)}[``{}+C``] <<
+>>[``\int [$funkce]\,\mathrm dx ={}``][_________________________]{$int->cmp(upToConstant=>1)}[``{}+C``] <<
 
 END_PGML
 
