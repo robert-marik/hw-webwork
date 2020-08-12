@@ -26,7 +26,7 @@ $int=Formula("1/($n1)*x^($n1)");
 
 BEGIN_PGML
 
-## Výpočet neurčitého integrálu mocninné funkce
+## Neurčitý integrál mocninné funkce
 
 Integrál mocninné funkce počítáme pomocí vzorce [``` \int x^n\,\mathrm dx=\frac1{n+1}x^{n+1}+C.```]
 Slovně: mocninnou funkci integrujeme tak, že exponent zvýšíme o jedničku a připíšeme i do jmenovatele.
