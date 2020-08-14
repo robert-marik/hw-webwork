@@ -36,7 +36,7 @@ BEGIN_PGML
 
 Funkce tvaru [`f(ax+b)`] můžeme integrovat podle vztahu [``` \int f(ax+b)\,\mathrm dx=\frac 1a F(ax+b)+C,```]
 kde [`F`] je primitivní funkcí k [`f`], tj.
-[``` \int f(x)\,\mathrm dx=F(x)+C.]
+[``` \int f(x)\,\mathrm dx=F(x)+C.```]
 
 Je-li například funkce [`f`] mocninná funkce, je funkce [`F`] mocninná funkce s exponentem navýšeným o jedničku a vynásobená faktorem obsahujícím tento navýšený exponent ve jmenovateli. Například pro třetí mocninu máme [```f(x)=x^3```] a [```F(x)=\frac 14 x^4.```] Odsud poté například (pro [`ax+b=7x-15`])
 [```\int(7x-15)^3\,\mathrm dx=\frac 1{7}\cdot \frac 14 \cdot (7x-15)^4+C, ```]
