@@ -12,71 +12,30 @@ loadMacros(
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
-@odpovedi=(
-"\(\displaystyle 5000 + \frac 1{36}\int_0^{36} (50+10\sqrt t)\,\mathrm dt\)",
-"\(\displaystyle 50+10\sqrt{36} + \int_0^{36} (50+10\sqrt t)\,\mathrm dt\)",
-"\(\displaystyle {36}\cdot 5000 + \frac {36}{5000}\int_0^{5000} (50+10\sqrt t)\,\mathrm dt\)",
-"\(\displaystyle 5000 + \frac 1{5000}\int_0^{5000} (50+10\sqrt t)\,\mathrm dt\)",
-"\(\displaystyle \frac 1{36}\int_0^{5000} (50+10\sqrt t)\,\mathrm dt\)",
-"\(\displaystyle \frac 1{5000}\int_0^{36} (50+10\sqrt t)\,\mathrm dt\)",
-"\(\displaystyle \int_0^{36} (50+10\sqrt t)\,\mathrm dt\)"
-);
-
-# fisher_yates_shuffle( \@array ) : generate a random permutation
-# of @array in place, podle https://www.oreilly.com/library/view/perl-cookbook/1565922433/ch04s18.html
-sub fisher_yates_shuffle {
-    $array = shift;
-    $i;
-    for ($i = @$array; --$i; ) {
-        $j = random(0,$i);
-        next if $i == $j;
-        @$array[$i,$j] = @$array[$j,$i];
-    }
-}
-
-fisher_yates_shuffle( ~~@odpovedi );    # permutes @array in place
-
-$radio1 = RadioButtons(
-[[
-"\(\displaystyle 5000 + \int_0^{36} (50+10\sqrt t)\,\mathrm dt\)",
-@odpovedi[0..3]
-]],0,separator=>"$BR$BR");  # První odpověď správná
-
-#$radio1->choose(3);
+$radio = RadioButtons(
+["Počet litrů, které vytečou z nádrže za první tři hodiny.",
+ "Rychlost, s jakou vytéká olej po prvních třech hodinách.",
+ "Počet litrů oleje, které po třech hodinách zůstane v nádrži.",
+ "Průměrná rychlost s jakou vytéká olej během prvních tří hodin."
+],0);  # První odpověď správná
 
 
 BEGIN_PGML
 
+## Unikající toxický odpad
 
-## Město rostoucí měnící se rychlostí
+[@ image("toxicky_odpad.jpg", width=>400) @]*
 
-[@ image("parkour.jpg", width=>400) @]*
+Toxický odpad uniká z barelu rychlostí [`r(t)`] litrů za minutu, kde [`t`] je čas v minutách. Co vyjadřuje integrál [``\int_{0}^{\,180} {r(t)}\,\mathrm dt``]?
 
-Město je také typický organismus rostoucí proměnnou rychlostí. Více obyvatel má způsobí větší porodnost a rychlejší růst, své ovšem hraje i prostor pro rozšiřování a další růst, dostupnost zdrojů a další faktory. Ač se nám může zdát, že tyto faktory jsou exaktně neuchopitelné, dají se dopředu do jisté míry odhadnout a tento odhad budoucího růstu je důležitý pro jakékoliv plánování.
-
-Předpokládejme, že [`t`] měsíců od současnosti je rychlost růstu počtu obyvatel města [``` g(t)=50+10\sqrt t```] obyvatel za měsíc. V současnosti má město 5000 obyvatel. Kolik obyvatel bude město mít za tři roky?
-
-----
-
-Vyberte výraz, který udává počet obyvatel po třech letech, tj. po 36 měsících?.
-
-[_]{$radio1}
-
+[_]{$radio}
+    
 END_PGML
 
 
-$showHint = 3;
-BEGIN_PGML_HINT
-Musíte sečíst současnou velikost populace a nárůst za nejbližší tři roky.
-END_PGML_HINT
-
-
-
-BEGIN_PGML_SOLUTION
-Změna je vyjádřena určitým integrálem rychlosti v příslušných mezích. Celková hodnota po uplynutí daného času je součtem počáteční hodnoty a změny.
-Výsledek je tedy
-[```5000 + \int_0^3 (50+10\sqrt t)\,\mathrm dt.```]
-END_PGML_SOLUTION
+BEGIN_SOLUTION
+Doba 180 minut odpovídá třem hodinám. Na tomto intervalu integrujeme rychlost s jakou vytéká olej. Výsledkem po integraci je množství oleje, které za danou dobu vyteklo.
+END_SOLUTION
 
 ENDDOCUMENT();
 

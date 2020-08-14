@@ -1,41 +1,70 @@
 DOCUMENT();
 
 loadMacros(
-  "PGstandard.pl",
-  "PGchoicemacros.pl",
-  "PGML.pl",
-  "PGcourse.pl"
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
 );
 
-TEXT(&beginproblem);
+
+TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
-$a=random(5,20,1);
-$b=random(6,10,1);
-$k=random(1,3,1);
-$kk=2*$k;
+
+$radio1 = RadioButtons(
+[[
+"\(\displaystyle \int_0^6 r(t)\,\mathrm dt\)$BR$BR",
+"\(\displaystyle -10+\int_0^6 r(t)\,\mathrm dt\)$BR$BR",
+"\(\displaystyle 22-\int_0^6 r(t)\,\mathrm dt\)$BR$BR",
+"\(\displaystyle -10+22+\int_0^6 r(t)\,\mathrm dt\)$BR$BR",
+"\(\displaystyle -10+22-\int_0^6 r(t)\,\mathrm dt\)$BR$BR",
+]],0);  # První odpověď správná
+
+$radio2 = RadioButtons(
+[[
+"\(\displaystyle \int_0^6 r(t)\,\mathrm dt\)$BR$BR",
+"\(\displaystyle -10+\int_0^6 r(t)\,\mathrm dt\)$BR$BR",
+"\(\displaystyle 22-\int_0^6 r(t)\,\mathrm dt\)$BR$BR",
+"\(\displaystyle -10+22+\int_0^6 r(t)\,\mathrm dt\)$BR$BR",
+"\(\displaystyle -10+22-\int_0^6 r(t)\,\mathrm dt\)$BR$BR",
+]],1);  # Druhá odpověď správná
 
 
 BEGIN_PGML
 
-## Vytékající voda a praktický význam integrálu
 
-[@ image("cisterna.jpg", width=>400) @]*
+## Akumulátor
 
-Při zásobování vodou se někdy musíme uchýlit k použití cisteren. Cisterna nemusí být ideální a může z ní voda unikat. Toto je typický děj probíhající proměnnou rychlostí, protože během vytékání se snižuje tlak v místě úniku a rychlost vytékání se snižuje.
+[@ image("auto-zima.jpg", width=>400) @]*
 
-Předpokládejme, že voda vytéká z dolní strany nádrže rychlostí  [`r(t)=200-[$kk]t`] litrů za minutu, kde [`0 \le t \le 50.`]  Najděte objem vody (v litrech), který vyteče z nádrže za  [$a] minut.
+Teplota studeného akumulátoru přeneseného v zimě v 18:00 z venkovního prostředí o teplotě [`-10 ^\circ\mathrm C`] do místnosti o pokojové teplotě [`22 ^\circ\mathrm C`] roste rychlostí [`` r(t) {}^\circ\mathrm{C}/\mathrm{hod}``], kde [`t`] je čas v hodinách od okamžiku přinesení akumulátoru.
 
+Vyjádřete pomocí těchto informací změnu teploty mezi okamžikem přinesení a půlnocí a teplotu akumulátoru o půlnoci.
 
-Odpověď: Vyteče [________________]{200*$a-$k*($a**2)} litrů vody.
+----
 
+Vyberte výraz, který udává, o kolik se zvýší teplota akumulátoru od přinesení dovnitř do půlnoci.
+
+[_]{$radio1}
+    
+----
+
+Vyberte výraz, který udává teplotu akumulátoru v okamžiku půlnoci.
+
+[_]{$radio2}
+    
 END_PGML
 
 
+
 BEGIN_PGML_SOLUTION
-Množství vody bude integrál z rychlosti, se kterou voda vytéká.
-[``` \int_0^{[$a]} 200-4t \,\mathrm dt = \left[200 t - 2t^2 \right] _{0}^{[$a]}=200\cdot[$a] - 2\cdot ([$a])^2=2000-200=1800```]
+Změna je vyjádřena určitým integrálem rychlosti v příslušných mezích. Celková hodnota po uplynutí daného času je součtem počáteční hodnoty a změny.
 END_PGML_SOLUTION
 
-
-
 ENDDOCUMENT();
+
+
+
+
+

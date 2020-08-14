@@ -37,8 +37,9 @@ sub mycheck {
 
 BEGIN_PGML
 
+## Integrál s parametrem
 
-Vypočtěte integrál.
+Vypočtěte integrál funkce proměnné [`x`] s parametrem [`a`].
 >>[``\int [$funkce]\,\mathrm dx ={}``][_________________________]{$int->cmp(vars=>["x","a"] , checker=>~~&mycheck )}[``{}+C``] <<
 
 END_PGML

@@ -38,6 +38,8 @@ což je možné zapsat jako *1/13 \* x^(13)* (integrační konstantu do odpověd
 Vypočtěte následující integrál.
 >>[``\int [$funkce]\,\mathrm dx ={}``][_________________________]{$int->cmp(upToConstant=>1)}[``{}+C``] <<
 
+Poznámka: U této ani u dalších otázek v této domácí úloze nezapisujte integrační konstantu "[`{}+C`]", která je už předepsána automaticky. 
+
 END_PGML
 
 BEGIN_PGML_HINT
