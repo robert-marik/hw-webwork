@@ -29,7 +29,7 @@ Context()->texStrings;
 BEGIN_PGML
 ## Determinant
 
-Determinant matice počítáme podle vztahu
+Determinant matice [`2\times 2`] počítáme podle vztahu
 [``` \begin{vmatrix}a&b\\c&d\end{vmatrix}=ad-bc.```]
 Konkrétně například pro matici 
 [``` Z=\begin{pmatrix}2 &3\\-1&2\end{pmatrix}```]
