@@ -31,8 +31,7 @@ Množství enzymu označte [`x`], konstantu úměrnosti [`k`]. Model naformulujt
 Formula("k*x**2") => "Jste na dobré cestě. Ještě musíte zohlednit, že se jedná o pokles.",
 Formula("-k*x") => "Jste na dobré cestě. Ještě musíte zohlednit, že se rychlost není úměrná koncentraci, ale druhé mocnině koncentrace.",
 Formula("k*x") => "Jste na dobré cestě. Ještě musíte zohlednit, že se rychlost není úměrná koncentraci, ale druhé mocnině koncentrace a že se jedná o pokles"
-))]
-}<<
+))}<<
 
 END_PGML
 
