@@ -13,6 +13,10 @@ $showHint = 3;
 
 $b=random(2,10,1);
 $c=random(-1,1,2);
+$d=non_zero_random(-10,18,2);
+$f=random(-10,10,1);
+$n=random(3,6,1);
+$n1=$n+1;
 
 Context("Numeric")->variables->add(a=>"Real");
 $showPartialCorrectAnswers = 1;
@@ -25,8 +29,11 @@ if ($d==0)
 else
 { 
     $funkce=Formula("$b*e^($c*a*x)")->reduce(); 
-    $int=Formula("$b*exp($c*a*x)/($c*a)")->reduce();
+    $int=Formula("$b*e^($c*a*x)/($c*a)")->reduce();
 }
+
+$funkce2=Formula("$d*x+a*x^($n)")->reduce(); 
+$int2=Formula("1/2*($d)*x^2+a/$n1*x^($n1)")->reduce();
 
 sub mycheck {
   my ($correct, $student, $ansHash) = @_;
@@ -39,17 +46,26 @@ BEGIN_PGML
 
 ## Integrál s parametrem
 
+Integrály s parametrem nejsou nic jiného než klasické integrály s drobnou  modifikací: namísto hodnot koeficientů vyjádřených numerickou hodnotou obsahují parametr. Z hlediska výpočtu se nic nemění. Proto například můžeme psát
+[``` \int 7x^3+a x^8\,\mathrm dx=\frac 74 x^4+\frac a9 x^9+C.```]
+
+--------------------------
+
 Vypočtěte integrál funkce proměnné [`x`] s parametrem [`a`].
+
+>>[``\int [$funkce2]\,\mathrm dx ={}``][_________________________]{$int2->cmp(vars=>["x","a"] , checker=>~~&mycheck )}[``{}+C``] <<
+
 >>[``\int [$funkce]\,\mathrm dx ={}``][_________________________]{$int->cmp(vars=>["x","a"] , checker=>~~&mycheck )}[``{}+C``] <<
 
 END_PGML
 
 BEGIN_PGML_HINT
-Úloha je podobná jako předchozí, jenom je místo čísla parametr [`a`].
+Úloha je podobná jako předchozí, jenom je místo čísla parametr [`a`]. Představte si místo parametru číslo, 
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 
+[```\int [$funkce2]\,\mathrm dx =[$int2]+C```]
 [```\int [$funkce]\,\mathrm dx =[$int]+C```]
 
 END_PGML_SOLUTION
