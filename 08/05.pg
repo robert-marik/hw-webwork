@@ -1,0 +1,54 @@
+DOCUMENT() ;        
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+$showPartialCorrectAnswers = 1 ;
+
+TEXT(beginproblem());
+
+Context('Matrix');
+
+do { 
+
+$A = Matrix([
+[random(-9,9,1),random(-9,9,1)],
+[random(-9,9,1),random(-9,9,1)],
+]);
+
+$Adet = $A->det();
+
+} until ( $Adet != 0 );
+
+
+Context()->texStrings;
+BEGIN_PGML
+## Determinant
+
+Determinant matice počítáme podle vztahu
+[``` \begin{vmatrix}a&b\\c&d\end{vmatrix}=ad-bc.```]
+Konkrétně například pro matici 
+[``` Z=\begin{pmatrix}2 &3\\-1&2\end{pmatrix}```]
+je determinant 
+[``` \det(Z)=2\cdot 2-3\cdot (-1)=7.```]
+
+---------------
+
+Vypočtěte determinant matice [```A = [$A].```]
+
+
+>>[``\det(A)={}``][_____________]{$Adet}<<
+END_PGML
+
+BEGIN_PGML_SOLUTION
+Přímým dosazením do vzorce dostaneme
+[```\det(A)=[$Adet].```]
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
+
