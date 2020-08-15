@@ -10,6 +10,7 @@ loadMacros(
 TEXT(beginproblem());    
 # Do not show which answers are incorrect.
 $showPartialCorrectAnswers = 0;
+$showHint = 3;
 
 # FIRST MATRIX
 do{
@@ -126,8 +127,20 @@ END_PGML
 
 Context()->normalStrings;
 
+
+BEGIN_PGML_HINT
+Pro první příklad musíte vyřešit soustavu lineárních rovnic. Sledujte řešený příklad a případně další příklady ze cvičení čí přednášky.
+
+Ve druhém případě stačí vynásobit matici s vektorem a podívat se, na jaký násobek se vektor transformuje. Pokud máte potíže s násobením a chcete si správnost zkontrolovat, použijte MATLAB, Octave nebo Sage.
+END_PGML_HINT
+
+@correct = @{$tf->ra_correct_ans()};
+$answerstring = join(", ", @correct);
+
 BEGIN_PGML_SOLUTION
-Násobíme matici s vektorem a díváme se, jestli je výsledek násobkem původního vektoru. Pokud ano, je tento vektor vlastním vektorem.
+Násobíme matici s vektorem a díváme se, jestli je výsledek násobkem původního vektoru. Pokud ano, je tento vektor vlastním vektorem. Je nutné konttrolovat všechny komoponenty. Alespoň jeden vektor je vlastním  vektorem a alespoň jeden vlastní vektor není vlastním vektorem.
+
+Řešení je [$answerstring].
 END_PGML_SOLUTION
 
 # Enter the correct answers to be checked against the answers to the students.

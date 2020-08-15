@@ -5,11 +5,13 @@ loadMacros(
 "PGstandard.pl",
 "PGML.pl",
 "MathObjects.pl",
+"answerHints.pl",
 "PGcourse.pl",
 );
 TEXT(beginproblem());
 
 $showPartialCorrectAnswers = 1;
+$showHint = 3;
 
 Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]], 'dx'=>'Real', 't'=>'Real', 'k'=>'Real', 'x'=>'Real','h'=>'Real','K'=>'Real','r'=>'Real');
 
@@ -22,16 +24,27 @@ BEGIN_PGML
 
 [@ image("molekula.jpg", width=>400) @]*
 
-V živé přírodě, u rostlin i u živočichů, je řada dějů řízena enzymy. Tyto enzymy se tvoří nebo odbourávají chemickými reakcemi za přítomnosti dalších enzymů nebo za přítomnosti katalyzátorů. Jedním z takových řídících procesů může být chemická reakce, kdy se spotřebovává enzym tak, že spolu za přítomnosti
-katalyzátoru reagují dvě molekuly tohoto enzymu. V důsledku toho
-rychlost s jakou se snižuje množství enzymu je úměrná druhé mocnině
-koncentrace a tedy i druhé mocnině množství tohoto enzymu. Napište
-diferenciální rovnici popisující tento děj.
+V živé přírodě, u rostlin i u živočichů, je řada dějů řízena enzymy. Tyto enzymy se tvoří nebo odbourávají chemickými reakcemi za přítomnosti dalších enzymů nebo za přítomnosti katalyzátorů. Jedním z takových řídících procesů může být chemická reakce, kdy se spotřebovává enzym tak, že spolu za přítomnosti katalyzátoru reagují dvě molekuly tohoto enzymu. V důsledku toho rychlost s jakou se snižuje množství enzymu je úměrná druhé mocnině koncentrace a tedy i druhé mocnině množství tohoto enzymu. Napište diferenciální rovnici popisující tento děj.
 
 Množství enzymu označte [`x`], konstantu úměrnosti [`k`]. Model naformulujte tak, aby konstanta úměrnosti byla kladná. 
->> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{$rovnice}<<
+>> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{$rovnice->cmp()->withPostFilter(AnswerHints(
+Formula("k*x**2") => "Jste na dobré cestě. Ještě musíte zohlednit, že se jedná o pokles.",
+Formula("-k*x") => "Jste na dobré cestě. Ještě musíte zohlednit, že se rychlost není úměrná koncentraci, ale druhé mocnině koncentrace.",
+Formula("k*x") => "Jste na dobré cestě. Ještě musíte zohlednit, že se rychlost není úměrná koncentraci, ale druhé mocnině koncentrace a že se jedná o pokles"
+))]
+}<<
 
 END_PGML
+
+BEGIN_PGML_HINT
+Přečtěte si pozorně zadání. Je zde přímo napsáno, jaké mocnině koncetrace je změna koncentrace úměrná. Musíte tedy
+
+* vhodným znaménkem zohlednit, zda koncetrace roste či klesá,
+* vyjádřit úměrnost pomocí vhodné konstanty (její jméno je součástí zadání)
+* použít správnou mocninu koncentrace na pravé straně.
+
+END_PGML_HINT
+
 
 BEGIN_PGML_SOLUTION
 Přímým přepisem zadání do matematických ekvivalentů máme

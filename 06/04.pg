@@ -5,11 +5,13 @@ loadMacros(
 "PGstandard.pl",
 "PGML.pl",
 "MathObjects.pl",
+"answerHints.pl",
 "PGcourse.pl",
 );
 TEXT(beginproblem());
 
 $showPartialCorrectAnswers = 1;
+$showHint = 3;
 
 Context("Numeric")->variables->are('k'=>'Real', 'r'=>'Real', 'l'=>'Real', 'T'=>'Real','t'=>'Real');
 
@@ -32,9 +34,17 @@ Napište matematický model popisující danou situaci. Konstantu úměrnosti oz
 
 END_PGML
 
+BEGIN_PGML_HINT
+Teplotu ovlivňují dva efekty a jejich efekt se sčítá. Jeden efekt je kladný konstantní, druhý záporný a úměrný rozdílu [`(T-[$T0])`]. Dejte také pozor na to, že jsou předepsány písmena pro označení konstant úměrnosti.BEGIN_PGML_HINT
+
+
 BEGIN_PGML_SOLUTION
 Na pravé straně rovnice přičteme konstantní člen [`r`] popisující růst teploty vlivem slunečního záření a odečteme člen [`k(T-[$T0])`] popisující výdej tepla do okolí. 
-[``` \frac{\mathrm dT}{\mathrm dt}=[$r1].```]
+[``` \frac{\mathrm dT}{\mathrm dt}=[$r1->cmp()->withPostFilter(AnswerHints(
+Formula("r+k*(T-[$T0])") => "Jste na dobré cestě. Buď máte přehozené členy v rozdílu, nebo neuvažujete, že se chata ochlazuje.",
+Formula("r*k*(T-[$T0])") => "Jste na dobré cestě. Jenom musíte zohlednit, že rychlost není úměrná současně oběma efektům, ale jejich součtu, resp. rozdílu.",
+Formula("-k*(T-[$T0])") => "Jste na dobré cestě. Ještě je potřeba zohlednit konstantní intenzitu ohřevu."
+))].```]
 END_PGML_SOLUTION
 
 COMMENT('Používá PGML.');

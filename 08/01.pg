@@ -11,6 +11,7 @@ loadMacros(
 TEXT(beginproblem());
 
 $showPartialCorrectAnswers = 1;
+$showHint = 3;
 
 Context("Matrix");
 
@@ -67,8 +68,17 @@ Vlastní hodnoty (vlastní čísla) jsou
 
 END_PGML
 
+
+
+BEGIN_PGML_HINT
+Stačí vynásobit matici a vektory a podívat se, na jaký násobek se vektor transformuje. Pokud je jistota, že vektory jsou vlastními vektory (pokud je zadání korektní), stačí se orientovat podle první nenulové souřadnice. Jestliže si nejste jisti správností maticového násobení, zkuste MATLAB, Sage nebo OCtave.
+END_PGML_HINT
+
+
 BEGIN_PGML_SOLUTION
 Stačí vynásobit matici a vektory a podívat se, na jaký násobek se vektor transformuje. Pokud je jistota, že vektory jsou vlastními vektory (pokud je zadání korektní), stačí se orientovat podle první nenulové souřadnice.
+
+Vlastní hodnoty jsou po řadě [`\lambda_1=[$e1]`], [`\lambda_2=[$e2]`], [`\lambda_3=[$e3]`].
 END_PGML_SOLUTION
 
 ENDDOCUMENT() ;
