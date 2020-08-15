@@ -197,7 +197,7 @@ BEGIN_PGML
 
 Pokud maticové násobení chápeme jako gemetrickou transformaci, je vlastní vektor takový vektor, který se zobrazí na vektor rovnoběžný. Tj. obraz a vzor míří buď stejný směrem (pro kladná vlastní čísla) nebo opačným směrem (pro záporná vlastní čísla).
 
-Materiál má zpravidla kladná vlastní čísla, protože materiálová odezva víceméně odpovídá podnětu a vlastnosti materiálu mohou odezvu odklonit (například do směru, ve kterém materiál lépe vede vodu či teplo) ale už ne přímo obrátit. U anizotropního materiálu jsou vlastní čísla různá. Pokud porovnáváme obrazy stejně dlouhých vektorů, potom ve vlastním směru příslušném většímu vlastnímu číslu má obraz největší velikost, ve směru příslušném menšímu vlastnímu číslu nejmenší velikost a mezi tím jsou vektory, kde velikost je mezi minimální a maximální a směr poněkud odkloněný.
+Materiál má zpravidla kladná vlastní čísla, protože materiálová odezva víceméně odpovídá podnětu. Vlastnosti materiálu mohou odezvu odklonit (například do směru, ve kterém materiál lépe vede vodu či teplo), ale už ne přímo obrátit. U anizotropního materiálu jsou vlastní čísla různá. Pokud porovnáváme obrazy stejně dlouhých vektorů, potom ve vlastním směru příslušném většímu vlastnímu číslu má obraz největší velikost, ve směru příslušném menšímu vlastnímu číslu nejmenší velikost a mezi tím jsou vektory, kde velikost je mezi minimální a maximální a směr poněkud odkloněný.
 
 Mějme zobrazení [` T: \mathbb{R}^2 \to \mathbb{R}^2 `] definované dle obrázku (vlevo jsou vzory vektorů a vpravo obrazy).
 
@@ -209,7 +209,7 @@ BeginTable().
 EndTable().$PAR
 @]***
 
-Matice zobrazení je [`[$A]`]. Všimněte si symetrie této matice. (Mimodiagonální prvky se ve skutečnosti mohou mírně lišit vlivem zaokrouhlení.) Díky tomu jsou vlastní směry navzaájem kolmé. 
+Matice zobrazení je [`[$A]`]. Všimněte si symetrie této matice. (Mimodiagonální prvky se ve skutečnosti mohou mírně lišit vlivem zaokrouhlení.) Díky tomu jsou vlastní směry navzájem kolmé. 
     
 Z osmi vektorů na obrázku jsou čtyři vlastními vektory. Dva protilehlé přísluší větší a dva na ně kolmé menší vlasntí hodnotě. Které vektory jsou vlastní vektory příslušné *[$vlastnost] vlastní hodnotě*? Vložte odpověď jako seznam oddělený čárkou, jako například [|v1,v2|].
 
