@@ -40,6 +40,7 @@ END_PGML
 
 BEGIN_PGML_HINT
 Teplotu ovlivňují dva efekty a jejich efekt se sčítá. Jeden efekt je kladný konstantní, druhý záporný a úměrný rozdílu [`(T-[$T0])`]. Dejte také pozor na to, že jsou předepsány písmena pro označení konstant úměrnosti.BEGIN_PGML_HINT
+END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
