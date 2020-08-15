@@ -39,7 +39,7 @@ Formula("-k*(T-[$T0])") => "Jste na dobré cestě. Ještě je potřeba zohlednit
 END_PGML
 
 BEGIN_PGML_HINT
-Teplotu ovlivňují dva efekty a jejich efekt se sčítá. Jeden efekt je kladný konstantní, druhý záporný a úměrný rozdílu [`(T-[$T0])`]. Dejte také pozor na to, že jsou předepsány písmena pro označení konstant úměrnosti.BEGIN_PGML_HINT
+Teplotu ovlivňují dva procesy a jejich efekt se sčítá. Jeden má na rychlost růstu teploty kladný konstantní vliv, druhý záporný a úměrný rozdílu [`(T-[$T0])`]. Dejte také pozor na to, že jsou předepsány písmena pro označení konstant úměrnosti.BEGIN_PGML_HINT
 END_PGML_HINT
 
 
