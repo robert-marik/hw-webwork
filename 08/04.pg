@@ -146,7 +146,7 @@ else {
     else 
     { $evects = List('v'.$i1, 'v'.$i3); }
 }
-
+$allevects = List('v'.$i1, 'v'.$i2, 'v'.$i3, 'v'.$i4); 
 
 
 
@@ -222,7 +222,7 @@ BEGIN_PGML_HINT
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
-    Musíte zjistit, u kterých vektorů mají vzor i obraz stejný směr. Takové vektory jsou čtyří. Dva protilehlé se prodlužují a jiné dva protilehlé se zkracují. Podle toho vyberete správnou odpověď. V tomto případě to je [$evects].
+    Musíte zjistit, u kterých vektorů mají vzor i obraz stejný směr. Takové vektory jsou čtyří: [$allevects]. Dva protilehlé se prodlužují a jiné dva protilehlé se zkracují. Podle toho vyberete správnou odpověď. V tomto případě to jsou [$evects].
  
 END_PGML_SOLUTION
     
