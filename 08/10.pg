@@ -51,6 +51,9 @@ $v = Matrix([[$j],[$k],[$l]]);
 
 Context()->texStrings;
 BEGIN_PGML
+
+## Maticový zápis soustavy lineárních rovnic
+
 Zapište soustavu
 [```
 \begin{array}{rcl}
