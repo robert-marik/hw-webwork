@@ -24,6 +24,9 @@ BEGIN_PGML
 
 ## Čmeláčí hnízdo
 
+
+[@ image("cmelak.jpg", width=>400) @]*
+
 Čmeláčí hnízdo roste každé jaro od začátku. Předpokládejme, že první generace dělnic má velikost 10 a roste rychlostí  [`n'(t)`], kde [`t`] je čas v týdnech. Jak je možno interpretovat výraz [``` 10+\int_{0}^{\,15} {n'(t)}\,\mathrm dt```] pro tento případ?
 
 [_]{$radio}

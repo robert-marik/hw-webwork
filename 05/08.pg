@@ -41,7 +41,7 @@ BEGIN_PGML
 
 Ještě jednou se vrátíme k nejdůležitější aplikaci integrálu, tj. k přepočtu rychlosti změny na celkovou změnu.
 
-Termohrnek bez atestu, vyrobený z rozemletého plastu ze staré elektroniky, uvolňuje do nápoje zdravotně závadné materiály. Například zpomalovače hoření, BFR. Předpokládejme, že tempo se kterým se BFR vylučuje do nápoje se snižuje s rostoucí kontaminací nápoje a s klesající teplotou nápoje, tj. klesá v čase. Vhodným modelem může být například [``` r(t)=([$funkce]) \,\mathrm{\mu g}/\mathrm{hod},```] kde [`r(t)`] je rychlost vylučování BFR do nápoje v čase [`t`] v mikrogramech za hodinu a [`t`] je čas v hodinách. Vypočtěte, jaké množství BFR se do nápoje uvolní za první [$slovne] hodiny. Výsledek zadejte číslem v mikrogramech
+Termohrnek bez atestu, vyrobený z rozemletého plastu ze staré elektroniky, uvolňuje do nápoje zdravotně závadné materiály. Například zpomalovače hoření, BFR. Předpokládejme, že tempo se kterým se BFR vylučuje do nápoje se snižuje s rostoucí kontaminací nápoje a s klesající teplotou nápoje, tj. klesá v čase. Vhodným modelem může být například [``` r(t)=([$funkce]) \,\mathrm{\mu g}/\mathrm{hod},```] kde [`r(t)`] je rychlost vylučování BFR do nápoje v čase [`t`] v mikrogramech za hodinu a [`t`] je čas v hodinách. Vypočtěte, jaké množství BFR se do nápoje uvolní za první [$slovne] hodiny. Výsledek zadejte číslem v mikrogramech.
 
 
 Uvolní se [_________________________]{$int}[`` \mathrm {\mu g}``] BFR.
