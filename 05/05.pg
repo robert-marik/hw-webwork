@@ -59,7 +59,7 @@ Formula("$int") => "Jste na dobré cestě. Toto je ale určitý integrál. Ješt
 END_PGML
 
 BEGIN_PGML_HINT
-Primitivní funkce je [`$prim`]. Použijte tuto funkci na nalezení určitého interálu a poté vydělte délkou intervalu.
+Primitivní funkce je [`[$prim]`]. Použijte tuto funkci na nalezení určitého interálu a poté vydělte délkou intervalu.
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
