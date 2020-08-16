@@ -211,7 +211,7 @@ EndTable().$PAR
 
 Matice zobrazení je [`[$A]`]. Všimněte si symetrie této matice. (Mimodiagonální prvky se ve skutečnosti mohou mírně lišit vlivem zaokrouhlení.) Díky tomu jsou vlastní směry navzájem kolmé. 
     
-Z osmi vektorů na obrázku jsou čtyři vlastními vektory. Dva protilehlé přísluší větší a dva na ně kolmé menší vlasntí hodnotě. Které vektory jsou vlastní vektory příslušné *[$vlastnost] vlastní hodnotě*? Vložte odpověď jako seznam oddělený čárkou, jako například [|v1,v2|].
+Z osmi vektorů na obrázku jsou čtyři vlastními vektory. Dva protilehlé přísluší větší a dva na ně kolmé menší vlastní hodnotě. Které vektory jsou vlastní vektory příslušné *[$vlastnost] vlastní hodnotě*? Vložte odpověď jako seznam oddělený čárkou, jako například [|v1,v2|].
 
 Vlastní vektory příslušné [$vlastnost] vlastní hodnotě jsou [______________________]{$evects}.
 END_PGML
