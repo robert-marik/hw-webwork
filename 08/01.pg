@@ -107,6 +107,8 @@ $tf->choose(3);
 # $mc->print_a to print the answers.
 BEGIN_PGML
 
+## Je vektor vlastním vektorem
+
 Vlastní vektory matice [`A`] jsou vektory, jejichž obraz při zobrazení maticí má stejný směr jako původní vektor. Jsou nesmírně důležité, protože při volbě soustavy souřadnic ve směru vlastních vektorů je matice [`A`] diagonální a s takovými maticemi se pracuje mnohem lépe, než s maticemi obecnými.
 
 Například vektor [```\vec{a}=\begin{pmatrix}-1\\2\end{pmatrix}```] a matice

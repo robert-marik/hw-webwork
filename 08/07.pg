@@ -53,14 +53,14 @@ Context()->texStrings;
 BEGIN_PGML
 ## Vlastní čísla
 
-Vlastní čísla jsou kořeny chrakteristického polynomu. V minulém příkladě jsme si ověřili, že umíme hledat charakteristický polynom a nyní najdeme vlastní čísla jako kořeny tohoto polynomu. Připomeňme vzorec pro kořeny kvadratické rovnice, který má pro rovnici [``` ax^2+bx+c=0```] tvar
+Vlastní čísla jsou kořeny charakteristického polynomu. V minulém příkladě jsme si ověřili, že umíme hledat charakteristický polynom a nyní najdeme vlastní čísla jako kořeny tohoto polynomu. Připomeňme vzorec pro kořeny kvadratické rovnice, který má pro rovnici [``` ax^2+bx+c=0```] tvar
 [``` x_{1,2}=\frac{-b\pm\sqrt{b^2-4ac}}{2a}.```]
 
 Najděte vlastní čísla matice [``` A=\begin{pmatrix} [$a11]&[$a12]\\[$a21]&[$a22]\end{pmatrix}.```]
 Charakteristický polynom zapište stejně jako v předchozím příkladě v proměnné [`\lambda`].
 Vlastní čísla zapište do jednoho políčka v libovolném pořadí, oddělená čárkou.
 
-Charakeristický polynom je [______________]{$Adet}.
+Charakteristický polynom je [______________]{$Adet}.
 
 Vlastní čísla jsou [_____________]{List($l1,$l2)}.
 

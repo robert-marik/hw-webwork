@@ -57,6 +57,9 @@ $v3 = Matrix([[$a13],[$a23],[$a33]]);
 Context("Numeric"); 
 
 BEGIN_PGML
+
+## Vlastní hodnoty podle známých vlastních vektorů
+
 Najděte vlastní hodnoty matice [``` A = [$matrix] ```]
 jsou-li zadány vlastní vektory [` v_1 = [$v1]`], [`v_2 = [$v2]`] a [`v_3 = [$v3]`].
 
