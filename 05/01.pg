@@ -48,7 +48,7 @@ END_PGML
 
 BEGIN_PGML_HINT
 Použijte neurčitý integrál
-[``` \int x^{[$n]}\,\mathrm dx=\frac1{[$n1]}x^{[$n1]}+C```] a vypočtěte změnu primitivní funkce na intervalu [`[[$a],[$b]]`], tj. rozdíl funkční hodnoty v [`[$b]`] a [`[$a]`].
+[``` \int x^{[$n]}\,\mathrm dx=\frac1{[$n1]}x^{[$n1]}+C```] a vypočtěte změnu primitivní funkce na intervalu [`[[$a],[$b]]`], tj. rozdíl funkční hodnoty pro [`x=[$b]`] a [`x=[$a]`].
 
 END_PGML_HINT
 

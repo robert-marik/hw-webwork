@@ -28,7 +28,7 @@ Při zásobování vodou se někdy musíme uchýlit k použití cisteren. Toto j
 
 Předpokládejme, že voda vytéká z ventilu u dna cistrerny rychlostí  [`r(t)=[$c]-[$kk]t`] litrů za minutu, kde [`0 \le t \le 50.`]  Najděte objem vody (v litrech), který vyteče z nádrže za [$a] minut.
 
-V tomto příkladě tedy máme zadánu rychlost s jakou se mění jistá veličina a úkolem je najít celkovou změnu této veličiny. To je přesně případ řešitelný pomocí integrálu. Musíme tedy vypočítat [``` \int_0^{[$a]}[$c]-[$kk]*t\,\mathrm dx.```]
+V tomto příkladě tedy máme zadánu rychlost s jakou se mění jistá veličina a úkolem je najít celkovou změnu této veličiny. To je přesně případ řešitelný pomocí integrálu. Musíme tedy vypočítat [``` \int_0^{[$a]}[$c]-[$kk]*t\,\mathrm dt.```]
 
 Odpověď: Vyteče [________________]{$c*$a-$k*($a**2)} litrů vody.
 

@@ -35,7 +35,7 @@ BEGIN_PGML
 
 Určitý integrál počítáme podle vzorce [```\int_a^b f(x)\,\mathrm dx=F(b)-F(a),```] kde [`F(x)`] je primitivní funkce k [`f(x)`]. Toto je možno v kontextu derivací a rychlostí změn chápat tak, že [`f`] je rychlost s jakou se mění veličina [`F`]. Slovně vyjádřeno je určitý integrál z rychlosti je roven přírůstku měnící se veličiny na daném intervalu.
 
-Například platí (v proměnné [`t`]) [``` \int 3+2t^2\,\mathrm dt=3t+\frac 23 t^3+C```] a proto [``` \int_0^3 3+2t^2\,\mathrm dx=\left[3t+\frac 23 t^3\right]_0^3=3\cdot 3 + \frac 23 3^3 =9+18=27.```] 
+Například platí (v proměnné [`t`]) [``` \int 3+2t^2\,\mathrm dt=3t+\frac 23 t^3+C```] a proto [``` \int_0^3 3+2t^2\,\mathrm dt=\left[3t+\frac 23 t^3\right]_0^3=3\cdot 3 + \frac 23 3^3 =9+18=27.```] 
 
 Nyní zkusíme něco podobného s jinými hodnotami.
 
