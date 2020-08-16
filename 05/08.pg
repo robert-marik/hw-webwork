@@ -37,6 +37,7 @@ BEGIN_PGML
 
 ## Termohrnek z rozemleté televize
 
+[@ image("televizory.jpg", width=>400) @]*
 
 Ještě jednou se vrátíme k nejdůležitější aplikaci integrálu, tj. k přepočtu rychlosti změny na celkovou změnu.
 
