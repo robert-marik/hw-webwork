@@ -20,7 +20,7 @@ $n=random(1,10,1);
 $funkce=Formula("x^2*y-3");
 $dfx=Formula("2*x*y");
 $dfy=Formula("x^2");
-$x0=random(0,4,1);
+$x0=random(1,5,1);
 if ($n>5) {$y0=random(1,4,1);} else {$y0=-random(1,4,1);}
 $A=Formula("2*$x0*$y0");
 $B=Formula("($x0)^2");
