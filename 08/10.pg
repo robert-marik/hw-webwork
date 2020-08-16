@@ -1,0 +1,85 @@
+DOCUMENT() ;        
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+TEXT(beginproblem());
+
+#######################################
+#  Setup
+
+$showPartialCorrectAnswers = 1 ;
+
+Context('Matrix')->variables->are('x1'=>'Real', 'x2'=>'Real', 'x3'=>'Real');
+
+$a = non_zero_random(-9,9,1);
+$b = random(-9,9,1);
+$c = random(-9,9,1);
+$d = random(-9,9,1);
+$e = non_zero_random(-9,9,1);
+$f = random(-9,9,1);
+$g = random(-9,9,1);
+$h = random(-9,9,1);
+$i = non_zero_random(-9,9,1);
+
+$j = non_zero_random(-9,9,1);
+$k = non_zero_random(-9,9,1);
+$l = non_zero_random(-9,9,1);
+
+$a=1;
+$e=-1;
+
+$eq1="$a x_1+$b x_2+$c x_3";
+$eq2="$d x_1+$e x_2+$f x_3";
+$eq3="$g x_1+$h x_2+$i x_3";
+
+$eq1 =~ s/ //g;
+$eq2 =~ s/ //g;
+$eq3 =~ s/ //g;
+
+$eq1 =~ s/1x/x/g;
+$eq2 =~ s/1x/x/g;
+$eq3 =~ s/1x/x/g;
+
+$A = Matrix([[$a,$b,$c],[$d,$e,$f],[$g,$h,$i]]);
+$v = Matrix([[$j],[$k],[$l]]);
+
+#######################################
+#  Main text
+
+Context()->texStrings;
+BEGIN_PGML
+Zapište soustavu
+[```
+\begin{array}{rcl}
+[$eq1]&=&[$j]\\
+[$eq2]&=&[$k]\\
+[$eq3]&=&[$l]
+\end{array}
+```]
+pomocí maticového součinu.
+
+>>[_____]*{$A}[``
+\begin{pmatrix}
+x_1 \\
+x_2 \\ 
+x_3
+\end{pmatrix}
+= {}``]
+[______]*{$v} <<
+END_PGML
+Context()->normalStrings;
+
+#######################################
+#  Answer evaluation
+
+
+BEGIN_PGML_SOLUTION
+
+Maticový tvar je [``` [$A]\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}=[$v].```]
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
