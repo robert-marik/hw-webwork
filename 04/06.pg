@@ -56,7 +56,7 @@ Použijte vztah
 [``` \int x^n\,\mathrm dx=\frac1{n+1}x^{n+1}+C```]
 pro [`n=3`] a [`n=[$N]`].
 
-Slovně by bylo možno vyjádřit postup tak, že exponent se o jedničku zvýší, přídá se ještě i do jmenovatele a dále se do jmenovatele přidá koeficient, který uvnitř závorky násobí proměnnou [`x`], tj. v případě prvního integrálu [`[$a]`] a v případě druhého integrálu [`$c`].
+Slovně by bylo možno vyjádřit postup tak, že exponent se o jedničku zvýší, přídá se ještě i do jmenovatele a dále se do jmenovatele přidá koeficient, který uvnitř závorky násobí proměnnou [`x`], tj. v případě prvního integrálu [`[$a]`] a v případě druhého integrálu [`[$c]`].
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
