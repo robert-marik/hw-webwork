@@ -35,6 +35,10 @@ Určitý integrál počítáme podle vzorce [```\int_a^b f(x)\,\mathrm dx=F(b)-F
 
 Například platí [``` \int x^6\,\mathrm dx=\frac 17 x^7+C```] a proto [``` \int_1^5 x^6\,\mathrm dx=\left[\frac 17 x^7\right]_1^5=\frac 17 5^7 - \frac 17=\frac {78124}{7}.```] Tuto odpověď je možno zapsat jedním číslem jako *78124/7* nebo jednodušeji a bez zbytečného počítání se zlomky jako *1/7 \* 5^7 - 1/7*.
 
+Nyní zkusíme něco podobného s jinými hodnotami.
+
+--------------------
+
 
 Vypočtěte následující integrál.
 >>[``\int_{[$a]}^{[$b]} [$funkce]\,\mathrm dx ={}``][_________________________]{$int} <<
