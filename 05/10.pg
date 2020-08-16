@@ -1,0 +1,41 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+TEXT(beginproblem());
+
+
+$radio = RadioButtons(
+[["Velikost populace čmeláků po deseti týdnech.",
+"Velikost populace čmeláků po patnácti týdnech.",
+"Průměrná rychlost růstu populace čmeláků po patnácti týdnech.",
+"Průměrná rychlost růstu populace čmeláků během prvních deseti týdnů.",
+"Okamžitá rychlost růstu populace čmeláků po sedmi a půl týdnech",
+]],
+1);  # odpovedi se permutuji
+
+BEGIN_PGML
+
+## Čmeláčí hnízdo
+
+Čmeláčí hnízdo roste každé jaro od začátku. Předpokládejme, že první generace dělnic má velikost 10 a roste rychlostí  [`n'(t)`], kde [`t`] je čas v týdnech. Jak je možno interpretovat výraz [``` 10+\int_{0}^{\,15} {n'(t)}\,\mathrm dt```] pro tento případ?
+
+[_]{$radio}
+
+
+END_PGML
+
+
+BEGIN_PGML_SOLUTION
+Určitým integrálem rychlosti v příslušných mezích je vyjádřena změna měnící se veličiny. Tuto změnu sčítáme s původní hodnotou. Výsledkemje proto celková velikost. Výraz udává velikost populace čmeláků v hnízdě po patnácti týdnech.
+END_PGML_SOLUTION
+
+
+
+ENDDOCUMENT();

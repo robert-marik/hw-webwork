@@ -52,7 +52,7 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 Použijeme vztah
-[``` \int [$funkce]\,\mathrm dt=[$int]+C.```]
+[``` \int [$funkce]\,\mathrm dt=[$prim]+C.```]
 Odsud
 [```\int_{0}^{[$a]} [$funkce]\,\mathrm dt =[$int] ```]
 

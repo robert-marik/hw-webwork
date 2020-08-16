@@ -52,9 +52,13 @@ BEGIN_PGML
 
 [@ image("parkour.jpg", width=>400) @]*
 
-Město je také typický organismus rostoucí proměnnou rychlostí. Více obyvatel má způsobí větší porodnost a rychlejší růst, své ovšem hraje i prostor pro rozšiřování a další růst, dostupnost zdrojů a další faktory. Ač se nám může zdát, že tyto faktory jsou exaktně neuchopitelné, dají se dopředu do jisté míry odhadnout a tento odhad budoucího růstu je důležitý pro jakékoliv plánování.
+
+
+Město je možno chápat jako organismus rostoucí proměnnou rychlostí. Více obyvatel má způsobí větší porodnost a rychlejší růst, své ovšem hraje i prostor pro rozšiřování a další růst, dostupnost zdrojů a další faktory. Ač se nám může zdát, že tyto faktory jsou exaktně neuchopitelné, dají se dopředu do jisté míry odhadnout a tento odhad budoucího růstu je důležitý pro jakékoliv plánování.
 
 Předpokládejme, že [`t`] měsíců od současnosti je rychlost růstu počtu obyvatel města [``` g(t)=50+10\sqrt t```] obyvatel za měsíc. V současnosti má město 5000 obyvatel. Kolik obyvatel bude město mít za tři roky?
+
+Návod: Evidentně musíme sečíst současný stav a přírůstek za tři roky. 
 
 ----
 
@@ -67,14 +71,14 @@ END_PGML
 
 $showHint = 3;
 BEGIN_PGML_HINT
-Musíte sečíst současnou velikost populace a nárůst za nejbližší tři roky.
+Musíte sečíst současnou velikost populace a nárůst za nejbližší tři roky. Současná velikost populace je zadána v textu. Nárůst za tři roky dokážeme vypočítat pomocí vhodného určitého integrálu.
 END_PGML_HINT
 
 
 
 BEGIN_PGML_SOLUTION
-Změna je vyjádřena určitým integrálem rychlosti v příslušných mezích. Celková hodnota po uplynutí daného času je součtem počáteční hodnoty a změny.
-Výsledek je tedy
+Musíte sečíst současnou velikost populace a nárůst za nejbližší tři roky. Současná velikost populace je zadána v textu. Změna je vyjádřena určitým integrálem rychlosti v příslušných mezích.
+Celková hodnota po uplynutí daného času je tedy
 [```5000 + \int_0^3 (50+10\sqrt t)\,\mathrm dt.```]
 END_PGML_SOLUTION
 

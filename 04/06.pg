@@ -71,7 +71,7 @@ Dostáváme následující.
 
 >>[``\int [$funkce2]\,\mathrm dx =\frac 1{[$N1]\cdot [$c]}([$c]x+[$d])^{[$N1]}+C``] <<
 
-(Je možné, že počítač nahradí zlomek desetiným číslem a musíte zpětně "rozšifrovat", o jaký zlomek se jedná.)
+(Je možné, že počítač nahradí zlomek desetinným číslem a musíte zpětně "rozšifrovat", o jaký zlomek se jedná.)
 END_PGML_SOLUTION
 
 

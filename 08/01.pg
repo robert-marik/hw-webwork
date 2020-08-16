@@ -129,7 +129,7 @@ Context()->normalStrings;
 
 
 BEGIN_PGML_HINT
-Násobíme matici s vektorem a díváme se, jestli je výsledek násobkem původního vektoru. Pokud ano, je tento vektor vlastním vektorem. Je nutné konttrolovat všechny komoponenty. Alespoň jeden vektor je vlastním  vektorem a alespoň jeden vlastní vektor není vlastním vektorem.
+Násobíme matici s vektorem a díváme se, jestli je výsledek násobkem původního vektoru. Pokud ano, je tento vektor vlastním vektorem. Je nutné kontrolovat všechny komponenty. Alespoň jeden vektor je vlastním  vektorem a alespoň jeden vlastní vektor není vlastním vektorem.
 
 Pokud máte potíže s násobením a chcete si správnost zkontrolovat, použijte MATLAB, Octave nebo Sage.
 END_PGML_HINT
@@ -138,7 +138,7 @@ END_PGML_HINT
 $answerstring = join(", ", @correct);
 
 BEGIN_PGML_SOLUTION
-Násobíme matici s vektorem a díváme se, jestli je výsledek násobkem původního vektoru. Pokud ano, je tento vektor vlastním vektorem. Je nutné konttrolovat všechny komoponenty. Alespoň jeden vektor je vlastním  vektorem a alespoň jeden vlastní vektor není vlastním vektorem.
+Násobíme matici s vektorem a díváme se, jestli je výsledek násobkem původního vektoru. Pokud ano, je tento vektor vlastním vektorem. Je nutné kontrolovat všechny komponenty. Alespoň jeden vektor je vlastním  vektorem a alespoň jeden vlastní vektor není vlastním vektorem.
 
 Řešení je [$answerstring].
 END_PGML_SOLUTION

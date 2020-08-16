@@ -1,0 +1,48 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+TEXT(beginproblem());
+
+
+$radio = RadioButtons(
+[["Nárůst hmotnosti stromu v kilogramech mezi pátým a desátým rokem.",
+"Nárůst hmotnosti stromu v kilogramech za prvních pět let života.",
+"Průměrná rychlost růstu hmotnosti stromu v kilogramech za rok za prvních pět let života.",
+"Průměrná rychlost růstu hmotnosti stromu v kilogramech za rok mezi pátým a desátým rokem.",
+"Okamžitá rychlost růstu hmotnosti v kilogramech za rok po pěti letech života.",
+"Okamžitá rychlost růstu hmotnosti v kilogramech za pět let po pěti letech života.",
+]],
+3);  # odpovedi se permutuji
+
+BEGIN_PGML
+
+## Růst stromu a slovní interpretace integrálu
+
+[@ image("strom.jpg", width=>400) @]*
+
+V následujících dvou příkladech se vrátíme ke slovní interpretaci určitého integrálu. Jak víme, tento integrál umžňuje odvodit změnu veličiny z rychlosti, s jakou se tato veličina mění. V následujícím příkladě je ještě tento integrál vydělen délkou intervalu, po který tato změna probíhala. Jedná se tedy, podobně jako rychlost, o jakousi změnu vztaženou k jenotce času.
+
+----------------------------
+
+Nechť [`w'(t)`] označuje rychlost růstu hmotnosti stromu v kilogramech za rok. Jak je možno interpretovat integrál [``` \frac{1}{10-5}\int_{5}^{\,10} {w'(t)}\,\mathrm dt```] pro tento případ?
+
+[_]{$radio}
+
+
+END_PGML
+
+
+BEGIN_PGML_SOLUTION
+Určitým integrálem rychlosti v příslušných mezích je vyjádřena změna měnící se veličiny. Po vydělení délkou časového intervalu máme průměrnou rychlost. Odpověď vidíme i tak, že vzorec formálně odpovídá integrální střední hodnotě funkce.
+END_PGML_SOLUTION
+
+
+
+ENDDOCUMENT();
