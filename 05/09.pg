@@ -27,7 +27,7 @@ BEGIN_PGML
 
 [@ image("strom.jpg", width=>400) @]*
 
-V následujících dvou příkladech se vrátíme ke slovní interpretaci určitého integrálu. Jak víme, tento integrál umžňuje odvodit změnu veličiny z rychlosti, s jakou se tato veličina mění. V následujícím příkladě je ještě tento integrál vydělen délkou intervalu, po který tato změna probíhala. Jedná se tedy, podobně jako rychlost, o jakousi změnu vztaženou k jenotce času.
+V následujících dvou příkladech se vrátíme ke slovní interpretaci určitého integrálu. Jak víme, tento integrál umožňuje odvodit změnu veličiny z rychlosti, s jakou se tato veličina mění. V následujícím příkladě je ještě tento integrál vydělen délkou intervalu, po který tato změna probíhala. Jedná se tedy, podobně jako rychlost, o jakousi změnu vztaženou k jednotce času.
 
 ----------------------------
 
