@@ -35,29 +35,27 @@ $sign2 = non_zero_random(-1,1,1);
 #$fd=1;
 
 $graph = init_graph(0,-5,8,5,axes =>[0,0], grid =>[8,10]);
-$hermite_obj = new Hermite( [0, $a,  $d,8],
-                            [-5*$sign, $fa*$sign,$fd*$sign, 5*$sign],
-                            [0, 0,0, 0]);
+#$hermite_obj = new Hermite( [0, $a,  $d,8],
+#                            [-5*$sign, $fa*$sign,$fd*$sign, 5*$sign],
+#                            [0, 0,0, 0]);
+
 $hermite2_obj = new Hermite( [0, $a,   $d,8],
                             [$sign2, $sign2,-$sign2, -$sign2],
-                            [0, 0, 0, 0]);
+                            [0, 0.0*$sign2,  0.0*$sign2, 0]);
+
 $hermite3_obj = new Hermite( [0, $a,  $d,8],
                             [-5*$sign+$sign2, $fa*$sign+$sign2,$fd*$sign-$sign2, 5*$sign-$sign2],
-                            [0,0,0,0]);
+                            [0,0.0*$sign2,0.0*$sign2,0]);
 #$fun_obj = new Fun($hermite_obj->rf_f,$graph);
 #$fun_obj->color('green');
+
 $fun2_obj = new Fun($hermite2_obj->rf_f,$graph);
 $fun2_obj->color('red');
 $fun3_obj = new Fun($hermite3_obj->rf_f,$graph);
 $fun3_obj->color('blue');
 
-#$hermite_obj->initialize;
-#$rf_function = $hermite_obj -> rf_f;
-#$rf_function = $hermite_obj -> rf_f;#
-#
-#$rh_critical_points=$hermite_obj -> rh_critical_points;
-#
-#$start=&$rf_function(1);
+$graph -> lb(new Label ( 7.5,5*$sign-$sign2,'f(x)','blue','left','bottom'));
+$graph -> lb(new Label ( 7.5,-$sign2,'g(x)','red','left','bottom'));
 
 BEGIN_PGML
 ## Stabilita autonomní diferenciální rovnice
@@ -67,7 +65,7 @@ BEGIN_PGML
 V této úloze se budeme zabývat rovnicemi typu [``` \frac{\mathrm dx}{\mathrm dt}=f(x)-g(x),```]
 tj. autonomními rovnicemi s pravou stranou zapsanou ve formě rozdílu dvou funkcí. Slovem autonomní je vyjádřeno, že pravá strana nezávisí na čase [`t`].
 
-Grafy funkcí jsou na obrázku. Modrý graf je grafem funkce [`f(x)`], červený grafem funkce [`g(x)`]. Tedy pravá strana je kladná tam, kde je výše modrá křivka.
+Grafy funkcí jsou na obrázku. Modrý graf je grafem funkce [`f(x)`], červený grafem funkce [`g(x)`]. Tedy pravá strana je kladná tam, kde je modrá křivka výše než červená.
 
 Určete počet a stabilitu stacionárních bodů této diferenciální rovnice. Odpovězte na otázku týkající se počtu stacionárních bodů a stability stacionárního bodu, který je nejvíce vlevo.
 
