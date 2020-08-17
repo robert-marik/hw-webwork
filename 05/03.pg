@@ -2,8 +2,8 @@ DOCUMENT();
 
 loadMacros(
   "PGstandard.pl",
-  "PGchoicemacros.pl",
   "PGML.pl",
+  "parserFormulaUpToConstant.pl",
   "PGcourse.pl"
 );
 
