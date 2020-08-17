@@ -58,7 +58,7 @@ END_PGML_HINT
 BEGIN_PGML_SOLUTION
 Množství BFR, které se uvolní do nápoje,  bude integrál z rychlosti, jakou  toto uvolňování probíhá. (Můžeme toto množství uvažovat jako celkový objem BFR v původně čistém nápoji a toto množství se mění zadanou rychlostí  [`r(t)=([$funkce]) \,\mathrm{\mu g}/\mathrm{hod}).`] Použijeme proto určitý integrál [``` \int_0^{[$mez]} [$funkce]\,\mathrm dt.```]
 Neurčitý integrál je [``` \int [$funkce]\,\mathrm dt=[$prim]+C.```]
-Určitý integrál a odpověď na otázku je potom [``` \int_0^{[$mez]} [$funkce]\,\mathrm dt=[\left[$prim]\right]_0^{[$mez]}=[$int].```]
+Určitý integrál a odpověď na otázku je potom [``` \int_0^{[$mez]} [$funkce]\,\mathrm dt=\left[[$prim]\right]_0^{[$mez]}=[$int].```]
 
 END_PGML_SOLUTION
 
