@@ -58,7 +58,7 @@ BEGIN_PGML
 END_PGML
 
 BEGIN_PGML_HINT
-Pozorně rozšifrujete, který prvek máme nalézt. Tento prvek poté identifikujte v matici. Například prvek [`` a_{[$i1][$j1]}``] je v řádku číslo [$i1] (počítáno od jedničky směrem shora dolů) a sloupci číslo [$j1] (počítáno od jedničky směrem zprava doleva).
+Pozorně rozšifrujete, který prvek máme nalézt. Tento prvek poté identifikujte v matici. Například prvek [`` a_{[$i1][$j1]}``] je v řádku číslo [$i1] (počítáno od jedničky směrem shora dolů) a sloupci číslo [$j1] (počítáno od jedničky směrem zleva doprava).
 END_PGML_HINT
 
 
@@ -66,12 +66,11 @@ END_PGML_HINT
 #  Solution
 
 BEGIN_PGML_SOLUTION
-Prvek [`` a_{[$i1][$j1]}``] je v řádku číslo [$i1] (počítáno od jedničky směrem shora dolů) a sloupci číslo [$j1] (počítáno od jedničky směrem zprava doleva).
-Prvek [`` a_{[$i2][$j2]}``] je v řádku číslo [$i2] a sloupci číslo [$j2].
-    Řešením je tedy
-    [`` a_{[$i1][$j1]} = [$A->element($i1,$j1)]``]
-    a
-    [`` a_{[$i2][$i2]} = [$A->element($i2,$i2)]``].
+
+* Prvek [`` a_{[$i1][$j1]}``] je v řádku číslo [$i1] (počítáno od jedničky směrem shora dolů) a sloupci číslo [$j1] (počítáno od jedničky směrem zleva doprava).
+* Prvek [`` a_{[$i2][$j2]}``] je v řádku číslo [$i2] a sloupci číslo [$j2].
+* Řešením je tedy [`` a_{[$i1][$j1]} = [$A->element($i1,$j1)]``] a [`` a_{[$i2][$i2]} = [$A->element($i2,$i2)]``].
+
 END_PGML_SOLUTION
 
 COMMENT('Uses PGML.');
