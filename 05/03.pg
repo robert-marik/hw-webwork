@@ -17,6 +17,7 @@ $b=random(6,10,1);
 $k=random(1,4,1);
 $kk=2*$k;
 $c=random(150,200,1);
+$prim=Formula("[$c] t - [$k]t^2");
 
 BEGIN_PGML
 
@@ -30,7 +31,7 @@ Předpokládejme, že voda vytéká z ventilu u dna cistrerny rychlostí  [`r(t)
 
 V tomto příkladě tedy máme zadánu rychlost s jakou se mění jistá veličina a úkolem je najít celkovou změnu této veličiny. To je přesně případ řešitelný pomocí integrálu. Musíme tedy vypočítat [``` \int_0^{[$a]}[$c]-[$kk]*t\,\mathrm dt.```]
 
-Mezivýpočet:[``\int [$c]-[$kk]t \,\mathrm dt={}``][________]{Formula("\left[[$c] t - [$k]t^2")->cmp(upToConstant=>1)}
+Mezivýpočet:[``\int [$c]-[$kk]t \,\mathrm dt={}``][________]{$prim->cmp(upToConstant=>1)}
 
 Odpověď: Vyteče [________________]{$c*$a-$k*($a**2)} litrů vody.
 
@@ -39,7 +40,7 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 Množství vody bude integrál z rychlosti, se kterou voda vytéká.
-[``` \int_0^{[$a]} [$c]-[$kk]t \,\mathrm dt = \left[[$c] t - [$k]t^2 \right] _{0}^{[$a]}=[$c]\cdot[$a] - [$k]\cdot ([$a])^2```]
+[``` \int_0^{[$a]} [$c]-[$kk]t \,\mathrm dt = \left[[$prim] \right] _{0}^{[$a]}=[$c]\cdot[$a] - [$k]\cdot ([$a])^2```]
 END_PGML_SOLUTION
 
 
