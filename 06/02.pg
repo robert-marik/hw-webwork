@@ -11,7 +11,7 @@ loadMacros(
 TEXT(beginproblem());
 
 $showPartialCorrectAnswers = 1;
-$showHint = 3;
+$showHint = 2;
 
 Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]], 'dx'=>'Real', 't'=>'Real', 'k'=>'Real', 'x'=>'Real','h'=>'Real','K'=>'Real','r'=>'Real');
 

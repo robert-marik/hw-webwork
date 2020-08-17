@@ -44,7 +44,7 @@ Vypočtěte determinant matice [```A = [$A].```]
 >>[``\det(A)={}``][_____________]{$Adet}<<
 END_PGML
 
-$showHint = 3;
+$showHint = 2;
 BEGIN_PGML_HINT
 Jedná se jenom o dosazení do vzorce, kde jsou jistým způsobem zkombinována všechna čtyři čísla z matice do čísla jediného. Dejte pozor na znaménko a na to, že součin ve vedlejší diagonále se odečítá.
 END_PGML_HINT

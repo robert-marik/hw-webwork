@@ -72,7 +72,7 @@ Najděte lineární aproximaci funkce [```f(x)=[$funkce]```] v okolí bodu [`a=[
 
 END_PGML
 
-$showHint = 3;
+$showHint = 2;
 BEGIN_PGML_HINT
 Použijte vzorec pro lineární aproximaci a dosaďte do něj bod, ve kterém aproximaci píšeme a funkční hodnotu a derivaci v tomto bodě. Inspirujte se příkladem uvedeným v zadání. Správnou funkční hodnotu a hodnotu derivace najděte v tabulce.
 

@@ -11,7 +11,7 @@ TEXT(beginproblem());
 #  Setup
 
 $showPartialCorrectAnswers = 1 ;
-$showHint = 3;
+$showHint = 2;
 
 Context('Matrix')->variables->are('x1'=>'Real', 'x2'=>'Real', 'x3'=>'Real');
 

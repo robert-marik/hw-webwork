@@ -29,7 +29,7 @@ Matice se posuzuje jako celek. Stačí jeden prvek nezadaný nebo špatně a odp
 
 END_PGML
 
-$showHint = 3;
+$showHint = 2;
 BEGIN_PGML_HINT
 Musíte zapsat matici [``[$f]``].
 END_PGML_HINT

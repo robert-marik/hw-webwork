@@ -50,7 +50,7 @@ Příklad je analogický výše uvedenému vzoru.
 END_PGML
 
 
-$showHint = 3;
+$showHint = 2;
 
 BEGIN_PGML_HINT
 Použijte 

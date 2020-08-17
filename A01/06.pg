@@ -9,7 +9,7 @@ loadMacros(
 TEXT(beginproblem());
 
 $showPartialCorrectAnswers = 1;
-$showHint = 3;
+$showHint = 2;
 
 $a=random(2,5,1);
 $b=$a+1;

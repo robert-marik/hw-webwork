@@ -34,7 +34,7 @@ Pište *dr/dt* pro rychlost s jakou roste poloměr.
 
 END_PGML
 
-$showHint = 3;
+$showHint = 2;
 BEGIN_PGML_HINT
 Známe derivaci poloměru podle času a potřebujeme znát derivaci objemu podle času. Protože známe objem jako funkci poloměru, můžeme najít derivaci objemu podle poloměru. K derivaci objemu podle času se poté dostaneme, pokud budeme závislost objemu na čase brát zprostředkovaně přes poloměr. Použijte vzorec pro derivaci složené funkce.
 END_PGML_HINT

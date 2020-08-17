@@ -83,7 +83,7 @@ Rozhodněte pomocí druhé derivace, zda lineární aproximace uvedená v této 
 
 END_PGML
 
-$showHint = 3;
+$showHint = 2;
 BEGIN_PGML_HINT
 Použijte vzorce pro derivování a pro lineární aproximaci. Postup je analogický dříve uvedeným příkladům a pokud jste tyto příklady zvládli, jediná chyba může být v derivování nebo v dosazování hodnot. Trpělivě si překontrolujte derivaci i dosazení a v případě nouze si vezměte na pomoc kalkulačku, nebo MATLAB nebo Sage.
 

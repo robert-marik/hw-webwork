@@ -10,7 +10,7 @@ loadMacros(
 TEXT(beginproblem());    
 # Do not show which answers are incorrect.
 $showPartialCorrectAnswers = 0;
-$showHint = 3;
+$showHint = 2;
 
 # FIRST MATRIX
 do{

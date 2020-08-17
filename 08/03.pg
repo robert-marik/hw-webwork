@@ -15,7 +15,7 @@ loadMacros(
 TEXT(beginproblem());
 
 
-$showHint = 3;
+$showHint = 2;
 
 #####################################
 #  Setup

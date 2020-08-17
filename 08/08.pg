@@ -46,7 +46,7 @@ a
 END_PGML
 Context()->normalStrings;
 
-$showHint = 3;
+$showHint = 2;
 BEGIN_PGML_HINT
 Jedná se o klasické násobení matic. Někdy se však extrémně jednoduché zadání může (díky přílišné jednoduchosti) vzpírat snaze o vyřešení. Postupujte klasicky jak jste se učili násobit matice libovolné velikosti. Případně si ještě jednou prohlédněte řešený příklad nebo zkuste jiné zadání.
 END_PGML_HINT

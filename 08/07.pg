@@ -66,7 +66,7 @@ Vlastní čísla jsou [_____________]{List($l1,$l2)}.
 
 END_PGML
 
-$showHint = 3;
+$showHint = 2;
 BEGIN_PGML_HINT
 Musíme vypočítat charakteristický polynom jako determinant
 [```\begin{vmatrix}[$a11]-\lambda&[$a12]\\[$a21]&[$a22]-\lambda\end{vmatrix}```]

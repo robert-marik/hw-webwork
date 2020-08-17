@@ -40,7 +40,7 @@ Vycházíme ze vzorce pro obsah kruhu [```S=\pi r^2.```]
        
 END_PGML
 
-$showHint = 3;
+$showHint = 2;
 BEGIN_PGML_HINT
 Úloha je analogická úloze na rozšiřování požáru z úvodního cvičení k předmětu Matematika.
 END_PGML_HINT

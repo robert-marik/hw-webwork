@@ -65,7 +65,7 @@ Vyberte výraz, který udává počet obyvatel po třech letech, tj. po 36 měs�
 END_PGML
 
 
-$showHint = 3;
+$showHint = 2;
 BEGIN_PGML_HINT
 Musíte sečíst současnou velikost populace a nárůst za nejbližší tři roky.
 END_PGML_HINT

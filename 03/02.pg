@@ -11,7 +11,7 @@ loadMacros(
 
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
-$showHint = 3;
+$showHint = 2;
 
 $ka = random(1,5,.001);
 $kb = random(1,5,.001);

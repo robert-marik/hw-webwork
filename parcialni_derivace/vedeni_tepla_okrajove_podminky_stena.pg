@@ -119,7 +119,7 @@ ANS( str_cmp( $ml->ra_correct_ans ) );
 @correct = @{$ml->ra_correct_ans()};
 $answerstring = join(", ", @correct);
 
-$showHint = 3;
+$showHint = 2;
 
 BEGIN_PGML_HINT
 * Ujasněte si, kdy pracujeme s vnější a kdy vnitřní stěnou a která hodnota [`x`] k tomuto patří.
