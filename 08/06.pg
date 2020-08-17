@@ -42,6 +42,7 @@ Vypočtěte charakteristický polynom matice [```A = \begin{pmatrix}[$a11]&[$a12
 >>[``\det(A-\lambda I)={}``][_____________]{$Adet}<<
 END_PGML
 
+$showHint = 3;
 BEGIN_PGML_HINT
 Musíme vypočítat determinant
 [```\begin{vmatrix}[$a11]-\lambda&[$a12]\\[$a21]&[$a22]-\lambda\end{vmatrix}.```]

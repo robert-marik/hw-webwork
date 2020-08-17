@@ -34,9 +34,14 @@ BEGIN_PGML
 
 END_PGML
 
+$showHint = 3;
+BEGIN_PGML_HINT
+V zadání sčítáme změnu (vyjádřenou integrálem) s počáteční hodnotou. Výsledkem tedy bude celková velikost populace. Ještě je potřeba zjistit časový interval odpovídající uvažované změně. Ten poznáme z horní meze určitého integrálu. 
+END_PGML_HINT
+
 
 BEGIN_PGML_SOLUTION
-Určitým integrálem rychlosti v příslušných mezích je vyjádřena změna měnící se veličiny. Tuto změnu sčítáme s původní hodnotou. Výsledkemje proto celková velikost. Výraz udává velikost populace čmeláků v hnízdě po patnácti týdnech.
+Určitým integrálem rychlosti v příslušných mezích je vyjádřena změna měnící se veličiny. V našem případě jde o nárůst populace za prvních patnáct týdnů. Tuto změnu sčítáme s původní hodnotou velikosti populace. Výsledkem je proto celková velikost. Výraz udává velikost populace po patnácti týdnech.
 END_PGML_SOLUTION
 
 

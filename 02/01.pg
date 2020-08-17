@@ -15,6 +15,8 @@ loadMacros(
 
 TEXT(beginproblem());
 
+$showHint = 3;
+
 
 ###########################
 #  Setup
@@ -97,6 +99,11 @@ $ENV{'grader_message'} = "Můžete dostat částečné hodnocení za částečn�
 # install_problem_grader(~~&std_problem_grader);
 
 ANS( str_cmp( $ml->ra_correct_ans ) );
+
+
+BEGIN_PGML_HINT
+Dvě volby jsou zřejmě nesmyslné: "průměrná rychlost v okamžiku ..." a "okamžitá rychlost na intervalu ...". Ostatní tři páry již sestavíte pravděpodobně snadno. Soustřeďte se mi mo jiné i na to, abyste si ještě jednou pečlivě přečetli odpovězené možnosti. Cílem je, abyste dokázali interpretovat význam jednotlivých částí definice samostatně a nejenom v otázce s výběrem možností.
+END_PGML_HINT
 
 
 ############################

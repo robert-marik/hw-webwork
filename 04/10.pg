@@ -10,6 +10,8 @@ loadMacros(
 
 
 TEXT(beginproblem());
+
+$showHint = 3
 $showPartialCorrectAnswers = 1;
 
 $radio1 = RadioButtons(
@@ -56,10 +58,14 @@ Vyberte výraz, který udává teplotu akumulátoru v okamžiku půlnoci.
     
 END_PGML
 
+BEGIN_PGML_HINT
+Změna měnící se veličiny je určena určitým integrálem rychlosti v příslušných mezích. Celková hodnota po změně je změna přičtená k původní hodnotě. 
+END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
-Změna je vyjádřena určitým integrálem rychlosti v příslušných mezích. Celková hodnota po uplynutí daného času je součtem počáteční hodnoty a změny.
+Změna je vyjádřena určitým integrálem rychlosti v příslušných mezích. V našem případě tedy [``` \int_0^6 r(t)\,\mathrm dt. ```]
+Celková hodnota po uplynutí daného času je součtem počáteční hodnoty a změny. V našem případě tedy [``` -10+\int_0^6 r(t)\,\mathrm dt. ```]
 END_PGML_SOLUTION
 
 ENDDOCUMENT();

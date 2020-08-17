@@ -8,6 +8,7 @@ loadMacros(
 );
 
 $showPartialCorrectAnswers = 1 ;
+$showHint = 3;
 
 TEXT(beginproblem());
 

@@ -9,7 +9,7 @@ loadMacros(
 );
 
 TEXT(beginproblem());
-
+$showHint = 3;
 
 $radio = RadioButtons(
 [["Nárůst hmotnosti stromu v kilogramech mezi pátým a desátým rokem.",
@@ -38,9 +38,12 @@ Nechť [`w'(t)`] označuje rychlost růstu hmotnosti stromu v kilogramech za rok
 
 END_PGML
 
+BEGIN_PGML_HINT
+Integrál, tj. celkovou změnu, dělíme dobou, za jakou tato změn nastala. Jedná se tedy o průměrnou rychlost. Časové rozmezí definují meze.
+END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
-Určitým integrálem rychlosti v příslušných mezích je vyjádřena změna měnící se veličiny. Po vydělení délkou časového intervalu máme průměrnou rychlost. Odpověď vidíme i tak, že vzorec formálně odpovídá integrální střední hodnotě funkce.
+Určitým integrálem rychlosti v příslušných mezích je vyjádřena změna měnící se veličiny. Po vydělení délkou časového intervalu máme průměrnou rychlost. Odpověď vidíme i tak, že vzorec formálně odpovídá integrální střední hodnotě funkce. Správná odpověď je tedy "Průměrná rychlost růstu hmotnosti stromu v kilogramech za rok mezi pátým a desátým rokem."
 END_PGML_SOLUTION
 
 

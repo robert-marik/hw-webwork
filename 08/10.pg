@@ -11,6 +11,7 @@ TEXT(beginproblem());
 #  Setup
 
 $showPartialCorrectAnswers = 1 ;
+$showHint = 3;
 
 Context('Matrix')->variables->are('x1'=>'Real', 'x2'=>'Real', 'x3'=>'Real');
 
@@ -77,6 +78,12 @@ Context()->normalStrings;
 
 #######################################
 #  Answer evaluation
+
+
+
+BEGIN_PGML_HINT
+V tomto příkladě vlastně není nic k počítání. Jenom jde o to uvědmoit si souvislost mezi "klasickým" a maticovým zápisem a přepsat koeficienty z jednoho tvaru do druhého.
+END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION

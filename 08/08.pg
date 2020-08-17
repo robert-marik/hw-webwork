@@ -46,6 +46,11 @@ a
 END_PGML
 Context()->normalStrings;
 
+$showHint = 3;
+BEGIN_PGML_HINT
+Jedná se o klasické násobení matic. Někdy se však extrémně jednoduché zadání může (díky přílišné jednoduchosti) vzpírat snaze o vyřešení. Postupujte klasicky jak jste se učili násobit matice libovolné velikosti. Případně si ještě jednou prohlédněte řešený příklad nebo zkuste jiné zadání.
+END_PGML_HINT
+
 BEGIN_PGML_SOLUTION
 
 Platí [``u^T u = ([$u->element(1,1)])\cdot([$u->element(1,1)]) + ([$u->element(2,1)])\cdot([$u->element(2,1)]) + ([$u->element(3,1)])\cdot([$u->element(3,1)])=[$ans2]``] a [``u u^T = [$ans1]``].

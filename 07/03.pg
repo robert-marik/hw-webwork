@@ -10,6 +10,7 @@ loadMacros(
 );
 $showPartialCorrectAnswers = 0;
 TEXT(beginproblem()); 
+$showHint = 3;
 
 Context('Matrix');
 
@@ -46,7 +47,8 @@ END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
-[``` \begin{pmatrix}1&0&0\\0&1918&0\\0&0&2020\end{pmatrix}```]
+Řešení je celá řada. Například
+[``` \begin{pmatrix}1&0&0\\0&1918&0\\0&0&2020\end{pmatrix}.```]
 END_PGML_SOLUTION
 
 

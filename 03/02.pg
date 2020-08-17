@@ -11,6 +11,7 @@ loadMacros(
 
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
+$showHint = 3;
 
 $ka = random(1,5,.001);
 $kb = random(1,5,.001);
@@ -65,6 +66,12 @@ Určete pomocí centrální diference odhad derivace v čase [`t=[$x[$index]]\, 
 Přesnost vyhodnocování je pro tuto úlohu nastavena na tři desetinná místa. Abyste se vyhnuli použití kalkulaček, nemusíte derivaci zadávat jedním desetinným číslem, ale můžete napsat, jak bude vypadat dosazení do vzorce. Desetinné číslo reprezentující odpověď uvidíte po stisknutí "Preview My Answers". Můžete však odpověď nechat v původním neupraveném tvaru a odeslat ke kontrole správnosti.
 
 END_PGML
+
+BEGIN_PGML_HINT
+Je nutné do vzorce pro centrální diferenci
+[```\frac{\mathrm df}{\mathrm dx}\approx \frac{f(x+h)-f(x-h)}{2h}```]
+dosadit dvě hodnoty dohledatelné v tabulce ([`[$fx[$index+1]]`] a [`[$fx[$index-1]]`]) a délku kroku [`[$step]`]. Než se do toho pustíte, prohlédněte si ještě jednou tabulku a polohu těchto hodnot vzhledem k místu, v němž počítáme derivaci.
+END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION

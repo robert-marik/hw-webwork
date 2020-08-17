@@ -44,9 +44,15 @@ Vypočtěte determinant matice [```A = [$A].```]
 >>[``\det(A)={}``][_____________]{$Adet}<<
 END_PGML
 
+$showHint = 3;
+BEGIN_PGML_HINT
+Jedná se jenom o dosazení do vzorce, kde jsou jistým způsobem zkombinována všechna čtyři čísla z matice do čísla jediného. Dejte pozor na znaménko a na to, že součin ve vedlejší diagonále se odečítá.
+END_PGML_HINT
+
 BEGIN_PGML_SOLUTION
-Přímým dosazením do vzorce dostaneme
-[```\det(A)=[$Adet].```]
+Jedná se jenom o dosazení do vzorce, kde jsou jistým způsobem zkombinována všechna čtyři čísla z matice do čísla jediného. 
+Přímým dosazením dostaneme 
+[```\det(A)=[$A->element(1,1)]\cdot([$A->element(2,2)])-([$A->element(1,2)])\cdot([$A->element(2,1)])=[$Adet].```]
 END_PGML_SOLUTION
 
 

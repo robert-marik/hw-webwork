@@ -10,6 +10,7 @@ loadMacros(
 );
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
+$showHint = 3;
 
 $T0=random(15,28,1);
 
@@ -54,6 +55,10 @@ Dále sestavte matematický model.
 
 
 END_PGML
+
+BEGIN_PGML_HINT
+Toto je klasická úloha na aplikace derivací. Zkuste si ještě jednou pročíst podobnou úlohu z přednášky a cvičení a modifikovat na míru našemu zadání.
+END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
