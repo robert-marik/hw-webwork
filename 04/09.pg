@@ -10,7 +10,7 @@ loadMacros(
 
 TEXT(beginproblem());
 
-$showHint = 3
+$showHint = 3;
 
 $radio = RadioButtons(
 [["Nárůst hmotnosti stromu v kilogramech mezi pátým a desátým rokem.",
@@ -39,7 +39,7 @@ Určitým integrálem rychlosti v příslušných mezích je vyjářena změna m
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
-Určitým integrálem rychlosti v příslušných mezích je vyjářena změna měnící se veličiny. Půjde tedy o nárůst hmotnosti stromu. Časový interval učují meze. Správná odpověď je "Nárůst hmotnosti stromu v kilogramech mezi pátým a desátým rokem."
+Určitým integrálem rychlosti v příslušných mezích je vyjářena změna měnící se veličiny. Půjde tedy o nárůst hmotnosti stromu. Časový interval učují meze. Správná odpověď je: _Nárůst hmotnosti stromu v kilogramech mezi pátým a desátým rokem._
 END_PGML_SOLUTION
 
 
