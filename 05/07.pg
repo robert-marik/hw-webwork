@@ -26,6 +26,7 @@ do { $b=random(3,6,1); } until ( $b - $a > 1) ;
 #$c=non_zero_random(-2,3);
 $c=0;
 $d=non_zero_random(-1,3);
+$cil=non_zero_random(1,12);
 
 $funkce=Formula("a*$d*t^($n)")->reduce();
 $prim=Formula("a*($c*t+$d/($n1)*t^($n1))")->reduce();
@@ -58,7 +59,7 @@ Formula("$int") => "Jste na dobré cestě. Toto je ale určitý integrál. Ješt
 ))
 }
 
-Střední hondota je rovna číslu [$cil] pro [``a={}``][__________]{$answer}.
+Střední hodnota je rovna číslu [$cil] pro [``a={}``][__________]{$answer}.
 
 END_PGML
 
