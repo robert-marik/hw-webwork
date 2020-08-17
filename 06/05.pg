@@ -56,7 +56,7 @@ stacionární body a jejich stabilitu. Důvodem je to, že po uběhnutí
 dostatečně dlouhého času se řešení ustálí na hodnotě odpovédající
 některému stabilnímu stacionárnímu bodu. Z teorie víme, že pokud má pravá strana v uvažovaném stacionárním bodě kladnou derivaci, je tento stacionární bod nestabilní. V případě záporné derivace naopak stabilní. V případě jako je tento znaménko derivace poznáme z monotonie.
 
-Na obrázku je graf funkce funkce [`f(x)`], která je pravou stranou uvažované diferenciální rovnice. Tučná vodorovná čára uprostřed je osa [`x`]. Obrázek je nakreslen pro [`0\leq x\leq 8`] a případné nulové body funkce [`f`] jsou buď celá čísla nebo uprostřed mezi celými čísly. Vidíme tři průsečíky grafu funkce s osou [`x`], tj. t5i novlo0 body funkce [`f`]. Jsou tedz tři stacionární body.
+Na obrázku je graf funkce funkce [`f(x)`], která je pravou stranou uvažované diferenciální rovnice. Tučná vodorovná čára uprostřed je osa [`x`]. Obrázek je nakreslen pro [`0\leq x\leq 8`] a případné nulové body funkce [`f`] jsou buď celá čísla nebo uprostřed mezi celými čísly. Vidíme tři průsečíky grafu funkce s osou [`x`], tj. tři nulové body funkce [`f`]. Rovnice má tedy tedy tři stacionární body.
 END_PGML
 
 BEGIN_TEXT
@@ -89,13 +89,13 @@ Stabilitu poznáte podle toho, zda v daném stacionárním bodě funkce klesá (
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
-Nulové body vidíme přímo z obrázku: [`[$a]`], [`[$c]`]  a [`[$d]`].
+Nulové body vidíme přímo z obrázku: [`x_1=[$a]`], [`x_2=[$c]`]  a [`x_3=[$d]`].
 
 Stabilitu poznáme podle toho, zda v daném bodě pravá strana roste (potom je stacionární bod nestabilní) či klesá (stabilní)
 
-* [`[$a]`]: [$ans1]
-* [`[$c]`]: [$ans2]
-* [`[$d]`]: [$ans3]
+* [`x_1=[$a]`]: [$ans1]
+* [`x_2=[$c]`]: [$ans2]
+* [`x_3=[$d]`]: [$ans3]
 
 END_PGML_SOLUTION
 
