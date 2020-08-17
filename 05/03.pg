@@ -30,6 +30,8 @@ Předpokládejme, že voda vytéká z ventilu u dna cistrerny rychlostí  [`r(t)
 
 V tomto příkladě tedy máme zadánu rychlost s jakou se mění jistá veličina a úkolem je najít celkovou změnu této veličiny. To je přesně případ řešitelný pomocí integrálu. Musíme tedy vypočítat [``` \int_0^{[$a]}[$c]-[$kk]*t\,\mathrm dt.```]
 
+Mezivýpočet:[``\int [$c]-[$kk]t \,\mathrm dt={}``][________]{Formula("\left[[$c] t - [$k]t^2")->cmp(upToConstant=>1)}
+
 Odpověď: Vyteče [________________]{$c*$a-$k*($a**2)} litrů vody.
 
 END_PGML
