@@ -12,6 +12,8 @@ TEXT(beginproblem()) ;
 $showPartialCorrectAnswers = 0 ;
 $showHint = 1;
 
+$refreshCachedImages = 1;
+
 #$a = 4+random(-3.5, -2.5, 0.5);
 #$b = $a + random(1,2,0.5);
 #$c = $b + random(1,2,0.5);
@@ -21,8 +23,8 @@ $a=2;
 $c=4;
 $d=6;
 
-$fa = random(-1, 3,.1);
-do { $fd = random(1, -3,.1); } until (abs($fa-$fd)>1);
+do { $fa = random(-1.5, 3,.1); } until ((abs(abs($fa)-1)>0.2)  and (abs($fa)>0.2) );
+do { $fd = random(-3, 1,.1); } until ( (abs($fa-$fd)>1) and ((abs(abs($fd)-1)>0.2)) and (abs($fd)>0.2) );
 
 $pa = random(2, 5,.1);
 $pd = random(2, 5,.1);
@@ -35,13 +37,13 @@ $sign2 = non_zero_random(-1,1,1);
 $graph = init_graph(0,-5,8,5,axes =>[0,0], grid =>[8,10]);
 $hermite_obj = new Hermite( [0, $a,  $d,8],
                             [-5*$sign, $fa*$sign,$fd*$sign, 5*$sign],
-                            [$sign, 0,0, $sign]);
+                            [0, 0,0, 0]);
 $hermite2_obj = new Hermite( [0, $a,   $d,8],
                             [$sign2, $sign2,-$sign2, -$sign2],
                             [0, 0, 0, 0]);
 $hermite3_obj = new Hermite( [0, $a,  $d,8],
                             [-5*$sign+$sign2, $fa*$sign+$sign2,$fd*$sign-$sign2, 5*$sign-$sign2],
-                            [$sign,0,0, $sign]);
+                            [0,0,0,0]);
 #$fun_obj = new Fun($hermite_obj->rf_f,$graph);
 #$fun_obj->color('green');
 $fun2_obj = new Fun($hermite2_obj->rf_f,$graph);
@@ -49,6 +51,13 @@ $fun2_obj->color('red');
 $fun3_obj = new Fun($hermite3_obj->rf_f,$graph);
 $fun3_obj->color('blue');
 
+#$hermite_obj->initialize;
+#$rf_function = $hermite_obj -> rf_f;
+#$rf_function = $hermite_obj -> rf_f;#
+#
+#$rh_critical_points=$hermite_obj -> rh_critical_points;
+#
+#$start=&$rf_function(1);
 
 BEGIN_PGML
 ## Stabilita autonomní diferenciální rovnice
@@ -81,7 +90,7 @@ ANS(str_cmp($ans1));
 ANS(str_cmp($ans2));
 
 BEGIN_PGML_HINT
-Stacionární body jsou body, kde se křivky protínají. Měly by být tři nebo jeden. Pokud náhoda není na Vaší straně a z grafů není jasné, kolik mají průsečíků, pošlete mail vyučujícímu pomocí tlačítka "Email TA".
+Stacionární body jsou body, kde se křivky protínají. Měly by být tři nebo jeden. Pokud náhoda není na Vaší straně a z grafů není jasné, kolik mají průsečíků, pošlete mail vyučujícímu pomocí tlačítka "Email WeBWorK TA".
 
 Stabilitu poznáte podle toho, která křivka je výše a která níže. Pro stabilní stacionární bod potřebujeme, aby v levém okolí řešení rostlo (modrá křivka nad červenou) a v pravém okolí klesalo (modrá křivka pod červenou).
 END_PGML_HINT
