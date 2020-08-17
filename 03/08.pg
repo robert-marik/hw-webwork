@@ -63,7 +63,7 @@ Vypočtěte teplotu za těchto podmínek a rozkolísání teploty způsobené zm
 
 END_PGML
 
-$showHint = 2;
+$showHint = 1;
 BEGIN_PGML_HINT
 
 Teplotu určíme přímým dosazením hodnoty [`x=[$w]`] do funkce [```T(x)=[$funkce].```]

@@ -51,7 +51,7 @@ Pokud tyto příkazy zadáte v prostředí Live Script, zobrazí se obrázek ve 
 END_PGML
 
 
-$showHint = 2;
+$showHint = 1;
 BEGIN_PGML_HINT
 Pokud něco nefunguje, zkuste předmětový chat v MS Teams.
 END_PGML_HINT

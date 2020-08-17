@@ -39,7 +39,7 @@ Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$f] .```] Příklad 
 
 END_PGML
 
-$showHint = 2;
+$showHint = 1;
 BEGIN_PGML_HINT
 Ve vzorci
 [```\left(x^n\right)'=\frac{\mathrm d}{\mathrm dx}\left(x^n\right)=n x^{n-1}```]

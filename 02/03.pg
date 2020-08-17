@@ -76,7 +76,7 @@ $ENV{'grader_message'} = "Za částečně správnou odpověď získáte částe�
 
 ANS( str_cmp( $tf->ra_correct_ans() ) );
 
-$showHint = 2;
+$showHint = 1;
 BEGIN_PGML_HINT
 Pozorně čtěte, jakou rychlost sledujeme a v obrázku najděte příslušnou měnící se veličinu a její označení.
 END_PGML_HINT

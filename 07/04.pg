@@ -8,7 +8,7 @@ loadMacros(
   "PGcourse.pl"
 );
 $showPartialCorrectAnswers = 1;
-$showHint = 2;
+$showHint = 1;
 
 TEXT(beginproblem()); 
 

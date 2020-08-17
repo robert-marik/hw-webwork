@@ -11,7 +11,7 @@ loadMacros(
 
 TEXT(beginproblem());
 
-$showHint = 2;
+$showHint = 1;
 $showPartialCorrectAnswers = 1;
 
 $radio1 = RadioButtons(

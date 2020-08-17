@@ -41,7 +41,7 @@ Vyberte v následující nabídce matematický model, který tento děj popisuje
     
 END_PGML
 
-$showHint = 2;
+$showHint = 1;
 BEGIN_PGML_HINT
 Jedná se o prakticky stejný model, jako o ochlazování podle Newtonova zákona tepelné výměny. Podívejte se do úvodních pasáží semestru.
 END_PGML_HINT

@@ -10,7 +10,7 @@ loadMacros(
 
 TEXT(beginproblem());
 
-$showHint = 2;
+$showHint = 1;
 
 $radio = RadioButtons(
 [["Nárůst hmotnosti stromu v kilogramech mezi pátým a desátým rokem.",

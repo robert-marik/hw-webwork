@@ -42,7 +42,7 @@ _Vaše odpověď by měla obsahovat konstantu [`k`], jejíž hodnota nebyla zad�
 
 END_PGML
 
-$showHint = 2;
+$showHint = 1;
 BEGIN_PGML_HINT
 Známe derivaci výšky hladiny [`h`] podle času a potřebujeme znát derivaci objemu [`V`] podle času. Protože známe objem jako funkci výšky hladiny, můžeme najít derivaci objemu podle výšky hladiny. K derivaci objemu podle času se poté dostaneme, pokud budeme závislost objemu na čase brát zprostředkovaně přes výšku hladiny. Použijte vzorec pro derivaci složené funkce.
 END_PGML_HINT

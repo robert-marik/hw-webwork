@@ -43,7 +43,7 @@ Uvažujme koncentraci [`C(x,t)`] (v jednotce mg/litr) léku v těle pacienta jak
 END_PGML
 
 
-$showHint = 2;
+$showHint = 1;
 
 BEGIN_PGML_HINT
 Jednorázově byla navýšena koncentrace léku v těle, lék se postupně odobourává. Ani v jednom případě není nutné nic počítat, jenom rozmyslete jak lék funguje a jak se to projeví na derivacích.

@@ -9,7 +9,7 @@ loadMacros(
   );
 $showPartialCorrectAnswers = 0;
 TEXT(beginproblem()); 
-$showHint = 2;
+$showHint = 1;
 
 Context('Matrix');
 

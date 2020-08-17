@@ -45,7 +45,7 @@ Vypočtěte následující derivaci funkce jedné proměnné s parametrem.
 
 END_PGML
 
-$showHint = 2;
+$showHint = 1;
 BEGIN_PGML_HINT
 Funkce je funkcí proměnné [`[$var]`] a obsahuje parametr [`[$par]`].
 Platí [```\frac{\mathrm d}{\mathrm d[$var]}[$var]^{[$a]}=[$a]\cdot [$var]^{[$a-1]}.```] Výraz [`` [$par]^[$b] ``] je konstantním násobkem, ten se nezmění.

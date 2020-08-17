@@ -9,7 +9,7 @@ loadMacros(
 );
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
-$showHint = 2;
+$showHint = 1;
 
 Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]],'dT'=>'Real', 'dx'=>'Real', 'dc'=>'Real', 'T'=>'Real', 't'=>'Real', 'k'=>'Real','p'=>'Real','c'=>'Real','x'=>'Real');
 

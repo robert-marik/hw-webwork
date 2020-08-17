@@ -53,7 +53,7 @@ nepodaří zapsat správnou odpověď, objeví se nápověda.
 END_PGML
 
 
-$showHint = 2;
+$showHint = 1;
 BEGIN_PGML_HINT
 Předpřipravená ukázka je pro funkci  [``e^{ax^2}``]. Musíte ji modifikovat tak, že tuto funkci nahradíte funkcí [``e^{-ax^2}``] (tj. na správné místo přidat záporné znaménko) a tlačítkem Evaluate spustit výpočet s novým zadáním.
 END_PGML_HINT

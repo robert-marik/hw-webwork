@@ -68,7 +68,7 @@ Určete, která derivace je spjata s jednotlivými slovními formulacemi. Správ
 
 END_PGML
 
-$showHint = 2;
+$showHint = 1;
 BEGIN_PGML_HINT
 Pozorně čtěte, rychlost změny jaké veličiny sledujeme a co je nezávislou proměnnou. Poté najděte označení těchto veličin v zadání.
 END_PGML_HINT

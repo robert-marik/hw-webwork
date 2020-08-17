@@ -33,7 +33,7 @@ V úlohách očekávajících v odpovědi derivaci bude předepsáno, jak máte 
 
 END_PGML
 
-$showHint = 2;
+$showHint = 1;
 BEGIN_PGML_HINT
 Derivace funkce [`g(x)`] je [`g'(x)`].
 END_PGML_HINT

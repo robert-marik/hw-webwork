@@ -28,7 +28,7 @@ Použijte zápis pomocí diferenciálů. Odpověď tedy bude obsahovat dvouznako
 
 END_PGML
 
-$showHint = 2;
+$showHint = 1;
 BEGIN_PGML_HINT
 Řešením je "podíl" výrazů dr a dt.
 END_PGML_HINT

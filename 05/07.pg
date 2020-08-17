@@ -11,7 +11,7 @@ loadMacros(
 TEXT(beginproblem());
 
 $showPartialCorrectAnswers = 1;
-$showHint = 2;
+$showHint = 1;
 
 Context()->variables->are(t=>'Real',a=>'Real');
 Context()->flags->set(

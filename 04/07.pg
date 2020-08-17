@@ -11,7 +11,7 @@ loadMacros(
 
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
-$showHint = 2;
+$showHint = 1;
 
 $radio = RadioButtons(
 ["Počet litrů, které vytečou z nádrže za první tři hodiny.",
