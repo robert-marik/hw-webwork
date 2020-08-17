@@ -19,7 +19,7 @@ Context()->flags->set(
      reduceConstantFunctions => 0,
    );
 
-do { $n=random(2,7,1); } until ( $n != 6 );
+do { $n=random(2,5,1); } until ( $n != 6 );
 $n1=$n+1;
 $a=random(1,5,1);
 do { $b=random(3,9,1); } until ( $b - $a > 2) ;

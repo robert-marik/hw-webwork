@@ -18,10 +18,10 @@ Context()->flags->set(
      reduceConstantFunctions => 0,
    );
 
-$n=random(3,7,1);
+$n=random(2,7,1);
 $n1=$n-1;
 $k=random(5,15,1);
-$b=random(3,8,1);
+$b=random(2,5,1);
 
 $funkce=Formula("$k/r^($n)");
 $prim=Formula("-$k/($n1*(r^$n1))");
@@ -38,6 +38,7 @@ Výpočet integrálu mocninné funkce se záporným exponentem byl součástí m
 Vypočtěte následující integrál.
 >>[``\int_{1}^{[$b]} [$funkce]\,\mathrm dr ={}``][_________________________]{$int} <<
 
+Nemusíte upravovat výsledek na jediné číslo. Zapište jej v tvaru, který je pro Vás nejpřirozenější nebo nejsnazší pro odpovězení.
 
 END_PGML
 
@@ -45,15 +46,13 @@ BEGIN_PGML_HINT
 Pozorně počítejte neurčitý integrál a změnu primitivní funkce na zadaném intervalu.
 Neurčitý integrál je
 [```\int [$funkce]\,\mathrm dr =[$prim]. ```]
-Nemusíte upravovat výsledek na jediné číslo. Zapište jej v tvaru, který je pro Vás nejpřirozenější nebo nesnazší pro odpovězení.
-
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 Použijeme vztah
 [``` \int [$funkce]\,\mathrm dr=[$prim]+C.```]
 Odsud
-[```\int_{0}^{[$b]} [$funkce]\,\mathrm dr =[$int] ```]
+[```\int_{1}^{[$b]} [$funkce]\,\mathrm dr =[$int] ```]
 
 END_PGML_SOLUTION
 
