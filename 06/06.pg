@@ -1,0 +1,103 @@
+DOCUMENT() ;        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGgraphmacros.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem()) ;
+$showPartialCorrectAnswers = 0 ;
+$showHint = 1;
+
+#$a = 4+random(-3.5, -2.5, 0.5);
+#$b = $a + random(1,2,0.5);
+#$c = $b + random(1,2,0.5);
+#$d = $c + random(1,2,0.5);
+
+$a=2;
+$c=4;
+$d=6;
+
+$fa = random(-1, 3,.1);
+do { $fd = random(1, -3,.1); } until (abs($fa-$fd)>1);
+
+$pa = random(2, 5,.1);
+$pd = random(2, 5,.1);
+
+$sign = non_zero_random(-1,1,1);
+$sign2 = non_zero_random(-1,1,1);
+#$fa=2;
+#$fd=1;
+
+$graph = init_graph(0,-5,8,5,axes =>[0,0], grid =>[8,10]);
+$hermite_obj = new Hermite( [0, $a,  $d,8],
+                            [-5*$sign, $fa*$sign,$fd*$sign, 5*$sign],
+                            [$sign, 0,0, $sign]);
+$hermite2_obj = new Hermite( [0, $a,   $d,8],
+                            [$sign2, $sign2,-$sign2, -$sign2],
+                            [0, 0, 0, 0]);
+$hermite3_obj = new Hermite( [0, $a,  $d,8],
+                            [-5*$sign+$sign2, $fa*$sign+$sign2,$fd*$sign-$sign2, 5*$sign-$sign2],
+                            [$sign,0,0, $sign]);
+#$fun_obj = new Fun($hermite_obj->rf_f,$graph);
+#$fun_obj->color('green');
+$fun2_obj = new Fun($hermite2_obj->rf_f,$graph);
+$fun2_obj->color('red');
+$fun3_obj = new Fun($hermite3_obj->rf_f,$graph);
+$fun3_obj->color('blue');
+
+
+BEGIN_PGML
+## Stabilita autonomní diferenciální rovnice
+
+[@ image( insertGraph($graph) ,width=>400,height=>400,tex_size=>600) @]*
+
+V této úloze se budeme zabývat rovnicemi typu [``` \frac{\mathrm dx}{\mathrm dt}=f(x)-g(x),```]
+tj. autonomními rovnicemi s pravou stranou zapsanou ve formě rozdílu dvou funkcí. Slovem autonomní je vyjádřeno, že pravá strana nezávisí na čase [`t`].
+
+Grafy funkcí jsou na obrázku. Modrý graf je grafem funkce [`f(x)`], červený grafem funkce [`g(x)`]. Tedy pravá strana je kladná tam, kde je výše modrá křivka.
+
+Určete počet a stabilitu stacionárních bodů této diferenciální rovnice. Odpovězte na otázku týkající se počtu stacionárních bodů a stability stacionárního bodu, který je nejvíce vlevo.
+
+END_PGML
+
+BEGIN_TEXT
+
+
+$BR
+Počet stacionárních bodů je \{ pop_up_list(''=>'','1'=>'1', '2'=>'2', '3'=>'3', 'jiná možnost'=>'jiná možnost') \}.
+$BR
+Stacionárni bod nejvíce vlevo je \{ pop_up_list(''=>'','stabilní'=>'stabilní', 'nestabilní'=>'nestabilní') \}.
+
+END_TEXT
+
+$ans1 = (($fa > 0) and ($fd<0)) ? '3': '1';
+$ans2 = ($sign < 0) ? 'stabilní': 'nestabilní';
+
+ANS(str_cmp($ans1));
+ANS(str_cmp($ans2));
+
+BEGIN_PGML_HINT
+Stacionární body jsou body, kde se křivky protínají. Měly by být tři nebo jeden. Pokud náhoda není na Vaší straně a z grafů není jasné, kolik mají průsečíků, pošlete mail vyučujícímu pomocí tlačítka "Email TA".
+
+Stabilitu poznáte podle toho, která křivka je výše a která níže. Pro stabilní stacionární bod potřebujeme, aby v levém okolí řešení rostlo (modrá křivka nad červenou) a v pravém okolí klesalo (modrá křivka pod červenou).
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Stacionární body jsou body, kde se křivky protínají. Proto je počet stacionárních bodů [$ans1].
+
+Stabilitu poznáte podle toho, která křivka je výše a která níže. Pro stabilní stacionární bod potřebujeme, aby v levém okolí řešení rostlo (modrá křivka nad červenou) a v pravém okolí klesalo (modrá křivka pod červenou).  V tomto případě je levý stacinární bod [$ans2].
+
+Poznámka: Tento příklad byl mnohokrát vyzkoušen. Pokud přesto něco selhalo a popsané řešení neodpovídá obrázku, informujte prosím vyučujícícho. 
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT() ;        # This should be the last executable line in the problem.
+
+
+

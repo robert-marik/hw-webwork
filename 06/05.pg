@@ -1,18 +1,3 @@
-## DESCRIPTION
-## Calculus
-## ENDDESCRIPTION
-
-## Tagged by tda2d
-
-## DBsubject(Differential equations)
-## DBchapter(First order differential equations)
-## DBsection(Equilibrium points and phase lines)
-## Institution(Rochester)
-## MLT(eq_pt_01)
-## MLTleader(1)
-## Level(4)
-## KEYWORDS('differential equation' 'stability')
-
 DOCUMENT() ;        # This should be the first executable line in the problem.
 
 loadMacros(
@@ -25,6 +10,7 @@ loadMacros(
 
 TEXT(beginproblem()) ;
 $showPartialCorrectAnswers = 0 ;
+$showHint = 1;
 
 $a = 4+random(-3.5, -2.5, 0.5);
 $b = $a + random(1,2,0.5);
@@ -53,7 +39,7 @@ tj. autonomními rovnicemi. Slovem autonomní je vyjádřeno, že pravá strana 
 
 U některých modelů vedoucích na tyto typy rovnic, nám stačí znát
 stacionární body a jejich stabilitu. Důvodem je to, že po uběhnutí
-dostatečně dlouhého času se řešení ustálí na hodnotě odpovédající
+dostatečně dlouhého času se řešení ustálí na hodnotě odpovídající
 některému stabilnímu stacionárnímu bodu. Z teorie víme, že pokud má pravá strana v uvažovaném stacionárním bodě kladnou derivaci, je tento stacionární bod nestabilní. V případě záporné derivace naopak stabilní. V případě jako je tento znaménko derivace poznáme z monotonie.
 
 Na obrázku je graf funkce funkce [`f(x)`], která je pravou stranou uvažované diferenciální rovnice. Tučná vodorovná čára uprostřed je osa [`x`]. Obrázek je nakreslen pro [`0\leq x\leq 8`] a případné nulové body funkce [`f`] jsou buď celá čísla nebo uprostřed mezi celými čísly. Vidíme tři průsečíky grafu funkce s osou [`x`], tj. tři nulové body funkce [`f`]. Rovnice má tedy tři stacionární body.
