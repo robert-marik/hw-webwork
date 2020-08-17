@@ -70,7 +70,7 @@ ANS( checkbox_cmp( $mc->correct_ans() ) );
 BEGIN_PGML_SOLUTION
 
 Nabízená varianta _"Spojitá funkce, která má v bodech [`a`] a [`b`] stejné znaménko, nemá na intervalu [`(a,b)`] nulový bod."_ není správně. Bolzanova věta mluví o spojitých funkcích, které mají znaménkovou změnu. O funkcích, které mají stále stejné znaménko (nemají znaménkovou změnu) nic neříká.
-Že takové tvrzení neplatí ukáže příklad funkce [`y=x^2`], která je na intervalu [`[-1,1]`] spojitá, v krajních bodech intervalu má stejné zanménko, ale přesto má na tomto intervalu nulový bod [`x=0`].
+Že takové tvrzení neplatí ukáže příklad funkce [`y=x^2`], která je na intervalu [`[-1,1]`] spojitá, v krajních bodech intervalu má stejné znaménko, ale přesto má na tomto intervalu nulový bod [`x=0`].
 
 Nabízená varianta _"Jestliže funkce má na intervalu [`(a,b)`] nulový bod a platí [`f(a) f(b)<0`], potom je tato funkce na intervalu [`[a,b]`] spojitá."_ není správně. Spojitost je pro Bolzanovu větu předpokladem a nikdy z ní proto nemůže vyplynout. 
 Že takové tvrzení neplatí ukáže příklad funkce [`y=1`] pro [`x>0`], [`y=-1`] pro [`x<0`] a [`y=0`] pro [`x=0`]. Jedná se o funkci určující znaménko. Tato funkce má v  krajních bodech intervalu [`[-1,1]`] zmenu znaménka, má uprostřed tohoto intervalu nulový bod, ale přesto není spojitá.

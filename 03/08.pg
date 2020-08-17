@@ -78,9 +78,12 @@ BEGIN_PGML_SOLUTION
 Teplotu určíme přímým dosazením hodnoty [`x=[$w]`] do funkce [```T(x)=[$funkce].```] Vychází
 [``` T([$w])=[$hodnotaSol]```]
 
-Po zderivování funkce, dosazení hodnoty [`x=[$w]`] do derivace a vynásobení hodnotou [`\Delta x=[$dx]`] určíte odpověď na druhou část otázky.
-
-
+Po zderivování funkce dostáváme derivaci
+[``` \frac{\mathrm dT}{\mathrm dt}=[$derivacefunkce].```]
+Po dosazení hodnoty [`x=[$w]`] do této derivace dostáváme
+[``` \frac{\mathrm dT}{\mathrm dt}([$w])=[$hodnotaDer].```]
+Po vynásobení hodnotou [`\Delta x=[$dx]`] určíte odpověď na druhou část otázky,
+[``` \frac{\mathrm dT}{\mathrm dt}([$w]) \Delta x=[$answer].```]
 END_PGML_SOLUTION
 
 
