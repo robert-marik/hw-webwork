@@ -4,6 +4,7 @@ loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
   "PGML.pl",
+  "answerHints.pl",
   "PGcourse.pl"
 );
 
@@ -45,26 +46,31 @@ Připomeňme, že při násobení diagonální matice a sloupcového vektoru se 
 
 Následující příklad je analogický, jenom s jinými čísly, jinými funkcemi. Z důvodů vynucených programem jsou matice ohraničeny hranatými závorkami namísto kulatých.
 
-Typickým případem ortotropního materiálu je ten nejdostupnější a nejkrásnější, dřevo. Také látky, kde nějakým způsobem došlo k upořádání stavebních elementů, byť původně uspořádaných chaoticky. Například kov válcovaný za studena nebo napnutá guma. 
+Typickým případem ortotropního materiálu je ten nejdostupnější a nejkrásnější, dřevo. Také látky, kde nějakým způsobem došlo k uspořádání stavebních elementů, byť původně uspořádaných chaoticky. Například kov válcovaný za studena nebo napnutá guma. 
 
 ----------------
 
 
 Pro  homogenní ortotropní materiál s koeficientem tepelné vodivosti [`\lambda=\begin{bmatrix}[$lambda1]&0\\0&[$lambda2]\end{bmatrix}`] určete tok tepla v místě, ve kterém je gradient teploty dán vektorem
 [``\nabla T=[$u]``].
->> [``\vec q=-\lambda \nabla T =-\begin{bmatrix}[$lambda1]&0\\0&[$lambda2]\end{bmatrix}[$u]={}``][_________________]*{$ans}<<
+>> [``\vec q=-\lambda \nabla T =-\begin{bmatrix}[$lambda1]&0\\0&[$lambda2]\end{bmatrix}[$u]={}``][_________________]*{$ans
+->cmp()->withPostFilter(AnswerHints(
+-$ans => "Jste na dobré cestě. Ještě musíte zohlednit záporné znaménko."
+))
+}<<
 
 END_PGML
 Context()->normalStrings;
 
 BEGIN_PGML_HINT
-Musíte násobit první komponentu vektoru číslem [$lambda1] a druhou číslem [$lambda2]. 
+Musíte nejprve násobit první komponentu vektoru číslem [$lambda1] a druhou číslem [$lambda2] a poté u celého vektoru změnit znaménko.
 END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
+Musíme nejprve násobit první komponentu vektoru číslem [$lambda1] a druhou číslem [$lambda2] a poté u celého vektoru změnit znaménko.
 
-Přímým násobením vidíme, že
+Přímým provedením této operace vidíme, že
 [``-\lambda \nabla T =[$ans->reduce()]``].
 
 END_PGML_SOLUTION

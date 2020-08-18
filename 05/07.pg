@@ -51,7 +51,7 @@ BEGIN_PGML
 
 Tento příklad je obdobou předchozího, ale funkce obsahuje parametr [`a`] a zadanou střední hodnotu. Cílem je najít střední hodnotu jako funkci parametru [`a`] a poté najít hodnotu parametru [`a`], pro kterou je střední hodnota rovna předem danému číslu.
 
-Například platí (v proměnné [`t`]) [``` \int_0^3 2at^2\,\mathrm dx=\left[\frac {2a}3 t^3\right]_0^3=18a.```] To znamená, že střední hodnota funkce [`2at^2`] na intervalu [`[0,3]`] je  [``` \frac 1{3-0}\int_0^3 2at^2\,\mathrm dx=\frac 13 \cdot 18 a =6a.```]
+Například platí (v proměnné [`t`]) [``` \int_0^3 2at^2\,\mathrm dt=\left[\frac {2a}3 t^3\right]_0^3=18a.```] To znamená, že střední hodnota funkce [`2at^2`] na intervalu [`[0,3]`] je  [``` \frac 1{3-0}\int_0^3 2at^2\,\mathrm dt=\frac 13 \cdot 18 a =6a.```]
 
 Pokud požadujeme, aby cílová střední hodnota byla rovna jedné, řešíme rovnici [``` 6a=1 ```] a odsud [`a=\frac 16`]. Výpočty tohoto druhu provádíme ve statistice, statistické fyzice, systémove biologii apod.
 

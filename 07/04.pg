@@ -71,7 +71,7 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 Sčítejte po složkách. Díky komutativitě navíc je odpověď na obě otázky stejná, a to
-[``` [$A+$B]. ```]
+[``` A+B=B+A=[$A+$B]. ```]
 END_PGML_SOLUTION
 
 ANS( $popup->cmp() );

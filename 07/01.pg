@@ -49,7 +49,7 @@ BEGIN_PGML
 
     Je dána matice [```A=[$A].```]
 
-    Určete následující prvky matice [`A`]. (Ohraničení matice pomocí hrantých namísto kulatých závorek si nevšímejte, oba způsoby jsou běžné a oba jsou ekvivalentní)
+    Určete prvky [`` a_{[$i1][$j1]}``] a [`` a_{[$i2][$i2]} ]] matice [`A`]. (Ohraničení matice pomocí hranatých namísto kulatých závorek si nevšímejte, oba způsoby jsou běžné a oba jsou ekvivalentní)
 
     >>[`` a_{[$i1][$j1]}={}``][_____]*{$A->element($i1,$j1)}<<
     
@@ -68,7 +68,7 @@ END_PGML_HINT
 BEGIN_PGML_SOLUTION
 
 * Prvek [`` a_{[$i1][$j1]}``] je v řádku číslo [$i1] (počítáno od jedničky směrem shora dolů) a sloupci číslo [$j1] (počítáno od jedničky směrem zleva doprava).
-* Prvek [`` a_{[$i2][$j2]}``] je v řádku číslo [$i2] a sloupci číslo [$j2].
+* Prvek [`` a_{[$i2][$i2]}``] je v řádku číslo [$i2] a sloupci číslo [$i2].
 * Řešením je tedy [`` a_{[$i1][$j1]} = [$A->element($i1,$j1)]``] a [`` a_{[$i2][$i2]} = [$A->element($i2,$i2)]``].
 
 END_PGML_SOLUTION
