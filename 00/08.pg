@@ -24,7 +24,7 @@ BEGIN_PGML
 
 V některých otázkách je více políček pro vepsání odpovědi. Každé políčko se vyhodnocuje samostatně. Ve všech políčkách níže je správnou odpovědí číslo 16. Zkuste ho zapsat různými způsoby (přímo, jako součin, jako součet, jako mocninu) a v některém z případů třeba s překlepem.  Po odeslání se dozvíte, které odpovědi jsou správně a které ne.
 
-Za částečně správnou odpověď (některá políčka chybně) obržíte částečné hodnocení.
+Za částečně správnou odpověď (některá políčka chybně) obdržíte částečné hodnocení.
 
 
 >>[``16={}``][__________]{$f}<<
