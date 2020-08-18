@@ -4,7 +4,6 @@ loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
   "PGML.pl",
-  "answerHints.pl",
   "PGcourse.pl"
 );
 

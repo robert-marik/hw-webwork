@@ -54,6 +54,10 @@ $v1 = Matrix([[$a11],[$a21],[$a31]]);
 $v2 = Matrix([[$a12],[$a22],[$a32]]);
 $v3 = Matrix([[$a13],[$a23],[$a33]]);
 
+$Av1=$A*$v1;
+$Av2=$A*$v2;
+$Av3=$A*$v3;
+
 Context("Numeric"); 
 
 BEGIN_PGML
@@ -75,12 +79,21 @@ END_PGML
 
 
 BEGIN_PGML_HINT
-Stačí vynásobit matici a vektory a podívat se, na jaký násobek se vektor transformuje. Pokud je jistota, že vektory jsou vlastními vektory (pokud je zadání korektní), stačí se orientovat podle první nenulové souřadnice. Jestliže si nejste jisti správností maticového násobení, zkuste MATLAB, Sage nebo OCtave.
+Stačí vynásobit matici a vektory a podívat se, na jaký násobek se vektor transformuje. Pokud je jistota, že vektory jsou vlastními vektory (pokud je zadání korektní), stačí se orientovat podle první nenulové souřadnice. Jestliže si nejste jisti správností maticového násobení, zkuste MATLAB, Sage nebo Octave.
 END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
 Stačí vynásobit matici a vektory a podívat se, na jaký násobek se vektor transformuje. Pokud je jistota, že vektory jsou vlastními vektory (pokud je zadání korektní), stačí se orientovat podle první nenulové souřadnice.
+
+Pro vektor [`\vec v_1=[$v1]`] dostáváme
+[``` A\vec v_1=[$matrix][$v1]=[$Av1]=[$e1][$v1].```]
+
+Pro vektor [`\vec v_2=[$v2]`] dostáváme
+[``` A\vec v_2=[$matrix][$v2]=[$Av2]=[$e2][$v2].```]
+
+Pro vektor [`\vec v_3=[$v3]`] dostáváme
+[``` A\vec v_3=[$matrix][$v3]=[$Av3]=[$e3][$v3].```]
 
 Vlastní hodnoty jsou po řadě [`\lambda_1=[$e1]`], [`\lambda_2=[$e2]`], [`\lambda_3=[$e3]`].
 END_PGML_SOLUTION

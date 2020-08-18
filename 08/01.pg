@@ -114,10 +114,10 @@ Vlastní vektory matice [`A`] jsou vektory, jejichž obraz při zobrazení matic
 Například vektor [```\vec{a}=\begin{pmatrix}-1\\2\end{pmatrix}```] a matice
 [```A=\begin{pmatrix} 3 & 0 \\ 2&4 \end{pmatrix}```] splňují
 [``` A\vec a=-\begin{pmatrix}3\\2\end{pmatrix}+2\begin{pmatrix}0\\4\end{pmatrix}=\begin{pmatrix}-3\\6\end{pmatrix},```]
-což znamená, že vektor [`\vec{a}`] se zobrazuje na svůj trojnásobek a jedná se vlastní vektor příslušný vlastnímu číslu [`3`]. Naopak, pro vektor
+což znamená, že vektor [`\vec{a}`] se zobrazuje na svůj trojnásobek a jedná se o vlastní vektor příslušný vlastnímu číslu [`3`]. Naopak, pro vektor
 [```\vec{b}=\begin{pmatrix}1\\1\end{pmatrix}```] platí
 [``` A\vec{b}=\begin{pmatrix}3\\2\end{pmatrix}+\begin{pmatrix}0\\4\end{pmatrix}=\begin{pmatrix}3\\6\end{pmatrix},```]
-což znamená, že vektor [`\vec{b}`] není vlastním vektorem. Vskutku, druhá souřadnice se změní na trojnásobek, ale první na mínus trojnásobek. Vzor a obraz tedy nejsou rovnoběžné.
+což znamená, že vektor [`\vec{b}`] není vlastním vektorem. Vskutku, druhá souřadnice se změní na trojnásobek, ale první na šestinásobek. Vzor a obraz tedy nejsou rovnoběžné.
 
 ---------------------
 
@@ -131,7 +131,7 @@ Context()->normalStrings;
 
 
 BEGIN_PGML_HINT
-Násobíme matici s vektorem a díváme se, jestli je výsledek násobkem původního vektoru. Pokud ano, je tento vektor vlastním vektorem. Je nutné kontrolovat všechny komponenty. Alespoň jeden vektor je vlastním  vektorem a alespoň jeden vlastní vektor není vlastním vektorem.
+Násobíme matici s vektorem a díváme se, jestli je výsledek násobkem původního vektoru. Pokud ano, je tento vektor vlastním vektorem. Je nutné kontrolovat všechny komponenty. Alespoň jeden nabízený vektor je vlastním  vektorem a alespoň jeden nabízený vektor není vlastním vektorem.
 
 Pokud máte potíže s násobením a chcete si správnost zkontrolovat, použijte MATLAB, Octave nebo Sage.
 END_PGML_HINT
@@ -140,7 +140,7 @@ END_PGML_HINT
 $answerstring = join(", ", @correct);
 
 BEGIN_PGML_SOLUTION
-Násobíme matici s vektorem a díváme se, jestli je výsledek násobkem původního vektoru. Pokud ano, je tento vektor vlastním vektorem. Je nutné kontrolovat všechny komponenty. Alespoň jeden vektor je vlastním  vektorem a alespoň jeden vlastní vektor není vlastním vektorem.
+Násobíme matici s vektorem a díváme se, jestli je výsledek násobkem původního vektoru. Pokud ano, je tento vektor vlastním vektorem. Je nutné kontrolovat všechny komponenty. Alespoň jeden nabízený vektor je vlastním  vektorem a alespoň jeden nabízený vektor není vlastním vektorem.
 
 Řešení je [$answerstring].
 END_PGML_SOLUTION
