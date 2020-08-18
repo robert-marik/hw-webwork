@@ -140,8 +140,8 @@ BEGIN_PGML_SOLUTION
 Protože vlastní číslo je [`\lambda=[$l2]`], najdeme vlastní vektor jako řešení soustavy
 [```0=(A-\lambda I)\vec v=\left([$B]-([$l2])I\right)\vec v=[$BI]\vec v.```]
 Tato soustava představuje dvakrát zopakovanou stejnou rovnici (až na případný násobek)
-[``` \begin{aligned}[$BI->element(1,1)]v_1+[$BI->element(1,2)]v_2&=0\\
-[$BI->element(2,1)]v_1+[$BI->element(2,2)]v_2&=0\end{aligned}```]
+[``` \begin{aligned}[$BI->element(1,1)]v_1[+$BI->element(1,2)]v_2&=0\\
+[$BI->element(2,1)]v_1[+$BI->element(2,2)]v_2&=0\end{aligned}```]
 a stačí se dívat na první nebo druhou rovnici najít libovolný nenulový vektor, který je řešením. Například vektor [`[$v2]`].
 
 Pro druhou část stačí ukázat, že po vynásobení matice [`B`] a vektoru [`\vec v`], tj. po výpočtu
