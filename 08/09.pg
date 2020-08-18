@@ -78,7 +78,7 @@ Pokuste se ověřit podobně ověřit pro vektor
 * Podíl délek obrazu a vzoru je
 >>[`` \frac{||U'||}{||U||}={}``][_______]{$podil}.<<
 
-Úloha bude jistě citlivá na zaokrouhlování. Snažte se nezaokrouhlovat více než je nutné.
+Úloha bude jistě reagovat na případné necitlivé zaokrouhlování. Snažte se nezaokrouhlovat (můžete psát například něco jako *sqrt(7^2+6^2)*) nebo alespoň nezaokrouhlovat více než je nutné.
 
 END_PGML
 
@@ -87,12 +87,12 @@ Postupujte obdobně jako ve vzorovém příkladě.
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
-* Délka vektoru [`U`] je 
-[`` ||U||=\sqrt{U^TU}=\sqrt{([$U1])^2+([$U2])^2}\approx [$normaU]``]
-* Obraz  [`U'`] vektoru [`U`] je
+* Délka vektoru [`U`] je odmocnina ze součtu druhých mocnin komponent vektoru [`U`], tj.
+[`` ||U||=\sqrt{U^TU}=\sqrt{([$U1])^2+([$U2])^2}\approx [$normaU].``]
+* Obraz  [`U'`] vektoru [`U`] je výsledkem maticového součinu matice s vektorem, tj. 
 [`` U'=\begin{pmatrix} [$a11]&[$a12]\\[$a21]&[$a22]\end{pmatrix} \begin{pmatrix}[$U1]\\[$U2]\end{pmatrix} =[$obraz]``].
-* Délka vektoru [`U'`] je 
-[``||U'||=\sqrt{U'^TU'}\approx [$normaUU].``]
+* Délka vektoru [`U'`] je odmocnina ze součtu druhých mocnin komponent vektoru [`U'`], tj.
+[``||U'||=\sqrt{U'^TU'}=\sqrt{([$obraz->element(1,1)])^2+([$obraz->element(2,1)])^2}\approx [$normaUU].``]
 * Podíl délek vektorů je
 [`` \frac{||U'||}{||U||}=\frac{[$normaUU]}{[$normaU]}\approx [$podil].``]
 
