@@ -51,7 +51,7 @@ BEGIN_PGML
 Nyní si vyzkoušíme  je zobecnění předchozího příkladu. Rovnice již není autonomní (vpravo jsou obě proměnné), ale proměnné se dají odseparovat.
 
 Například  rovnici
-[``` \frac{\mathrm dx}{\mathrm dt}= e^y(3x^7-6)```]
+[``` \frac{\mathrm dy}{\mathrm dx}= e^y(3x^7-6)```]
 můžeme po vydělení faktorem [``e^y``] přepsat do tvaru
 [```e^{-y}\mathrm dy= (3x^7-6)\mathrm dx.```]
 (Všimněte si dobrého mravu nahradit zlomek [`` \frac 1{e^y}``] výrazem [`` e^{-y}``].)
@@ -70,14 +70,14 @@ END_PGML
 BEGIN_PGML_HINT
 Proměnné odseparujeme po vynásobení rovnice
 [```  \frac{\mathrm dy}{\mathrm dx}=[$rovnice] ```]
-výrazem [``\mathrm dt ``] a [$akce] výrazem [`` [$cim]``].
+výrazem [``\mathrm dx ``] a [$akce] výrazem [`` [$cim]``].
 END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
 Po vynásobení rovnice
-[```  \frac{\mathrm dx}{\mathrm dt}=[$rovnice] ```]
-výrazem [``\mathrm dt ``] a [$akce] výrazem [`` [$cim]``] dostáváme [``` [$LHS]=[$RHS].```]
+[```  \frac{\mathrm dy}{\mathrm dx}=[$rovnice] ```]
+výrazem [``\mathrm dx ``] a [$akce] výrazem [`` [$cim]``] dostáváme [``` [$LHS]=[$RHS].```]
 END_PGML_SOLUTION
 
 COMMENT('Uses PGML.');
