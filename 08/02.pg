@@ -54,9 +54,9 @@ $v1 = Matrix([[$a11],[$a21],[$a31]]);
 $v2 = Matrix([[$a12],[$a22],[$a32]]);
 $v3 = Matrix([[$a13],[$a23],[$a33]]);
 
-$Av1=$A*$v1;
-$Av2=$A*$v2;
-$Av3=$A*$v3;
+$Av1=$matrix*$v1;
+$Av2=$matrix*$v2;
+$Av3=$matrix*$v3;
 
 Context("Numeric"); 
 
