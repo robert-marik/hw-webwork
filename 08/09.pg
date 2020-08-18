@@ -70,7 +70,7 @@ Pokuste se ověřit podobně ověřit pro vektor
  [`U=\begin{pmatrix}[$U1]\\[$U2]\end{pmatrix}`], že délka obrazu tohoto vektoru vydělená délkou tohoto vektoru je také mezi minimální a maximální vlastní hodnotou.
 
 * Délka vektoru [`U`] je (pomocí předchozího příkladu nebo pomocí Pythagorovy věty)
-[`` ||U||=\sqrt{U^TU}=\sqrt{([$U1])^2+([$U2])^2}={}``][_______]{$normaU}
+>>[`` ||U||=\sqrt{U^TU}=\sqrt{([$U1])^2+([$U2])^2}={}``][_______]{$normaU}.<<
 * Obraz  [`U'`] vektoru [`U`] je
 [`` U'=\begin{pmatrix} [$a11]&[$a12]\\[$a21]&[$a22]\end{pmatrix} \begin{pmatrix}[$U1]\\[$U2]\end{pmatrix} ={}``][___________]*{$obraz}.
 * Délka vektoru [`U'`] je 
