@@ -49,6 +49,11 @@ $kontrola2=$l2*$l2-($a11+$a22)*$l2+($a11*$a22-$a12*$a21);
 $Adet = Formula("lambda^2-($a11+$a22)*lambda+($a11*$a22-$a12*$a21)")->reduce();
 Context()->variables->set(lambda => {TeX => '{\lambda}'});
 
+$b=-($a11+$a22);
+$Mb=($a11+$a22);
+$c=($a11*$a22-$a12*$a21);
+
+
 Context()->texStrings;
 BEGIN_PGML
 ## Vlastní čísla
@@ -77,8 +82,11 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 Musíme vypočítat charakteristický polynom jako determinant
-[```\begin{vmatrix}[$a11]-\lambda&[$a12]\\[$a21]&[$a22]-\lambda\end{vmatrix}=[$Adet]```]
-a tento kvadratický polynom má kořeny [`\lambda_1=[$l1]`] a [`\lambda_2=[$l2]`].
+[```\begin{vmatrix}[$a11]-\lambda&[$a12]\\[$a21]&[$a22]-\lambda\end{vmatrix}=[$Adet].```]
+Tento kvadratický polynom má kořeny
+[``` \lambda_{1,2}=\frac{$Mb\pm \sqrt{([$b]^2-4\cdot [$c])}}{2}```] a
+po výpočtu dostáváme
+[`\lambda_1=[$l1]`] a [`\lambda_2=[$l2]`].
 END_PGML_SOLUTION
 
 

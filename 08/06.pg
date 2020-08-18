@@ -45,12 +45,14 @@ END_PGML
 $showHint = 1;
 BEGIN_PGML_HINT
 Musíme vypočítat determinant
-[```\begin{vmatrix}[$a11]-\lambda&[$a12]\\[$a21]&[$a22]-\lambda\end{vmatrix}.```]
+[```\det(A-\lambda I) = \begin{vmatrix}[$a11]-\lambda&[$a12]\\[$a21]&[$a22]-\lambda\end{vmatrix}.```]
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 Přímým dosazením do vzorce pro determinant dostaneme
-[```\det(A-\lambda I)=([$a11]-\lambda)\cdot([$a22]-\lambda)-([$a12])\cdot([$a21])=[$Adet].```]
+[```\det(A-\lambda I)=
+\begin{vmatrix}[$a11]-\lambda&[$a12]\\[$a21]&[$a22]-\lambda\end{vmatrix} =
+([$a11]-\lambda)\cdot([$a22]-\lambda)-([$a12])\cdot([$a21])=[$Adet].```]
 END_PGML_SOLUTION
 
 
