@@ -66,7 +66,7 @@ Poměr těchto délek je [$pomer] a toto číslo je opravdu mezi menší a vět�
 
 --------
 
-Uvažjte stejnou matici  [``` A=\begin{pmatrix} [$a11]&[$a12]\\[$a21]&[$a22]\end{pmatrix} ```] jako ve výše uvedeném příkladě. Připomeňm , že vlastní čísla jsou  [`\lambda_1=[$l1]`] a [`\lambda_2=[$l2]`].
+Uvažjte stejnou matici  [``` A=\begin{pmatrix} [$a11]&[$a12]\\[$a21]&[$a22]\end{pmatrix} ```] jako ve výše uvedeném příkladě. Připomeňme, že vlastní čísla jsou  [`\lambda_1=[$l1]`] a [`\lambda_2=[$l2]`].
 
 Pokuste se ověřit (podobně jako výše u vektoru [`u`]) pro vektor
  [`U=\begin{pmatrix}[$U1]\\[$U2]\end{pmatrix}`], že délka obrazu tohoto vektoru vydělená délkou tohoto vektoru je také mezi minimální a maximální vlastní hodnotou.
