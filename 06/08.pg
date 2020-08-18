@@ -55,7 +55,14 @@ Například  rovnici
 můžeme po vydělení faktorem [``e^y``] přepsat do tvaru
 [```e^{-y}\mathrm dy= (3x^7-6)\mathrm dx.```]
 (Všimněte si dobrého mravu nahradit zlomek [`` \frac 1{e^y}``] výrazem [`` e^{-y}``].)
-Levou stranu můžeme v programu WeBWork zapsat například jako *exp(-y) \* dy* nebo *e^(-y) \* dy* 
+Levou stranu můžeme v programu WeBWork zapsat například jako *exp(-y) \* dy* nebo *e^(-y) \* dy*.
+
+Podobně, rovnici
+[``` \frac{\mathrm dy}{\mathrm dx}= e^x(3y^7-6)```]
+můžeme po vydělení faktorem [`` 3y^7-6``] přepsat do tvaru
+[```\frac {\mathrm dy}{3y^7-6}= e^x\mathrm dx.```]
+(Všimněte si dobrého mravu napsat diferenciál [`` \mathrm dy``] do čitatele zlomku.)
+Levou stranu můžeme v programu WeBWork zapsat například jako *dy/(3y^7-6)*.
 
 V následujícím příkladě zkusíme podobnou úlohu, pouze s jinými čísly a funkcemi. Podle výrazu na pravé straně poznáte, jakým výrazem rovnici násobíme nebo dělíme a co zůstane na straně levé.
 
