@@ -42,6 +42,7 @@ $fakeans => "Jste na dobré cestě. Jenom se zdá, že jste namísto odečítán
 * Před odesláním si můžete odpověď prohlédnout v náhledu. V tomto případě, kdy je odpovědí číslo, to nemá moc smysl. V případě, kdy je odpovědí matematický výraz, to je naopak velice užitečná volba. Zkuste napsat například
 >>*pi/(x^2+1)*<<
 a po vyvolání náhledu by se mělo objevit [```\frac{\pi}{x^2+1}```] (což jistě není správná odpověď).
+* Pro některé chybné odpovědi jsou připraveny speciální chybové hlášky. Zkuste například vložit jako odpověď součet namísto rozdílu, tj. číslo [$fakeans].
 
 END_PGML
 
