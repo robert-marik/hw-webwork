@@ -80,6 +80,10 @@ END_PGML
 
 BEGIN_PGML_HINT
 Stačí vynásobit matici a vektory a podívat se, na jaký násobek se vektor transformuje. Pokud je jistota, že vektory jsou vlastními vektory (pokud je zadání korektní), stačí se orientovat podle první nenulové souřadnice. Jestliže si nejste jisti správností maticového násobení, zkuste MATLAB, Sage nebo Octave.
+
+Například pro vektor [`\vec v_1=[$v1]`] dostáváme
+[``` A\vec v_1=[$matrix][$v1]=[$Av1]=[$e1][$v1].```] Odsud je patrná první vlastní hodnota. Další najdete analogicky.
+
 END_PGML_HINT
 
 
