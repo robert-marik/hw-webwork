@@ -58,7 +58,7 @@ $graph -> lb(new Label ( 7.5,5*$sign-$sign2,'f(x)','blue','left','bottom'));
 $graph -> lb(new Label ( 7.5,-$sign2,'g(x)','red','left','bottom'));
 
 BEGIN_PGML
-## Stabilita autonomní diferenciální rovnice
+## Stabilita autonomní diferenciální rovnice II
 
 [@ image( insertGraph($graph) ,width=>400,height=>400,tex_size=>600) @]*
 
