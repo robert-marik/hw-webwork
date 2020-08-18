@@ -84,7 +84,7 @@ BEGIN_PGML_SOLUTION
 Musíme vypočítat charakteristický polynom jako determinant
 [```\begin{vmatrix}[$a11]-\lambda&[$a12]\\[$a21]&[$a22]-\lambda\end{vmatrix}=[$Adet].```]
 Tento kvadratický polynom má kořeny
-[``` \lambda_{1,2}=\frac{$Mb\pm \sqrt{([$b]^2-4\cdot [$c])}}{2}```] a
+[``` \lambda_{1,2}=\frac{[$Mb]\pm \sqrt{([$b]^2-4\cdot [$c])}}{2}```] a
 po výpočtu dostáváme
 [`\lambda_1=[$l1]`] a [`\lambda_2=[$l2]`].
 END_PGML_SOLUTION
