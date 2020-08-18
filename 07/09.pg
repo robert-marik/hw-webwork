@@ -53,11 +53,7 @@ Typickým případem ortotropního materiálu je ten nejdostupnější a nejkrá
 
 Pro  homogenní ortotropní materiál s koeficientem tepelné vodivosti [`\lambda=\begin{bmatrix}[$lambda1]&0\\0&[$lambda2]\end{bmatrix}`] určete tok tepla v místě, ve kterém je gradient teploty dán vektorem
 [``\nabla T=[$u]``].
->> [``\vec q=-\lambda \nabla T =-\begin{bmatrix}[$lambda1]&0\\0&[$lambda2]\end{bmatrix}[$u]={}``][_________________]*{$ans
-->cmp()->withPostFilter(AnswerHints(
--$ans => "Jste na dobré cestě. Ještě musíte zohlednit záporné znaménko."
-))
-}<<
+>> [``\vec q=-\lambda \nabla T =-\begin{bmatrix}[$lambda1]&0\\0&[$lambda2]\end{bmatrix}[$u]={}``][_________________]*{$ans}<<
 
 END_PGML
 Context()->normalStrings;

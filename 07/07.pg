@@ -73,6 +73,8 @@ END_PGML
 #  Solution
 
 BEGIN_PGML_HINT
+Musíme vypočítat lineární kombinace sloupců matice [`A`]. Koeficienty do této lienární kombinace najdeme ve sloupcích matice [`B`]: dva sloupce s koeficienty pro dvě lineární kombinace.
+
 Výsledek je matice tvořená sloupci 
 [``` [$B->element(1,1)]
 \begin{pmatrix}[$A->element(1,1)] \\ [$A->element(2,1)]\end{pmatrix}
@@ -93,6 +95,8 @@ END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
+Musíme vypočítat lineární kombinace sloupců matice [`A`]. Koeficienty do této lienární kombinace najdeme ve sloupcích matice [`B`]: dva sloupce s koeficienty pro dvě lineární kombinace.
+
 Výsledek je [```AB=[$answer],```]
 protože
 [``` [$B->element(1,1)]
