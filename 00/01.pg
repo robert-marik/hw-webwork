@@ -14,8 +14,8 @@ $showHint = 1;
 
 $var='x';
 $a=non_zero_random(1,87,1);
-$ans=100-$a;
-$fakeans=100+$a;
+$ans=Formula("100-$a");
+$fakeans=Formula("100+$a");
 
 Context("Numeric")->variables->are($var=>'Real');
 
