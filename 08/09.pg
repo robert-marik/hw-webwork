@@ -72,11 +72,11 @@ Pokuste se ověřit podobně ověřit pro vektor
 * Délka vektoru [`U`] je (pomocí předchozího příkladu nebo pomocí Pythagorovy věty)
 >>[`` ||U||=\sqrt{U^TU}=\sqrt{([$U1])^2+([$U2])^2}={}``][_______]{$normaU}.<<
 * Obraz  [`U'`] vektoru [`U`] je
-[`` U'=\begin{pmatrix} [$a11]&[$a12]\\[$a21]&[$a22]\end{pmatrix} \begin{pmatrix}[$U1]\\[$U2]\end{pmatrix} ={}``][___________]*{$obraz}.
+>>[`` U'=\begin{pmatrix} [$a11]&[$a12]\\[$a21]&[$a22]\end{pmatrix} \begin{pmatrix}[$U1]\\[$U2]\end{pmatrix} ={}``][___________]*{$obraz}.<<
 * Délka vektoru [`U'`] je 
-[``||U'||=\sqrt{U'^TU'}={}``][_______]{$normaUU}.
-* Podíl délek vektorů je
-[`` \frac{||U'||}{||U||}={}``][_______]{$podil}.
+>>[``||U'||=\sqrt{U'^TU'}={}``][_______]{$normaUU}.<<
+* Podíl délek obrazu a vzoru je
+>>[`` \frac{||U'||}{||U||}={}``][_______]{$podil}.<<
 
 Úloha bude jistě citlivá na zaokrouhlování. Snažte se nezaokrouhlovat více než je nutné.
 
