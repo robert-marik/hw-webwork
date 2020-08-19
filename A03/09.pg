@@ -35,7 +35,7 @@ Divergence je tok z jednotkového množství látky. (Přesněji, orientovaný t
 
 Divergenci vektorového pole ve středu krychle je možno odhadnout jako podíl toku přes hranici krychle a objemu krychle. Vypočtěte tento odhad.
 
->> [`` \nabla \cdot \vec{F} ([$P[0]],[$P[1]],[$P[2]]) ) \approx {}``][_______________]{$div} <<
+>> [`` \nabla \cdot \vec{F} ([$P[0]],[$P[1]],[$P[2]]) \approx {}``][_______________]{$div} <<
 
 END_PGML
 Context()->normalStrings;
