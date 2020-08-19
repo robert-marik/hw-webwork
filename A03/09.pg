@@ -1,0 +1,61 @@
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+#####################################
+#  Setup
+
+$s = random(0.01, 0.10, 0.01);
+$flux = random(-0.050, 0.050, 0.005);
+@P = (non_zero_random(-5,5,1),non_zero_random(-5,5,1),non_zero_random(-5,5,1));
+
+$div = Real("$flux / ($s**3)");
+
+########################################
+#  Main text
+
+TEXT(beginproblem());
+
+Context()->texStrings;
+BEGIN_PGML
+## Odhad divergence vektorového pole podle toku přes hranici
+
+Divergence je tok z jednotkového množství látky. (Přesněji, orientovaný tok, abychom mohli rozlišovat kladný tok ven z objemu a záporný tok dovnitř.) Předpokládejme trojrozměrný případ kdy je známo, že orientovaný tok přes hranici krychle se středem v bodě 
+[`([$P[0]],[$P[1]],[$P[2]])`] a o hraně délky [`[$s]`] je [`[$flux]`]. (Abychom se nemuseli soustředit na jednotky, předpokládejme, že vše je v kompatibilních jednotkách.)
+
+Divergenci vektorového pole ve středu krychle je možno odhadnout jako podíl toku přes hranici krychle a objemu krychle. Vypočtěte tento odhad.
+
+>> [`` \nabla \cdot \vec{F} ([$P[0]],[$P[1]],[$P[2]]) ) \approx {}``][_______________]{$div} <<
+
+END_PGML
+Context()->normalStrings;
+
+
+###############################################
+#  Answer evaluation
+
+$showPartialCorrectAnswers = 1;
+
+BEGIN_PGML_HINT
+Na souřadnicích středu krychle nezáleží. Musíte vydělit tok (je zadaný) objemem krychle (délka hrany je zadána a objem vypočteme jako třetí mocninu). Nemusíte hledat kalkulačku, stačí zapsat výše popsanou hodnotu to odpovědního políčka a stroj hodnotu numericky dopočítá samostatně.
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Musíme vydělit tok (je zadaný) objemem krychle (délka hrany je zadána a objem vypočteme jako třetí mocninu).
+Tedy
+[``` \nabla \cdot \vec{F} ([$P[0]],[$P[1]],[$P[2]])  \approx \frac{[$flux]}{[$s]^3} \approx [$div].```]
+Na souřadnicích středu krychle nezáleží. 
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

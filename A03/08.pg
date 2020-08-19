@@ -14,6 +14,9 @@ TEXT(beginproblem());
 
 $refreshCachedImages=1;
 
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
 
 #####################################
 #  Setup
@@ -153,11 +156,11 @@ foreach my $i (0..2) {
 BEGIN_PGML
 ## Divergence odhadnutá podle obrázku
 
-Divergenci ustáleného proudění můžeme odhadnout i podle obrázku znázorňujícího vektorové pole. Pokud máme zadaný bod, můžeme si okolo něj myslet malý reprezentativní element s jednoduchou hranicí, například kroužek nebo čtvereček. Poté sledujeme množství toku vstupujícího dovnitř a vystupujícího ven.
+Divergenci ustáleného proudění můžeme odhadnout i podle obrázku znázorňujícího vektorové pole. Pokud máme zadaný bod, můžeme si okolo něj myslet malý reprezentativní element s jednoduchou hranicí, například kroužek, čtvereček nebo u radiálního pole výřez jehož hranici tvoří dvě soustředné kružnice a dva paprsky směrem do středu. Poté sledujeme množství toku vstupujícího dovnitř a vystupujícího ven.
 
 * Delší šipky představují více toku na jednotkovou délku.
-* Šipky kolmější na hranici představují více toku než šipky šikmé k hranici.
 * Delší hranice znamená více toku.
+* Šipky kolmější na hranici představují více toku než šipky skloněné podél k hranici. Šipky ve směru hranice představují nulový tok.
 
 END_PGML
 
