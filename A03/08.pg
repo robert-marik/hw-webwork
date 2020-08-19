@@ -183,7 +183,7 @@ END_TEXT
 
 BEGIN_PGML_HINT
 
-Představte si okolo bodu reprezentativní element a podle velikosti šipek posuďte, jestli do tohoto elementu pole spíše přitéká nebo spíše odtéká.
+Představte si okolo bodu reprezentativní element a podle velikosti šipek posuďte, jestli do tohoto elementu pole spíše přitéká nebo spíše odtéká. Představte si proudění vody a řiďte se logikou. Přemýšlejte, jestli pro dosažení nakresleného proudění v okolí bodu [`P`] musí voda v tomto bodě mizet (to signalizuje zápornou divergenci) či přibývat (signalizuje kladnou divergenci).
 
 U vektorového pole tvořeného rovnoběžnými šipkami (dva případy) je výhodné si představit čtverec, protože dvě strany mohou být rovnoběžné s vektorovým polem a tok těmito stranami bude nulový. K posouzení tedy zůstanou pouze dvě zbylé strany. U jednoho z takových čtverců jsou podél celé strany stejně dlouhé šipky. Podle toho, která strana má šipky delší a jakým směrem šikpy směřují dokážeme odhadnout, zda více pole teče dovnitř nebo ven. Tam kde je situace na obou stranách stejná (délka šipek se mění podél strany a na obou stranách míří stejným směrem) je bilance nulová a co do objemu vteče to i vyteče.
 
