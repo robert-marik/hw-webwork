@@ -12,6 +12,7 @@ loadMacros(
 
 Context("Numeric");
 $showPartialCorrectAnswers = 1;
+$showHint = 1;
 
 @spd = ( 8, 9, 10, 11 );
 @wgt = ( 120, 140, 160, 180, 200 );
@@ -66,15 +67,26 @@ BEGIN_PGML
 >>[``\frac{\partial c}{\partial v}(v=[$spd[$sInd1]],m=[$wgt[$wInd1]])={}``][________________________]{$ders}<<
     
 	  
-    
-
 END_PGML
-   
+
+BEGIN_PGML_HINT
+Při aproximaci derivací pomocí centrálních diferencí postupujeme podle vzorců
+[```\frac{\partial f}{\partial x}\approx \frac{f(x+h,y)-f(x-h,y)}{2h}```]
+a
+[```\frac{\partial f}{\partial x}\approx \frac{f(x,y+h)-f(x,y-h)}{2h}.```]
+
+END_PGML_HINT
+
 BEGIN_PGML_SOLUTION
+
+Při aproximaci derivací pomocí centrálních diferencí postupujeme podle vzorců
+[```\frac{\partial f}{\partial x}\approx \frac{f(x+h,y)-f(x-h,y)}{2h}```]
+a
+[```\frac{\partial f}{\partial x}\approx \frac{f(x,y+h)-f(x,y-h)}{2h}.```]
+Stačí tedy vzorce adaptovana na naše proměnné, najít požadované hodnoty v tabulce a tyto hodnoty použít.
 
 * Derivace podle rychlosti: ([$cal[$wInd1]->[$sInd1+1]]-[$cal[$wInd1]->[$sInd1-1]])/2;
 * Derivace podle hmotnosti: ([$cal[$wInd1+1]->[$sInd1]]-[$cal[$wInd1-1]->[$sInd1]])/40;
-
    
 END_PGML_SOLUTION
 

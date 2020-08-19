@@ -12,11 +12,22 @@ TEXT(beginproblem());
 
 
 $radio = RadioButtons(
-["Záporná, protože lék se odbourává a jeho množství s časem klesá.","Kladná, protože čas nemůže klesat","Kladná, protože při větší dávce léku je v těle větší koncentrace léku.","Pro malou dávku záporná, pro velkou dávku kladná, protože při použití derivace součinu dostaneme funkci měníci znaménko.","Nulová, protože po podání počáteční dávky se další lék nepodává.","Pro malou dávku kladná a pro velkou dávku záporná, protože od jisté koncentrace je lék již nebezpečný"],
+["Záporná, protože lék se odbourává a jeho množství s časem klesá.",
+"Kladná, protože čas nemůže klesat",
+"Kladná, protože při větší dávce léku je v těle větší koncentrace léku.",
+"Pro malou dávku záporná, pro velkou dávku kladná, protože při použití derivace součinu dostaneme funkci měníci znaménko.",
+"Nulová, protože po podání počáteční dávky se další lék nepodává.",
+"Pro malou dávku kladná a pro velkou dávku záporná, protože od jisté koncentrace je lék již nebezpečný"],
 0);  # První odpověď správná
 
 $radio2 = RadioButtons(
-["Záporná, protože lék se odbourává a jeho množství s časem klesá.","Kladná, protože čas nemůže klesat","Kladná, protože při větší dávce léku je v těle větší koncentrace léku.","Pro malou dávku záporná, pro velkou dávku kladná, protože při použití derivace součinu dostaneme funkci měníci znaménko.","Nulová, protože po podání počáteční dávky se další lék nepodává.","Pro malou dávku kladná a pro velkou dávku záporná, protože od jisté koncentrace je lék již nebezpečný"],
+[
+"Záporná, protože lék se odbourává a jeho množství s časem klesá.",
+"Kladná, protože čas nemůže klesat",
+"Kladná, protože při větší dávce léku je v těle větší koncentrace léku.",
+"Pro malou dávku záporná, pro velkou dávku kladná, protože při použití derivace součinu dostaneme funkci měníci znaménko.",
+"Nulová, protože po podání počáteční dávky se další lék nepodává.",
+"Pro malou dávku kladná a pro velkou dávku záporná, protože od jisté koncentrace je lék již nebezpečný"],
 2);  
 
 BEGIN_PGML

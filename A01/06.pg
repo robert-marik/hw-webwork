@@ -55,7 +55,13 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 
-[```\frac{\partial^2 f}{\partial x \partial y} =[$ddfxy]```]
+První derivace jsou
+[```\frac{\partial f}{\partial x} =[$dfx]```]
+a
+[```\frac{\partial f}{\partial y} =[$dfy].```]
+
+Smíšená derivace je
+[```\frac{\partial^2 f}{\partial x \partial y} =[$ddfxy].```]
 
 
 END_PGML_SOLUTION
