@@ -59,11 +59,11 @@ BEGIN_PGML
 
 Obecná rovnice kontinuity
 [``` \frac{\partial u}{\partial t} = -\nabla\cdot(\vec F) + \sigma```]
-se ve stacionárním případě, kdy se v čase nemění množství stavové veličiny přenášené tokem (pokud nevíte o čem se mluví, přečtěte si přednášku a zkoukněte video o divergenci a rovnici kontinuity) redukuje na
+se ve stacionárním případě, kdy se v čase nemění množství stavové veličiny přenášené tokem redukuje na
 [``` 0 = -\nabla\cdot(\vec F) + \sigma```]
 tj.
 [``` \nabla\cdot(\vec F) = \sigma.```]
-Divergence je tedy přimo rovna hustotě zdrojů. 
+Divergence je tedy přimo rovna hustotě zdrojů. (Pokud nevíte o čem se mluví, přečtěte si přednášku a zkoukněte video o divergenci a rovnici kontinuity.)
 
 Divergence nám udává, zda tok v daném místě zesiluje či zeslabuje. U kladné divergence tok zesiluje (pokud je proudění stacionární, je v tomto místě zdroj) a u záporné divergence tok slábne (pokud je proudění stacionární, je v tomto místě spotřebič). Je-li divergence nulová, tok ani nezesiluje ani neslábne a pole je v tomto bodě nezřídlové (anglicky také _incompressible_, tj. nestlačitelné).
 
