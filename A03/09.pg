@@ -15,8 +15,8 @@ $showHint = 1;
 #####################################
 #  Setup
 
-$s = random(0.01, 0.10, 0.01);
-$flux = random(-0.050, 0.050, 0.005);
+$s = random(1, 10,1)/100;
+$flux = random(-50, 50, 5)/1000;
 @P = (non_zero_random(-5,5,1),non_zero_random(-5,5,1),non_zero_random(-5,5,1));
 
 $div = Real("$flux / ($s**3)");
