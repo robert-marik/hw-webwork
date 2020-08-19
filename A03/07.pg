@@ -43,12 +43,12 @@ if ($divergenceBod > 0)
 if ($divergenceBod < 0)
 {$ans=1; $longans="Divergence v bodě je záporná. V daném místě je spotřebič stavové veličiny."; }
 if ($divergenceBod < 0)
-{$ans=2; $longans="Divergence v bodě je nulová. V daném místě není ani zdroj ani spotřebič.."; }
+{$ans=2; $longans="Divergence v bodě je nulová. V daném místě není ani zdroj ani spotřebič."; }
 
 $radio = RadioButtons(
 ["V daném místě je zdroj stavové veličiny.",
 "V daném místě je spotřebič stavové veličiny.",
-"V daném místě se veličina zachovává, není zde ani zdroj ani spotřebič.."
+"V daném místě se veličina zachovává, není zde ani zdroj ani spotřebič."
 ],
 $ans); 
 
@@ -83,7 +83,7 @@ což znamená, že v daném místě je zdroj o vydatnosti 6 jednotek.
 
 ---------------
 
-Vypočtěte divergenci vektorového pole [``` \vec F(x,y)=[$P]\vec i +\left([$Q]\right)\vec j```] v bodě [``(x_0,y_0)=([$x0],[$y0])] a rozhodněte, zda tok vektorového pole v tomto bodě zesiluje, zeslabuje, nebo zda je pole nezřídlové.
+Vypočtěte divergenci vektorového pole [``` \vec F(x,y)=[$P]\vec i +\left([$Q]\right)\vec j```] v bodě [``(x_0,y_0)=([$x0],[$y0])``] a rozhodněte, zda tok vektorového pole v tomto bodě zesiluje, zeslabuje, nebo zda je pole nezřídlové.
 
 >>[``\nabla \cdot \vec F(x,y)={}``][____________________________________]{$divergence}<<
 
