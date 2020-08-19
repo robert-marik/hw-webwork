@@ -18,12 +18,26 @@ do  { $l=random(3,7,1); } until ($l != $k);
 do  { $m=random(3,9,1); } until (($m != $k) and ($m != $k));
 
 Context("Numeric")->variables->add(y=>"Real", a=>"Real");
-	
+
+$n=random(0,1);
+
+if ($n==0)
+{
+$soucin="y";
+
 $funkce=Formula("$b*x^$k*y^$l*e^(-a*y)")->reduce();
-
 $dfx=Formula("$b*$k*x^($k-1)*y^$l*e^(-a*y)")->reduce();
-$dfy=Formula("$b*$k*x^($k-1)*($l*y^($l-1)+(-a)*y^$l)*e^(-a*y)")->reduce();
+$dfy=Formula("$b*x^($k)*($l*y^($l-1)+(-a)*y^$l)*e^(-a*y)")->reduce();
+}
+else
+{
+$soucin="x";
 
+$funkce=Formula("$b*x^$k*y^$l*e^(-a*x)")->reduce();
+$dfx=Formula(" $b*x^($k-1)*y^$l*($k-a*x)*e^(-a*x)")->reduce();
+$dfy=Formula("$b*x^$k*$l*y^($l-1)*e^(-a*x)")->reduce();
+
+}
 
 BEGIN_PGML
 
@@ -44,12 +58,15 @@ END_PGML
 BEGIN_PGML_HINT
 
 Derivujte jako v předchozích příkladech: proměnné, podle kterých se nederivuje, se chovají jako konstanty.
-Při derivaci podle [`y`] nezapomeňte vzorec na derivaci součinu.
+Při derivaci podle [`[$soucin]`] nezapomeňte vzorec na derivaci součinu.
 
 END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
+
+Derivujeme podle běžných pravidel a proměnné, podle kterých se nederivuje, se chovají jako konstanty.
+Při derivaci podle [`[$soucin]`] používáme vzorec na derivaci součinu a poté vytkneme opakující se členy.
 
 [``` \frac{\partial f}{\partial x}= [$dfx] ```]							   
 [``` \frac{\partial f}{\partial y}= [$dfy] ```]							   
