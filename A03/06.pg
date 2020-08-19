@@ -36,12 +36,12 @@ $divergence = Formula("$dP+$dQ")->reduce;
 #$divergenceBod = Formula("$dPBod+$dQBod")->reduce;
 $divergenceBod=$k*$x0**($k-1)*$y0+$l*$x0*$y0**($l-1)+$m*$c*$y0**($c-1);
 
+$ans=2; $longans="Divergence v bodě je nulová. Vektorové pole v je daném místě nezřídlové."; 
 if ($divergenceBod > 0)
 {$ans=0; $longans="Divergence v bodě je kladná. Tok vektorového pole v daném místě zesiluje."; }
 if ($divergenceBod < 0)
 {$ans=1; $longans="Divergence v bodě je záporná. Tok vektorového pole v daném místě slábne."; }
-if ($divergenceBod < 0)
-{$ans=2; $longans="Divergence v bodě je nulová. Vektorové pole v je daném místě nezřídlové."; }
+
 
 $radio = RadioButtons(
 ["Tok vektorového pole v daném místě zesiluje.",
