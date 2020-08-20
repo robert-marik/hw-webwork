@@ -12,55 +12,89 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-$b=random(2,10,1);
-$c=non_zero_random(2,7,1);
+$b=random(-10,10,1);
+$c=non_zero_random(-5,7,1);
 $k=random(2,4,1);
 do  { $l=random(2,6,1); } until ($l != $k);
 #do  { $m=random(3,9,1); } until (($m != $k) and ($m != $k));
 $m=non_zero_random(-9,9,1);
+$hrana=random(2,9,1)/10;
 
 Context("Numeric")->variables->add(y=>"Real");
 	
-$P=Formula("x^$k*y")->reduce();
-$dP=Formula("$k*x^($k-1)*y")->reduce();
+$P=Formula("$m*x^$k*y+x")->reduce();
+$dP=Formula("$m*$k*x^($k-1)*y")->reduce();
 
-$Q=Formula("x*y^$l+$m*y^$c")->reduce();
-$dQ=Formula("$l*x*y^($l-1)+$m*$c*y^($c-1)")->reduce();
+$Q=Formula("$c*x^$k*y^$l+($m-3)")->reduce();
+$dQ=Formula("$c*$l*x^($k)*y^($l-1)")->reduce();
+
+
+$x0=random(-4,4);
+$y0=random(-4,4);
 
 $divergence = Formula("$dP+$dQ")->reduce;
+$divergenceBod = $divergence->eval(x=>$x0,y=>$y0);
+
+$objem = Real("($hrana)^3");
+$tok = $divergenceBod*$objem;
+
 
 BEGIN_PGML
 
 ## Odhad úbytku nebo přírůstku stavové veličiny podle divergence toku
 
-[@ image("bogota.jpg", width=>400) @]*
+[@ image("reka.jpg", width=>400) @]*
 
-Předpokládejme, že máme zmapovaný tok stavové veličiny pomocí
-vektorového pole. Zajímá nás, zda se veličina přenášená tokem kumuluje nebo (v případě stacionárního stavu) zda vzniká či zanika. 
+Předpokládejme, že máme zmapovaný tok stavové veličiny pomocí vektorového pole. Zajímá nás, zda se veličina přenášená tokem kumuluje nebo (v případě stacionárního stavu) zda vzniká či zanika. 
 
-Například u stacionárního proudění tekutiny známe v každém bodě rychlost proudění a zajímá nás, zda voda prosakuje a kterým směrem. (Toto prosakování z hlediska celkové bilance vody v proudu značí přítomnost zdrojů či spotřebičů.) 
+Například u stacionárního proudění tekutiny známe v každém bodě rychlost proudění a zajímá nás, zda voda prosakuje a kterým směrem. (Toto prosakování je z hlediska celkové bilance vody v proudu vznik nebo zánik a značí přítomnost zdrojů či spotřebičů.) 
 
-To je aplikace přímo jako stvořená pro operátor divergence. Divergence udává změnu v toku jednotkovým objemem a pokud divergenci v bodě vynásobíme objemem, dostaneme odhad pro celkové množství stavové veličiny, které za jenodtku času v daném objemu vznikne či zanikne.  U vody například kolik vody prosákne do toku nebo z toku ven.
+Toto je aplikace přímo jako stvořená pro operátor divergence. Divergence udává změnu v toku jednotkovým objemem a pokud divergenci v bodě vynásobíme objemem, dostaneme odhad pro celkové množství stavové veličiny, které za jenodtku času v daném objemu vznikne či zanikne.  U vody například kolik vody prosákne do toku nebo z toku ven.
 
 -------------------------
 
-Vypočtěte množství stavové veličiny, která vzniká při stacionárním proudění popsaném vektorovým polem [``` \vec F(x,y)=[$P]\vec i +\left([$Q]\right)\vec j.```]
+Vypočtěte množství stavové veličiny, která vzniká při stacionárním proudění popsaném vektorovým polem [``` \vec F(x,y)=([$P])\vec i +\left([$Q]\right)\vec j```] v krychli o hraně délky [$hrana] se středem v bodě.
 
+Vypočtěte nejprve divergenci obecně.
 >>[``\nabla \cdot \vec F(x,y)={}``][____________________________________]{$divergence}<<
+
+Poté vypočtěte nejprve divergenci v bodě [`([$x0],[$y0])`].
+>>[``\nabla \cdot \vec F([$x0],[$y0])={}``][____________________________________]{$divergenceBod}<<
+
+Poté vypočtěte objem krychle o hraně délky [`[$hrana]`].
+>>[``V={}``][____________________________________]{$objem}<<
+
+Nakonec vypočtěte celkový tok jako součin objemu a divergence v bodě  [`([$x0],[$y0])`].
+>>[``V \cdot (\nabla \cdot \vec F([$x0],[$y0]))={}``][____________________________________]{$tok}<<
+
+
 
 END_PGML
 
 BEGIN_PGML_HINT
-Pozorně počítejte derivace. Například derivace první komponenty podle [`x`] je [``` \frac{\partial }{\partial x}([$P])=[$dP]. ```]
+
+Komponenty vektorového pole jsou
+[``` P=[$P]\qquad Q=[$Q].```]
+Pozorně počítejte derivace.
+
+Derivace první komponenty podle [`x`] je [``` \frac{\partial }{\partial x}(P)=\frac{\partial }{\partial x}([$P])=[$dP] ```]
 a toto je možné zapsat jako [$dP] .
+
+Derivace druhé komponenty podle [`y`] je [``` \frac{\partial }{\partial y}(Q)=\frac{\partial }{\partial y}([$Q])=[$dQ] ```]
+a toto je možné zapsat jako [$dQ] .
+
+Dále již postupujte podle instrukcí před každým políčkem.
 END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
 
+Komponenty vektorového pole jsou
+[``` P=[$P]\qquad Q=[$Q].```]
+
 Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu a přepis do elegantnějšího tvaru. 
 
-[``` P=[$P]\qquad Q=[$Q]```]
+
 
 [``` \frac{\partial P}{\partial x}=[$dP] ```]
 
@@ -69,6 +103,15 @@ Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně p
 Součet těchto parciálních derivací je divergence.
 
 [``` \nabla \cdot F(x,y)=[$divergence]```]
+
+Dosazením [`x=[$x0]`] a [`y=[$y0]`] dostaneme divergenci v bodě [`([$x0],[$y0])`].
+
+[``` \nabla \cdot F([$x0],[$y0])=[$divergenceBod]```]
+
+Objem vypočteme jako třetí mocninu délky hrany a součin objemu a divergence v bodě je celkový tok
+[```([$divergenceBod]) ([$hrana])^3=[$tok]```]
+
+
 
 END_PGML_SOLUTION
 
