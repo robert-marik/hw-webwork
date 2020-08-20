@@ -28,8 +28,8 @@ $x0=random(-2,2);
 $y0=random(-2,2);
 
 $funkce=Formula("$c-$a*x^2+$k*y+$d*x")->reduce();
-$dfx=Formula("-2*$a*x+$d")->reduce();
-$dfy=Formula("$k*y")->reduce();
+$dfx=$funkce->D(x)->reduce();
+$dfy=$funkce->D(y)->reduce();
 $g1=$dfx->eval(x=>$x0,y=>$y0);
 $g2=$dfy->eval(x=>$x0,y=>$y0);
 
