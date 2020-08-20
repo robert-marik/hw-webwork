@@ -86,7 +86,7 @@ a
 Stačí tedy vzorce adaptovat na na naše proměnné, najít požadované hodnoty v tabulce a tyto hodnoty použít.
 Zjednodušeně: rozdíl dvou hodnot, které jsou okolo hodnoty, v níž počítáme parciální derivace, dělíme odpovídající změnou rychlosti nebo hmotnosti.
 
-Hodnota v tabulce odpovídající [`v=[$spd[$sInd1]]`] a [`m=[$wgt[$wInd1]]`] je [$cal[$wInd1]->[$sInd1]]. Pod ní a nad ní jsou hodnoty pro stejnou rychlost a hmotnost o 20 liber větší a 20 liber menší. Proto rozdíl budeme dělit 40 librami a získáme změnu připadajkící na jednu libru. Tím dostaneme derivaci podle hmotnosti. 
+Hodnota v tabulce odpovídající [`v=[$spd[$sInd1]]`] a [`m=[$wgt[$wInd1]]`] je [`[$cal[$wInd1]->[$sInd1]]`]. Pod ní a nad ní jsou hodnoty pro stejnou rychlost a hmotnost o 20 liber větší a 20 liber menší. Proto rozdíl budeme dělit 40 librami a získáme změnu připadajkící na jednu libru. Tím dostaneme derivaci podle hmotnosti. 
 
 [```\frac{\partial c}{\partial m}(v=[$spd[$sInd1]],m=[$wgt[$wInd1]])=\frac {[$cal[$wInd1+1]->[$sInd1]] -[$cal[$wInd1-1]->[$sInd1]]}{40}```]
 
