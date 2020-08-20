@@ -61,7 +61,7 @@ BEGIN_PGML
 
 Obecná rovnice kontinuity
 [``` \frac{\partial u}{\partial t} = -\nabla\cdot(\vec F) + \sigma```]
-se ve stacionárním případě, kdy se v čase nemění množství stavové veličiny přenášené tokem redukuje na
+se ve stacionárním případě (tj. v případě kdy se v čase nemění množství stavové veličiny přenášené tokem) redukuje na
 [``` 0 = -\nabla\cdot(\vec F) + \sigma```]
 tj.
 [``` \nabla\cdot(\vec F) = \sigma.```]
