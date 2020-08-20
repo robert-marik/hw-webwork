@@ -57,6 +57,8 @@ BEGIN_PGML
 
 ## Stacionání rovnice kontinuity
 
+[@ image("gejzir.jpg", width=>400) @]*
+
 Obecná rovnice kontinuity
 [``` \frac{\partial u}{\partial t} = -\nabla\cdot(\vec F) + \sigma```]
 se ve stacionárním případě, kdy se v čase nemění množství stavové veličiny přenášené tokem redukuje na
@@ -65,25 +67,27 @@ tj.
 [``` \nabla\cdot(\vec F) = \sigma.```]
 Divergence je tedy přimo rovna hustotě zdrojů. (Pokud nevíte o čem se mluví, přečtěte si přednášku a zkoukněte video o divergenci a rovnici kontinuity.)
 
-Divergence nám udává, zda tok v daném místě zesiluje či zeslabuje. U kladné divergence tok zesiluje (pokud je proudění stacionární, je v tomto místě zdroj) a u záporné divergence tok slábne (pokud je proudění stacionární, je v tomto místě spotřebič). Je-li divergence nulová, tok ani nezesiluje ani neslábne a pole je v tomto bodě nezřídlové (anglicky také _incompressible_, tj. nestlačitelné).
+Divergence nám udává, zda tok v daném místě zesiluje či zeslabuje. U kladné divergence tok zesiluje (pokud je proudění stacionární, je v tomto místě zdroj) a u záporné divergence tok slábne (pokud je proudění stacionární, je v tomto místě spotřebič). Je-li divergence nulová, tok ani nezesiluje ani neslábne a pole je v tomto bodě nezřídlové (anglicky také _incompressible_, tj. nestlačitelné). Pojem "nezřídlový" vyplývá z toho, že zdroje umístěné uvnitř toku si představujeme jako zřídla.
+
+Připomeňme ještě, že spotřebiče jsou zdroje se zápornou vydatností.
 
 -------------------------
 
-Například pro vektorové pole
+Například pro stacionární proudění popsané vektorovým polem
 [``` \vec F(x,y)=x^2y\vec i + (x+y^2)\vec j ```]
-jsou parciální derivace 
+máme parciální derivace vektorového pole
 [``` \frac{\partial }{\partial x}(x^2y)=2xy```]
 a
-[``` \frac{\partial }{\partial y}(x+y^2)=2y```]
-a divergence je
+[``` \frac{\partial }{\partial y}(x+y^2)=2y.```]
+Divergence vektorového pole je
 [``` \nabla \cdot \vec F (x,y)=2xy+2y=2y(x+1).```]
 Divergence v bodě [`` (x_0,y_0)=(2,1)``] je
 [``` \nabla \cdot \vec F (2,1)=2\cdot 1 \cdot (2+1)=6,```]
-což znamená, že v daném místě je zdroj o vydatnosti 6 jednotek.
+což znamená, že v daném místě je zdroj (kladná divergence u stacionárního proudění) o vydatnosti 6 jednotek.
 
 ---------------
 
-Vypočtěte divergenci vektorového pole [``` \vec F(x,y)=[$P]\vec i +\left([$Q]\right)\vec j```] v bodě [``(x_0,y_0)=([$x0],[$y0])``] a rozhodněte, zda tok vektorového pole v tomto bodě zesiluje, zeslabuje, nebo zda je pole nezřídlové.
+Stacionární proudění je popsané vektorovým polem [``` \vec F(x,y)=[$P]\vec i +\left([$Q]\right)\vec j```]. Rozhodněte, zda je v bodě [``(x_0,y_0)=([$x0],[$y0])``] zdroj nebo spotřebič. Jako podklad pro rozhodnutí nejprve vypočtěte divergenci vektorového pole a divergenci v uvažovaném bodě.
 
 >>[``\nabla \cdot \vec F(x,y)={}``][____________________________________]{$divergence}<<
 
