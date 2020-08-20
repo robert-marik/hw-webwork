@@ -37,7 +37,18 @@ Teplo se předává z míst o vyšší teplotě do míst o nižší teplotě. Sm
 
 -------------------
 
-Teplota v místě [`(x,y)`] dvourozměrné desky je dána vztahem [``` T(x,y)=[$funkce].```] Určete její gradient. Zápis vektoru je stejný jako v úvodních příkladech této série. 
+
+Teplota v místě [`(x,y)`] dvourozměrné desky je dána vztahem [``` T(x,y)=(x+5y^2)^3.```] Určíme její gradient.
+Pomocí derivace složené funkce máme
+[``` \frac{\partial T}{\partial x}=3(x+5y^2)^2```]
+a
+[``` \frac{\partial T}{\partial y}=3(x+5y^2)^2\cdot 5\cdot 2y=30y (x+5y^2)^2.```]
+Gradient se vektor sestavený z těchto derivací. Protože se však velká část derivace opakkuje, můžeme elegantně gradient zapsat jako součin skaláru a vektoru následovně.  [``` \nabla T=3(x+5y^2)^2\vec i + 30y (x+5y^2)^2 \vec j=(x+5y^2)^2 (3 \vec i + 30y \vec j)```]
+Tento výsledek je možno zapsat jako *(x+5y^2)^2 (3i + 30 y j)* nebo *(x+5y^2)^2 <3,30y>*.
+
+
+-------------------
+Zkusíme příklad podobný řešenému příkladu. Teplota v místě [`(x,y)`] dvourozměrné desky je dána vztahem [``` T(x,y)=[$funkce].```] Určete její gradient. Zápis vektoru je stejný jako v úvodních příkladech této série. 
 
 >>[``\nabla T(x,y)={}``][____________________________________]{$gradient}<<
 
