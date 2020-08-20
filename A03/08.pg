@@ -156,7 +156,7 @@ foreach my $i (0..2) {
 BEGIN_PGML
 ## Divergence odhadnutá podle obrázku
 
-Divergenci ustáleného proudění můžeme odhadnout i podle obrázku znázorňujícího vektorové pole. Pokud máme zadaný bod, můžeme si okolo něj myslet malý reprezentativní element s jednoduchou hranicí, například kroužek, čtvereček nebo u radiálního pole výřez jehož hranici tvoří dvě soustředné kružnice a dva paprsky směrem do středu. Poté sledujeme množství toku vstupujícího dovnitř a vystupujícího ven.
+Divergenci ustáleného proudění můžeme odhadnout i podle obrázku znázorňujícího vektorové pole. Pokud máme zadaný bod, můžeme si okolo něj myslet malý reprezentativní element s jednoduchou hranicí, například kroužek, čtvereček nebo u radiálního pole výsek z mezikruží, kdy hranici tvoří dvě soustředné kružnice a dva paprsky směrem do středu. Poté sledujeme množství toku vstupujícího dovnitř a vystupujícího ven.
 
 * Delší šipky představují více toku na jednotkovou délku.
 * Delší hranice znamená více toku.
@@ -165,7 +165,7 @@ Divergenci ustáleného proudění můžeme odhadnout i podle obrázku znázorň
 END_PGML
 
 BEGIN_TEXT
-U každého vektorového pole odhadněte, zda je divergence tohoto vektorového pole v modrém bodě \(P\) kladná, záporná nebo nulová.  U toku vodorovným nebo svislým směrem je rozhodnutí snadné. U toku do středu nebo ze středu se řiďte tím, že velikost pole se mění rychle a proto jsou rozhodující délky vektorů a nikoliv délka hranice.
+U každého vektorového pole odhadněte, zda je divergence tohoto vektorového pole v modrém bodě \(P\) kladná, záporná nebo nulová.  U toku vodorovným nebo svislým směrem je rozhodnutí nejjednodušší při posuzování toku přes čtvereček se stranami podél os. U toku do středu nebo ze středu se řiďte vhodným výsekem z mezikruží nebo si okolo bodu našeho zájmu představte kruh.
 $BR
 $BR
 $BCENTER
