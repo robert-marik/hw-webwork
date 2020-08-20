@@ -36,7 +36,7 @@ Tento příklad je analogický příkladu předchozímu, ale gradient i funkčn�
 
 ------------------
 
-Najděte lienární aproximaci funkce [``` f(x,y)=[$funkce]```] v okolí bodu [`([$x0],[$y0])`].
+Najděte lineární aproximaci funkce [``` f(x,y)=[$funkce]```] v okolí bodu [`([$x0],[$y0])`].
 
 >>[`` f(x,y)\approx{}``][____________________________________]{$aproximace} v okolí bodu [`([$x0],[$y0])`]<<
 
