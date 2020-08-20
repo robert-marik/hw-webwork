@@ -45,11 +45,11 @@ BEGIN_PGML
 
 [@ image("reka.jpg", width=>400) @]*
 
-Předpokládejme, že máme zmapovaný tok stavové veličiny pomocí vektorového pole. Zajímá nás, zda se veličina přenášená tokem kumuluje nebo (v případě stacionárního stavu) zda vzniká či zanika. 
+Předpokládejme, že máme zmapovaný tok stavové veličiny pomocí vektorového pole. Zajímá nás, zda se veličina přenášená tokem kumuluje nebo (v případě stacionárního stavu) zda vzniká či zaniká. 
 
 Například u stacionárního proudění tekutiny známe v každém bodě rychlost proudění a zajímá nás, zda voda prosakuje a kterým směrem. (Toto prosakování je z hlediska celkové bilance vody v proudu vznik nebo zánik a značí přítomnost zdrojů či spotřebičů.) 
 
-Toto je aplikace přímo jako stvořená pro operátor divergence. Divergence udává změnu v toku jednotkovým objemem a pokud divergenci v bodě vynásobíme objemem, dostaneme odhad pro celkové množství stavové veličiny, které za jenodtku času v daném objemu vznikne či zanikne.  U vody například kolik vody prosákne do toku nebo z toku ven.
+Toto je aplikace přímo jako stvořená pro operátor divergence. Divergence udává změnu v toku jednotkovým objemem a pokud divergenci v bodě vynásobíme objemem, dostaneme odhad pro celkové množství stavové veličiny, které za jednotku času v daném objemu vznikne či zanikne.  U vody například kolik vody prosákne do toku nebo z toku ven.
 
 -------------------------
 
