@@ -15,6 +15,8 @@ $showHint = 1;
 
 $c=non_zero_random(140,280,1);
 $k=non_zero_random(-4,4,1);
+$d=non_zero_random(-6,6,1);
+$a=non_zero_random(-6,6,1);
 
 $a11=2;
 $a22=random(2,4,1);
@@ -23,11 +25,11 @@ $a12=0.1*random(2,4,1);
 Context("Vector");
 
 $y=2;
-$funkce=Formula("$c-x^2+$k*y")->reduce();
-$dfx=Formula("-2x")->reduce();
+$funkce=Formula("$c-$a*x^2+$k*y+$d*x")->reduce();
+$dfx=Formula("-2*$a*x+$d")->reduce();
 $dfy=Formula("$k*y")->reduce();
-$g1=-2;
-$g2=$k*$y;
+$g1=$dfx->evaluate(x=>$x0,y=>$y0);
+$g2=$dfy->evaluate(x=>$x0,y=>$y0);
 
 
 $gradient = Vector("<$g1, $g2>");
@@ -43,11 +45,12 @@ Pro převod gradientu teploty na tok tepla je nutno tento gradient vynásobit mi
 
 -------------------
 
-Teplota v místě [`(x,y)`] dvourozměrné desky je dána vztahem [``` T(x,y)=[$funkce].```] Určete gradient teploty v bodě [`(1,2)`] a tok v tomto bodě, je-li známo, že koeficient tepelné vodivosti je
-[``` \lambda = \begin{pmatrix}[$a11]&[$a12]\\ [$a12] & [$a22]\end{pmatrix}.```]
+Teplota v místě [`(x,y)`] dvourozměrné desky je dána vztahem [``` T(x,y)=[$funkce].```] Určete gradient teploty v bodě [`([$x0],[$y0])`].
 
 >>[``\nabla T(1,2)={}``][____________________________________]{$gradient}<<
 
+Dále je známo, že  koeficient tepelné vodivosti je [``` \lambda = \begin{pmatrix}[$a11]&[$a12]\\ [$a12] & [$a22]\end{pmatrix}.```] Určete tok tepla v bodě
+[`([$x0],[$y0])`].
 >>[``\vec q=-\lambda \nabla T(1,2)={}``][____________________________________]{$tok}<<
 
 Vektory zapisujte stejně jako v úvodních příkladech této série, tj. do ostrých závorek nebo pomocí ij-notace.
@@ -75,8 +78,8 @@ Vektor sestavený z těchto parciálních derivací je gradient.
 
 [``` \nabla T=\begin{pmatrix}[$dfx]\\[$dfy]\end{pmatrix}.```]
 
-V bodě [`(1,2)`] dostáváme
-[``` \nabla T(1,2)= \begin{pmatrix} [$g1]\\ [$g2] \end{pmatrix}```]
+V bodě [`([$x0],[$y0])`]. dostáváme
+[``` \nabla T([$x0],[$y0])= \begin{pmatrix} [$g1]\\ [$g2] \end{pmatrix}```]
 a po maticovém násobení
 [``` \vec q(1,2)=-\lambda \nabla T(1,2)=
 -([$g1]) \begin{pmatrix} [$a11]\\ [$a12] \end{pmatrix}
