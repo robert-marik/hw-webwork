@@ -62,6 +62,7 @@ a
 [``` \frac{\partial P}{\partial y}=[$dPy]. ```]
 Toto je možné zapsat jako [$dPx] a [$dPy] a tyto hodnoty patří do prvního řádku matice.
 
+Podobně vypočtěte derivace do druhého řádku matice jako derivace druhé komponenty vektorového pole.
 (Uvedené derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu.)
 END_PGML_HINT
 
@@ -70,23 +71,23 @@ BEGIN_PGML_SOLUTION
 Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu.
 
 Derivace první komponenty
-[``` P=[$P]```]
+[``` P(x,y)=[$P]```]
 jsou
 [``` \frac{\partial P}{\partial x}=[$dPx] ```]
 a
 [``` \frac{\partial P}{\partial y}=[$dPy]. ```]
 
 Derivace druhé komponenty
-[``` Q=[$Q]```]
+[``` Q(x,y)=[$Q]```]
 jsou
 [``` \frac{\partial Q}{\partial x}=[$dQx] ```]
 a
-[``` \frac{\partial Q}{\partial y}=[$dPQy]. ```]
+[``` \frac{\partial Q}{\partial y}=[$dQy]. ```]
 
 
 
 
-[``` J=
+[``` J(x,y)=
 \begin{pmatrix}\frac{\partial P}{\partial x}&\frac{\partial P}{\partial y}\\\frac{\partial Q}{\partial x}&\frac{\partial Q}{\partial y}\end{pmatrix}
 =
 \begin{pmatrix}[$dPx]&[$dPy]\\[$dQx]&[$dQy]\end{pmatrix}```]
