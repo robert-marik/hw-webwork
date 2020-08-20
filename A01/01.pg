@@ -41,10 +41,16 @@ Vypočtěte obě parciální derivace funkce [``` f(x,y)=[$funkce].```]
 END_PGML
 
 BEGIN_PGML_HINT
-Při derivování podle [`x`] se funkce chová jako mocnina s exponentem [`[$k]`], vynásobená konstantou [`[$m] y^[$l]`]. Analogicky nahlížejte na derivování podle [`y`].
+Při derivování podle [`x`] se funkce chová jako mocnina s exponentem [`[$k]`], vynásobená konstantou [`[$m] y^[$l]`].
+
+Při derivování podle [`y`] se funkce chová jako mocnina s exponentem [`[$l]`], vynásobená konstantou [`[$m] x^[$k]`].
+
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
+Při derivování podle [`x`] se funkce chová jako mocnina s exponentem [`[$k]`], vynásobená konstantou [`[$m] y^[$l]`].
+
+Při derivování podle [`y`] se funkce chová jako mocnina s exponentem [`[$l]`], vynásobená konstantou [`[$m] x^[$k]`].
 
 Derivace jsou vygenerované automatem a je možné, že se dají zapsat v ekvivalentním elegantnějším a kratším tvaru.
 
