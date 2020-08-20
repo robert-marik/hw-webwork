@@ -24,7 +24,9 @@ $a12=0.1*random(2,4,1);
 
 Context("Vector");
 
-$y=2;
+$x0=random(-2,2);
+$y0=random(-2,2);
+
 $funkce=Formula("$c-$a*x^2+$k*y+$d*x")->reduce();
 $dfx=Formula("-2*$a*x+$d")->reduce();
 $dfy=Formula("$k*y")->reduce();
