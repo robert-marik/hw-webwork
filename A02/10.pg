@@ -28,8 +28,8 @@ $y=2;
 $funkce=Formula("$c-$a*x^2+$k*y+$d*x")->reduce();
 $dfx=Formula("-2*$a*x+$d")->reduce();
 $dfy=Formula("$k*y")->reduce();
-$g1=$dfx->evaluate(x=>$x0,y=>$y0);
-$g2=$dfy->evaluate(x=>$x0,y=>$y0);
+$g1=$dfx->eval(x=>$x0,y=>$y0);
+$g2=$dfy->eval(x=>$x0,y=>$y0);
 
 
 $gradient = Vector("<$g1, $g2>");
