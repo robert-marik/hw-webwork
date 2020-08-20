@@ -43,7 +43,7 @@ Pomocí derivace složené funkce máme
 [``` \frac{\partial T}{\partial x}=3(x+5y^2)^2```]
 a
 [``` \frac{\partial T}{\partial y}=3(x+5y^2)^2\cdot 5\cdot 2y=30y (x+5y^2)^2.```]
-Gradient se vektor sestavený z těchto derivací. Protože se však velká část derivace opakkuje, můžeme elegantně gradient zapsat jako součin skaláru a vektoru následovně.  [``` \nabla T=3(x+5y^2)^2\vec i + 30y (x+5y^2)^2 \vec j=(x+5y^2)^2 (3 \vec i + 30y \vec j)```]
+Gradient se vektor sestavený z těchto derivací. Protože se však velká část derivace opakkuje, můžeme elegantně gradient zapsat jako součin skaláru a vektoru následovně.  [``` \nabla T=3(x+5y^2)^2\vec i + 30y (x+5y^2)^2 \vec j=3(x+5y^2)^2 ( \vec i + 10y \vec j)```]
 Tento výsledek je možno zapsat jako *3(x+5y^2)^2 (i + 10 y j)* nebo *3(x+5y^2)^2 <1,10y>*.
 
 
