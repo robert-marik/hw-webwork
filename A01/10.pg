@@ -22,7 +22,7 @@ $ml = new_match_list();
 $ml->qa(
 "Změna teploty způsobená tím, že se Slunce pohybuje na obloze a tím, že přichází studená fronta.",
 "\( \displaystyle \frac{\partial H}{\partial t} \) $BR",
-"Společný vliv studené fonty a posunu bizona východo-západním směrem.",
+"Společný vliv závislosti teploty na zeměpisné délce a posunu bizona východo-západním směrem.",
 "\( \displaystyle \frac{\partial H}{\partial x} \frac{\partial x}{\partial t} \) $BR",
 "Společný vliv závislosti teploty na zeměpisné šířce a pohybu bizona severo-jižním směrem.",
 "\( \displaystyle \frac{\partial H}{\partial y} \frac{\partial y}{\partial t} \) $BR",
@@ -52,7 +52,7 @@ Jedno ráno studujeme bizona na prérii.  Jeho pohyb je popsán prostorovými so
 
 Osa \(y\) míří na sever a směrem na sever je vždy nižší teplota. Kromě toho z východu přichází studená fonta a proto se teplota mění i východo-západním směrem.
 
-Teplotu vzduchu v místě kde je bizon  označíme \(H\). Tato teplota závisí na čase (protože Slunce na obloze stoupá) a na poloze bizona (vlivem teplotních změn severo-jižním a východo-západním směrem). Platí tedy \( H = f(x,y,t) \). Pomocí řetězového pravidla pro derivaci funkce více proměnných je možné vyjádřit rychlost změny teploty podle času, tj. 
+Teplotu vzduchu v místě kde je bizon  označíme \(H\). Tato teplota závisí na čase (protože jednak Slunce na obloze stoupá a jednak přichází studená fronta) a na poloze bizona (vlivem teplotních změn severo-jižním a východo-západním směrem). Platí tedy \( H = f(x,y,t) \). Pomocí řetězového pravidla pro derivaci funkce více proměnných je možné vyjádřit rychlost změny teploty podle času, tj. 
 derivaci \( \mathrm dH / \mathrm dt \), jako součet tří členů:
 $BR
 \[
@@ -77,12 +77,28 @@ indent => 0, separation => 20, valign => "MIDDLE"
 END_TEXT
 
 
+
+
 ##################################################
 #  Answers
 
 #install_problem_grader(~~&std_problem_grader);
 
 ANS(str_cmp($ml->ra_correct_ans) );
+
+
+
+$showHint = 1;
+
+BEGIN_PGML_HINT
+Musíte ke změně každé veličiny přiřadit příslušnou derivaci. Tam, kde se jedná o společné působení dvou efektů je součin dvou derivací. Například rychlost změny teploty, způsobená severojižním pohybem bizona, závisí i na tom, jak rychle se bizon pohybuje, i na tom, jak moc se mění teplota směrem ze severu na jih.
+
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Musíte ke změně každé veličiny přiřadit příslušnou derivaci. Tam, kde se jedná o společné působení dvou efektů je součin dvou derivací. Například rychlost změny teploty, způsobená severojižním pohybem bizona, závisí i na tom, jak rychle se bizon pohybuje, i na tom, jak moc se mění teplota směrem ze severu na jih.
+
+END_PGML_SOLUTION
 
 
 ENDDOCUMENT(); 
