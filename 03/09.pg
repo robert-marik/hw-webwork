@@ -45,12 +45,12 @@ BEGIN_PGML
 ## Newtonova metoda
 
 Newtonova metoda je efektivní nástroj pro hledání nulových bodů funkce, tj. pro řešení rovnice [``` f(x)=0.```] Je založena na lineární aproximaci funkce [`f(x)`] v bodě [`x_n`] (počáteční odhad řešení), tj.  na rovnici [``` f(x)\approx f(x_n)+f'(x_n)(x-x_n).```]
-Pokud najdeme nulovou hodnotu pravé strany, bude tato hodnota novou aproximací přesného řešení rovnice. Označíme ji [`x_{n+1}`] a vztah [``` 0= f(x_n)+f'(x_n)(x_{n+1}-x_n)```] po vyřešení vzhledem k [`x_{n+1}`] vede na iterční vzorec [``` x_{n+1}=x_n-\frac{f(x_n)}{f'(x_{n})}.```]
+Pokud najdeme nulovou hodnotu pravé strany, bude tato hodnota novou aproximací přesného řešení rovnice. Označíme ji [`x_{n+1}`] a vztah [``` 0= f(x_n)+f'(x_n)(x_{n+1}-x_n)```] po vyřešení vzhledem k [`x_{n+1}`] vede na iterační vzorec [``` x_{n+1}=x_n-\frac{f(x_n)}{f'(x_{n})}.```]
 
 --------
 
 Například rovnici [``` x^2=\cos(x) ```] upravíme na [``` x^2-\cos(x)=0```] a pro [``` f(x)=x^2-\cos (x)```] dostáváme [``` f'(x)=2x+\sin(x).```] Iterační vzorec má tvar
-[``` x_{n+1}=x_n-\frac {x_n^2-\cos(x_n)}{2x_n+\sin(x_n)}.```] Podle toho, jakou zvolíme startovací hodnotu, vede tento vzorec ke [@ htmlLink("https://sagecell.sagemath.org/?z=eJwli8EKgCAQRO-C_7BHBSXtFIG_EkS2shcN9bCfn9acHjNvULEOfKz2Km2gFBFnEwlRTTKz4-ClwFKBgDLUM6cblHd6lwJGOGTFdtrL9zYQKVFvYXP6N55KucOYXrixHis=&lang=sage&interacts=eJyLjgUAARUAuQ==","kladnému") @]* nebo [@ htmlLink("https://sagecell.sagemath.org/?z=eJwli8EKgCAQRO-C_7BHBSXtFIG_EkS2shcN9bCfn9acHjNvULEOfKz2Km2gFBFnEwlRTTKz42C9FFgqEFCGeuZ0g_JO71LACIes2E59-e4GIiXqLWxO_8ZTKXcY0wvQph5Y&lang=sage&interacts=eJyLjgUAARUAuQ==","zápornému")@]* řešení uvažované rovnice. Konvergence je navíce velice rychlá, každým provedením se přibližně zdvojnásobí počet desetinných míst, která jsou přesně.
+[``` x_{n+1}=x_n-\frac {x_n^2-\cos(x_n)}{2x_n+\sin(x_n)}.```] Podle toho, jakou zvolíme startovací hodnotu, vede tento vzorec ke [@ htmlLink("https://sagecell.sagemath.org/?z=eJwli8EKgCAQRO-C_7BHBSXtFIG_EkS2shcN9bCfn9acHjNvULEOfKz2Km2gFBFnEwlRTTKz4-ClwFKBgDLUM6cblHd6lwJGOGTFdtrL9zYQKVFvYXP6N55KucOYXrixHis=&lang=sage&interacts=eJyLjgUAARUAuQ==","kladnému") @]* nebo [@ htmlLink("https://sagecell.sagemath.org/?z=eJwli8EKgCAQRO-C_7BHBSXtFIG_EkS2shcN9bCfn9acHjNvULEOfKz2Km2gFBFnEwlRTTKz42C9FFgqEFCGeuZ0g_JO71LACIes2E59-e4GIiXqLWxO_8ZTKXcY0wvQph5Y&lang=sage&interacts=eJyLjgUAARUAuQ==","zápornému")@]* řešení uvažované rovnice. Konvergence je navíc velice rychlá, každým provedením se přibližně zdvojnásobí počet desetinných míst, která jsou přesně.
 
 Hodnotu [`x_n`] zapisujte jako *xn*. Například výše uvedený vzorec je možno zapsat jako *xn- (xn^2-cos(xn))/(2xn+sin(xn))*.
 
@@ -73,7 +73,7 @@ Rovnici upravte tak, že převedeme pravou stranu doleva (nebo naopak). Napřík
 [``` [$funkce]=0.```]
 
 Uvažujte funkci 
-[```f(x)=[$funkce], ```] vypočtěte derivaci a sestavte iterční vzorec.
+[```f(x)=[$funkce], ```] vypočtěte derivaci a sestavte iterační vzorec.
 
 
 END_PGML_HINT

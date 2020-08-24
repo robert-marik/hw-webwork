@@ -36,7 +36,7 @@ s hmotností [`W`] vztahem [``` M = A W^n,```] kde [`n`] je pro mnoho živocišn
 
 Ve cvičení jsme se v příkladě 1.7 pracovali s kopcem soli, kde je díky struktuře soli dán úhel u vrcholu. V důsledku toho (s použitím středoškolské matematiky a trignometrie, nebo s použitím Buckinghamova [`\pi`] teorému a bez počítání`] platí, že existuje konstanta [`k`] taková, že platí [``` V=kh^3.```] V konstantě [`k`] ja jakýmsi způsobem "schován" vrcholový úhel, my však budeme hledat jednodušší interpretaci této konstanty. Pokuste se podobně jako výše stručně naformulovat slovně význam konstanty [`k`].
 
-Výsledné tvrzení musí bnýt odpovědí na úkol. Musí se jednat o českou (slovenskou, v případě potřeby polskou, ruskou nebo anglickou) větu s podmětem a přísudkem, správně utvořenou a snadno pochopitelnou. Odpověď musí být jednodnačná a pokud možno stručná.
+Výsledné tvrzení musí bnýt odpovědí na úkol. Musí se jednat o českou (slovenskou, v případě potřeby polskou, ruskou nebo anglickou) větu s podmětem a přísudkem, správně utvořenou a snadno pochopitelnou. Odpověď musí být jednoznačná a pokud možno stručná.
 
 END_PGML
 
