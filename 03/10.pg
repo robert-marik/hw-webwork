@@ -28,6 +28,8 @@ BEGIN_PGML
 
 [@ image("kopec_soli.jpg", width=>400) @]*
 
+Následující úloha sice nepracuje s derivacemi, ale jedná se o problematikou řešenou v úlohách spjatých s diferenciálním počtem.
+
 Ve cvičení jsme se setkali (a i dále se setkáme) s řadou matematických formulací přírodních jevů, kdy jsou si určité hodnoty úměrné. Slovní význam konstant úměrnosti je vhodné být schopen interpretovat slovně. Zpravidla postupujeme tak, že hodnotám, které figurují u konstanty úměrnosti přidělíme takovou číselnou hodnotu, aby na jedné straně rovnice zůstala jenom konstanta úměrnosti. To znamená například, že tato pokud tato konstanta je něčím násobena, musí být násobena jedničkou. Výsledná veličina je poté rovna konstantě úměrnosti. Například v rovnici [``` y=kx^2```] volíme [``x=1``] a konstantu [`k`] tedy interpretujeme tak, že je číselně rovna hodnotě veličiny [`y`] pro jednotkovou veličinu [`x`]. Několik příkladů následuje.
 
 * U dráhy rovnoměrného pohybu je dráha [`s`] úměrná času [`t`]. Matematicky vyjádřeno platí [``` s=kt,```] kde [`k`] je konstanta úměrnosti. Pro [`t=1`] dostáváme [`s=k`] a _konstanta [`k`] tedy udává dráhu tělesa za jednotku času._ 
@@ -36,9 +38,9 @@ Ve cvičení jsme se setkali (a i dále se setkáme) s řadou matematických for
 s hmotností [`W`] vztahem [``` M = A W^n,```] kde [`n`] je pro mnoho živočišných druhů blízké číslu [`0.75`] a [`A`] je konstanta. Pro [`W=1`] dostáváme [`M=A`]. _Konstanta [`A`] vyadřuje bazální metabolismus jedince o jednotkové hmotnosti._
 * Z [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/derivace_III/#buckingham%C5%AFv-pi-teor%C3%A9m","přednášky") @]* víme, že z Buckinghamova [`\Pi`] teorému vyplývá vztah mezi objemem [`V`] a povrchem [`S`] koule ve tvaru [``` V^2=kS^3.```] Bez jakéhoíkoliv počítání a bez znalosti vzorců pro objem nebo povrch koule. Pro [`S=1`] dostáváme [`V^2=k`] a konstanta úměrnosti [`k`] tedy udává druhou mocninu objemu koule, která má jednotkový povrch.
 
-Všimněte si ještě, že se vyhýbáme použití konkrétních jednotek. Mluvíme o dráze a ne o počtu metrů. Mluvíme o jednotkovém rozdílu teploty a ne o rozdílu jeden stupeň Celsia. To je výhoda, která dělá naše tvrzení univerzální pro libovolnou soustavu jednotek. Tvrzení bude platit i při použití jednotek SI, i při použití britských imperiálních jednotek, i při použití jednotek ad hoc použitých pro řešení jednoho konkrétního problému.
+Všimněte si ještě, že se vyhýbáme použití konkrétních jednotek. Mluvíme o dráze a ne o počtu metrů. Mluvíme o jednotkovém rozdílu teploty a ne o teplotním rozdílu jeden stupeň Celsia. Mluvíme o jednotkové hmotnosti a ne o hmotnosti jeden gram nebo kilogram. To je výhoda, která dělá naše tvrzení univerzální pro libovolnou soustavu jednotek. Tvrzení bude platit i při použití jednotek SI, i při použití britských imperiálních jednotek, i při použití jednotek ad hoc použitých pro řešení jednoho konkrétního problému. Bude se měnit například číslená hodnota konstanty a její jednotky, její slovní interpretace však zůstane stále stejná.
 
-Nyní připomeneme jednu úlohu ze cvičení a budete se snažit podat slovní interpretaci konstanty úměrnosti z této úlohy.
+Nyní v tomto kontextu připomeneme jednu úlohu ze cvičení a budete se snažit podat slovní interpretaci konstanty úměrnosti z této úlohy.
 
 -------
 
