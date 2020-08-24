@@ -22,10 +22,10 @@ $mm=1-$m;
 
 Context("Numeric")->variables->are($var=>'Real','xn'=>'Real');
 Context()->variables->set(xn => {TeX => 'x_n'});
-Context()->flags->set(
-     reduceConstants => 0,
-     reduceConstantFunctions => 0,
-   );
+#Context()->flags->set(
+#     reduceConstants => 0,
+#     reduceConstantFunctions => 0,
+#   );
 
 $f=Formula("$m*cos(x)+$mm*e^x")->reduce();   # funkce
 $g=Formula("$a*x^($n)+$b")->reduce();   # funkce
