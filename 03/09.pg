@@ -33,7 +33,7 @@ $g=Formula("$a*x^($n)+$b")->reduce();   # funkce
 $fxn=Formula("$m*cos(xn)+$mm*e^xn")->reduce();   # funkce
 $gxn=Formula("$a*xn^($n)+$b")->reduce();   # funkce
 
-$funkce=$f=Formula("$m*cos(x)+$mm*e^x-$a*x^($n)-$b")->reduce();   # funkce
+$funkce=Formula("$m*cos(x)+$mm*e^x-$a*x^($n)-$b")->reduce();   # funkce
 $derivacefunkce=$funkce->D('x');
 $funkcexn=($fxn-$gxn);
 $derivacefunkcexn=$funkcexn->D('xn');
