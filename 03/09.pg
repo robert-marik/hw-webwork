@@ -35,7 +35,7 @@ $gxn=Formula("$a*xn^($n)+$b")->reduce();   # funkce
 
 $funkce=Formula("$m*cos(x)+$mm*e^x-$a*x^($n)-$b")->reduce();   # funkce
 $derivacefunkce=$funkce->D('x');
-$funkcexn=($fxn-$gxn);
+$funkcexn=Formula("$m*cos(xn)+$mm*e^xn-$a*xn^($n)-$b")->reduce();   # funkce
 $derivacefunkcexn=$funkcexn->D('xn');
 
 $answer=Formula("xn-$funkcexn/$derivacefunkcexn")->reduce(); 
