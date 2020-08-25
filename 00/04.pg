@@ -35,7 +35,7 @@ Vaším úkolem je tento okazem spusti kód na serveru sagecell.org a tento kód
 
 >>[``\frac{\mathrm d}{\mathrm dx} e^{-a x^2}={}``][__________________]{$f->cmp()->withPostFilter(AnswerHints(Formula("2*a*x*e^(a*x^2)") => "Toto je derivace původní funkce. Nezapomeňte, že máte přidat znaménko minus do exponentu."))}.<<
 
-_Poznámka 1:_ V tomto příkladě je opět pojistka ve formě chybového hlášení, kdybyste zapomněli funkce přednastavenou v programu Sage modifikovat a pokusili se jako odpověď zadat derivaci původné funkce, bez změněného znaménka v exponentu. Můžete si to vyzkoušet buď před nebo i po odeslání správné odpovědi. 
+_Poznámka 1:_ V tomto příkladě je opět pojistka ve formě chybového hlášení, kdybyste zapomněli funkci přednastavenou v programu Sage modifikovat a pokusili se jako odpověď zadat derivaci původní funkce, bez změněného znaménka v exponentu. Můžete si to vyzkoušet buď před nebo i po odeslání správné odpovědi. 
 
 _Poznámka 2:_ Pro pěkné zobrazení funkce a její derivace můžete psát například [@ htmlLink("https://sagecell.sagemath.org/?z=eJxVjsENwjAMRe9I7GCJQ1PEiTurIJnGEVHaOAptCN2BCZihU7SDkQAFerK-_P7TD-hFEQGLEjYgydTosSJw6TTU-g4QnOeGrKX1SolYHig6gdt43C8bqrOmSszlzFeh8q_nk8eerP7-JHkdEpw1UislsnAXS0h0uDmuqIWZ-ZjmuBT-oD_la847QUiD2DfYdnl-kht22nPAXGZwXI_DdDcIF2DpOEwPOQ5P8cleOA==&lang=sage&interacts=eJyLjgUAARUAuQ==","následující") @]*.
 
