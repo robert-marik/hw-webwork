@@ -39,7 +39,7 @@ Tento výsledek se dá zapsat jako *lambda^2-3lambda+5*.
 
 Charakteristický polynom je důležitý, protože jeho kořeny jsou vlastní čísla matice. Například u tenzoru bobtnání dřeva vlivem vlhkosti jsou vlastní čísla hodnoty udávající maximální a minimální bobtnání. Směry, ve kterých toto maximální nebo minimální bobtnání pozorujeme jsou vlastní směry tohoto tenzoru a u dřeva je známe, protože víme, jakým způsobem dřevo bobtná.
 
-Sestavení charakteristického polynomu se procivčíme v tét úloze. Výpočtu vlastních čísel, výpočtu odpovídajících směrů a také porovnání délek obrazů vektorů při zobrazení maticí se budeme věnovat v úlohách následujících.
+Sestavení charakteristického polynomu se procvičíme v této úloze. Výpočtu vlastních čísel, výpočtu odpovídajících směrů a také porovnání délek obrazů vektorů při zobrazení maticí se budeme věnovat v úlohách následujících.
 
 ---------------
 
