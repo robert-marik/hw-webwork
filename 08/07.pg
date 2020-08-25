@@ -63,9 +63,12 @@ Vlastní čísla jsou kořeny charakteristického polynomu. V minulém příklad
 
 Najděte vlastní čísla matice [``` A=\begin{pmatrix} [$a11]&[$a12]\\[$a21]&[$a22]\end{pmatrix}.```]
 Charakteristický polynom zapište stejně jako v předchozím příkladě v proměnné [`\lambda`].
-Vlastní čísla zapište do jednoho políčka v libovolném pořadí, oddělená čárkou.
 
 Charakteristický polynom je [______________]{$Adet}.
+
+
+Vlastní čísla zapište do jednoho políčka v libovolném pořadí, oddělená čárkou.
+
 
 Vlastní čísla jsou [_____________]{List($l1,$l2)}.
 
