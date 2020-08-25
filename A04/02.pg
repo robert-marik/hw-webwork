@@ -61,10 +61,10 @@ xy^2& xz & x^2+y
 \end{vmatrix}\\&
 =\left( \frac{\partial }{\partial y} (x^2+y)
 - \frac{\partial }{\partial z} (xz)\right)\cdot \vec i
-\\&\ -
+\\&{}\ -
 \left( \frac{\partial }{\partial x} (x^2+y)
 - \frac{\partial }{\partial z} (xy^2)\right)\cdot \vec j
-\\&\ +\left( \frac{\partial }{\partial x} (xz)
+\\&{}\ +\left( \frac{\partial }{\partial x} (xz)
 - \frac{\partial }{\partial y} (xy^2)\right)\cdot \vec k
 \\&=(1-x)\cdot\vec i-2x\vec j+(z-2xy)\vec k.
 \end{aligned}
