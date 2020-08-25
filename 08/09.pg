@@ -61,7 +61,7 @@ Délka vektoru [`u`] je (pomocí předchozího příkladu nebo pomocí Pythagoro
 [``` ||u||=\sqrt{u^Tu}=\sqrt{([$u1])^2+([$u2])^2}=[$normau]```]
 a délka jeho obrazu, vektoru [`u'`], je 
 [``` ||u'||=\sqrt{u'^Tu'}=\sqrt{([$v1])^2+([$v2])^2}=[$normav].```]
-Poměr těchto délek je [$pomer] a toto číslo je opravdu mezi menší a větší vlastní hodnotou.
+Poměr těchto délek je [`[$pomer]`] a toto číslo je opravdu mezi menší a větší vlastní hodnotou.
 
 
 --------
