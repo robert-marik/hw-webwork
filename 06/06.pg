@@ -54,8 +54,12 @@ $fun2_obj->color('red');
 $fun3_obj = new Fun($hermite3_obj->rf_f,$graph);
 $fun3_obj->color('blue');
 
-$graph -> lb(new Label ( 7.5,5*$sign-$sign2,'f(x)','blue','left','bottom'));
-$graph -> lb(new Label ( 7.5,-$sign2,'g(x)','red','left','bottom'));
+$posf=5*$sign-$sign2;
+if ($posf>4.5) {$posf=4.5;}
+if ($posf<-4.5) {$posf=-4.5;}
+
+$graph -> lb(new Label ( 7.2,$posf,'f(x)','blue','left','bottom'));
+$graph -> lb(new Label ( 7.2,-$sign2,'g(x)','red','left','bottom'));
 
 BEGIN_PGML
 ## Stabilita autonomní diferenciální rovnice II
