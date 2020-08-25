@@ -78,7 +78,7 @@ Tento výsledek je možno zapsat jako *9i-7j+3k* nebo *<9,-7,3>*.
 Vypočtěte vektorový součin [`\vec u\times \vec v`] vektorů [`\vec u=[$u]`]
 a [`\vec v=[$v]`].
 
->>[``\vec u\times \vec v ={}``][_________________________]{$soucin} <<
+>>[``\vec u\times \vec v ={}``][_________________________]{$answer} <<
 
 END_PGML
 
