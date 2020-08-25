@@ -12,7 +12,9 @@ $showPartialCorrectAnswers = 1;
 $showHint = 1;
 
 Context("Vector");
-Context()->variables->are(x=>"Real",y=>"Real");
+$par = list_random('a','b','n','m','c','r');
+
+Context()->variables->are(x=>"Real",y=>"Real",$par=>"Real");
 Context()->flags->set(ijk=>1 );
 Context()->flags->set( reduceConstants => 0,reduceConstantFunctions => 0);
 Context()->constants->set(
@@ -30,8 +32,8 @@ $b=non_zero_random(-4,4,1);
 $c=non_zero_random(1,3,1);
 $n=random(2,4,1);
 
-$v1=Formula("$a*x^($n)+$b*y")->reduce();
-$v2=Formula("$b*x^2+$c*y^2")->reduce();
+$v1=Formula("$a*x^($n-1)+$b*y")->reduce();
+$v2=Formula("$par*x^($n)+$c*y^3")->reduce();
 $v3=Formula("0")->reduce();
 
 	
@@ -49,29 +51,29 @@ $answer=Vector("<$ans1,$ans2,$ans3>")->reduce();
 
 BEGIN_PGML
 
-## Rotace vektorového pole v rovině
+## Rotace vektorového pole s parametrem
 
-Rotace vektorového pole v rovině je, stejně jako v prostoru, vektorový součin nabla operátoru [`\nabla = \left(\frac{\partial }{\partial x},\frac{\partial }{\partial y},\frac{\partial }{\partial z}\right)^T`] a vektorového pole. "Součin" paricální derivace a funkce opět chápeme jako výpočet příslušné derivace. Protože ale vektorový součin je definovaný pouze pro trojrozměrné vektory, musíme dvoujrozměrné vektorové pole vnořit do trojrozměrného prostoru. Uděléme to tak, že třetí komponentu položíme rovnu nule. 
+Málokdy počítáme úlohu s konkrétním vektorovým polem. Často zapojíme do role parametry, které později nafitujeme tak, aby model co nejvíce odpovídal reálitě.
 
 --------------
 
-Rotace vektorového pole [`\vec F= xy^2 \vec i+x^3\vec j`] je
+Rotace vektorového pole [`\vec F(x,y)= xy^2 \vec i+h x^3\vec j`] s parametrem [`h`] je
 [``` \begin{aligned}\nabla \times \vec F &= \begin{vmatrix}\vec i& \vec j & \vec k\\
 \frac{\partial }{\partial x}&\frac{\partial }{\partial y}&\frac{\partial }{\partial z}\\
-xy^2& x^3 & 0
+xy^2& hx^3 & 0
 \end{vmatrix}\\&
 =\left( \frac{\partial }{\partial y} (0)
 - \frac{\partial }{\partial z} (x^3)\right)\cdot \vec i
 \\&{}\ -
 \left( \frac{\partial }{\partial x} (0)
 - \frac{\partial }{\partial z} (xy^2)\right)\cdot \vec j
-\\&{}\ +\left( \frac{\partial }{\partial x} (x^3)
+\\&{}\ +\left( \frac{\partial }{\partial x} (hx^3)
 - \frac{\partial }{\partial y} (xy^2)\right)\cdot \vec k
-\\&=0\cdot\vec i+0\cdot\vec j+(3x^2-2xy)\vec k.
+\\&=0\cdot\vec i+0\cdot\vec j+(3hx^2-2xy)\vec k.
 \end{aligned}
 ```]
 
-Tento výsledek je možno zapsat jako *(3x^2-2xy)k* nebo *<0,0,3x^2-2xy>*. Všimněte si, že výsledný vektor má jenom jednu komponentu. První dvě komponenty jsou nulové. Tedy pro vektorové pole
+Tento výsledek je možno zapsat jako *(3hx^2-2xy)k* nebo *<0,0,3hx^2-2xy>*. Připomeňme, že pro vektorové pole
 [```\vec F=P\vec i+Q\vec j,```]
 kde [`P`] a [`Q`] jsou funkce dvou proměnných [`x`] a [`y`], platí
 [```\nabla \times \vec F=
@@ -84,7 +86,7 @@ P& Q & 0
 
 ---------------
 
-Vypočtěte rotaci vektorového pole [```\vec F=[$F].```]
+Vypočtěte rotaci vektorového pole [```\vec F(x,y)=[$F]```] s parametrem [`[$par].`]
 
 >>[``\nabla \times \vec F=\begin{vmatrix}\vec i&\vec j& \vec k \\ [$u1]&[$u2]&[$u3]\\
 [$v1]&[$v2]&[$v3]
