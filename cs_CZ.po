@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-08-24 21:44+0200\n"
+"PO-Revision-Date: 2020-08-25 10:13+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4122,7 +4122,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ShowMeAnother.pm:480
 msgid "Remember to return to your original problem when you're finished here!"
-msgstr "Nezapomeňte se odsud vrátit k původní otázce."
+msgstr "Nezapomeňte se odsud vrátit k původní otázce!"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/CourseAdmin.pm:1173 /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/FileManager.pm:160
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/FileManager.pm:351 /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/FileManager.pm:650
@@ -5633,7 +5633,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ShowMeAnother.pm:472
 msgid "There is a written solution available"
-msgstr "Řešení úlohy je k dispozici."
+msgstr "Řešení úlohy je k dispozici"
 
 #. ($message_file, $merge_file)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Grades.pm:101
@@ -6521,7 +6521,7 @@ msgstr "Byly zkontrolovány odpovědi na cvičnou verzi Vašeho zadání. Výsle
 msgid ""
 "You are currently previewing answers to a different version of your problem - these will not be recorded, and you should remember to return to your original problem once "
 "you are done here."
-msgstr "Prohlížíte si odpovědi k cvičné variantě Vašeho příkladu. Odpovědi nebudou ukládány a musíte pamatovat na návrat k původní ostré variantě otázky. "
+msgstr "Prohlížíte si odpovědi k cvičné variantě Vašeho příkladu. Odpovědi nebudou ukládány a musíte pamatovat na návrat k původní ostré variantě otázky."
 
 #. ($userSet->set_id, $r->connection->remote_ip)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Hardcopy.pm:253
