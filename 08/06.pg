@@ -26,14 +26,18 @@ Context()->texStrings;
 BEGIN_PGML
 ## Charakteristický polynom
 
+[@ image("bobtnani.jpg", width=>400) @]*
+
 Charakteristický polynom matice [`A`] je determinant matice [`A-\lambda I`], kde [`I`] je jednotková matice. 
 Konkrétně například pro matici 
 [``` Z=\begin{pmatrix}1 &3\\-1&2\end{pmatrix}```]
 je charakteristickým polynomem determinant matice
 [``` Z-\lambda I=\begin{pmatrix}1-\lambda &3\\-1&2-\lambda\end{pmatrix},```]
 tj. polynom 
-[``` \det(Z-\lambda I)=(1-\lambda)(2-\lambda)+3=\lambda^2-3\lambda+5.```]
+[``` \det(Z-\lambda I)=(1-\lambda)(2-\lambda)-3\cdot (-1)=\lambda^2-3\lambda+5.```]
 Tento výsledek se dá zapsat jako *lambda^2-3lambda+5*.
+
+Charakteristický polynom je důležitý, protože jeho kořeny jsou vlastní čísla matice. Například u tenzoru bobtnání dřeva vlivem vlhkosti jsou vlastní čísla hodnoty udávající maximální a minimální bobtnání. Směry, ve kterých toto maximální nebo minimální bobtnání pozorujeme jsou vlastní směry tohoto tenzoru a u dřeva je známe, protože víme, jakým způsobem dřevo bobtná. 
 
 ---------------
 
