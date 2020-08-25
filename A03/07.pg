@@ -38,12 +38,14 @@ $divergence = Formula("$dP+$dQ")->reduce;
 #$divergenceBod = Formula("$dPBod+$dQBod")->reduce;
 $divergenceBod=$k*$x0**($k-1)*$y0+$l*$x0*$y0**($l-1)+$m*$c*$y0**($c-1);
 
+
+$ans=2; $longans="Divergence v bodě je nulová. V daném místě není ani zdroj ani spotřebič.";
+
 if ($divergenceBod > 0)
 {$ans=0; $longans="Divergence v bodě je kladná. V daném místě je zdroj stavové veličiny."; }
 if ($divergenceBod < 0)
 {$ans=1; $longans="Divergence v bodě je záporná. V daném místě je spotřebič stavové veličiny."; }
-if ($divergenceBod < 0)
-{$ans=2; $longans="Divergence v bodě je nulová. V daném místě není ani zdroj ani spotřebič."; }
+
 
 $radio = RadioButtons(
 ["V daném místě je zdroj stavové veličiny.",
@@ -87,7 +89,7 @@ což znamená, že v daném místě je zdroj (kladná divergence u stacionární
 
 ---------------
 
-Stacionární proudění je popsané vektorovým polem [``` \vec F(x,y)=[$P]\vec i +\left([$Q]\right)\vec j```]. Rozhodněte, zda je v bodě [``(x_0,y_0)=([$x0],[$y0])``] zdroj nebo spotřebič. Jako podklad pro rozhodnutí nejprve vypočtěte divergenci vektorového pole a divergenci v uvažovaném bodě.
+Stacionární proudění je popsané vektorovým polem [``` \vec F(x,y)=[$P]\vec i +\left([$Q]\right)\vec j.```] Rozhodněte, zda je v bodě [``(x_0,y_0)=([$x0],[$y0])``] zdroj nebo spotřebič. Jako podklad pro rozhodnutí nejprve vypočtěte divergenci vektorového pole a divergenci v uvažovaném bodě.
 
 >>[``\nabla \cdot \vec F(x,y)={}``][____________________________________]{$divergence}<<
 
