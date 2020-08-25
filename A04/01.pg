@@ -1,0 +1,113 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+do  {
+$u1=random(-4,4,1);
+$u2=random(-4,4,1);
+$u3=random(-4,4,1);
+} until ($u1 != 0);
+
+do  {
+$v1=random(-2,2,1);
+$v2=random(-4,4,1);
+$v3=random(-2,2,1);
+} until ($v2 != 0);
+
+Context("Vector");
+Context()->flags->set(ijk=>1 );
+Context()->flags->set( reduceConstants => 0,reduceConstantFunctions => 0);
+Context()->constants->set(
+  i => {TeX => "\,\mathit{\vec i}"},
+  j => {TeX => "\,\mathit{\vec j}"},
+  k => {TeX => "\,\mathit{\vec k}"},
+);
+	
+$u=Vector("<$u1,$u2,$u3>");
+$v=Vector("<$v1,$v2,$v3>");
+
+$ans1=Formula("$u2*$v3-$u3*$v2");
+$ans2=Formula("$u3*$v1-$u1*$v3");
+$ans2m=Formula("$u1*$v3-$u3*$v1");
+$ans3=Formula("$u1*$v2-$u2*$v1");
+$answer=Vector("<$ans1,$ans2,$ans3>");
+
+BEGIN_PGML
+
+## Vektorový součin
+
+[@ image("transpirace.jpg", width=>400) @]*
+
+V této sadě úloh se budeme věnovat diferenciálnímu operátoru rotace. Tento operátor je velmi důležitý, protože dokáže identifikovat, zda je k danému vektorovému poli zavést skalární potenciál. To je například gravitační potenciál a s ním související potenciální energie v případě pohybu v gravitačním poli. A z fyziky střední školy dobře víte, že potenciální energie je neocenitelná při studiu dějů, kde se celková energie zachovává a jenom se mění, například na energii kinetickou. Nemusíme mít detailní infromace o průběhu děje v každém okamžiku, prostě jenom určíme z počáteční a koncové polohy změnu potenciální energie a z ní zjistíme změnu kinetické energie a nárůst rychlosti. Nemusíme počítat, jak dlouho změna trvala ani žádné další detaily.
+
+Možnost zavedení skalárního potenciálu často naznačuje, že úlohu související s vektorovým polem je možno dramaticky zjednodušit. Příkladem je například vodní potenciál při transpiraci rostlin. Tím je možno měřit například transpiraci stromů a jejich vliv na kvalitu života ve městech.
+
+Nejprve si představíme nástroj z analytické geometrie: vektorový součin. Poté si procvičíme výpočet rotace jako vektorový součin nabla operátoru s vektorovým polem. Dále se budeme zabývat problematikou existence kmenové funkce (tj. existence skalárního potenciálu) a zkusíme tuto funkci i hledat.
+
+--------------
+
+Vektorový součin vektorů [`\vec u=(u_1,u_2,u_3)^T=u_1\vec i+u_2 \vec j + u_3 \vec k`] a [`\vec v=(v_1,v_2,v_3)^T=v_1\vec j+  v_2\vec j + v_3 \vec k`] je definován jako determinant
+[``` \vec u\times \vec v = \begin{vmatrix}\vec i& \vec j & \vec k\\
+u_1 & u_2& u_3\\
+v_1& v_2 & v_3
+\end{vmatrix}
+=(u_2 v_3 - u_3 v_2)\vec i - (u_1 v_3 - u_3 v_1)\vec j + (u_1 v_2 - u_2 v_1)\vec k.
+```]
+
+Například součin vektorů [`\vec u = (2,3,1)^T=2\vec i+3\vec j+\vec k`] a [`\vec v=(-1,0,3)^T=-\vec i+3\vec k`]
+je
+[``` \vec u\times \vec v = \begin{vmatrix}\vec i& \vec j & \vec k\\
+2 & 3& 1\\
+-1& 0 & 3
+\end{vmatrix}
+=9\vec i - 7\vec j + 3\vec k=\begin{pmatrix} 9\\-7\\3\end{pmatrix}.
+```]
+Tento výsledek je možno zapsat jako *9i-7j+3k* nebo *<9,-7,3>*.
+
+---------------
+
+Vypočtěte vektorový součin [`\vec u\times \vec v`] vektorů [`\vec u=[$u]`]
+a [`\vec v=[$v]`].
+
+>>[``\vec u\times \vec v ={}``][_________________________]{$soucin} <<
+
+END_PGML
+
+BEGIN_PGML_HINT
+
+Musíte vypočítat Sarussovým pravidlem determinant
+[``` \begin{vmatrix}\vec i&\vec j& \vec k \\ [$u1]&[$u2]&[$u3]\\
+[$v1]&[$v2]&[$v3]
+\end{vmatrix}.```]
+ Můžete také použít vzorec ve vzorovém výpočtu na začátku příkladu.
+
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+
+
+Musíme vypočítat Sarussovým pravidlem determinant
+[``` \vec u\times \vec v=\begin{vmatrix}\vec i&\vec j& \vec k \\ [$u1]&[$u2]&[$u3]\\
+[$v1]&[$v2]&[$v3]
+\end{vmatrix}.```]
+Platí
+[``` \vec u\times \vec v=
+\begin{vmatrix}\vec i&\vec j& \vec k \\ [$u1]&[$u2]&[$u3]\\
+[$v1]&[$v2]&[$v3]
+\end{vmatrix}
+=([$ans1])\cdot \vec i-([$ans2m])\cdot \vec j + ([$ans3])\cdot \vec k=[$answer].
+```]
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

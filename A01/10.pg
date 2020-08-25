@@ -74,6 +74,8 @@ $ml->print_a(),
 indent => 0, separation => 20, valign => "MIDDLE"
 ); 
 \}
+
+(podle knihy Huges, Hallet: Calculus)
 END_TEXT
 
 
