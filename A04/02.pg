@@ -90,6 +90,8 @@ se postupem ve vzorovém příkladě. Dejte pozor na derivování a na
 znaménka. Stačí jeden překlep a celá odpověď je hodnocena jako
 nesprávná.
 
+Pokud se nedaří, zkuste další příklad s drourozměrným vektorovým polem a poté se sem vraťte.
+
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
