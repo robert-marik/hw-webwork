@@ -70,7 +70,7 @@ BEGIN_PGML_SOLUTION
 Stačí do [``` \vec F=[$F]```] dosadit [```x=[$r1]```] a [```y=[$r2]```] a případně upravit.
 
 Řešení je tedy [```\vec F(\vec r(t))=[$answer]. ```]
-Toto řešení je vygenerováno automaticky a pravděpodobně je možné jej dále upravit, což již je mimo možnosti systému WeBWorK.
+Toto řešení je vygenerováno automaticky a pravděpodobně je možné jej dále upravit, což již je mimo možnosti systému WeBWorK. Sami si vynásobte mocniny se stejným základem nebo konstanty.
 					      
 END_PGML_SOLUTION
 
