@@ -13,7 +13,7 @@ $showHint = 1;
 
 Context("Vector");
 
-Context()->variables->are(t=>"Real");
+Context()->variables->are(t=>"Real",x=>"Real",y=>"Real");
 Context()->flags->set(ijk=>1 );
 Context()->constants->set(
   i => {TeX => "\,\mathit{\vec i}"},
