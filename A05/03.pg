@@ -105,7 +105,7 @@ Platí [```\frac{\mathrm d}{\mathrm dt}([$r1])=[$ansr1] ```] a [```\frac{\mathrm
 
 Pro vyjádření [`\vec F(\vec r(t))`] stačí do [``` \vec F=[$F]```] dosadit [```x=[$r1]```] a [```y=[$r2]```] a případně upravit. Vychází [```\vec F(\vec r(t))=[$answerF]. ```]
 
-Po výpočtu sklárního součinu dostáváme
+Po výpočtu skalárního součinu dostáváme
 [```\vec F(\vec r(t))\frac{\mathrm d }{\mathrm dt}\vec r(t)=
 ([$ansr1])\cdot([$Fxt])+([$ansr2])\cdot([$Fyt])=
 [$answerFR]. ```]
