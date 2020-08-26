@@ -53,7 +53,7 @@ BEGIN_PGML
 
 ## Rotace vektorového pole s parametrem
 
-Málokdy počítáme úlohu s konkrétním vektorovým polem. Často zapojíme do role parametry, které později nafitujeme tak, aby model co nejvíce odpovídal reálitě.
+Málokdy počítáme úlohu s vektorovým polem vyjádřeným konkrétními čísly. Často zapojíme do role parametry, které později nafitujeme tak, aby model co nejvíce odpovídal reálitě. Pro praktické počítání: namísto některých konstant mohou ve výpočtu figurovat parametry. Ve vzorovém výpočtu je parametr [`h`], v příkladě, který máte řešit, je parametr [`[$par].`]
 
 --------------
 
@@ -62,12 +62,9 @@ Rotace vektorového pole [`\vec F(x,y)= xy^2 \vec i+h x^3\vec j`] s parametrem [
 \frac{\partial }{\partial x}&\frac{\partial }{\partial y}&\frac{\partial }{\partial z}\\
 xy^2& hx^3 & 0
 \end{vmatrix}\\&
-=\left( \frac{\partial }{\partial y} (0)
-- \frac{\partial }{\partial z} (x^3)\right)\cdot \vec i
-\\&{}\ -
-\left( \frac{\partial }{\partial x} (0)
-- \frac{\partial }{\partial z} (xy^2)\right)\cdot \vec j
-\\&{}\ +\left( \frac{\partial }{\partial x} (hx^3)
+=0 \vec i
++0 \vec j
++\left( \frac{\partial }{\partial x} (hx^3)
 - \frac{\partial }{\partial y} (xy^2)\right)\cdot \vec k
 \\&=0\cdot\vec i+0\cdot\vec j+(3hx^2-2xy)\vec k.
 \end{aligned}
@@ -86,7 +83,7 @@ P& Q & 0
 
 ---------------
 
-Vypočtěte rotaci vektorového pole [```\vec F(x,y)=[$F]```] s parametrem [`[$par].`]
+Vypočtěte rotaci vektorového pole [```\vec F(x,y)=[$F]```] s parametrem [`[$par]\in\mathbb R.`]
 
 >>[``\nabla \times \vec F=\begin{vmatrix}\vec i&\vec j& \vec k \\ [$u1]&[$u2]&[$u3]\\
 [$v1]&[$v2]&[$v3]
