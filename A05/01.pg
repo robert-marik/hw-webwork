@@ -52,7 +52,7 @@ Referenční úlohy jsou příklady ze cvičení ze [@ htmlLink("http://user.men
 
 --------------
 
-Je dána křivka [` \vec r(t)=$r`] pro [`t\in [0,[$tmax]].`] Najděte derivaci této křivky. 
+Je dána křivka [` \vec r(t)=[$r]`] pro [`t\in [0,[$tmax]].`] Najděte derivaci této křivky. 
 					      
 >>[``\frac{\mathrm d}{\mathrm dt} \vec r(t)={} ``][_____________________________________]{$answer} <<
 
