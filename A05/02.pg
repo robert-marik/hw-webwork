@@ -24,7 +24,7 @@ Context()->constants->set(
 $a=non_zero_random(-2,2,1);
 $b=non_zero_random(-4,4,1);
 $c=non_zero_random(1,3,1);
-$r=non_zero_random(-3,3,1);
+$rr=non_zero_random(-3,3,1);
 $n=random(1,8,1);
 $m=random(1,5,1);
 $k=random(3,7,1);
@@ -40,7 +40,7 @@ $f2=random(3,8,1);
 $k=random(1,3,1);
 $l=random(1,2,1);
 
-$F=Vector("<$b*x*y^($k),$c*x^($l)>");
+$F=Vector("<$b*x*y^($k),$c*x^($l)+$rr*y>");
 
 Context()->flags->set( reduceConstants => 1,reduceConstantFunctions => 1);
 
@@ -48,28 +48,28 @@ $answer=$F->substitute(x=>$r1,y=>$r2);
 
 BEGIN_PGML
 
-## Vyjádøení vektorového pole podél køivky
+## VyjÃ¡dÅ™enÃ­ vektorovÃ©ho pole podÃ©l kÅ™ivky
 
-Je dána køivka [` \vec r(t)=[$r]`] pro [`t\in [0,[$tmax]]`] a vektorové pole [`\vec F(x,y)=[$F].`] Najdìte vyjádøení vektorového pole podél køivky
+Je dÃ¡na kÅ™ivka [` \vec r(t)=[$r]`] pro [`t\in [0,[$tmax]]`] a vektorovÃ© pole [`\vec F(x,y)=[$F].`] NajdÄ›te vyjÃ¡dÅ™enÃ­ vektorovÃ©ho pole podÃ©l kÅ™ivky
 					      
 >>[``\vec F(\vec r(t))={} ``][_____________________________________]{$answer} <<
 
-(Nezapomeòte zadat odpovìï jako vektor, tj. ve formátu *<...,...>* nebo *(...)\*i+(...)\*j*.)
+(NezapomeÅˆte zadat odpovÄ›Ä jako vektor, tj. ve formÃ¡tu *<...,...>* nebo *(...)\*i+(...)\*j*.)
 
 
 END_PGML
 
 BEGIN_PGML_HINT
 
-Staèí dosadit za [`x`] a [`y`] a pøípadnì upravit.
+StaÄÃ­ dosadit za [`x`] a [`y`] a pÅ™Ã­padnÄ› upravit.
 
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 
-Staèí dosadit za [`x`] a [`y`] a pøípadnì upravit.
+StaÄÃ­ dosadit za [`x`] a [`y`] a pÅ™Ã­padnÄ› upravit.
 
-Øe¹ení je tedy [```\vec F(\vec r(t))=[$answer]. ```]
+Å˜eÅ¡enÃ­ je tedy [```\vec F(\vec r(t))=[$answer]. ```]
 					      
 END_PGML_SOLUTION
 
