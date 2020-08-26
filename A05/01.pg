@@ -63,13 +63,13 @@ END_PGML
 
 BEGIN_PGML_HINT
 
-Vypočtěte derivaci jednotlivých komponent vektoru [` \vec r(t)=$r.`]
+Vypočtěte derivaci jednotlivých komponent vektoru [` \vec r(t)=[$r].`]
 
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 
-					      Platí [```\frac{\mathrm d}{\mathrm dt}([$r1])=[$ans1] ```] a [```\frac{\mathrm d}{\mathrm dt}([$r2])=[$ans2]. ```] Řešení je tedy [```\frac{\mathrm d }{\mathrm dt}\vec r(t)=$answer. ```]
+					      Platí [```\frac{\mathrm d}{\mathrm dt}([$r1])=[$ans1] ```] a [```\frac{\mathrm d}{\mathrm dt}([$r2])=[$ans2]. ```] Řešení je tedy [```\frac{\mathrm d }{\mathrm dt}\vec r(t)=[$answer]. ```]
 					      
 END_PGML_SOLUTION
 
