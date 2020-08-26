@@ -40,15 +40,29 @@ $f2=random(3,8,1);
 $k=random(1,3,1);
 $l=random(1,2,1);
 
-$F=Vector("<$b*x*y^($k),$c*x^($l)+$rr*y>")->reduce();
+$F1=Formula("$b*x*y^($k)")->reduce();
+$F2=Formula("$c*x^($l)+$rr*y")->reduce();
+$F=Vector("<$F1,$F2>");
 
 Context()->flags->set( reduceConstants => 1,reduceConstantFunctions => 1);
 
-$answer=$F->substitute(x=>$r1,y=>$r2)->reduce();
+$F1s=$F1->substitute(x=>$r1,y=>$r2)->reduce();
+$F2s=$F2->substitute(x=>$r1,y=>$r2)->reduce();
+$answers=Vector("<$F1s,$F2s>");
+
+$F1m=Formula("($a*$b)*t^($n+$k*$m)")->reduce();
+$F2m=Formula("($c*$a^$l)*t^($n*$l)+$rr*t^($m)")->reduce();
+$answer=Vector("<$F1m,$F2m>");
+
+# [@ return ($F1s == $F1m ? "1. OK" : "1. Error"); @]*
+# [@ return ($F2s == $F2m ? "2. OK" : "2. Error"); @]*
+
 
 BEGIN_PGML
 
 ## Vyjádření vektorového pole podél křivky
+
+
 
 Je dána křivka [` \vec r(t)=[$r]`] pro [`t\in [0,[$tmax]]`] a vektorové pole [`\vec F(x,y)=[$F].`] Najděte vyjádření vektorového pole podél křivky
 					      
@@ -69,7 +83,7 @@ BEGIN_PGML_SOLUTION
 
 Stačí do [``` \vec F=[$F]```] dosadit [```x=[$r1]```] a [```y=[$r2]```] a případně upravit.
 
-Řešení je tedy [```\vec F(\vec r(t))=[$answer]. ```]
+Řešení je tedy [```\vec F(\vec r(t))=[$answers]=[$answer]. ```]
 Toto řešení je vygenerováno automaticky a pravděpodobně je možné jej dále upravit, což již je mimo možnosti systému WeBWorK. Sami si vynásobte mocniny se stejným základem nebo konstanty.
 					      
 END_PGML_SOLUTION
