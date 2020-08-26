@@ -61,13 +61,13 @@ END_PGML
 
 BEGIN_PGML_HINT
 
-Stačí dosadit  [```x=[$r1]```] a [```y=[$r2]```] a případně upravit.
+Stačí do [``` \vec F=[$F]```] dosadit  [```x=[$r1]```] a [```y=[$r2]```] a případně upravit.
 
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 
-Stačí dosadit [```x=[$r1]```] a [```y=[$r2]```] a případně upravit.
+Stačí do [``` \vec F=[$F]```] dosadit [```x=[$r1]```] a [```y=[$r2]```] a případně upravit.
 
 Řešení je tedy [```\vec F(\vec r(t))=[$answer]. ```]
 					      
