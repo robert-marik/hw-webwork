@@ -40,7 +40,7 @@ $f2=random(3,8,1);
 $k=random(1,3,1);
 $l=random(1,2,1);
 
-$F=Vector("<$b*x*y^($k),$c*x^($l)+$r*y");
+$F=Vector("<$b*x*y^($k),$c*x^($l)+$r*y>");
 
 Context()->flags->set( reduceConstants => 1,reduceConstantFunctions => 1);
 
