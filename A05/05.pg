@@ -329,11 +329,11 @@ if ($s[3]>0) {$sign3='záporný' ; $dir3='opačným'} else
 {$sign3='kladný'; $dir3= 'stejným'};
 
 @explanation=("Vektory větší velikosti směřují přibližně $dir0 
-směrem jako křivka. Proto je integrál $sign0 .",
-"Příspěvek od vodorovného a svislého úseku je nulový, protože tyto úseky jsou kolmé na vektorové pole. Vektory podél větší kružnice mají větší velikost a směřují $dir1 směrem jako křivka. Proto je integrál $sign1 .", 
+směrem jako křivka. Proto je integrál $sign0.",
+"Příspěvek od vodorovného a svislého úseku je nulový, protože tyto úseky jsou kolmé na vektorové pole. Vektory podél větší kružnice mají větší velikost a směřují $dir1 směrem jako křivka. Proto je integrál $sign1.", 
 "Vektorové pole je kolmé ke kružnicím a příspěvky od těchto částí křivky jsou nulové. Příspěvky od vodorovné a svislé části křivky se vyruší, protože jsou stejně velké a opačného znaménka. Integrál je roven nule.",
 "Integrál je roven nule podél svislé a vodorovné části hranice, protože zde je vektorové pole kolmé na křivku. Vektory na šikmé části hranice míří přibližně $dir3 směrem jako křivka. Proto je integrál $sign3.",
-"Vektorové pole je kolmé na oba segmenty křivky. Proto je integrál nulový..",
+"Vektorové pole je kolmé na oba segmenty křivky. Proto je integrál nulový.",
 "Křivkový integrál podél křivky v prvním kvadrantu je díky symetrii a opčnému znaménku vyvážen stejně velkým integrálem opačného znaménka ve třetím kvadrantu. Podobně druhý a čtvrtý kvarant. Integrál je proto roven nule."
 );
 
