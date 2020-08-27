@@ -61,7 +61,7 @@ $answerF=Vector("<$Fxt,$Fyt>");
 $answerFRa=Formula("$Fxt*$ansr1+$Fyt*$ansr2")->reduce();
 $answerFR=Formula("($a^2*$b*$n)*t^($n+$k*$m+$n-1)+$m*$c*$a^($l)*t^($l*$n+$m-1)")->reduce();
 
-$answerKIP=Formula("($a^2*$b*$n)/($n+$k*$m+$n)*t^($n+$k*$m+$n)+$m*$c*$a^($l)/($l*$n+$m)*t^($l*$n+$m)")->reduce();
+$answerKIP=Compute("($a^2*$b*$n)/($n+$k*$m+$n)*t^($n+$k*$m+$n)+$m*$c*$a^($l)/($l*$n+$m)*t^($l*$n+$m)")->reduce();
 $answerKI=$answerKIP->substitute(t=>$tmax)->reduce();
 
 # [@ return ($answerFR == $answerFRa ? "1. OK" : "1. Error"); @]*
