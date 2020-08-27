@@ -49,9 +49,9 @@ foreach my $i (0..5) {
 ############################
 $s[0] = random(-1,1,2);
 if ($s[0] == 1) { 
-  $answer[0] = "Positive"; 
+  $answer[0] = "Kladný"; 
 } else { 
-  $answer[0] = "Negative"; 
+  $answer[0] = "Záporný"; 
 }
 VectorField2D(
 graphobject => $gr[0],
@@ -86,9 +86,9 @@ $gr[0]->stamps( closed_circle(0,-2,'red') );
 $s[1] = random(-1,1,2);
 if ($s[1]= -($s[0])) { $s[1]=-($s[1]); }
 if ($s[1]==1) {
-  $answer[1] = "Negative";
+  $answer[1] = "Záporný";
 } else {
-  $answer[1] = "Positive";
+  $answer[1] = "Kladný";
 }
 VectorField2D(
 graphobject => $gr[1],
@@ -140,7 +140,7 @@ $gr[1]->stamps( closed_circle(0,3.5,'red') );
 
 ############################
 $s[2] = random(-1,1,2);
-$answer[2] = "Zero";
+$answer[2] = "Nulový";
 VectorField2D(
 graphobject => $gr[2],
 Fx => Formula("$s[2]*x"),
@@ -192,9 +192,9 @@ $gr[2]->stamps( closed_circle(0,3.5,'red') );
 ################################
 $s[3] = random(-1,1,2);
 if ($s[3]==1) {
-  $answer[3] = "Negative";
+  $answer[3] = "Záporný";
 } else {
-  $answer[3] = "Positive";
+  $answer[3] = "Kladný";
 }
 VectorField2D(
 graphobject => $gr[3],
@@ -234,7 +234,7 @@ $gr[3]->stamps( closed_circle(0,3,'red') );
 
 ################################
 $s[4] = random(-1,1,2);
-$answer[4] = "Zero";
+$answer[4] = "Nulový";
 VectorField2D(
 graphobject => $gr[4],
 Fx => Formula("$s[4]*y"),
@@ -270,7 +270,7 @@ $gr[4]->stamps( closed_circle(-2,-1,'red') );
 
 ################################
 $s[5] = random(-1,1,2);
-$answer[5] = "Zero";
+$answer[5] = "Nulový";
 VectorField2D(
 graphobject => $gr[5],
 Fx => Formula("$s[5]*x"),
@@ -311,7 +311,7 @@ $gr[5]->stamps( closed_circle(-2,2,'red') );
 
 
 @perm = shuffle(6);
-@choices = ("?","Positive","Negative","Zero");
+@choices = ("?","Kladný","Záporný","Nulový");
 
 foreach my $i (0..5) {
   $fig[$i] = image(insertGraph($gr[$i]),width=>200,height=>200,tex_size=>310);
@@ -321,27 +321,20 @@ foreach my $i (0..5) {
 ########################################
 #  Main text
 
-if ($s[0]>0) {$sign0='positive' ; $dir0='same'} else
+if ($s[0]>0) {$sign0='kladný' ; $dir0='stejným'} else
 {$sign0='negative'; $dir0= 'opposite'};
-if ($s[1]>0) {$sign1='negative' ; $dir1='opposite'} else
+if ($s[1]>0) {$sign1='záporný' ; $dir1='opačným'} else
 {$sign1='positive'; $dir1= 'same'};
-if ($s[3]>0) {$sign3='negative' ; $dir3='opposite'} else
-{$sign3='positive'; $dir3= 'same'};
+if ($s[3]>0) {$sign3='záporný' ; $dir3='opačným'} else
+{$sign3='kladný'; $dir3= 'stejným'};
 
-@explanation=("Vectors with larger magnitude generally point in the $dir0 
-direction of the curve. Thus the line integral is $sign0 .",
-"The line integral is zero along the vertical and horizontal segments, 
-since the vectors are perpendicular to the segments. The vectors along the larger circle
-(with larger magnitude than the vectors along the smaller circle) generally point in $dir1 direction of the curve. Thus the line integral is $sign1 .", 
-"The vectors are perpendicular to the circles, thus the line integral
-along the circles is zero. The line integrals along the orizontal and vertical segments counterbalance one another since they have opposite signs. Thus the total line integral is zero .",
-"The line integral is zero along the vertical and horizontal segments, since the
-vectors are perpendicular to the segments. The vectors along the slanted segment generally 
-point in $dir3 direction of the curve. Thus the line integral is $sign3.",
-"The vectors are perpendicular to the line segments of the curve. Thus the line integral is zero .",
-"The line integral along the curve in the first quadrant is counterbalanced by
-the line integral in the third quadrant. Similarly for the line integrals in the second
-and fourth quadrant. Thus the total line integral is zero."
+@explanation=("Vektory větší velikosti směřují obecně $dir0 
+směrem jako křivka. Proto je integrál $sign0 .",
+"Příspěvek od vodorovného a svislého úseku je nulový, protože tyto úseky jsou kolmé na vektorové pole. Vektory podél větší kružnice mají větší velikost a směřují $dir1 směrem jako křivka. Proto je integrál $sign1 .", 
+"Vektorové pole je kolmé ke kružnicím a příspěvky od těchto částí křivky jsou nulové. Příspěvky od vodorovné a svislé části křivky se vyruší, protože jsou stejně velké a opačného znaménka. Integrál je roven nule.",
+"Integrál je roven nule podél svislé a vodorovné části hranice, protože jde je vektorové pole kolmé na křivku. Vektory na šikmé části hranice míří $dir3 směrem jako křivka. Proto je integrál $sign3.",
+"Vektorové pole je kolmé na jednotlivé segmenty křivky. Proto je integrál nulový..",
+"Křivkový integrál podél křivky v prvním kvadrantu je vyvážen steně velkým integrálem opačného znaménka ve třetím kvadrantu. Podobně druhý a čtvrtý kvarant. Integrál je proto roven nule."
 );
 
 BEGIN_PGML
