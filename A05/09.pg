@@ -104,8 +104,6 @@ Skalární součin vypočítáme vynásobením odpovídajících si komponent a 
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
-Řdešení níže jsou  vygenerována automaticky a pravděpodobně je možné je dále upravit, což již je mimo možnosti systému WeBWorK. Sami si vynásobte mocniny se stejným základem nebo konstanty atd.
-
 
 Pro výpočet [`` \frac{\mathrm d}{\mathrm dr} \vec r(t)``] derivujeme jednotlivé komponenty vektorového pole [`\vec r(t).`]
 Platí [```\frac{\mathrm d}{\mathrm dt}([$r1])=[$ansr1] ```] a [```\frac{\mathrm d}{\mathrm dt}([$r2])=[$ansr2]. ```] Derivace je tedy [```\frac{\mathrm d }{\mathrm dt}\vec r(t)=[$answerR]. ```]
