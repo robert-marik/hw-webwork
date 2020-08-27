@@ -328,13 +328,13 @@ if ($s[1]>0) {$sign1='záporný' ; $dir1='opačným'} else
 if ($s[3]>0) {$sign3='záporný' ; $dir3='opačným'} else
 {$sign3='kladný'; $dir3= 'stejným'};
 
-@explanation=("Vektory větší velikosti směřují obecně $dir0 
+@explanation=("Vektory větší velikosti směřují přibližně $dir0 
 směrem jako křivka. Proto je integrál $sign0 .",
 "Příspěvek od vodorovného a svislého úseku je nulový, protože tyto úseky jsou kolmé na vektorové pole. Vektory podél větší kružnice mají větší velikost a směřují $dir1 směrem jako křivka. Proto je integrál $sign1 .", 
 "Vektorové pole je kolmé ke kružnicím a příspěvky od těchto částí křivky jsou nulové. Příspěvky od vodorovné a svislé části křivky se vyruší, protože jsou stejně velké a opačného znaménka. Integrál je roven nule.",
-"Integrál je roven nule podél svislé a vodorovné části hranice, protože jde je vektorové pole kolmé na křivku. Vektory na šikmé části hranice míří $dir3 směrem jako křivka. Proto je integrál $sign3.",
-"Vektorové pole je kolmé na jednotlivé segmenty křivky. Proto je integrál nulový..",
-"Křivkový integrál podél křivky v prvním kvadrantu je vyvážen steně velkým integrálem opačného znaménka ve třetím kvadrantu. Podobně druhý a čtvrtý kvarant. Integrál je proto roven nule."
+"Integrál je roven nule podél svislé a vodorovné části hranice, protože zde je vektorové pole kolmé na křivku. Vektory na šikmé části hranice míří přibližně $dir3 směrem jako křivka. Proto je integrál $sign3.",
+"Vektorové pole je kolmé na oba segmenty křivky. Proto je integrál nulový..",
+"Křivkový integrál podél křivky v prvním kvadrantu je díky symetrii a opčnému znaménku vyvážen stejně velkým integrálem opačného znaménka ve třetím kvadrantu. Podobně druhý a čtvrtý kvarant. Integrál je proto roven nule."
 );
 
 BEGIN_PGML
@@ -348,6 +348,7 @@ Nyní rozšíříme předchozí příklad. Křivky jsou zpravidla z několika ú
 * stejné pole podél delší křivky přispívá numericky více (tj více kladně, nebo více záporně, podle vzájemné orientace křivky a pole).
 
 Pokud se u obrázku sejde část křivky s kladným příspěvkem a záporným příspěvkem, musíme porovnat vzájemnou velikost.  Sledujeme případnou symetrii (kladný a záporný příspvěk se vyruší), délku vektorů, délku příslušné části křivky a podobně.
+V případě půlkružnice se situace mění podél křivky, proto je výhodné tuto půlkružnicirozdělit na dvě čtvrtkružnice a porovnat vzájemné příspěvky od těchto čtvrtkružnic.
 END_PGML
 
 BEGIN_TEXT
