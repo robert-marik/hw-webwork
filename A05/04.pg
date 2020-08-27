@@ -156,7 +156,7 @@ ANS( $int3->cmp() );
 if ( $pickem[0] < 2 ) {
     $expl1 = "Platí \(\int_{C_1}\vec F\cdot d\vec r < 0\), protože křivka míří doleva a vektorové pole doprava.";
 } elsif ( $pickem[0] == 2 || $pickem[0] == 3 ) {
-    $expl1 = "Platí \(\int_{C_1}\vec F\cdot d\vec r = 0\), protože křikva je kolmá k vektorovému poli.";
+    $expl1 = "Platí \(\int_{C_1}\vec F\cdot d\vec r = 0\), protože křivka je kolmá k vektorovému poli.";
 } else {
     $expl1 = "Platí \(\int_{C_1}\vec F\cdot d\vec r > 0\), protože křivka míří stejným směrem jako vektorové pole.";
 }
@@ -207,10 +207,10 @@ $c3 = $invMap{$picked[2]} + 1;
 
 Context()->texStrings;
 SOLUTION(EV3(<<'END_SOLUTION'));
-$PAR SOLUTION $PAR
-
+$PAR 
 Sledujeme směr křivek a vektorového pole.
-Porovnáme relativní velikosti integrálů zvážením úhlu mezi křikvou a vektorovým polem. 
+Porovnáme relativní velikosti integrálů zvážením úhlu mezi křivkou a vektorovým polem.  Křivka se směru vektorového pole produkuje kladný interál, křivka kolmá na pole nulový a křivka proti směru vektorového pole záporný interál.
+
 $expl1
 
 $PAR
