@@ -1,43 +1,3 @@
-# DESCRIPTION
-# Problem from Calculus, multi-variable, Hughes-Hallett et al.,
-# originally from 5ed (with updates)
-# WeBWorK problem written by Gavin LaRose, <glarose@umich.edu>
-
-## Tagged by glr 07/05/10
-
-
-## DBsubject(Calculus - multivariable)
-## DBchapter(Vector calculus)
-## DBsection(Line integrals)
-## Institution(University of Michigan)
-## Author(Gavin LaRose)
-## Level(4)
-## MO(1)
-## TitleText1('Calculus')
-## TitleText2('Calculus')
-## TitleText3('Calculus')
-## TitleText4('Calculus')
-## AuthorText1('Hughes-Hallett')
-## AuthorText2('Hughes-Hallett')
-## AuthorText3('Hughes-Hallett')
-## AuthorText4('Hughes-Hallett')
-## EditionText1('5')
-## EditionText2('6')
-## EditionText3('4')
-## EditionText4('7')
-## Section1('18.1')
-## Section2('18.1')
-## Section3(18.1)
-## Section4('18.1')
-## Problem1('21')
-## Problem2('27')
-## Problem3(32)
-## Problem4('32')
-## KEYWORDS('line integral', 'integral', 'multivariable', 'calculus','Line integrals','Path integrals')
-
-## Textbook tags
-## HHChapter1('Line Integrals')
-
 DOCUMENT();
 
 loadMacros(
@@ -46,22 +6,38 @@ loadMacros(
   "MathObjects.pl",
   "PGgraphmacros.pl",
   "parserPopUp.pl",
+  "VectorField2D.pl",
+  "PGML.pl",
   "PGcourse.pl"
 );
 
 Context("Numeric");
 $showPartialCorrectAnswers = 0;
 
-# $refreshCachedImages=1;
+$refreshCachedImages=1;
 
 $gr = init_graph(0,0,4,4, size=>[250,250]);
-$fn = new VectorField( sub { 1; }, sub { 0; }, $gr );
-$fn->dot_radius(2);
-$fn->dot_color('blue');
-$fn->rf_arrow_length( sub{
-  my($dx,$dy)=@_;
-  return 2;
-} );
+
+Context("Numeric")->variables->are(x=>"Real",y=>"Real");
+
+VectorField2D(
+graphobject => $gr,
+Fx => Formula("1"),
+Fy => Formula("0"),
+xvar => "x",
+yvar => "y",
+xmin => -4,
+xmax =>  4,
+ymin => -4,
+ymax =>  4,
+xsamples => 20,
+ysamples => 20,
+vectorcolor => "red",
+vectorscale => 0.2,
+vectorthickness => 2,
+xavoid=>0,
+yavoid=>0,
+);
 
 $desc = "Graph of a constant vector field pointing horizontally to the " .
     "right.  ";
@@ -133,30 +109,39 @@ for ( my $i=0; $i<3; $i++ ) {
 
 ## then the popups are
 @picked = num_sort( ($pickem[0], $pickem[1], $pickem[2]) );
-@intdesc = ( "?", "integral on C1", "integral on C2", "integral on C3" );
+@intdesc = ( "?", "integrál podél C1", "integrál podél C2", "integrál podél C3" );
 $int1 = PopUp( [ @intdesc ], $intdesc[$invMap{$picked[0]} + 1] );
 $int2 = PopUp( [ @intdesc ], $intdesc[$invMap{$picked[1]} + 1] );
 $int3 = PopUp( [ @intdesc ], $intdesc[$invMap{$picked[2]} + 1] );
 
 Context()->texStrings;
 TEXT(beginproblem());
+
+BEGIN_PGML
+## Odhad křivkového integrálu podle obrázku
+
+Křikvový integrál můžeme odhadnout podle obrázku. Představme si, že se jedná o práci. Křivka odpovídá posunutí, vektorové pole odpovídá síle.
+
+* Na úseku, kde je vektorové pole kolmé ke křivce, je příspěvek ke křivkovému integrálu nulový.
+* Na úseku, kde vektorové pole má s křivkou úhel menší než 90 stupňů, tj. křivka je jenom lehce odkloněná od směru vektorového pole, je příspěvek ke křivkovému integrálu kladný. Tento příspěvek je tím větší, čím je delší křivka, nebo silnější pole (delší vektory) nebo menší úhel mezi křivkou a polem. Pokud sledujeme jenom orientaci, je největší příspěvek v případě, že křivka je přesně ve směru vektorového pole, tj. vektorové pole je tečné ke křivce.
+* Na úseku, kde má vektorové pole s křivkou větší úhel než 90 stupňů, tj. křivka jde "proti" směrovému poli, je situace podobná jako výše, ale příslušná hodnota je záporná. Nejzápornější příspěvek k celkové hodnotě integrálu je tam, kde je křivka přesně proti vektorovému poli. 
+
+END_PGML
+
+
 BEGIN_TEXT
 
-Consider the vector field \( \vec{F} \) shown in the figure below
-together with the paths \( C_1 \), \( C_2 \), and \( C_3 \).
+Uvažujte vektorové pole  \( \vec{F} \) podle obrázku a tři křivky \( C_1 \), \( C_2 \) a \( C_3 \).
 $PAR
 $BCENTER
 \{ image( insertGraph( $gr ), tex_size=>250, height=>250, width=>250,
 	  extra_html_tags=>'alt="' . $desc . '"' ) \}
 $BR
-${BITALIC}(${BBOLD}Note:$EBOLD For the vector field, vectors are shown with a
-dot at the ${BBOLD}tail$EBOLD of the vector.)$EITALIC
 $ECENTER
 $PAR
-Arrange the line integrals \( \int_{C_1} \vec{F} \cdot d\vec{r} \),
-\( \int_{C_2} \vec{F} \cdot d\vec{r} \) and
-\( \int_{C_3} \vec{F} \cdot d\vec{r} \) in ascending
-order:
+Seřaďte křivkové integrály  \( \int_{C_1} \vec{F} \cdot d\vec{r} \),
+\( \int_{C_2} \vec{F} \cdot d\vec{r} \) a
+\( \int_{C_3} \vec{F} \cdot d\vec{r} \) podle velikosti od nejmenšího po největší:
 $PAR
 \{ $int1->menu() \} \( < \)
 \{ $int2->menu() \} \( < \)
@@ -170,17 +155,11 @@ ANS( $int2->cmp() );
 ANS( $int3->cmp() );
 
 if ( $pickem[0] < 2 ) {
-    $expl1 = "\(\int_{C_1}\vec F\cdot d\vec r < 0\), because the " .
-        "curve moves from larger to smaller \(x\)-values, and the " .
-	"vector field points from right to left.";
+    $expl1 = "Platí \(\int_{C_1}\vec F\cdot d\vec r < 0\), protože křivka míří doleva a vektorové pole doprava.";
 } elsif ( $pickem[0] == 2 || $pickem[0] == 3 ) {
-    $expl1 = "\(\int_{C_1}\vec F\cdot d\vec r = 0\), because the " .
-        "curve moves straight up and down, and the " .
-	"vector field points from right to left.";
+    $expl1 = "Platí \(\int_{C_1}\vec F\cdot d\vec r = 0\), protože křikva je kolmá k vektorovému poli.";
 } else {
-    $expl1 = "\(\int_{C_1}\vec F\cdot d\vec r > 0\), because the " .
-        "curve moves from left to right, in the same direction as " .
-	"the vector field.";
+    $expl1 = "Platí \(\int_{C_1}\vec F\cdot d\vec r > 0\), protože křivka míří stejným směrem jako vektorové pole.";
 }
 @whichPos = ();
 @whichNeg = ();
@@ -200,13 +179,13 @@ if ( @whichNeg > 1 ) {
         $largercurve = "C_" . ($whichNeg[1]+1);
 	$smallercurve = "C_" . ($whichNeg[0]+1);
     }
-    $twosignexpl = "By similar logic, we note that both of " .
-        "\(\int_{C" . ($whichNeg[0]+1) . "}\vec F\cdot d\vec r\) and " .
-	"\(\int_{C" . ($whichNeg[1]+1) . "}\vec F\cdot d\vec r\) are " .
-	"negative.  However, because \($largercurve\) has a smaller " .
-	"component pointing in the opposite direction as the vector " .
-	"field, the integral on \($largercurve\) is larger than that " .
-	"on \($smallercurve\).$PAR";
+    $twosignexpl = "Podobnou argumentací vidíme, že oba integrály " .
+        "\(\int_{C" . ($whichNeg[0]+1) . "}\vec F\cdot d\vec r\) a " .
+	"\(\int_{C" . ($whichNeg[1]+1) . "}\vec F\cdot d\vec r\) jsou záporné " .
+	"Protože \($largercurve\) je více napříč " .
+	"vektorovým polem " .
+	"je integrál podél \($largercurve\) větší (záporný a blíže k nule) " .
+	"než podél \($smallercurve\).$PAR";
 } elsif ( @whichPos > 1 ) {
     if ( $pickem[$whichPos[0]] > $pickem[$whichPos[1]] ) {
 	$largercurve = "C_" . ($whichPos[0]+1);
@@ -215,13 +194,10 @@ if ( @whichNeg > 1 ) {
         $largercurve = "C_" . ($whichPos[1]+1);
 	$smallercurve = "C_" . ($whichPos[0]+1);
     }
-    $twosignexpl = "By similar logic, we note that both of " .
-        "\(\int_{C" . ($whichPos[0]+1) . "}\vec F\cdot d\vec r\) and " .
-	"\(\int_{C" . ($whichPos[1]+1) . "}\vec F\cdot d\vec r\) are " .
-	"positive.  However, because \($largercurve\) has a smaller " .
-	"component pointing in the same direction as the vector " .
-	"field, the integral on \($largercurve\) is larger than that " .
-	"on \($smallercurve\).$PAR";
+    $twosignexpl = "Podobnou argumentací vidíme, že oba integrály " .
+        "\(\int_{C" . ($whichPos[0]+1) . "}\vec F\cdot d\vec r\) a " .
+	"\(\int_{C" . ($whichPos[1]+1) . "}\vec F\cdot d\vec r\) jsou kladné. " .
+	"Protože \($largercurve\) je víc ve směru vektorového pole, je integrál podél \($largercurve\) větší než integrál podél \($smallercurve\).$PAR";
 } else {
     $twosignexpl = "";
 }
@@ -234,17 +210,14 @@ Context()->texStrings;
 SOLUTION(EV3(<<'END_SOLUTION'));
 $PAR SOLUTION $PAR
 
-We can work out the relative sizes of the line integrals by seeing
-which curves move in the same direction of the vectors, which move
-in the opposite direction, and which move perpendicular.  In the first
-case, the integral will be positive, in the second, negative, and in
-the third, zero.  Thus, we see that
+Sledujeme směr křivek a vektorového pole.
+Porovnáme relativní velikosti integrálů zvážením úhlu mezi křikvou a vektorovým polem. 
 $expl1
 
 $PAR
 $twosignexpl
 
-Applying this logic to each of the curves, we find that
+Použitím tohoto postupu vidíme, že platí
 \[ \int_{C_{$c1}}\vec F\cdot\vec r <
    \int_{C_{$c2}}\vec F\cdot\vec r <
    \int_{C_{$c3}}\vec F\cdot\vec r. \]

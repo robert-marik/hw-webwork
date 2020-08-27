@@ -1,30 +1,3 @@
-##DESCRIPTION
-##  Line integrals
-##ENDDESCRIPTION
-
-
-## DBsubject(Calculus - multivariable)
-## DBchapter(Vector calculus)
-## DBsection(Line integrals)
-## Date(10/31/09)
-## Institution(Fort Lewis College)
-## Author(Paul Pearson)
-## MLT(Line_Integrals_1)
-## MLTleader(1)
-## Level(4)
-## TitleText1('Calculus')
-## AuthorText1('Hughes-Hallett')
-## EditionText1('4')
-## Section1('18.1')
-## Problem1('2')
-## TitleText2('Calculus')
-## AuthorText2('Hughes-Hallett')
-## EditionText2('5')
-## Section2('18.1')
-## Problem2('2')
-## KEYWORDS('Line integrals','Path integrals')
-
-
 DOCUMENT();
 
 loadMacros(
@@ -35,6 +8,7 @@ loadMacros(
   "VectorField2D.pl",
   "PGgraphmacros.pl",
   "PGgraders.pl",
+  "PGML.pl",
   "PGcourse.pl"
 );
 
@@ -370,10 +344,21 @@ the line integral in the third quadrant. Similarly for the line integrals in the
 and fourth quadrant. Thus the total line integral is zero."
 );
 
+BEGIN_PGML
+## Odhad křivkového integrálu podle obrázku
+
+Nyní rozšíříme předchozí příklad. Křivky jsou zpravidla z několika úseků. Na každém určíme, zda je křikvový integrál kladný, záporný nebo nulový a poté sečteme jednotlivé příspěvky. Opět platí, že
+
+* pole kolmo na křivku nepřispívá k celkové hodnotě,
+* pole ve směru křivky přispívá k celkové hodnotě kladně a to tím více, čím je větší délka vektorů tohoto pole a čím více je pole orientováno ve směru křivky,
+* pole proti směru křivky přispívá k celkové hodnotě záporně a to tím více, čím je větší délka vektorů tohoto pole a čím více je pole orientováno proti směru křivky,
+* stejné pole podél delší křivky přispívá numericky více (tj více kladně, nebo více záporně, podle vzájemné orientace křivky a pole).
+
+Pokud se u obrázku sejde část křivky s kladným příspěvkem a záporným příspěvkem, musíme porovnat vzájemnou velikost.  Sledujeme případnou symetrii (kladný a záporný příspvěk se vyruší), délku vektorů a podobně.
+END_PGML
+
 BEGIN_TEXT
-Determine whether the line integral of each 
-vector field (in blue) along the  
-oriented path (in red) is positive, negative, or zero.  
+Určete, který křivkový integrál je kladný, který záporný a který je roven nule.
 $BR
 $BR
 $BCENTER
@@ -387,7 +372,7 @@ BeginTable().
   TableSpace(5,0).
   AlignedRow([pop_up_list([@choices]),pop_up_list([@choices]),pop_up_list([@choices])]).
 EndTable().
-$BR."(Click on a graph to enlarge it)"
+$BR."(Graf se otevře v samostatném okně po kliknutí.)"
 \}
 $ECENTER
 END_TEXT
@@ -399,8 +384,7 @@ END_TEXT
 install_problem_grader(~~&custom_problem_grader_fluid);
 $ENV{'grader_numright'} = [3,6];
 $ENV{'grader_scores'} = [0.5,1];
-$ENV{'grader_message'} = "You can earn " .
-"50% partial credit for 3 - 5 correct answers.";
+$ENV{'grader_message'} = "Za 3 až pět správných odpovědí dostáváte hodnotcení 50%.";
 
 $showPartialCorrectAnswers = 0;
 

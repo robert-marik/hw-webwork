@@ -1,28 +1,3 @@
-##DESCRIPTION
-##  Vector fields
-##ENDDESCRIPTION
-
-
-## DBsubject(Calculus - multivariable)
-## DBchapter(Vector fields)
-## DBsection(Graphs, flows lines, and level surfaces)
-## Date(10/31/09)
-## Institution(Fort Lewis College)
-## Author(Paul Pearson)
-## Level(3)
-## TitleText1('Calculus')
-## AuthorText1('Hughes-Hallett')
-## EditionText1('4')
-## Section1('17.3')
-## Problem1('16')
-## TitleText2('Calculus')
-## AuthorText2('Hughes-Hallett')
-## EditionText2('5')
-## Section2('17.3')
-## Problem2('16')
-## KEYWORDS('Vector Field')
-
-
 DOCUMENT();
 
 loadMacros(
@@ -33,6 +8,7 @@ loadMacros(
   "PGgraphmacros.pl",
   "VectorField2D.pl",
   "PGgraders.pl",
+  "PGML.pl",
   "PGcourse.pl"
 );
 
@@ -151,13 +127,13 @@ yavoid=>0,
 #  Array of functions and their associated GIFs or PNGs
 #
 @QA = (
-"A repulsive force whose magnitude increases as distance increases.", # F = < x, y > 
+"Odpudivá síla, jejíž velikost roste směrem od středu.", # F = < x, y > 
 $gr[0], 
-"A repulsive force whose magnitude decreases as distance increases.", # F = < x, y > / (x^2 + y^2)
+"Odpudivá síla, jejíž velikost klesá směrem od středu.", # F = < x, y > / (x^2 + y^2)
 $gr[1],
-"An attractive force whose magnitude increases as distance increases.", # F = < -x, -y >
+"Přitažlivá síla, jejíž velikost roste směrem od středu.", # F = < -x, -y >
 $gr[2],
-"An attractive force whose magnitude decreases as distance increases.", # F = < -x, -y > / (x^2 + y^2)
+"Přitažlivá síla, jejíž velikost klesá směrem od středu.", # F = < -x, -y > / (x^2 + y^2)
 $gr[3],
 );
 
@@ -181,19 +157,22 @@ $ml->choose(4);             #  select 5 of them
 
 TEXT(beginproblem());
 
+BEGIN_PGML
+## Slovní popis vektorového pole
+
+Představme si vektorové pole jako pole znázorňující silové působení. Šipka udává směr a velikost působící síly. Větší šipka značí větší sílu. Spárujte vektorové pole se slovním popisem.
+END_PGML
+
+
 BEGIN_TEXT
 \{
 ColumnTable(
-"Each vector field shown shown represents the force on a particle
-at different points in the plane as a result of another particle
-at the origin.  Match each vector field with its description.".
-$BR.
 $BR.
 $ml->print_q,
 $BCENTER.
 $ml->print_a.
 $BR.
-"(Click on a graph to enlarge it.)".
+"(Kliknutím na graf se graf zvětší v samostatném okně.)".
 $ECENTER,
 indent=>"0", separation=>"30", valign=>"TOP"
 );
@@ -206,8 +185,8 @@ END_TEXT
 install_problem_grader(~~&custom_problem_grader_fluid);
 $ENV{'grader_numright'} = [2,4];
 $ENV{'grader_scores'} = [0.5,1];
-$ENV{'grader_message'} = "You can earn " .
-"50% partial credit for 2 - 3 correct answers.";
+$ENV{'grader_message'} = "Můžete získat " .
+"hodnocení 50% za 2 nebo 3 správné odpovědi.";
 
 $showPartialCorrectAnswers = 0;
 
