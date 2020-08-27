@@ -120,6 +120,10 @@ TEXT(beginproblem());
 BEGIN_PGML
 ## Odhad křivkového integrálu podle obrázku
 
+[@ image( insertGraph( $gr ), tex_size=>250, height=>250, width=>250,
+	  extra_html_tags=>'alt="' . $desc . '"' )
+@]*
+
 Křikvový integrál můžeme odhadnout podle obrázku. Představme si, že se jedná o práci. Křivka odpovídá posunutí, vektorové pole odpovídá síle.
 
 * Na úseku, kde je vektorové pole kolmé ke křivce, je příspěvek ke křivkovému integrálu nulový.
@@ -133,11 +137,6 @@ BEGIN_TEXT
 
 Uvažujte vektorové pole  \( \vec{F} \) podle obrázku a tři křivky \( C_1 \), \( C_2 \) a \( C_3 \).
 $PAR
-$BCENTER
-\{ image( insertGraph( $gr ), tex_size=>250, height=>250, width=>250,
-	  extra_html_tags=>'alt="' . $desc . '"' ) \}
-$BR
-$ECENTER
 $PAR
 Seřaďte křivkové integrály  \( \int_{C_1} \vec{F} \cdot d\vec{r} \),
 \( \int_{C_2} \vec{F} \cdot d\vec{r} \) a
