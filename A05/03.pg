@@ -1,117 +1,191 @@
+##DESCRIPTION
+##  Vector fields
+##ENDDESCRIPTION
+
+
+## DBsubject(Calculus - multivariable)
+## DBchapter(Vector fields)
+## DBsection(Graphs, flows lines, and level surfaces)
+## Date(10/31/09)
+## Institution(Fort Lewis College)
+## Author(Paul Pearson)
+## MLT(fieldmatch)
+## MLTleader(1)
+## Level(3)
+## TitleText1('Calculus')
+## AuthorText1('Hughes-Hallett')
+## EditionText1('4')
+## Section1('17.3')
+## Problem1('27')
+## TitleText2('Calculus')
+## AuthorText2('Hughes-Hallett')
+## EditionText2('5')
+## Section2('17.3')
+## Problem2('27')
+## KEYWORDS('Vector Field')
+
+
 DOCUMENT();
 
 loadMacros(
-    "PGstandard.pl",
-    "PGML.pl",
-    "PGcourse.pl",
+  "PGstandard.pl",
+  "PGunion.pl",
+  "MathObjects.pl",
+  "imageChoice.pl",
+  "PGgraphmacros.pl",
+  "VectorField2D.pl",
+  "PGcourse.pl"
 );
+
+$refreshCachedImages=1;
+
+SRAND($psvn);
+
+############################################
+#  Setup
+
+$size = [250,250];   # the size of the images
+$tsize = 310;        # tex size of the images
+
+
+Context("Numeric")->variables->are(x=>"Real",y=>"Real");
+
+foreach my $i (0..2) {
+  $gr[$i] = init_graph(-5,-5,5,5,grid=>[10,10],axes=>[0,0],pixels=>[400,400]);
+  $gr[$i]->lb('reset');
+  foreach my $j (1..4) {
+    $gr[$i]->lb( new Label(-4.7,  $j, $j,'black','center','middle'));
+    $gr[$i]->lb( new Label(-4.7, -$j,-$j,'black','center','middle'));
+    $gr[$i]->lb( new Label(  $j,-4.7, $j,'black','center','middle'));
+    $gr[$i]->lb( new Label( -$j,-4.7,-$j,'black','center','middle'));
+  }
+  $gr[$i]->lb( new Label(4.7,0.2,'x','black','center','middle'));
+  $gr[$i]->lb( new Label(0.2,4.7,'y','black','center','middle'));
+  $gr[$i]->new_color("lightblue", 214,230,244); # RGB
+  $gr[$i]->new_color("darkblue",  100,100,255);
+  $gr[$i]->new_color("lightgreen",156,215,151); 
+  $gr[$i]->new_color("darkgreen",   0, 86, 34);
+  $gr[$i]->new_color("lightred",245,234,229); # light red-purple
+  $gr[$i]->new_color("darkred", 159, 64, 16); # red-brown
+  $gr[$i]->new_color("nicegreen",0,110,0);
+}
+
+# \vec{F} = <x,y>
+VectorField2D(
+graphobject => $gr[0],
+Fx => Formula("x"),
+Fy => Formula("y"),
+xvar => "x",
+yvar => "y",
+xmin => -5,
+xmax =>  5,
+ymin => -5,
+ymax =>  5,
+xsamples => 10,
+ysamples => 10,
+vectorcolor => "blue",
+vectorscale => 0.2,
+vectorthickness => 2,
+xavoid=>0,
+yavoid=>0,
+);
+
+# \vec{G} = <-y,x>
+VectorField2D(
+graphobject => $gr[1],
+Fx => Formula("-y"),
+Fy => Formula("x"),
+xvar => "x",
+yvar => "y",
+xmin => -5,
+xmax =>  5,
+ymin => -5,
+ymax =>  5,
+xsamples => 10,
+ysamples => 10,
+vectorcolor => "blue",
+vectorscale => 0.2,
+vectorthickness => 2,
+xavoid=>0,
+yavoid=>0,
+);
+
+# \vec{H} = <x,-y>
+VectorField2D(
+graphobject => $gr[2],
+Fx => Formula("x"),
+Fy => Formula("-y"),
+xvar => "x",
+yvar => "y",
+xmin => -5,
+xmax =>  5,
+ymin => -5,
+ymax =>  5,
+xsamples => 10,
+ysamples => 10,
+vectorcolor => "blue",
+vectorscale => 0.2,
+vectorthickness => 2,
+xavoid=>0,
+yavoid=>0,
+);
+
+
+
+#
+#  Array of functions and their associated GIFs or PNGs
+#
+@QA = (
+"\(\displaystyle \vec{F}(x,y) = x\vec{i} + y\vec{j} \)", 
+$gr[0], 
+"\(\displaystyle \vec{G}(x,y) = -y\vec{i} + x\vec{j} \)",
+$gr[1],
+"\( \vec{H}(x,y) = x\vec{i} - y\vec{j} \)",
+$gr[2],
+);
+
+$ml = new_image_match_list(
+  link => 1,                #  do not link to separate image
+  size => $size,            #  image size in pixels
+  tex_size => $tsize,       #  tex size in precent times 10
+  columns => 3,             #  number of columns
+);
+$ml->{separation} = 3;      # separation for questions in the list
+
+$ml->rf_print_q(~~&pop_up_list_print_q); # use pop-up-lists
+$ml -> ra_pop_up_list([ No_answer=>"?", A=>"A", B=>"B", C=>"C" ] );
+
+$ml->qa(@QA);               #  set the questions and answers
+$ml->choose(3);             #  select 5 of them
+#$ml->choose_extra(1);       #  and show the other 1
+
+###############################################
+#  Main text
 
 TEXT(beginproblem());
 
-$showPartialCorrectAnswers = 1;
-$showHint = 1;
+BEGIN_TEXT
+Match each vector field with its graph.
+$BR
+\{ $ml->print_q \}
+$PAR
+$BCENTER
+\{ $ml->print_a \}
+$BR
+(Click on a graph to enlarge it)
+$ECENTER
+END_TEXT
 
-Context("Vector");
-
-Context()->variables->are(t=>"Real",x=>"Real",y=>"Real");
-Context()->flags->set(ijk=>1 );
-Context()->constants->set(
-  i => {TeX => "\,\mathit{\vec i}"},
-  j => {TeX => "\,\mathit{\vec j}"},
-  k => {TeX => "\,\mathit{\vec k}"},
-);
-
-$a=non_zero_random(-2,3,1);
-$b=non_zero_random(-4,4,1);
-$c=non_zero_random(1,3,1);
-$rr=non_zero_random(-3,3,1);
-
-do
-{
-$n=random(1,8,1);
-$m=random(1,5,1);
-} until ($m+$n>2) and ($n != $m);
-
-$k=random(3,7,1);
-$nasobek=random(1,3,1);
-$tmax=random(1,5,1);
-
-$r1=Formula("$a*t^($n)")->reduce();
-$r2=Formula("t^($m)")->reduce();
-$r=Vector("<$r1,$r2>");
-
-$ansr1=Formula("$a*$n*t^($n-1)")->reduce();
-$ansr2=Formula("$m*t^($m-1)")->reduce();
-$answerR=Vector("<$ansr1,$ansr2>");
+###############################################
+# Answer evaluation
 
 
-$f1=random(3,8,1);
-$f2=random(3,8,1);
-$k=random(1,3,1);
-$l=random(1,2,1);
+install_problem_grader(~~&std_problem_grader);
 
-$Fx=Formula("$b*x*y^($k)")->reduce();
-$Fy=Formula("$c*x^($l)")->reduce();
-$Fxt=Formula("($a*$b)*t^($n+$k*$m)")->reduce();
-$Fyt=Formula("($c*$a^$l)*t^($n*$l)")->reduce();
+$showPartialCorrectAnswers = 0;
 
-$F=Vector("<$Fx,$Fy>");
-$answerF=Vector("<$Fxt,$Fyt>");
-
-$answerFRa=Formula("$Fxt*$ansr1+$Fyt*$ansr2")->reduce();
-$answerFR=Formula("($a^2*$b*$n)*t^($n+$k*$m+$n-1)+$m*$c*$a^($l)*t^($l*$n+$m-1)")->reduce();
-
-# [@ return ($answerFR == $answerFRa ? "1. OK" : "1. Error"); @]*
-
-BEGIN_PGML
-
-## Skalární součin vektorového pole s tečným vektorem 
+ANS(str_cmp($ml->ra_correct_ans));
 
 
-Je dána křivka [` \vec r(t)=[$r]`] pro [`t\in [0,[$tmax]]`] a vektorové pole [`\vec F(x,y)=[$F].`] 
-
->>[``\frac{\mathrm d}{\mathrm dt} \vec r(t)={} ``][_____________________________________]{$answerR} <<
-
-Poté najděte vyjádření vektorového pole podél křivky.
-
->>[``\vec F(\vec r(t))={} ``][_____________________________________]{$answerF} <<
-
-A nakonec najděte skalární součin obou vektorů
-
->>[``\vec F(\vec r(t)) \cdot \frac{\mathrm d}{\mathrm dt} \vec r(t)={} ``][_____________________________________]{$answerFR} <<
-
-
-(Nezapomeňte, tam kde je odpovědí vektor, zadat odpověď jako vektor, tj. ve formátu *<...,...>* nebo *(...)\*i+(...)\*j*.)
-
-
-END_PGML
-
-BEGIN_PGML_HINT
-
-Pro výpočet [`` \frac{\mathrm d}{\mathrm dr} \vec r(t)``] derivujeme jednotlivé komponenty vektorového pole [`\vec r(t).`]
-
-Pro vyjádření [`\vec F(\vec r(t))`] stačí do [``` \vec F=[$F]```] dosadit  [```x=[$r1]```] a [```y=[$r2]```] a případně upravit.
-
-Skalární součin vypočítáme vynásobením odpovídajících si komponent a seštením těchto součinů.
-
-END_PGML_HINT
-
-BEGIN_PGML_SOLUTION
-Řdešení níže jsou  vygenerována automaticky a pravděpodobně je možné je dále upravit, což již je mimo možnosti systému WeBWorK. Sami si vynásobte mocniny se stejným základem nebo konstanty atd.
-
-
-Pro výpočet [`` \frac{\mathrm d}{\mathrm dr} \vec r(t)``] derivujeme jednotlivé komponenty vektorového pole [`\vec r(t).`]
-Platí [```\frac{\mathrm d}{\mathrm dt}([$r1])=[$ansr1] ```] a [```\frac{\mathrm d}{\mathrm dt}([$r2])=[$ansr2]. ```] Derivace je tedy [```\frac{\mathrm d }{\mathrm dt}\vec r(t)=[$answerR]. ```]
-
-Pro vyjádření [`\vec F(\vec r(t))`] stačí do [``` \vec F=[$F]```] dosadit [```x=[$r1]```] a [```y=[$r2]```] a případně upravit. Vychází [```\vec F(\vec r(t))=[$answerF]. ```]
-
-Po výpočtu skalárního součinu dostáváme
-[```\vec F(\vec r(t))\frac{\mathrm d }{\mathrm dt}\vec r(t)=
-([$ansr1])\cdot([$Fxt])+([$ansr2])\cdot([$Fyt])=
-[$answerFR]. ```]
-
-					      
-END_PGML_SOLUTION
-
-
+;
 ENDDOCUMENT();

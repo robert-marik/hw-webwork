@@ -1,77 +1,218 @@
+##DESCRIPTION
+##  Vector fields
+##ENDDESCRIPTION
+
+
+## DBsubject(Calculus - multivariable)
+## DBchapter(Vector fields)
+## DBsection(Graphs, flows lines, and level surfaces)
+## Date(10/31/09)
+## Institution(Fort Lewis College)
+## Author(Paul Pearson)
+## Level(3)
+## TitleText1('Calculus')
+## AuthorText1('Hughes-Hallett')
+## EditionText1('4')
+## Section1('17.3')
+## Problem1('16')
+## TitleText2('Calculus')
+## AuthorText2('Hughes-Hallett')
+## EditionText2('5')
+## Section2('17.3')
+## Problem2('16')
+## KEYWORDS('Vector Field')
+
+
 DOCUMENT();
 
 loadMacros(
-    "PGstandard.pl",
-    "PGML.pl",
-    "PGcourse.pl",
+  "PGstandard.pl",
+  "PGunion.pl",
+  "MathObjects.pl",
+  "imageChoice.pl",
+  "PGgraphmacros.pl",
+  "VectorField2D.pl",
+  "PGgraders.pl",
+  "PGcourse.pl"
 );
+
+$refreshCachedImages=1;
+
+############################################
+#  Setup
+
+$size = [250,250];   # the size of the images
+$tsize = 450;        # tex size of the images
+
+
+Context("Numeric")->variables->are(x=>"Real",y=>"Real");
+
+foreach my $i (0..3) {
+  $gr[$i] = init_graph(-5,-5,5,5,grid=>[10,10],axes=>[0,0],pixels=>[400,400]);
+  $gr[$i]->lb('reset');
+  foreach my $j (1..4) {
+    $gr[$i]->lb( new Label(-4.7,  $j, $j,'black','center','middle'));
+    $gr[$i]->lb( new Label(-4.7, -$j,-$j,'black','center','middle'));
+    $gr[$i]->lb( new Label(  $j,-4.7, $j,'black','center','middle'));
+    $gr[$i]->lb( new Label( -$j,-4.7,-$j,'black','center','middle'));
+  }
+  $gr[$i]->lb( new Label(4.7,0.2,'x','black','center','middle'));
+  $gr[$i]->lb( new Label(0.2,4.7,'y','black','center','middle'));
+  $gr[$i]->new_color("lightblue", 214,230,244); # RGB
+  $gr[$i]->new_color("darkblue",  100,100,255);
+  $gr[$i]->new_color("lightgreen",156,215,151); 
+  $gr[$i]->new_color("darkgreen",   0, 86, 34);
+  $gr[$i]->new_color("lightred",245,234,229); # light red-purple
+  $gr[$i]->new_color("darkred", 159, 64, 16); # red-brown
+  $gr[$i]->new_color("nicegreen",0,110,0);
+}
+
+
+VectorField2D(
+graphobject => $gr[0],
+Fx => Formula("x"),
+Fy => Formula("y"),
+xvar => "x",
+yvar => "y",
+xmin => -5,
+xmax =>  5,
+ymin => -5,
+ymax =>  5,
+xsamples => 10,
+ysamples => 10,
+vectorcolor => "blue",
+vectorscale => 0.2,
+vectorthickness => 2,
+xavoid=>0,
+yavoid=>0,
+);
+
+VectorField2D(
+graphobject => $gr[1],
+Fx => Formula("x/(x^2+y^2)"),
+Fy => Formula("y/(x^2+y^2)"),
+xvar => "x",
+yvar => "y",
+xmin => -5,
+xmax =>  5,
+ymin => -5,
+ymax =>  5,
+xsamples => 10,
+ysamples => 10,
+vectorcolor => "blue",
+vectorscale => 1,
+vectorthickness => 2,
+xavoid=>0,
+yavoid=>0,
+);
+
+
+VectorField2D(
+graphobject => $gr[2],
+Fx => Formula("-x"),
+Fy => Formula("-y"),
+xvar => "x",
+yvar => "y",
+xmin => -5,
+xmax =>  5,
+ymin => -5,
+ymax =>  5,
+xsamples => 10,
+ysamples => 10,
+vectorcolor => "blue",
+vectorscale => 0.2,
+vectorthickness => 2,
+xavoid=>0,
+yavoid=>0,
+);
+
+VectorField2D(
+graphobject => $gr[3],
+Fx => Formula("-x/(x^2+y^2)"),
+Fy => Formula("-y/(x^2+y^2)"),
+xvar => "x",
+yvar => "y",
+xmin => -5,
+xmax =>  5,
+ymin => -5,
+ymax =>  5,
+xsamples => 10,
+ysamples => 10,
+vectorcolor => "blue",
+vectorscale => 1,
+vectorthickness => 2,
+xavoid=>0,
+yavoid=>0,
+);
+
+
+
+#
+#  Array of functions and their associated GIFs or PNGs
+#
+@QA = (
+"A repulsive force whose magnitude increases as distance increases.", # F = < x, y > 
+$gr[0], 
+"A repulsive force whose magnitude decreases as distance increases.", # F = < x, y > / (x^2 + y^2)
+$gr[1],
+"An attractive force whose magnitude increases as distance increases.", # F = < -x, -y >
+$gr[2],
+"An attractive force whose magnitude decreases as distance increases.", # F = < -x, -y > / (x^2 + y^2)
+$gr[3],
+);
+
+$ml = new_image_match_list(
+  link => 1,                #  do not link to separate image
+  size => $size,            #  image size in pixels
+  tex_size => $tsize,       #  tex size in precent times 10
+  columns => 2,             #  number of columns
+);
+$ml->{separation} = 3;      # separation for questions in the list
+
+$ml->rf_print_q(~~&pop_up_list_print_q); # use pop-up-lists
+$ml -> ra_pop_up_list([ No_answer=>"?", A=>"A", B=>"B", C=>"C", D=>"D" ] );
+
+$ml->qa(@QA);               #  set the questions and answers
+$ml->choose(4);             #  select 5 of them
+#$ml->choose_extra(1);       #  and show the other 1
+
+###############################################
+#  Main text
 
 TEXT(beginproblem());
 
-$showPartialCorrectAnswers = 1;
-$showHint = 1;
-
-Context("Vector");
-
-Context()->variables->are(t=>"Real");
-Context()->flags->set(ijk=>1 );
-Context()->constants->set(
-  i => {TeX => "\,\mathit{\vec i}"},
-  j => {TeX => "\,\mathit{\vec j}"},
-  k => {TeX => "\,\mathit{\vec k}"},
+BEGIN_TEXT
+\{
+ColumnTable(
+"Each vector field shown shown represents the force on a particle
+at different points in the plane as a result of another particle
+at the origin.  Match each vector field with its description.".
+$BR.
+$BR.
+$ml->print_q,
+$BCENTER.
+$ml->print_a.
+$BR.
+"(Click on a graph to enlarge it.)".
+$ECENTER,
+indent=>"0", separation=>"30", valign=>"TOP"
 );
+\}
+END_TEXT
 
-$a=non_zero_random(-2,2,1);
-$b=non_zero_random(-4,4,1);
-$c=non_zero_random(1,3,1);
-$r=non_zero_random(-3,3,1);
-$n=random(3,8,1);
-$m=random(1,5,1);
-$k=random(3,7,1);
-$nasobek=random(1,3,1);
-$tmax=random(1,5,1);
+###############################################
+# Answer evaluation
 
-$r1=Formula("$a*t^($n)+$b*t^2+$c")->reduce();
-$r2=Formula("$k*t^($m)-$c")->reduce();
-$r=Vector("<$r1,$r2>");
+install_problem_grader(~~&custom_problem_grader_fluid);
+$ENV{'grader_numright'} = [2,4];
+$ENV{'grader_scores'} = [0.5,1];
+$ENV{'grader_message'} = "You can earn " .
+"50% partial credit for 2 - 3 correct answers.";
 
-$ans1=($r1)->D('t');
-$ans2=($r2)->D('t');
+$showPartialCorrectAnswers = 0;
 
-Context()->flags->set( reduceConstants => 1,reduceConstantFunctions => 1);
-
-$answer=Vector("<$ans1,$ans2>")->reduce();
-
-BEGIN_PGML
-
-## Derivace parametrické rovinné křivky
-
-V této sadě úloh se budeme věnovat křivkovému integrálu druhého druhu. Procvičíme si hledání tečného vektoru ke křivce, vyjádření vektorového pole podél křivky, nalezení skalárního součinu tečného vektoru a vektorového pole podél křivky, přepis na Riemannův integrál a konečně výpočet křivkového integrálu jako až do konce. To je celkem pět úloh, které si představíme ve dvourozměrném a poté v trojrozměrném případě, což dá dohromady deset úkolů.
-
-Referenční úlohy jsou příklady ze cvičení ze [@ htmlLink("http://user.mendelu.cz/marik/wiki/am/slidy","sbírky") @]* z kapitoly 5.
-
---------------
-
-Je dána křivka [` \vec r(t)=[$r]`] pro [`t\in [0,[$tmax]].`] Najděte derivaci této křivky. 
-					      
->>[``\frac{\mathrm d}{\mathrm dt} \vec r(t)={} ``][_____________________________________]{$answer} <<
-
-(Nezapomeňte zadat odpověď jako vektor, tj. ve formátu *<...,...>* nebo *(...)\*i+(...)\*j*.)
+ANS(str_cmp($ml->ra_correct_ans));
 
 
-END_PGML
-
-BEGIN_PGML_HINT
-
-Vypočtěte derivaci jednotlivých komponent vektoru [` \vec r(t)=[$r].`]
-
-END_PGML_HINT
-
-BEGIN_PGML_SOLUTION
-
-					      Platí [```\frac{\mathrm d}{\mathrm dt}([$r1])=[$ans1] ```] a [```\frac{\mathrm d}{\mathrm dt}([$r2])=[$ans2]. ```] Řešení je tedy [```\frac{\mathrm d }{\mathrm dt}\vec r(t)=[$answer]. ```]
-					      
-END_PGML_SOLUTION
-
-
+;
 ENDDOCUMENT();

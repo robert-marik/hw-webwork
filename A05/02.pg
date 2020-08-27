@@ -1,92 +1,249 @@
+##DESCRIPTION
+##  Vector fields
+##ENDDESCRIPTION
+
+
+## DBsubject(Calculus - multivariable)
+## DBchapter(Vector fields)
+## DBsection(Graphs, flows lines, and level surfaces)
+## Date(10/31/09)
+## Institution(Fort Lewis College)
+## Author(Paul Pearson)
+## MLT(gradcontour)
+## MLTleader(1)
+## Level(3)
+## TitleText1('Calculus')
+## AuthorText1('Hughes-Hallett')
+## EditionText1('4')
+## Section1('17.3')
+## Problem1('')
+## TitleText2('Calculus')
+## AuthorText2('Hughes-Hallett')
+## EditionText2('5')
+## Section2('17.3')
+## Problem2('')
+## KEYWORDS('Vector Field')
+
 DOCUMENT();
 
 loadMacros(
-    "PGstandard.pl",
-    "PGML.pl",
-    "PGcourse.pl",
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGgraphmacros.pl",
+  "MathObjects.pl",
+  "VectorField2D.pl",
+  "unionTables.pl",
+  "PGcourse.pl"
 );
+
+$refreshCachedImages=1;
+
+
+Context("Numeric")->variables->are(x=>"Real",y=>"Real");
+
+
+foreach my $i (0..5) {
+  $gr[$i] = init_graph(-5,-5,5,5,grid=>[10,10],axes=>[0,0],pixels=>[400,400]);
+  $gr[$i]->lb('reset');
+#  foreach my $j (1..4) {
+#    $gr[$i]->lb( new Label(-4.7,  $j, $j,'black','center','middle'));
+#    $gr[$i]->lb( new Label(-4.7, -$j,-$j,'black','center','middle'));
+#    $gr[$i]->lb( new Label(  $j,-4.7, $j,'black','center','middle'));
+#    $gr[$i]->lb( new Label( -$j,-4.7,-$j,'black','center','middle'));
+#  }
+  $gr[$i]->lb( new Label(4.7,0.2,'x','black','center','middle'));
+  $gr[$i]->lb( new Label(0.2,4.7,'y','black','center','middle'));
+  $gr[$i]->new_color("lightblue", 214,230,244); # RGB
+  $gr[$i]->new_color("darkblue",  100,100,255);
+  $gr[$i]->new_color("lightgreen",156,215,151); 
+  $gr[$i]->new_color("darkgreen",   0, 86, 34);
+  $gr[$i]->new_color("lightred",245,234,229); # light red-purple
+  $gr[$i]->new_color("darkred", 159, 64, 16); # red-brown
+  $gr[$i]->new_color("nicegreen",0,110,0);
+}
+
+############
+
+# F = grad( (x^2 + y^2)/2 )
+VectorField2D(
+graphobject => $gr[0],
+Fx => Formula("x"),
+Fy => Formula("y"),
+xvar => "x",
+yvar => "y",
+xmin => -5,
+xmax =>  5,
+ymin => -5,
+ymax =>  5,
+xsamples => 10,
+ysamples => 10,
+vectorcolor => "blue",
+vectorscale => 0.2,
+vectorthickness => 2,
+xavoid=>0,
+yavoid=>0,
+);
+
+foreach $k (5,10,15,20,25,30,35,40,45) {
+  my $a = sqrt($k);
+  my $fn = new Fun( sub { my $t=shift(); return $a * cos($t); }, sub { my $t=shift(); return $a * sin($t);}, $gr[3] );
+  $fn->domain(0,6.3);
+  $fn->color("darkred");
+}
+
+
+##########################
+
+# F = grad( (x^2-y^2)/2 )
+VectorField2D(
+graphobject => $gr[1],
+Fx => Formula("x"),
+Fy => Formula("-y"),
+xvar => "x",
+yvar => "y",
+xmin => -5,
+xmax =>  5,
+ymin => -5,
+ymax =>  5,
+xsamples => 10,
+ysamples => 10,
+vectorcolor => "blue",
+vectorscale => 0.2,
+vectorthickness => 2,
+xavoid=>0,
+yavoid=>0,
+);
+
+foreach my $k (0,5,10,15,20,25) {
+  # left and right branches
+  $fn = new Fun( sub { my $t=shift(); return sqrt($k+$t**2); }, sub { my $t=shift(); return $t;}, $gr[4] );
+  $fn->domain(-5,5);
+  $fn->color("darkred");
+  $fn = new Fun( sub { my $t=shift(); return -sqrt($k+$t**2); }, sub { my $t=shift(); return $t;}, $gr[4] );
+  $fn->domain(-5,5);
+  $fn->color("darkred");
+
+  # top and bottom branches
+  add_functions($gr[4],
+  " sqrt(x^2+$k)  for x in <-5,5> using color:darkred and weight:2",
+  "-sqrt(x^2+$k)  for x in <-5,5> using color:darkred and weight:2",
+  );
+}
+
+
+
+
+#############################
+
+# F = grad( xy )
+VectorField2D(
+graphobject => $gr[2],
+Fx => Formula("y"),
+Fy => Formula("x"),
+xvar => "x",
+yvar => "y",
+xmin => -5,
+xmax =>  5,
+ymin => -5,
+ymax =>  5,
+xsamples => 10,
+ysamples => 10,
+vectorcolor => "blue",
+vectorscale => 0.2,
+vectorthickness => 2,
+xavoid=>0,
+yavoid=>0,
+);
+
+foreach my $k (5,10,15,20,25) {
+  add_functions($gr[5],
+  "$k/x  for x in <-5,-0.001> using color:darkred and weight:2",
+  "$k/x  for x in <0.001,5> using color:darkred and weight:2",
+  "-$k/x  for x in <-5,-0.001> using color:darkred and weight:2",
+  "-$k/x  for x in <0.001,5> using color:darkred and weight:2",
+  );
+}
+$gr[5]->moveTo(-5,0);
+$gr[5]->lineTo(5,0,"darkred",2);
+$gr[5]->moveTo(0,-5);
+$gr[5]->lineTo(0,5,"darkred",2);
+
+
+
+
+foreach my $i (0..2) {
+  $vf[$i] = image(insertGraph($gr[$i]),width=>200,height=>200,tex_size=>310); 
+  $contours[$i] = image(insertGraph($gr[$i+3]),width=>200,height=>200,tex_size=>310); 
+}
+
+
+@perm = shuffle(3);
+@inv = invert(@perm);
+
+
+#############################################
+#  Main text
 
 TEXT(beginproblem());
 
-$showPartialCorrectAnswers = 1;
-$showHint = 1;
+BEGIN_TEXT
+Each vector field shown is the gradient of a function \( f(x,y) \).  
+Match the gradient field of each function to the contour plot of 
+that function.  
+$BR
+$BR
+$BCENTER
+\{
+BeginTable().
 
-Context("Vector");
+AlignedRow([$vf[0],$vf[1],$vf[2]]).
 
-Context()->variables->are(t=>"Real",x=>"Real",y=>"Real");
-Context()->flags->set(ijk=>1 );
-Context()->constants->set(
-  i => {TeX => "\,\mathit{\vec i}"},
-  j => {TeX => "\,\mathit{\vec j}"},
-  k => {TeX => "\,\mathit{\vec k}"},
-);
+TableSpace(5,0).
 
-$a=non_zero_random(-2,2,1);
-$b=non_zero_random(-4,4,1);
-$c=non_zero_random(1,3,1);
-$rr=non_zero_random(-3,3,1);
-$n=random(1,8,1);
-$m=random(1,5,1);
-$k=random(3,7,1);
-$nasobek=random(1,3,1);
-$tmax=random(1,5,1);
+AlignedRow([ 
+ "1. ".pop_up_list(["Choose","A","B","C"]),
+ "2. ".pop_up_list(["Choose","A","B","C"]),
+ "3. ".pop_up_list(["Choose","A","B","C"])
+]).
 
-$r1=Formula("$a*t^($n)")->reduce();
-$r2=Formula("t^($m)")->reduce();
-$r=Vector("<$r1,$r2>");
+TableSpace(26,5).
 
-$f1=random(3,8,1);
-$f2=random(3,8,1);
-$k=random(1,3,1);
-$l=random(1,2,1);
+AlignedRow([
+$contours[$perm[0]],
+$contours[$perm[1]],
+$contours[$perm[2]]
+]).
 
-$F1=Formula("$b*x*y^($k)")->reduce();
-$F2=Formula("$c*x^($l)+$rr*y")->reduce();
-$F=Vector("<$F1,$F2>");
+TableSpace(5,0).
 
-Context()->flags->set( reduceConstants => 1,reduceConstantFunctions => 1);
+AlignedRow(["A","B","C"]).
 
-$F1s=$F1->substitute(x=>$r1,y=>$r2)->reduce();
-$F2s=$F2->substitute(x=>$r1,y=>$r2)->reduce();
-$answers=Vector("<$F1s,$F2s>");
+EndTable();
+\}
+$BR
+(Click on a graph to enlarge it.)
+$ECENTER
+END_TEXT
 
-$F1m=Formula("($a*$b)*t^($n+$k*$m)")->reduce();
-$F2m=Formula("($c*$a^$l)*t^($n*$l)+$rr*t^($m)")->reduce();
-$answer=Vector("<$F1m,$F2m>");
+##########################################
+#  Answer evaluation
 
-# [@ return ($F1s == $F1m ? "1. OK" : "1. Error"); @]*
-# [@ return ($F2s == $F2m ? "2. OK" : "2. Error"); @]*
+install_problem_grader(~~&std_problem_grader);
 
+$showPartialCorrectAnswers = 0;
 
-BEGIN_PGML
-
-## Vyjádření vektorového pole podél křivky
+ANS(str_cmp([@ALPHABET[@inv]]));
 
 
+@letters=@ALPHABET[@inv];
 
-Je dána křivka [` \vec r(t)=[$r]`] pro [`t\in [0,[$tmax]]`] a vektorové pole [`\vec F(x,y)=[$F].`] Najděte vyjádření vektorového pole podél křivky
-					      
->>[``\vec F(\vec r(t))={} ``][_____________________________________]{$answer} <<
-
-(Nezapomeňte zadat odpověď jako vektor, tj. ve formátu *<...,...>* nebo *(...)\*i+(...)\*j*.)
-
-
-END_PGML
-
-BEGIN_PGML_HINT
-
-Stačí do [``` \vec F=[$F]```] dosadit  [```x=[$r1]```] a [```y=[$r2]```] a případně upravit.
-
-END_PGML_HINT
-
-BEGIN_PGML_SOLUTION
-
-Stačí do [``` \vec F=[$F]```] dosadit [```x=[$r1]```] a [```y=[$r2]```] a případně upravit.
-
-Řešení je tedy [```\vec F(\vec r(t))=[$answers]=[$answer]. ```]
-Toto řešení je vygenerováno automaticky a pravděpodobně je možné jej dále upravit, což již je mimo možnosti systému WeBWorK. Sami si vynásobte mocniny se stejným základem nebo konstanty.
-					      
-END_PGML_SOLUTION
-
+BEGIN_SOLUTION
+$PAR SOLUTION $BR $BR
+Gradient vectors are perpendicular to the level curves. Thus
+$BR
+1. matches $letters[0]. $BR
+2. matches $letters[1]. $BR
+3. matches $letters[2]. $BR
+END_SOLUTION
 
 ENDDOCUMENT();
