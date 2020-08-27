@@ -46,7 +46,7 @@ BEGIN_PGML
 
 ## Derivace parametrické rovinné křivky
 
-V této sadě úloh se budeme věnovat křivkovému integrálu druhého druhu. Procvičíme si hledání tečného vektoru ke křivce, vyjádření vektorového pole podél křivky, nalezení skalárního součinu tečného vektoru a vektorového pole podél křivky, přepis na Riemannův integrál a konečně výpočet křivkového integrálu jako až do konce. To je celkem pět úloh, které si představíme ve dvourozměrném a poté v trojrozměrném případě, což dá dohromady deset úkolů.
+V dalším  si procvičíme hledání tečného vektoru ke křivce, vyjádření vektorového pole podél křivky, nalezení skalárního součinu tečného vektoru a vektorového pole podél křivky, přepis na Riemannův integrál a konečně výpočet křivkového integrálu jako až do konce. Nejprve ve dvourozměrném a poté v trojrozměrném případě.
 
 Referenční úlohy jsou příklady ze cvičení ze [@ htmlLink("http://user.mendelu.cz/marik/wiki/am/slidy","sbírky") @]* z kapitoly 5.
 
