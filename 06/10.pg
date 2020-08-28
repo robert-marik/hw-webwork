@@ -45,7 +45,7 @@ Všimněte si ještě, že se vyhýbáme použití konkrétních jednotek. Mluv�
 [@ image("medved.jpg", width=>400) @]*
 
 Tloušťka ledu [`h`] v konstantních podmínkách roste rychlostí, nepřímo úměrnou této tloušťce, tj. existuje konstanta [`k`] taková, že platí
-[``` \frac{\mathrm dh}{\mathrm dt}=\frac kh.```] Podejte slovní interpretaci konstanty [`k`] podobně, jako je uvedeno na příkladech výše.
+[``` \frac{\mathrm dh}{\mathrm dt}=\frac kh.```] Jak byste slovně intepretovali roli konstanty [`k`]? Podejte slovní interpretaci této konstanty podobně, jako je uvedeno na příkladech výše.
 
 
 ### Pravidla
@@ -86,12 +86,12 @@ tloušťka ledu \(h\) a parametrem konstanta úměrnosti
 ```
 -----
 
-Alternativní vyznačení matematického vzorce zapsaného v LaTeXu je v řadě programů obklopení vzorce znakem dolaru nebo dvojdolaru, ale tato možnost v program WeBWroK nefunguje. 
+Alternativní vyznačení matematického vzorce zapsaného v LaTeXu je v řadě programů obklopení vzorce znakem dolaru nebo dvojdolaru, ale tato možnost v program WeBWorK nefunguje. 
 
 ### Úkol
 
 Vyzkoušejte si obě možnosti zápisu matematických výrazů a poté jednu z nich použijte pro zápis své odpovědi.
-Odpověď bude ohodnocena na 100%, pokud bude správně večně a bude zapsána podle pravidel českého pravopisu a podle doporučení pro sazbu matematických výrazů. (Zde je hlavně důležité dodržet označení proměnných jako matematických výrazů.)
+Odpověď bude ohodnocena na 100%, pokud bude správně večně a bude zapsána podle pravidel českého pravopisu a podle doporučení pro sazbu matematických výrazů. (Zde je hlavně důležité dodržet označení proměnných jako matematických výrazů.) Výhodou je stručná a výstižná odpověď.
 
 END_PGML
 
