@@ -1,0 +1,63 @@
+
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+$a=non_zero_random(-4,4,1);
+do { $b=non_zero_random(-8,8,1) } until ( abs($b) > 1 );
+$c=non_zero_random(-10,10);
+
+Context("Numeric")->variables->are($var=>'Real');
+
+$answer=Formula("$a+$b*($var-$c)")->reduce();   # funkce
+
+
+BEGIN_PGML
+
+## Slovní interpretace konstant úměrnosti v diferenciální rovnici
+
+Na přednáškách i ve cvičení jsme se setkali (a i dále se setkáme) s řadou matematických formulací přírodních jevů, kdy je rychlost úměrná jiné veličine. Slovní význam konstant úměrnosti je vhodné být schopen interpretovat slovně. Zpravidla postupujeme tak, že hodnotám, které figurují u konstanty úměrnosti přidělíme takovou číselnou hodnotu, aby na jedné straně rovnice zůstala buď jenom konstanta úměrnosti, nebo konstanta úměrnosti vynásobená záporným znaménkem. Veličina na pravé straně zpravidla derivace, tj. rychlost růstu a ta definuje význam konstanty. Pokud na pravé straně ještě navíc zůstane znaménko minus, máme rychlost poklesu. Několik příkladů následuje. Rychlost je někdy přirozenější formulovat jako změnu za jednotku času, ale obě vyjádření ("rychlost" a "změna za jednotku času") udávají totéž. 
+
+* U Newtonova modelu ochlazování z přednášky je rychlost s jakou klesá teplota, tj. veličina [`` -\frac{\mathrm dT}{\mathrm dt} ``], úměrná rozdílu teploty tělesa a okolí, tj. rozdílu [`(T-T_0).`] Matematicky vyjádřeno platí [``` \frac{\mathrm dT}{\mathrm dt}=-k(T-T_0),```] kde [`k`] je konstanta úměrnosti. Pro [`T-T_0=1`] dostáváme [```\frac{\mathrm dT}{\mathrm dt}=-k.```] _Konstanta [`k`] tedy udává rychlost ochlazování tělesa s teplotou o jednotku vyšší než je teplota okolí._
+* U radioaktivního rozpadu, kdy množství [`x`] dosud nerozpadnuté látky splňuje rovnici [``` \frac{\mathrm dx}{\mathrm dt}=-kx```] dostáváme pro [`x=1`] vztah
+ [``` \frac{\mathrm dx}{\mathrm dt}=-x.```] Tento vztah ukazuje, že _konstanta úměrnosti [`k`] udává pokles množství látky za jednotku času při jednotkovém množství látky_, nebo také _rychlost, s jakou se rozpadá jednotkové množství látky._
+* U rovnice růstu úměrného velikosti populace pracujeme s rovnicí [``` \frac{\mathrm d x}{\mathrm dt}=kx```]. Volbou [`x=1`] vidíme, že konstanta [`k`] udává _rychlost růstu populace v okamžiku, kdy je velikost populace rovna jedné jednotkce_.
+* Diferenciální rovnice [``` \frac{\mathrm dh}{\mathrm dt}=-\frac{S_1}{S_2}\sqrt{2g}\sqrt {h}```]
+udává rychlost, s jakou klesá hladina v nádrži se svislými stěnami, povrchem dna [`S_2`], povrchem výpustě [`S_1`], ve které je hladina vody [`h`] ode dna. Veličina [`g`] je gravitační konstanta. Pro snazší práci je možno přepsat rovnici do tvaru
+[``` \frac{\mathrm dh}{\mathrm dt}=-k\sqrt {h}```] a konstantu úměrnosti [`k=\frac{S_1}{S_2}\sqrt{2g}`] frac interpretovat jako rychlost, s jakou klesá hladina v okamžiku, kdy je hloubka rovna jedné jednotce délky.
+
+Všimněte si ještě, že se vyhýbáme použití konkrétních jednotek. Mluvíme o jednotkovém rozdílu teploty a ne o teplotním rozdílu jeden stupeň Celsia. Mluvíme o jednotkové velikosti populace a ne o tisících jedinců. Mluvíme o množství radioaktivní látky a ne o mikrogramech. To je výhoda, která dělá naše tvrzení univerzální pro libovolnou soustavu jednotek. Tvrzení bude platit i při použití jednotek SI, i při použití britských imperiálních jednotek, i při použití jednotek ad hoc použitých pro řešení jednoho konkrétního problému. Bude se měnit například číslená hodnota konstanty a její jednotky, její slovní interpretace však zůstane stále stejná.
+
+-------
+
+[@ image("medved.jpg", width=>400) @]*
+
+Tloušťka ledu [`h`] v konstantních podmínkách roste rychlostí, nepřímo úměrnou tét tloušťce, tj. existuje konstanta [`k`] taková, že platí
+[``` \frac{\mathrm dh}{\mathrm dt}=\frac kh.```] Podejte slovní interpretaci konstanty [`k`] podobně, jako je uvedeno na příkladech výše.
+
+Výsledné tvrzení musí být odpovědí na úkol. Musí se jednat o českou nebo slovenskou větu s podmětem a přísudkem, gramaticky správně utvořenou a věcně snadno pochopitelnou. Odpověď musí být jednoznačná a pokud možno stručná.
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box()\}
+END_TEXT
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+ENDDOCUMENT(); 
+
+
+
+ENDDOCUMENT();

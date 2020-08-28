@@ -13,81 +13,70 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-Context("Numeric")->variables->are('dx'=>['Real',limits=>[1,100]], 'dy'=>'Real', 'y'=>'Real', 'x'=>'Real');
+Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]], 'dx'=>'Real', 't'=>'Real', 'x'=>'Real');
 Context()->variables->set(dx => {TeX => '{\mathrm dx}'});
-Context()->variables->set(dy => {TeX => '{\mathrm dy}'});
 
 
-$a=non_zero_random(-5,5);
+$a=1;
 $b=non_zero_random(1,5);
 do { $c=non_zero_random(-7,7,2); } until ($c!=$a);
-$d=non_zero_random(-6,10,1);
+$d=non_zero_random(-6,10,2);
 
 $n=random(0,1);
 
 if ($n==1)
 {
-$rovnice=Formula("e^($a*y+$b)*(x^2+$d)")->reduce();
-$RHS=Formula("(x^2+$d)*dx")->reduce();
+$rovnice=Formula("$c*x^($b)+$d")->reduce();
+$uprava=Formula("dx/($c*x^($b)+$d)")->reduce();
 $akce="vydělení";
-$cim=Formula("e^($a*y+$b)")->reduce();
-$LHS=Formula("e^(-$a*y-$b)*dy")->reduce();
+$co=$rovnice;
 }
 else
 {
-$rovnice=Formula("e^($a*x+$b)*(y^2+$d)")->reduce();
-$RHS=Formula("e^($a*x+$b)*dx")->reduce();
-$akce="vydělení";
-$cim=Formula("(y^2+$d)")->reduce();
-$LHS=Formula("dy/(y^2+$d)")->reduce();
+$rovnice=Formula("1/($c*x^($b)+$d)")->reduce();
+$uprava=Formula("($c*x^($b)+$d)*dx")->reduce();
+$akce="vynásobení";
+$co=Formula("($c*x^($b)+$d)")->reduce();
 }
 
 
 
 BEGIN_PGML
 
-## Separace u separovatelné diferenciální rovnice
+## Separace u autonomní diferenciální rovnice
 
-Nyní si vyzkoušíme  je zobecnění předchozího příkladu. Rovnice již není autonomní (vpravo jsou obě proměnné), ale proměnné se dají odseparovat.
+Autonomní diferenciální jsou automaticky rovnicemi se separovanými proměnnými. Zopakujte si postup řešení t ěchto rovnic podle přednášky a cvičení. Formálně derivaci chápeme jako podíl diferenciálů a násobením a dělením vhodnými veličinami se snažíme oddělit proměnné tak, aby jedna z proměnných byla vlevo a druhá vpravo. Například rovnici
+[``` \frac{\mathrm dx}{\mathrm dt}= 5(3x^7-6)```]
+můžeme po vydělení faktorem [``(3x^7-6)``] přepsat do tvaru
+[```\frac1{3x^7-6}\mathrm dx= 5\mathrm dt.```]
+Levou stranu můžeme v programu WeBWork zapsat například jako *1/(3x^7-6) \* dx*.
 
-Například  rovnici
-[``` \frac{\mathrm dy}{\mathrm dx}= e^y(3x^7-6)```]
-můžeme po vydělení faktorem [``e^y``] přepsat do tvaru
-[```e^{-y}\mathrm dy= (3x^7-6)\mathrm dx.```]
-(Všimněte si dobrého mravu nahradit zlomek [`` \frac 1{e^y}``] výrazem [`` e^{-y}``].)
-Levou stranu můžeme v programu WeBWork zapsat například jako *exp(-y) \* dy* nebo *e^(-y) \* dy*.
-
-Podobně, rovnici
-[``` \frac{\mathrm dy}{\mathrm dx}= e^x(3y^7-6)```]
-můžeme po vydělení faktorem [`` 3y^7-6``] přepsat do tvaru
-[```\frac {\mathrm dy}{3y^7-6}= e^x\mathrm dx.```]
-(Všimněte si dobrého mravu napsat diferenciál [`` \mathrm dy``] do čitatele zlomku.)
-Levou stranu můžeme v programu WeBWork zapsat například jako *dy/(3y^7-6)*.
-
-V následujícím příkladě zkusíme podobnou úlohu, pouze s jinými čísly a funkcemi. Podle výrazu na pravé straně poznáte, jakým výrazem rovnici násobíme nebo dělíme a co zůstane na straně levé.
+V následujícím příkladě zkusíme podobnou úlohu, pouze s jinými čísly. Podle výrazu na pravé straně poznáte, jakým výrazem rovnici násobíme nebo dělíme a co zůstane na straně levé.
 
 --------------------
 
-Odseparujte proměnné v následující rovnici. [```  \frac{\mathrm dy}{\mathrm dx}=[$rovnice] ```]
+Odseparujte proměnné v následující rovnici. [```  \frac{\mathrm dx}{\mathrm dt}=[$rovnice] ```]
 
->> [_______________]{$LHS}[``{}=[$RHS]``]<<
+>> [_______________]{$uprava}[``{}=\mathrm dt``]<<
 
 END_PGML
 
 BEGIN_PGML_HINT
 Proměnné odseparujeme po vynásobení rovnice
-[```  \frac{\mathrm dy}{\mathrm dx}=[$rovnice] ```]
-výrazem [``\mathrm dx ``] a [$akce] výrazem [`` [$cim]``].
+[```  \frac{\mathrm dx}{\mathrm dt}=[$rovnice] ```]
+výrazem [``\mathrm dt ``] a [$akce] výrazem [`` [$co]``].
 END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
 Po vynásobení rovnice
-[```  \frac{\mathrm dy}{\mathrm dx}=[$rovnice] ```]
-výrazem [``\mathrm dx ``] a [$akce] výrazem [`` [$cim]``] dostáváme [``` [$LHS]=[$RHS].```]
+[```  \frac{\mathrm dx}{\mathrm dt}=[$rovnice] ```]
+výrazem [``\mathrm dt ``] a [$akce] výrazem [`` [$co]``] dostáváme [``` [$uprava]=\mathrm dt.```]
 END_PGML_SOLUTION
 
 COMMENT('Uses PGML.');
 
+
 ENDDOCUMENT();
+
 
