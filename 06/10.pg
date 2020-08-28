@@ -47,7 +47,10 @@ Všimněte si ještě, že se vyhýbáme použití konkrétních jednotek. Mluv�
 Tloušťka ledu [`h`] v konstantních podmínkách roste rychlostí, nepřímo úměrnou této tloušťce, tj. existuje konstanta [`k`] taková, že platí
 [``` \frac{\mathrm dh}{\mathrm dt}=\frac kh.```] Podejte slovní interpretaci konstanty [`k`] podobně, jako je uvedeno na příkladech výše.
 
-Výsledné tvrzení musí být odpovědí na úkol. Musí se jednat o českou nebo slovenskou větu s podmětem a přísudkem, gramaticky správně utvořenou a věcně snadno pochopitelnou. Odpověď musí být jednoznačná a pokud možno stručná. Pro zápis matematických výrazů použijte LaTeX nebo ASCIIMath. Doporučení k sazbě matematiky najdete [@ htmlLink("http://user.mendelu.cz/marik/wiki/inzmat/chyby/","zde") @]*.
+
+### Pravidla
+
+Výsledné tvrzení musí být odpovědí na otázku. Musí se jednat o českou nebo slovenskou větu s podmětem a přísudkem, gramaticky správně utvořenou a věcně snadno pochopitelnou. Odpověď musí být jednoznačná a pokud možno stručná. Pro zápis matematických výrazů použijte LaTeX nebo ASCIIMath. Doporučení k sazbě matematiky najdete [@ htmlLink("http://user.mendelu.cz/marik/wiki/inzmat/chyby/","zde") @]*.
 Příklady, jak zrealizovat tato doporučení, najdete pro LaTeX
 [@ htmlLink("http://user.mendelu.cz/marik/wiki/am/slidy/latex","zde") @]*
 a pro ASCIIMath
