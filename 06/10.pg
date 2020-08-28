@@ -49,21 +49,30 @@ Výsledné tvrzení musí být odpovědí na úkol. Musí se jednat o českou ne
 
 
 Ukázka ASCIIMath. Oddělovače matematických výrazů jsou zpětné apostrofy. Zdvojené zpětné apostrofy vysází matematický výraz na samostatný řádek. Zápis je ve většině případů v podstatě klasický zápis používaný v programech jako je WeBWorK, MATLAB, SAGE apod. Zkuste si vykopírovat kód níže a použít tlačítko "Náhled odpovědi".
+
+----------
+
 ```
 V rovnici ``dh/(dt)=k/h`` je nezávislou proměnnou čas `t`,
 závislou proměnnou tloušťka ledu `h` a parametrem konstanta
 úměrnosti `k`. Tato konstanta udává ...
 ```
+-------------
 
-Ukázka LaTeX. Nejrychlejší a nejpropracovanější systém zápisu matematických výrazů do počítače, který dává uživateli plnou kontrolu nad výsledným vzorcem. Oddělovače jsou [| \( ... \) |] pro vzorec uvnitř odstavce a jsou [| \[ ... \] |] pro vzorec na samostatném řádku. 
+Ukázka LaTeX. Nejrychlejší a nejpropracovanější systém zápisu matematických výrazů do počítače, který dává uživateli plnou kontrolu nad výsledným vzorcem. Oddělovače jsou [| \\( ... \\) |] pro vzorec uvnitř odstavce a jsou [| \\[ ... \\] |] pro vzorec na samostatném řádku. 
 Tento formát zápisu je nejrychlejší, prošel [@ htmlLink("https://marast.fit.cvut.cz/cs/blog_posts/2","čtyřicetiletou evolucí" @]* a [@ htmlLink("https://youtu.be/nBDqHNM7dL4","následující video")@]* ukazuje, jak pomocí tohoto značkovacího jazyka zapisovat vzorce v programu MS Word.
 Zkuste si vykopírovat kód níže a použít tlačítko "Náhled odpovědi".
+
+----
+
 ```
 V rovnici \[\frac {\mathrm dh}{\mathrm dt}=\frac kh\]
 je nezávislou proměnnou čas \(t\), závislou proměnnou
 tloušťka ledu \(h\) a parametrem konstanta úměrnosti
 \(k\). Tato konstanta udává ...
 ```
+-----
+
 Alternativní vyznačení matematického vzorce zapsaného v LaTeXu je v řadě programů obklopení vzorce znakem dolaru nebo dvojdolaru, ale tato možnost v program WeBWroK nefunguje. 
 
 Vyzkoušejte si obě možnosti a poté jednu z nich použijte pro zápis své odpovědi.
