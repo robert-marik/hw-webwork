@@ -40,6 +40,8 @@ Všimněte si ještě, že se vyhýbáme použití konkrétních jednotek. Mluv�
 
 -------
 
+### Otázka
+
 [@ image("medved.jpg", width=>400) @]*
 
 Tloušťka ledu [`h`] v konstantních podmínkách roste rychlostí, nepřímo úměrnou této tloušťce, tj. existuje konstanta [`k`] taková, že platí
@@ -52,7 +54,9 @@ a pro ASCIIMath
 [@ htmlLink("http://asciimath.org/","zde") @]*. Oddělovače pro LaTeX jsou závorky, oddělovače pro ASCIIMath jsou zpětné apostrofy.
 
 
-Ukázka ASCIIMath. Oddělovače matematických výrazů jsou zpětné apostrofy. Zdvojené zpětné apostrofy vysází matematický výraz na samostatný řádek. Zápis je ve většině případů v podstatě klasický zápis používaný v programech jako je WeBWorK, MATLAB, SAGE apod. Zkuste si vykopírovat kód níže a použít tlačítko "Náhled odpovědi".
+### Ukázka ASCIIMath
+
+Oddělovače matematických výrazů jsou zpětné apostrofy. Zdvojené zpětné apostrofy vysází matematický výraz na samostatný řádek. Zápis je ve většině případů v podstatě klasický zápis používaný v programech jako je WeBWorK, MATLAB, SAGE apod. Zkuste si vykopírovat kód níže a použít tlačítko "Náhled odpovědi".
 
 ----------
 
@@ -63,7 +67,9 @@ závislou proměnnou tloušťka ledu `h` a parametrem konstanta
 ```
 -------------
 
-Ukázka LaTeX. Nejrychlejší a nejpropracovanější systém zápisu matematických výrazů do počítače, který dává uživateli plnou kontrolu nad výsledným vzorcem. Oddělovače jsou patrné z následující ukázky: lomítko následované kulatou nebo hranatou závorkou podle toho, zda je výraz v normálním běhu odstavce nebo zda je zvýrazněn umístěním na samostatný řádek. 
+###  Ukázka LaTeX
+
+Nejrychlejší a nejpropracovanější systém zápisu matematických výrazů do počítače, který dává uživateli plnou kontrolu nad výsledným vzorcem. Oddělovače jsou patrné z následující ukázky: lomítko následované kulatou nebo hranatou závorkou podle toho, zda je výraz v normálním běhu odstavce nebo zda je zvýrazněn umístěním na samostatný řádek. 
 Tento formát zápisu je nejrychlejší, prošel [@ htmlLink("https://marast.fit.cvut.cz/cs/blog_posts/2","čtyřicetiletou evolucí") @]* a [@ htmlLink("https://youtu.be/nBDqHNM7dL4","následující video") @]* ukazuje, jak pomocí tohoto značkovacího jazyka zapisovat vzorce v programu MS Word.
 Zkuste si vykopírovat kód níže a použít tlačítko "Náhled odpovědi".
 
@@ -79,7 +85,9 @@ tloušťka ledu \(h\) a parametrem konstanta úměrnosti
 
 Alternativní vyznačení matematického vzorce zapsaného v LaTeXu je v řadě programů obklopení vzorce znakem dolaru nebo dvojdolaru, ale tato možnost v program WeBWroK nefunguje. 
 
-Vyzkoušejte si obě možnosti a poté jednu z nich použijte pro zápis své odpovědi.
+### Úkol
+
+Vyzkoušejte si obě možnosti zápisu matematických výrazů a poté jednu z nich použijte pro zápis své odpovědi.
 Odpověď bude ohodnocena na 100%, pokud bude správně večně a bude zapsána podle pravidel českého pravopisu a podle doporučení pro sazbu matematických výrazů. (Zde je hlavně důležité dodržet označení proměnných jako matematických výrazů.)
 
 END_PGML
