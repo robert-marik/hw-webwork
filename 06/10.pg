@@ -60,7 +60,7 @@ závislou proměnnou tloušťka ledu `h` a parametrem konstanta
 -------------
 
 Ukázka LaTeX. Nejrychlejší a nejpropracovanější systém zápisu matematických výrazů do počítače, který dává uživateli plnou kontrolu nad výsledným vzorcem. Oddělovače jsou [| \\( ... \\) |] pro vzorec uvnitř odstavce a jsou [| \\[ ... \\] |] pro vzorec na samostatném řádku. 
-Tento formát zápisu je nejrychlejší, prošel [@ htmlLink("https://marast.fit.cvut.cz/cs/blog_posts/2","čtyřicetiletou evolucí" @]* a [@ htmlLink("https://youtu.be/nBDqHNM7dL4","následující video")@]* ukazuje, jak pomocí tohoto značkovacího jazyka zapisovat vzorce v programu MS Word.
+Tento formát zápisu je nejrychlejší, prošel [@ htmlLink("https://marast.fit.cvut.cz/cs/blog_posts/2","čtyřicetiletou evolucí") @]* a [@ htmlLink("https://youtu.be/nBDqHNM7dL4","následující video") @]* ukazuje, jak pomocí tohoto značkovacího jazyka zapisovat vzorce v programu MS Word.
 Zkuste si vykopírovat kód níže a použít tlačítko "Náhled odpovědi".
 
 ----
@@ -77,8 +77,6 @@ Alternativní vyznačení matematického vzorce zapsaného v LaTeXu je v řadě 
 
 Vyzkoušejte si obě možnosti a poté jednu z nich použijte pro zápis své odpovědi.
 Odpověď bude ohodnocena na 100%, pokud bude správně večně a bude zapsána podle pravidel českého pravopisu a podle doporučení pro sazbu matematických výrazů. (Zde je hlavně důležité dodržet označení proměnných jako matematických výrazů.)
-
-
 
 END_PGML
 
