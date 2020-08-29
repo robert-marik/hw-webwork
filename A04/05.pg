@@ -153,7 +153,7 @@ Tento vzorec vyplývá přímo z výpočtu determinantu
 
 Po výpočtu parciálních derivací dostáváme
 [``` \nabla \times \vec F=
-[$answer] ```]
+[$answer].```]
 
 Pokud hledáme hodnotu parametru, pro který je rotace nulová, dostáváme pro parametr [`[$par]`] rovnici
 [``` [$ans3]=0,```] která má platit pro všechna [`x`] a [`y`]. To bude platit pro

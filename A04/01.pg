@@ -60,7 +60,7 @@ Vektorový součin vektorů [`\vec u=(u_1,u_2,u_3)^T=u_1\vec i+u_2 \vec j + u_3 
 u_1 & u_2& u_3\\
 v_1& v_2 & v_3
 \end{vmatrix}
-=(u_2 v_3 - u_3 v_2)\vec i - (u_1 v_3 - u_3 v_1)\vec j + (u_1 v_2 - u_2 v_1)\vec k.
+=(u_2 v_3 - u_3 v_2)\vec i + (u_3 v_1 - u_1 v_3)\vec j + (u_1 v_2 - u_2 v_1)\vec k.
 ```]
 
 Například součin vektorů [`\vec u = (2,3,1)^T=2\vec i+3\vec j+\vec k`] a [`\vec v=(-1,0,3)^T=-\vec i+3\vec k`]
@@ -104,7 +104,7 @@ Platí
 \begin{vmatrix}\vec i&\vec j& \vec k \\ [$u1]&[$u2]&[$u3]\\
 [$v1]&[$v2]&[$v3]
 \end{vmatrix}
-=([$ans1])\cdot \vec i-([$ans2m])\cdot \vec j + ([$ans3])\cdot \vec k=[$answer].
+=([$ans1])\cdot \vec i+([$ans2])\cdot \vec j + ([$ans3])\cdot \vec k=[$answer].
 ```]
 
 END_PGML_SOLUTION

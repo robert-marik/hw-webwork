@@ -62,9 +62,12 @@ xy^2& x^3 & 0
 \end{vmatrix}\\&
 =\left( \frac{\partial }{\partial y} (0)
 - \frac{\partial }{\partial z} (x^3)\right)\cdot \vec i
-\\&{}\ -
-\left( \frac{\partial }{\partial x} (0)
-- \frac{\partial }{\partial z} (xy^2)\right)\cdot \vec j
+\\&{}\ +
+\left(
+\frac{\partial }{\partial z} (xy^2)
+-
+\frac{\partial }{\partial x} (0)
+\right)\cdot \vec j
 \\&{}\ +\left( \frac{\partial }{\partial x} (x^3)
 - \frac{\partial }{\partial y} (xy^2)\right)\cdot \vec k
 \\&=0\cdot\vec i+0\cdot\vec j+(3x^2-2xy)\vec k.
