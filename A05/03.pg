@@ -148,7 +148,7 @@ Příklad postupu:
 * Vyberte si body s jednoduchými souřadnicemi, například [`(1,0)`], [`(0,1)`] a [`(1,1)`].
 * Vypočtěte odpovídající vektor v daném bodě.
 * Podle znaménka komponent poznáte, kterým směrem vektor míří.
-    * Vodorovný vektor první komponentu nulovou.
+    * Vodorovný vektor má první komponentu nulovou.
     * Svislý vektor má druhou komponentu nulovou.
     * Vektor mířící doprava dolů má první komponentu kladnou a druhou zápornou.
     * ... atd.
