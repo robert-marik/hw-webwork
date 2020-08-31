@@ -1,47 +1,3 @@
-# DESCRIPTION
-# Problem from Calculus, single variable, Hughes-Hallett et al., 4th ed.
-# WeBWorK problem written by Gavin LaRose, <glarose@umich.edu>
-
-## Tagged by glr 02/08/09
-
-## DBsubject(Differential equations)
-## DBchapter(Introductory concepts)
-## DBsection(Verification of solutions)
-## Institution(University of Michigan)
-## Author(Gavin LaRose)
-## Level(4)
-## TitleText1('Calculus')
-## TitleText2('Calculus')
-## TitleText3('Calculus')
-## TitleText4('Applied Calculus')
-## TitleText5('Calculus')
-## AuthorText1('Hughes-Hallett')
-## AuthorText2('Hughes-Hallett')
-## AuthorText3('Hughes-Hallett')
-## AuthorText4('Hughes-Hallett')
-## AuthorText5('Hughes-Hallett')
-## EditionText1('4')
-## EditionText2('5')
-## EditionText3('6')
-## EditionText4('4')
-## EditionText5('7')
-## Section1('11.1')
-## Section2('11.1')
-## Section3('11.6')
-## Section4('10.1')
-## Section5('11.6')
-## Problem1('1')
-## Problem2('2')
-## Problem3('1')
-## Problem4('1')
-## Problem5('1')
-## KEYWORDS('calculus', 'integral', 'differential equations')
-
-## Textbook tags
-## HHChapter1('Differential Equations')
-## HHChapter2('Differential Equations')
-
-
 DOCUMENT();
 
 loadMacros(
@@ -79,15 +35,12 @@ for ( my $x = 0; $x <= 1.5; $x += .1125 ) {
      $graphs[0]->moveTo($x + .1125, 10);
 }
 $descrs[0] =
-  [ "The population of a new species introduced onto a tropical island.",
-    "The number of bacteria on a nutrient petri dish after a group of " .
-      "bacteria is initially introduced.",
+  [ "Populace nového invazního druhu zavleèená na tropický ostrov.",
+    "Velikost populace v prostøedí s omezenou nosnou kapacitou.",
   ];
 $reasons[0] =
-  [ "an island can only sustain the population up to a certain " .
-      "size. The population will grow until it reaches this limiting value.",
-    "the petri dish can only sustain the population up to a certain " .
-      "size. The population will grow until it reaches this limiting value.",
+  [ "ostrov má omezenou nosnou kapacitu a populace bude rùst podle logistické rovnice pouze do urèité hodnoty, dané nosnou kapacitou prostøedí.",
+    "populace bude rùst podle logistické rovnice pouze do urèité hodnoty, dané nosnou kapacitou prostøedí",
   ];
 
 ## (1): exponential growth, then decay
@@ -101,15 +54,12 @@ $alt[1] = "graph of a continuous function that increases from zero or " .
   "a peak with near zero slope, it decreases, again initially rapidly but " .
   "then with a decreasing rate.";
 @descrs[1] =
-  [ "The temperature of a metal ingot placed in a furnace and then removed.",
-    "The downward speed of a parachuter who jumps from a plane, and then " .
-      "later deploys her parachute.",
+  [ "Teplota kovové souèástky umístìné do pece a poté vyta¾ené z pece.",
+    "Vertikální rychlost para¹utisty, který vyskoèí z letadla a po nìjaké dobì otevøe padák.",
   ];
 @reasons[1] =
-  [ "the ingot will get hot and then cool off, so the temperature " .
-      "will increase and then decrease.",
-    "the parachuter's speed will increase, then decrease after the " .
-      "parachute is deployed.",
+  [ "teplota se bude zvy¹ovat, dokud je kovová souèástka v peci a poté sni¾ovat. Oba procesy budou probíhat exponenciálnì, jak plyne z Newtonova zákona tepelné výmìny.",
+    "para¹utistova rychlost se bude narùstat na rychlost odpovídající rovnováze gravitaèní a odporové síly a po otevøení padáku tato rychost zaène klesat.",
   ];
 
 ## (2): constant, then linear drop
@@ -122,16 +72,12 @@ $alt[2] = "graph of a continuous function that is a horizontal line at a " .
   "positive y-value for the first 2/3 of the graph, then a line with a " .
   "negative slope that decreases towards the x-axis.";
 @descrs[2] =
-  [ "The speed of a car traveling at uniform speed and then braking uniformly.",
-    "The distance from the finish line of a runner waiting for the start " .
-      "of a race and then running at a constant speed.",
+  [ "Rychlost auta, které jede konstantní rychlostí a po nìjaké dobì zaène rovnomìrnì brzdit.",
+    "Vzdálenost bì¾ce od cílové linie bìhem èekání na start a následného bìhu konstantní rychlostí.",
   ];
 @reasons[2] =
-  [ "the speed of the car is constant, and then decreases linearly " .
-      "when the breaks are applied uniformly.",
-    "the runner is initially a constant distance away from the " .
-      "finish line, and then when running at a constant speed this " .
-      "distance decreases linearly.",
+  [ "rychlost auta je nejprve konstantní a pøi brzdìní se zaène ronovmìrnì sni¾ovat.",
+    "pøi èekání na startu je vzdálenost od cíle konstantní a bìhem závodu se díky pohybu konstantní rychlostí tato vzdálenost rovnomìrnì zmen¹uje.",
   ];
 
 ## (3): slow exponential decay
@@ -142,17 +88,12 @@ add_functions($graphs[3],"100*e^(-0.01*x) for x in <0,100> using " .
 $alt[3] = "graph of a function that starts with a positive y-value and " .
   "decreases with a slowly decreasing rate to slowly approach the x-axis.";
 @descrs[3] =
-  [ "The mass of Carbon-14 in a historical specimin.",
-    "The temperature in a house that loses heat on a very cold winter day in " .
-      "the northern hemisphere.",
-    "The amount of a drug in a patient's body as a function of time after " .
-      "he takes a pill.",
+  [ "Hmotnost uhlíku C-14 v historickém nálezu.",
+    "Teplota v domì na severní polokouli, kde v lednu do¹lo k výpadku topení.",
   ];
 @reasons[3] =
-  [ "Carbon-14 decays exponentially.",
-    "The temperature in the house will drop off at a decreasing rate, " .
-      "eventually approaching the (very cold) outside temperature.",
-    "the amount of the drug in the patient's body decays exponentially.",
+  [ "mno¾ství radioaktivní látky expoenneciálnì klesá.",
+    "teplota v domì klesá rychlostí úmìrnou rozdílu teplot, tj., exponenciálnì (zpoèátku rychle, kdy¾ u¾ jsou teploty srovnatelné tak pomalu).",
   ];
 
 ## (4): sinusoidal
@@ -163,12 +104,12 @@ add_functions($graphs[4],"cos(x)+2 for x in <0,6.28> using color:blue " .
 $alt[4] = "graph of a function that starts with a positive y-value, " .
   "decreases and then increases sinusoidally.";
 @descrs[4] =
-  [ "The concentration of tree pollen in the air over the course of a year.",
-    "The average water level in a bay between successive high tides.",
+  [ "Koncentrace pylu ze stromù v ovzdu¹í.",
+    "Vý¹ka vody v zálivu mezi dvìma pøílivy.",
   ];
 @reasons[4] =
-  [ "tree pollen is seasonal, and therefore cyclical.",
-    "the tides are cyclical, and the height must therefore oscillate.",
+  [ "koncentrace pylu je sezoní zále¾itost a hodnoty oscilují.",
+    "pøíliv a odliv jsou periodické dìje.",
   ];
 
 ## and one bonus one: (5): exponential growth
@@ -179,15 +120,10 @@ add_functions($graphs[5],"10*e^(0.02*x) for x in <0,100> using " .
 $alt[5] = "graph of a function with a relatively small initial value, that " .
   "increases at a slowly increasing rate.";
 @descrs[5] =
-  [ "The amount of money in a savings account after an initial investment " .
-      "that compounds continuously over time.",
-    "The cost of a product in an economy suffering from a constant " .
-      "inflation rate that persists over a very long time.",
+  [ "Velikost populace s rùstem úmìrným mno¾ství, tj. s neomezenou nosnou kapacitou prostøedí.,
   ];
 @reasons[5] =
-  [ "the amount of money in the account grows exponentially.",
-    "the cost of the product, in the absence of any change in inflation, " .
-      "increases exponentially.",
+  [ "populace, její¾ rùst nebrzdí nosná kapacita prostøedí roste expoenenciálnì.",
   ];
 
 ## then pick five of the six graphs to show, and one of the descriptions
@@ -238,10 +174,10 @@ TEXT(beginproblem());
 Context()->texStrings;
 BEGIN_TEXT
 
-Match the graphs below with the following descriptions by indicating the
-graph corresponding to each description in the answer blank to the left
-of the description.  ${BITALIC}(Note that because this is a matching
-question, it does not show which parts are incorrect.)$EITALIC
+Spárujte graf a popis procesu, který by tento graf modeloval. Takové grafy èasto dostáváme jako výstupy z øe¹ení diferenciálních rovnic. Na vlastní øe¹ení tohoto pøíkladu v¹ak diferenciální rovnice nepotøebujete a ani nemáte za úkol formulovat nebo øe¹it. V¹ímejte si, jak se chovají køivky na obrázcích a jaké byste oèekávali chování u køivky modelující daný proces.
+
+Ve v¹ech pøípadech se uva¾uje závislost popisované velièiny na èase.
+
 
 \{ ColumnMatchTable( $match, valign=>'top' ) \}
 
@@ -281,27 +217,27 @@ SOLUTION(EV3(<<'END_SOLUTION'));
 $PAR SOLUTION $PAR
 
 ${BBOLD}1.$EBOLD
-The answer is $correctAns[0], because
+Odpovìï je  $correctAns[0], proto¾e
 $reasons[$questionIndices[0]]->[$descrIndex[$questionIndices[0]]]
 $PAR
 
 ${BBOLD}2.$EBOLD
-The answer is $correctAns[1], because
+Odpovìï je  $correctAns[1], proto¾e
 $reasons[$questionIndices[1]]->[$descrIndex[$questionIndices[1]]]
 $PAR
 
 ${BBOLD}3.$EBOLD
-The answer is $correctAns[2], because
+Odpovìï je  $correctAns[2], proto¾e
 $reasons[$questionIndices[2]]->[$descrIndex[$questionIndices[2]]]
 $PAR
 
 ${BBOLD}4.$EBOLD
-The answer is $correctAns[3], because
+Odpovìï je  $correctAns[3], proto¾e
 $reasons[$questionIndices[3]]->[$descrIndex[$questionIndices[3]]]
 $PAR
 
 ${BBOLD}5.$EBOLD
-The answer is $correctAns[4], because
+Odpovìï je  $correctAns[4], proto¾e
 $reasons[$questionIndices[4]]->[$descrIndex[$questionIndices[4]]]
 $PAR
 
