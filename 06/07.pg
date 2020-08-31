@@ -6,11 +6,14 @@ loadMacros(
   "PGchoicemacros.pl",
   "PGgraphmacros.pl",
   "unionTables.pl",
+  "PGML.pl",
   "PGcourse.pl"
 );
 
 Context("Numeric");
 $showPartialCorrectAnswers = 0;
+$showHint = 1;
+
 
 ## we graph five different behaviors, and then select a description
 ##    for each.
@@ -213,6 +216,22 @@ foreach $q ( @selectedQ ) {
 }
 
 Context()->texStrings;
+
+BEGIN_PGML_HINT
+Ještě jednou si prohlédněte funkce. V nabídce je šest typů chování, do otázky bylo vybráno pět z nich.
+
+1. Periodická funkce, která se vrací na původní hodnotu.
+1. Rostoucí funkce, která roste expoenenciálně.
+1. Rostoucí funkce, která roste k vodorovné asymptotě.
+1. Klesající funkce, která exponenciálně klesá na celém svém definičním oboru.
+1. Funkce, která je konstantní a poté klesá lineárně.
+1. Funkce, která exponenciálně roste a poté exponenciálně klesá.
+
+
+END_PGML_HINT
+
+
+
 SOLUTION(EV3(<<'END_SOLUTION'));
 $PAR SOLUTION $PAR
 
