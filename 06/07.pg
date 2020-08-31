@@ -179,7 +179,7 @@ sub ansPrint {
     return $outputStr;
 }
 
-$match->rf_print_a( ~~&ansPrint );
+# $match->rf_print_a( ~~&ansPrint );
 
 TEXT(beginproblem());
 Context()->texStrings;
