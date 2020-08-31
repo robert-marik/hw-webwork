@@ -35,12 +35,12 @@ for ( my $x = 0; $x <= 1.5; $x += .1125 ) {
      $graphs[0]->moveTo($x + .1125, 10);
 }
 $descrs[0] =
-  [ "Populace nového invazního druhu zavleèená na tropickı ostrov.",
-    "Velikost populace v prostøedí s omezenou nosnou kapacitou.",
+  [ "Populace novÃ©ho invaznÃ­ho druhu zavleÄenÃ¡ na tropickÃ½ ostrov.",
+    "Velikost populace v prostÅ™edÃ­ s omezenou nosnou kapacitou.",
   ];
 $reasons[0] =
-  [ "ostrov má omezenou nosnou kapacitu a populace bude rùst podle logistické rovnice pouze do urèité hodnoty, dané nosnou kapacitou prostøedí.",
-    "populace bude rùst podle logistické rovnice pouze do urèité hodnoty, dané nosnou kapacitou prostøedí",
+  [ "ostrov mÃ¡ omezenou nosnou kapacitu a populace bude rÅ¯st podle logistickÃ© rovnice pouze do urÄitÃ© hodnoty, danÃ© nosnou kapacitou prostÅ™edÃ­.",
+    "populace bude rÅ¯st podle logistickÃ© rovnice pouze do urÄitÃ© hodnoty, danÃ© nosnou kapacitou prostÅ™edÃ­",
   ];
 
 ## (1): exponential growth, then decay
@@ -54,12 +54,12 @@ $alt[1] = "graph of a continuous function that increases from zero or " .
   "a peak with near zero slope, it decreases, again initially rapidly but " .
   "then with a decreasing rate.";
 @descrs[1] =
-  [ "Teplota kovové souèástky umístìné do pece a poté vyta¾ené z pece.",
-    "Vertikální rychlost para¹utisty, kterı vyskoèí z letadla a po nìjaké dobì otevøe padák.",
+  [ "Teplota kovovÃ© souÄÃ¡stky umÃ­stÄ›nÃ© do pece a potÃ© vytaÅ¾enÃ© z pece.",
+    "VertikÃ¡lnÃ­ rychlost paraÅ¡utisty, kterÃ½ vyskoÄÃ­ z letadla a po nÄ›jakÃ© dobÄ› otevÅ™e padÃ¡k.",
   ];
 @reasons[1] =
-  [ "teplota se bude zvy¹ovat, dokud je kovová souèástka v peci a poté sni¾ovat. Oba procesy budou probíhat exponenciálnì, jak plyne z Newtonova zákona tepelné vımìny.",
-    "para¹utistova rychlost se bude narùstat na rychlost odpovídající rovnováze gravitaèní a odporové síly a po otevøení padáku tato rychost zaène klesat.",
+  [ "teplota se bude zvyÅ¡ovat, dokud je kovovÃ¡ souÄÃ¡stka v peci a potÃ© sniÅ¾ovat. Oba procesy budou probÃ­hat exponenciÃ¡lnÄ›, jak plyne z Newtonova zÃ¡kona tepelnÃ© vÃ½mÄ›ny.",
+    "paraÅ¡utistova rychlost se bude narÅ¯stat na rychlost odpovÃ­dajÃ­cÃ­ rovnovÃ¡ze gravitaÄnÃ­ a odporovÃ© sÃ­ly a po otevÅ™enÃ­ padÃ¡ku tato rychost zaÄne klesat.",
   ];
 
 ## (2): constant, then linear drop
@@ -72,12 +72,12 @@ $alt[2] = "graph of a continuous function that is a horizontal line at a " .
   "positive y-value for the first 2/3 of the graph, then a line with a " .
   "negative slope that decreases towards the x-axis.";
 @descrs[2] =
-  [ "Rychlost auta, které jede konstantní rychlostí a po nìjaké dobì zaène rovnomìrnì brzdit.",
-    "Vzdálenost bì¾ce od cílové linie bìhem èekání na start a následného bìhu konstantní rychlostí.",
+  [ "Rychlost auta, kterÃ© jede konstantnÃ­ rychlostÃ­ a po nÄ›jakÃ© dobÄ› zaÄne rovnomÄ›rnÄ› brzdit.",
+    "VzdÃ¡lenost bÄ›Å¾ce od cÃ­lovÃ© linie bÄ›hem ÄekÃ¡nÃ­ na start a nÃ¡slednÃ©ho bÄ›hu konstantnÃ­ rychlostÃ­.",
   ];
 @reasons[2] =
-  [ "rychlost auta je nejprve konstantní a pøi brzdìní se zaène ronovmìrnì sni¾ovat.",
-    "pøi èekání na startu je vzdálenost od cíle konstantní a bìhem závodu se díky pohybu konstantní rychlostí tato vzdálenost rovnomìrnì zmen¹uje.",
+  [ "rychlost auta je nejprve konstantnÃ­ a pÅ™i brzdÄ›nÃ­ se zaÄne ronovmÄ›rnÄ› sniÅ¾ovat.",
+    "pÅ™i ÄekÃ¡nÃ­ na startu je vzdÃ¡lenost od cÃ­le konstantnÃ­ a bÄ›hem zÃ¡vodu se dÃ­ky pohybu konstantnÃ­ rychlostÃ­ tato vzdÃ¡lenost rovnomÄ›rnÄ› zmenÅ¡uje.",
   ];
 
 ## (3): slow exponential decay
@@ -88,12 +88,12 @@ add_functions($graphs[3],"100*e^(-0.01*x) for x in <0,100> using " .
 $alt[3] = "graph of a function that starts with a positive y-value and " .
   "decreases with a slowly decreasing rate to slowly approach the x-axis.";
 @descrs[3] =
-  [ "Hmotnost uhlíku C-14 v historickém nálezu.",
-    "Teplota v domì na severní polokouli, kde v lednu do¹lo k vıpadku topení.",
+  [ "Hmotnost uhlÃ­ku C-14 v historickÃ©m nÃ¡lezu.",
+    "Teplota v domÄ› na severnÃ­ polokouli, kde v lednu doÅ¡lo k vÃ½padku topenÃ­.",
   ];
 @reasons[3] =
-  [ "mno¾ství radioaktivní látky expoenneciálnì klesá.",
-    "teplota v domì klesá rychlostí úmìrnou rozdílu teplot, tj., exponenciálnì (zpoèátku rychle, kdy¾ u¾ jsou teploty srovnatelné tak pomalu).",
+  [ "mnoÅ¾stvÃ­ radioaktivnÃ­ lÃ¡tky expoenneciÃ¡lnÄ› klesÃ¡.",
+    "teplota v domÄ› klesÃ¡ rychlostÃ­ ÃºmÄ›rnou rozdÃ­lu teplot, tj., exponenciÃ¡lnÄ› (zpoÄÃ¡tku rychle, kdyÅ¾ uÅ¾ jsou teploty srovnatelnÃ© tak pomalu).",
   ];
 
 ## (4): sinusoidal
@@ -104,12 +104,12 @@ add_functions($graphs[4],"cos(x)+2 for x in <0,6.28> using color:blue " .
 $alt[4] = "graph of a function that starts with a positive y-value, " .
   "decreases and then increases sinusoidally.";
 @descrs[4] =
-  [ "Koncentrace pylu ze stromù v ovzdu¹í.",
-    "Vı¹ka vody v zálivu mezi dvìma pøílivy.",
+  [ "Koncentrace pylu ze stromÅ¯ v ovzduÅ¡Ã­.",
+    "VÃ½Å¡ka vody v zÃ¡livu mezi dvÄ›ma pÅ™Ã­livy.",
   ];
 @reasons[4] =
-  [ "koncentrace pylu je sezoní zále¾itost a hodnoty oscilují.",
-    "pøíliv a odliv jsou periodické dìje.",
+  [ "koncentrace pylu je sezonÃ­ zÃ¡leÅ¾itost a hodnoty oscilujÃ­.",
+    "pÅ™Ã­liv a odliv jsou periodickÃ© dÄ›je.",
   ];
 
 ## and one bonus one: (5): exponential growth
@@ -120,10 +120,10 @@ add_functions($graphs[5],"10*e^(0.02*x) for x in <0,100> using " .
 $alt[5] = "graph of a function with a relatively small initial value, that " .
   "increases at a slowly increasing rate.";
 @descrs[5] =
-  [ "Velikost populace s rùstem úmìrnım mno¾ství, tj. s neomezenou nosnou kapacitou prostøedí.,
+  [ "Velikost populace s rÅ¯stem ÃºmÄ›rnÃ½m mnoÅ¾stvÃ­, tj. s neomezenou nosnou kapacitou prostÅ™edÃ­.,
   ];
 @reasons[5] =
-  [ "populace, její¾ rùst nebrzdí nosná kapacita prostøedí roste expoenenciálnì.",
+  [ "populace, jejÃ­Å¾ rÅ¯st nebrzdÃ­ nosnÃ¡ kapacita prostÅ™edÃ­ roste expoenenciÃ¡lnÄ›.",
   ];
 
 ## then pick five of the six graphs to show, and one of the descriptions
@@ -174,9 +174,9 @@ TEXT(beginproblem());
 Context()->texStrings;
 BEGIN_TEXT
 
-Spárujte graf a popis procesu, kterı by tento graf modeloval. Takové grafy èasto dostáváme jako vıstupy z øe¹ení diferenciálních rovnic. Na vlastní øe¹ení tohoto pøíkladu v¹ak diferenciální rovnice nepotøebujete a ani nemáte za úkol formulovat nebo øe¹it. V¹ímejte si, jak se chovají køivky na obrázcích a jaké byste oèekávali chování u køivky modelující danı proces.
+SpÃ¡rujte graf a popis procesu, kterÃ½ by tento graf modeloval. TakovÃ© grafy Äasto dostÃ¡vÃ¡me jako vÃ½stupy z Å™eÅ¡enÃ­ diferenciÃ¡lnÃ­ch rovnic. Na vlastnÃ­ Å™eÅ¡enÃ­ tohoto pÅ™Ã­kladu vÅ¡ak diferenciÃ¡lnÃ­ rovnice nepotÅ™ebujete a ani nemÃ¡te za Ãºkol formulovat nebo Å™eÅ¡it. VÅ¡Ã­mejte si, jak se chovajÃ­ kÅ™ivky na obrÃ¡zcÃ­ch a jakÃ© byste oÄekÃ¡vali chovÃ¡nÃ­ u kÅ™ivky modelujÃ­cÃ­ danÃ½ proces.
 
-Ve v¹ech pøípadech se uva¾uje závislost popisované velièiny na èase.
+Ve vÅ¡ech pÅ™Ã­padech se uvaÅ¾uje zÃ¡vislost popisovanÃ© veliÄiny na Äase.
 
 
 \{ ColumnMatchTable( $match, valign=>'top' ) \}
@@ -217,27 +217,27 @@ SOLUTION(EV3(<<'END_SOLUTION'));
 $PAR SOLUTION $PAR
 
 ${BBOLD}1.$EBOLD
-Odpovìï je  $correctAns[0], proto¾e
+OdpovÄ›Ä je  $correctAns[0], protoÅ¾e
 $reasons[$questionIndices[0]]->[$descrIndex[$questionIndices[0]]]
 $PAR
 
 ${BBOLD}2.$EBOLD
-Odpovìï je  $correctAns[1], proto¾e
+OdpovÄ›Ä je  $correctAns[1], protoÅ¾e
 $reasons[$questionIndices[1]]->[$descrIndex[$questionIndices[1]]]
 $PAR
 
 ${BBOLD}3.$EBOLD
-Odpovìï je  $correctAns[2], proto¾e
+OdpovÄ›Ä je  $correctAns[2], protoÅ¾e
 $reasons[$questionIndices[2]]->[$descrIndex[$questionIndices[2]]]
 $PAR
 
 ${BBOLD}4.$EBOLD
-Odpovìï je  $correctAns[3], proto¾e
+OdpovÄ›Ä je  $correctAns[3], protoÅ¾e
 $reasons[$questionIndices[3]]->[$descrIndex[$questionIndices[3]]]
 $PAR
 
 ${BBOLD}5.$EBOLD
-Odpovìï je  $correctAns[4], proto¾e
+OdpovÄ›Ä je  $correctAns[4], protoÅ¾e
 $reasons[$questionIndices[4]]->[$descrIndex[$questionIndices[4]]]
 $PAR
 
@@ -247,3 +247,4 @@ Context()->normalStrings;
 
 ;
 ENDDOCUMENT();
+
