@@ -29,9 +29,7 @@ $graphs[0] = init_graph(0,0,1.5,10.5,axes=>[0,0],size=>[150,150]);
 $graphs[0]->lb('reset');
 add_functions($graphs[0], "-8/(1+(1/7)*e^(8x)) + 10 for x in <0,1.5> " .
 	      "using color:blue and weight:2");
-$alt[0] = "graph of a function starting at a positive y-value, increasing " .
-  "rapidly before getting to an inflection point and then slowly " .
-  "approaching a horizontal asymptote as t gets large.";
+$alt[0] = "Rostoucí funkce, která roste k vodorovné asymptotě.";
 $graphs[0]->moveTo(0,10);
 for ( my $x = 0; $x <= 1.5; $x += .1125 ) {
      $graphs[0]->lineTo($x + 0.0375, 10);
@@ -52,10 +50,7 @@ $graphs[1]->lb('reset');
 add_functions($graphs[1],
 	      "-x^2+4*x for x in <0,2> using color:blue and weight:2",
 	      "4*e^(-x+2) for x in <2,5> using color:blue and weight:2");
-$alt[1] = "graph of a continuous function that increases from zero or " .
-  "near zero, initially rapidly but with a decreasing rate; after reaching " .
-  "a peak with near zero slope, it decreases, again initially rapidly but " .
-  "then with a decreasing rate.";
+$alt[1] = "Funkce, která exponenciálně roste a poté exponenciálně klesá.";
 @descrs[1] =
   [ "Teplota kovové součástky umístěné do pece a poté vytažené z pece.",
     "Vertikální rychlost parašutisty, který vyskočí z letadla a po nějaké době otevře padák.",
@@ -71,9 +66,7 @@ $graphs[2]->lb('reset');
 add_functions($graphs[2],
 	      "4 for x in <0,2> using color:blue and weight:2",
 	      "6 - x for x in <2,4> using color:blue and weight:2");
-$alt[2] = "graph of a continuous function that is a horizontal line at a " .
-  "positive y-value for the first 2/3 of the graph, then a line with a " .
-  "negative slope that decreases towards the x-axis.";
+$alt[2] = "Funkce, která je konstantní a poté klesá lineárně.";
 @descrs[2] =
   [ "Rychlost auta, které jede konstantní rychlostí a po nějaké době začne rovnoměrně brzdit.",
     "Vzdálenost běžce od cílové linie během čekání na start a následného běhu konstantní rychlostí.",
@@ -88,14 +81,13 @@ $graphs[3] = init_graph(0,0,100,100,axes=>[0,0],size=>[150,150]);
 $graphs[3]->lb('reset');
 add_functions($graphs[3],"100*e^(-0.01*x) for x in <0,100> using " .
 	      "color:blue and weight:2");
-$alt[3] = "graph of a function that starts with a positive y-value and " .
-  "decreases with a slowly decreasing rate to slowly approach the x-axis.";
+$alt[3] = "Klesající funkce, která exponenciálně klesá na celém svém definičním oboru.";
 @descrs[3] =
-  [ "Hmotnost uhlíku C-14 v historickém nálezu.",
+  [ "Hmotnost uhlíku 14C v historickém nálezu.",
     "Teplota v domě na severní polokouli, kde v lednu došlo k výpadku topení.",
   ];
 @reasons[3] =
-  [ "množství radioaktivní látky expoenneciálně klesá.",
+  [ "množství radioaktivního izotopu exponenciálně klesá.",
     "teplota v domě klesá rychlostí úměrnou rozdílu teplot, tj., exponenciálně (zpočátku rychle, když už jsou teploty srovnatelné tak pomalu).",
   ];
 
@@ -104,8 +96,7 @@ $graphs[4] = init_graph(0,0,6.28,3.25,axes=>[0,0],size=>[150,150]);
 $graphs[4]->lb('reset');
 add_functions($graphs[4],"cos(x)+2 for x in <0,6.28> using color:blue " .
 	      "and weight:2");
-$alt[4] = "graph of a function that starts with a positive y-value, " .
-  "decreases and then increases sinusoidally.";
+$alt[4] = "Periodická funkce, která se vrací na původní hodnotu.";
 @descrs[4] =
   [ "Koncentrace pylu ze stromů v ovzduší.",
     "Výška vody v zálivu mezi dvěma přílivy.",
@@ -120,8 +111,7 @@ $graphs[5] = init_graph(0,0,100,100,axes=>[0,0],size=>[150,150]);
 $graphs[5]->lb('reset');
 add_functions($graphs[5],"10*e^(0.02*x) for x in <0,100> using " .
 	      "color:blue and weight:2");
-$alt[5] = "graph of a function with a relatively small initial value, that " .
-  "increases at a slowly increasing rate.";
+$alt[5] = "Rostoucí funkce, která roste exponenciálně.";
 @descrs[5] =
   [ "Velikost populace s růstem úměrným množství, tj. s neomezenou nosnou kapacitou prostředí.",
   ];
@@ -185,7 +175,12 @@ TEXT(beginproblem());
 Context()->texStrings;
 BEGIN_TEXT
 
-Spárujte graf a popis procesu, který by tento graf modeloval. Takové grafy často dostáváme jako výstupy z řešení diferenciálních rovnic. Na vlastní řešení tohoto příkladu však diferenciální rovnice nepotřebujete a ani nemáte za úkol formulovat nebo řešit. Všímejte si, jak se chovají křivky na obrázcích a jaké byste očekávali chování u křivky modelující daný proces.
+Spárujte graf a popis procesu, který by tento graf modeloval. Takové
+grafy často dostáváme jako výstupy z řešení diferenciálních rovnic. Na
+vlastní řešení tohoto příkladu však diferenciální rovnice
+nepotřebujete a ani nemáte za úkol formulovat nebo řešit. Všímejte si,
+jak se chovají křivky na obrázcích a jaké byste očekávali chování u
+křivky modelující daný proces.
 
 Ve všech případech se uvažuje závislost popisované veličiny na
 čase. Pět obrázků, každý patří k jednomu slovnímu popisu, tj. žádná
@@ -201,8 +196,8 @@ $BR
 END_TEXT
 Context()->normalStrings;
 
-# \{ $match->print_q() \}
-# \{ $match->print_a() \}
+# \{ $match->pop_up_list_print_q() \}
+# \{ $match->radio_print_a() \}
 
 ANS(str_cmp( $match->ra_correct_ans ) );
 
@@ -229,18 +224,22 @@ foreach $q ( @selectedQ ) {
     }
 }
 
+$a0=$alt[$questionIndices[0]];
+$a1=$alt[$questionIndices[1]];
+$a2=$alt[$questionIndices[2]];
+$a3=$alt[$questionIndices[3]];
+$a4=$alt[$questionIndices[4]];
+
 Context()->texStrings;
 
 BEGIN_PGML_HINT
-Ještě jednou si prohlédněte funkce. V nabídce je šest typů chování, do otázky bylo vybráno pět z nich.
+Ještě jednou si prohlédněte funkce a popis modelovaných dějů. V nabídce je pět typů chování.
 
-1. Periodická funkce, která se vrací na původní hodnotu.
-1. Rostoucí funkce, která roste exponenciálně.
-1. Rostoucí funkce, která roste k vodorovné asymptotě.
-1. Klesající funkce, která exponenciálně klesá na celém svém definičním oboru.
-1. Funkce, která je konstantní a poté klesá lineárně.
-1. Funkce, která exponenciálně roste a poté exponenciálně klesá.
-
+1. [@ $a0 @]*
+1. [@ $a1 @]*
+1. [@ $a2 @]*
+1. [@ $a3 @]*
+1. [@ $a4 @]*
 
 END_PGML_HINT
 

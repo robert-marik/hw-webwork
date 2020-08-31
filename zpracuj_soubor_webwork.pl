@@ -29,6 +29,7 @@ my $txt_plain="";
 open(my $data, '<', $file) or die "Could not open '$file' $!\n";
 while (my $line = <$data>) {
     chomp $line;
+    print "\n".$line."\n";
     my @data = split /;/, $line;
     $heslo=$setA[rand @setA].$seth[rand @seth].$seta[rand @seta].".".$seta[rand @seta].$seth[rand @seth];
     $zakodovane_heslo=crypt($heslo,join"",(".","/",0..9,"A".."Z","a".."z")[rand 64,rand 64]);
@@ -37,7 +38,8 @@ while (my $line = <$data>) {
     $section = $detail[2];
     $recitation = $detail[2];
     $txt_kod=$txt_kod.$data[3].",".$data[1].",".$data[2].",C,".$comment.",".$section.",".$recitation.",".$data[4].",".$data[5].",".$zakodovane_heslo.",\n";
-    $mydata{"\"".$data[5]."\""}=$heslo;
+    $mydata{"\"".$data[5]."\""}="login: ".$data[5].", heslo: ".$heslo;
+    print "login: ".$data[5].", heslo: ".$heslo;
 }
 
 open(FH, '>', "courselist_crypted.lst") or die $!;
@@ -53,6 +55,7 @@ while (my $line = <$data>) {
     $data[4]="\"".$mydata{$data[5]}."\"";
     $newline=join (",",@data);
     $newfile=$newfile."\n".$newline;
+    print "Polozka ".$newline."\n";
 }    
 
 
