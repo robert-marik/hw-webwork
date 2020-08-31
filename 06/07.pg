@@ -190,9 +190,9 @@ Spárujte graf a popis procesu, který by tento graf modeloval. Takové grafy č
 Ve všech případech se uvažuje závislost popisované veličiny na čase.
 
 
-\{ $ml->print_q() \}
+\{ $match->print_q() \}
 $BR
-\{ $ml->print_a() \}
+\{ $match->print_a() \}
 
 
 
