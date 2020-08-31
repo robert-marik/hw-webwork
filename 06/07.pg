@@ -120,7 +120,7 @@ add_functions($graphs[5],"10*e^(0.02*x) for x in <0,100> using " .
 $alt[5] = "graph of a function with a relatively small initial value, that " .
   "increases at a slowly increasing rate.";
 @descrs[5] =
-  [ "Velikost populace s růstem úměrným množství, tj. s neomezenou nosnou kapacitou prostředí.,
+  [ "Velikost populace s růstem úměrným množství, tj. s neomezenou nosnou kapacitou prostředí.",
   ];
 @reasons[5] =
   [ "populace, jejíž růst nebrzdí nosná kapacita prostředí roste expoenenciálně.",
