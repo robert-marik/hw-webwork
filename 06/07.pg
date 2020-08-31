@@ -156,7 +156,7 @@ $match->choose(5);
 ## try to format the answers nicely
 sub ansPrint {
     my ( $self, @ans ) = @_;
-    my $outputStr = begintable(5);
+    my $outputStr = begintable(3);
     my $num = @ans;          ## number of answers
     my $col2 = int($num/2);  ## number to put in column 2
     my $col1 = $num - $col2; ## number to put in column 1
@@ -179,7 +179,7 @@ sub ansPrint {
     return $outputStr;
 }
 
-# $match->rf_print_a( ~~&ansPrint );
+$match->rf_print_a( ~~&ansPrint );
 
 TEXT(beginproblem());
 Context()->texStrings;
