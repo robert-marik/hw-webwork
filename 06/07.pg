@@ -131,7 +131,15 @@ $alt[5] = "graph of a function with a relatively small initial value, that " .
 
 ## then pick five of the six graphs to show, and one of the descriptions
 ##    for each, and assemble a matching problem.
+
 $match = new_match_list();
+$match->rf_print_q(~~&pop_up_list_print_q);
+$match->ra_pop_up_list([
+"No answer" => "?",
+"A" => "A", "B" => "B", "C" => "C", 
+"D" => "D", "E" => "E"
+]);
+
 @matchQA = ();
 ## we also keep track of which description we're using for each
 @descrIndex = ();
@@ -182,7 +190,11 @@ Spárujte graf a popis procesu, který by tento graf modeloval. Takové grafy č
 Ve všech případech se uvažuje závislost popisované veličiny na čase.
 
 
-\{ ColumnMatchTable( $match, valign=>'top' ) \}
+\{ $ml->print_q() \}
+$BR
+\{ $ml->print_a() \}
+
+
 
 END_TEXT
 Context()->normalStrings;
@@ -221,7 +233,7 @@ BEGIN_PGML_HINT
 Ještě jednou si prohlédněte funkce. V nabídce je šest typů chování, do otázky bylo vybráno pět z nich.
 
 1. Periodická funkce, která se vrací na původní hodnotu.
-1. Rostoucí funkce, která roste expoenenciálně.
+1. Rostoucí funkce, která roste exponenciálně.
 1. Rostoucí funkce, která roste k vodorovné asymptotě.
 1. Klesající funkce, která exponenciálně klesá na celém svém definičním oboru.
 1. Funkce, která je konstantní a poté klesá lineárně.
