@@ -187,7 +187,9 @@ BEGIN_TEXT
 
 Spárujte graf a popis procesu, který by tento graf modeloval. Takové grafy často dostáváme jako výstupy z řešení diferenciálních rovnic. Na vlastní řešení tohoto příkladu však diferenciální rovnice nepotřebujete a ani nemáte za úkol formulovat nebo řešit. Všímejte si, jak se chovají křivky na obrázcích a jaké byste očekávali chování u křivky modelující daný proces.
 
-Ve všech případech se uvažuje závislost popisované veličiny na čase.
+Ve všech případech se uvažuje závislost popisované veličiny na
+čase. Pět obrázků, každý patří k jednomu slovnímu popisu, tj. žádná
+odpověď se neopakuje a žádná není vynechána.
 
 
 \{ $match->print_q() \}
