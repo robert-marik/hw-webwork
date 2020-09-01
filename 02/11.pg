@@ -15,7 +15,7 @@ $showHint = 1;
 
 $radio = RadioButtons(
 [[
-"Odhad změny veličiny \(f\) na intervalu mezi \(x\) a \(x_0\).",
+"Odhad změny veličiny \(f\) na intervalu mezi \(x_0\) a \(x\).",
 "Odhad změny veličiny \(f\) na intervalu jednotkové délky, začínajícího v bodě \(x_0\).",
 "Odhad hodnoty veličiny \(f\) v bodě \(x\).",
 "Odhad hodnoty veličiny \(f\) v bodě \(x_0\).",
