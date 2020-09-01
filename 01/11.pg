@@ -67,9 +67,11 @@ $radio6 = RadioButtons(
 
 BEGIN_PGML
 
-## Přednáška číslo jedna
+## Přednáška Derivace I
 
-V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po shlédnutí a prostudování úvodní přednášky. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Máte více pokusů a vždy se započítává ten nejlepší. 
+[@ image("hw.jpg", width=>400) @]*
+
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po shlédnutí a prostudování úvodní přednášky. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Máte více pokusů a vždy se započítává ten nejlepší. Pracujte v klidu, nebojte se nahlížet do textu. Nemělo by se to však zvrhnout v zuřivé vyhledávání v elektronické verzi textu. Tímto stylem byste se nic nenaučili. 
 
 --------
 

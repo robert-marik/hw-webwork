@@ -21,6 +21,8 @@ $answer = $f->D();   # derivace
 
 BEGIN_PGML
 
+V této sadě úloh si procvičíte derivování (látka ze cvičení) a v závěrečné otázce si prověříme, jak jste byli pozorní při sledování přednášky.
+
 ## Derivace mocninné funkce
 
 Derivace mocninné funkce je dána vzorcem [```\left(x^n\right)'=\frac{\mathrm d}{\mathrm dx}\left(x^n\right)=n x^{n-1}.```]
