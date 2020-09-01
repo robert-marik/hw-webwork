@@ -14,33 +14,37 @@ $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
 $radio = RadioButtons(
-["Rychlost, s jakou roste teplota vody.",
- "Rychlost, s jakou se předává teplo z topné spirály do vody.",
- "Celkový čas nutný pro přivedení vody k bodu varu.",
- "Teplota vody po uplynutí jedné vteřiny.",
- "Teplota vody po uplynutí jedné minuty."
+[
+[
+"Rychlost, s jakou roste teplota vody.",
+"Rychlost, s jakou se předává teplo z topné spirály do vody.",
+"Celkový čas nutný pro přivedení vody k bodu varu.",
+"Teplota vody po uplynutí jedné vteřiny.",
+"Teplota vody po uplynutí jedné minuty."
+]
 ],0);  # První odpověď správná
 
 $radio2 = RadioButtons(
-["Změna teploty vody za jednu vteřinu.",
+[[
+ "Změna teploty vody za jednu vteřinu.",
  "Změna teploty vody za jednu minutu.",
  "Čas nutný pro zvýšení teploty o jeden stupeň Celsia.",
  "Průměrná rychlost růstu teploty vody."
-],0);  # První odpověď správná
+]],0);  # První odpověď správná
 
 $radio3 = RadioButtons(
-[
+[[
 "Změna funkce \(f\) na intervalu \([x,x+h]\).",
 "Průměrná rychlost změny funkce \(f\) na intervalu \([x,x+h]\).",
 "Okamžitá rychlost změny funkce \(f\) na intervalu \([x,x+h]\).",
-],0);  # První odpověď správná
+]],0);  # První odpověď správná
 
 $radio4 = RadioButtons(
-[
+[[
 "Změna funkce \(f\) na intervalu \([x,x+h]\).",
 "Průměrná rychlost změny funkce \(f\) na intervalu \([x,x+h]\).",
 "Okamžitá rychlost změny funkce \(f\) na intervalu \([x,x+h]\).",
-],1);  # První odpověď správná
+]],1);  # První odpověď správná
 
 
 BEGIN_PGML
