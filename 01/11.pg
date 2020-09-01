@@ -53,6 +53,8 @@ BEGIN_PGML
 
 V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po shlédnutí a prostudování úvodní přednášky. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Máte více pokusů a vždy se započítává ten nejlepší. 
 
+--------
+
 ### Slovní interpretace derivace
 
 V rychlovarné konvici vaříte vodu na čaj z pokojové teploty 18 stupňů Celsia.
@@ -61,12 +63,18 @@ Funkce [`T(t)`] udává teplotu vody v čase [`t`]. Najděte slovní interpretac
 
 [_]{$radio}
 
+--------
+
+
 ### Slovní interpretace derivace podruhé
 
 Vyjadřovací schopnosti přirozeného jazyka jsou bezbřehé. Někomu nemusí vyhovovat formulace z minulé sady odpovědí. I v následující sadě je jedna odpověď vhodným popisem derivace
 [``` \frac{\mathrm dT}{\mathrm dt}```] pro funkci z předchozího problému.
 
 [_]{$radio2}
+
+--------
+
 
 
 ### Slovní interpretace čitatele z definice derivace
@@ -76,6 +84,9 @@ Definice derivace funkce [`f(x)`] je
 Jak můžeme slovně vyjádřit čitatel [``` f(x+h)-f(x)```] ze zlomku tohoto výrazu?
 
 [_]{$radio3}
+
+--------
+
 
 ### Slovní interpretace zlomku z definice derivace
 
