@@ -21,7 +21,7 @@ $radio = RadioButtons(
 "Odhad hodnoty veličiny \(f\) v bodě \(x_0\).",
 ]],0);  # První odpověď správná
 
-$c=1;
+my $c=1;
 
 @text=();
 @radio=();
@@ -80,17 +80,23 @@ Co v tomto kontextu vyjadřuje výraz [`` f'(x_0)(x-x_0) ``]?
 
 [_]{$radio}
 
+-------------------
+
 ### Základní aproximace derivace
 
 [@ $text[1] @]
 
 [_]{$radio[1]}
 
+--------------------
+
 ### Pokročilejší aproximace derivace
 
 [@ $text[2] @]
 
 [_]{$radio[2]}
+
+----------------------
 
 ### Aproximace druhé derivace
 
