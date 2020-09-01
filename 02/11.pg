@@ -74,7 +74,7 @@ V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět
 
 ### Slovní interpretace vzorce pro lineární aproximaci
 
-Lineární aproximace je založen na vzorci
+Lineární aproximace je založena na vzorci
 [``` f(x)\approx f(x_0)+f'(x_0)(x-x_0).```]
 Co v tomto kontextu vyjadřuje výraz [`` f'(x_0)(x-x_0) ``]?
 
