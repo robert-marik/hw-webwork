@@ -49,10 +49,10 @@ $radio4 = RadioButtons(
 
 $radio5 = RadioButtons(
 [[
-"\(\frac{\mathrm dc}{\mathrm dt}=-k(c-c_0)\).",
-"\(\frac{\mathrm dc}{\mathrm dt}=k(c-c_0)\).",
-"\(\frac{\mathrm dc}{\mathrm dt}=kc-c_0\).",
-"\(\frac{\mathrm dc}{\mathrm dt}=kc_0-c\).",
+"\(\displaystyle \frac{\mathrm dc}{\mathrm dt}=-k(c-c_0)\).",
+"\(\displaystyle \frac{\mathrm dc}{\mathrm dt}=k(c-c_0)\).",
+"\(\displaystyle \frac{\mathrm dc}{\mathrm dt}=kc-c_0\).",
+"\(\displaystyle \frac{\mathrm dc}{\mathrm dt}=kc_0-c\).",
 ]],0);  # První odpověď správná
 
 
@@ -61,7 +61,7 @@ $radio6 = RadioButtons(
 "Tok tepla.",
 "Spád teploty",
 "Gradient teploty",
-"Rychlost změny teloty",
+"Rychlost změny teploty",
 ]],0);  # První odpověď správná
 
 
@@ -129,7 +129,8 @@ Pokusme se modifikovat model ochlazování z přednášky. Koncentrace rozpoušt
 Rovnice vedení tepla v jednorozměrném materiálu má tvar
 [``` -\frac{\partial}{\partial x}\left(-k\frac{\partial T}{\partial x}\right)=\rho c\frac{\partial T}{\partial t}. ```]
 Co vyjadřuje člen
-[``` -k\frac{\partial T}{\partial x} ?```]
+[``` -k\frac{\partial T}{\partial x} ```]
+nacházející se uvnitř závorky na levé straně?
 
 [_]{$radio6}
 
