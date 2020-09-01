@@ -44,7 +44,25 @@ $radio4 = RadioButtons(
 "Změna funkce \(f\) na intervalu \([x,x+h]\).",
 "Průměrná rychlost změny funkce \(f\) na intervalu \([x,x+h]\).",
 "Okamžitá rychlost změny funkce \(f\) na intervalu \([x,x+h]\).",
-]],1);  # První odpověď správná
+]],1);  # Druhá odpověď správná
+
+
+$radio5 = RadioButtons(
+[[
+"\(\frac{\mathrm dc}{\mathrm dt}=-k(c-c_0)\).",
+"\(\frac{\mathrm dc}{\mathrm dt}=k(c-c_0)\).",
+"\(\frac{\mathrm dc}{\mathrm dt}=kc-c_0\).",
+"\(\frac{\mathrm dc}{\mathrm dt}=kc_0-c\).",
+]],0);  # První odpověď správná
+
+
+$radio6 = RadioButtons(
+[[
+"Tok tepla.",
+"Spád teploty",
+"Gradient teploty",
+"Rychlost změny teloty",
+]],0);  # První odpověď správná
 
 
 BEGIN_PGML
@@ -95,6 +113,25 @@ Jak můžeme slovně vyjádřit čitatel ze zlomku [``` \frac{f(x+h)-f(x)}{h} ``
 
 [_]{$radio4}
 
+
+--------------
+
+### Model poklesu koncentrace
+
+Pokusme se modifikovat model ochlazování z přednášky. Koncentrace rozpouštědla v nátěru klesá rychlostí úměrnou rozdílu mezi touto koncentrací a mezi rovnovážnou koncentrací. Vyberte vhodný model popisující tento děj.
+
+[_]{$radio5}
+
+---------------
+
+### Rovnice vedení tepla
+
+Rovnice vedení tepla v jednorozměrném materiálu má tvar
+[``` -\frac{\partial}{\partial x}\left(-k\frac{\partial T}{\partial x}\right)=\rho c\frac{\partial T}{\partial t}. ```]
+Co vyjadřuje člen
+[``` -k\frac{\partial T}{\partial x} ?```]
+
+[_]{$radio6}
 
 
 END_PGML
