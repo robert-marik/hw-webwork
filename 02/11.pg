@@ -1,0 +1,112 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+$radio = RadioButtons(
+[[
+"Odhad změny veličiny \(f\) na intervalu mezi \(x\) a \(x_0\).",
+"Odhad změny veličiny \(f\) na intervalu jednotkové délky, začínajícího v bodě \(x_0\).",
+"Odhad hodnoty veličiny \(f\) v bodě \(x\).",
+"Odhad hodnoty veličiny \(f\) v bodě \(x_0\).",
+]],0);  # První odpověď správná
+
+$c=1;
+
+@text=();
+@radio=();
+
+sub f {
+   my ($a,$b)=(@_);
+   $text[$c]=$a;
+   $radio[$c]=RadioButtons($b,0);
+   $c=$c+1;
+}
+
+f("Označte výraz, který udává numerickou aproximaci derivace funkce pomocí dopředné diference.",
+[[
+"\(\displaystyle\frac{f(x+h)-f(x)}{h}\)",
+"\(\displaystyle\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}\)",
+"\(\displaystyle\frac{f(x+h)-f(x-h)}{2h}\)",
+"\(\displaystyle\frac{f(x+h)-2f(x)+f(x-h)}{h^2}\)"
+]]
+);
+
+f("Označte výraz, který udává numerickou aproximaci derivace funkce pomocí centrální diference.",
+[[
+"\(\displaystyle\frac{f(x+h)-f(x-h)}{2h}\)",
+"\(\displaystyle\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}\)",
+"\(\displaystyle\frac{f(x+h)-f(x)}{h}\)",
+"\(\displaystyle\frac{f(x+h)-2f(x)+f(x-h)}{h^2}\)",
+]]
+);
+
+f("Označte výraz, který udává numerickou aproximaci druhé derivace funkce.",
+[[
+"\(\displaystyle\frac{f(x+h)-2f(x)+f(x-h)}{h^2}\)",
+"\(\displaystyle\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}\)",
+"\(\displaystyle\frac{f(x+h)-f(x)}{h}\)",
+"\(\displaystyle\frac{f(x+h)-f(x-h)}{2h}\)",
+]]
+);
+
+
+
+
+BEGIN_PGML
+
+## Přednáška Derivace II (Lineární aproximace)
+
+[@ image("hw.jpg", width=>400) @]*
+
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po shlédnutí a prostudování druhé přednášky zaměřené na lineární aproximace. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Máte více pokusů a vždy se započítává ten nejlepší. Pracujte v klidu, nebojte se nahlížet do textu. Nemělo by se to však zvrhnout v zuřivé vyhledávání v elektronické verzi textu. Tímto stylem byste se nic nenaučili. 
+
+
+### Slovní interpretace vzorce pro lineární aproximaci
+
+Lineární aproximace je založen na vzorci
+[``` f(x)\approx f(x_0)+f'(x_0)(x-x_0).]
+Co v tomto kontextu vyjadřuje výraz [`` f'(x_0)(x-x_0) ``]?
+
+[_]{$radio}
+
+### Základní aproximace derivace
+
+[@ $text[1] @]
+
+[_]{$radio[1]}
+
+### Pokročilejší aproximace derivace
+
+[@ $text[2] @]
+
+[_]{$radio[2]}
+
+### Aproximace druhé derivace
+
+[@ $text[3] @]
+
+[_]{$radio[3]}
+
+END_PGML
+
+BEGIN_PGML_HINT
+Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+
+END_PGML_SOLUTION
+
+ENDDOCUMENT();
+

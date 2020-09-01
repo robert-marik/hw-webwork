@@ -144,8 +144,6 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 
-Rostoucí funkce zachovává a klesající funkce mění směr nerovnosti.
-
 END_PGML_SOLUTION
 
 ENDDOCUMENT();
