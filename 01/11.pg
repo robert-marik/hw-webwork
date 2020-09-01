@@ -1,0 +1,98 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+$radio = RadioButtons(
+["Rychlost, s jakou roste teplota vody.",
+ "Rychlost, s jakou se předává teplo z topné spirály do vody.",
+ "Celkový čas nutný pro přivedení vody k bodu varu.",
+ "Teplota vody po uplynutí jedné vteřiny.",
+ "Teplota vody po uplynutí jedné minuty."
+],0);  # První odpověď správná
+
+$radio2 = RadioButtons(
+["Změna teploty vody za jednu vteřinu.",
+ "Změna teploty vody za jednu minutu.",
+ "Čas nutný pro zvýšení teploty o jeden stupeň Celsia.",
+ "Průměrná rychlost růstu teploty vody."
+],0);  # První odpověď správná
+
+$radio3 = RadioButtons(
+[
+"Změna funkce \(f\) na intervalu \([x,x+h]\).",
+"Průměrná rychlost změny funkce \(f\) na intervalu \([x,x+h]\).",
+"Okamžitá rychlost změny funkce \(f\) na intervalu \([x,x+h]\).",
+],0);  # První odpověď správná
+
+$radio4 = RadioButtons(
+[
+"Změna funkce \(f\) na intervalu \([x,x+h]\).",
+"Průměrná rychlost změny funkce \(f\) na intervalu \([x,x+h]\).",
+"Okamžitá rychlost změny funkce \(f\) na intervalu \([x,x+h]\).",
+],1);  # První odpověď správná
+
+
+BEGIN_PGML
+
+## Přednáška číslo jedna
+
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po shlédnutí a prostudování úvodní přednášky. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Máte více pokusů a vždy se započítává ten nejlepší. 
+
+### Slovní interpretace derivace
+
+V rychlovarné konvici vaříte vodu na čaj z pokojové teploty 18 stupňů Celsia.
+Čas měřený ve vteřinách od zapnutí konvice a označíme [`t`].
+Funkce [`T(t)`] udává teplotu vody v čase [`t`]. Najděte slovní interpretaci derivace funkce [`T`], tj. najděte slovní interpretaci pro derivaci [``` \frac{\mathrm dT}{\mathrm dt}.```]
+
+[_]{$radio}
+
+### Slovní interpretace derivace podruhé
+
+Vyjadřovací schopnosti přirozeného jazyka jsou bezbřehé. Někomu nemusí vyhovovat formulace z minulé sady odpovědí. I v následující sadě je jedna odpověď vhodným popisem derivace
+[``` \frac{\mathrm dT}{\mathrm dt}```] pro funkci z předchozího problému.
+
+[_]{$radio2}
+
+
+### Slovní interpretace čitatele z definice derivace
+
+Definice derivace funkce [`f(x)`] je
+[``` f'(x)=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}.```]
+Jak můžeme slovně vyjádřit čitatel [``` f(x+h)-f(x)```] ze zlomku tohoto výrazu?
+
+[_]{$radio3}
+
+### Slovní interpretace zlomku z definice derivace
+
+
+Jak můžeme slovně vyjádřit čitatel ze zlomku [``` \frac{f(x+h)-f(x)}{h} ```] figurujícího v definici derivace?
+
+[_]{$radio4}
+
+
+
+END_PGML
+
+BEGIN_PGML_HINT
+Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+
+Rostoucí funkce zachovává a klesající funkce mění směr nerovnosti.
+
+END_PGML_SOLUTION
+
+ENDDOCUMENT();
+
