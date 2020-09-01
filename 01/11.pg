@@ -19,14 +19,14 @@ $radio = RadioButtons(
 "Rychlost, s jakou roste teplota vody.",
 "Rychlost, s jakou se předává teplo z topné spirály do vody.",
 "Celkový čas nutný pro přivedení vody k bodu varu.",
-"Teplota vody po uplynutí jedné vteřiny.",
-"Teplota vody po uplynutí jedné minuty."
+"Teplota vody po uplynutí jedné sekundy.",
+"Teplota vody po uplynutí jedné sekundy."
 ]
 ],0);  # První odpověď správná
 
 $radio2 = RadioButtons(
 [[
- "Změna teploty vody za jednu vteřinu.",
+ "Změna teploty vody za jednu sekundu.",
  "Změna teploty vody za jednu minutu.",
  "Čas nutný pro zvýšení teploty o jeden stupeň Celsia.",
  "Průměrná rychlost růstu teploty vody."
@@ -58,7 +58,7 @@ V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět
 ### Slovní interpretace derivace
 
 V rychlovarné konvici vaříte vodu na čaj z pokojové teploty 18 stupňů Celsia.
-Čas měřený ve vteřinách od zapnutí konvice a označíme [`t`].
+Čas měřený ve sekundách od zapnutí konvice a označíme [`t`].
 Funkce [`T(t)`] udává teplotu vody v čase [`t`]. Najděte slovní interpretaci derivace funkce [`T`], tj. najděte slovní interpretaci pro derivaci [``` \frac{\mathrm dT}{\mathrm dt}.```]
 
 [_]{$radio}
