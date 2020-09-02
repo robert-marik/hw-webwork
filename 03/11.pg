@@ -91,7 +91,7 @@ f(
 
 BEGIN_PGML
 
-## Přednáška Derivace II (Lineární aproximace)
+## Přednáška Derivace III (Derivace a další užitečné nástroje)
 
 [@ image("hw.jpg", width=>400) @]*
 
