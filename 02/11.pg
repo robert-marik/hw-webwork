@@ -13,27 +13,50 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
-$radio = RadioButtons(
-[[
-"Odhad změny veličiny \(f\) na intervalu mezi \(x_0\) a \(x\).",
-"Odhad změny veličiny \(f\) na intervalu jednotkové délky, začínajícího v bodě \(x_0\).",
-"Odhad hodnoty veličiny \(f\) v bodě \(x\).",
-"Odhad hodnoty veličiny \(f\) v bodě \(x_0\).",
-]],0);  # První odpověď správná
+my $c=0;
 
-my $c=1;
-
+@nadpis=();
 @text=();
 @radio=();
 
 sub f {
-   my ($a,$b)=(@_);
+   my ($h,$a,$b)=(@_);
+   $c1=$c+1;
+   $nadpis[$c]="$c1. ".$h;
    $text[$c]=$a;
    $radio[$c]=RadioButtons($b,0);
    $c=$c+1;
 }
 
-f("Označte výraz, který udává numerickou aproximaci derivace funkce pomocí dopředné diference.",
+
+f(
+"Slovní interpretace vzorce pro lineární aproximaci - 1/2",
+"Lineární aproximace je založena na vzorci \[f(x)\approx f(x_0)+f'(x_0)(x-x_0).\] Co v tomto kontextu vyjadřuje výraz \(f'(x_0)\)?",
+[[
+"Odhad změny veličiny \(f\) na intervalu jednotkové délky, začínajícího v bodě \(x_0\).",
+"Odhad změny veličiny \(f\) na intervalu mezi \(x_0\) a \(x\).",
+"Odhad hodnoty veličiny \(f\) v bodě \(x\).",
+"Odhad hodnoty veličiny \(f\) v bodě \(x_0\).",
+]]
+);
+
+
+
+f(
+"Slovní interpretace vzorce pro lineární aproximaci - 2/2",
+"Lineární aproximace je založena na vzorci \[f(x)\approx f(x_0)+f'(x_0)(x-x_0).\] Co v tomto kontextu vyjadřuje výraz \(f'(x_0)(x-x_0)\)?",
+[[
+"Odhad změny veličiny \(f\) na intervalu mezi \(x_0\) a \(x\).",
+"Odhad změny veličiny \(f\) na intervalu jednotkové délky, začínajícího v bodě \(x_0\).",
+"Odhad hodnoty veličiny \(f\) v bodě \(x\).",
+"Odhad hodnoty veličiny \(f\) v bodě \(x_0\).",
+]]
+);
+
+
+f(
+"Základní aproximace derivace",
+"Označte výraz, který udává numerickou aproximaci derivace funkce pomocí dopředné diference.",
 [[
 "\(\displaystyle\frac{f(x+h)-f(x)}{h}\)",
 "\(\displaystyle\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}\)",
@@ -42,7 +65,23 @@ f("Označte výraz, který udává numerickou aproximaci derivace funkce pomocí
 ]]
 );
 
-f("Označte výraz, který udává numerickou aproximaci derivace funkce pomocí centrální diference.",
+
+f(
+"Základní konstitutivní vztahy",
+"Konstitutivní vztahy mezi skalárními veličnami, jako Fourierův zákon, Darcyho zákon, Fickův zákon, Hookův zákon, mají tvar přímé úměrnosti. Zaškrtněte správné vysvětlení tohoto fenoménu.",
+[[
+"Jedná se o lineární aproximace obecných zákonitostí. V aproximaci figuruje z podstaty věci funkce, procházející počátkem a proto jeden člen z lineární aproximace vypadne a zůstane přímá úměrnost.",
+"Je to důsledek známého jevu, že příroda je ze své podstaty lineární a všechny fyzikální zákonitosti mají tvar přímé úměrnosti.",
+"Je to důsledek spojitosti obou veličin. Závislosti mezi fyzikálními veličinami jsou z principu spojité.",
+],
+"Žádná z nabízených možností není rozumným vysvětlením uvedeného fenoménu. Jevy popsané těmito zákony (vedení tepla, proudění podzemní vody, difuze, elastická deformace) mají všechny zcela jinou podstatu a proto neexistuje jednotné vysvětlení.",
+]
+);
+
+
+f(
+"Pokročilejší aproximace derivace",
+"Označte výraz, který udává numerickou aproximaci derivace funkce pomocí centrální diference.",
 [[
 "\(\displaystyle\frac{f(x+h)-f(x-h)}{2h}\)",
 "\(\displaystyle\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}\)",
@@ -51,7 +90,9 @@ f("Označte výraz, který udává numerickou aproximaci derivace funkce pomocí
 ]]
 );
 
-f("Označte výraz, který udává numerickou aproximaci druhé derivace funkce.",
+f(
+"Aproximace druhé derivace",
+"Označte výraz, který udává numerickou aproximaci druhé derivace funkce.",
 [[
 "\(\displaystyle\frac{f(x+h)-2f(x)+f(x-h)}{h^2}\)",
 "\(\displaystyle\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}\)",
@@ -60,8 +101,28 @@ f("Označte výraz, který udává numerickou aproximaci druhé derivace funkce.
 ]]
 );
 
+f(
+"Lineární aproximace funkce",
+"Vyberte vztah použitelný pro lineární aproximaci funkce jedné proměnné v daném bodě.",
+[[
+"\(\displaystyle f(x)\approx f(a)+f'(a)(x-a)\)",
+"\(\displaystyle f(x)\approx x-a+\frac{f(a)}{f'(a)}\)",
+"\(\displaystyle f(x)\approx x+\frac{f(a)}{f'(a)}\)",
+"\(\displaystyle f(x)\approx x+\frac{f'(a)}{f(a)}\)",
+"\(\displaystyle f(x)\approx f'(a)+f(a)x\)",
+]]);
 
-
+f(
+"Co vyjadřuje výraz?",
+"Co vyjadřuje výraz \(\displaystyle x-\frac{f(x)}{f'(x)}\)?",
+[[
+"Další iteraci v Newtonově metodě hledání nulových bodů.",
+"Numerickou aproximaci druhé derivace.",
+"Numerickou aproximaci derivace pomocí dopředné diference.",
+"Numerickou aproximaci derivace pomocí centrální diference.",
+"Kritérium pro detekci bodů nespojitosti.",
+]]
+);
 
 BEGIN_PGML
 
@@ -72,17 +133,16 @@ BEGIN_PGML
 V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po shlédnutí a prostudování druhé přednášky zaměřené na lineární aproximace. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Máte více pokusů a vždy se započítává ten nejlepší. Pracujte v klidu, nebojte se nahlížet do textu. Nemělo by se to však zvrhnout v zuřivé vyhledávání v elektronické verzi textu. Tímto stylem byste se nic nenaučili. 
 
 
-### Slovní interpretace vzorce pro lineární aproximaci
+### [@ $nadpis[0] @]
 
-Lineární aproximace je založena na vzorci
-[``` f(x)\approx f(x_0)+f'(x_0)(x-x_0).```]
-Co v tomto kontextu vyjadřuje výraz [`` f'(x_0)(x-x_0) ``]?
+[@ $text[0] @]
 
-[_]{$radio}
+[_]{$radio[0]}
+
 
 -------------------
 
-### Základní aproximace derivace
+### [@ $nadpis[1] @]
 
 [@ $text[1] @]
 
@@ -90,7 +150,7 @@ Co v tomto kontextu vyjadřuje výraz [`` f'(x_0)(x-x_0) ``]?
 
 --------------------
 
-### Pokročilejší aproximace derivace
+### [@ $nadpis[2] @]
 
 [@ $text[2] @]
 
@@ -98,11 +158,42 @@ Co v tomto kontextu vyjadřuje výraz [`` f'(x_0)(x-x_0) ``]?
 
 ----------------------
 
-### Aproximace druhé derivace
+### [@ $nadpis[3] @]
 
 [@ $text[3] @]
 
 [_]{$radio[3]}
+
+----------------------
+
+### [@ $nadpis[4] @]
+
+[@ $text[4] @]
+
+[_]{$radio[4]}
+
+----------------------
+
+### [@ $nadpis[5] @]
+
+[@ $text[5] @]
+
+[_]{$radio[5]}
+
+----------------------
+
+### [@ $nadpis[6] @]
+
+[@ $text[6] @]
+
+[_]{$radio[6]}
+----------------------
+
+### [@ $nadpis[7] @]
+
+[@ $text[7] @]
+
+[_]{$radio[7]}
 
 END_PGML
 
