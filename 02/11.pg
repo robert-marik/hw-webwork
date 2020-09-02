@@ -13,17 +13,20 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
+
 my $c=0;
 
 @nadpis=();
 @text=();
 @radio=();
+@reseni=();
 
 sub f {
    my ($h,$a,$b)=(@_);
    $c1=$c+1;
    $nadpis[$c]="$c1. ".$h;
    $text[$c]=$a;
+   $reseni[$c]=$b->[0]->[0];
    $radio[$c]=RadioButtons($b,0);
    $c=$c+1;
 }
@@ -132,7 +135,6 @@ BEGIN_PGML
 
 V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po shlédnutí a prostudování [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/derivace_I/","druhé přednášky") @]* zaměřené na lineární aproximace. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Máte více pokusů a vždy se započítává ten nejlepší. Pracujte v klidu, nebojte se nahlížet do textu. Nemělo by se to však zvrhnout v zuřivé vyhledávání v elektronické verzi textu. Tímto stylem byste se nic nenaučili. 
 
-
 ### [@ $nadpis[0] @]
 
 [@ $text[0] @]
@@ -202,6 +204,70 @@ Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšl
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
+
+
+### [@ $nadpis[0] @]
+
+[@ $text[0] @]
+
+_Řešení: [@ $reseni[0] @]_
+
+
+### [@ $nadpis[1] @]
+
+[@ $text[1] @]
+
+_Řešení: [@ $reseni[1] @]_
+
+
+### [@ $nadpis[2] @]
+
+[@ $text[2] @]
+
+_Řešení: [@ $reseni[2] @]_
+
+
+### [@ $nadpis[3] @]
+
+[@ $text[3] @]
+
+_Řešení: [@ $reseni[3] @]_
+
+
+### [@ $nadpis[4] @]
+
+[@ $text[4] @]
+
+_Řešení: [@ $reseni[4] @]_
+
+
+### [@ $nadpis[5] @]
+
+[@ $text[5] @]
+
+_Řešení: [@ $reseni[5] @]_
+
+
+### [@ $nadpis[5] @]
+
+[@ $text[5] @]
+
+_Řešení: [@ $reseni[5] @]_
+
+
+### [@ $nadpis[6] @]
+
+[@ $text[6] @]
+
+_Řešení: [@ $reseni[6] @]_
+
+
+### [@ $nadpis[7] @]
+
+[@ $text[7] @]
+
+_Řešení: [@ $reseni[7] @]_
+
 
 END_PGML_SOLUTION
 
