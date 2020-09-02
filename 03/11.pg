@@ -106,11 +106,11 @@ foreach $i (0..$last) {
 
 BEGIN_PGML
 
-### [@ $nadpis[i] @]*
+### [@ $nadpis[$i] @]*
 
-[@ $text[i] @]*
+[@ $text[$i] @]*
 
-[_]{$radio[i]}
+[_]{$radio[$i]}
 
 -------------------
 END_PGML
@@ -127,11 +127,11 @@ foreach $i (0..$last) {
 BEGIN_PGML_SOLUTION
 
 
-### [@ $nadpis[0] @]*
+### [@ $nadpis[$i] @]*
 
-[@ $text[0] @]*
+[@ $text[$i] @]*
 
-_Řešení: [@ $reseni[0] @]*_
+_Řešení: [@ $reseni[$i] @]*_
 
 END_PGML_SOLUTION
 
