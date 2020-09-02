@@ -1,0 +1,188 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+
+my $c=0;
+
+@nadpis=();
+@text=();
+@radio=();
+@reseni=();
+
+sub f {
+   my ($h,$a,$b)=(@_);
+   $c1=$c+1;
+   $nadpis[$c]="$c1. ".$h;
+   $text[$c]=$a;
+   $reseni[$c]=$b->[0]->[0];
+   $radio[$c]=RadioButtons($b,0);
+   $c=$c+1;
+}
+
+
+f(
+"Graf sudé funkce",
+"Jaká vlastnost slouží k indentifikování sudé funkce?",
+[[
+"Graf je osově symerický podle osy \(x\).",
+"Graf je osově symerický podle osy \(y\).",
+"Graf je bodově symerický podle počátku.",
+"Graf je rostoucí křivka.",
+],"Žádná z nabízených možností."]
+);
+
+
+
+f(
+"Sudost funkce",
+"K čemu je užitečná sudost funkce?",
+[[
+"Symetrické úlohy mají symetrická řešení a ta jsou popsána sudými funkcemí.",
+"Sudé funkce pomáhají aproximovat obecné funkce pomocí Taylorova polynomu.",
+"Řešení všech běžných fyzikálních úloh je popsáno právě sudými funkcemi.",
+"Rovovážné polohy, nebo obecněji minima potenciálu, jsou popsány sudou funkcí.",
+]]
+);
+
+
+f(
+"Bolzanova věta",
+"Co slovně vyjadřuje  Bolzanova věta?",
+[[
+"Spojitá funkce, která mění znaménko, má mezi znaménkovými změnami nulový bod.",
+"Spojitá funkce, která mění znaménko, má mezi znaménkovými změnami maximum.",
+"Každá funkce, která má nulový bod, mění na intervalu obsahujícím tento bod znaménko.",
+"Každá funkce, která má nulový bod, je v tomto bodě spojitá.",
+"Nulový bod funkce můžeme najít pomocí Newtonovy iterační metody.",
+]]);
+
+f("Gradient",
+"Která formulace vyjadřuje slovně pojem gradientu funkce \(f(x,y)\), tj. \(\nabla f\)?",
+[[
+"Gradient udává směr a intenzitu maximálního růstu veličiny \(f\).",
+"Gradient je rychlost růstu veličiny \(f\), tj. změna funkce \(f\) působená jednotkovou změnou veličiny \(x\).",
+"Gradient je rychlost růstu veličiny \(f\), tj. změna funkce \(f\) za jednotku času.",
+"Gradient je rychlost růstu veličiny \(f\), tj. změna funkce \(f\) na intervalech \([x,x+h]\) a \([y,y+h]\).",
+"Gradient je změna veličiny za zadaný časový interval."
+]]);
+ 
+f(
+"Bugkinghamův \(\Pi\) teorém",
+"Jaký je význam Bugkinghamova \(\Pi\) teorému? K čemu slouží bezrozměrné parametry?",
+[[
+"Bezrozměrné parametry umožňují minimalizovat počet proměnných vystupujících ve fyzikálních zákonech",
+"Bezrozměrné parametry zjednodušují úlohu díky absenci fyzikálních jednotek.",
+"Bezrozměrné parametry usnadňují výpočet derivací a s tím souvisejících rychlostí změn fyzikálních veličin",
+]]
+);
+
+
+BEGIN_PGML
+
+## Přednáška Derivace II (Lineární aproximace)
+
+[@ image("hw.jpg", width=>400) @]*
+
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po shlédnutí a prostudování [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/derivace_III/","třetí přednášky") @]* zaměřené na lokální extrémy a Bugkinghamův [`\Pi`] teorém. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Máte více pokusů a vždy se započítává ten nejlepší. Pracujte v klidu, nebojte se nahlížet do textu. Nemělo by se to však zvrhnout v zuřivé vyhledávání v elektronické verzi textu. Tímto stylem byste se nic nenaučili. 
+
+### [@ $nadpis[0] @]
+
+[@ $text[0] @]
+
+[_]{$radio[0]}
+
+
+-------------------
+
+### [@ $nadpis[1] @]
+
+[@ $text[1] @]
+
+[_]{$radio[1]}
+
+--------------------
+
+### [@ $nadpis[2] @]
+
+[@ $text[2] @]
+
+[_]{$radio[2]}
+
+----------------------
+
+### [@ $nadpis[3] @]
+
+[@ $text[3] @]
+
+[_]{$radio[3]}
+
+----------------------
+
+### [@ $nadpis[4] @]
+
+[@ $text[4] @]
+
+[_]{$radio[4]}
+
+
+END_PGML
+
+BEGIN_PGML_HINT
+Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+
+
+### [@ $nadpis[0] @]
+
+[@ $text[0] @]
+
+_Řešení: [@ $reseni[0] @]_
+
+
+### [@ $nadpis[1] @]
+
+[@ $text[1] @]
+
+_Řešení: [@ $reseni[1] @]_
+
+
+### [@ $nadpis[2] @]
+
+[@ $text[2] @]
+
+_Řešení: [@ $reseni[2] @]_
+
+
+### [@ $nadpis[3] @]
+
+[@ $text[3] @]
+
+_Řešení: [@ $reseni[3] @]_
+
+
+### [@ $nadpis[4] @]
+
+[@ $text[4] @]
+
+_Řešení: [@ $reseni[4] @]_
+
+
+
+END_PGML_SOLUTION
+
+ENDDOCUMENT();
+
