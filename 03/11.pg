@@ -106,9 +106,9 @@ foreach $i (0..$last) {
 
 BEGIN_PGML
 
-### [@ $nadpis[$i] @]*
+### [$nadpis[$i] ]
 
-[@ $text[$i] @]*
+[$text[$i] ]
 
 [_]{$radio[$i]}
 
@@ -122,20 +122,50 @@ BEGIN_PGML_HINT
 Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
 END_PGML_HINT
 
-foreach $i (0..$last) {
-
 BEGIN_PGML_SOLUTION
 
 
-### [@ $nadpis[$i] @]*
+### [@ $nadpis[0] @]*
 
-[@ $text[$i] @]*
+[@ $text[0] @]*
 
-_Řešení: [@ $reseni[$i] @]*_
+_Řešení: [@ $reseni[0] @]*_
+
+--------------
+
+### [@ $nadpis[1] @]*
+
+[@ $text[1] @]*
+
+_Řešení: [@ $reseni[1] @]*_
+
+--------------
+
+### [@ $nadpis[2] @]*
+
+[@ $text[2] @]*
+
+_Řešení: [@ $reseni[2] @]*_
+
+---------------
+
+### [@ $nadpis[3] @]*
+
+[@ $text[3] @]*
+
+_Řešení: [@ $reseni[3] @]*_
+
+---------------
+
+### [@ $nadpis[4] @]*
+
+[@ $text[4] @]*
+
+_Řešení: [@ $reseni[4] @]*_
+
 
 END_PGML_SOLUTION
 
-}
 
 
 ENDDOCUMENT();
