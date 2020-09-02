@@ -79,8 +79,8 @@ f("Gradient",
 ]]);
  
 f(
-"Bugkinghamův \(\Pi\) teorém",
-"Jaký je význam Bugkinghamova \(\Pi\) teorému? K čemu slouží bezrozměrné parametry?",
+"Buckinghamův \(\Pi\) teorém",
+"Jaký je význam Buckinghamova \(\Pi\) teorému? K čemu slouží bezrozměrné parametry?",
 [[
 "Bezrozměrné parametry umožňují minimalizovat počet proměnných vystupujících ve fyzikálních zákonech",
 "Bezrozměrné parametry zjednodušují úlohu díky absenci fyzikálních jednotek.",
