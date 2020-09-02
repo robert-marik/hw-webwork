@@ -88,6 +88,7 @@ f(
 ]]
 );
 
+$last=4;
 
 BEGIN_PGML
 
@@ -99,44 +100,23 @@ V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět
 
 Pracujte v klidu, nebojte se nahlížet do učebního textu. Dělejte si při práci poznámky. Soustřeďte se na to, aby tyto poznámky byly čitelné a organizované a tyto poznámky si přineste ke zkoušce.
 
-### [@ $nadpis[0] @]*
+END_PGML
 
-[@ $text[0] @]*
+foreach $i (0..$last) {
 
-[_]{$radio[0]}
+BEGIN_PGML
 
+### [@ $nadpis[i] @]*
+
+[@ $text[i] @]*
+
+[_]{$radio[i]}
 
 -------------------
+END_PGML
 
-### [@ $nadpis[1] @]*
+}
 
-[@ $text[1] @]*
-
-[_]{$radio[1]}
-
---------------------
-
-### [@ $nadpis[2] @]*
-
-[@ $text[2] @]*
-
-[_]{$radio[2]}
-
-----------------------
-
-### [@ $nadpis[3] @]*
-
-[@ $text[3] @]*
-
-[_]{$radio[3]}
-
-----------------------
-
-### [@ $nadpis[4] @]*
-
-[@ $text[4] @]*
-
-[_]{$radio[4]}
 
 
 END_PGML
@@ -148,39 +128,19 @@ END_PGML_HINT
 BEGIN_PGML_SOLUTION
 
 
+foreach $i (0..$last) {
+
+BEGIN_PGML
+
 ### [@ $nadpis[0] @]*
 
 [@ $text[0] @]*
 
 _Řešení: [@ $reseni[0] @]*_
 
+END_PGML
 
-### [@ $nadpis[1] @]*
-
-[@ $text[1] @]*
-
-_Řešení: [@ $reseni[1] @]*_
-
-
-### [@ $nadpis[2] @]*
-
-[@ $text[2] @]*
-
-_Řešení: [@ $reseni[2] @]*_
-
-
-### [@ $nadpis[3] @]*
-
-[@ $text[3] @]*
-
-_Řešení: [@ $reseni[3] @]*_
-
-
-### [@ $nadpis[4] @]*
-
-[@ $text[4] @]*
-
-_Řešení: [@ $reseni[4] @]*_
+}
 
 
 
