@@ -125,12 +125,10 @@ BEGIN_PGML_HINT
 Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
 END_PGML_HINT
 
-BEGIN_PGML_SOLUTION
-
-
 foreach $i (0..$last) {
 
-BEGIN_PGML
+BEGIN_PGML_SOLUTION
+
 
 ### [@ $nadpis[0] @]*
 
@@ -138,13 +136,10 @@ BEGIN_PGML
 
 _Řešení: [@ $reseni[0] @]*_
 
-END_PGML
+END_PGML_SOLUTION
 
 }
 
-
-
-END_PGML_SOLUTION
 
 ENDDOCUMENT();
 
