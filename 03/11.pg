@@ -99,42 +99,42 @@ V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět
 
 Pracujte v klidu, nebojte se nahlížet do učebního textu. Dělejte si při práci poznámky. Soustřeďte se na to, aby tyto poznámky byly čitelné a organizované a tyto poznámky si přineste ke zkoušce.
 
-### [@ $nadpis[0] @]
+### [@ $nadpis[0] @]*
 
-[@ $text[0] @]
+[@ $text[0] @]*
 
 [_]{$radio[0]}
 
 
 -------------------
 
-### [@ $nadpis[1] @]
+### [@ $nadpis[1] @]*
 
-[@ $text[1] @]
+[@ $text[1] @]*
 
 [_]{$radio[1]}
 
 --------------------
 
-### [@ $nadpis[2] @]
+### [@ $nadpis[2] @]*
 
-[@ $text[2] @]
+[@ $text[2] @]*
 
 [_]{$radio[2]}
 
 ----------------------
 
-### [@ $nadpis[3] @]
+### [@ $nadpis[3] @]*
 
-[@ $text[3] @]
+[@ $text[3] @]*
 
 [_]{$radio[3]}
 
 ----------------------
 
-### [@ $nadpis[4] @]
+### [@ $nadpis[4] @]*
 
-[@ $text[4] @]
+[@ $text[4] @]*
 
 [_]{$radio[4]}
 
@@ -148,39 +148,39 @@ END_PGML_HINT
 BEGIN_PGML_SOLUTION
 
 
-### [@ $nadpis[0] @]
+### [@ $nadpis[0] @]*
 
-[@ $text[0] @]
+[@ $text[0] @]*
 
-_Řešení: [@ $reseni[0] @]_
-
-
-### [@ $nadpis[1] @]
-
-[@ $text[1] @]
-
-_Řešení: [@ $reseni[1] @]_
+_Řešení: [@ $reseni[0] @]*_
 
 
-### [@ $nadpis[2] @]
+### [@ $nadpis[1] @]*
 
-[@ $text[2] @]
+[@ $text[1] @]*
 
-_Řešení: [@ $reseni[2] @]_
-
-
-### [@ $nadpis[3] @]
-
-[@ $text[3] @]
-
-_Řešení: [@ $reseni[3] @]_
+_Řešení: [@ $reseni[1] @]*_
 
 
-### [@ $nadpis[4] @]
+### [@ $nadpis[2] @]*
 
-[@ $text[4] @]
+[@ $text[2] @]*
 
-_Řešení: [@ $reseni[4] @]_
+_Řešení: [@ $reseni[2] @]*_
+
+
+### [@ $nadpis[3] @]*
+
+[@ $text[3] @]*
+
+_Řešení: [@ $reseni[3] @]*_
+
+
+### [@ $nadpis[4] @]*
+
+[@ $text[4] @]*
+
+_Řešení: [@ $reseni[4] @]*_
 
 
 
