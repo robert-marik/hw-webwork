@@ -72,7 +72,6 @@ f("Gradient",
 "Která formulace vyjadřuje slovně pojem gradientu funkce \(f(x,y)\), tj. \(\nabla f\)?",
 [[
 "Gradient udává směr a intenzitu maximálního růstu veličiny \(f\).",
-"Gradient je rychlost růstu veličiny \(f\), tj. změna funkce \(f\) působená jednotkovou změnou veličiny \(x\).",
 "Gradient je rychlost růstu veličiny \(f\), tj. změna funkce \(f\) za jednotku času.",
 "Gradient je rychlost růstu veličiny \(f\), tj. změna funkce \(f\) na intervalech \([x,x+h]\) a \([y,y+h]\).",
 "Gradient je změna veličiny za zadaný časový interval."
