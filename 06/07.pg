@@ -155,12 +155,12 @@ sub ansPrint {
     $outputStr .= row( $BBOLD . $col1labels[0] . ". " . $EBOLD,
 			       $ans[0], $SPACE,
                        $BBOLD . $col1labels[1] . ". " . $EBOLD,
-			       $ans[1], $SPACE,
-                       $BBOLD . $col1labels[2] . ". " . $EBOLD,
-			       $ans[2]);
-    $outputStr .= row( $BBOLD . $col1labels[3] . ". " . $EBOLD,
-			       $ans[3], $SPACE,
-                       $BBOLD . $col1labels[4] . ". " . $EBOLD,
+			       $ans[1]);
+    $outputStr .= row( $BBOLD . $col1labels[2] . ". " . $EBOLD,
+			       $ans[2], $SPACE,
+                       $BBOLD . $col1labels[3] . ". " . $EBOLD,
+			       $ans[3]);
+    $outputStr .= row( $BBOLD . $col1labels[4] . ". " . $EBOLD,
 			       $ans[4]);
     $outputStr .= endtable();
     return $outputStr;
