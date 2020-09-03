@@ -146,11 +146,11 @@ $match->choose(5);
 ## try to format the answers nicely
 sub ansPrint {
     my ( $self, @ans ) = @_;
-    my $outputStr = begintable(3);
-    my $num = @ans;          ## number of answers
-    my $col1 = $num; ## number to put in column 1
-    my @col1labels = @ALPHABET[ 0..($col1-1) ];
-    my $i=1;
+#    my $outputStr = begintable(3);
+#    my $num = @ans;          ## number of answers
+#    my $col1 = $num; ## number to put in column 1
+#    my @col1labels = @ALPHABET[ 0..($col1-1) ];
+#    my $i=1;
 #    $outputStr .= row( $BBOLD . $col1labels[0] . ". " . $EBOLD,
 #			       $ans[0], $SPACE,
 #                       $BBOLD . $col1labels[1] . ". " . $EBOLD,
@@ -162,7 +162,7 @@ sub ansPrint {
 #    $outputStr .= row( $BBOLD . $col1labels[4] . ". " . $EBOLD,
 #			       $ans[4]);
 #    $outputStr .= endtable();
-     $outputStr .= DataTable(
+     my $outputStr = DataTable(
   [
     [['Volba', headerrow => 1],'Graf','Volba','Graf'],
     ['A', $ans[0], 'B', $ans[1]],
