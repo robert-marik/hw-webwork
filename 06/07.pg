@@ -5,7 +5,6 @@ loadMacros(
   "MathObjects.pl",
   "PGchoicemacros.pl",
   "PGgraphmacros.pl",
-  "unionTables.pl",
   "niceTables.pl",
   "PGML.pl",
   "PGcourse.pl"
@@ -84,7 +83,7 @@ add_functions($graphs[3],"100*e^(-0.01*x) for x in <0,100> using " .
 	      "color:blue and weight:2");
 $alt[3] = "Klesající funkce, která exponenciálně klesá na celém svém definičním oboru.";
 @descrs[3] =
-  [ "Hmotnost uhlíku 14C v historickém nálezu.",
+  [ "Hmotnost izotopu uhlíku 14C v historickém nálezu pro uhlíkové datování.",
     "Teplota v domě na severní polokouli, kde v lednu došlo k výpadku topení.",
   ];
 @reasons[3] =
@@ -152,17 +151,25 @@ sub ansPrint {
     my $col1 = $num; ## number to put in column 1
     my @col1labels = @ALPHABET[ 0..($col1-1) ];
     my $i=1;
-    $outputStr .= row( $BBOLD . $col1labels[0] . ". " . $EBOLD,
-			       $ans[0], $SPACE,
-                       $BBOLD . $col1labels[1] . ". " . $EBOLD,
-			       $ans[1]);
-    $outputStr .= row( $BBOLD . $col1labels[2] . ". " . $EBOLD,
-			       $ans[2], $SPACE,
-                       $BBOLD . $col1labels[3] . ". " . $EBOLD,
-			       $ans[3]);
-    $outputStr .= row( $BBOLD . $col1labels[4] . ". " . $EBOLD,
-			       $ans[4]);
-    $outputStr .= endtable();
+#    $outputStr .= row( $BBOLD . $col1labels[0] . ". " . $EBOLD,
+#			       $ans[0], $SPACE,
+#                       $BBOLD . $col1labels[1] . ". " . $EBOLD,
+#			       $ans[1]);
+#    $outputStr .= row( $BBOLD . $col1labels[2] . ". " . $EBOLD,
+#			       $ans[2], $SPACE,
+#                       $BBOLD . $col1labels[3] . ". " . $EBOLD,
+#			       $ans[3]);
+#    $outputStr .= row( $BBOLD . $col1labels[4] . ". " . $EBOLD,
+#			       $ans[4]);
+#    $outputStr .= endtable();
+     $outputStr .= DataTable(
+  [
+    [['Volba', headerrow => 1],'Graf',' ','Volba','Graf'],
+    ['A', $ans[0],' ', 'B', $ans[1]],
+    ['C', $ans[2],' ', 'D', $ans[3]],
+    ['E', $ans[4],' ', '', ''],
+  ], 
+);
     return $outputStr;
 }
 
@@ -170,7 +177,7 @@ $match->rf_print_a( ~~&ansPrint );
 
 TEXT(beginproblem());
 Context()->texStrings;
-BEGIN_TEXT
+BEGIN_PGML
 
 Spárujte graf a popis procesu, který by tento graf modeloval. Takové
 grafy často dostáváme jako výstupy z řešení diferenciálních rovnic. Na
@@ -182,6 +189,12 @@ křivky modelující daný proces.
 Ve všech případech se uvažuje závislost popisované veličiny na
 čase. Pět obrázků, každý patří k jednomu slovnímu popisu, tj. žádná
 odpověď se neopakuje a žádná není vynechána.
+
+Tiše přepokládejme, že jednotka času je vždy rozumně zvolena vzhledem k úloze, tj. v případě pádu parašutisty sekundy, v případě tepelných ztrát domu hodiny, v případě datování pomocí nestabilního izotopu uhlíku staletí.
+
+END_PGML
+
+BEGIN_TEXT
 
 
 \{ $match->print_q() \}
