@@ -38,7 +38,8 @@ Tento příklad je opět podobného stejného typu jako příklad předchozí. J
 
 ------------
 
-Vypočtěte následující derivaci funkce jedné proměnné s parametrem.
+V tomto příkladě je součin mocniny proměnné a mocniny parametru. 
+Identifikujte v proměnnou a parametr (vodítkem je jmenovatel při zápisu derivace pomocí podílu diferenciálů) a poté derivaci vypočtěte.
 
 >>[`` \frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$f]\Bigr) ={}``]
 [_____________________]{$answer}<<

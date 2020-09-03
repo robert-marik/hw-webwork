@@ -30,6 +30,9 @@ BEGIN_PGML
 
 Tento příklad je stejného typu jako příklad předchozí. Rozdíl je jenom v tom, že namísto proměnné [`x`] pracujeme s jinou proměnnou. Proto raději nebudeme derivaci označovat čárkou, ale pomocí diferenciálů (pomocí Leibnizovy notace). Postup je (až na tento detail v zápise) zcela totožný a odpověď bude funkcí proměnné [`[$var]`].
 
+Pokud bychom se o něco podobného snažili například pro funkci [```g(r)=4r^6-r^2```] proměnné [`r`], měli bychom
+[``` \frac{\mathrm d}{\mathrm dr}\left(4r^6-r^2\right)=4\cdot 6r^5-2r=24 r^5-2r.```]
+
 ------------
 
 Napište derivaci [`` \frac{\mathrm df}{\mathrm d[$var]} ``] funkce [``` f([$var])=[$f] ```] proměnné [`[$var]`].
