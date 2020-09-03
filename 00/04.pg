@@ -31,7 +31,7 @@ Následující [@ htmlLink("https://sagecell.sagemath.org/?z=eJxVyzEKgDAMQNFd8A4
 :   f(x)=exp(a*x^2) # deklarace funkce
 :   diff(f(x),x)    # vypocet derivace
 
-Vaším úkolem je tento okazem spusti kód na serveru sagecell.org a tento kód poté modifikovat tak, aby vypočítal derivaci funkce [```f(x)=e^{-a x^2}.```] Funkce se tedy liší od funkce v předpřipraveném výpočtu přidáním znaménka minus do exponentu. Po modifikaci vstupního pole s příkazy spustíte nový výpočet tlačítkem Evaluate. Výsledek překopírujte do pole s odpovědí (zápis můžete nechat tak jak je zobrazí Sage).
+Vaším úkolem je tímto odkazem spustit kód na serveru sagecell.org a tento kód poté modifikovat tak, aby vypočítal derivaci funkce [```f(x)=e^{-a x^2}.```] Funkce se tedy liší od funkce v předpřipraveném výpočtu přidáním znaménka minus do exponentu. Po modifikaci vstupního pole s příkazy spustíte nový výpočet tlačítkem Evaluate. Výsledek překopírujte do pole s odpovědí (zápis můžete nechat tak jak ho zobrazí Sage).
 
 >>[``\frac{\mathrm d}{\mathrm dx} e^{-a x^2}={}``][__________________]{$f->cmp()->withPostFilter(AnswerHints(Formula("2*a*x*e^(a*x^2)") => "Toto je derivace původní funkce. Nezapomeňte, že máte přidat znaménko minus do exponentu."))}.<<
 
