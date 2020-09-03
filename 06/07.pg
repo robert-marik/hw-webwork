@@ -6,6 +6,7 @@ loadMacros(
   "PGchoicemacros.pl",
   "PGgraphmacros.pl",
   "unionTables.pl",
+  "niceTables.pl",
   "PGML.pl",
   "PGcourse.pl"
 );
@@ -148,23 +149,19 @@ sub ansPrint {
     my ( $self, @ans ) = @_;
     my $outputStr = begintable(3);
     my $num = @ans;          ## number of answers
-    my $col2 = int($num/2);  ## number to put in column 2
-    my $col1 = $num - $col2; ## number to put in column 1
+    my $col1 = $num; ## number to put in column 1
     my @col1labels = @ALPHABET[ 0..($col1-1) ];
-    my @col2labels = @ALPHABET[ $col1..($num-1) ];
     my $i=1;
-    while ( $i <= $col1 ) {
-	if ( $i > $col2 ) {
-	    $outputStr .= row( $BBOLD . $col1labels[$i-1] . ". " . $EBOLD,
-			       $ans[$i-1], $SPACE, $SPACE, $SPACE );
-	} else {
-	    $outputStr .= row( $BBOLD . $col1labels[$i-1] . ". " . $EBOLD,
-			       $ans[$i-1], $SPACE, 
-			       $BBOLD . $col2labels[$i-1] . ". " . $EBOLD,
-			       $ans[$col1+$i-1] );
-	}
-	$i++;
-    }
+    $outputStr .= row( $BBOLD . $col1labels[0] . ". " . $EBOLD,
+			       $ans[0], $SPACE,
+                       $BBOLD . $col1labels[1] . ". " . $EBOLD,
+			       $ans[1], $SPACE,
+                       $BBOLD . $col1labels[2] . ". " . $EBOLD,
+			       $ans[2]);
+    $outputStr .= row( $BBOLD . $col1labels[3] . ". " . $EBOLD,
+			       $ans[3], $SPACE,
+                       $BBOLD . $col1labels[4] . ". " . $EBOLD,
+			       $ans[4]);
     $outputStr .= endtable();
     return $outputStr;
 }
