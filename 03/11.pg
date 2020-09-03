@@ -112,6 +112,15 @@ BEGIN_PGML
 
 [_]{$radio[$i]}
 
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+_Řešení: [$reseni[$i] ]_
+
+END_PGML_SOLUTION
+
+BEGIN_PGML
 -------------------
 END_PGML
 
@@ -121,50 +130,6 @@ END_PGML
 BEGIN_PGML_HINT
 Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
 END_PGML_HINT
-
-BEGIN_PGML_SOLUTION
-
-
-### [@ $nadpis[0] @]*
-
-[@ $text[0] @]*
-
-_Řešení: [@ $reseni[0] @]*_
-
---------------
-
-### [@ $nadpis[1] @]*
-
-[@ $text[1] @]*
-
-_Řešení: [@ $reseni[1] @]*_
-
---------------
-
-### [@ $nadpis[2] @]*
-
-[@ $text[2] @]*
-
-_Řešení: [@ $reseni[2] @]*_
-
----------------
-
-### [@ $nadpis[3] @]*
-
-[@ $text[3] @]*
-
-_Řešení: [@ $reseni[3] @]*_
-
----------------
-
-### [@ $nadpis[4] @]*
-
-[@ $text[4] @]*
-
-_Řešení: [@ $reseni[4] @]*_
-
-
-END_PGML_SOLUTION
 
 
 

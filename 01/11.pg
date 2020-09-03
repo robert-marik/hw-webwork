@@ -143,164 +143,38 @@ BEGIN_PGML
 
 V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/derivace_I/","úvodní přednášky") @]* a shlédnutí videa k této přednášce. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Máte více pokusů a vždy se započítává ten nejlepší. Pracujte v klidu, nebojte se nahlížet do textu. Nemělo by se to však zvrhnout v zuřivé vyhledávání v elektronické verzi textu. Tímto stylem byste se nic nenaučili. 
 
+END_PGML
 
+$last=$c-1;
 
-### [@ $nadpis[0] @]*
+foreach $i (0..$last) {
 
-[@ $text[0] @]*
+BEGIN_PGML
 
-[_]{$radio[0]}
+### [$nadpis[$i] ]
 
+[$text[$i] ]
 
--------------------
-
-### [@ $nadpis[1] @]*
-
-[@ $text[1] @]*
-
-[_]{$radio[1]}
-
---------------------
-
-### [@ $nadpis[2] @]*
-
-[@ $text[2] @]*
-
-[_]{$radio[2]}
-
-----------------------
-
-### [@ $nadpis[3] @]*
-
-[@ $text[3] @]*
-
-[_]{$radio[3]}
-
-
-----------------------
-
-### [@ $nadpis[4] @]*
-
-[@ $text[4] @]*
-
-[_]{$radio[4]}
-
-
-----------------------
-
-### [@ $nadpis[5] @]*
-
-[@ $text[5] @]*
-
-[_]{$radio[5]}
-
-----------------------
-
-### [@ $nadpis[6] @]*
-
-[@ $text[6] @]*
-
-[_]{$radio[6]}
-
-----------------------
-
-### [@ $nadpis[7] @]*
-
-[@ $text[7] @]*
-
-[_]{$radio[7]}
-
-
-----------------------
-
-### [@ $nadpis[8] @]*
-
-[@ $text[8] @]*
-
-[_]{$radio[8]}
-
-
+[_]{$radio[$i]}
 
 END_PGML
+
+BEGIN_PGML_SOLUTION
+
+_Řešení: [$reseni[$i] ]_
+
+END_PGML_SOLUTION
+
+BEGIN_PGML
+-------------------
+END_PGML
+
+}
 
 BEGIN_PGML_HINT
 Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
 END_PGML_HINT
 
-BEGIN_PGML_SOLUTION
-
-### [@ $nadpis[0] @]*
-
-[@ $text[0] @]*
-
-_Řešení: [@ $reseni[0] @]*_
-
-
-### [@ $nadpis[1] @]*
-
-[@ $text[1] @]*
-
-_Řešení: [@ $reseni[1] @]*_
-
-
-### [@ $nadpis[2] @]*
-
-[@ $text[2] @]*
-
-_Řešení: [@ $reseni[2] @]*_
-
-
-### [@ $nadpis[3] @]*
-
-[@ $text[3] @]*
-
-_Řešení: [@ $reseni[3] @]*_
-
-
-### [@ $nadpis[4] @]*
-
-[@ $text[4] @]*
-
-_Řešení: [@ $reseni[4] @]*_
-
-
-### [@ $nadpis[5] @]*
-
-[@ $text[5] @]*
-
-_Řešení: [@ $reseni[5] @]*_
-
-
-### [@ $nadpis[5] @]*
-
-[@ $text[5] @]*
-
-_Řešení: [@ $reseni[5] @]*_
-
-
-### [@ $nadpis[6] @]*
-
-[@ $text[6] @]*
-
-_Řešení: [@ $reseni[6] @]*_
-
-
-### [@ $nadpis[7] @]*
-
-[@ $text[7] @]*
-
-_Řešení: [@ $reseni[7] @]*_
-
-
-### [@ $nadpis[8] @]*
-
-[@ $text[8] @]*
-
-_Řešení: [@ $reseni[8] @]*_
-
-
-
-END_PGML_SOLUTION
 
 ENDDOCUMENT();
 
