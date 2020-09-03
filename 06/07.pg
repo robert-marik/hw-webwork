@@ -164,10 +164,10 @@ sub ansPrint {
 #    $outputStr .= endtable();
      $outputStr .= DataTable(
   [
-    [['Volba', headerrow => 1],'Graf',' ','Volba','Graf'],
-    ['A', $ans[0],' ', 'B', $ans[1]],
-    ['C', $ans[2],' ', 'D', $ans[3]],
-    ['E', $ans[4],' ', '', ''],
+    [['Volba', headerrow => 1],'Graf','Volba','Graf'],
+    ['A', $ans[0], 'B', $ans[1]],
+    ['C', $ans[2], 'D', $ans[3]],
+    ['E', $ans[4], '', ''],
   ], 
 );
     return $outputStr;
