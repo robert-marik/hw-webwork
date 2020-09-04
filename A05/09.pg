@@ -99,7 +99,7 @@ Pro výpočet [`` \frac{\mathrm d}{\mathrm dr} \vec r(t)``] derivujeme jednotliv
 
 Pro vyjádření [`\vec F(\vec r(t))`] stačí do [``` \vec F=[$F]```] dosadit  [```x=[$r1]```] a [```y=[$r2]```] a případně upravit.
 
-Skalární součin vypočítáme vynásobením odpovídajících si komponent a seštením těchto součinů.
+Skalární součin vypočítáme vynásobením odpovídajících si komponent a sečtením těchto součinů.
 
 END_PGML_HINT
 
