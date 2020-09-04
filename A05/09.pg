@@ -36,12 +36,12 @@ $k=random(3,7,1);
 $nasobek=random(1,3,1);
 $tmax=random(1,3,1);
 
-$r1=Formula("$a*t^($n)")->reduce();
-$r2=Formula("t^($m)")->reduce();
+$r1=Formula("$a*(t)^($n)")->reduce();
+$r2=Formula("(t)^($m)")->reduce();
 $r=Vector("<$r1,$r2>");
 
-$ansr1=Formula("$a*$n*t^($n-1)")->reduce();
-$ansr2=Formula("$m*t^($m-1)")->reduce();
+$ansr1=Formula("$a*$n*(t)^($n-1)")->reduce();
+$ansr2=Formula("$m*(t)^($m-1)")->reduce();
 $answerR=Vector("<$ansr1,$ansr2>");
 
 
@@ -53,15 +53,15 @@ $l=random(1,2,1);
 $Fx=Formula("$b*x*y^($k)")->reduce();
 $Fy=Formula("$c*x^($l)")->reduce();
 $Fxt=Formula("($a*$b)*t^($n+$k*$m)")->reduce();
-$Fyt=Formula("($c*$a^$l)*t^($n*$l)")->reduce();
+$Fyt=Formula("($c*($a)^$l)*t^($n*$l)")->reduce();
 
 $F=Vector("<$Fx,$Fy>");
 $answerF=Vector("<$Fxt,$Fyt>");
 
 $answerFRa=Formula("$Fxt*$ansr1+$Fyt*$ansr2")->reduce();
-$answerFR=Formula("($a^2*$b*$n)*t^($n+$k*$m+$n-1)+$m*$c*$a^($l)*t^($l*$n+$m-1)")->reduce();
+$answerFR=Formula("(($a)^2*$b*$n)*t^($n+$k*$m+$n-1)+$m*$c*($a)^($l)*t^($l*$n+$m-1)")->reduce();
 
-$answerKIP=Compute("($a^2*$b*$n)/($n+$k*$m+$n)*t^($n+$k*$m+$n)+$m*$c*$a^($l)/($l*$n+$m)*t^($l*$n+$m)")->reduce();
+$answerKIP=Compute("(($a)^2*$b*$n)/($n+$k*$m+$n)*t^($n+$k*$m+$n)+$m*$c*($a)^($l)/($l*$n+$m)*t^($l*$n+$m)")->reduce();
 $answerKI=$answerKIP->substitute(t=>$tmax)->reduce();
 
 # [@ return ($answerFR == $answerFRa ? "1. OK" : "1. Error"); @]*
