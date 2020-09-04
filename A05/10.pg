@@ -59,7 +59,7 @@ $F=Vector("<$Fx,$Fy>");
 $answerF=Vector("<$Fxt,$Fyt>");
 
 $answerFRa=Formula("$Fxt*$ansr1+$Fyt*$ansr2")->reduce();
-$answerFR=Formula("($a^2*$b*$n)*t^($n+$k*$m+$n-1)")->reduce();
+$answerFR=Formula("(($a)^2*$b*$n)*t^($n+$k*$m+$n-1)")->reduce();
 
 $answerKIP=Compute("($a^2*$b*$n)/($n+$k*$m+$n)*t^($n+$k*$m+$n)")->reduce();
 $answerKI=$answerKIP->substitute(t=>$tmax)->reduce();
@@ -101,7 +101,7 @@ BEGIN_PGML_HINT
 
 Pro výpočet [`` \frac{\mathrm d}{\mathrm dr} \vec r(t)``] derivujeme jednotlivé komponenty vektorového pole [`\vec r(t).`]
 
-Pro vyjádření [`\vec F(\vec r(t))`] stačí do [``` \vec F=[$F]```] dosadit  [```x=[$r1]```] a [```y=[$r2]```] a případně upravit.
+Pro vyjádření [`\vec F(\vec r(t))`] stačí do [``` \vec F=[$F]+0\vec j```] dosadit  [```x=[$r1]```] a [```y=[$r2]```] a případně upravit.
 
 Skalární součin vypočítáme vynásobením odpovídajících si komponent a sečtením těchto součinů.
 
@@ -112,7 +112,7 @@ BEGIN_PGML_SOLUTION
 Pro výpočet [`` \frac{\mathrm d}{\mathrm dr} \vec r(t)``] derivujeme jednotlivé komponenty vektorového pole [`\vec r(t).`]
 Platí [```\frac{\mathrm d}{\mathrm dt}([$r1])=[$ansr1] ```] a [```\frac{\mathrm d}{\mathrm dt}([$r2])=[$ansr2]. ```] Derivace je tedy [```\frac{\mathrm d }{\mathrm dt}\vec r(t)=[$answerR]. ```]
 
-Pro vyjádření [`\vec F(\vec r(t))`] stačí do [``` \vec F=[$F]```] dosadit [```x=[$r1]```] a [```y=[$r2]```] a případně upravit. Vychází [```\vec F(\vec r(t))=[$answerF]. ```]
+Pro vyjádření [`\vec F(\vec r(t))`] stačí do [``` \vec F=[$F]+0\vec j```] dosadit [```x=[$r1]```] a [```y=[$r2]```] a případně upravit. Vychází [```\vec F(\vec r(t))=[$answerF]. ```]
 
 Po výpočtu skalárního součinu dostáváme
 [```\vec F(\vec r(t))\frac{\mathrm d }{\mathrm dt}\vec r(t)=
