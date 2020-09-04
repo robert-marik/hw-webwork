@@ -68,7 +68,7 @@ $answerKI=$answerKIP->substitute(t=>$tmax)->reduce();
 
 BEGIN_PGML
 
-Výpočet křivkového integrálu druhého druhu je vlastně sled předem daných kroků. Relativně jednoduchých v případě, že máte zažité derivování a integrování funkcí jedné proměnné. V tomto příkladě půjdeme ještě dále a budeme uvažovat vektorové pole, kde vektory můří pouze zprava doleva nebo zleva doprava. To znamená, že druhá komponenta rovinného vektorového pole je nulová. Věci by měly být díky tomu podstatně jednodušší. Ale je tomu opravdu tak? Vyzkoušejte si, že se ve výpočtu nezamotáte ani v tomto případě.
+Výpočet křivkového integrálu druhého druhu je vlastně sled předem daných kroků. Relativně jednoduchých v případě, že máte zažité derivování a integrování funkcí jedné proměnné. V tomto příkladě půjdeme ještě dále a budeme uvažovat vektorové pole, kde vektory míří pouze zprava doleva nebo zleva doprava. To znamená, že druhá komponenta rovinného vektorového pole je nulová. Věci by měly být díky tomu podstatně jednodušší. Ale je tomu opravdu tak? Vyzkoušejte si, že se ve výpočtu nezamotáte ani v tomto případě.
 
 ------
 
