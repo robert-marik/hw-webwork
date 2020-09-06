@@ -93,7 +93,7 @@ BEGIN_PGML
 
 ## Přednáška Derivace III (Derivace a další užitečné nástroje)
 
-[@ image("hw.jpg", width=>400) @]*
+[@ image("hw03.jpg", width=>400) @]*
 
 V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po shlédnutí a prostudování [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/derivace_III/","třetí přednášky") @]* zaměřené na lokální extrémy a Buckinghamův [`\Pi`] teorém. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Máte více pokusů a vždy se započítává ten nejlepší.
 
