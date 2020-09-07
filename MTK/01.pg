@@ -93,11 +93,20 @@ Jak můžeme slovně vyjádřit čitatel \[ f(x+h)-f(x)\] ze zlomku tohoto výra
 
 f(
 "Slovní interpretace zlomku z definice derivace",
-"Jak můžeme slovně vyjádřit čitatel ze zlomku \[ \frac{f(x+h)-f(x)}{h} \] figurujícího v definici derivace?",
+"Jak můžeme slovně vyjádřit zlomek \[ \frac{f(x+h)-f(x)}{h} \] figurující v definici derivace?",
 [[
 "Průměrná rychlost změny funkce \(f\) na intervalu \([x,x+h]\).",
 "Změna funkce \(f\) na intervalu \([x,x+h]\).",
 "Okamžitá rychlost změny funkce \(f\) na intervalu \([x,x+h]\).",
+]]);
+
+f(
+"Role limity v definici derivace",
+"Proč je v definici derivace \[ \lim_{h\to 0}\frac{f(x+h)-f(x)}{h} \] použita limita?",
+[[
+"Umožní převést průměrnou rychlost na rychlost okamžitou, protože stáhne délku intervalu přes který počítáme průměr na nulu.",
+"Zajistí, že výsledná funkce prochází počátkem (nulou) a má díky tomu reálné fyzikální využití.",
+"Dokáže oddělit rostoucí a klesající funkce. Derivace těchto funkcí se liší znaménkem a nula je oddělovačem mezi kladnými a reálnými čísly.",
 ]]);
 
 f(
