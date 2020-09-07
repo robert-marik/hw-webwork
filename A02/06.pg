@@ -24,7 +24,7 @@ $x0=random(1,5,1);
 if ($n>5) {$y0=random(1,4,1);} else {$y0=-random(1,4,1);}
 $A=Formula("2*$x0*$y0");
 $B=Formula("($x0)^2");
-$F=Formula("$x0^2*$y0-3");
+$F=Formula("($x0)^2*$y0-3");
 
 $aproximace=Formula("$F+$A*(x-$x0)+$B*(y-$y0)")-> reduce();
 

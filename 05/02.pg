@@ -26,7 +26,7 @@ $c=random(1,5,1);
 
 $funkce=Formula("$b+$c*t^($n)");
 $prim=Formula("$b*t+$c/($n1)*t^($n1)");
-$int=Formula("$b*$a+$c/($n1)*$a^($n1)");
+$int=Formula("$b*$a+$c/($n1)*($a)^($n1)");
 
 
 BEGIN_PGML

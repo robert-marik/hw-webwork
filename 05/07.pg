@@ -31,11 +31,11 @@ $cil=non_zero_random(1,12);
 
 $funkce=Formula("a*$d*t^($n)")->reduce();
 $prim=Formula("a*($c*t+$d/($n1)*t^($n1))")->reduce();
-$int=Formula("a*($c*$b+$d/($n1)*$b^($n1)-($c*$a+$d/($n1)*$a^($n1)))");
-$stredni=Formula("a/($b-$a)*($c*$b+$d/($n1)*$b^($n1)-($c*$a+$d/($n1)*$a^($n1)))");
+$int=Formula("a*($c*$b+$d/($n1)*($b)^($n1)-($c*$a+$d/($n1)*($a)^($n1)))");
+$stredni=Formula("a/($b-$a)*($c*$b+$d/($n1)*($b)^($n1)-($c*$a+$d/($n1)*($a)^($n1)))");
 $prim=Formula("(a*$d)/($n1)*t^($n1)")->reduce();
-$int=Formula("a*$d/($n1)*$b^($n1)-(a*$d/($n1)*$a^($n1))");
-$stredni=Formula("1/($b-$a)*a*($d/($n1)*$b^($n1)-($d/($n1)*$a^($n1)))");
+$int=Formula("a*$d/($n1)*($b)^($n1)-(a*$d/($n1)*($a)^($n1))");
+$stredni=Formula("1/($b-$a)*a*($d/($n1)*($b)^($n1)-($d/($n1)*($a)^($n1)))");
 $answer=$cil/(1/($b-$a)*($d/($n1)*$b**($n1)-($d/($n1)*$a**($n1))));
 
 Context()->flags->set(
@@ -43,7 +43,7 @@ Context()->flags->set(
      reduceConstantFunctions => 1,
    );
 
-$stredni2=Formula("a*($d/($n1)*$b^($n1)-($d/($n1)*$a^($n1)))/($b-$a)")->reduce();
+$stredni2=Formula("a*($d/($n1)*($b)^($n1)-($d/($n1)*($a)^($n1)))/($b-$a)")->reduce();
 
 BEGIN_PGML
 

@@ -26,15 +26,15 @@ Context("Numeric")->variables->add(y=>"Real");
 	
 $P=Formula("x^$k*y")->reduce();
 $dP=Formula("$k*x^($k-1)*y")->reduce();
-$dPBod=Formula("$k*$x0^($k-1)*$y0")->reduce();
+$dPBod=Formula("$k*($x0)^($k-1)*$y0")->reduce();
 
 $Q=Formula("x*y^$l+$m*y^$c")->reduce();
 $dQ=Formula("$l*x*y^($l-1)+$m*$c*y^($c-1)")->reduce();
-$dQBod=Formula("$l*$x0*$y0^($l-1)+$m*$c*$y0^($c-1)")->reduce();
+$dQBod=Formula("$l*$x0*($y0)^($l-1)+$m*$c*($y0)^($c-1)")->reduce();
 
 $divergence = Formula("$dP+$dQ")->reduce;
 #$divergenceBod = Formula("$dPBod+$dQBod")->reduce;
-$divergenceBod=$k*$x0**($k-1)*$y0+$l*$x0*$y0**($l-1)+$m*$c*$y0**($c-1);
+$divergenceBod=$k*($x0)**($k-1)*$y0+$l*($x0)*($y0)**($l-1)+$m*$c*$y0**($c-1);
 
 $ans=2; $longans="Divergence v bodě je nulová. Vektorové pole v je daném místě nezřídlové."; 
 if ($divergenceBod > 0)

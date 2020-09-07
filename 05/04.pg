@@ -24,8 +24,8 @@ $k=random(5,15,1);
 $b=random(2,5,1);
 
 $funkce=Formula("$k/r^($n)");
-$prim=Formula("-$k/($n1*(r^$n1))");
-$int=Formula("-$k/($n1*($b^$n1))+($k/($n1))");
+$prim=Formula("-$k/($n1*(r^($n1)))");
+$int=Formula("-$k/($n1*(($b)^($n1)))+($k/($n1))");
 
 
 BEGIN_PGML

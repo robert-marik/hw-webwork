@@ -29,9 +29,9 @@ $derivacefunkce=Formula("3*$a*$var^2+2*$b*$var+$c")->reduce();   # derivace funk
 $derivacefunkce2=Formula("6*$a*$var+2*$b")->reduce();   # derivace funkce
 
 $hodnota=$a*$x0*$x0*$x0+$b*$x0*$x0+$c*$x0+$d;
-$hodnotaSol=Formula("$a*$x0^3+$b*$x0^2+$c$x0+$d");
+$hodnotaSol=Formula("$a*($x0)^3+$b*($x0)^2+$c$x0+$d");
 
-$hodnotaDer=Formula("3*$a*$x0^2+2*$b*$x0+$c");
+$hodnotaDer=Formula("3*$a*($x0)^2+2*$b*$x0+$c");
 $hodnotaderivace=3*$a*$x0*$x0+2*$b*$x0+$c;
 
 $hodnotaDer2=Formula("6*$a*$x0+2*$b");

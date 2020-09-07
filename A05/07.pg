@@ -51,7 +51,7 @@ $F2s=$F2->substitute(x=>$r1,y=>$r2)->reduce();
 $answers=Vector("<$F1s,$F2s>");
 
 $F1m=Formula("($a*$b)*t^($n+$k*$m)")->reduce();
-$F2m=Formula("($c*$a^$l)*t^($n*$l)+$rr*t^($m)")->reduce();
+$F2m=Formula("($c*($a)^$l)*t^($n*$l)+$rr*t^($m)")->reduce();
 $answer=Vector("<$F1m,$F2m>");
 
 # [@ return ($F1s == $F1m ? "1. OK" : "1. Error"); @]*

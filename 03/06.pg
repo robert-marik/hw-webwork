@@ -26,7 +26,7 @@ $funkce=Formula("$a*$var^2+$b*$var+$c")->reduce();   # funkce
 $derivacefunkce=Formula("2*$a*$var+$b")->reduce();   # derivace funkce
 
 $hodnota=$a*$x0*$x0+$b*$x0+$c;
-$hodnotaSol=Formula("$a*$x0^2+$b*$x0+$c");
+$hodnotaSol=Formula("$a*($x0)^2+$b*$x0+$c");
 
 $hodnotaDer=Formula("2*$a*$x0+$b");
 $hodnotaderivace=2*$a*$x0+$b;

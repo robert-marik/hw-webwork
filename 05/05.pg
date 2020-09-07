@@ -29,8 +29,8 @@ $d=random(1,5,1);
 
 $funkce=Formula("$c+$d*t^($n)")->reduce();
 $prim=Formula("$c*t+$d/($n1)*t^($n1)");
-$int=Formula("$c*$b+$d/($n1)*$b^($n1)-($c*$a+$d/($n1)*$a^($n1))");
-$stredni=Formula("1/($b-$a)*($c*$b+$d/($n1)*$b^($n1)-($c*$a+$d/($n1)*$a^($n1)))");
+$int=Formula("$c*$b+$d/($n1)*($b)^($n1)-($c*$a+$d/($n1)*($a)^($n1))");
+$stredni=Formula("1/($b-$a)*($c*$b+$d/($n1)*($b)^($n1)-($c*$a+$d/($n1)*($a)^($n1)))");
 
 
 BEGIN_PGML
