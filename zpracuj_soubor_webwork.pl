@@ -6,7 +6,7 @@
 #       iconv -f CP1250 -t UTF-8 seznam_cp1250.csv -o seznam_utf8.csv
 # 4. Smazat uvodni radky souboru bodovaci_arch.csv a seznam_utf8.csv
 # 5. Spustit:
-#       perl zpracuj_soubor_webwork.pl seznam_utf8.csv
+#       perl zpracuj_soubor_webwork.pl seznam_utf8.csv bodovaci_arch.csv
 # 6. naimportovat courselist_crypted.lst do WeBWoRK
 # 7. naimportovat bodovaci_arch_import.csv do UISu
 
@@ -19,6 +19,7 @@ my $heslo="";
 my $zakodovane_heslo="";
 
 my $file = $ARGV[0] or die "Need to get CSV file on the command line\n";
+my $csvfile = $ARGV[1] or die "Need to get CSV file on the command line\n";
      
 my $sum = 0;
 %mydata=();
@@ -47,7 +48,7 @@ print FH $txt_kod;
 close(FH);
 
 $newfile="";
-open(my $data, '<', "bodovaci_arch.csv") or die "Could not open file\n";
+open(my $data, '<', $csvfile) or die "Could not open file\n";
 
 while (my $line = <$data>) {
     chomp $line;
@@ -59,7 +60,7 @@ while (my $line = <$data>) {
 }    
 
 
-open(FH, '>', "bodovaci_arch_import.csv") or die $!;
+open(FH, '>', "import".$csvfile) or die $!;
 print FH $newfile;
 close(FH);
 
