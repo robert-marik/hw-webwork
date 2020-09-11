@@ -87,6 +87,10 @@ a
 [``` \frac{\partial Q}{\partial x} =\frac{\partial}{\partial x}\left(x^3\right)=3x^2.```]
 Protože jsou obě parciální derivace různé, vektorové pole nemá skalární potenciál.
 
+[@ image("kiting.jpg", width=>400) @]*
+
+Problematika rozhodnout zda existuje skalární potenciál tedy nesouvisí s hledáním tohoto potenciálu (to bychom použili opak derivace, tj. integrál), ale je založena na porovnání derivací komponent vektorového pole. Mít kladnou odpověď na otázku týkající se existence skalárního potenciálu znamená, mít k dispozici silnýá nástroj pro studium zadaného vektorového pole. Například gravitační silové pole má skalární potenciál (gravitační potenciál) a proto můžeme pro studium obejktů pohybujících se v gravitačním poli využít potenciální energii a zákon zachování mechanícké energie. To dobře známe i ze středoškolské fyziky. Tady máme charaktertistiku silových polí, kde je možno postupovat obdobně.
+
 
 -------------------------------
 
