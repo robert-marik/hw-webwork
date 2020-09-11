@@ -75,8 +75,8 @@ BEGIN_PGML
 
 ## Má zadané vektorové pole skalární potenciál?
 
-Vektorové pole [``` \vec F=P\vec i+Q\vec j] je gradientem nějaké vektorové funkce $f$, jestliže platí [``` \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}. ```] Toto je snadné si zapamatovat. Platí-li totiž
-[``` P=\frac {\partial f}{\partial x},\quad \ttext{a}\quad  Q=\frac{\partial f}{\partial y}```]
+Vektorové pole [``` \vec F=P\vec i+Q\vec j```] je gradientem nějaké vektorové funkce $f$, jestliže platí [``` \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}. ```] Toto je snadné si zapamatovat. Platí-li totiž
+[``` P=\frac {\partial f}{\partial x},\quad \text{a}\quad  Q=\frac{\partial f}{\partial y}```]
 jsou obě parciální derivace [`` \frac{\partial P}{\partial y}``] a [`` \frac{\partial Q}{\partial x}``] a rovny smíšené parciální derivaci funkce [``f``] a podle Schwarzovy věty jsou si rovny.
 
 Například komponenty vektorového pole [``` \vec F= x^2y\vec i+ x^3\vec j```]
