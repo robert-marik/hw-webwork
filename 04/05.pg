@@ -64,6 +64,7 @@ BEGIN_PGML_HINT
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
+Úloha je podobná jako předchozí, jenom je místo čísla parametr [`a`]. 
 
 [```\int [$funkce2]\,\mathrm dx =[$int2]+C```]
 [```\int [$funkce]\,\mathrm dx =[$int]+C```]

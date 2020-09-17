@@ -68,7 +68,7 @@ BEGIN_PGML_HINT
 
 Teplotu určíme přímým dosazením hodnoty [`x=[$w]`] do funkce [```T(x)=[$funkce].```]
 
-Po zderivování funkce, dosazení hodnoty [`x=[$w]`] do derivace a dosazení hodnoty [`\Delta x=[$dx]`] určíte odpověď na druhou část otázky.
+Po zderivování funkce, dosazení hodnoty [`x=[$w]`] do derivace a vynásobení hodnotou [`\Delta x=[$dx]`] určíte odpověď na druhou část otázky.
 
 END_PGML_HINT
 
