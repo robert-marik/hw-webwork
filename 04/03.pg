@@ -21,8 +21,8 @@ Context()->flags->set(
 $k=random(3,6,1);
 $n=random(2,8,1);
 
-$int1=Formula("$k/($k+1)x^(($k+1)/($k))")->reduce();
-$int2=Formula("-1/($n-1)*1/x^($n-1)")->reduce();
+$int1=Compute("$k/($k+1)x^(($k+1)/($k))")->reduce();
+$int2=Compute("-1/($n-1)*1/x^($n-1)")->reduce();
 $int3=Formula("ln(x)")->with(limits =>[1,5]);
 
 BEGIN_PGML
