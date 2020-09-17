@@ -55,7 +55,9 @@ V tomto případě se vzorec [```\int e^{ax}\,\mathrm dx=\frac 1a e^{ax}+C```] r
 [```\int e^{[$c]x}\,\mathrm dx=\frac 1{[$c]} e^{[$c]x}+C.```]
 Odsud
 
->>[```\int [$funkce]\,\mathrm dx = [$int] +C```] <<
+>>[```\int [$funkce]\,\mathrm dx = [$int] +C```]. <<
+
+(Tento výsledek je vygenerován automaticky a je možné, že existuje hezčí zápis.)
 
 END_PGML_SOLUTION
 
