@@ -138,7 +138,7 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 Použijeme vzorec
-[```\nabla \times \vec F=\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\vec j,```]
+[```\nabla \times \vec F=\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\vec k,```]
 kde
 [```\vec F=P\vec i+Q\vec j,```]
 a [`P`], [`Q`] jsou funkce dvou proměnných [`x`] , [`y`].

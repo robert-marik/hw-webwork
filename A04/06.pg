@@ -61,14 +61,14 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 Použijeme vzorec
-[```\nabla \times \vec F=\left(\frac{\partial g}{\partial x}-\frac{\partial f}{\partial y}\right)\vec j,```]
+[```\nabla \times \vec F=\left(\frac{\partial g}{\partial x}-\frac{\partial f}{\partial y}\right)\vec k,```]
 kde
 [```\vec F=f\vec i+g\vec j.```]
 Platí (pro úplnost zapisujeme i s proměnnými)
 [``` \frac{\partial }{\partial x}g(y)=0```]
 a
 [``` \frac{\partial }{\partial y}f(x)=0.```]
-Rotace je tedy nulová. Nezávisle na konkrétním tvaru funkcí [`f(x)`] a [`g(y)`] bude rotace nulová. Studované  vektorové pole je vždy konzervativní.
+Rotace je tedy nulová. Nezávisle na konkrétním tvaru funkcí [`f(x)`] a [`g(y)`] bude rotace nulová. Studované  vektorové pole je vždy konzervativní. Má nulovou rotaci a dá se k němu zavést skalární potenciál.
 
 END_PGML_SOLUTION
 
