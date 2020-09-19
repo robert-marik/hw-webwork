@@ -20,7 +20,11 @@ $c=non_zero_random(2,9);
 Context("Numeric")->variables->are($var=>'Real');
 
 $f=Formula("($a*x+$b)^$c")->reduce();   # funkce
-$answer = $f->D();   # derivace
+$fder=Formula("($a*$c)*($a*x+$b)^($c-1)")->reduce();   # derivace funkce
+$g=Formula("($a*x+$b)")->reduce();   # vnitrni funkce
+$gder=Formula("($a)")->reduce();   # derivace vnitrni funkce
+
+$answer = $fder;   # derivace
 
 BEGIN_PGML
 
@@ -54,13 +58,15 @@ $showHint = 1;
 
 BEGIN_PGML_HINT
 Použijte 
-[``` \frac{\mathrm d}{\mathrm dx} (g(x))^[$c]  = [$c](g(x))^{[$c-1]} \frac{\mathrm dg}{\mathrm dx}.```]
+[``` \frac{\mathrm d}{\mathrm dx} (g(x))^[$c]  = [$c](g(x))^{[$c-1]} \frac{\mathrm dg}{\mathrm dx}```]
+pro [`` g(x)=[$g].``]
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
-[```  \frac{\mathrm df}{\mathrm d[$var]}=[$answer->reduce();]```]
-
-(Automaticky vygenerované řešení, které je pravděpodobně možné dále upravit.)
+Použijeme vzorec pro derivaci složené funkce, kdy vnější funkcí je mocninná funkce, tj. 
+[``` \frac{\mathrm d}{\mathrm dx} (g(x))^[$c]  = [$c](g(x))^{[$c-1]} \frac{\mathrm dg}{\mathrm dx}.```]
+Vnitřní složka a její derivace jsou [`` g(x)=[$g], ``] a  [``` \frac{\mathrm dg}{\mathrm dx} = [$gder].```] Výsledek je 
+[```  \frac{\mathrm df}{\mathrm d[$var]}=[$answer->reduce();].```]
 
 END_PGML_SOLUTION
 

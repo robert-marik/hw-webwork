@@ -17,6 +17,7 @@ $c=non_zero_random(-10,10);
 Context("Numeric")->variables->are($var=>'Real');
 
 $f=Formula("$c*x^$a")->reduce();   # funkce
+$vzorec=Formula("x^$a")->D()->reduce();   # vzorec
 $answer = $f->D();   # derivace
 
 BEGIN_PGML
@@ -50,6 +51,12 @@ END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
+Ve vzorci
+[```\left(x^n\right)'=\frac{\mathrm d}{\mathrm dx}\left(x^n\right)=n x^{n-1}```]
+uvažujeme [`n=[$a]`].
+Tedy
+[```\left(x^{[$a]}\right)'=\frac{\mathrm d}{\mathrm dx}\left(x^{[$a]}\right)=[$vzorec].```]
+Kromě toho vezmeme v úvahu, že máme násobek uvedeného vzorce.
 
 [``` f'([$var])=[$answer->reduce();]```]
 
