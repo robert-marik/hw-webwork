@@ -45,13 +45,26 @@ do
     until ($n1!=$n2) or ($m1!=$m2);
     $a=non_zero_random(-4,4);
     $b=random(1,5);
+    $b=0;
 
 
-    $f[$n]=Formula("$a*(x)^($n1)*(y)^($m1)+$b*(x)^($n2)*(y)^($m2)")->reduce();
-    $g[$n]=Formula("($a+$nahoda)*(x)^($n1)*(y)^($m1)+$b*(x)^($n2)*(y)^($m2)")->reduce();
-    $fx[$n]=$f[$n]->D('x')->reduce();
-    $fy[$n]=$g[$n]->D('y')->reduce();
-    $v[$n]=Vector($fx[$n],$fy[$n]);
+#    $f[$n]=Formula("$a*(x)^($n1)*(y)^($m1)+$b*(x)^($n2)*(y)^($m2)")->reduce();
+#    $g[$n]=Formula("($a+$nahoda)*(x)^($n1)*(y)^($m1)+$b*(x)^($n2)*(y)^($m2)")->reduce();
+#    $fx[$n]=$f[$n]->D('x')->reduce();
+#    $fy[$n]=$g[$n]->D('y')->reduce();
+
+# Podle toho jaka je $nahoda jsou nebo nejsou funkce f a g stejne. Z kazde se vypocitava jedna parcialni derivace. Pokud je nahoda nulova a f=g, potom spolecna hodnota je skalarni potencial.
+
+    $f[$n]=Formula("$a*(x)^($n1)*(y)^($m1)")->reduce();
+    $g[$n]=Formula("($a+$nahoda)*(x)^($n1)*(y)^($m1)")->reduce();
+    $nasobek1=$a*$n1;
+    $nasobek2=($a+$nahoda)*$m1;
+    $spolecny=gcd($nasobek1,$nasobek2);
+    $nasobek1=$nasobek1/$spolecny;
+    $nasobek2=$nasobek2/$spolecny;
+    $fx[$n]=Formula("$nasobek1*(x)^($n1-1)*(y)^($m1)")->reduce();
+    $fy[$n]=Formula("$nasobek2*(x)^($n1)*(y)^($m1-1)")->reduce();
+    $v[$n]=Vector($fx[$n],$fy[$n])->reduce();
     if ($nahoda==0)
     {
        $ans[$n]=RadioButtons(["Ano, vektorové pole má skalární potenciál","Ne, vektorové pole nemá skalární potenciál"],0);
