@@ -36,8 +36,14 @@ $nasobek2=Formula("a");
 
 
 $jmenovatel=gcd($nasobek1*$a, $nasobek1*$b);
+if ($nahoda1 != 0)
+{
 $jmenovatel=gcd($jmenovatel, $nahoda1 * ($c));
+}
+else
+{
 $jmenovatel=gcd($jmenovatel, $nahoda2 * ($d));
+}
 
 $potencial=Formula(" ( $nasobek1 * (x)^($a)*(y)^($b) + $nasobek2 * $nahoda1 * (x)^($c) + $nasobek2 * $nahoda2 * (y)^($d) ) / ($jmenovatel)")->reduce();
 
