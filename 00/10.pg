@@ -26,7 +26,7 @@ Na některé otázky jsou odpovědí vektory nebo body. Body zadáváme jako usp
 
 Stejně jako body, i vektory jsou v programu WeBWorK uspořádané dvojice nebo trojice (nebo n-tice). Při zápisu vektorů však nepoužíváme kulaté závorky, jako při ručním zápise, ale tzv. ostré závorky. Tyto ostré závorky jsou ve skutečnosti tvořeny zástupnými znaky pro nerovnosti, tj. "menší než" a "větší než". Tyto znaky jsou k nalezení na anglické klávesnici v dolní řadě vedle písmene M. (Nehledejte žádné extravagantní znaky v aktuálním nebo jiném fontu operačního systému, musíte použít znaky z běžné anglické klávesnice.)
 
-Další možností zápisu vektorů je použití ijk-notace, kdy jednotkové vektory ve směru os označujeme po řadě i, j, k a vektor vyjařujeme jako jejich lineární kombinaci.
+Další možností zápisu vektorů je použití ijk-notace, kdy jednotkové vektory ve směru os označujeme po řadě i, j, k a vektor vyjadřujeme jako jejich lineární kombinaci.
 
 Například vektor [`(5,\sqrt \pi,a^3)`] můžeme zapsat ve tvaru *<5,sqrt(pi),a^3>* nebo *5\*i+sqrt(pi)\*j+a^3\*k*.
 

@@ -33,7 +33,7 @@ MATLAB umožňuje výpočty derivací, které nás budou provázet na začátku 
 :   A=toeplitz(\[-2,1,zeros(1,18)\])
 :   det(A)
 
-Po spuštění (zelená šipka Run) uvidíte na výstupu matici 20 krát 20, tj. obsahující celkem 400 prvků jako výsledek výpočtu v prvním řádku a pod tím tzv. determinant matice uvozený rovností *"ans ="*. Číslo, které je výstupem příkazu *det(A)* (deteminant matice) je odpovědí na otázku v této úloze. 
+Po spuštění (zelená šipka Run) uvidíte na výstupu matici 20 krát 20, tj. obsahující celkem 400 prvků jako výsledek výpočtu v prvním řádku a pod tím tzv. determinant matice uvozený rovností *"ans ="*. Číslo, které je výstupem příkazu *det(A)* (determinant matice) je odpovědí na otázku v této úloze. 
 
 >>Výsledek výpočtu je ans = [__________________]{$f}.<<
 

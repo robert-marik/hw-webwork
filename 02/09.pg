@@ -51,7 +51,7 @@ Dále sestavte matematický model.
 * Na pravou stranu napište výraz, který udává, že tato rychlost je úměrná  rozdílu teplot. 
 * Čas označte [`t`], derivaci teploty podle času [`` \frac{\mathrm dT}{\mathrm dt } ``] zapište jako *dT/dt*. Konstantu úměrnosti volte [`k`] a model naformulujte tak, aby tato konstanta byla kladná.
 
->>[_____________________]{"dT/dt"}[``{}={}``][_____________________]{Formula("k*([$T0]-T)")->cmp()->withPostFilter(AnswerHints(Formula("k*(-[$T0]+T)") => "Pravá strana je správně až na znaménko. Ověřte si, že máte správně podchyceno, že teplota studentého nápoje roste a konstanta úměrnosti je kladná.",Formula("([$T0]-T)") => "Chybí konstanta úměrnosti."))}<<
+>>[_____________________]{"dT/dt"}[``{}={}``][_____________________]{Formula("k*([$T0]-T)")->cmp()->withPostFilter(AnswerHints(Formula("k*(-[$T0]+T)") => "Pravá strana je správně až na znaménko. Ověřte si, že máte správně podchyceno, že teplota studeného nápoje roste a konstanta úměrnosti je kladná.",Formula("([$T0]-T)") => "Chybí konstanta úměrnosti."))}<<
 
 
 END_PGML

@@ -102,7 +102,7 @@ ANS( str_cmp( $ml->ra_correct_ans ) );
 
 
 BEGIN_PGML_HINT
-Dvě volby jsou zřejmě nesmyslné: "průměrná rychlost v okamžiku ..." a "okamžitá rychlost na intervalu ...". Ostatní tři páry již sestavíte pravděpodobně snadno. Soustřeďte se mi mo jiné i na to, abyste si ještě jednou pečlivě přečetli odpovězené možnosti. Cílem je, abyste dokázali interpretovat význam jednotlivých částí definice samostatně a nejenom v otázce s výběrem možností.
+Dvě volby jsou zřejmě nesmyslné: "průměrná rychlost v okamžiku ..." a "okamžitá rychlost na intervalu ...". Ostatní tři páry již sestavíte pravděpodobně snadno. Soustřeďte se mimo jiné i na to, abyste si ještě jednou pečlivě přečetli odpovězené možnosti. Cílem je, abyste dokázali interpretovat význam jednotlivých částí definice samostatně a nejenom v otázce s výběrem možností.
 END_PGML_HINT
 
 
