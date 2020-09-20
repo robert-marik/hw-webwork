@@ -57,6 +57,7 @@ END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
+Použijeme vzorec pro lineární aproximaci a dosadíme do něj bod, ve kterém aproximaci píšeme, funkční hodnotu a derivaci v tomto bodě. Funkční hondotu i derivaci si musíme vypočítat: funkční hodnotu dosazením do funkčního předpisu, hodnotu derivace dosazením do předpisu pro derivaci.
 
 Funkční hodnota a hodnota derivace jsou
 [``` f(1)=[$hodnotaSol]=[$hodnota]```]

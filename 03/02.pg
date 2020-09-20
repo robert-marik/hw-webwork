@@ -75,9 +75,10 @@ END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
-Dosazením hodnot z tabulky do vzorce 
+Je nutné do vzorce pro centrální diferenci
 [```\frac{\mathrm df}{\mathrm dx}\approx \frac{f(x+h)-f(x-h)}{2h}```]
-dostáváme
+dosadit dvě hodnoty dohledatelné v tabulce ([`[$fx[$index+1]]`] a [`[$fx[$index-1]]`]) a délku kroku [`[$step]`]. 
+Dosazením dostáváme
 [```\left.\frac{\mathrm dT}{\mathrm dt}\right|_{t=[$x[$index]]}\approx \frac{[$fx[$index+1]]-[$fx[$index-1]]}{2 \cdot [$step]}=[$answer].```]
 END_PGML_SOLUTION
 

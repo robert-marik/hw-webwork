@@ -57,8 +57,14 @@ END_TEXT
 
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
-ENDDOCUMENT(); 
 
 
+BEGIN_PGML_SOLUTION
+
+* Konstanta `k` vyjadřuje objem kužele o jednotkové výšce.
+* Konstanta `k` udává objem kužele jednotkové výšky.
+* ...
+
+END_PGML_SOLUTION
 
 ENDDOCUMENT();
