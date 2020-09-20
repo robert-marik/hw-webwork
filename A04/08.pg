@@ -1,0 +1,110 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "MathObjects.pl",
+    "parserFormulaUpToConstant.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+Context("Vector");
+
+Context()->variables->are(x=>"Real",y=>"Real");
+Context()->flags->set(ijk=>1 );
+Context()->constants->set(
+  i => {TeX => "\,\mathit{\vec i}"},
+  j => {TeX => "\,\mathit{\vec j}"},
+  k => {TeX => "\,\mathit{\vec k}"},
+);
+
+$nahoda1=random(0,1);
+$nahoda2=1-$nahoda1;
+
+do{
+   $a=non_zero_random(2,4,1);
+   $b=non_zero_random(2,3,1);
+   }
+   until ($a!=2) or ($b!=2);
+   
+$c=non_zero_random(1,4,1);
+$d=non_zero_random(1,4,1);
+$nasobek1=non_zero_random(1,4,1);
+$nasobek2=non_zero_random(-4,4,1);
+
+
+$jmenovatel=gcd($nasobek1 * ($a), $nasobek1 * ($b), $nasobek2 * $nahoda1 * ($c), $nasobek2 * $nahoda2 * ($d));
+
+$potencial=Formula("  ( $nasobek1 * (x)^($a)*(y)^($b) + $nasobek2 * $nahoda1 * (x)^($c) + $nasobek2 * $nahoda2 * (y)^($d) ) / ($jmenovatel)")->reduce();
+
+$P=Formula(" $nasobek1 * ($a)/($jmenovatel) * (x)^($a-1)*(y)^($b) + $nasobek2 * $nahoda1 * ($c)/($jmenovatel)*(x)^($c-1)")->reduce();
+$Q=Formula(" $nasobek1 * ($b)/($jmenovatel) * (x)^($a)*(y)^($b-1) + $nasobek2 * $nahoda2 * ($d)/($jmenovatel)*(y)^($d-1)")->reduce();
+
+$Pint=Formula(" $nasobek1 /($jmenovatel) * (x)^($a)*(y)^($b) + $nasobek2 * $nahoda1 /($jmenovatel)*(x)^($c)")->reduce();
+$Qint=Formula(" $nasobek1 /($jmenovatel) * (x)^($a)*(y)^($b) + $nasobek2 * $nahoda2 /($jmenovatel)*(y)^($d)")->reduce();
+
+
+$Pole=Vector("<$P,$Q>");
+
+
+BEGIN_PGML
+
+## Nalezení skalárního potenciálu
+
+Vektorové pole [``` \vec F=P\vec i+Q\vec j```] (za předpokladu dostatečně hladkých složek) je gradientem nějaké vektorové funkce [`f`], jestliže platí [``` \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}. ```] Toto jsme si vyzkoušeli v předchozí úloze. Funkci [`f`], skalární potenciál vektorového pole [`\vec F`], najdeme integrováním. Protože platí [``` P=\frac {\partial f}{\partial x},\quad \text{a}\quad  Q=\frac{\partial f}{\partial y},```]
+je (integrací podle [`x`], integrační konstanta může být funkcí proměnné [`y`])
+[``` f(x,y)=\int P(x,y) \,\mathrm dx +C_1(y)```]
+a (integrací podle [`y`], integrační konstanta může být funkcí proměnné [`x`])
+[``` f(x,y)=\int Q(x,y) \,\mathrm dy +C_2(x).```]
+Po výpočtu obou integrálů a identifikaci integračních konstant [`C_1(y)`] a [`C_2(x)`] dostáváme skalární potenciál [`f(x,y)`]. Ten je určený jednoznačně až na aditivní konstantu.
+
+Například pro vektorové pole [``` \vec F=xy^2\vec i+(x^2y+y^3)\vec j ```]
+dostáváme
+[``` f=\int P(x,y)\,\mathrm dx=\int xy^2\,\mathrm dx=\frac 12 x^2 y^2 + C_1(y)```]
+a
+[``` f=\int Q(x,y)\,\mathrm dy=\int x^2y + y^3\,\mathrm dy=\frac 12 x^2 y^2 + \frac 14 y^4 + C_2(x).```]
+Člen [`` \frac 12 x^2y^2``] obsahující obě proměnné se opakuje. To je dobré znamení, jinak by skalární potenciál neexistoval. Člen [``\frac 14 y^4``] figuruje jenom ve druhém vztahu. V prvním vztahu je zahrnut v integrační konstantě [`C_1(y)`]. Žádné další členy které je nutno spárovat s integračními konstantami nejsou a skalárním potenciálem je funkce
+[``` f(x,y)=\frac 12 x^2y^2 + \frac 14 y^4 +C,```]
+kde [`C`] je libovolná reálná konstanta. 
+
+-----------
+
+Postupem použitým ve vzorové úloze výše najděte skalární potenciál [`f(x,y)`] vektorového pole [``` \vec F(x,y)=[$Pole].```]
+
+>> [``f(x,y)={}``][__________________]{$potencial->cmp(upToConstant=>1)}[``{}+C``]<<
+
+END_PGML
+
+
+BEGIN_PGML_HINT
+
+Musíme vypočítat integrály
+[``` \int [$P]\,\mathrm dx ```]
+a
+[``` \int [$Q]\,\mathrm dy ```]
+a z výsledku sestavit skalární potenciál.
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Platí
+[``` \int [$P]\,\mathrm dx =[$Pint]+C(y)```]
+a
+[``` \int [$Q]\,\mathrm dy =[$Qint]+C(x).```]
+Skalární potenciál je
+[``` f(x,y)=[$potencial]+C.```]
+
+(Pokud při vygenerování řešení došlo k použití desetiných čísel, berte výpočet pouze orientačně a pracujte se zlomky. Výsledek je v některých případech možno dále upravit do hezčího tvaru.)
+
+END_PGML_SOLUTION
+
+
+
+ENDDOCUMENT();
