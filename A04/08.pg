@@ -38,7 +38,7 @@ $nasobek1=non_zero_random(1,4,1);
 $nasobek2=non_zero_random(-4,4,1);
 
 
-$jmenovatel=gcd($nasobek1 * ($a), $nasobek1 * ($b), $nasobek2 * $nahoda1 * ($c), $nasobek2 * $nahoda2 * ($d));
+$jmenovatel=gcd($nasobek1 * ($a), $nasobek2 * $nahoda2 * ($d), $nasobek1 * ($b), $nasobek2 * $nahoda1 * ($c));
 
 $potencial=Formula("  ( $nasobek1 * (x)^($a)*(y)^($b) + $nasobek2 * $nahoda1 * (x)^($c) + $nasobek2 * $nahoda2 * (y)^($d) ) / ($jmenovatel)")->reduce();
 
