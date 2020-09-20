@@ -38,7 +38,9 @@ $nasobek1=non_zero_random(1,4,1);
 $nasobek2=non_zero_random(-4,4,1);
 
 
-$jmenovatel=gcd($nasobek1 * ($a), $nasobek2 * $nahoda2 * ($d), $nasobek1 * ($b), $nasobek2 * $nahoda1 * ($c));
+$jmenovatel=gcd($nasobek1 * ($a), $nasobek1 * ($b));
+$jmenovatel=gcd($jmenovatel, $nasobek2 * $nahoda1 * ($c));
+$jmenovatel=gcd($jmenovatel, $nasobek2 * $nahoda2 * ($d));
 
 $potencial=Formula("  ( $nasobek1 * (x)^($a)*(y)^($b) + $nasobek2 * $nahoda1 * (x)^($c) + $nasobek2 * $nahoda2 * (y)^($d) ) / ($jmenovatel)")->reduce();
 
@@ -55,13 +57,6 @@ $Pole=Vector("<$P,$Q>");
 BEGIN_PGML
 
 ## Nalezení skalárního potenciálu
-
-[$nasobek1]
-
-[$nasobek2]
-
-[$a] [$b] [$c] [$d]
-
 
 
 Vektorové pole [``` \vec F=P\vec i+Q\vec j```] (za předpokladu dostatečně hladkých složek) je gradientem nějaké vektorové funkce [`f`], jestliže platí [``` \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}. ```] Toto jsme si vyzkoušeli v předchozí úloze. Funkci [`f`], skalární potenciál vektorového pole [`\vec F`], najdeme integrováním. Protože platí [``` P=\frac {\partial f}{\partial x},\quad \text{a}\quad  Q=\frac{\partial f}{\partial y},```]
