@@ -35,15 +35,15 @@ $nasobek1=non_zero_random(-4,4,1);
 $nasobek2=Formula("a");
 
 
-$jmenovatel=gcd($a, $b);
+$jmenovatel=gcd($nasobek1*$a, $nasobek1*$b);
 $jmenovatel=gcd($jmenovatel, $nahoda1 * ($c));
 $jmenovatel=gcd($jmenovatel, $nahoda2 * ($d));
 
 $potencial=Formula(" ( $nasobek1 * (x)^($a)*(y)^($b) + $nasobek2 * $nahoda1 * (x)^($c) + $nasobek2 * $nahoda2 * (y)^($d) ) / ($jmenovatel)")->reduce();
 
-$P=Formula("  $nasobek1*(($a)/($jmenovatel)) * (x)^($a-1)*(y)^($b) + $nasobek2 * (($nahoda1 * ($c)/($jmenovatel)))*(x)^($c-1)")->reduce();
+$P=Formula("  (($nasobek1*$a)/($jmenovatel)) * (x)^($a-1)*(y)^($b) + $nasobek2 * (($nahoda1 * ($c)/($jmenovatel)))*(x)^($c-1)")->reduce();
 
-$Q=Formula(" $nasobek1 * ($b)/($jmenovatel) * (x)^($a)*(y)^($b-1) + $nasobek2 * (($nahoda2 * ($d)/($jmenovatel)))*(y)^($d-1)")->reduce();
+$Q=Formula(" (($nasobek1 * $b)/($jmenovatel)) * (x)^($a)*(y)^($b-1) + $nasobek2 * (($nahoda2 * ($d)/($jmenovatel)))*(y)^($d-1)")->reduce();
 
 $Pint=Formula(" $nasobek1 /($jmenovatel) * (x)^($a)*(y)^($b) + $nasobek2 * $nahoda1 /($jmenovatel)*(x)^($c)")->reduce();
 $Qint=Formula(" $nasobek1 /($jmenovatel) * (x)^($a)*(y)^($b) + $nasobek2 * $nahoda2 /($jmenovatel)*(y)^($d)")->reduce();
