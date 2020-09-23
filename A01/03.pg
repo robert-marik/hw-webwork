@@ -60,9 +60,9 @@ V tomto příkladě budeme pracovat s funkcí tří proměnných. Mají tedy smy
 
 Vypočtěte následující dvě parciální derivace funkce [``` f(x,y,z)=[$funkce].```]
 
->>[``\frac{\partial f}{\partial [$x1]}={}``][_________________________]{$dx2} <<
+>>[``\frac{\partial f}{\partial [$x1]}={}``][_________________________]{$dx1} <<
 
->>[``\frac{\partial f}{\partial [$x2]}={}``][_________________________]{$dx1} <<
+>>[``\frac{\partial f}{\partial [$x2]}={}``][_________________________]{$dx2} <<
 
 END_PGML
 
