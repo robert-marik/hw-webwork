@@ -134,7 +134,7 @@ f(
 
 f(
 "Rovnice vedení tepla",
-"Rovnice vedení tepla v jednorozměrném materiálu má tvar \[ \rho c\frac{\partial T}{\partial t}=-\frac{\partial}{\partial x}\left(-k\frac{\partial T}{\partial x}\right). \] Co vyjadřuje člen \[ -k\frac{\partial T}{\partial x} \] nacházející se uvnitř závorky na pralevé straně?",
+"Rovnice vedení tepla v jednorozměrném materiálu má tvar \[ \rho c\frac{\partial T}{\partial t}=-\frac{\partial}{\partial x}\left(-k\frac{\partial T}{\partial x}\right). \] Co vyjadřuje člen \[ -k\frac{\partial T}{\partial x} \] nacházející se uvnitř závorky na pravé straně?",
 [[
 "Tok tepla.",
 "Spád teploty",
