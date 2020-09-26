@@ -79,7 +79,7 @@ $showPartialCorrectAnswers = 0;
 #  Incremental grader
 #
 install_problem_grader(~~&custom_problem_grader_fluid);
-$ENV{'grader_numright'} = [1,3,5];
+$ENV{'grader_numright'} = [1,2,4];
 $ENV{'grader_scores'} = [0.2,0.5,1];
 $ENV{'grader_message'} = "Za částečně správnou odpověď získáte částečný počet bodů";
 
