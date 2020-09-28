@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-09-28 00:42+0200\n"
+"PO-Revision-Date: 2020-09-28 11:19+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6184,8 +6184,7 @@ msgid ""
 "about the state of the system will be included."
 msgstr ""
 "Tento formulář můžete použít pro nahlášení problému s úlohou nebo podezření na chybu v úloze, kterou právě řešíte. Kromě zprávy příjemce obdrží automaticky i dodatečné "
-"informace o situaci, ze které stránky zprávu posíláte, jaké bylo zadání úlohy, jaké byly vloženy odpovědi atd. !!!!!! POZOR: NEPOUŽÍVEJTE VE ZPRÁVĚ  ŽÁDNÁ PÍSMENA S HÁČKY "
-"A ČÁRKAMI, JINAK NEJDOJDE K ODESLÁNÍ FORMULÁŘE. !!!!!!"
+"informace o situaci, ze které stránky zprávu posíláte, jaké bylo zadání úlohy, jaké byly vloženy odpovědi atd."
 
 #. ($userID)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/CourseAdmin.pm:730
