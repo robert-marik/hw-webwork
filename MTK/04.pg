@@ -1,0 +1,149 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+
+my $c=0;
+
+@nadpis=();
+@text=();
+@radio=();
+@reseni=();
+
+sub f {
+   my ($h,$a,$b)=(@_);
+   $c1=$c+1;
+   $nadpis[$c]="$c1. ".$h;
+   $text[$c]=$a;
+   $reseni[$c]=$b->[0]->[0];
+   $radio[$c]=RadioButtons($b,0);
+   $c=$c+1;
+}
+
+
+f(
+"Primitivní funkce",
+"Který z bodů vyjadřuje, že funkce \(F(x)\) je primitivní funkcí k \(f(x)\).",
+[[
+"Derivace funkce \(F(x)\) je rovna \(f(x)\).",
+"Derivace funkce \(f(x)\) je rovna \(F(x)\).",
+"Derivace funkce \(F(x)\) je rovna součtu \(f(x)\) a integrační konstanty.",
+"Derivace funkce \(f(x)\) je rovna součtu \(F(x)\) a integrační konstanty.",
+]]
+);
+
+
+
+f(
+"Jednoznačnost primitivní funkce",
+"Je primitivní funkce dána jednoznačně?",
+[[
+"Ne, ale je dána jednoznačně až na aditivní konstantu.",
+"Ne a ani není znám univerzální popis množiny všech primitivních funkcí.",
+"Ano, z rychlosti je vždy možné zrekonstruovat měnící se  veličinu.",
+"Ano, jinak by tento pojem nebyl přesně definován a nemohli bychom s ním v matematice pracovat.",
+]]
+);
+
+
+f(
+"Linearita neurčitého integrálu.",
+"Co slovně vyjadřuje linearita neurčitého integrálu?",
+[[
+"Neurčitý integrál zachovává součet funkcí a násobení funkce konstantou.",
+"Neurčitý integrál přímky je opět přímka.",
+"Neurčitý integrál počítáme pro funkce definované na přímce.",
+"Neurčitý integrál nezáporné funkce je opět nezáporná funkce.",
+]]);
+
+f(
+"Linearita určitého integrálu.",
+"Co slovně vyjadřuje linearita určitého integrálu?",
+[[
+"Určitý integrál zachovává součet funkcí a násobení funkce konstantou.",
+"Určitý integrál přímky je opět přímka.",
+"Určitý integrál počítáme pro funkce definované na přímce.",
+"Určitý integrál nezáporné funkce je opět nezáporná funkce.",
+]]);
+
+
+f("Integrál rychlosti",
+"Nechť \(r(t)\) je rychlost s jakou se mění veličina \(f(t)\). Určete slovní interpretaci integrálu \[\int r(t)\,\mathrm \dt.\]",
+[[
+"Časový průběh veličiny \(f(t)\) posunutý nanejvýše o aditivní konstantu. Tuto aditivní konstantu dokážeme určit například z počátečního stavu.",
+"Časový průběh veličiny \(f(t)\) daný jednoznačně.",
+"Rychlost s jakou se mění rychlost změny veličiny \(f(t)\).",
+"Obsah plochy pod křivkou danou grafem funkce \(r(t)\).",
+"Obsah plochy pod křivkou danou grafem funkce \(r(x)\).",
+]]);
+
+
+f("Integrál a aditivní veličina",
+"S integrálem se setkáváme tam, kde se pracuje s aditivními veličinami. Co rozumíme pojmem aditivní veličina?",
+[[
+"Veličina, která se dá u objektu určit tak, že ji nejprve určíme pro jednotlivé komponenty objektu a poté všechny dílčí příspěvky sečteme. Například hmotnost.",
+"Veličina, kterou v matematických operacích nemá smysl uvažovat jinak než s operací sčítání. Například obsah.",
+"Veličina, která sama o sobě nemá žádný význam. Pro interpretaci musíme přidat další fyzikální parametry. Příkladem je celková síla na přehradu.",
+"Veličina, kterou můžeme jenom zvětšovat a nemůžeme ji zmenšovat. Například kvadratický moment.",
+]]);
+
+
+
+$last=5;
+
+BEGIN_PGML
+
+## Přednáška Derivace III (Derivace a další užitečné nástroje)
+
+[@ image("hw03.jpg", width=>400) @]*
+
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po shlédnutí a prostudování [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/derivace_III/","třetí přednášky") @]* zaměřené na lokální extrémy a Buckinghamův [`\Pi`] teorém. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Máte více pokusů a vždy se započítává ten nejlepší.
+
+Pracujte v klidu, nebojte se nahlížet do učebního textu. Dělejte si při práci poznámky. Soustřeďte se na to, aby tyto poznámky byly čitelné a organizované a tyto poznámky si přineste ke zkoušce.
+
+END_PGML
+
+foreach $i (0..$last) {
+
+BEGIN_PGML
+
+### [$nadpis[$i] ]*
+
+[$text[$i] ]*
+
+[_]{$radio[$i]}
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+_Řešení: [$reseni[$i] ]*_
+
+END_PGML_SOLUTION
+
+BEGIN_PGML
+-------------------
+END_PGML
+
+}
+
+
+BEGIN_PGML_HINT
+Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
+END_PGML_HINT
+
+
+
+ENDDOCUMENT();
+
