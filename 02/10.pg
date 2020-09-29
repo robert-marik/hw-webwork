@@ -41,7 +41,7 @@ Pokusíme se o podobné u modelů dalších procesů. Vždy budou hrát roli dva
 END_PGML
 
 BEGIN_PGML_HINT
-Postupujte podle vzoru a podle příkladů ve cvičeních a na přednášce. Například v první úloze se zenčišťující látkou bude na pravé straně figurovat rychlost [`[$k]`], se kterou množství látek v oblasti narůstá a rychlost [`[$p/100]*x`], s jakou se látky rozkládají.
+Postupujte podle vzoru a podle příkladů ve cvičeních a na přednášce. Například v první úloze se znečišťující látkou bude na pravé straně figurovat rychlost [`[$k]`], se kterou množství látek v oblasti narůstá a rychlost [`[$p/100]*x`], s jakou se látky rozkládají.
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION

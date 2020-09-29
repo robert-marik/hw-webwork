@@ -19,7 +19,7 @@ $b=random(6,10,1);
 $k=random(1,4,1);
 $kk=2*$k;
 $c=random(150,200,1);
-$prim=Formula("[$c] t - [$k]t^2");
+$prim=Formula("[$c] t - [$k]t^2")->reduce();
 
 BEGIN_PGML
 
