@@ -79,7 +79,7 @@ f(
 
 
 f("Integrál rychlosti",
-"Nechť \(r(t)\) je rychlost s jakou se mění veličina \(f(t)\). Určete slovní interpretaci integrálu \[\int r(t)\,\mathrm \dt.\]",
+"Nechť \(r(t)\) je rychlost s jakou se mění veličina \(f(t)\). Určete slovní interpretaci integrálu \[\int r(t)\,\mathrm dt.\]",
 [[
 "Časový průběh veličiny \(f(t)\) posunutý nanejvýše o aditivní konstantu. Tuto aditivní konstantu dokážeme určit například z počátečního stavu.",
 "Časový průběh veličiny \(f(t)\) daný jednoznačně.",

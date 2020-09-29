@@ -49,7 +49,7 @@ END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
-Známe derivaci [``\frac{\mathrm dW}{\mathrm dt}=[$dW],``] ze vztahu [``` M=W^{0.75}```] umíme vypočítat [``\frac{\mathrm dM}{\mathrm dW}=0.75 W^{-0.25}``] a díky vzorci pro derivaci složené funkce máme [```\frac{\mathrm dM}{\mathrm dt}=0.75 W^{-0.25}\frac{\mathrm dW}{\mathrm dt}.```]
+Známe derivaci [``\frac{\mathrm dW}{\mathrm dt}=[$dW],``] ze vztahu [``` M=W^{0.75}```] umíme vypočítat [``\frac{\mathrm dM}{\mathrm dW}=0.75 W^{-0.25}``] a díky vzorci pro derivaci složené funkce máme [```\frac{\mathrm dM}{\mathrm dt}= \frac{\mathrm dM}{\mathrm dW}\frac{\mathrm dW}{\mathrm dt}= 0.75 W^{-0.25}\frac{\mathrm dW}{\mathrm dt}.```]
 Pro zadané hodnoty dostáváme
 [```\frac{\mathrm dM}{\mathrm dt}=0.75 ([$W])^{-0.25}[$dW]=[$answer].```]
 
