@@ -47,7 +47,7 @@ Uvažujme koncentraci [`C(x,t)`] (v jednotce mg/litr) léku v těle pacienta jak
 
 -------
 
-*Část 2:* Jaké znaménko má derivace podle počáteční dávky, tj. [``\frac{\partial C}{\partial x}``]?
+*Část 2:* Jaké znaménko má derivace podle počáteční dávky, tj. [``\frac{\partial C}{\partial x}``]? Je tato derivace kladná nebo záporná? Nebo není možné rozhodnout?
 
 [_]{$radio2}
 
