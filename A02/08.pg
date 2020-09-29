@@ -48,7 +48,7 @@ Například pro vektorovou funkci [``` \vec F=(x^3-x+4y)\vec i + \sin (x)\vec j 
 [``` J(x,y) = \begin{pmatrix}3x^2-1 & 4 \\ \cos (x) & 0\end{pmatrix}```] a Jacobiho matice v nule je
 [``` J(0,0) = \begin{pmatrix}-1 & 4 \\ 1 & 0\end{pmatrix}.```]
 
-Kromě materiálového inženýrství se s těmito výpočty setkáme i při studiu autonomních systémů: speciálních soustav diferenciálních rovnic, které budou sloužit například k popisu stability ekosystémů. Klasickým příkladem je studium interakce dravce a kořisti. Jiným příkladem je modelování epidemií, které bylo velmi intenzivně a na různých úrovních podrobnosti studováno nedávno v souvislosti s epidemií COVID-19.
+Kromě materiálového inženýrství se s těmito výpočty setkáme i při studiu autonomních systémů: speciálních soustav diferenciálních rovnic, které budou sloužit například k popisu stability ekosystémů. Klasickým příkladem je studium interakce dravce a kořisti. Jiným příkladem je modelování epidemií, které je velmi intenzivně a na různých úrovních podrobnosti studováno nejenom v souvislosti s epidemií COVID-19.
 
 ---------------
 
