@@ -37,6 +37,11 @@ BEGIN_PGML
 
 Tento příklad je opět podobného stejného typu jako příklad předchozí. Je zadána funkce obsahující proměnnou a parametr. Jméno proměnné odhalíme ze zápisu derivace pomocí diferenciálů: z diferenciálu, který je ve "jmenovateli". Druhé písmeno tedy označuje parametr.
 
+Například pokud výraz [``a^3 e^{b}``] chápeme jako funkci proměnné [`a`] s parametrem [`b`], jedná se o třetí mocninu [`a^3`] vynásobenou konstantou [``e^b``] a proto
+[``` \frac{\mathrm d}{\mathrm da}\Bigl(a^3 e^b\Bigr)=3a^2 e^b.```]
+Pokud však stejný výraz chápeme jako funkci proměnné [`b`] s parametrem [`a`], jedná se o expoenciální funkci [`e^b`] vynásobenou konstantou [`a^3`] a proto 
+[``` \frac{\mathrm d}{\mathrm db}\Bigl(a^3 e^b\Bigr)=a^3 e^b.```]
+
 ------------
 
 V tomto příkladě je součin mocniny proměnné a mocniny parametru. 
