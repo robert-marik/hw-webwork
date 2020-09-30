@@ -84,12 +84,12 @@ f(
 ]]);
 
 f(
-"Čistý tok stavové veličiny",
-"U divergence pracujeme s čistým tokem stavové veličiny, co tím rozumíme?",
-[["Výtok snížený o přítok, tj. celková bilance přítoku a odtoku počítaná tak, že kladný je tok ven.",
-"Přítok snížený o výtok, tj. celková bilance přítoku a odtoku počítaná tak, že kladný je tok dovnitř.",
-"Tok ven, čistý výtok.",
-"Tok dovnitř, čistý přítok.",
+"Tok stavové veličiny",
+"U divergence pracujeme s tokem stavové veličiny přes hranici tělesa. Co tím rozumíme? Jak tento tok počítáme?",
+[["Tok ven snížený o tok dovnitř, tj. celková bilance přítoku a odtoku počítaná tak, že kladný je tok ven.",
+"Tok dovnitř snížený o tok ven, tj. celková bilance přítoku a odtoku počítaná tak, že kladný je tok dovnitř.",
+"Tok ven, tj. uvažujeme pouze čistý výtok.",
+"Tok dovnitř, tj. uvažujeme pouze čistý přítok.",
 ]]);
 
 f(
