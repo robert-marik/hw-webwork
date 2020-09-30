@@ -1,0 +1,155 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+my $c=0;
+
+@nadpis=();
+@text=();
+@radio=();
+@reseni=();
+
+sub f {
+   my ($h,$a,$b)=(@_);
+   $c1=$c+1;
+   $nadpis[$c]="$c1. ".$h;
+   $text[$c]=$a;
+   $reseni[$c]=$b->[0]->[0];
+   $radio[$c]=RadioButtons($b,0);
+   $c=$c+1;
+}
+
+
+f("Gradient I",
+"Která formulace vyjadřuje slovně definici gradientu?",
+[[
+"Gradient je vektor složený z parciálních derivací podle jednotlivých proměnných.",
+"Gradient je součet parciálních derivací podle jednotlivých proměnných.",
+"Gradient je součet parciálních derivací podle prostorových proměnných.",
+"Gradient je délka vektoru složeného z parciálních derivací.",
+]]);
+
+f(
+"Gradient II",
+"Která formulace vystihuje slovně praktický význam gradientu?",
+[[
+"Gradient vyjadřuje směr a intenzitu maximálního nárůstu skalární funkce definované v rovině nebo v prostoru.",
+"Gradient vyjadřuje směr a intenzitu maximálního poklesu skalární funkce definované v rovině nebo v prostoru.",
+"Gradient vyjadřuje směr a intenzitu toku vektorového pole nebo stavové veličiny v rovině nebo v prostoru.",
+"Gradient vyjadřuje směr a nárůst intenzity toku vektorového pole nebo stavové veličiny v rovině nebo v prostoru.",
+"Gradient vyjadřuje směr a pokles intenzity toku vektorového pole nebo stavové veličiny v rovině nebo v prostoru.",
+]]);
+
+f(
+"Vztah mezi gradientem a vrstevnicemi",
+"Vyberte formulaci, která správně charakterizuje vztah mezi gradientem a vrstevnicemi funkce.",
+[[
+"Gradient je kolmý na vrstevnice. Míří směrem k vrstevnicím o vyšší hodnotě.",
+"Gradient je kolmý na vrstevnice. Míří směrem k vrstevnicím o nižší hodnotě.",
+"Gradient je tečný k vrstevnicím. Míří směrem k vrstevnicím o vyšší hodnotě.",
+"Gradient je tečný k vrstevnicím. Míří směrem k vrstevnicím o nižší hodnotě.",
+]]);
+
+f(
+"Linearita gradientu",
+"Co vyjadřuje obrat, že gradient je lineární?",
+[[
+"Gradient zachovává součet funkcí a násobení funkce konstantou.",
+"Gradient zachovává součet a součin funkcí.",
+"Gradient lineární funkce je opět lineární funkce.",
+"Gradient je definován jenom na množině lineárních funkcí.",
+"Výsledkem gradientu je lineární funkce.",
+]]);
+
+f(
+"Konstitutivní zákony I",
+"Jak bychom souhrnně popsali konstitutivní zákony (Fickův, Darcyho, Fourierův, Ohmův, Hookův, ...)",
+[[
+"Udávají, jak materiál reaguje na podnět, tj. jaká je materiálová odezva při daných vnějších podmínkách. Zpravidla vztah mezi gradientem stavové veličiny a jejím tokem.",
+"Udávají, jak materiál reaguje na podnět, přesněji, udávají, kdy je materiál v rovnovážném stavu. Zpravidla podmínka na nulový gradient a nulový tok.",
+"Udávají, jak materiál reaguje na podnět, přesněji, udávají, kdy je materiál v rovnovážném stavu. Zpravidla podmínka na konstantní gradient a konstantní tok.",
+]]);
+
+f(
+"Konstitutivní zákony II",
+"Matematicky jsou konstitutivní zákony (Fickův, Darcyho, Fourierův, Ohmův, Hookův, ...) vztahy mezi vektorovými veličinami a mají všechny jednotnou formu. Z čeho tato forma vyplývá?",
+[[
+"Jedná se vždy o lineární aproximaci obecnější závislosti v nule pomocí Jacobiho matice.",
+"Jedná se vždy o problematiku lokálních extrémů funkce více proměnných.",
+"Jedná se vždy o společnou fyzikální podstatu uvedených zákonů.",
+"Neexistuje racionální vysvětlení, je to otevřený problém filozofie přírodních věd.",
+]]);
+
+f(
+"Konstitutivní zákony vyjádřené pomocí maticového součinu.",
+"Proč v úměrnosti vyjádřené konstitutivními zákony (Fickův, Darcyho, Fourierův, Ohmův, Hookův, ...) figuruje jako konstanta úměrnosti matice?",
+[[
+"Umožňuje zachytit anizotropii materiálu. Pro izotropní materiály (ve všech směrech stejné vlastnosti) se matice redukuje na reálnou konstantu.",
+"Umožňuje zachytit anizotropii materiálu. Pro anizotropní materiály (v různých směrech různé vlastnosti) se matice redukuje na reálnou konstantu.",
+"Umožňuje přechod od jednorozměrných formulací k vícerozměrným. Příslušná matice má vždy stejný rozměr jako je počet dimenzí úlohy (\(2\times 2\) matice v rovině a \(3\times 3\) matice v prostoru) a nikdy se neredukuje na matici menších rozměrů nebo na konstantu.",
+]]);
+
+
+f(
+"Diagonalita",
+"Může se za určitých podmínek konstanta úměrnosti z konstitutivních zákonů redukovat na diagonální matici?",
+[[
+"Ano, při vhodně zvolené soustavě souřadnic je matice diagonální. Tyto úlohy jsou jednodušší na řešení a proto se snažíme soustavu souřadnic volit tímto způsobem.",
+"Ne, tím by se zcela zastřela výhoda spočívající v zapojení matic do formulace materiálových vztahů.",
+"Ano, ale pouze pro určité materiály (ortotropní). Pro tyto materiály je potom matice diagonální vždy a nezávisle na volbě soustavy souřadnic.",
+]]);
+
+BEGIN_PGML
+
+## Přednáška Derivace I
+
+[@ image("hw01.jpg", width=>400) @]*
+
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/02/","přednášky o gradientu") @]* a shlédnutí videa k této přednášce. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Můžete jenom odhadnout počet správných odpovědí po prvním pokusu podle celkového bodového zisku. Máte více pokusů a vždy se započítává ten nejlepší. Pracujte v klidu, nebojte se nahlížet do textu. Nemělo by se to však zvrhnout v zuřivé vyhledávání v elektronické verzi textu. Tímto stylem byste se nic nenaučili. 
+
+END_PGML
+
+$last=$c-1;
+
+foreach $i (0..$last) {
+
+BEGIN_PGML
+
+### [$nadpis[$i] ]*
+
+[$text[$i] ]*
+
+[_]{$radio[$i]}
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+_Řešení: [$reseni[$i] ]*_
+
+END_PGML_SOLUTION
+
+BEGIN_PGML
+-------------------
+END_PGML
+
+}
+
+BEGIN_PGML_HINT
+Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
+END_PGML_HINT
+
+
+ENDDOCUMENT();
+
