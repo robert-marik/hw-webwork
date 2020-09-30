@@ -112,9 +112,9 @@ f(
 
 BEGIN_PGML
 
-## Přednáška Derivace I
+## Přednáška Gradient
 
-[@ image("hw01.jpg", width=>400) @]*
+[@ image("hw02.jpg", width=>400) @]*
 
 V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/02/","přednášky o gradientu") @]* a shlédnutí videa k této přednášce. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Můžete jenom odhadnout počet správných odpovědí po prvním pokusu podle celkového bodového zisku. Máte více pokusů a vždy se započítává ten nejlepší. Pracujte v klidu, nebojte se nahlížet do textu. Nemělo by se to však zvrhnout v zuřivé vyhledávání v elektronické verzi textu. Tímto stylem byste se nic nenaučili. 
 

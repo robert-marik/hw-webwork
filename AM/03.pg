@@ -1,0 +1,233 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+my $c=0;
+
+@nadpis=();
+@text=();
+@radio=();
+@reseni=();
+
+sub f {
+   my ($h,$a,$b)=(@_);
+   $c1=$c+1;
+   $nadpis[$c]="$c1. ".$h;
+   $text[$c]=$a;
+   $reseni[$c]=$b->[0]->[0];
+   $radio[$c]=RadioButtons($b,0);
+   $c=$c+1;
+}
+
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+my $c=0;
+
+@nadpis=();
+@text=();
+@radio=();
+@reseni=();
+
+sub f {
+   my ($h,$a,$b)=(@_);
+   $c1=$c+1;
+   $nadpis[$c]="$c1. ".$h;
+   $text[$c]=$a;
+   $reseni[$c]=$b->[0]->[0];
+   $radio[$c]=RadioButtons($b,0);
+   $c=$c+1;
+}
+
+
+f("Definice divergence",
+"Jak byste slovně vyjádřili definici derivace?",
+[["Divergence vektorového pole je součet parciálních derivací jednotlivých komponent podle odpovídajících prostorových proměnných.",
+"Divergence vektorového pole je vektor sestavený z parciálních derivací jednotlivých komponent podle odpovídajících prostorových proměnných.",
+"Divergence skalárního pole je vektor sestavený z parciálních derivací tohoto pole podle odpovídajících prostorových proměnných.",
+"Divergence skalárního pole je součet parciálních derivací tohoto pole podle odpovídajících prostorových proměnných.",
+]]);
+
+f(
+"Linearita divergence",
+"Co vyjadřuje obrat, že divergence je lineární?",
+[["Divergence zachovává součet funkcí a násobení funkce konstantou.",
+"Divergence zachovává součet a součin funkcí.",
+"Divergence lineární funkce je opět lineární funkce.",
+"Divergence je definována jenom na množině lineárních funkcí.",
+"Výsledkem divergence je lineární funkce.",
+"Nekorektně položená otázka, divergence není lineární.",
+]]);
+
+f(
+"Čistý tok stavové veličiny",
+"U divergence pracujeme s čistým tokem stavové veličiny, co tím rozumíme?",
+[["Výtok snížený o přítok, tj. celková bilance přítoku a odtoku počítaná tak, že kladný je tok ven.",
+"Přítok snížený o výtok, tj. celková bilance přítoku a odtoku počítaná tak, že kladný je tok dovnitř.",
+"Tok ven, čistý výtok.",
+"Tok dovnitř, čistý přítok.",
+]]);
+
+f(
+"Fyzikální interpretace divergence",
+"Jaká je praktická interpretace divergence?",
+[["Čistý tok stavové veličiny vytékající z jednotkového množství látky.",
+"Čistý tok stavové veličiny přitékající do jednotkového množství látky.",
+"Intenzita toku stavové veličiny v daném místě.",
+"Intenzita toku stavové veličiny do daného místa.",
+"Intenzita toku stavové veličiny z daného místa.",
+]]);
+
+f(
+"Rovnice kontinuity slovy",
+"Jak byste slovně vyjádřili rovnici kontinuity?",
+[["Jedná se o celkovou bilanci stavové veličiny v daném bodě. Rychlost nárůtu množství stavové veličiny v daném bodě (akumulace) je dána vydatností zdrojů snížené o tok z tohoto místa ven.",
+"Jedná se o celkovou bilanci toku stavové veličiny v daném bodě. Rozdíl mezi přítokem a odtokem determinuje vydatnost zdrojů v daném místě. ",
+"Jedná se o celkovou bilanci spojitosti všech veličin vystupujících v transportním jevu. Nutná podmínka pro formulaci fyzikiálně relevantního matematického modelu je spojitost všech veličiny, které v modelu vystupují.",
+]]);
+
+f(
+"Difuzní rovnice",
+"Co je to difuzní rovnice?",
+[["Rovnice kontinuity doplněná o konstitutivní vztah udávající souvislost toku se záporně vzatým gradientem stavové veličiny.",
+"Rovnice udávající rozprostření stavové veličiny v prostoru.",
+"Rovnice udávající rozprostření stavové veličiny v čase i v prostoru.",
+]]);
+
+f(
+"Rovnice mělké vody",
+"V rovnici mělké vody neuvažujeme zdroje a spotřebiče. Proč?",
+[["Zpravidla z formulace úlohy voda v řečišti nevzniká ani nezaniká, ale je možné příslušné členy doplnit, jsou-li relevantní (například prosakující voda z podloží apod.).",
+"Protože voda v přírodě nevzniká ani nezaniká.",
+"Zpravidla z formulace úlohy voda v řečišti nevzniká ani nezaniká. Pokud ano (například prosakující voda z podloží apod.), musíme hledat jiný model, do rovnice kontinuity není možné tyto efekty započítat.",
+]]);
+
+f(
+"Rovnice podzemní vody",
+"V rovnici podzemní vody je přítomen i člen vyjadřující hustotu zdrojů. Jak započítáme spotřebiče?",
+[["Jako zdroje se zápornou vydatností.",
+"Jako konstantní členy snižující pravou stranu rovnice.",
+"Jako konstantní členy snižující levou stranu rovnice.",
+"Spotřebiče není možné započítat, ale toto není potřeba, protože dokud je podzemní vody dostatek, můžeme ji čerpat bez omezení.",
+]]);
+
+f(
+"Rovnice vedení tepla",
+"Vedení tepla je spojeno s nerovnoměrným rozložením teploty v přímce, rovině nebo prostoru a proto předpokládá existenci zdrojů tepla, které takovou nerovnoměrnost vytvoří. Proč tedy formulujeme rovnici vedení tepla difuzní rovnicí neobsahující zdroje?",
+[["Protože při vedení tepla nás zajímá co se děje uvnitř materiálu a tam se žádné teplo negeneruje. Jak vniklo teplo, které do materiálu prostupuje, je pro tento popis irelevantní.",
+"Protože by rovnici jinak nebylo možné sestavit. Jedná se o aproximaci pro zdroje malé vydatnosti.",
+"Protože by rovnici jinak nebylo možné vyřešit. Jedná se o aproximaci pro malá toky tepla.",
+"Protože aby se něco mohlo ohřát, musí se něco jiného ochladit a výsledný součet je vždy nulový podle zákona zachování energie.",
+]]);
+
+
+BEGIN_PGML
+
+## Přednáška Divergence
+
+[@ image("hw03.jpg", width=>400) @]*
+
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/03/","přednášky o divergenci,  rovnici kontinuity a difuzní rovnici") @]* a shlédnutí videa k této přednášce. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Můžete jenom odhadnout počet správných odpovědí po prvním pokusu podle celkového bodového zisku. Máte více pokusů a vždy se započítává ten nejlepší. Pracujte v klidu, nebojte se nahlížet do textu. Nemělo by se to však zvrhnout v zuřivé vyhledávání v elektronické verzi textu. Tímto stylem byste se nic nenaučili. 
+
+END_PGML
+
+$last=$c-1;
+
+foreach $i (0..$last) {
+
+BEGIN_PGML
+
+### [$nadpis[$i] ]*
+
+[$text[$i] ]*
+
+[_]{$radio[$i]}
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+_Řešení: [$reseni[$i] ]*_
+
+END_PGML_SOLUTION
+
+BEGIN_PGML
+-------------------
+END_PGML
+
+}
+
+BEGIN_PGML_HINT
+Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
+END_PGML_HINT
+
+
+ENDDOCUMENT();
+
+BEGIN_PGML
+
+## Přednáška Divergence
+
+[@ image("hw03.jpg", width=>400) @]*
+
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/03/","přednášky o divergenci, rovnici kontinuity a difuzní rovnici") @]* a po shlédnutí videa k této přednášce. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Můžete jenom odhadnout počet správných odpovědí po prvním pokusu podle celkového bodového zisku. Máte více pokusů a vždy se započítává ten nejlepší. Pracujte v klidu, nebojte se nahlížet do textu. Nemělo by se to však zvrhnout v zuřivé vyhledávání v elektronické verzi textu. Tímto stylem byste se nic nenaučili. 
+
+END_PGML
+
+$last=$c-1;
+
+foreach $i (0..$last) {
+
+BEGIN_PGML
+
+### [$nadpis[$i] ]*
+
+[$text[$i] ]*
+
+[_]{$radio[$i]}
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+_Řešení: [$reseni[$i] ]*_
+
+END_PGML_SOLUTION
+
+BEGIN_PGML
+-------------------
+END_PGML
+
+}
+
+BEGIN_PGML_HINT
+Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
+END_PGML_HINT
+
+
+ENDDOCUMENT();
+
