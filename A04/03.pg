@@ -81,7 +81,7 @@ kde [`P`] a [`Q`] jsou funkce dvou proměnných [`x`] a [`y`], platí
 \begin{vmatrix}\vec i& \vec j & \vec k\\
 \frac{\partial }{\partial x}&\frac{\partial }{\partial y}&\frac{\partial }{\partial z}\\
 P& Q & 0
-\end{vmatrix}
+\end{vmatrix}=
 \left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\vec k.```]
 
 
