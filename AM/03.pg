@@ -137,7 +137,7 @@ f(
 
 f(
 "Rovnice vedení tepla",
-"Vedení tepla je spojeno s nerovnoměrným rozložením teploty v přímce, rovině nebo prostoru a proto předpokládá existenci zdrojů tepla, které takovou nerovnoměrnost vytvoří. Proč tedy formulujeme rovnici vedení tepla difuzní rovnicí neobsahující zdroje?",
+"Vedení tepla je spojeno s nerovnoměrným rozložením teploty v přímce, rovině nebo prostoru a proto předpokládá existenci zdrojů tepla, které takovou nerovnoměrnost vytvoří. Proč tedy formulujeme rovnici vedení tepla jako difuzní rovnicí neobsahující zdroje?",
 [["Protože při vedení tepla nás zajímá co se děje uvnitř materiálu a tam se žádné teplo negeneruje. Jak vniklo teplo, které do materiálu prostupuje, je pro tento popis irelevantní.",
 "Protože by rovnici jinak nebylo možné sestavit. Jedná se o aproximaci pro zdroje malé vydatnosti.",
 "Protože by rovnici jinak nebylo možné vyřešit. Jedná se o aproximaci pro malá toky tepla.",
