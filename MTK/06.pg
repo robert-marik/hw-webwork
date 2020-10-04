@@ -52,10 +52,10 @@ f(
 "Autonomní diferenciální rovnice",
 "Která rovnice je autonomní? Funkce \(f\) je funkce jedné nebo dvou proměnných, podle kontextu, ve kterém je použita. ",
 [[
-"\(\frac{\mathrm dr}{\mathrm dt}=f(r)\)",
-"\(\frac{\mathrm ds}{\mathrm dt}=f(t)\)",
-"\(\frac{\mathrm du}{\mathrm dt}=f(u)g(t)\)",
-"\(\frac{\mathrm dv}{\mathrm dt}=f(v,t)\)",
+"\(\displaystyle \frac{\mathrm dr}{\mathrm dt}=f(r)\)",
+"\(\displaystyle \frac{\mathrm ds}{\mathrm dt}=f(t)\)",
+"\(\displaystyle \frac{\mathrm du}{\mathrm dt}=f(u)g(t)\)",
+"\(\displaystyle \frac{\mathrm dv}{\mathrm dt}=f(v,t)\)",
 ]]);
 
 f(
@@ -80,9 +80,8 @@ f(
 
 f(
 "Jednoznačnost řešení diferenciální rovnice II",
-"Pro jednoznačnou řešitelnost úlohy \[\frac{\mathrm{d}y}{\mathrm{d}x}=\varphi(x,y), \quad y(x_0)=y_0\] stačí mít zajištěnu ohraničenost parciální derivace pravé strany podle \(y\) v okolí počáteční podmínky. Specifikujte tuto podmínku pro rovnici se separovanými proměnnými ",
+"Pro jednoznačnou řešitelnost úlohy \[\frac{\mathrm{d}y}{\mathrm{d}x}=\varphi(x,y), \quad y(x_0)=y_0\] stačí mít zajištěnu ohraničenost parciální derivace pravé strany podle \(y\) v okolí počáteční podmínky. Specifikujte tuto podmínku pro rovnici se separovanými proměnnými \[\frac{\mathrm dx}{\mathrm dt}=f(x)g(t), \quad x(0)=x_0.\]",
 [[
-"\[\frac{\mathrm dx}{\mathrm dt}=f(x)g(t), \quad x(0)=x_0.\]",
 "\(f\) musí mít ohraničnou derivaci v bodě \(x_0\)",
 "\(g\) musí mít ohraničnou derivaci v počátku",
 "\(f\) musí mít nulovou derivaci v bodě \(x_0\)",
