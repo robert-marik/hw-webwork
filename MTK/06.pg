@@ -1,0 +1,154 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+my $c=0;
+
+@nadpis=();
+@text=();
+@radio=();
+@reseni=();
+
+sub f {
+   my ($h,$a,$b)=(@_);
+   $c1=$c+1;
+   $nadpis[$c]="$c1. ".$h;
+   $text[$c]=$a;
+   $reseni[$c]=$b->[0]->[0];
+   $radio[$c]=RadioButtons($b,0);
+   $c=$c+1;
+}
+
+f(
+"Počáteční podmínka",
+"Co v diferenciální rovnici vyjadřuje počáteční podmínka?",
+[[
+"Doplňuje mechanismus vývoje o počáteční stav. Ze všech reálných průběhů modelovaného děje vybírá ten, který odpovídá modelované situaci.",
+"Zaručuje řešitelnost už od provedení prního kroku řešení. Ze všech matematicky platných řešení vybírá ta, která jsou realizovatelná a v souladu s přírodními zákony.",
+"Zaručuje jednoznačnost díky nastavení počátečních dat pro numerické simulace. Ze včech možných řešení vybera tak, která mají význam pro praktické modelování.",
+]]);
+
+f(
+"Praktická interpretace řešení",
+"Mějme rovnici popisující velikost populace živočišného druhu v dané lokalitě a počáteční podmínku udávající velikost této populace v součanosti. Co bude vyjadřovat řešení této počáteční podmínky.",
+[[
+"Řešením bude funkce udávající závislost velikosti populace na čase. Po dosazení libovolného času do této funkce budeme mít okamžitě velikost populace v daném časovém okamžiku.",
+"Řešením je funkce udávající, za jakých podmínek může být populace udržitelně lovena.",
+"Řešením je čas, za jak dlouho se populace orzroste na dvojnásobek. Jedná se o jakousi alternativu poločasu rozpadu známénho z modelu radioaktinvího rozpadu.",
+]]);
+
+f(
+"Autonomní diferenciální rovnice",
+"Která rovnice je autonomní? Funkce \(f\) je funkce jedné nebo dvou proměnných, podle kontextu, ve kterém je použita. ",
+[[
+"\(\frac{\mathm dr}{dt}=f(r)\)",
+"\(\frac{\mathm ds}{dt}=f(t)\)",
+"\(\frac{\mathm du}{dt}=f(u)g(t)\)",
+"\(\frac{\mathm dv}{dt}=f(v,t)\)",
+]]);
+
+f(
+"Stacionární bod autonomní rovnice",
+"Co rozumíme stacionárním bodem autonomní diferenciální rovnice?",
+"Konstantní řešení rovnice.",
+"Nulové řešení rovnice.",
+"Řešení procházející počátkem.",
+]]);
+
+f(
+"Jednoznačnost řešení diferenciální rovnice I",
+"Která podmínka stačí pro jednoznačnou řešitelnost úlohy se separovatelnou diferenciální rovnicí \[\frac{\mathrm dx}{\mathrm dt}=f(x)g(t), \quad x(0)=x_0.\]",
+[[
+"\(f(x_0)\neq 0\)",
+"\(g(x_0)\neq 0\)",
+"\(f'(x_0)\neq 0\)",
+"\(g'(x_0)\neq 0\)",
+"\(f'(x_0)\) je ohraničená",
+]]);
+
+f(
+"Jednoznačnost řešení diferenciální rovnice II",
+"Pro jednoznačnou řešitelnost úlohy \[\frac{\mathrm{d}y}{\mathrm{d}x}=\varphi(x,y), \quad y(x_0)=y_0\] stačí mít zajištěnu ohraničenost parciální derivace pravé strany podle \(y\) v okolí počáteční podmínky. Specifikujte tuto podmínku pro rovnici se separovanými proměnnými ",
+[[
+"\[\frac{\mathrm dx}{\mathrm dt}=f(x)g(t), \quad x(0)=x_0.\]",
+"\(f\) musí mít ohraničnou derivaci v bodě \(x_0\)",
+"\(g\) musí mít ohraničnou derivaci v počátku",
+"\(f\) musí mít nulovou derivaci v bodě \(x_0\)",
+"\(g\) musí mít nulovou derivaci v počátku",
+]]);
+
+f(
+"Stabilita stacionárního bodu",
+"Vyvětlete, jak prakticky vímáme stabilitu stacionárního bodu rovnice \[\frac{\mathrm dx}{\mathrm dt}=f(x).\] Co reprezentuje stabilní stacionární bod?",
+[[
+"Reprezentuje rovnovážný stav systému, který se obnoví po malých poruchách řešení.",
+"Reprezentuje rovnovážný stav systému, který se obnoví po libovolně velkých poruchách řešení.",
+"Reprezentuje rovnovážný stav systému, který se neobnoví ani po malých poruchách řešení a neodpovídá tedy prakticky dosažitelnému stavu systému.",
+]]);
+
+f(
+"Stabilita stacionárního bodu II",
+"Předpokládejme, že \(x_0\) je stacionárním bodem systému \[\frac{\mathrm dx}{\mathrm dt}=f(x).\] Jaká podmínka dokáže zaručit nestabilitu tohoto stacionárního bodu a co to znamená prakticky?",
+[[
+"\(f'(x_0)>0\), takový bod neodpovídá stavu, ve kterém se systém může dlouhodobě nacházet",
+"\(f'(0)<0\), takový bod neodpovídá stavu, ve kterém se systém může dlouhodobě nacházet",
+"\(f'(x_0)<0\), takový bod zaručuje, že systém nikdy nemůže přejít do ustáleného stavu",
+]]);
+
+
+BEGIN_PGML
+
+## Přednáška Diferenciální rovnice
+
+[@ image("hw06.jpg", width=>400) @]*
+
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/ode/","přednášky o diferenciálních rovnicích") @]* a shlédnutí videa k této přednášce. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Můžete jenom odhadnout počet správných odpovědí po prvním pokusu podle celkového bodového zisku. Máte více pokusů a vždy se započítává ten nejlepší. Pracujte v klidu, nebojte se nahlížet do textu. Nemělo by se to však zvrhnout v zuřivé vyhledávání v elektronické verzi textu. Tímto stylem byste se nic nenaučili.
+
+
+END_PGML
+
+
+$last=$c-1;
+
+foreach $i (0..$last) {
+
+BEGIN_PGML
+
+### [$nadpis[$i] ]*
+
+[$text[$i] ]*
+
+[_]{$radio[$i]}
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+_Řešení: [$reseni[$i] ]*_
+
+END_PGML_SOLUTION
+
+BEGIN_PGML
+-------------------
+END_PGML
+
+}
+
+BEGIN_PGML_HINT
+Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
+END_PGML_HINT
+
+
+ENDDOCUMENT();
+
