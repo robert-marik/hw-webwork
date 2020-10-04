@@ -47,7 +47,10 @@ a pro tuto hodnotu parametru je vektorové pole nezřídlové.
 
 ---------------
 
-Určete, pro kterou hodnotu parametru [`a`] je vektorového pole [``` \vec F(x,y)=[$P]\vec i +\left([$Q]\right)\vec j```] nezřídlové.
+Určete, divergenci vektorového pole [``` \vec F(x,y)=[$P]\vec i +\left([$Q]\right)\vec j```] s parametrem [`a`] a poté určete, pro kterou hodnotu parametru je vektorového pole nezřídlové.
+
+>>[``\nabla \cdot \vec F (x,y)={}``][____________________________________]{$divergence}<<
+
 
 >>[``a={}``][____________________________________]{$ans}<<
 

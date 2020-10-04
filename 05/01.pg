@@ -54,7 +54,7 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 Použijeme vztah
-[``` \int [$funkce]\,\mathrm dx=[$int]+C.```]
+[``` \int [$funkce]\,\mathrm dx=\frac1{[$n1]}x^{[$n1]}+C.```]
 Odsud
 [```\int_{[$a]}^{[$b]} [$funkce]\,\mathrm dx =[$int] ```]
 

@@ -57,7 +57,7 @@ $ans);
 
 BEGIN_PGML
 
-## Stacionání rovnice kontinuity
+## Stacionární rovnice kontinuity
 
 [@ image("gejzir.jpg", width=>400) @]*
 
