@@ -47,7 +47,7 @@ f(
 [[
 "Kladné, protože integrovaná funkce je kladná.",
 "Kladné, protože integrovaná funkce je rostoucí.",
-"Kladné pro $a\geq 0$ (protože integrovaná funkce je pro tyho hodnoty parametru rostoucí) a záporné pro $a<0$ (protože integrovaná funkce je klesající).",
+"Kladné pro $a\geq 0$ (protože integrovaná funkce je pro tyto hodnoty parametru rostoucí) a záporné pro $a<0$ (protože integrovaná funkce je klesající).",
 "Žádné, integrál neexistuje.",
 ]]);
 
@@ -113,7 +113,9 @@ BEGIN_PGML
 
 [@ image("hw05.jpg", width=>400) @]*
 
-V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/integraly2/","druhé přednášky o integrálech") @]* a shlédnutí videa k této přednášce. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Můžete jenom odhadnout počet správných odpovědí po prvním pokusu podle celkového bodového zisku. Máte více pokusů a vždy se započítává ten nejlepší. Pracujte v klidu, nebojte se nahlížet do textu. Nemělo by se to však zvrhnout v zuřivé vyhledávání v elektronické verzi textu. Tímto stylem byste se nic nenaučili. 
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/integraly2/","druhé přednášky o integrálech") @]* a shlédnutí videa k této přednášce. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Můžete jenom odhadnout počet správných odpovědí po prvním pokusu podle celkového bodového zisku. Máte více pokusů a vždy se započítává ten nejlepší. Pracujte v klidu, nebojte se nahlížet do textu. Nemělo by se to však zvrhnout v zuřivé vyhledávání v elektronické verzi textu. Tímto stylem byste se nic nenaučili.
+
+**TIP.** Svůj progres vidíte v záložce Hodnocení vlevo. Viz obrázek.
 
 END_PGML
 
