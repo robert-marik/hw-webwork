@@ -36,8 +36,8 @@ f(
 "Graf sudé funkce",
 "Jaká vlastnost slouží k indentifikování sudé funkce?",
 [[
-"Graf je osově symerický podle osy \(x\).",
 "Graf je osově symerický podle osy \(y\).",
+"Graf je osově symerický podle osy \(x\).",
 "Graf je bodově symerický podle počátku.",
 "Graf je rostoucí křivka.",
 ],"Žádná z nabízených možností."]
