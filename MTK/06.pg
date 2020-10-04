@@ -52,10 +52,10 @@ f(
 "Autonomní diferenciální rovnice",
 "Která rovnice je autonomní? Funkce \(f\) je funkce jedné nebo dvou proměnných, podle kontextu, ve kterém je použita. ",
 [[
-"\(\frac{\mathm dr}{dt}=f(r)\)",
-"\(\frac{\mathm ds}{dt}=f(t)\)",
-"\(\frac{\mathm du}{dt}=f(u)g(t)\)",
-"\(\frac{\mathm dv}{dt}=f(v,t)\)",
+"\(\frac{\mathrm dr}{\mathrm dt}=f(r)\)",
+"\(\frac{\mathrm ds}{\mathrm dt}=f(t)\)",
+"\(\frac{\mathrm du}{\mathrm dt}=f(u)g(t)\)",
+"\(\frac{\mathrm dv}{\mathrm dt}=f(v,t)\)",
 ]]);
 
 f(
