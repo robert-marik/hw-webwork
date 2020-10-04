@@ -80,7 +80,7 @@ f(
 
 f(
 "Integrály, které nejsou elementárními funkcemi.",
-"Některé integrály nejsou elementárními funkcemi. Jak byste zapsali primitivní funkci k funkci \[\frac{e^x}{x^2+1}\,\mathrm dx?\]",
+"Některé integrály nejsou elementárními funkcemi. Jak byste zapsali primitivní funkci k funkci \[\frac{e^x}{x^2+1}?\]",
 [[
 "použitím integrálu jako funkce horní meze, tj. \(\displaystyle \int _0^x \frac {e^t}{t^2+1}\,\mathrm dt\)",
 "nijak, primitivní funkce neexistuje, protože funkce má bod nespojitosti \(x=0\)",
@@ -92,9 +92,9 @@ f(
 "Práce konaná proměnnou silou",
 "Jak vypočteme práci v případě, kdy síla konající práci má proměnnou velikost?",
 [[
-"Práce je integrál síly jako funkce polohy na daném intervalu.",
-"Práce je integrál polohy jako funkce síly na daném intervalu.",
-"Práce je součinem síly a dráhy, tj. síly a délky intervalu.",
+"Integrací síly jako funkce polohy na daném intervalu.",
+"Integrací polohy jako funkce síly na daném intervalu.",
+"Univerzálním postupem, tj. součinem síly a délky intervalu.",
 ]]);
 
 f(
