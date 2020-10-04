@@ -49,11 +49,11 @@ Pro převod gradientu teploty na tok tepla je nutno tento gradient vynásobit mi
 
 Teplota v místě [`(x,y)`] dvourozměrné desky je dána vztahem [``` T(x,y)=[$funkce].```] Určete gradient teploty v bodě [`([$x0],[$y0])`].
 
->>[``\nabla T(1,2)={}``][____________________________________]{$gradient}<<
+>>[``\nabla T([$x0],[$y0])={}``][____________________________________]{$gradient}<<
 
 Dále je známo, že  koeficient tepelné vodivosti je [``` \lambda = \begin{pmatrix}[$a11]&[$a12]\\ [$a12] & [$a22]\end{pmatrix}.```] Určete tok tepla v bodě
 [`([$x0],[$y0])`].
->>[``\vec q=-\lambda \nabla T(1,2)={}``][____________________________________]{$tok}<<
+>>[``\vec q=-\lambda \nabla T([$x0],[$y0])={}``][____________________________________]{$tok}<<
 
 Vektory zapisujte stejně jako v úvodních příkladech této série, tj. do ostrých závorek nebo pomocí ij-notace.
 
