@@ -61,6 +61,7 @@ f(
 f(
 "Stacionární bod autonomní rovnice",
 "Co rozumíme stacionárním bodem autonomní diferenciální rovnice?",
+[[
 "Konstantní řešení rovnice.",
 "Nulové řešení rovnice.",
 "Řešení procházející počátkem.",
