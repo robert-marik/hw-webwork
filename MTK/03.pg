@@ -87,8 +87,6 @@ f(
 ]]
 );
 
-$last=4;
-
 BEGIN_PGML
 
 ## Přednáška Derivace III (Derivace a další užitečné nástroje)
@@ -100,6 +98,9 @@ V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět
 Pracujte v klidu, nebojte se nahlížet do učebního textu. Dělejte si při práci poznámky. Soustřeďte se na to, aby tyto poznámky byly čitelné a organizované a tyto poznámky si přineste ke zkoušce.
 
 END_PGML
+
+
+$last=$c-1;
 
 foreach $i (0..$last) {
 
