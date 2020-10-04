@@ -1,0 +1,153 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+my $c=0;
+
+@nadpis=();
+@text=();
+@radio=();
+@reseni=();
+
+sub f {
+   my ($h,$a,$b)=(@_);
+   $c1=$c+1;
+   $nadpis[$c]="$c1. ".$h;
+   $text[$c]=$a;
+   $reseni[$c]=$b->[0]->[0];
+   $radio[$c]=RadioButtons($b,0);
+   $c=$c+1;
+}
+
+
+f(
+"Monotonie integrálu",
+"Mějme funkce $f$ a $g$ definované na intervalu $[a,b]$ takové, že na tomto intervalu platí $$f(x)\geq g(x).$$ Jaký je vztah mezi integrály těchto funkcí?",
+[[
+"$\int _a^b f(x)\,\mathrm dx\geq \int _a^b g(x)\,\mathrm dx$",
+"$\int _a^b g(x)\,\mathrm dx\geq \int _a^b f(x)\,\mathrm dx$",
+"Není možné rozhodnout bez znalosti monotonie funkcí.",
+"Není možné rozhodnout bez znalosti analytických předpisů funkcí.",
+]]);
+
+f(
+"Znaménko integrálu",
+"Jaké znaménko má integrál $\int _0^1 \frac {e^{ax}}{x^2+1}\,\mathrm dx.$ Parametr $a$ může nabývat libovolnou reálnou hodnotu",
+[[
+"Kladné, protože integrovaná funkce je kladná.",
+"Kladné, protože integrovaná funkce je rostoucí.",
+"Kladné pro $a\geq 0$ (protože integrovaná funkce je pro tyho hodnoty parametru rostoucí) a záporné pro $a<0$ (protože integrovaná funkce je klesající).",
+"Žádné, integrál neexistuje.",
+]]);
+
+f(
+"Střední hodnota",
+"Jak vypočteme střední hodnotu funkce $g$ na intervalu $[0,a]$?",
+[[
+"$\displaystyle \frac 1{a} \int _0^a g(x)\,\mathrm dx$",
+"$\displaystyle \frac 1{b-a} \int _a^b g(x)\,\mathrm dx$",
+"$\displaystyle \frac {g(0)+g(a)}{2}$",
+]]);
+
+f(
+"Střední hodnota lineární funkce",
+"Jak vypočteme střední hodnotu funkce $f$ na intervalu $[a,b]$ v případě, kdy je funkce $f$ lineární?",
+[[
+"Jako aritmetický průměr funkčních hodnot na levém a pravém konci, tj. $\displaystyle \frac {f(a)+f(b)}{2}$.",
+"Jako aritmetický průměr funkčních hodnot na levém a pravém konci, tj. $\displaystyle \frac {f(b)-f(a)}{2}$.",
+"Pomocí obecného vzorce pro střední hodnotu, neexistuje kratší výpočet.",
+]]);
+
+f(
+"Postačující podmínka pro integrovatelnost",
+"Jaká podmínka je postačující podmínkou pro existenci neurčitého integrálu funkce $f$ na intervalu $I$.",
+[[
+"Spojitost. Každá spojitá funkce je integrovatelná.",
+"Nenulovost. Každá funkce, která nemá nulové body, je integrovatelná.",
+"Monotonie. Každá rostoucí nebo klesající funkce je integrovatelná.",
+]]);
+
+f(
+"Integrály, které nejsou elementárními funkcemi.",
+"Některé integrály nejsou elementárními funkcemi. Jak byste zapsali primitivní funkci k funkci $$\frac{e^x}{x^2+1}\,\mathrm dx?$$",
+[[
+"použitím integrálu jako funkce horní meze, tj. $\displaystyle \int _0^x \frac {e^t}{t^2+1}\,\mathrm dt$",
+"nijak, primitivní funkce neexistuje, protože funkce má bod nespojitosti $x=0$",
+"nijak, primitivní funkce neexistuje, protože funkce má body nespojitosti $x=\pm 1$",
+"použitím inverzní operace, tj. $\displaystyle \frac{\mathrm d}{\mathrm dx} \frac {e^x}{x^2+1}$",
+]]);
+
+f(
+"Práce konaná proměnnou silou",
+"Jak vypočteme práci v případě, kdy síla konající práci má proměnnou velikost?",
+[[
+"Práce je integrál síly jako funkce polohy na daném intervalu.",
+"Práce je integrál polohy jako funkce síly na daném intervalu.",
+"Práce je součinem síly a dráhy, tj. síly a délky intervalu.",
+]]);
+
+f(
+"Lichoběžníkové pravidlo",
+"K čemu slouží lichoběžníkové pravidlo?",
+[[
+"Numerická aproximace určitého integrálu.",
+"Numerická aproximace derivace pomocí centrální diference.",
+"Numerická aproximace derivace pomocí dopředné diference.",
+"Numerická aproximace řešení rovnice s integrálem.",
+]]);
+
+BEGIN_PGML
+
+## Přednáška Integrály pro pokročilé
+
+[@ image("hw05.jpg", width=>400) @]*
+
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/integraly2/","druhé přednášky o integrálech") @]* a shlédnutí videa k této přednášce. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Můžete jenom odhadnout počet správných odpovědí po prvním pokusu podle celkového bodového zisku. Máte více pokusů a vždy se započítává ten nejlepší. Pracujte v klidu, nebojte se nahlížet do textu. Nemělo by se to však zvrhnout v zuřivé vyhledávání v elektronické verzi textu. Tímto stylem byste se nic nenaučili. 
+
+END_PGML
+
+
+$last=$c-1;
+
+foreach $i (0..$last) {
+
+BEGIN_PGML
+
+### [$nadpis[$i] ]*
+
+[$text[$i] ]*
+
+[_]{$radio[$i]}
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+_Řešení: [$reseni[$i] ]*_
+
+END_PGML_SOLUTION
+
+BEGIN_PGML
+-------------------
+END_PGML
+
+}
+
+BEGIN_PGML_HINT
+Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
+END_PGML_HINT
+
+
+ENDDOCUMENT();
+
