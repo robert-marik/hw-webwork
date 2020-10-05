@@ -23,7 +23,7 @@ $hrana=random(2,9,1)/10;
 Context("Numeric")->variables->add(y=>"Real");
 	
 $P=Formula("$m*x^$k*y+x")->reduce();
-$dP=Formula("$m*$k*x^($k-1)*y")->reduce();
+$dP=Formula("$m*$k*x^($k-1)*y+1")->reduce();
 
 $Q=Formula("$c*x^$k*y^$l+($m-3)")->reduce();
 $dQ=Formula("$c*$l*x^($k)*y^($l-1)")->reduce();
