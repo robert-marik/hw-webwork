@@ -36,7 +36,7 @@ $dQBod=Formula("$l*($x0)^$n*($y0)^($l-1)+$m*$c*$y0^($c-1)")->reduce();
 
 $divergence = Formula("$dP+$dQ")->reduce;
 #$divergenceBod = Formula("$dPBod+$dQBod")->reduce;
-$divergenceBod=($k)*($x0)**($k-1)*($y0)**2+$l*($x0)*($y0)**($l-1)+($m)*($c)*($y0)**($c-1);
+$divergenceBod=($k)*($x0)**($k-1)*($y0)**2+$l*($x0)**($n)*($y0)**($l-1)+($m)*($c)*($y0)**($c-1);
 
 
 $ans=2; $longans="Divergence v bodě je nulová. V daném místě není ani zdroj ani spotřebič.";
