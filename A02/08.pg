@@ -22,7 +22,7 @@ $m=non_zero_random(-9,9,1);
 Context("Vector")->variables->add(a=>"Real");
 
 $P=Formula("x^$b+$c*x-y")->reduce();
-$Q=Formula("x^$c+-x+$l*y")->reduce();
+$Q=Formula("-x+$l*y")->reduce();
 $dPx=$P->D("x");
 $dPy=$P->D("y");
 $dQx=$Q->D("x");
