@@ -49,7 +49,7 @@ BEGIN_PGML_SOLUTION
 
 Vektor [`(1,0,-8)`] zapíšeme například jako *<1,0,-8>* nebo *i-8k*.
 
-Vektor [`(0,x^3,3)`] zapíšeme například jako *<0,x^3,3>* nebo *x^3 \* j - 3k*.
+Vektor [`(0,x^3,3)`] zapíšeme například jako *<0,x^3,3>* nebo *x^3 \* j + 3k*.
 
 Poslední úloha je zřejmá, prostřední hodnotu zapíšeme například jako *-pi/2*
 
