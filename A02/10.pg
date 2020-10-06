@@ -60,8 +60,7 @@ Vektory zapisujte stejně jako v úvodních příkladech této série, tj. do os
 END_PGML
 
 BEGIN_PGML_HINT
-Při výpočtu gradientu pozorně počítejte derivace. Například derivace podle [`x`] je [``` \frac{\partial T}{\partial x}=[$dfx] ```] a derivace podle [`y`] je 
-[`y`] je [``` \frac{\partial T}{\partial y}=[$dfy]. ```]
+Při výpočtu gradientu pozorně počítejte derivace. Například derivace podle [`x`] je [``` \frac{\partial T}{\partial x}=[$dfx] ```] a derivace podle [`y`] je [``` \frac{\partial T}{\partial y}=[$dfy]. ```]
 
 Násobení matice a vektoru provádějte pomocí pravidel pro násobení matice a vektoru (zopakujte si případně v základním prváckém kurzu matematiky).
 
