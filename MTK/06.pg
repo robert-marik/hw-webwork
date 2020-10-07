@@ -35,17 +35,17 @@ f(
 "Co v diferenciální rovnici vyjadřuje počáteční podmínka?",
 [[
 "Doplňuje mechanismus vývoje o počáteční stav. Ze všech reálných průběhů modelovaného děje vybírá ten, který odpovídá modelované situaci.",
-"Zaručuje řešitelnost už od provedení prního kroku řešení. Ze všech matematicky platných řešení vybírá ta, která jsou realizovatelná a v souladu s přírodními zákony.",
+"Zaručuje řešitelnost už od provedení prvního kroku řešení. Ze všech matematicky platných řešení vybírá ta, která jsou realizovatelná a v souladu s přírodními zákony.",
 "Zaručuje jednoznačnost díky nastavení počátečních dat pro numerické simulace. Ze včech možných řešení vybera tak, která mají význam pro praktické modelování.",
 ]]);
 
 f(
 "Praktická interpretace řešení",
-"Mějme rovnici popisující velikost populace živočišného druhu v dané lokalitě a počáteční podmínku udávající velikost této populace v součanosti. Co bude vyjadřovat řešení této počáteční úlohy.",
+"Mějme rovnici popisující velikost populace živočišného druhu v dané lokalitě a počáteční podmínku udávající velikost této populace v současnosti. Co bude vyjadřovat řešení této počáteční úlohy.",
 [[
 "Řešením bude funkce udávající závislost velikosti populace na čase. Po dosazení libovolného času do této funkce budeme mít okamžitě velikost populace v daném časovém okamžiku.",
 "Řešením je funkce udávající, za jakých podmínek může být populace udržitelně lovena.",
-"Řešením je čas, za jak dlouho se populace orzroste na dvojnásobek. Jedná se o jakousi alternativu poločasu rozpadu známénho z modelu radioaktinvího rozpadu.",
+"Řešením je čas, za jak dlouho se populace rozroste na dvojnásobek. Jedná se o jakousi alternativu poločasu rozpadu známého z modelu radioaktivního rozpadu.",
 ]]);
 
 f(
@@ -82,15 +82,15 @@ f(
 "Jednoznačnost řešení diferenciální rovnice II",
 "Pro jednoznačnou řešitelnost úlohy \[\frac{\mathrm{d}y}{\mathrm{d}x}=\varphi(x,y), \quad y(x_0)=y_0\] stačí mít zajištěnu ohraničenost parciální derivace pravé strany podle \(y\) v okolí počáteční podmínky. Specifikujte tuto podmínku pro rovnici se separovanými proměnnými \[\frac{\mathrm dx}{\mathrm dt}=f(x)g(t), \quad x(0)=x_0.\]",
 [[
-"\(f\) musí mít ohraničnou derivaci v bodě \(x_0\)",
-"\(g\) musí mít ohraničnou derivaci v počátku",
+"\(f\) musí mít ohraničenou derivaci v bodě \(x_0\)",
+"\(g\) musí mít ohraničenou derivaci v počátku",
 "\(f\) musí mít nulovou derivaci v bodě \(x_0\)",
 "\(g\) musí mít nulovou derivaci v počátku",
 ]]);
 
 f(
 "Stabilita stacionárního bodu",
-"Vyvětlete, jak prakticky vímáme stabilitu stacionárního bodu rovnice \[\frac{\mathrm dx}{\mathrm dt}=f(x).\] Co reprezentuje stabilní stacionární bod?",
+"Vysvětlete, jak prakticky vnímáme stabilitu stacionárního bodu rovnice \[\frac{\mathrm dx}{\mathrm dt}=f(x).\] Co reprezentuje stabilní stacionární bod?",
 [[
 "Reprezentuje rovnovážný stav systému, který se obnoví po malých poruchách řešení.",
 "Reprezentuje rovnovážný stav systému, který se obnoví po libovolně velkých poruchách řešení.",

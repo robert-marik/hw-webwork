@@ -69,7 +69,7 @@ f(
 
 f(
 "Slovní interpretace derivace v obecném případě",
-"Narozdíl od předchozího nebudeme specifikovat, co funkce \(f\) a veličina \(x\) vyjařují. Která formulace popisuje slovně pojem derivace funkce \(f(x)\)?",
+"Na rozdíl od předchozího nebudeme specifikovat, co funkce \(f\) a veličina \(x\) vyjadřují. Která formulace popisuje slovně pojem derivace funkce \(f(x)\)?",
 [[
 "Derivace je rychlost růstu veličiny \(f\), tj. změna funkce \(f\) způsobená jednotkovou změnou veličiny \(x\).",
 "Derivace je rychlost růstu veličiny \(f\), tj. změna funkce \(f\) na intervalu \([x,x+h]\).",
@@ -110,7 +110,7 @@ f(
 ]]);
 
 f(
-"Souvislost derivace a monotinie",
+"Souvislost derivace a monotonie",
 "Jak souvisí derivace se monotonií (růstem nebo klesáním)?",
 [[
 "Má-li funkce kladnou derivaci, je rostoucí.",

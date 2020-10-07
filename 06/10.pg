@@ -24,11 +24,13 @@ $answer=Formula("$a+$b*($var-$c)")->reduce();   # funkce
 
 BEGIN_PGML
 
+UPOZORNĚNÍ: V tomto příkladě si mimo jiné natrénujeme i zápis matematických výrazů v textovém editoru. Nepodceňte tuto dovednost, abyste měli možnost zapsat odpovědi při distančním zkoušení.
+
 ## Slovní interpretace konstant úměrnosti v diferenciální rovnici
 
-Na přednáškách i ve cvičení jsme se setkali (a i dále se setkáme) s řadou matematických formulací přírodních jevů, kdy je rychlost úměrná jiné veličine. Slovní význam konstant úměrnosti je vhodné být schopen interpretovat slovně. Zpravidla postupujeme tak, že hodnotám, které figurují u konstanty úměrnosti přidělíme takovou číselnou hodnotu, aby na jedné straně rovnice zůstala buď jenom konstanta úměrnosti, nebo konstanta úměrnosti vynásobená záporným znaménkem. Veličina na pravé straně zpravidla derivace, tj. rychlost růstu a ta definuje význam konstanty. Pokud na pravé straně ještě navíc zůstane znaménko minus, máme rychlost poklesu. Několik příkladů následuje. Rychlost je někdy přirozenější formulovat jako změnu za jednotku času, ale obě vyjádření ("rychlost" a "změna za jednotku času") udávají totéž. 
+Na přednáškách i ve cvičení jsme se setkali (a i dále se setkáme) s řadou matematických formulací přírodních jevů, kdy je rychlost úměrná jiné veličině. Slovní význam konstant úměrnosti je vhodné být schopen interpretovat slovně. Zpravidla postupujeme tak, že hodnotám, které figurují u konstanty úměrnosti přidělíme takovou číselnou hodnotu, aby na jedné straně rovnice zůstala buď jenom konstanta úměrnosti, nebo konstanta úměrnosti vynásobená záporným znaménkem. Veličina na pravé straně zpravidla derivace, tj. rychlost růstu a ta definuje význam konstanty. Pokud na pravé straně ještě navíc zůstane znaménko minus, máme rychlost poklesu. Několik příkladů následuje. Rychlost je někdy přirozenější formulovat jako změnu za jednotku času, ale obě vyjádření ("rychlost" a "změna za jednotku času") udávají totéž. 
 
-* U Newtonova modelu ochlazování z přednášky je rychlost s jakou klesá teplota, tj. veličina [`` -\frac{\mathrm dT}{\mathrm dt} ``], úměrná rozdílu teploty tělesa a okolí, tj. rozdílu [`(T-T_0).`] Matematicky vyjádřeno platí [``` \frac{\mathrm dT}{\mathrm dt}=-k(T-T_0),```] kde [`k`] je konstanta úměrnosti. Pro [`T-T_0=1`] dostáváme [```\frac{\mathrm dT}{\mathrm dt}=-k.```] _Konstanta [`k`] tedy udává rychlost ochlazování tělesa s teplotou o jednotku vyšší než je teplota okolí._
+* Podle Newtonova zákona ochlazování je matematickým modelem ochlazování tělesa o teplotě [`T`] při tepelné výměně s okolím o teplotě [`T_0`] rovnice [``` \frac{\mathrm dT}{\mathrm dt}=-k(T-T_0),```] kde [`t`] je čas a [`k`] je konstanta úměrnosti. Pro [`T-T_0=1`] dostáváme [```\frac{\mathrm dT}{\mathrm dt}=-k.```] a odsud [``` k=-\frac {\mathrm dT}{\mathrm dt}.```] Konstanta [`k`] tedy udává rychlost ochlazování tělesa s teplotou o jednotku vyšší než je teplota okolí.
 * U radioaktivního rozpadu, kdy množství [`x`] dosud nerozpadnuté látky splňuje rovnici [``` \frac{\mathrm dx}{\mathrm dt}=-kx```] dostáváme pro [`x=1`] vztah
  [``` \frac{\mathrm dx}{\mathrm dt}=-x.```] Tento vztah ukazuje, že _konstanta úměrnosti [`k`] udává pokles množství látky za jednotku času při jednotkovém množství látky_, nebo také _rychlost, s jakou se rozpadá jednotkové množství látky._
 * U rovnice růstu úměrného velikosti populace pracujeme s rovnicí [``` \frac{\mathrm d x}{\mathrm dt}=kx.```] Volbou [`x=1`] vidíme, že konstanta [`k`] udává _rychlost růstu populace v okamžiku, kdy je velikost populace rovna jedné jednotkce_.
@@ -40,17 +42,16 @@ Všimněte si ještě, že se vyhýbáme použití konkrétních jednotek. Mluv�
 
 -------
 
-### Otázka
+### Úkol
 
 [@ image("medved.jpg", width=>400) @]*
 
-Tloušťka ledu [`h`] v konstantních podmínkách roste rychlostí, nepřímo úměrnou této tloušťce, tj. existuje konstanta [`k`] taková, že platí
-[``` \frac{\mathrm dh}{\mathrm dt}=\frac kh.```] Jak byste slovně intepretovali roli konstanty [`k`]? Podejte slovní interpretaci této konstanty podobně, jako je uvedeno na příkladech výše.
+ÚKOL: Tloušťka ledu v konstantních podmínkách roste rychlostí, nepřímo úměrnou této tloušťce. Zapište tuto rovnici do odpovědního pole, vysvětlete všechny proměnné a zapište slovní interpretaci konstanty úměrnosti. Použijte vzor u Newtonova modelu výše. 
 
 
 ### Pravidla
 
-Výsledné tvrzení musí být odpovědí na otázku. Musí se jednat o českou nebo slovenskou větu s podmětem a přísudkem, gramaticky správně utvořenou a věcně snadno pochopitelnou. Odpověď musí být jednoznačná a pokud možno stručná. Pro zápis matematických výrazů použijte LaTeX nebo ASCIIMath. Doporučení k sazbě matematiky najdete [@ htmlLink("http://user.mendelu.cz/marik/wiki/inzmat/chyby/","zde") @]*.
+Výsledné tvrzení musí být řešením úkolu. Musí se jednat o českou nebo slovenskou větu s podmětem a přísudkem, gramaticky správně utvořenou a věcně snadno pochopitelnou. Odpověď musí být jednoznačná a pokud možno stručná. Pro zápis matematických výrazů použijte LaTeX nebo ASCIIMath. Doporučení k sazbě matematiky najdete [@ htmlLink("http://user.mendelu.cz/marik/wiki/inzmat/chyby/","zde") @]*.
 Příklady, jak zrealizovat tato doporučení, najdete pro LaTeX
 [@ htmlLink("http://user.mendelu.cz/marik/wiki/am/slidy/latex","zde") @]*
 a pro ASCIIMath
@@ -64,9 +65,12 @@ Oddělovače matematických výrazů jsou zpětné apostrofy. Zdvojené zpětné
 ----------
 
 ```
-V rovnici ``dh/(dt)=k/h`` je nezávislou proměnnou čas `t`,
-závislou proměnnou tloušťka ledu `h` a parametrem konstanta
-úměrnosti `k`. Tato konstanta udává ...
+Podle Newtonova zákona ochlazování je matematickým modelem ochlazování
+tělesa o teplotě `T` při tepelné výměně s okolím o teplotě `T_0`
+rovnice ``(dT)/(dt)=-k(T-T_0),`` kde `t` je čas a `k` je konstanta
+úměrnosti. Pro `T-T_0=1` dostáváme ``(dT)/(dt)=-k.`` Konstanta `k`
+tedy udává rychlost ochlazování tělesa s teplotou o jednotku vyšší než
+je teplota okolí.
 ```
 -------------
 
@@ -79,10 +83,13 @@ Zkuste si vykopírovat kód níže a použít tlačítko "Náhled odpovědi".
 ----
 
 ```
-V rovnici \[\frac {\mathrm dh}{\mathrm dt}=\frac kh\]
-je nezávislou proměnnou čas \(t\), závislou proměnnou
-tloušťka ledu \(h\) a parametrem konstanta úměrnosti
-\(k\). Tato konstanta udává ...
+Podle Newtonova zákona ochlazování je matematickým modelem ochlazování
+tělesa o teplotě \(T\) při tepelné výměně s okolím o teplotě \(T_0\)
+rovnice \[ \frac{\mathrm dT}{\mathrm dt}=-k(T-T_0),\] kde \(t\) je
+čas a \(k\) je konstanta úměrnosti. Pro \(T-T_0=1\) dostáváme
+\[\frac{\mathrm dT}{\mathrm dt}=-k.\] a odsud \[ k=-\frac
+{\mathrm dT}{\mathrm dt}.\] Konstanta \(k\) tedy udává rychlost
+ochlazování tělesa s teplotou o jednotku vyšší než je teplota okolí.
 ```
 -----
 
