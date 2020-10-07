@@ -46,16 +46,19 @@ Všimněte si ještě, že se vyhýbáme použití konkrétních jednotek. Mluv�
 
 [@ image("medved.jpg", width=>400) @]*
 
-ÚKOL: Tloušťka ledu v konstantních podmínkách roste rychlostí, nepřímo úměrnou této tloušťce. Zapište tuto rovnici do odpovědního pole, vysvětlete všechny proměnné a zapište slovní interpretaci konstanty úměrnosti. Použijte vzor u Newtonova modelu výše. 
+ÚKOL: Tloušťka ledu v konstantních podmínkách roste podle Stefanova zákona rychlostí nepřímo úměrnou této tloušťce. Zapište tuto rovnici do odpovědního pole, vysvětlete všechny proměnné a zapište slovní interpretaci konstanty úměrnosti. Použijte vzor u Newtonova modelu výše. 
 
+Toto není ani tak matematický úkol, jako formulační. Pokud si nejste jisti matematickou formulací modelu, podívejte se do cvičení k diferenciálním rovnicím. 
 
 ### Pravidla
 
-Výsledné tvrzení musí být řešením úkolu. Musí se jednat o českou nebo slovenskou větu s podmětem a přísudkem, gramaticky správně utvořenou a věcně snadno pochopitelnou. Odpověď musí být jednoznačná a pokud možno stručná. Pro zápis matematických výrazů použijte LaTeX nebo ASCIIMath. Doporučení k sazbě matematiky najdete [@ htmlLink("http://user.mendelu.cz/marik/wiki/inzmat/chyby/","zde") @]*.
-Příklady, jak zrealizovat tato doporučení, najdete pro LaTeX
-[@ htmlLink("http://user.mendelu.cz/marik/wiki/am/slidy/latex","zde") @]*
-a pro ASCIIMath
-[@ htmlLink("http://asciimath.org/","zde") @]*. Oddělovače pro LaTeX jsou závorky, oddělovače pro ASCIIMath jsou zpětné apostrofy.
+* Výsledné tvrzení musí být řešením úkolu.
+* Musí se jednat o českou nebo slovenskou větu s podmětem a přísudkem, gramaticky správně utvořenou a věcně snadno pochopitelnou.
+* Odpověď musí být jednoznačná a pokud možno stručná.
+* Všechny matematické objekty (proměnné, rovnice) musí být zapsány jako matematické objekty pomocí příslušného značkovacího jazyka. Pro zápis matematických výrazů použijte LaTeX nebo ASCIIMath.
+
+Doporučení k sazbě matematiky najdete [@ htmlLink("http://user.mendelu.cz/marik/wiki/inzmat/chyby/","zde") @]*. Příklady, jak zrealizovat tato doporučení, najdete pro LaTeX [@ htmlLink("http://user.mendelu.cz/marik/wiki/am/slidy/latex","zde") @]*
+a pro ASCIIMath [@ htmlLink("http://asciimath.org/","zde") @]*. Oddělovače pro LaTeX jsou závorky uvozené lomítkatm, oddělovače pro ASCIIMath jsou zpětné apostrofy (viz níže).
 
 
 ### Ukázka ASCIIMath
@@ -68,9 +71,8 @@ Oddělovače matematických výrazů jsou zpětné apostrofy. Zdvojené zpětné
 Podle Newtonova zákona ochlazování je matematickým modelem ochlazování
 tělesa o teplotě `T` při tepelné výměně s okolím o teplotě `T_0`
 rovnice ``(dT)/(dt)=-k(T-T_0),`` kde `t` je čas a `k` je konstanta
-úměrnosti. Pro `T-T_0=1` dostáváme ``(dT)/(dt)=-k.`` Konstanta `k`
-tedy udává rychlost ochlazování tělesa s teplotou o jednotku vyšší než
-je teplota okolí.
+úměrnosti. Konstanta `k` udává rychlost ochlazování tělesa s teplotou
+o jednotku vyšší než je teplota okolí.
 ```
 -------------
 
@@ -86,9 +88,7 @@ Zkuste si vykopírovat kód níže a použít tlačítko "Náhled odpovědi".
 Podle Newtonova zákona ochlazování je matematickým modelem ochlazování
 tělesa o teplotě \(T\) při tepelné výměně s okolím o teplotě \(T_0\)
 rovnice \[ \frac{\mathrm dT}{\mathrm dt}=-k(T-T_0),\] kde \(t\) je
-čas a \(k\) je konstanta úměrnosti. Pro \(T-T_0=1\) dostáváme
-\[\frac{\mathrm dT}{\mathrm dt}=-k.\] a odsud \[ k=-\frac
-{\mathrm dT}{\mathrm dt}.\] Konstanta \(k\) tedy udává rychlost
+čas a \(k\) je konstanta úměrnosti. Konstanta \(k\) udává rychlost
 ochlazování tělesa s teplotou o jednotku vyšší než je teplota okolí.
 ```
 -----
@@ -97,8 +97,12 @@ Alternativní vyznačení matematického vzorce zapsaného v LaTeXu je v řadě 
 
 ### Úkol
 
-Vyzkoušejte si obě možnosti zápisu matematických výrazů a poté jednu z nich použijte pro zápis své odpovědi.
-Odpověď bude ohodnocena na 100%, pokud bude správně večně a bude zapsána podle pravidel českého pravopisu a podle doporučení pro sazbu matematických výrazů. (Zde je hlavně důležité dodržet označení proměnných jako matematických výrazů.) Výhodou je stručná a výstižná odpověď.
+Vyzkoušejte si obě možnosti zápisu matematických výrazů a poté jednu z
+nich použijte pro zápis své odpovědi.  Odpověď bude ohodnocena na
+100%, pokud bude správně věčně a bude zapsána podle pravidel českého
+pravopisu a podle doporučení pro sazbu matematických výrazů. (Zde je
+hlavně důležité dodržet označení proměnných jako matematických
+výrazů.) Výhodou je stručná a výstižná odpověď.
 
 END_PGML
 
