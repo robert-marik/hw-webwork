@@ -33,7 +33,7 @@ BEGIN_PGML
 Tento příklad je stejného typu jako příklady předchozí. Rozdíl je jenom v tom, že namísto jedné z konstant pracujeme s parametrem. Postup výpočtu derivace je (až na detail v zápise kdy místo konkrétního čísla pracujeme s parametrem) zcela totožný. Odpověď bude funkcí proměnné [`[$var]`] a bude obsahovat parametr [`[$par]`]. Jinými slovy: stejně jako v zadání funkce, i v odpovědi budou dvě písmenka.
 
 Pokud bychom se o něco podobného snažili například pro funkci [```f(x)=x^7+cx^3```] proměnné [`x`] s parametrem [`c`], měli bychom
-[``` \frac{\mathrm d}{\mathrm dr}\left(x^7+cx^3\right)=7x^6+3cx^2.```]
+[``` \frac{\mathrm d}{\mathrm dx}\left(x^7+cx^3\right)=7x^6+3cx^2.```]
 
 ------------
 

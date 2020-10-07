@@ -39,7 +39,9 @@ Předpokládejme, že hloubka vody v poldru je [``h=[$h]\mathrm{cm}``] a hloubka
 
 >>[``\frac{\mathrm dV}{\mathrm dt}={}``] [______________]{$answer->cmp()->withPostFilter(AnswerHints(Formula("2*k*h*dh/dt") => "Jste na dobré cestě, ale ještě je nutno dosadit zadané hodnoty pro h a dh/dt."))}[``\mathrm {m}^3/\mathrm{hod}``]<<
 
-*Poznámka:* Vaše odpověď by měla obsahovat konstantu [`k`], jejíž hodnota nebyla zadána a kromě toho již jen číslené údaje. Vše je v jednotkách kompatibilních se zadaným vzorcem (hloubka v centimetrech, objem v metrech krychlových) a jednotky není nutné uvažovat. Nehledejte v příkladě žádný chyták, nepřevádějte žádné jednotky, jenom vyjádřete rychlost a dosaďte zadané hodnoty. Nezapomeňte, že můžete zadat i součin čísel, nemusíte násobení provádět bokem na kalkulačce a psát až výslednou odpověď.
+**Poznámka 1.** Vaše odpověď by měla obsahovat konstantu [`k`], jejíž hodnota nebyla zadána a kromě toho již jen číslené údaje. Vše je v jednotkách kompatibilních se zadaným vzorcem (hloubka v centimetrech, objem v metrech krychlových) a jednotky není nutné uvažovat. Nehledejte v příkladě žádný chyták, nepřevádějte žádné jednotky, jenom vyjádřete rychlost a dosaďte zadané hodnoty. Nezapomeňte, že můžete zadat i součin čísel, nemusíte násobení provádět bokem na kalkulačce a psát až výslednou odpověď.
+
+**Poznámka 2.** Nezapomeňte, že desetinná čísla zadáváme s desetinnou tečkou a ne s desetinnou čárkou. 
 
 END_PGML
 
