@@ -24,7 +24,7 @@ Context("Numeric")->variables->are($var=>['Real',limits=>[1,100]]);
 $f=Formula("$c*[$var]^$a+$d*[$var]^$b")->reduce();   # funkce
 $vzorec1=Formula("$a*($var)^($a-1)")->reduce();
 $vzorec2=Formula("$b*($var)^($b-1)")->reduce();
-$answer = Formula("$c*$a*[$var]^($a-1)+$d*$b*[$var]^($b-1)");   # derivace
+$answer = Formula("($c)*($a)*($var)^($a-1)+($d)*($b)*($var)^($b-1)");   # derivace
 
 BEGIN_PGML
 
