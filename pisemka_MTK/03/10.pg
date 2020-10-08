@@ -1,0 +1,50 @@
+
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+$a=non_zero_random(-4,4,1);
+do { $b=non_zero_random(-8,8,1) } until ( abs($b) > 1 );
+$c=non_zero_random(-10,10);
+
+Context("Numeric")->variables->are($var=>'Real');
+
+$answer=Formula("$a+$b*($var-$c)")->reduce();   # funkce
+
+
+BEGIN_PGML
+
+
+Uvažujme kopec soli, kde je díky struktuře soli dán úhel u vrcholu. V důsledku toho (s použitím středoškolské matematiky a trignometrie, nebo s použitím Buckinghamova [`\Pi`] teorému a bez počítání) víme, že existuje konstanta [`k`] taková, že mezi objemem [`V`] kopce soli a výškou [`h`] kopce soli platí [``` V=kh^3.```] V konstantě [`k`] je jakýmsi způsobem "schován" vrcholový úhel, my však budeme hledat jednodušší interpretaci této konstanty. Pokuste se podobně jako výše uvedené příklady stručně naformulovat slovně význam konstanty [`k`].
+
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box()\}
+END_TEXT
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+
+BEGIN_PGML_SOLUTION
+
+* Konstanta `k` vyjadřuje objem kužele o jednotkové výšce.
+* Konstanta `k` udává objem kužele jednotkové výšky.
+* ...
+
+END_PGML_SOLUTION
+
+ENDDOCUMENT();

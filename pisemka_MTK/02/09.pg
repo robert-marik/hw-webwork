@@ -1,0 +1,54 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"answerHints.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$T0=random(15,28,1);
+
+Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]],'dT'=>'Real', 'T'=>'Real', 't'=>'Real', 'k'=>'Real');
+
+BEGIN_PGML
+
+
+Newtonův zákon tepelné výměny je možné použít
+pro studium tepelné výměny pro tělesa, u nichž nehraje podstatnou roli vedení tepla. Při jisté aproximaci by takovým tělesem mohla být sklenice chladného nápoje. Podle tohoto zákona je  rychlost s jakou roste teplota chladného tělesa v kontaktu s okolím přímo úměrná rozdílu teplot. 
+
+Zformulujte výše uvedený mechanismus matematicky pro případ studeného nápoje o teplotě [`T`] v místnosti o teplotě [`[$T0] ^\circ\mathrm C`]. 
+
+Nejprve zapište, jaký je rozdíl teplot místnosti a nápoje. Pořadí v rozdílu volte tak, aby rozdíl vyšel kladný.
+[__________]{Formula("[$T0]-T")->cmp()->withPostFilter(AnswerHints(Formula("-[$T0]+T") => "Velikost rozdílu je v pořádku, ale znaménko je opačné. Uvažte vzájemný vztah mezi teplotou nápoje a místnosti a od větší hodnoty odečtěte tu menší."))}
+
+Dále sestavte matematický model. 
+
+* Na levou stranu rovnice napište rychlost, s jakou roste teplota nápoje v čase.
+* Na pravou stranu napište výraz, který udává, že tato rychlost je úměrná  rozdílu teplot. 
+* Čas označte [`t`], derivaci teploty podle času [`` \frac{\mathrm dT}{\mathrm dt } ``] zapište jako *dT/dt*. Konstantu úměrnosti volte [`k`] a model naformulujte tak, aby tato konstanta byla kladná.
+
+>>[_____________________]{"dT/dt"}[``{}={}``][_____________________]{Formula("k*([$T0]-T)")->cmp()->withPostFilter(AnswerHints(Formula("k*(-[$T0]+T)") => "Pravá strana je správně až na znaménko. Ověřte si, že máte správně podchyceno, že teplota studeného nápoje roste a konstanta úměrnosti je kladná.",Formula("([$T0]-T)") => "Chybí konstanta úměrnosti."))}<<
+
+
+END_PGML
+
+BEGIN_PGML_HINT
+Toto je klasická úloha na aplikace derivací. Zkuste si ještě jednou pročíst podobnou úlohu z první přednášky a cvičení a modifikovat na míru našemu zadání.
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Teplota místnosti je [`[$T0]{}^\circ\mathrm {C}`]. Teplota nápoje je [`T`] a tato teplota je menší než teplota místnosti. Rozdíl teplot je roven výrazu
+>> [`` [$T0]-T ``] <<
+a výsledná rovnice má tvar
+[``` \frac{\mathrm dT}{\mathrm dt} = k\cdot ([$T0]-T).```]
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
