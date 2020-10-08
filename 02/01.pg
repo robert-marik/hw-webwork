@@ -36,8 +36,8 @@ $ml->ra_pop_up_list([
 #  Add correct questions and answers
 #
 $ml->qa(
-"\(f(t+\Delta t)-f(t)\)", "Změna  veličiny \(f\) za časový interval mezi okamžiky \(t\) a \(\Delta t\).",
-"\(\displaystyle\frac{f(t+\Delta t)-f(t)}{\Delta t}\)", "Průměrná rychlost změny  veličiny \(f\) za časový interval mezi okamžiky \(t\) a \(\Delta t\).",
+"\(f(t+\Delta t)-f(t)\)", "Změna  veličiny \(f\) za časový interval mezi okamžiky \(t\) a \(t+\Delta t\).",
+"\(\displaystyle\frac{f(t+\Delta t)-f(t)}{\Delta t}\)", "Průměrná rychlost změny  veličiny \(f\) za časový interval mezi okamžiky \(t\) a \(t+\Delta t\).",
 "\(\displaystyle\lim_{\Delta t\to 0}\frac{f(t+\Delta t)-f(t)}{\Delta t}\)", "Okamžitá rychlost změny  veličiny \(f\) v okamžiku \(t\)."
 );
 
@@ -49,7 +49,7 @@ $ml->choose(3);
 #
 $ml->extra(
 "Průměrná rychlost změny  veličiny \(f\) v okamžiku \(t\).", 
-"Okamžitá rychlost změny  veličiny \(f\) za časový interval mezi okamžiky \(t\) a \(\Delta t\)."
+"Okamžitá rychlost změny  veličiny \(f\) za časový interval mezi okamžiky \(t\) a \(t+\Delta t\)."
 );
 $ml->choose_extra(2);
   
