@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-09-28 11:19+0200\n"
+"PO-Revision-Date: 2020-10-08 22:55+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2702,7 +2702,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:2234
 msgid "Grade Test"
-msgstr ""
+msgstr "Opravit TesT"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSet.pm:422
 msgid "Grader"
@@ -2984,11 +2984,11 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:2079
 msgid "Jump to Page:"
-msgstr ""
+msgstr "Přejít na stranu:"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:2106 /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:2108
 msgid "Jump to Problem:"
-msgstr ""
+msgstr "Přejít na úlohu:"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetDetail2.pm:829
 msgid "Just-In-Time parameters"
@@ -3559,7 +3559,7 @@ msgstr "Poznámka:"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:2240
 msgid "Note: grading the test grades all problems, not just those on this page."
-msgstr ""
+msgstr "Poznámka: opravují se všechny úlohu v testu, nejenom ty zobrazené na aktuální straně."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/AchievementList.pm:1339 /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/AchievementList.pm:1353
 msgid "Number"
@@ -3639,7 +3639,7 @@ msgstr "Otevřeno. Uzávěrka je %1."
 #. ($self->formatDateTime($set->due_date()
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:692
 msgid "Open, complete by %1."
-msgstr ""
+msgstr "Otevřeno, termín odevzdání %1."
 
 #. ($beginReducedScoringPeriod, $self->formatDateTime($set->due_date()
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:689
@@ -3890,7 +3890,7 @@ msgstr "Náhled odpovědí"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:2231
 msgid "Preview Test"
-msgstr ""
+msgstr "Náhled Testu"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/SendMail.pm:699
 msgid "Preview message"
@@ -4468,7 +4468,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:1957
 msgid "Score summary for last submit:"
-msgstr ""
+msgstr "Hodnocení pro předchozí odeslání:"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetList2.pm:975
 msgid "Score which sets?"
@@ -6981,13 +6981,13 @@ msgstr ""
 #. ($testNounNum)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:1871
 msgid "Your score on this %1 WAS recorded."
-msgstr ""
+msgstr "Vaše hodnocení na tento %1 BYLO uloženo"
 
 # $testNoun is either "test" or "submission"
 #. ($testNoun,$attemptScore,$totPossible)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:1876
 msgid "Your score on this %1 is %2/%3."
-msgstr ""
+msgstr "Vaše hodnocení na %1 je %2/%3"
 
 # $testNounNum is either "test (#)" or "submission (#)
 #. ($testNounNum)
@@ -7643,7 +7643,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:2172
 msgid "preview answers"
-msgstr ""
+msgstr "náhled odpovědí"
 
 #: /opt/webwork/pg/macros/PGbasicmacros.pl:693
 msgid "problem"
