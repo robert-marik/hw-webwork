@@ -55,7 +55,7 @@ Vypočtěte teplotu za těchto podmínek a rozkolísání teploty způsobené zm
 
 >> [``T([$w])={}``][_______________________]{$hodnotaSol} <<
 
->> [``\frac{\mathrm dT}{\mathrm dt}([$w]) \Delta x={}``][_______________________]{$answer} <<
+>> [``\frac{\mathrm dT}{\mathrm dx}([$w]) \Delta x={}``][_______________________]{$answer} <<
 
 
 
