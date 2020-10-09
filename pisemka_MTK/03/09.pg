@@ -1,0 +1,89 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"niceTables.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+$n=random(1,5,2);
+$a=random(1,4,1);
+$b=non_zero_random(-6,6,1);
+$c=non_zero_random(-2,10,1);
+$m=random(0,1,1);
+$mm=1-$m;
+if ($mm==1) {$a=-$a;}
+
+
+Context("Numeric")->variables->are($var=>'Real','xn'=>'Real');
+Context()->variables->set(xn => {TeX => 'x_n'});
+#Context()->flags->set(
+#     reduceConstants => 0,
+#     reduceConstantFunctions => 0,
+#   );
+
+$f=Formula("$m*cos(x)+$mm*e^x")->reduce();   # funkce
+$g=Formula("$a*x^($n)+$b")->reduce();   # funkce
+$fxn=Formula("$m*cos(xn)+$mm*e^xn")->reduce();   # funkce
+$gxn=Formula("$a*xn^($n)+$b")->reduce();   # funkce
+
+$funkce=Formula("$m*cos(x)+$mm*e^x-$a*x^($n)-$b")->reduce();   # funkce
+$derivacefunkce=$funkce->D('x');
+$funkcexn=Formula("$m*cos(xn)+$mm*e^xn-$a*xn^($n)-$b")->reduce();   # funkce
+$derivacefunkcexn=$funkcexn->D('xn');
+
+$answer=Formula("xn-$funkcexn/$derivacefunkcexn")->reduce(); 
+
+BEGIN_PGML
+
+
+----------------
+
+Napište Newtonův iterační vzorec pro řešení rovnice
+[``` [$f]=[$g]. ```]
+
+>>[`` x_{n+1}={}``]
+[_______________________________________________]{$answer}<<
+
+Hodnotu [`x_n`] zapisujte jako *xn*.
+
+
+END_PGML
+
+$showHint = 1;
+BEGIN_PGML_HINT
+
+Rovnici upravte tak, že převedeme pravou stranu doleva (nebo naopak). Například 
+[``` [$funkce]=0.```]
+
+Uvažujte funkci 
+[```f(x)=[$funkce], ```] vypočtěte derivaci a sestavte iterační vzorec.
+
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Rovnici upravíme tak, že převedeme pravou stranu doleva (nebo naopak). Dostáváme
+[``` [$funkce]=0.```]
+
+Uvažujme funkci
+[```f(x)=[$funkce], ```]
+která má derivaci 
+[```f'(x)=[$derivacefunkce]. ```]
+
+Iterační vzorec má tvar
+[``` x_{n+1}=x_n-\frac{[$funkcexn]}{[$derivacefunkcexn]}=[$answer].```]
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
+

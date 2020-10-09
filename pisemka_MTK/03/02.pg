@@ -1,0 +1,74 @@
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGnumericalmacros.pl",
+  "niceTables.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$ka = random(1,5,.001);
+$kb = random(1,5,.001);
+$K=random(5,10,.1);
+$index=random(1,7,1);
+$step=random(2,5,1);
+
+
+@xx=(0,1,2,3,4,5,6,7,8);
+
+@fx=();
+@x=();
+for (my $i = 0; $i < 9; $i++) {
+    push @x, 1.0*$step*$xx[$i];
+    push @fx, 15.02+int($K*exp($xx[$i]/10)*100)/100;
+}
+
+
+$answer=($fx[$index+1]-$fx[$index-1])/(2*$step);
+
+Context()->flags->set(tolerance => 0.001, tolType => "absolute");
+
+BEGIN_PGML
+
+Uvažujte následující funkci danou tabulkou. Udává závislost teploty [`T`] na čase [`t`] po vystavení vzorku dřeva zdroji tepla.
+
+[@ DataTable(
+  [
+    [["\\(t\\ [\\mathrm{min}]\\)", midrule => 1,headerrow=>1],@x],["\\(T\\ [{}^\\circ\\mathrm{C}]\\)",@fx]
+  ], 
+  caption => 'Funkce zadaná tabulkou'
+); @]*
+
+
+Určete pomocí centrální diference odhad derivace v čase [`t=[$x[$index]]\, \mathrm{min}`].
+
+>>
+[``\left.\frac{\mathrm dT}{\mathrm dt}\right|_{t=[$x[$index]]}\approx{}``]
+[_________________________________]{($fx[$index+1]-$fx[$index-1])/(2*$step)}
+<<
+
+
+END_PGML
+
+BEGIN_PGML_HINT
+Je nutné do vzorce pro centrální diferenci
+[```\frac{\mathrm df}{\mathrm dx}\approx \frac{f(x+h)-f(x-h)}{2h}```]
+dosadit dvě hodnoty dohledatelné v tabulce ([`[$fx[$index+1]]`] a [`[$fx[$index-1]]`]) a délku kroku [`[$step]`]. Než se do toho pustíte, prohlédněte si ještě jednou tabulku a polohu těchto hodnot vzhledem k místu, v němž počítáme derivaci.
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Je nutné do vzorce pro centrální diferenci
+[```\frac{\mathrm df}{\mathrm dx}\approx \frac{f(x+h)-f(x-h)}{2h}```]
+dosadit dvě hodnoty dohledatelné v tabulce ([`[$fx[$index+1]]`] a [`[$fx[$index-1]]`]) a délku kroku [`[$step]`]. 
+Dosazením dostáváme
+[```\left.\frac{\mathrm dT}{\mathrm dt}\right|_{t=[$x[$index]]}\approx \frac{[$fx[$index+1]]-[$fx[$index-1]]}{2 \cdot [$step]}=[$answer].```]
+END_PGML_SOLUTION
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

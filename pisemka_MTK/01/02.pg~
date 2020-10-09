@@ -1,0 +1,63 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+$a=non_zero_random(2,4);
+do { $b=non_zero_random(2,8) } until ( $b != $a );
+$c=non_zero_random(1,10);
+do {$d=non_zero_random(-10,10); } until ( $c != $d );
+
+Context("Numeric")->variables->are($var=>'Real');
+
+$f=Formula("$c*x^$a+$d*x^$b")->reduce();   # funkce
+$vzorec1=Formula("$a*x^($a-1)")->reduce();
+$vzorec2=Formula("$b*x^($b-1)")->reduce();
+$answer = $f->D();   # derivace
+
+BEGIN_PGML
+
+## Derivace lineární kombinace mocninných funkcí
+
+Derivace mocninné funkce je dána vzorcem [```\left(x^n\right)'=\frac{\mathrm d}{\mathrm dx}\left(x^n\right)=n x^{n-1}```]
+a kromě toho víme, že derivace součtu je součet derivací a derivace konstantního násobku je konstantní násobek derivace. Můžeme tedy psát (pomocí zkrácené Lagrangeovy notace)
+[```(3x^6+8x^3)'=3(x^6)'+8(x^3)'=3\cdot 6 x^5+8\cdot 3x^2=18x^5 + 24x^2.```]
+Tento výsledek můžeme zapsat například ve tvaru *18\*x^5 + 24\*x^2*.
+
+------------
+
+Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$f] .```] Příklad je analogický výše uvedenému vzoru.
+
+>>[`` f'([$var])=\frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$f]\Bigr) ={}``]
+[_____________________]{$answer}<<
+
+END_PGML
+
+$showHint = 1;
+BEGIN_PGML_HINT
+Platí [```\left(x^{[$a]}\right)'=[$vzorec1]```] a
+[```\left(x^{[$b]}\right)'=[$vzorec2].```] Využijte tyto derivace a věty pro počítání s derivacemi, jako derivace součtu a derivace konstantního násobku.
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Platí [```\left(x^{[$a]}\right)'=[$vzorec1]```] a
+[```\left(x^{[$b]}\right)'=[$vzorec2].```] Využijeme tyto derivace a věty pro počítání s derivacemi, jako derivace součtu a derivace konstantního násobku.
+
+[``` f'([$var])=[$answer->reduce();]```]
+
+(Automaticky vygenerované řešení, které je pravděpodobně možné dále upravit.)
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

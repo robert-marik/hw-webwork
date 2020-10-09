@@ -1,0 +1,64 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+@var_array = ( 'w', 'y', 'z', 'u', 'v', 'm' );  # promenne
+$var_index = random(0,5,1);
+$var = $var_array[$var_index];
+
+$a=non_zero_random(3,5);
+do { $b=non_zero_random(1,3) } until ( $b != $a );
+$c=non_zero_random(1,10);
+do {$d=non_zero_random(-10,10); } until ( $c != $d );
+
+Context("Numeric")->variables->are($var=>'Real');
+
+$f=Formula("$c*[$var]^$a+$d*[$var]^$b")->reduce();   # funkce
+$vzorec1=Formula("$a*($var)^($a-1)")->reduce();
+$vzorec2=Formula("$b*($var)^($b-1)")->reduce();
+$answer = Formula("($c)*($a)*($var)^($a-1)+($d)*($b)*($var)^($b-1)");   # derivace
+
+BEGIN_PGML
+
+## Derivace funkce proměnné [`[$var]`]
+
+Tento příklad je stejného typu jako příklad předchozí. Rozdíl je jenom v tom, že namísto proměnné [`x`] pracujeme s jinou proměnnou. Proto raději nebudeme derivaci označovat čárkou, ale pomocí diferenciálů (pomocí Leibnizovy notace). Postup je (až na tento detail v zápise) zcela totožný a odpověď bude funkcí proměnné [`[$var]`].
+
+Pokud bychom se o něco podobného snažili například pro funkci [```g(r)=4r^6-r^2```] proměnné [`r`], měli bychom
+[``` \frac{\mathrm d}{\mathrm dr}\left(4r^6-r^2\right)=4\cdot 6r^5-2r=24 r^5-2r.```]
+
+------------
+
+Napište derivaci [`` \frac{\mathrm df}{\mathrm d[$var]} ``] funkce [``` f([$var])=[$f] ```] proměnné [`[$var]`].
+
+>>[`` \frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$f]\Bigr) ={}``]
+[_____________________]{$answer}<<
+
+END_PGML
+
+$showHint = 1;
+BEGIN_PGML_HINT
+Platí [```\frac{\mathrm d}{\mathrm d[$var]}[$var]^{[$a]}=[$vzorec1]```] a
+[```\frac{\mathrm d}{\mathrm d[$var]}[$var]^{[$b]}=[$vzorec2].```] Využijte tyto derivace a věty pro počítání s derivacemi, jako derivace součtu a derivace konstantního násobku.
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Platí [```\frac{\mathrm d}{\mathrm d[$var]}[$var]^{[$a]}=[$vzorec1]```] a
+[```\frac{\mathrm d}{\mathrm d[$var]}[$var]^{[$b]}=[$vzorec2].```] Využijeme tyto derivace a věty pro počítání s derivacemi, jako derivace součtu a derivace konstantního násobku. Výsledek je 
+[```  \frac{\mathrm df}{\mathrm d[$var]}=[$answer->reduce();]```]
+
+(Automaticky vygenerované řešení, které je pravděpodobně možné dále upravit.)
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

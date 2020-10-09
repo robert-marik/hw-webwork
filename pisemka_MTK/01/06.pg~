@@ -1,0 +1,70 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$i=random(0,10,1);
+if ($i<5)
+{
+$var = 'h';
+$par = 'k';
+}
+else
+{
+$var = 'k';
+$par = 'h';
+}
+
+$a=non_zero_random(3,9);
+do { $b=non_zero_random(2,8) } until ( $b != $a );
+
+Context("Numeric")->variables->are($var=>['Real',limits=>[1,100]],$par=>['Real',limits=>[1,100]]);
+
+$f=Formula("[$var]^$a*[$par]^$b")->reduce();   # funkce
+$vzorec=Formula("$a * ($var)^($a-1)")->reduce();
+$answer = $f->D($var);   # derivace
+
+BEGIN_PGML
+
+## Derivace funkce s mocninou proměnné i mocninou parametru
+
+Tento příklad je opět podobného stejného typu jako příklad předchozí. Je zadána funkce obsahující proměnnou a parametr. Jméno proměnné odhalíme ze zápisu derivace pomocí diferenciálů: z diferenciálu, který je ve "jmenovateli". Druhé písmeno tedy označuje parametr.
+
+Například pokud výraz [``a^3 e^{b}``] chápeme jako funkci proměnné [`a`] s parametrem [`b`], jedná se o třetí mocninu [`a^3`] vynásobenou konstantou [``e^b``] a proto
+[``` \frac{\mathrm d}{\mathrm da}\Bigl(a^3 e^b\Bigr)=3a^2 e^b.```]
+Pokud však stejný výraz chápeme jako funkci proměnné [`b`] s parametrem [`a`], jedná se o exponenciální funkci [`e^b`] vynásobenou konstantou [`a^3`] a proto 
+[``` \frac{\mathrm d}{\mathrm db}\Bigl(a^3 e^b\Bigr)=a^3 e^b.```]
+
+------------
+
+V tomto příkladě je součin mocniny proměnné a mocniny parametru. 
+Identifikujte v proměnnou a parametr (vodítkem je jmenovatel při zápisu derivace pomocí podílu diferenciálů) a poté derivaci vypočtěte.
+
+>>[`` \frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$f]\Bigr) ={}``]
+[_____________________]{$answer}<<
+
+END_PGML
+
+$showHint = 1;
+BEGIN_PGML_HINT
+Funkce je funkcí proměnné [`[$var]`] a obsahuje parametr [`[$par]`].
+Platí [```\frac{\mathrm d}{\mathrm d[$var]}[$var]^{[$a]}=[$vzorec].```] Výraz [`` [$par]^[$b] ``] je konstantním násobkem, ten se nezmění.
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Funkce je funkcí proměnné [`[$var]`] a obsahuje parametr [`[$par]`].
+Platí [```\frac{\mathrm d}{\mathrm d[$var]}[$var]^{[$a]}=[$vzorec].```] Výraz [`` [$par]^[$b] ``] je konstantním násobkem, ten se nezmění. Výsledek je 
+[```  \frac{\mathrm d}{\mathrm d[$var]}\left( [$f] \right)=[$answer->reduce();].```]
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
