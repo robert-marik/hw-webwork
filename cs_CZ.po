@@ -7,12 +7,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-09-28 11:19+0200\n"
+"PO-Revision-Date: 2020-10-09 08:50+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.0.6\n"
 "Last-Translator: Robert Mařík\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
 "Language: cs_CZ\n"
@@ -5116,12 +5116,12 @@ msgstr ""
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:471 /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:473
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:509 /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:512
 msgid "Take %1 test"
-msgstr ""
+msgstr "Napsat test %1"
 
 #. ($display_name)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:499 /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSets.pm:503
 msgid "Take %1 test."
-msgstr ""
+msgstr "Napsat test %1."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/CourseAdmin.pm:2641 /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/CourseAdmin.pm:2855
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/AchievementEditor.pm:289 /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/AchievementList.pm:318
@@ -5475,7 +5475,7 @@ msgstr ""
 #. ($versionNumber)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:1995
 msgid "The test (which is number %1) may  no longer be submitted for a grade."
-msgstr ""
+msgstr "Tento test (číslo %1) již není povoleno odeslat k vyhodnocení. "
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/PGProblemEditor.pm:1808
 msgid "The text box now contains the source of the original problem. You can recover lost edits by using the Back button on your browser."
@@ -6693,7 +6693,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:1975
 msgid "You exceeded the allowed time."
-msgstr ""
+msgstr "Došlo k překročení časového limitu."
 
 #. ($numLeft)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:1952
@@ -6758,7 +6758,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:1996
 msgid "You may still check your answers."
-msgstr ""
+msgstr "Stále ještě můžete kontrolovat vložené odpovědi."
 
 #. ($showMeAnother{TriesNeeded})
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ShowMeAnother.pm:486
@@ -6971,7 +6971,7 @@ msgstr "Vaše celkové uložené hodnocení je %1. %2"
 #. ($versionNumber, wwRound(2,$recordedScore)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:1972
 msgid "Your recorded score on this test (number %1) is %2/%3."
-msgstr ""
+msgstr "Vaše uložené hodnocení na tento test (číslo  %1) je %2/%3."
 
 #: /opt/webwork/pg/macros/compoundProblem.pl:603
 msgid "Your score for this attempt is for this part only;"
