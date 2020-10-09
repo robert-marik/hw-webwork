@@ -95,19 +95,26 @@ f(
 f(
 "Fyzikální interpretace divergence",
 "Jaká je praktická interpretace divergence?",
-[["Čistý tok stavové veličiny vytékající z jednotkového množství látky.",
-"Čistý tok stavové veličiny přitékající do jednotkového množství látky.",
+[["Zesílení toku stavové veličiny v jednotkovém množství látky.",
+"Zeslabení toku stavové veličiny v jednotkovém množství látky.",
+"Zeslabení toku stavové veličiny o jednotku.",
 "Intenzita toku stavové veličiny v daném místě.",
-"Intenzita toku stavové veličiny do daného místa.",
-"Intenzita toku stavové veličiny z daného místa.",
+]]);
+
+f(
+"Divergence a gradient",
+"V jaké situaci gradient a divergence splývají?",
+[["V jednorozměrném případě, obě operace se redukují na parciální derivaci podle prostorové proměnné.",
+"V trojrozměrném případě, tj. v případě reálně odpovídající našemu světu.",
+"Nikdy nesplývají, jedná se o odlišné operátory. Pokud by splývaly, stačilo by zavést jenom jeden z nich. "
 ]]);
 
 f(
 "Rovnice kontinuity slovy",
 "Jak byste slovně vyjádřili rovnici kontinuity?",
-[["Jedná se o celkovou bilanci stavové veličiny v daném bodě. Rychlost nárůtu množství stavové veličiny v daném bodě (akumulace) je dána vydatností zdrojů snížené o tok z tohoto místa ven.",
+[["Jedná se o celkovou bilanci stavové veličiny v daném bodě. Rychlost nárůstu množství stavové veličiny v daném bodě (akumulace) je dána vydatností zdrojů snížené o tok z tohoto místa ven.",
 "Jedná se o celkovou bilanci toku stavové veličiny v daném bodě. Rozdíl mezi přítokem a odtokem determinuje vydatnost zdrojů v daném místě. ",
-"Jedná se o celkovou bilanci spojitosti všech veličin vystupujících v transportním jevu. Nutná podmínka pro formulaci fyzikiálně relevantního matematického modelu je spojitost všech veličiny, které v modelu vystupují.",
+"Jedná se o celkovou bilanci spojitosti všech veličin vystupujících v transportním jevu. Nutná podmínka pro formulaci fyzikálně relevantního matematického modelu je spojitost všech veličiny, které v modelu vystupují.",
 ]]);
 
 f(
