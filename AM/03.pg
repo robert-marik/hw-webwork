@@ -104,8 +104,8 @@ f(
 f(
 "Divergence a gradient",
 "V jaké situaci gradient a divergence splývají?",
-[["V jednorozměrném případě, obě operace se redukují na parciální derivaci podle prostorové proměnné.",
-"V trojrozměrném případě, tj. v případě reálně odpovídající našemu světu.",
+[["V jednorozměrném případě. V takovém případě se obě operace redukují na parciální derivaci podle prostorové proměnné.",
+"V trojrozměrném případě, tj. v případě reálně odpovídajícím našemu světu.",
 "Nikdy nesplývají, jedná se o odlišné operátory. Pokud by splývaly, stačilo by zavést jenom jeden z nich. "
 ]]);
 
