@@ -37,6 +37,8 @@ Divergenci vektorového pole ve středu krychle je možno odhadnout jako podíl 
 
 >> [`` \nabla \cdot \vec{F} ([$P[0]],[$P[1]],[$P[2]]) \approx {}``][_______________]{$div} <<
 
+Poznámka: Nezapomeňte, že oddělovačem desetinných míst v odpovědi je tečka.
+
 END_PGML
 Context()->normalStrings;
 
