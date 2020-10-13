@@ -40,7 +40,7 @@ BEGIN_PGML
 Divergence trojrozměrného vektorového pole [`` \vec F=P\vec i+Q\vec j+R\vec k``] v kartézských souřadnicích vypočteme pomocí vztahu [``` \nabla \cdot \vec F=\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}.```] Například pro vektorové pole
 [``` \vec F(x,y,z)=x^2z\vec i + (x+y^2)\vec j + xy\vec k```]
 jsou parciální derivace 
-[``` \frac{\partial }{\partial x}(x^2y)=2xz,```]
+[``` \frac{\partial }{\partial x}(x^2z)=2xz,```]
 [``` \frac{\partial }{\partial y}(x+y^2)=2y```]
 a
 [``` \frac{\partial }{\partial z}(xy)=0.```]
