@@ -28,7 +28,7 @@ $funkce1=Formula("($a*x+$b)^3")->reduce();
 $int1=Formula("1/(4*$a)*($a*x+$b)^4")->reduce();
 $funkce2=Formula("($c*x+$d)^($N)")->reduce();
 $N1=$N+1;
-$int2=Formula("1/($N1*$c)*($c*x+$d)^($N1)")->reduce();
+$int2=Formula("1/($N1)*($c*x+$d)^($N1)*(1/$c)");
 
 BEGIN_PGML
 
