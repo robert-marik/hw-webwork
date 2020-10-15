@@ -1,0 +1,218 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+my $c=0;
+
+@nadpis=();
+@text=();
+@radio=();
+@reseni=();
+
+sub f {
+   my ($h,$a,$b)=(@_);
+   $c1=$c+1;
+   $nadpis[$c]="$c1. ".$h;
+   $text[$c]=$a;
+   $reseni[$c]=$b->[0]->[0];
+   $radio[$c]=RadioButtons($b,0);
+   $c=$c+1;
+}
+
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+my $c=0;
+
+@nadpis=();
+@text=();
+@radio=();
+@reseni=();
+
+sub f {
+   my ($h,$a,$b)=(@_);
+   $c1=$c+1;
+   $nadpis[$c]="$c1. ".$h;
+   $text[$c]=$a;
+   $reseni[$c]=$b->[0]->[0];
+   $radio[$c]=RadioButtons($b,0);
+   $c=$c+1;
+}
+
+
+f("Praktická interpretace rotace",
+"Jak byste slovně vyjádřili pojem rotace?",
+[["Udává, zda se objekt unášený vektorovým polem točí okolo své osy.",
+"Udává, zda tok teče přímo či zda mění směr.",
+"Udává, zda v daném místě vzniká či zaniká veličina přenášená tokem.",
+"Udává, zda tok v daném místě zesiluje či zeslabuje.",
+]]);
+
+f(
+"Linearita rotace",
+"Co vyjadřuje obrat, že rotace je lineární?",
+[["Rotace zachovává součet funkcí a násobení funkce konstantou.",
+"Rotace zachovává součet a součin funkcí.",
+"Rotace lineární funkce je opět lineární funkce.",
+"Rotace je definována jenom na množině lineárních funkcí.",
+"Výsledkem rotace je lineární funkce.",
+"Nekorektně položená otázka, rotace není lineární.",
+]]);
+
+
+f(
+"Nevírové pole",
+"Co vyjadřuje obrat, že pole je nevírové?",
+[["Rotace je nulová.",
+"Rotace je nenulová.",
+"Rotace je rovna gradientu.",
+]]);
+
+
+f(
+"Rotace dvourozměrného vektorového pole I",
+"Jak vypočteme rotaci dvourozměrného vektorového pole?",
+[["Vnoříme vektorové pole do trojrozměrného prostoru doplněním nulové třetí komponenty.",
+"Takovou veličinu není možné definovat, protože pro vektorový součin potřebujeme trojrozměrné vektory.",
+"Rotace dvourozměrného vektorového pole je automaticky nulová (tj. nulový vektor).",
+]]);
+
+f(
+"Rotace dvourozměrného vektorového pole II",
+"Co je možné říci o rotaci dvourozměrného vektorového pole?",
+[["První dvě komponenty jsou nulové.",
+"První komponenta je nulová.",
+"Poslední komponenta je nulová.",
+"Všechny komponenty jsou nulové.",
+]]);
+
+f(
+"Existence skalárního potenciálu",
+"Jaká je souvislost mezi rotací dvourozměrného vektorového pole a existencí skalárního potenciálu?",
+[["Skalární potenciál existuje právě tehdy, když je rotace rovna nule (přesněji, nulovému vektoru).",
+"Skalární potenciál existuje právě tehdy, když má rotace první dvě komponenty nulové.",
+"Žádná. Rotace dvourozměrného vektorového pole není definována.",
+"Žádná. Oba pojmy josu nezávislé.",
+]]);
+
+f(
+"Souvislost rotace a gradientu",
+"Kdy má funkce gradient stejný jako rotaci?",
+[["Otázka nemá smysl, gradient je definovaný pro skalární funkce, rotace pro vektorové funkce.",
+"Pouze v případě, kdy jsou gradient i rotace nulové vektory.",
+"Pro všechny spojité funkce.",
+"Pro všechna dvourozměrná vektorová pole.",
+]]);
+
+
+
+BEGIN_PGML
+
+## Přednáška Rotace
+
+[@ image("hw04.jpg", width=>400) @]*
+
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/04/","přednášky o rotaci a skalárním potenciálu") @]* a shlédnutí videa k této přednášce. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Můžete jenom odhadnout počet správných odpovědí po prvním pokusu podle celkového bodového zisku. Máte více pokusů a vždy se započítává ten nejlepší. Pracujte v klidu, nebojte se nahlížet do textu. Nemělo by se to však zvrhnout v zuřivé vyhledávání v elektronické verzi textu. Tímto stylem byste se nic nenaučili. 
+
+END_PGML
+
+$last=$c-1;
+
+foreach $i (0..$last) {
+
+BEGIN_PGML
+
+### [$nadpis[$i] ]*
+
+[$text[$i] ]*
+
+[_]{$radio[$i]}
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+_Řešení: [$reseni[$i] ]*_
+
+END_PGML_SOLUTION
+
+BEGIN_PGML
+-------------------
+END_PGML
+
+}
+
+BEGIN_PGML_HINT
+Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
+END_PGML_HINT
+
+
+ENDDOCUMENT();
+
+BEGIN_PGML
+
+## Přednáška Divergence
+
+[@ image("hw03.jpg", width=>400) @]*
+
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/03/","přednášky o divergenci, rovnici kontinuity a difuzní rovnici") @]* a po shlédnutí videa k této přednášce. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Můžete jenom odhadnout počet správných odpovědí po prvním pokusu podle celkového bodového zisku. Máte více pokusů a vždy se započítává ten nejlepší. Pracujte v klidu, nebojte se nahlížet do textu. Nemělo by se to však zvrhnout v zuřivé vyhledávání v elektronické verzi textu. Tímto stylem byste se nic nenaučili. 
+
+END_PGML
+
+$last=$c-1;
+
+foreach $i (0..$last) {
+
+BEGIN_PGML
+
+### [$nadpis[$i] ]*
+
+[$text[$i] ]*
+
+[_]{$radio[$i]}
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+_Řešení: [$reseni[$i] ]*_
+
+END_PGML_SOLUTION
+
+BEGIN_PGML
+-------------------
+END_PGML
+
+}
+
+BEGIN_PGML_HINT
+Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
+END_PGML_HINT
+
+
+ENDDOCUMENT();
+
