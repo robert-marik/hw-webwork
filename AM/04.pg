@@ -128,6 +128,14 @@ f(
 "Pro všechna dvourozměrná vektorová pole.",
 ]]);
 
+f(
+"Zákon šíření chyb",
+"Co vyjadřuje zákon šíření chyb?",
+[["Udává, jak se chyby ve vstupních datech vzorce (vypočítávané veličiny) projeví na chybě vypočítané hodnoty.",
+"Udává skutečnost, že v každém výpočtu je z přírodní podstaty nějaká chyba.",
+"Udává, za jakých podmínek se chyba ve vstupních datech přenese i na data na výstupu z výpočtu.",
+]]);
+
 
 
 BEGIN_PGML
