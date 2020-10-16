@@ -24,7 +24,7 @@ $n=random(2,8,1);
 $k1=$k+1;
 $n1=$n-1;
 
-$int1=Compute("$k/($k1)x^(($k1)/($k))");
+$int1=Compute("$k/($k1)x^(($k1)/($k))")->with(limits =>[1,3]);
 $int2=Compute("-1/(($n1) * x^($n1))")->reduce();
 $int3=Formula("ln(x)")->with(limits =>[1,5]);
 
