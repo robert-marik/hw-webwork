@@ -21,7 +21,7 @@ $n=random(3,11,1);
 $n1=$n+1;
 
 $funkce=Formula("x^($n)");
-$int=Formula("1/($n1)*x^($n1)");
+$int=Formula("1/($n1)*x^($n1)")->with(limits =>[1,2]);
 
 
 BEGIN_PGML

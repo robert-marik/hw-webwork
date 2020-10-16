@@ -28,7 +28,7 @@ if ($c>0) {$ctxt=" +{} ".$c;} else {$ctxt=" -{} ".(-$c);}
 
 $funkce=Formula("$a*x^($n)+$b*x^2+$c")->reduce();
 
-$int=Formula("$a*1/($n1)*x^($n1)+$b*1/3*x^3+$c*x")->reduce();
+$int=Formula("$a*1/($n1)*x^($n1)+$b*1/3*x^3+$c*x");
 $int2=Formula("$a/($n1)*x^($n1)+$b/3*x^3+$c*x");
 
 BEGIN_PGML

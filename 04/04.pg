@@ -20,12 +20,12 @@ $d=random(0,1,1);
 if ($d==0)
 {
     $funkce=Formula("$b+e^($c*x)");
-    $int=Formula("$b*x+e^($c*x)/($c)");
+    $int=Formula("$b*x+e^($c*x)/($c)")->with(limits =>[-1,1]);
 }
 else
 { 
     $funkce=Formula("$b*e^($c*x)"); 
-    $int=Formula("$b*exp($c*x)/($c)");
+    $int=Formula("$b*exp($c*x)/($c)")->with(limits =>[-1,1]);
 }
 
 $funkce=$funkce -> reduce();
@@ -38,7 +38,9 @@ Integrál exponenciální funkce s lineární vnitřní složkou můžeme vypoč
 [``` \int 5+3e^{7x}\,\mathrm dx= 5x + \frac 37 e^{7x}+C.```]
 Tento výsledek je možné zapsat jako *5x+3/7 \* exp(7x)* nebo *5x + 3/7 \* e^(7x)*.
 
-Vypočtěte následující integrál.
+-----------------------------
+
+Postupem analogickým uvedenému vzoru vypočtěte následující integrál.
 >>[``\int [$funkce]\,\mathrm dx ={}``][_________________________]{$int->cmp(upToConstant=>1)}[``{}+C``] <<
 
 END_PGML
