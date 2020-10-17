@@ -65,7 +65,7 @@ sub f {
 
 
 f("Definice divergence",
-"Jak byste slovně vyjádřili definici derivace?",
+"Jak byste slovně vyjádřili definici divergence?",
 [["Divergence vektorového pole je součet parciálních derivací jednotlivých komponent podle odpovídajících prostorových proměnných.",
 "Divergence vektorového pole je vektor sestavený z parciálních derivací jednotlivých komponent podle odpovídajících prostorových proměnných.",
 "Divergence skalárního pole je vektor sestavený z parciálních derivací tohoto pole podle odpovídajících prostorových proměnných.",
