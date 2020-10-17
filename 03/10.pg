@@ -63,8 +63,8 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-* Konstanta `k` vyjadřuje objem kužele o jednotkové výšce.
-* Konstanta `k` udává objem kužele jednotkové výšky.
+* Konstanta `k` vyjadřuje objem kopce hromady soli o jednotkové výšce.
+* Konstanta `k` udává objem kopce jednotkové výšky.
 * ...
 
 END_PGML_SOLUTION
