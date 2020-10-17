@@ -64,6 +64,9 @@ BEGIN_PGML
 
 ## Vlastní hodnoty podle známých vlastních vektorů
 
+V této úloze pracujeme s analogií Cvičení 10.2, pouze máme matici vyššího řádu a vektory vyšší dimenze. Na druhou stranu se spolehlivě jedná o vlastní vektory a přislušný násobek je možno odhalit z jedné jediné nenulové komponenty. 
+
+
 Najděte vlastní hodnoty matice [``` A = [$matrix] ```]
 jsou-li zadány vlastní vektory [` v_1 = [$v1]`], [`v_2 = [$v2]`] a [`v_3 = [$v3]`].
 
@@ -88,7 +91,7 @@ END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
-Stačí vynásobit matici a vektory a podívat se, na jaký násobek se vektor transformuje. Pokud je jistota, že vektory jsou vlastními vektory (pokud je zadání korektní), stačí se orientovat podle první nenulové souřadnice.
+Stačí vynásobit matici a vektory a podívat se, na jaký násobek se vektor transformuje. Pokud je jistota, že vektory jsou vlastními vektory (pokud je zadání korektní), stačí se orientovat podle libovolné nenulové souřadnice.
 
 Pro vektor [`\vec v_1=[$v1]`] dostáváme
 [``` A\vec v_1=[$matrix][$v1]=[$Av1]=[$e1][$v1].```]

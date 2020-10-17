@@ -110,7 +110,8 @@ Protože jsme použili hodnotu [`\lambda`] rovnu vlastnímu číslu, má tato so
 Matice [``A=[$B]``] má vlastní hodnotu [`\lambda=[$l2]`]. Najděte vlastní vektor [`\vec v`] příslušný této vlastní hodnotě.
 >> [``\vec v=``][_________]*{$v2->cmp(parallel=>true)}<<
 
-_Návod: Vektor zapište buď jako lineární kombinaci jednotkových vektorů [`\vec i`] a [`\vec j`], nebo pomocí souřadnic oddělených čárkami a pomocí ostrých závorek < a > ohraničujících začátek a konec vektoru, tj. pomocí znaků používaných například pro nerovnice. Například vektor [`\begin{pmatrix}3\\-1\end{pmatrix}`] zapíšete  buď jako *3i-j* nebo jako *< 3 , -1 >*._
+*Návod:* Vektor zapište buď jako lineární kombinaci jednotkových vektorů [`\vec i`] a [`\vec j`], nebo pomocí souřadnic oddělených čárkami a pomocí ostrých závorek < a > ohraničujících začátek a konec vektoru, tj. pomocí znaků používaných například pro nerovnice. Například vektor [`\begin{pmatrix}3\\-1\end{pmatrix}`] zapíšete  buď jako *3i-j* nebo jako *< 3 , -1 >*. Je-li správnou odpovědí vektor 
+[`\begin{pmatrix}3\\-1\end{pmatrix}`], je rovnocennou správnou odpovědí i libovolný nenulový násobek, tj. například [`\begin{pmatrix}-3\\1\end{pmatrix}`] nebo [`\begin{pmatrix}6\\-2\end{pmatrix}`].
 
 ------------------
 

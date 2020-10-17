@@ -109,7 +109,9 @@ BEGIN_PGML
 
 ## Rozhodni, zda je vektor vlastním vektorem
 
-Vlastní vektory matice [`A`] jsou vektory, jejichž obraz při zobrazení maticí má stejný směr jako původní vektor. Jsou nesmírně důležité, protože při volbě soustavy souřadnic ve směru vlastních vektorů je matice [`A`] diagonální a s takovými maticemi se pracuje mnohem lépe, než s maticemi obecnými.
+V této úloze pracujeme s analogií Cvičení 10.1 a 10.2. 
+
+Vlastní vektory matice [`A`] jsou vektory, jejichž obraz při zobrazení maticí má stejný směr jako původní vektor. Jsou nesmírně důležité, protože při volbě soustavy souřadnic ve směru vlastních vektorů je matice [`A`] diagonální (viz cvičení 8.6) a s takovými maticemi se pracuje mnohem lépe, než s maticemi obecnými (viz cvičení 8.1 a násobení s maticí [`C`]). 
 
 Například vektor [```\vec{a}=\begin{pmatrix}-1\\2\end{pmatrix}```] a matice
 [```A=\begin{pmatrix} 3 & 0 \\ 2&4 \end{pmatrix}```] splňují
@@ -117,7 +119,7 @@ Například vektor [```\vec{a}=\begin{pmatrix}-1\\2\end{pmatrix}```] a matice
 což znamená, že vektor [`\vec{a}`] se zobrazuje na svůj trojnásobek a jedná se o vlastní vektor příslušný vlastnímu číslu [`3`]. Naopak, pro vektor
 [```\vec{b}=\begin{pmatrix}1\\1\end{pmatrix}```] platí
 [``` A\vec{b}=\begin{pmatrix}3\\2\end{pmatrix}+\begin{pmatrix}0\\4\end{pmatrix}=\begin{pmatrix}3\\6\end{pmatrix},```]
-což znamená, že vektor [`\vec{b}`] není vlastním vektorem. Vskutku, druhá souřadnice se změní na trojnásobek, ale první na šestinásobek. Vzor a obraz tedy nejsou rovnoběžné.
+což znamená, že vektor [`\vec{b}`] není vlastním vektorem. Vskutku, druhá souřadnice se zobrazením změní na trojnásobek, ale první souřadnice se změní jiným násobkem (minus trojnásobkem). Vzor a obraz tedy nejsou rovnoběžné a vektor není vlsaním vektorem. Aby byl vlastním vektorem, musely bu všechny komponenty obrazu být stejnýmnásobkem vzoru.
 
 ---------------------
 
