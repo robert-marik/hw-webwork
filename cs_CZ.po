@@ -7,12 +7,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2020-10-09 08:50+0200\n"
+"PO-Revision-Date: 2020-10-17 08:29+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.3\n"
 "Last-Translator: Robert Mařík\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
 "Language: cs_CZ\n"
@@ -5475,7 +5475,7 @@ msgstr ""
 #. ($versionNumber)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:1995
 msgid "The test (which is number %1) may  no longer be submitted for a grade."
-msgstr "Tento test (číslo %1) již není povoleno odeslat k vyhodnocení. "
+msgstr "Tento test (číslo %1) již není povoleno odeslat k vyhodnocení."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/PGProblemEditor.pm:1808
 msgid "The text box now contains the source of the original problem. You can recover lost edits by using the Back button on your browser."
@@ -6981,13 +6981,13 @@ msgstr ""
 #. ($testNounNum)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:1871
 msgid "Your score on this %1 WAS recorded."
-msgstr "Vaše hodnocení na tento %1 BYLO uloženo"
+msgstr "Vaše hodnocení na tento %1 BYLO uloženo."
 
 # $testNoun is either "test" or "submission"
 #. ($testNoun,$attemptScore,$totPossible)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:1876
 msgid "Your score on this %1 is %2/%3."
-msgstr "Vaše hodnocení na %1 je %2/%3"
+msgstr "Vaše hodnocení na %1 je %2/%3."
 
 # $testNounNum is either "test (#)" or "submission (#)
 #. ($testNounNum)
