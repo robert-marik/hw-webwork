@@ -43,7 +43,8 @@ BEGIN_PGML
 ## Prvky matice
 
     Prvky matice označujeme pomocí dvojice indexů, kde první index je řádkový a druhý index je sloupcový. Například [`b_{23}`] označuje prvek matice [`B`], který je ve druhém řádku a třetím sloupci. Pro matici [``` B=\begin{pmatrix}1&3&-5\\ 0&-1&7\\0&2&-3\end{pmatrix}```] platí [``` b_{23}=7,```] protože ve druhém řádku a třetím sloupci je sedmička.
-    
+
+*Poznámka: V tomto i v dalších zadáních je někdy matice ohraničena hranatými závorkami namísto kulatých. Je to pouze formalita daná použitým programem. Nemusíte se tím nechat zmást, běžně se používají oba zápisy.*
 
 ---------------
 
