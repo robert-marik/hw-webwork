@@ -52,7 +52,7 @@ V této sadě úloh se budeme věnovat lineární algebře. Základními objekty
 
     Je dána matice [```A=[$A].```]
 
-    Určete prvky [`` a_{[$i1][$j1]}``] a [`` a_{[$i2][$i2]} ]] matice [`A`]. (Ohraničení matice pomocí hranatých namísto kulatých závorek si nevšímejte, oba způsoby jsou běžné a oba jsou ekvivalentní)
+    Určete prvky [`` a_{[$i1][$j1]}``] a [`` a_{[$i2][$i2]} ``] matice [`A`]. (Ohraničení matice pomocí hranatých namísto kulatých závorek si nevšímejte, oba způsoby jsou běžné a oba jsou ekvivalentní)
 
     >>[`` a_{[$i1][$j1]}={}``][_____]*{$A->element($i1,$j1)}<<
     
