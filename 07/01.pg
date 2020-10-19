@@ -40,6 +40,8 @@ until
 
 BEGIN_PGML
 
+V této sadě úloh se budeme věnovat lineární algebře. Základními objekty zájmu jsou mnohorozměrné veličiny a operátory umožňující rozumnou manipulaci s těmito veličinami. Tedy vektory a matice. Nejprve se budeme věnovat maticím a lineární kombinaci vektorů připomeneme až v souvislosti s násobením matic. Závěrečné příklady jsou věnovány využití maticového násobení k výpočtu toku tepla ze zadaného gradientu. Formálně se jedná o maticový součin zasazený do reálné aplikace.
+
 ## Prvky matice
 
     Prvky matice označujeme pomocí dvojice indexů, kde první index je řádkový a druhý index je sloupcový. Například [`b_{23}`] označuje prvek matice [`B`], který je ve druhém řádku a třetím sloupci. Pro matici [``` B=\begin{pmatrix}1&3&-5\\ 0&-1&7\\0&2&-3\end{pmatrix}```] platí [``` b_{23}=7,```] protože ve druhém řádku a třetím sloupci je sedmička.
