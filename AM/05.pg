@@ -93,7 +93,7 @@ f(
 
 f(
 "Křivkový integrál druhého druhu a změna orientace křivky",
-"Jak se změní křikvový integrál druhého druhu, pokud změníme orientaci křivky?",
+"Jak se změní křivkový integrál druhého druhu, pokud změníme orientaci křivky?",
 [["Změní znaménko.",
 "Nezmění se.",
 "Vynuluje se.",
@@ -108,6 +108,17 @@ f(
 "Změní se na svůj násobek.",
 "Změní se, ale není možné predikovat jakým způsobem.",
 ]]);
+
+f(
+"Linearita křivkového integrálu druhého druhu",
+"Co vyjadřuje obrat, že křivkový integrál druhého druhu je lineární?",
+[["Zachovává součet funkcí a násobení funkce konstantou.",
+"Zachovává součet a součin funkcí.",
+"Křivkový integrál lineární funkce je opět lineární funkce.",
+"Křivkový integrál je definován jenom na množině lineárních funkcí.",
+"Nekorektně položená otázka, křivkový integrál druhého druhu není lineární.",
+]]);
+
 
 
 BEGIN_PGML
