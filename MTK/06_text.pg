@@ -39,7 +39,7 @@ Základní pravidla jsou shrnuta níže. Pokud nevidíte rozdíl mezi tím, co j
 
     * Alt= (MS Word), tj. klávesová zkratka
     * [|\( text \)|]* (LaTeX), tj. zpětné lomítko (na anglické klávesnici!!!) a závorka
-    * [|` text `|]* (ASCIIMath), tj. zpětný apostrof (opět anglická klávesnice)
+    * [|` text `|]* (AsciiMath), tj. zpětný apostrof (opět anglická klávesnice)
 
 ### 2. Matematické výrazy, které jsou na samostatném řádku jsou normální součástí věty
 
@@ -56,7 +56,7 @@ Rozdíl mezi posledními dvěma větami je, že první z nich nekončí tečkou 
 
     * Kliknutím a volbou "Změnit na samostatný" (MS Word, viz video níže),
     * [|\[ text \]|]* (LaTeX, MS Word), tj. zpětné lomítko (na anglické klávesnici!!!) a hranatá závorka
-    * [|`` text ``|]* (ASCIIMath), tj. dva zpětné apostrofy (opět anglická klávesnice)
+    * [|`` text ``|]* (AsciiMath), tj. dva zpětné apostrofy (opět anglická klávesnice)
 
 Toto byl základ. Další poučení co a jak se píše nebo nepíše je například [@ htmlLink("http://user.mendelu.cz/marik/inzmat/chyby/","zde") @]*. Vidíme, že zápis matematických výrazů do textu není triviální a je nutné si jej osvojit. Používá se specializovaný způsob zápisu.
 * Mnoho pokusů o definování a zavedení vhodného způsobu zápisu matematických vzorců do počítače pro potřebu sazby textů a knih odvál čas. Používal se například plugin nebo editor rovnic pro MS Word, nebo jazyk MATHML pro Internet. Nic z toho se dlouhodobě neprosadilo kvůli problematické funkčnosti, nekompatibilitě i v rámci jednoho produktu nebo kvůli přílišné složitosti.
