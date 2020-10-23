@@ -152,7 +152,7 @@ BEGIN_PGML
 
 Pokračujte k další úloze. V ní se naučíte důležitou věc pro absolvování zkoušky: zapisovat matematické výrazy v textovém editoru. Budeme mít editor zde ve WeBWorKu, ale znalosti využijete například i v MS Wordu.
 
-END_PML
+END_PGML
 
 BEGIN_PGML_HINT
 Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
