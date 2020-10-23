@@ -50,7 +50,7 @@ f(
 
 f(
 "Autonomní diferenciální rovnice",
-"Která rovnice je autonomní? Funkce \(f\) je funkce jedné nebo dvou proměnných, podle kontextu, ve kterém je použita. ",
+"V přednáškách jsme si představili autonomní diferenciální rovnici jako rovnici ve tvaru \[\frac{\mathrm dy}{\mathrm dx}=f(y).\] Jak to dopadne v jiných proměnných? Která z následujících rovnic je autonomní? Funkce \(f\) je funkce jedné nebo dvou proměnných, podle kontextu, ve kterém je použita. ",
 [[
 "\(\displaystyle \frac{\mathrm dr}{\mathrm dt}=f(r)\)",
 "\(\displaystyle \frac{\mathrm ds}{\mathrm dt}=f(t)\)",
@@ -63,7 +63,8 @@ f(
 "Co rozumíme stacionárním bodem autonomní diferenciální rovnice?",
 [[
 "Konstantní řešení rovnice.",
-"Nulové řešení rovnice.",
+"Kladné řešení rovnice.",
+"Řešení popisující všecny realizovatelné stavy systému popsaného danou rovnicí.",
 "Řešení procházející počátkem.",
 ]]);
 
@@ -72,9 +73,9 @@ f(
 "Která podmínka stačí pro jednoznačnou řešitelnost úlohy se separovatelnou diferenciální rovnicí \[\frac{\mathrm dx}{\mathrm dt}=f(x)g(t), \quad x(0)=x_0.\]",
 [[
 "\(f(x_0)\neq 0\)",
-"\(g(x_0)\neq 0\)",
-"\(f'(x_0)\neq 0\)",
-"\(g'(x_0)\neq 0\)",
+"\(g(0)\neq 0\)",
+"\(g'(0)\neq 0\)",
+"\(g'(0)\neq 0\)",
 "\(f'(x_0)\) je ohraničená",
 ]]);
 
