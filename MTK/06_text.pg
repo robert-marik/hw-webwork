@@ -58,6 +58,8 @@ Rozdíl mezi posledními dvěma větami je, že první z nich nekončí tečkou 
     * [|\[ text \]|]* (LaTeX, MS Word), tj. zpětné lomítko (na anglické klávesnici!!!) a hranatá závorka
     * [|`` text ``|]* (AsciiMath), tj. dva zpětné apostrofy (opět anglická klávesnice)
 
+### 3. Co dál a jak na to
+
 Toto byl základ. Další poučení co a jak se píše nebo nepíše je například [@ htmlLink("http://user.mendelu.cz/marik/inzmat/chyby/","zde") @]*. Vidíme, že dovednost kombinace matematických výrazů s textem není triviální a je nutné si ji osvojit. Používá se specializovaný způsob zápisu.
 * Mnoho pokusů o definování a zavedení vhodného způsobu zápisu matematických vzorců do počítače pro potřebu sazby textů a knih odvál čas. Používal se například plugin nebo editor rovnic pro MS Word, nebo jazyk MATHML pro Internet. Nic z toho se dlouhodobě neprosadilo kvůli problematické funkčnosti, nekompatibilitě i v rámci jednoho produktu nebo kvůli přílišné složitosti.
 * Zůstal v podstatě jediný rozumně použitelný: typografický systém LaTeX. Jeho použití si natrénujeme zde. Je možné využít ve stejnojmenném typografickém systému, v programu MS Word poslední verze jak [@ htmlLink("https://youtu.be/nBDqHNM7dL4","ukazuje video") @]*. (Video bylo natočeno v kontextu odevzdávání MS Wordovských seminárek při distanční výuce minulý semestr, proto některé komentáře nejsou relevantní, ale jádro sdělení zůstává.)
@@ -65,7 +67,7 @@ Toto byl základ. Další poučení co a jak se píše nebo nepíše je napřík
 
 My pro zapsání odpovědi obsahující i matematický text ve WeBWorKu můžeme použít i LaTeX i AsciiMath. Vyberete si, co vám lépe sedí.
 
-### 3. A teď si to vyzkoušejte
+### 4. A teď si to vyzkoušejte
 
 #### LaTeX
 
@@ -84,7 +86,7 @@ Měli byste vidět větu se zformátovanými matematickými objekty a vzorec pro
 
 -------
 
-### 4. A teď sami napište vlastní text
+### 5. A teď sami napište vlastní text
 
 Smažte předchozí pokusy a do políčka napište text popisující model ochlazování, tak jak jsme jej poznali na úvodní přednášce. Teď již víme, že se jedná o diferenciální rovnici a mohli bychom se setkat s úkolem "zformulujte matematický model ochlazování, kdy rychlost poklesu teploty tělesa je úměrná rozdílu teploty tělesa a konstantní teploty okolí".
 V [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/derivace_I/","úvodní přednášce") @]* najděte podkapitolu "Zákon ochlazování" a opište poslední odrážku, tj. [| Matematickým vyjádřením toho, že rychlost s jakou .......... naučíme řešit později. |]* Vyznačte správně matematické proměnné, rovnici označte jako rovnici, která má být na samostatném řádku, tj. pomocí dvojapostrofů pokud se rozhodnete pro AsciiMath nebo pomocí lomítka a hranaté závorky, pokud se rozhodnete pro LaTeX. Text neopisujte, můžete jej vykopírovat, jenom opravte matematické výrazy. Použijte LaTeX nebo AsciiMath nebo jejich kombinaci.
