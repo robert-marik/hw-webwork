@@ -65,10 +65,10 @@ sub f {
 
 
 f("Parametrické rovnice křivky",
-"Při výpočtu křivkového integrálu používáme parametrické rovnice křivky. Jak je to s korespondencí této křivky a jejích paramerických rovnic?",
+"Při výpočtu křivkového integrálu používáme parametrické rovnice křivky. Jak je to s korespondencí této křivky a jejích parametrických rovnic?",
 [["Jedna křivka může mít více parametrických vyjádření, ta mohou být poměrně odlišná.",
 "Každá křivka má právě jedno parametrické vyjádření.",
-"Každá křivka má více parametrických vyjádření, která jdou dány jednoznačně až na aditrivní konstantu.",
+"Každá křivka má více parametrických vyjádření, která jdou dány jednoznačně až na aditivní konstantu.",
 ]]);
 
 f(
@@ -83,7 +83,7 @@ f(
 
 f(
 "Tok",
-"Jaký integrál vyjadřuje tok vektorového pole [`` (x+y,2x)``] křivkou [``C``]?",
+"Jaký integrál vyjadřuje tok vektorového pole \( (x+y,2x)\) křivkou \(C\)?",
 [["\(\displaystyle \int _C -2x\,\mathrm dx+(x+y)\,\mathrm dy\)",
 "\(\displaystyle \int _C 2x\,\mathrm dx+(x+y)\,\mathrm dy\)",
 "\(\displaystyle \int _C x-y\,\mathrm dx+2x\,\mathrm dy\)",
@@ -168,7 +168,7 @@ BEGIN_PGML
 
 ## Přednáška Divergence
 
-[@ image("hw03.jpg", width=>400) @]*
+[@ image("hw05.jpg", width=>400) @]*
 
 V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/03/","přednášky o divergenci, rovnici kontinuity a difuzní rovnici") @]* a po shlédnutí videa k této přednášce. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Můžete jenom odhadnout počet správných odpovědí po prvním pokusu podle celkového bodového zisku. Máte více pokusů a vždy se započítává ten nejlepší. Pracujte v klidu, nebojte se nahlížet do textu. Nemělo by se to však zvrhnout v zuřivé vyhledávání v elektronické verzi textu. Tímto stylem byste se nic nenaučili. 
 
