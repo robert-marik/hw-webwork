@@ -27,7 +27,7 @@ BEGIN_PGML
 
 [@ image("cisterna.jpg", width=>400) @]*
 
-Při zásobování vodou se někdy musíme uchýlit k použití cisteren. Toto je typický děj probíhající proměnnou rychlostí, protože během odběru se snižuje tlak v místě úniku a rychlost vytékání se snižuje.
+Při zásobování vodou se někdy musíme uchýlit k použití cisteren. Vypouštění cisterny je poté typický děj probíhající proměnnou rychlostí, protože během odběru se snižuje tlak v místě výpusti a rychlost vytékání se snižuje.
 
 Předpokládejme, že voda vytéká z ventilu u dna cistrerny rychlostí  [`r(t)=[$c]-[$kk]t`] litrů za minutu, kde [`0 \le t \le 50.`]  Najděte objem vody (v litrech), který vyteče z nádrže za [$a] minut.
 
