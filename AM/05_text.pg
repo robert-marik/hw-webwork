@@ -91,7 +91,7 @@ Měli byste vidět větu se zformátovanými matematickými objekty a vzorec pro
 
 ### 5. A teď sami napište vlastní text
 
-Smažte předchozí pokusy a do políčka napište text následující text.
+Smažte předchozí pokusy a do políčka napište text následující text (vyznačený kurzívou).
 
     _Jsou-li [``P(x,y)``] a [``Q(x,y)``] komponenty vektorového pole [``\vec F(x,y),``] zapisujeme křikvový integrál po křivce [``C``] ve tvaru
     [``` \int_C P(x,y) dx+Q(x,y)dy.```]
