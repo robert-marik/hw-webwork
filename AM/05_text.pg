@@ -93,9 +93,9 @@ Měli byste vidět větu se zformátovanými matematickými objekty a vzorec pro
 
 Smažte předchozí pokusy a do políčka napište text následující text.
 
-    Jsou-li [``P(x,y)``] a [``Q(x,y)``] komponenty vektorového pole [``\vec F(x,y),``] zapisujeme křikvový integrál po křivce [``C``] ve tvaru
+    _Jsou-li [``P(x,y)``] a [``Q(x,y)``] komponenty vektorového pole [``\vec F(x,y),``] zapisujeme křikvový integrál po křivce [``C``] ve tvaru
     [``` \int_C P(x,y) dx+Q(x,y)dy.```]
-    V případě integrálu po uzavřené křivce píšeme [``` \oint_C P(x,y) dx+Q(x,y)dy.```]
+    V případě integrálu po uzavřené křivce píšeme [``` \oint_C P(x,y) dx+Q(x,y)dy.```]_
 
 Můžete použít kopírování, ale některé znaky budete muset opravit ručně a také všechny matematické výrazy budete muset napsat od nuly. V textu vyznačte správně matematické objekty, integrál označte jako výraz, který má být na samostatném řádku, tj. pomocí dvojapostrofů pokud se rozhodnete pro AsciiMath nebo pomocí lomítka a hranaté závorky, pokud se rozhodnete pro LaTeX. Pro zápis matematických výrazů použijte podle svých preferencí LaTeX nebo AsciiMath nebo jejich kombinaci.
 
