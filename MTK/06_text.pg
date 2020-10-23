@@ -1,6 +1,3 @@
-
-##################################################
-
 DOCUMENT(); 
 loadMacros(
 "PGstandard.pl",
@@ -63,8 +60,8 @@ Rozdíl mezi posledními dvěma větami je, že první z nich nekončí tečkou 
 
 Toto byl základ. Další poučení co a jak se píše nebo nepíše je například [@ htmlLink("http://user.mendelu.cz/marik/inzmat/chyby/","zde") @]*. Vidíme, že zápis matematických výrazů do textu není triviální a je nutné si jej osvojit. Používá se specializovaný způsob zápisu.
 * Mnoho pokusů o definování a zavedení vhodného způsobu zápisu matematických vzorců do počítače pro potřebu sazby textů a knih odvál čas. Používal se například plugin nebo editor rovnic pro MS Word, nebo jazyk MATHML pro Internet. Nic z toho se dlouhodobě neprosadilo kvůli problematické funkčnosti, nekompatibilitě i v rámci jednoho produktu nebo kvůli přílišné složitosti.
-* Zůstal v podstatě jediný rozumně použitelný: typografický systém LaTeX. Jeho použití si natrénujeme zde. Je možné využít ve stejnojmenném typografickém systému, v programu MS Word poslední verze jak [@ htmlLink("https://youtu.be/nBDqHNM7dL4","ukazuje video") @]*. (Video bylo natočeno v kontextu odevzdávání MS Wordowských seminárek při distanční výuce minulý semestr, proto některé komentáře nejsou relevantní, ale jádro sdělení zůstává.)
-* Kromě systému LaTeX je životaschpný i systém AsciiMath, který sice nedává autorovi plnou kontrolu nad vzhledem vzorce, ale je  snandý a rychle se ho každý naučí. Díky tomu je vhodný pro použití na webu.
+* Zůstal v podstatě jediný rozumně použitelný: typografický systém LaTeX. Jeho použití si natrénujeme zde. Je možné využít ve stejnojmenném typografickém systému, v programu MS Word poslední verze jak [@ htmlLink("https://youtu.be/nBDqHNM7dL4","ukazuje video") @]*. (Video bylo natočeno v kontextu odevzdávání MS Wordovských seminárek při distanční výuce minulý semestr, proto některé komentáře nejsou relevantní, ale jádro sdělení zůstává.)
+* Kromě systému LaTeX je životaschopný i systém AsciiMath, který sice nedává autorovi plnou kontrolu nad vzhledem vzorce, ale je snadný a rychle se ho každý naučí. Díky tomu je vhodný pro použití na webu.
 
 My pro zapsání odpovědi obsahující i matematický text ve WeBWorKu můžeme použít i LaTeX i AsciiMath. Vyberete si, co vám lépe sedí.
 
@@ -89,8 +86,8 @@ Měli byste vidět větu se zformátovanými matematickými objekty a vzorec pro
 
 ### 4. A teď sami napište vlastní text
 
-Smažte předchozí pokusy a do políčka napište text popisující model ochlazování, tak jak jsme jej poznali na úvodní přednášce. Teď již víme, že se jedná o diferenciální rovnici a mohli bychom se setkat s úkolem "zformulujte matematický model ochlazování, kdy rychlost poklesu teploty tělesa je úměrná rozdílu teploty tělesa a konstatnní teploty okolí".
-V [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/derivace_I/","úvodní úpřednášce") @]* najděte podkapitolu "Zákon ochlazování" a opište poslední odrážku, tj. [| Matematickým vyjádřením toho, že rychlost s jakou .......... naučíme řešit později. |]* Vyznačte správně matematické proměnné, rovnici označte jako rovnici, která má být na samostatném řádku, tj. pomocí dvojapostrofů pokud se rozhodnete pro AsciiMath nebo pomocí lomítka a hranaté závorky, pokud se rozhodnete pro LaTeX. Text neopisujte, můžete jej vykoírovat, jenom opravte matematické výrazy. Použijte LaTeX nebo AsciiMath nebo jejich kombinaci.
+Smažte předchozí pokusy a do políčka napište text popisující model ochlazování, tak jak jsme jej poznali na úvodní přednášce. Teď již víme, že se jedná o diferenciální rovnici a mohli bychom se setkat s úkolem "zformulujte matematický model ochlazování, kdy rychlost poklesu teploty tělesa je úměrná rozdílu teploty tělesa a konstantní teploty okolí".
+V [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/derivace_I/","úvodní přednášce") @]* najděte podkapitolu "Zákon ochlazování" a opište poslední odrážku, tj. [| Matematickým vyjádřením toho, že rychlost s jakou .......... naučíme řešit později. |]* Vyznačte správně matematické proměnné, rovnici označte jako rovnici, která má být na samostatném řádku, tj. pomocí dvojapostrofů pokud se rozhodnete pro AsciiMath nebo pomocí lomítka a hranaté závorky, pokud se rozhodnete pro LaTeX. Text neopisujte, můžete jej vykopírovat, jenom opravte matematické výrazy. Použijte LaTeX nebo AsciiMath nebo jejich kombinaci.
 
 * AsciiMath je popsán na své [@ htmlLink("http://asciimath.org/","domovské stránce")@]* a je do značné míry kompatibilní se syntaxí pro WeBWorK. Nevýhodou je, že nemáte plnou kontrolu nad vzorcem, což ale nemusí vadi, pokud nebudeme příliš přísní detailisté. Například derivaci pište [| (dT)/(dt) |]* a dostanete [: (dT)/(dt):]. naprostá většina běžných konstrukcí je popsána na domovské stránce předmětu, kde si to také můžete vyzkoušet s živým náhledem.
 * LaTeX dává autorovi plnou kontrolu nad vzorcem, ale syntaxe je o něco málo složitější. Naučíte se jej však snadno: klikněte kdekoliv v mých html prezentacích pravým tlačítkem na matematický vzorec, zvolte "Show Math As" a poté "TeX Commands", protože LaTeX je nadstavba nad typografickým systémem TeX.
@@ -98,7 +95,7 @@ V [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/derivace_I/","úvodní
 
 Studenti, kterým se povede text zapsat dostanou 100%, ostatní méně.
 
-**V tomto příkladě nejde až tak o body, jde o mohem víc. Jde o natrénování základní gramotnosti, která je žádoucí pro úspěch u závěrečné písemky.**
+**V tomto příkladě nejde až tak o body, jde o mnohem víc. Jde o natrénování základní gramotnosti, která je žádoucí pro úspěch u závěrečné písemky.**
 
 END_PGML
 
