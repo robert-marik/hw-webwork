@@ -10,6 +10,8 @@ loadMacros(
 "PGcourse.pl",
 );
 TEXT(beginproblem());
+ADD_CSS_FILE("left.css");
+
 $showPartialCorrectAnswers = 1;
 
 $var='x';
