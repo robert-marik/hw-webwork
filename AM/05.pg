@@ -84,10 +84,10 @@ f(
 f(
 "Tok",
 "Jaký integrál vyjadřuje tok vektorového pole [`` (x+y,2x)``] křivkou [``C``]?",
-[["\(\displaystyle \vec _C -2x\,\mathrm dx+(x+y)\,\mathrm dy\)",
-"\(\displaystyle \vec _C 2x\,\mathrm dx+(x+y)\,\mathrm dy\)",
-"\(\displaystyle \vec _C x-y\,\mathrm dx+2x\,\mathrm dy\)",
-"\(\displaystyle \vec _C (x+y)\,\mathrm dx+2x\,\mathrm dy\)",
+[["\(\displaystyle \int _C -2x\,\mathrm dx+(x+y)\,\mathrm dy\)",
+"\(\displaystyle \int _C 2x\,\mathrm dx+(x+y)\,\mathrm dy\)",
+"\(\displaystyle \int _C x-y\,\mathrm dx+2x\,\mathrm dy\)",
+"\(\displaystyle \int _C (x+y)\,\mathrm dx+2x\,\mathrm dy\)",
 ]]);
 
 
