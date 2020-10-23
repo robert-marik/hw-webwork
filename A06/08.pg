@@ -1,0 +1,53 @@
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+########################################################################
+
+$showPartialCorrectAnswers = 1;
+
+TEXT(beginproblem);
+
+##############################################################
+
+Context("Numeric");
+Context()->variables->add(y =>'Real', z =>'Real');
+
+$a = random(2,8,2);
+
+$b = Compute("$a/2");
+
+$ans = Compute("(4/21)*$b+1/12");
+$ans2 = Compute("x^3+$b*x^2-x^5-$b*x^6");
+
+##############################################################
+
+Context()->texStrings;
+BEGIN_PGML
+Vypočtěte dvojný integrál
+>> [``\displaystyle
+\iint_D  \left(x^2+[$a] y\right) \, \mathrm dx\mathrm dy={}``]
+[____________]{$ans}
+<<
+kde [`D`] je množina ohraničená křivkami [` y=x,`] a [`y=x^3,`] na intervalu [`0\leq x \leq  1.`]
+
+*Poznámka:* Jako mezivýsledek vypočtěte (a zde si zkontrolujte) vnitřní integrál.
+>> [``\displaystyle
+\int_{x^3}^x  \left(x^2+[$a] y\right) \, \mathrm dy={}``]
+[_________________________________]{$ans2}
+<<
+
+
+END_PGML
+Context()->normalStrings;
+
+##############################################################
+
+
+########################################################################
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

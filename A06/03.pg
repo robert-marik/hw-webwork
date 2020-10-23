@@ -3,6 +3,7 @@ DOCUMENT();
 loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
+  "PGML.pl",
   "contextFraction.pl",
   "PGgraphmacros.pl",
   "unionTables.pl",
@@ -73,6 +74,13 @@ $gr->fillRegion([$xmin+0.1,$ymid+0.1,"lightgreen"]);
 #  Main text
 
 Context()->texStrings;
+
+BEGIN_PGML
+
+## Dvojný integrál přes obdélník
+
+END_PGML
+
 BEGIN_TEXT
 \{
 ColumnTable(
@@ -92,6 +100,12 @@ indent => 0, separation => 30, valign => "TOP"
 \}
 END_TEXT
 Context()->normalStrings;
+
+BEGIN_PGML
+
+*Poznámka:* Jednotlivé meze se hodnotí nezávisle na sobě. Test tedy vyhodnocuje čtyři odpovědi, každou samostatně.
+
+END_PGML
 
 
 ##################################################

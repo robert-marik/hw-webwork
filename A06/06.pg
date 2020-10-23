@@ -1,0 +1,100 @@
+DOCUMENT();		# This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "parserRadioButtons.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+$showHint = 1;
+
+Context()->variables->are('t'=>'Real','x'=>'Real','y'=>'Real');
+
+$showPartialCorrectAnswers = 1;
+
+$a = random(-5, 5, 1);
+$b = random(1, 4, 1);
+$m = random(2,6,1);
+do
+{
+	$c = random(-5, 5, 1);
+	$d = random(1, 4, 1);
+}
+until ($a!=$b) or ($c!=$d);
+
+do
+{
+ $n=random(2,8);
+}
+until ($m != $n);
+
+$F=Compute("t^([$m])")->reduce();
+$G=Compute("t^([$n])")->reduce();
+$Fx=Compute("x^([$m])")->reduce();
+$Gy=Compute("y^([$n])")->reduce();
+
+$g = $a + $b;
+$h = $c + $d;
+
+
+Context()->texStrings;
+
+$radio = RadioButtons(
+[[
+"Síla vzroste o \(9.45\) procenta, protože  \(1.10\times 0.995=1.0945\), působiště se nezmění.",
+"Obojí klesne o \(9.5\) procenta, protože \(10-0.5=9.5\).",
+"Síla vzroste o \(9.5\) procenta, protože \(10-0.5=9.5\), působiště se nezmění.",
+],
+"Jiná odpověď.",
+],
+0);  # První odpověď správná
+
+
+
+BEGIN_PGML
+
+
+
+## Působení síly na hráz
+
+[@ image("chimborazo.jpg", width=>400) @]*
+
+
+V přednášce jsme odvodili vztah pro působení síly na hráz přehrady a její težiště.
+
+Uvažujme hráz přehrady v České republice a stejnou hráz přehrady v ekvádorských horách. Je zde  o půl procenta menší tíhové zrychlení v porovnání s Českem díky větší vzdálenosti od středu země, kdy hraje roli nadmořská výška a zploštění zeměkoule. Představme si, že ekvádorskou přehradu napustíme těžkou vodou (s deuteriem místo vodíku, hustota těžké vody je o 10 procent vyšší než hustota běžné vody). Jak se změní působiště síly na přehradu a velikost síly?
+
+
+[_]{$radio}
+
+*Poznámka:* Vrcholek hory Chimboraso, nejvyší hory Ekvádoru, je místo na Zemi s největší vzdáleností od středu zeměkoule a proto je zde nemenší tíhové zrychlení, nejmenší gravitace.
+
+END_PGML
+
+
+
+BEGIN_PGML_HINT
+
+Tlaková síla je [``` \iint_\Omega h\varrho g \,\mathrm dx\mathrm dy, ```]
+působiště tlakové síly
+[``` \frac{\iint_\Omega h^2\,\mathrm dx\mathrm dy}{\iint_\Omega h\,\mathrm dx\mathrm dy}.```]
+
+
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+
+Tlaková síla je [``` \iint_\Omega h\varrho g \,\mathrm dx\mathrm dy, ```]
+působiště tlakové síly
+[``` \frac{\iint_\Omega h^2\,\mathrm dx\mathrm dy}{\iint_\Omega h\,\mathrm dx\mathrm dy}.```]
+Působiště nesouvisí s hustotou ani s tíhovým zrychlením, tlaková síla je úměrná obojímu. Při nárůstu hustoty o 10 procent se hustota vynásobí faktorem [`1.1`], při poklesu tíhového zrychlení o půl procenta se tíhové zrychlení vynásobí faktorem [`0.995`]. Protože
+[``` 0.995 g\times 1.1\varrho =1.0945 \varrho g,```]
+celková síla naroste o [`9.45`] procenta.
+
+END_PGML_SOLUTION
+
+ENDDOCUMENT();

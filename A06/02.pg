@@ -51,6 +51,8 @@ $h = $c + $d;
 
 BEGIN_PGML
 
+## Fubiniova věta na obdélníku pro funkci se separovanými proměnnými II
+
 Speciálním případem Fubiniovy věty, kdy se integrál ze součinu dvou funkcí jedné proměnné přes obdélník redukuje na součin integrálů je vzorec
 [``` \iint_\Omega f(x)g(y)\,\mathrm dx\mathrm dy=\int_{a}^bf(x)\,\mathrm dx \int _c^dg(y)\,\mathrm dy,```]
 kde množina [``\Omega``] je dána nerovnostmi [`` a\leq x\leq b``] a [`` c\leq y\leq d``].
