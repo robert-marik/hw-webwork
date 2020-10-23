@@ -38,7 +38,7 @@ Základní pravidla jsou shrnuta níže. Pokud nevidíte rozdíl mezi tím, co j
     Speciální prostředí znamená například následující.
 
     * Alt= (MS Word), tj. klávesová zkratka
-    * [|\( text \)|]* (LaTeX, MS Word), tj. zpětné lomítko (na anglické klávesnici!!!) a závorka
+    * [|\( text \)|]* (LaTeX), tj. zpětné lomítko (na anglické klávesnici!!!) a závorka
     * [|` text `|]* (ASCIIMath), tj. zpětný apostrof (opět anglická klávesnice)
 
 ### 2. Matematické výrazy, které jsou na samostatném řádku jsou normální součástí věty
