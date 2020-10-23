@@ -1,0 +1,207 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+my $c=0;
+
+@nadpis=();
+@text=();
+@radio=();
+@reseni=();
+
+sub f {
+   my ($h,$a,$b)=(@_);
+   $c1=$c+1;
+   $nadpis[$c]="$c1. ".$h;
+   $text[$c]=$a;
+   $reseni[$c]=$b->[0]->[0];
+   $radio[$c]=RadioButtons($b,0);
+   $c=$c+1;
+}
+
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+my $c=0;
+
+@nadpis=();
+@text=();
+@radio=();
+@reseni=();
+
+sub f {
+   my ($h,$a,$b)=(@_);
+   $c1=$c+1;
+   $nadpis[$c]="$c1. ".$h;
+   $text[$c]=$a;
+   $reseni[$c]=$b->[0]->[0];
+   $radio[$c]=RadioButtons($b,0);
+   $c=$c+1;
+}
+
+
+f("Parametrické rovnice křivky",
+"Při výpočtu křivkového integrálu používáme parametrické rovnice křivky. Jak je to s korespondencí této křivky a jejích paramerických rovnic?",
+[["Jedna křivka může mít více parametrických vyjádření, ta mohou být poměrně odlišná.",
+"Každá křivka má právě jedno parametrické vyjádření.",
+"Každá křivka má více parametrických vyjádření, která jdou dány jednoznačně až na aditrivní konstantu.",
+]]);
+
+f(
+"Derivace křivky",
+"Uvažujme rovinnou křivku \(\vec r(t)\). Co vyjadřuje derivace \(\displaystyle \frac {\mathrm d\vec r}{\mathrm dt}\)?",
+[["Tečný vektor ke křivce.",
+"Délku křivky.",
+"Normálový vektor ke křivce.",
+"Obsah množiny obepnutý křivkou.",
+]]);
+
+
+f(
+"Tok",
+"Jaký integrál vyjadřuje tok vektorového pole [`` (x+y,2x)``] křivkou [``C``]?",
+[["\(\displaystyle \vec _C -2x\,\mathrm dx+(x+y)\,\mathrm dy\)",
+"\(\displaystyle \vec _C 2x\,\mathrm dx+(x+y)\,\mathrm dy\)",
+"\(\displaystyle \vec _C x-y\,\mathrm dx+2x\,\mathrm dy\)",
+"\(\displaystyle \vec _C (x+y)\,\mathrm dx+2x\,\mathrm dy\)",
+]]);
+
+
+f(
+"Křivkový integrál druhého druhu a změna orientace křivky",
+"Jak se změní křikvový integrál druhého druhu, pokud změníme orientaci křivky?",
+[["Změní znaménko.",
+"Nezmění se.",
+"Vynuluje se.",
+"Zvetší se nebo zmenší o délku křivky v závislosti na znaménku.",
+]]);
+
+f(
+"Křivkový integrál druhého druhu pro různé parametrizace stejné křivky",
+"Jak se změní křivkový integrál druhého druhu, pokud pro výpočet použijeme jiné parametrické vyjádření křivky?",
+[["Nezmění se.",
+"Změní se o libovolnou aditivní konstantu.",
+"Změní se na svůj násobek.",
+"Změní se, ale není možné predikovat jakým způsobem.",
+]]);
+
+
+BEGIN_PGML
+
+## Přednáška Křivkový integrál
+
+[@ image("hw05.jpg", width=>400) @]*
+
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/05/","přednášky o křivkovém integrálu") @]* a shlédnutí videa k této přednášce. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Můžete jenom odhadnout počet správných odpovědí po prvním pokusu podle celkového bodového zisku. Máte více pokusů a vždy se započítává ten nejlepší. Pracujte v klidu, nebojte se nahlížet do textu. Nemělo by se to však zvrhnout v zuřivé vyhledávání v elektronické verzi textu. Tímto stylem byste se nic nenaučili. 
+
+END_PGML
+
+$last=$c-1;
+
+foreach $i (0..$last) {
+
+BEGIN_PGML
+
+### [$nadpis[$i] ]*
+
+[$text[$i] ]*
+
+[_]{$radio[$i]}
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+_Řešení: [$reseni[$i] ]*_
+
+END_PGML_SOLUTION
+
+BEGIN_PGML
+-------------------
+END_PGML
+
+}
+
+BEGIN_PGML_HINT
+Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
+END_PGML_HINT
+
+
+ENDDOCUMENT();
+
+BEGIN_PGML
+
+## Přednáška Divergence
+
+[@ image("hw03.jpg", width=>400) @]*
+
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/03/","přednášky o divergenci, rovnici kontinuity a difuzní rovnici") @]* a po shlédnutí videa k této přednášce. Po odeslání se nedozvíte, která odpověď byla správná a která ne. Můžete jenom odhadnout počet správných odpovědí po prvním pokusu podle celkového bodového zisku. Máte více pokusů a vždy se započítává ten nejlepší. Pracujte v klidu, nebojte se nahlížet do textu. Nemělo by se to však zvrhnout v zuřivé vyhledávání v elektronické verzi textu. Tímto stylem byste se nic nenaučili. 
+
+END_PGML
+
+$last=$c-1;
+
+foreach $i (0..$last) {
+
+BEGIN_PGML
+
+### [$nadpis[$i] ]*
+
+[$text[$i] ]*
+
+[_]{$radio[$i]}
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+_Řešení: [$reseni[$i] ]*_
+
+END_PGML_SOLUTION
+
+BEGIN_PGML
+-------------------
+END_PGML
+
+}
+
+BEGIN_PGML
+
+### Ještě nekončíme ...
+
+Pokračujte k další úloze. V ní se naučíte důležitou věc pro absolvování zkoušky: zapisovat matematické výrazy v textovém editoru. Budeme mít editor zde ve WeBWorKu, ale znalosti využijete například i v MS Wordu.
+
+END_PGML
+
+
+BEGIN_PGML_HINT
+Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
+END_PGML_HINT
+
+
+ENDDOCUMENT();
+
