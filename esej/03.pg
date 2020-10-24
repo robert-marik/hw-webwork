@@ -1,0 +1,52 @@
+
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+ADD_CSS_FILE("left.css");
+
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+$a=non_zero_random(-4,4,1);
+do { $b=non_zero_random(-8,8,1) } until ( abs($b) > 1 );
+$c=non_zero_random(-10,10);
+
+Context("Numeric")->variables->are($var=>'Real');
+
+$answer=Formula("$a+$b*($var-$c)")->reduce();   # funkce
+
+
+BEGIN_PGML
+
+
+
+## Vzájemná souvislost rychlostí
+
+Na  rozdíl  od  jiných  živočichů  jsou  malé  ryby  přibližně zmenšeniny velkých ryb a proto je u nich hmotnost přibližně  úměrná  třetí  mocnině  délky.  Najděte  souvislost mezi rychlostí s jakou roste hmotnost kapra a rychlostí,s jakou roste délka kapra.
+
+*Poznámka:* Stačí zapsat vzorec
+
+*TIP:* Na webové stránce pluginu [@ htmlLink("https://www.mathjax.org/#demo","MathJax")@]* si můžete pohodlně text předpřipravit v LaTeXu i v AsciiMath.
+
+
+END_PGML
+
+BEGIN_TEXT
+\{essay_box()\}
+END_TEXT
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+ENDDOCUMENT(); 
+
+
+
+ENDDOCUMENT();

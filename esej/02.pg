@@ -1,0 +1,54 @@
+
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+ADD_CSS_FILE("left.css");
+
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+$a=non_zero_random(-4,4,1);
+do { $b=non_zero_random(-8,8,1) } until ( abs($b) > 1 );
+$c=non_zero_random(-10,10);
+
+Context("Numeric")->variables->are($var=>'Real');
+
+$answer=Formula("$a+$b*($var-$c)")->reduce();   # funkce
+
+
+BEGIN_PGML
+
+Následující příklady jsou možností, jak mohou být ve WeBWorKu zadány příklady s otevřenou odpovědí, tj. příklady, kde máte odpověď samostatně naformulovat a vzučující opraví ručně. Jedná se o varianty příkladů z písemky [@ htmlLink("http://user.mendelu.cz/marik/mtk/pisemky/2019_ZS/2019_ZS_prez_01.pdf","pro předmět Matematika z 18.12.2019")@]*.
+
+Cca čvrtina otázek by mohla být touto formou.
+
+## Derivace funkce
+
+Napište definici derivace funkce jedné proměnné
+
+*Poznámka:* Stačí zapsat vzorec
+
+*TIP:* Na webové stránce pluginu [@ htmlLink("https://www.mathjax.org/#demo","MathJax")@]* si můžete pohodlně text předpřipravit v LaTeXu i v AsciiMath.
+
+
+END_PGML
+
+BEGIN_TEXT
+\{essay_box()\}
+END_TEXT
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+ENDDOCUMENT(); 
+
+
+
+ENDDOCUMENT();
