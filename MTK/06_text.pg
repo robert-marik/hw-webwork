@@ -98,6 +98,8 @@ V [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/derivace_I/","úvodní
 * LaTeX dává autorovi plnou kontrolu nad vzorcem, ale syntaxe je o něco málo složitější. Naučíte se jej však snadno: klikněte kdekoliv v mých html prezentacích pravým tlačítkem na matematický vzorec, zvolte "Show Math As" a poté "TeX Commands" (LaTeX je nadstavba nad typografickým systémem TeX).
 * **Pokud se Vám nedaří něco zapsat, ptejte se v Teams v našem předmětu v kanále s technickými problémy.**
 
+*TIP:* Na webové stránce pluginu [@ htmlLink("https://www.mathjax.org/#demo","MathJax")@]* si můžete pohodlně text připravit v LaTeXu. Uvidíte živý náhled vkládaného textu, nebudete muset klikat opakovaně na tlačítko s náhledem.
+
 Studenti, kterým se povede text zapsat správně dostanou 100%, ostatní méně.
 
 **V tomto příkladě nejde až tak o body, jde o mnohem víc. Jde o natrénování základní gramotnosti, která je žádoucí pro úspěch u závěrečné písemky.**
