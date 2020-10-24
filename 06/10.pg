@@ -50,7 +50,7 @@ Všimněte si ještě, že se vyhýbáme použití konkrétních jednotek. Mluv�
 
 [@ image("medved.jpg", width=>400) @]*
 
-ÚKOL: Tloušťka ledu v konstantních podmínkách roste podle Stefanova zákona rychlostí nepřímo úměrnou této tloušťce. Zapište tuto rovnici do odpovědního pole, vysvětlete všechny proměnné a zapište slovní interpretaci konstanty úměrnosti. Použijte vzor u Newtonova modelu výše. 
+Tloušťka ledu v konstantních podmínkách roste podle Stefanova zákona rychlostí nepřímo úměrnou této tloušťce. Zapište tuto rovnici do odpovědního pole, vysvětlete všechny proměnné a zapište slovní interpretaci konstanty úměrnosti. Použijte vzor u Newtonova modelu výše. 
 
 Toto není ani tak matematický úkol, jako formulační. Pokud si nejste jisti matematickou formulací modelu, podívejte se do cvičení k diferenciálním rovnicím. 
 
@@ -61,7 +61,7 @@ Toto není ani tak matematický úkol, jako formulační. Pokud si nejste jisti 
 * Odpověď musí být jednoznačná a pokud možno stručná.
 * Všechny matematické objekty (proměnné, rovnice) musí být zapsány jako matematické objekty pomocí příslušného značkovacího jazyka. Pro zápis matematických výrazů použijte LaTeX nebo ASCIIMath.
 
-Doporučení k sazbě matematiky a příklady, jak zrealizovat tato doporučení jsou v úlohách k přednášce o diferenciálních rovnicích (číslo 6). Zopakujte si tato doporučení a použijte je pro zápis své odpovědi.  Odpověď bude ohodnocena na
+Doporučení k sazbě matematiky a příklady, jak zrealizovat tato doporučení jsou v úlohách k přednášce o diferenciálních rovnicích (přednáška číslo 6, [@htmlLink("http://um.mendelu.cz/webwork2/MT-Marik/Prednaska_06/2","druhý příklad")@]*). Zopakujte si tato doporučení a použijte je pro zápis své odpovědi.  Odpověď bude ohodnocena na
 100%, pokud bude správně věčně a bude zapsána podle pravidel českého
 pravopisu a podle doporučení pro sazbu matematických výrazů. (Zde je
 hlavně důležité dodržet označení proměnných jako matematických
