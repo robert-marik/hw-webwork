@@ -52,7 +52,7 @@ Nyní si vyzkoušíme  je zobecnění předchozího příkladu. Rovnice již nen
 
 Například  rovnici
 [``` \frac{\mathrm dy}{\mathrm dx}= e^y(3x^7-6)```]
-můžeme po vydělení faktorem [``e^y``] přepsat do tvaru
+můžeme po vydělení faktorem [``e^y``] a vynásobení faktorem [`` \mathrm dx``] přepsat do tvaru
 [```e^{-y}\mathrm dy= (3x^7-6)\mathrm dx.```]
 (Všimněte si dobrého mravu nahradit zlomek [`` \frac 1{e^y}``] výrazem [`` e^{-y}``].)
 Levou stranu můžeme v programu WeBWork zapsat například jako *exp(-y) \* dy* nebo *e^(-y) \* dy*.

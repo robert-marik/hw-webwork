@@ -68,7 +68,7 @@ f("Parametrické rovnice křivky",
 "Při výpočtu křivkového integrálu používáme parametrické rovnice křivky. Jak je to s korespondencí této křivky a jejích parametrických rovnic?",
 [["Jedna křivka může mít více parametrických vyjádření, ta mohou být poměrně odlišná.",
 "Každá křivka má právě jedno parametrické vyjádření.",
-"Každá křivka má více parametrických vyjádření, která jdou dány jednoznačně až na aditivní konstantu.",
+"Každá křivka má více parametrických vyjádření, která jsou dány jednoznačně až na aditivní konstantu.",
 ]]);
 
 f(
@@ -97,7 +97,7 @@ f(
 [["Změní znaménko.",
 "Nezmění se.",
 "Vynuluje se.",
-"Zvetší se nebo zmenší o délku křivky v závislosti na znaménku.",
+"Zvětší se nebo zmenší o délku křivky v závislosti na znaménku.",
 ]]);
 
 f(

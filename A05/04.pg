@@ -124,7 +124,7 @@ BEGIN_PGML
 	  extra_html_tags=>'alt="' . $desc . '"' )
 @]*
 
-Křikvový integrál můžeme odhadnout podle obrázku. Představme si, že se jedná o práci. Křivka odpovídá posunutí, vektorové pole odpovídá síle.
+Křivkový integrál můžeme odhadnout podle obrázku. Představme si, že se jedná o práci. Křivka odpovídá posunutí, vektorové pole odpovídá síle.
 
 * Na úseku, kde je vektorové pole kolmé ke křivce, je příspěvek ke křivkovému integrálu nulový.
 * Na úseku, kde vektorové pole má s křivkou úhel menší než 90 stupňů, tj. křivka je jenom lehce odkloněná od směru vektorového pole, je příspěvek ke křivkovému integrálu kladný. Tento příspěvek je tím větší, čím je delší křivka, nebo silnější pole (delší vektory) nebo menší úhel mezi křivkou a polem. Pokud sledujeme jenom orientaci, je největší příspěvek v případě, že křivka je přesně ve směru vektorového pole, tj. vektorové pole je tečné ke křivce.

@@ -337,7 +337,7 @@ směrem jako křivka. Proto je integrál $sign0.",
 BEGIN_PGML
 ## Odhad křivkového integrálu podle obrázku
 
-Nyní rozšíříme předchozí příklad. Křivky jsou zpravidla z několika úseků. Na každém určíme, zda je křikvový integrál kladný, záporný nebo nulový a poté sečteme jednotlivé příspěvky. Opět platí, že
+Nyní rozšíříme předchozí příklad. Křivky jsou zpravidla z několika úseků. Na každém určíme, zda je křivkový integrál kladný, záporný nebo nulový a poté sečteme jednotlivé příspěvky. Opět platí, že
 
 * pole kolmo na křivku nepřispívá k celkové hodnotě,
 * pole ve směru křivky přispívá k celkové hodnotě kladně a to tím více, čím je větší délka vektorů tohoto pole a čím více je pole orientováno ve směru křivky,
