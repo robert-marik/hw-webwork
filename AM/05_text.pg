@@ -30,6 +30,8 @@ BEGIN_PGML
 
 U zkoušky se setkáte i s otázkou vyžadující slovní odpověď. Pokud budete psát v učebně a na papír, není v tom problém. Ale pokud zde ve WeBWorKu, musíte být schopni zapsat text kombinovaný s matematickými výrazy do počítače. Není to těžké, ale je nutné dodržet pravidla pro psaní takových textů.
 
+_Kdo chce na toto téma shlédnout online ukázky práce, má k dispozici [@ htmlLink("https://youtu.be/hSU3Vr4FgD0","video na tomto odkazu") @]*._
+
 Základní pravidla jsou shrnuta níže. Pokud nevidíte rozdíl mezi tím, co je dobře a co je špatně, ptejte se v chatu v Teams.
 
 ### 1. Matematické objekty odlišujeme speciálním fontem a speciálním prostředím.

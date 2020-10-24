@@ -28,6 +28,8 @@ BEGIN_PGML
 
 UPOZORNĚNÍ: V tomto příkladě si mimo jiné natrénujeme i zápis matematických výrazů v textovém editoru. Nepodceňte tuto dovednost, abyste měli možnost zapsat odpovědi při distančním zkoušení.
 
+_Kdo chce na toto téma shlédnout online ukázky práce, má k dispozici [@ htmlLink("https://youtu.be/hSU3Vr4FgD0","video na tomto odkazu") @]*._
+
 ## Slovní interpretace konstant úměrnosti v diferenciální rovnici
 
 Na přednáškách i ve cvičení jsme se setkali (a i dále se setkáme) s řadou matematických formulací přírodních jevů, kdy je rychlost úměrná jiné veličině. Slovní význam konstant úměrnosti je vhodné být schopen interpretovat slovně. Zpravidla postupujeme tak, že hodnotám, které figurují u konstanty úměrnosti přidělíme takovou číselnou hodnotu, aby na jedné straně rovnice zůstala buď jenom konstanta úměrnosti, nebo konstanta úměrnosti vynásobená záporným znaménkem. Veličina na pravé straně zpravidla derivace, tj. rychlost růstu a ta definuje význam konstanty. Pokud na pravé straně ještě navíc zůstane znaménko minus, máme rychlost poklesu. Několik příkladů následuje. Rychlost je někdy přirozenější formulovat jako změnu za jednotku času, ale obě vyjádření ("rychlost" a "změna za jednotku času") udávají totéž. 
