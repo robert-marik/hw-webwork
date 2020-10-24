@@ -86,7 +86,7 @@ END_PGML
 BEGIN_TEXT
 \{
 ColumnTable(
-"Nechť \(R\) je obdélník na obrázku a \( f(x,y) \) je funkce definovaná na  \( R \).  Převeďte dvojný integrál na dvojnásobný (s vnější integrací podle proměnné \(x\)) a určete meze.".
+"Nechť \(R\) je lichoběžník na obrázku a \( f(x,y) \) je funkce definovaná na  \( R \).  Převeďte dvojný integrál na dvojnásobný (s vnější integrací podle proměnné \(x\)) a určete meze.".
 $PAR.
 "\[ \displaystyle
 \iint\limits_R f(x,y) \, \mathrm dx\mathrm dy
@@ -104,7 +104,7 @@ END_TEXT
 
 BEGIN_PGML
 
-*Poznámka:* Jednotlivé meze se hodnotí nezávisle na sobě. Test tedy vyhodnocuje čtyři odpovědi, každou samostatně.
+*Poznámka:* Jednotlivé meze se hodnotí nezávisle na sobě. Test tedy vyhodnocuje čtyři odpovědi, každou samostatně. 
 
 END_PGML
 
