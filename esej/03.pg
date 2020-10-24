@@ -32,7 +32,7 @@ BEGIN_PGML
 
 Na  rozdíl  od  jiných  živočichů  jsou  malé  ryby  přibližně zmenšeniny velkých ryb a proto je u nich hmotnost přibližně  úměrná  třetí  mocnině  délky.  Najděte  souvislost mezi rychlostí s jakou roste hmotnost kapra a rychlostí,s jakou roste délka kapra.
 
-*Poznámka:* Stačí zapsat vzorec
+*Poznámka:* Zapište jako ucelený text s vysvětlením všech potřebných výrazů a rovnicí dávající do souvislosti obě rychlosti na samostatném řádku.
 
 *TIP:* Na webové stránce pluginu [@ htmlLink("https://www.mathjax.org/#demo","MathJax")@]* si můžete pohodlně text předpřipravit v LaTeXu i v AsciiMath.
 
