@@ -102,7 +102,7 @@ f(
 
 f(
 "Křivkový integrál druhého druhu pro různé parametrizace stejné křivky",
-"Jak se změní křivkový integrál druhého druhu, pokud pro výpočet použijeme jiné parametrické vyjádření křivky?",
+"Jak se změní křivkový integrál druhého druhu, pokud pro výpočet použijeme jiné parametrické vyjádření stejné křivky?",
 [["Nezmění se.",
 "Změní se o libovolnou aditivní konstantu.",
 "Změní se na svůj násobek.",
