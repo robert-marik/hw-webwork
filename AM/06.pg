@@ -1,0 +1,197 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+my $c=0;
+
+@nadpis=();
+@text=();
+@radio=();
+@reseni=();
+
+sub f {
+   my ($h,$a,$b)=(@_);
+   $c1=$c+1;
+   $nadpis[$c]="$c1. ".$h;
+   $text[$c]=$a;
+   $reseni[$c]=$b->[0]->[0];
+   $radio[$c]=RadioButtons($b,0);
+   $c=$c+1;
+}
+
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+my $c=0;
+
+@nadpis=();
+@text=();
+@radio=();
+@reseni=();
+
+sub f {
+   my ($h,$a,$b)=(@_);
+   $c1=$c+1;
+   $nadpis[$c]="$c1. ".$h;
+   $text[$c]=$a;
+   $reseni[$c]=$b->[0]->[0];
+   $radio[$c]=RadioButtons($b,0);
+   $c=$c+1;
+}
+
+
+f("Dvojný integrál hloubky jezera I",
+"Nechť \(h(x,y)\geq 0\) je v metrech hloubka jezera v místě o souřadnicích \((x,y)\). Nechť \(\Omega\) je množina popisující hladinu jezera. Co vyjadřuje integrál \[\iint_{\Omega}h(x,y)\,\mathrm dx\mathrm dy\] a jaké má jednotky?",
+[["Objem jezera v metrech krychlových.",
+"Střední hloubka jezera v metrech.",
+"Záporně vzatá střední hloubka jezera v metrech.",
+"Záporně vzatý objem jezera v metrech krychlových.",
+"Obsah plochy hladiny jezera v metrech čtverečních.",
+]]);
+
+
+f("Dvojný integrál hloubky jezera II",
+"Nechť \(h(x,y)\geq 0\) je v metrech hloubka jezera v místě o souřadnicích \((x,y)\). Nechť \(\Omega\) je množina popisující hladinu jezera. Nechť \(S=\iint_\Omega\,\mathrm dx\mathrm dy\) je obsah hladiny jezera. Co vyjadřuje integrál \[\frac 1S\iint_{\Omega}h(x,y)\,\mathrm dx\mathrm dy\] a jaké má jednotky?",
+[["Střední hloubka jezera v metrech.",
+"Obsah plochy hladiny jezera v metrech čtverečních.",
+"Objem jezera v metrech krychlových.",
+"Záporně vzatá střední hloubka jezera v metrech.",
+"Záporně vzatý objem jezera v metrech krychlových.",
+]]);
+
+f(
+"Dvojný integrál rychlosti I",
+"Nechť \(v(x,y)\) je rychlost v metrech za sekundu toku proudícího korytem v místě \((x,y)\) a \(\Omega\) je množina popisující průřez toku. Co vyjadřuje integrál \[\iint_{\Omega}v(x,y)\,\mathrm dx\mathrm dy\] a jaké má jednotky?",
+[["Tok průřezem v daném místě v metrech krychlových za sekundu.",
+"Střední rychlost toku v daném místě v metrech za sekundu.",
+"Celkový příčný průřez koryta v metrech čtverečních.",
+"Objem, který proteče daným místem od počátku měření času v metrech krychlových.",
+]]);
+
+
+f(
+"Dvojný integrál rychlosti II",
+"Nechť \(v(x,y)\) je rychlost v metrech za sekundu toku proudícího korytem v místě \((x,y)\) a \(\Omega\) je množina popisující průřez toku. Nechť \(S=\iint_\Omega\,\mathrm dx\mathrm dy\) je obsah průřezu. Co vyjadřuje integrál \[\frac 1S\iint_{\Omega}v(x,y)\,\mathrm dx\mathrm dy\] a jaké má jednotky?",
+[["Střední rychlost toku v daném místě v metrech za sekundu.",
+"Tok průřezem v daném místě v metrech krychlových za sekundu.",
+"Celkový příčný průřez koryta v metrech čtverečních.",
+"Objem, který proteče daným místem od počátku měření času v metrech krychlových.",
+]]);
+
+
+f(
+"Dvojný integrál plošné hustoty",
+"Nechť \(\sigma(x,y)\) je plošná hustota dvourozměrné desky v kilogramech na metrech čtvereční v místě \((x,y)\) a \(\Omega\) je množina popisující tuto desku. Co vyjadřuje integrál \[\iint_{\Omega}\sigma(x,y)\,\mathrm dx\mathrm dy\] a jaké má jednotky?",
+[["Celková hmotnost desky v kilogramech.",
+"Střední plošná hustota desky v kilogramech na metr čtvereční.",
+"Souřadnice těžiště desky v metrech.",
+"Kvadratický moment desky v kilogramech krát metr čtvereční.",
+]]);
+
+
+
+f(
+"Dvojný integrál hustoty výkonu zdrojů tepla",
+"Nechť \(\sigma(x,y)\) je plošná hustota zdrojů tepla na dvourozměrné desce ve wattech na metrech čtvereční v místě \((x,y)\) a \(\Omega\) je množina popisující tuto desku. Co vyjadřuje integrál \[\iint_{\Omega}\sigma(x,y)\,\mathrm dx\mathrm dy\] a jaké má jednotky?",
+[["Celkový tepelný výkon zdrojů tepla v desce ve wattech.",
+"Celková tepelná energie vynenerovaná zdroji tepla v desce za hodinu ve watthodinách.",
+"Celková tepelná energie vynenerovaná zdroji tepla v jednotkové ploše desky za hodinu ve watthodinách na metr čtvereční.",
+"Celkový tepelný výkon zdrojů tepla v jednotkové ploše desky za hodinu ve wattech na metr čtvereční.",
+"Celková hmotnost desky v kilogramech.",
+]]);
+
+
+
+f(
+"Dvojný integrál obecné funkce",
+"Nechť \(f(x,y)\) je libovolná funkce popisující vlastnosti dvourozměrné množiny v bodě \((x,y)\) a \(\Omega\) je množina popisující tuto množinu. Jakou jednotku má integrál \[\iint_{\Omega}f(x,y)\,\mathrm dx\mathrm dy?\]",
+[["Jednotku veličiny \(f\) vynásobené metrem čverečním.",
+"Jednotku veličiny \(f\) vydělené metrem čverečním.",
+"Jednotku veličiny \(f\) vynásobené metrem.",
+"Jednotku veličiny \(f\) vydělené metrem.",
+"Jednotku veličiny \(f\).",
+],"Na otázku není možno odpovědět obecně, záleží na konkrétní aplikaci."]);
+
+
+f(
+"Dvojný integrál \(y^2\)",
+"Nechť \(\Omega\) je průřez nosníku namáhaného silou kolmou k ose. Co vyjadřuje integrál  \[\iint_{\Omega}y^2\,\mathrm dx\mathrm dy\] a jakou má jednotku?",
+[["Kvadratický moment průřezu v metrech na čtvrtou.",
+"Poloha těžiště průřezu v metrech.",
+"Moment síly působící na průřezu v metrech na newton.",
+"Střední hodnota deformace nosníku v metrech.",
+]]);
+
+
+
+BEGIN_PGML
+
+## Přednáška Dvojný integrál
+
+[@ image("hw05.jpg", width=>400) @]*
+
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/06/","přednášky o dvojném integrálu") @]* a shlédnutí videa k této přednášce. Na některé otázky se doyvíte odpověď přímo v textu, odpovědi na některé otázky musíte vymyslet sami podle obecných návodů ukazujících, kdy a v jaké situaci dvojný integrál používáme a co tento integrál vyjadřuje.
+
+Ve všech případech níže měříme souřadnice v metrech.
+
+Po odeslání se nedozvíte, která odpověď byla správná a která ne. Můžete jenom odhadnout počet správných odpovědí po prvním pokusu podle celkového bodového zisku. Máte více pokusů a vždy se započítává ten nejlepší. Pracujte v klidu, nebojte se nahlížet do textu. 
+
+END_PGML
+
+$last=$c-1;
+
+foreach $i (0..$last) {
+
+BEGIN_PGML
+
+### [$nadpis[$i] ]*
+
+[$text[$i] ]*
+
+[_]{$radio[$i]}
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+_Řešení: [$reseni[$i] ]*_
+
+END_PGML_SOLUTION
+
+BEGIN_PGML
+-------------------
+END_PGML
+
+}
+
+BEGIN_PGML_HINT
+Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
+END_PGML_HINT
+
+
+ENDDOCUMENT();
+
