@@ -86,6 +86,13 @@ $popup = PopUp(["?","A","B"],$ALPHABET[$inv[0]]);
 #  Main text
 
 Context()->texStrings;
+
+BEGIN_PGML
+
+## Výpočet dvojného integrálu I
+
+END_PGML
+
 BEGIN_TEXT
 \{
 ColumnTable(

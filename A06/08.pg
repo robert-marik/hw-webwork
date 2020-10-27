@@ -3,6 +3,7 @@ DOCUMENT();        # This should be the first executable line in the problem.
 loadMacros(
   "PGstandard.pl",
   "PGML.pl",
+  "PGgraphmacros.pl",
   "MathObjects.pl",
   "PGcourse.pl"
 );
@@ -15,7 +16,7 @@ TEXT(beginproblem);
 ##############################################################
 
 Context("Numeric");
-Context()->variables->add(y =>'Real', z =>'Real');
+Context()->variables->add(y =>'Real');
 
 $a = random(2,8,2);
 
@@ -26,8 +27,41 @@ $ans2 = Compute("x^3+$b*x^2-x^5-$b*x^6");
 
 ##############################################################
 
+
+$gr = init_graph(-0.25,-0.25,1.25,1.25,axes=>[0,0],size=>[300,300]);
+$gr->lb('reset');
+$gr->lb( new Label(1.2,0.05,'x','black','center','middle'));
+$gr->lb( new Label(0.05,1.2,'y','black','center','middle'));
+$gr->new_color("lightblue",214,230,244);
+$gr->new_color("darkblue", 100,100,255);
+$gr->h_grid("gray",1);
+$gr->v_grid("gray",1);
+$gr->lb( new Label(1,-0.05,'1','black','center','middle'));
+$gr->lb( new Label(-0.05,1,'1','black','center','middle'));
+
+#
+#  Manually add graphs to canvases
+#
+
+add_functions($gr,
+"x   for x in <0,1> using color:darkblue and weight:2",
+"x^3 for x in <0,1> using color:darkblue and weight:2",
+);
+
+$gr->fillRegion([0.5,0.45,"lightblue"]);
+
+
+
+
+
+
 Context()->texStrings;
 BEGIN_PGML
+
+## Výpočet dvojného integrálu II
+
+[@ image(insertGraph($gr),width=>200,height=>200,tex_size=>450) @]*
+
 Vypočtěte dvojný integrál
 >> [``\displaystyle
 \iint_D  \left(x^2+[$a] y\right) \, \mathrm dx\mathrm dy={}``]
@@ -48,6 +82,6 @@ Context()->normalStrings;
 ##############################################################
 
 
-########################################################################
+#######################################################################
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

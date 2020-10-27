@@ -64,7 +64,7 @@ BEGIN_PGML
 [@ image("chimborazo.jpg", width=>400) @]*
 
 
-V přednášce jsme odvodili vztah pro působení síly na hráz přehrady a její težiště.
+V přednášce jsme odvodili vztah pro působení síly na hráz přehrady a její těžiště.
 
 Uvažujme hráz přehrady v České republice a stejnou hráz přehrady v ekvádorských horách. Je zde  o půl procenta menší tíhové zrychlení v porovnání s Českem díky větší vzdálenosti od středu země, kdy hraje roli nadmořská výška a zploštění zeměkoule. Představme si, že ekvádorskou přehradu napustíme těžkou vodou (s deuteriem místo vodíku, hustota těžké vody je o 10 procent vyšší než hustota běžné vody). Jak se změní působiště síly na přehradu a velikost síly?
 
