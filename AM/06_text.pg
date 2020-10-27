@@ -26,7 +26,7 @@ BEGIN_PGML
 Za určitých okolností je možné dvojný integrál [``` \iint_M x^8y \,\mathrm dx\mathrm dy```]
 zapsat ve tvaru součinu dvou jednoduchých integrálů. Napište, jaké podmínky musí splňovat množina [`M`], aby toto bylo umožněno a jak bude vypadat výsledný součin integrálů.
 
-Nápověda: Možná si budete muset nějakými vlastními proměnnými označit hranice množiny $M$.
+Nápověda: Možná si budete muset nějakými vlastními proměnnými označit hranice množiny [`M`].
 
 *TIP:* Na webové stránce pluginu [@ htmlLink("https://www.mathjax.org/#demo","MathJax")@]* si můžete pohodlně text připravit v LaTeXu i v AsciiMath a poté vykopírovat sem.
 
