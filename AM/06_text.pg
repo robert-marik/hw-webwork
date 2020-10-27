@@ -23,7 +23,7 @@ BEGIN_PGML
 
 ## Dvojný integrál jako součin jednoduchých integrálů
 
-Za určitých okolností je možné dvojný integrál [``` \iint_M x^ay \,\mathrm dx\mathrm dy```]
+Za určitých okolností je možné dvojný integrál [``` \iint_M x^8y \,\mathrm dx\mathrm dy```]
 zapsat ve tvaru součinu dvou jednoduchých integrálů. Napište, jaké podmínky musí splňovat množina [`M`], aby toto bylo umožněno a jak bude vypadat výsledný součin integrálů.
 
 Nápověda: Možná si budete muset nějakými vlastními proměnnými označit hranice množiny $M$.
@@ -37,14 +37,20 @@ BEGIN_TEXT
 \{essay_box()\}
 END_TEXT
 
-BEGIN_PGML_SOLUTION
-
-
-
-END_PGML_SOLUTION
-
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 
+
+
+BEGIN_PGML_SOLUTION
+
+Množina [`M`] musí být obdélník. V takovém případě, je-li [`M`] dána nerovnostmi
+ [```a \leq x\leq b```]
+ a
+ [```c \leq y\leq d,```]
+ je možné integrál vypočítat vztahem
+ [``` \int_a^b x^8 \,\mathrm dx \int_c^d y\,\mathrm dy.```]
+
+END_PGML_SOLUTION
 
 ENDDOCUMENT();
