@@ -167,7 +167,7 @@ $BR
 $c x^{$a}\left[\frac{y^{$b1}}{$b1}\right]_{x^2}^x
 = $d x^{$a}\left[ x^{$b1}-x^{$b2}\right] \]
 $BR$BR
-(c) Výsledný integrál vypočteme po roznásobení závorky a intergování dvou mocninných funkcí.
+(c) Výsledný integrál vypočteme po roznásobení závorky a integrování dvou mocninných funkcí.
 $BR
 \[ \def\textstyle{}\displaystyle \int_0^1\int_{x^2}^x $f \, \mathrm dy\mathrm dx
 = $d \int_0^1 x^{$apb1}-x^{$apb2}\mathrm dx

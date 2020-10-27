@@ -26,6 +26,8 @@ BEGIN_PGML
 Za určitých okolností je možné dvojný integrál [``` \iint_M x^ay \,\mathrm dx\mathrm dy```]
 zapsat ve tvaru součinu dvou jednoduchých integrálů. Napište, jaké podmínky musí splňovat množina [`M`], aby toto bylo umožněno a jak bude vypadat výsledný součin integrálů.
 
+Nápověda: Možná si budete muset nějakými vlastními proměnnými označit hranice množiny $M$.
+
 *TIP:* Na webové stránce pluginu [@ htmlLink("https://www.mathjax.org/#demo","MathJax")@]* si můžete pohodlně text připravit v LaTeXu i v AsciiMath a poté vykopírovat sem.
 
 END_PGML
@@ -34,6 +36,12 @@ END_PGML
 BEGIN_TEXT
 \{essay_box()\}
 END_TEXT
+
+BEGIN_PGML_SOLUTION
+
+
+
+END_PGML_SOLUTION
 
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
