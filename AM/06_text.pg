@@ -1,0 +1,42 @@
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("left.css");
+
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+$a=non_zero_random(-4,4,1);
+do { $b=non_zero_random(-8,8,1) } until ( abs($b) > 1 );
+$c=non_zero_random(-10,10);
+
+Context("Numeric")->variables->are($var=>'Real');
+
+BEGIN_PGML
+
+## Dvojný integrál jako součin jednoduchých integrálů
+
+Za určitých okolností je možné dvojný integrál [``` \iint_M x^ay \,\mathrm dx\mathrm dy```]
+zapsat ve tvaru součinu dvou jendoduchých integrálů. Napište, jaké podmínky musí splňovat množina [`M`], aby toto bylo umožněno a jak bude vypadat výsledný součin integrálů.
+
+*TIP:* Na webové stránce pluginu [@ htmlLink("https://www.mathjax.org/#demo","MathJax")@]* si můžete pohodlně text připravit v LaTeXu i v AsciiMath a poté vykopírovat sem.
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box()\}
+END_TEXT
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+
+ENDDOCUMENT();
