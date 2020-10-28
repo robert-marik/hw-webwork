@@ -67,7 +67,7 @@ $potencial=Compute("nelze");
 
 BEGIN_PGML
 
-## Závislost integrálu na integrační cestě, dvoučlenné vektorové pole
+## Nezávislost integrálu na integrační cestě, dvoučlenné vektorové pole
 
 Tento příklad je ideově stejný jako příklad předchozí, ale vektorové pole má každou komponentu ve tvaru součtu dvou funkcí.
 
@@ -77,7 +77,7 @@ Uvažujte křivkový integrál
 [``` \int_C ([$dx])\,\mathrm dx+ ([$dy]) \mathrm dy```]
 po křivce z bodu [`(0,0)`] do bodu [`([$bodX],[$bodY])`].  Ověřte  závislost či nezávislost na integrační cestě. 
 
-V případě, že integrál nezávisí na integrační cestě, určete skalární potenciál [`\varphi`] vektorového pole [``` \vec F=([$dx])\vec i + ([$dy])\vec j,```] tj. funkci splňující [`` \nabla\varphi=\vec F.``] (Odpověď je dána až na aditivní konstantu. Volte ji libovolnou ale pevnou, tj. nepište na konci [`\cdots +C`], ale například volte konstantnu nulovou. Pokud tento potenciál neexistuje, zapište slovo [|nelze|] nebo [|N|].)
+V případě, že integrál nezávisí na integrační cestě, určete skalární potenciál [`\varphi`] vektorového pole [``` \vec F=([$dx])\vec i + ([$dy])\vec j,```] tj. funkci splňující [`` \nabla\varphi=\vec F.``] (Odpověď je dána až na aditivní konstantu. Volte ji libovolnou ale pevnou, tj. nepište na konci [`\cdots +C`], ale například volte konstantu nulovou. Pokud tento potenciál neexistuje, zapište slovo [|nelze|] nebo [|N|].)
 
 >>[``\varphi(x,y)={}``][_________________________]{$potencial->cmp(upToConstant=>1)}<<
 

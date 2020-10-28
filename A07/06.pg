@@ -1,0 +1,88 @@
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+Context("Numeric");
+$showPartialCorrectAnswers = 1;
+
+$val1 = random(4,6,0.1);
+$val2 = random(2,4,0.1);
+$val3 = random(3,5,0.1);
+
+$findWhich = random(0,3,1);
+if ( $findWhich == 0 ) {
+    $pt0 = "(0,0)";
+    $pt1 = "(0,1)";
+    @pts = ( [ "(0,0)", "(1,0)" ], [ "(1,0)", "(1,1)" ],
+	     [ "(0,1)", "(1,1)" ] );
+} elsif ( $findWhich == 1 ) {
+    $pt0 = "(0,1)";
+    $pt1 = "(1,1)";
+    @pts = ( [ "(0,0)", "(1,0)" ], [ "(1,0)", "(1,1)" ],
+	     [ "(0,0)", "(0,1)" ] );
+} elsif ( $findWhich == 2 ) {
+    $pt0 = "(1,0)";
+    $pt1 = "(1,1)";
+    @pts = ( [ "(0,0)", "(0,1)" ], [ "(0,1)", "(1,1)" ],
+	     [ "(0,0)", "(1,0)" ] );
+} else {
+    $pt0 = "(0,0)";
+    $pt1 = "(1,0)";
+    @pts = ( [ "(0,0)", "(0,1)" ], [ "(0,1)", "(1,1)" ],
+	     [ "(1,0)", "(1,1)" ] );
+}
+$int = Compute( "$val1 + $val2 - $val3" );
+
+Context()->texStrings;
+TEXT(beginproblem());
+BEGIN_PGML
+
+##  Aditivita integrálu vzhledem k integračnímu oboru
+
+Nechť vektorové pole [`\vec F`] má skalární potenciál a nechť tedy křivkový integrál v tomto poli nezávisí na integrační cestě. Potom o hodnotě integrálu rozhodují pouze počáteční a koncový bod křivky a má smysl používat označení analogické tomu, jaké známe u integrálu funkce jedné proměnné: do horní meze integrálu napíšeme koncový bod křivky a do dolní meze počáteční bod křivky.
+Použijme toto označení a předpokládejme, že známe hodnotu následujících tří integrálů.
+
+[``` \int_{[$pts[0]->[0]]}^{[$pts[0]->[1]]}\vec F \,\mathrm d\vec r = [$val1] ```]
+[``` \int_{[$pts[1]->[0]]}^{[$pts[1]->[1]]}\vec F \,\mathrm d\vec r = [$val2] ```]
+[``` \int_{[$pts[2]->[0]]}^{[$pts[2]->[1]]}\vec F \,\mathrm d\vec r = [$val3] ```]
+
+Najděte hodnotu následujícího integrálu.
+
+>> [`` \int_{[$pt0]}^{[$pt1]}\vec F \,\mathrm d\vec r = {} ``][_______]{$int}<<
+
+END_PGML
+Context()->normalStrings;
+
+
+Context()->texStrings;
+SOLUTION(EV3(<<'END_SOLUTION'));
+$PAR Řešení $PAR
+
+Protože integrál nezávisí na integrační cestě, je možné najít integrál  \[ \int_{$pt0}^{$pt1}\vec F \,\mathrm d\vec r \] z
+bodu \($pt0\) do bodu \($pt1\) integrací po zbylých stranách jednotkového čtverce s vrcholy v bodech \((0,0)\), \((1,0)\), \((1,1)\) a \((0,1)\).
+Odsud (nakreslete si obrázek, jak na sebe křivky navazují)
+\[
+\int_{$pt0}^{$pt1}\vec F \,\mathrm  d\vec r =
+  \int_{$pts[0]->[0]}^{$pts[0]->[1]}\vec F \,\mathrm  d\vec r +
+  \int_{$pts[1]->[0]}^{$pts[1]->[1]}\vec F \,\mathrm  d\vec r +
+  \int_{$pts[2]->[1]}^{$pts[2]->[0]}\vec F \,\mathrm  d\vec r,
+\]
+a proto
+\[
+\int_{$pt0}^{$pt1}\vec F \,\mathrm  d\vec r =
+  \int_{$pts[0]->[0]}^{$pts[0]->[1]}\vec F \,\mathrm  d\vec r +
+  \int_{$pts[1]->[0]}^{$pts[1]->[1]}\vec F \,\mathrm  d\vec r -
+  \int_{$pts[2]->[0]}^{$pts[2]->[1]}\vec F \,\mathrm  d\vec r =
+  $val1 + $val2 - $val3 = $int.
+\]
+
+END_SOLUTION
+Context()->normalStrings;
+
+ENDDOCUMENT();
