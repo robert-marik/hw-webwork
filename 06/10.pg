@@ -71,6 +71,7 @@ výrazů.) Výhodou je stručná a výstižná odpověď. Rovnice (matematický 
 
 *TIP:* Na webové stránce pluginu [@ htmlLink("https://www.mathjax.org/#demo","MathJax")@]* si můžete pohodlně text připravit v LaTeXu i v AsciiMath. Uvidíte živý náhled vkládaného textu, nebudete muset klikat opakovaně na tlačítko s náhledem jako zde. Výsledný *zdrojový text* jenom vykopírujte do WeBWorKu.
 
+*TIP2:* Použijte pro psaní matematických znaků anglickou klávesnici (povolte si ji v operačním systému, pokud jste to neudělali dříve). Pokud nemáte na tlačítkách anglické znaky, najděte si je na [@ htmlLlink("https://en.wikipedia.org/wiki/British_and_American_keyboards","webu")@]*. V případě problémů pište na Teams.
 
 END_PGML
 
