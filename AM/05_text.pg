@@ -107,7 +107,7 @@ Můžete použít kopírování, ale některé znaky budete muset opravit ručn�
 
 *TIP:* Na webové stránce pluginu [@ htmlLink("https://www.mathjax.org/#demo","MathJax")@]* si můžete pohodlně text připravit v LaTeXu i v AsciiMath. Uvidíte živý náhled vkládaného textu, nebudete muset klikat opakovaně na tlačítko s náhledem jako zde. Výsledný *zdrojový text* jenom vykopírujte do WeBWorKu.
 
-*TIP2:* Použijte pro psaní matematických znaků anglickou klávesnici (povolte si ji v operačním systému, pokud jste to neudělali dříve). Pokud nemáte na tlačítkách anglické znaky, najděte si je na [@ htmlLlink("https://en.wikipedia.org/wiki/British_and_American_keyboards","webu")@]*. V případě problémů pište na Teams.
+*TIP2:* Použijte pro psaní matematických znaků anglickou klávesnici (povolte si ji v operačním systému, pokud jste to neudělali dříve). Pokud nemáte na tlačítkách anglické znaky, najděte si je na [@ htmlLink("https://en.wikipedia.org/wiki/British_and_American_keyboards","webu")@]*. V případě problémů pište na Teams.
 
 Studenti, kterým se povede text zapsat správně dostanou 100%, ostatní méně.
 

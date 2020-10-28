@@ -30,7 +30,7 @@ Nápověda: Možná si budete muset nějakými vlastními proměnnými označit 
 
 *TIP:* Na webové stránce pluginu [@ htmlLink("https://www.mathjax.org/#demo","MathJax")@]* si můžete pohodlně text připravit v LaTeXu i v AsciiMath a poté vykopírovat sem.
 
-*TIP2:* Použijte pro psaní matematických znaků anglickou klávesnici (povolte si ji v operačním systému, pokud jste to neudělali dříve). Pokud nemáte na tlačítkách anglické znaky, najděte si je na [@ htmlLlink("https://en.wikipedia.org/wiki/British_and_American_keyboards","webu")@]*. V případě problémů pište na Teams.
+*TIP2:* Použijte pro psaní matematických znaků anglickou klávesnici (povolte si ji v operačním systému, pokud jste to neudělali dříve). Pokud nemáte na tlačítkách anglické znaky, najděte si je na [@ htmlLink("https://en.wikipedia.org/wiki/British_and_American_keyboards","webu")@]*. V případě problémů pište na Teams.
 
 END_PGML
 
