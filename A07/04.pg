@@ -12,23 +12,25 @@ TEXT(beginproblem());
 
 BEGIN_PGML
 
-## Má zadané vektorové pole skalární potenciál?
+## Je křivkový integrál po uzavřené křivce nulový?
 
-Vektorové pole [``` \vec F=P\vec i+Q\vec j```] (za předpokladu dostatečně hladkých složek) je gradientem nějaké skalární funkce [`f`], jestliže platí [``` \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}. ```] Toto je snadné si zapamatovat. Platí-li totiž
-[``` P=\frac {\partial f}{\partial x},\quad \text{a}\quad  Q=\frac{\partial f}{\partial y}```]
-jsou obě parciální derivace [`` \frac{\partial P}{\partial y}``] a [`` \frac{\partial Q}{\partial x}``] a rovny smíšené parciální derivaci funkce [``f``] a podle Schwarzovy věty jsou si rovny.
 
-Například komponenty vektorového pole [``` \vec F= x^2y\vec i+ x^3\vec j```]
-jsou [``` P=x^2y\quad\text{a}\quad Q=x^3.```] Tyto komponenty 
-splňují
-[``` \frac{\partial P}{\partial y}=\frac{\partial}{\partial y}\left(x^2y\right)=x^2```]
-a
-[``` \frac{\partial Q}{\partial x} =\frac{\partial}{\partial x}\left(x^3\right)=3x^2.```]
-Protože jsou obě parciální derivace různé, vektorové pole nemá skalární potenciál.
+Toto je reformulace [@ htmlLink("http://um.mendelu.cz/webwork2/AM-Marik/04_Rotace/7","úlohy 7") @]* ze sady úloh věnované rotaci, tentokrát v jazyce křivkového integrálu. Zopakujte si v případě potřeby tuto úlohu a její řešení, pokud je již k dispozici.
+
+-----------
 
 [@ image("kiting.jpg", width=>400) @]*
 
-Problematika rozhodnout zda existuje skalární potenciál tedy nesouvisí s hledáním tohoto potenciálu (to bychom použili opak derivace, tj. integrál), ale je založena na porovnání derivací komponent vektorového pole. Mít kladnou odpověď na otázku týkající se existence skalárního potenciálu znamená, mít k dispozici silný nástroj pro studium zadaného vektorového pole. Například gravitační silové pole má skalární potenciál (gravitační potenciál) a proto můžeme pro studium objektů pohybujících se v gravitačním poli využít potenciální energii a zákon zachování mechanické energie. To dobře známe i ze středoškolské fyziky. Tady máme charakteristiku silových polí, kde je možno postupovat obdobně.
+Vektorové pole, které je gradientem nějaké skalární funkce [`f`], má tu vlastnost, že křivkový integrál po uzavřené křivce je nulový.
+
+Například komponenty vektorového pole [``` \vec F= x^2y\vec i+ x^3\vec j```]
+splňují
+[``` \frac{\partial}{\partial y}\left(x^2y\right)=x^2```]
+a
+[``` \frac{\partial}{\partial x}\left(x^3\right)=3x^2.```]
+Protože jsou obě parciální derivace různé, vektorové pole [`\vec F`] nemá skalární potenciál a integrál [``` \oint_C x^2y\,\mathrm dx + x^3\,\mathrm dy```] po uzavřené křivce [`C`] může být nenulový. Pokud by naopak byly obě derivace stejné, znamenalo by to, že existuje skalární potenciál a integrál je nulový pro libovolnou uzavřenou křivku [`C`]. 
+
+Tato problematika úzce souvisí se zavedením veličiny, která funguje podobně jak jsme zvyklí na potenciální energii v gravitačním poli Země. 
 
 END_PGML
 
@@ -64,7 +66,7 @@ foreach $n (1..4) {
 	$m2=random(1,3);
     }
     until ($n1!=$n2) or ($m1!=$m2);
-    $a=non_zero_random(-4,4);
+    $a=non_zero_random(1,4);
     $b=random(1,5);
     $b=0;
 
@@ -88,24 +90,26 @@ foreach $n (1..4) {
     $v=Vector($fx,$fy)->reduce();
     if ($nahoda==0)
     {
-       $ans=RadioButtons(["Ano, vektorové pole má skalární potenciál","Ne, vektorové pole nemá skalární potenciál"],0);
+       $ans=RadioButtons(["Ano, integrál je nulový pro libovolnou uzavřenou křivku \(C\).","Ne, integrál po uzavřené křivce \(C\) může být i nenulový."],0);
        $jsou_nejsou="jsou";
        $existuje_neexistuje="existuje";
+       $nula_nenula="Křivkový integrál je roven nule pro libovolnou uzavřenou křivku \(C\).";
        }
        else
        {
-       $ans=RadioButtons(["Ano, vektorové pole má skalární potenciál","Ne, vektorové pole nemá skalární potenciál"],1);
+       $ans=RadioButtons(["Ano, integrál je nulový pro libovolnou uzavřenou křivku \(C\).","Ne, integrál po uzavřené křivce \(C\) může být i nenulový."],1);
        $jsou_nejsou="nejsou";
        $existuje_neexistuje="neexistuje";
+       $nula_nenula="Není garantováno, že křivkový integrál je roven nule pro libovolnou uzavřenou křivku \(C\). Obecně být roven nule nemusí.";
        }
 
 BEGIN_PGML
 
 ----------------
 
-Má následující vektorové pole skalární potenciál?
+Je možné s jistotou tvrdit, že následující integrál po uzavřené křivce je nulový?
 
-    [``` \vec F_{[$n]}=[$v]```]
+    [``` I_{[$n]}=\oint_C [$fx]\,\mathrm dx+[$fy]\,\mathrm dy```]
     [_]{$ans}
 
 
@@ -118,7 +122,7 @@ Musíme vypočítat parciální derivace
 [``` \frac{\partial }{\partial x}\left([$fy]\right) ```]
 a
 [``` \frac{\partial }{\partial y}\left([$fx]\right) ```]
-a podle toho zda jsou nebo nejsou stejné správně usoudit na existenci nebo neexistenci skalárního potenciálu.
+a podle toho zda jsou nebo nejsou stejné správně usoudit na existenci nebo neexistenci skalárního potenciálu a tím i na nulovost nebo možnou nenulovost daného integrálu.
 
 END_PGML_HINT
 
@@ -130,7 +134,8 @@ Parciální derivace
 a
 [``` \frac{\partial }{\partial y}\left([$fx]\right) ```]
 [$jsou_nejsou]
-stejné a skalární potenciál k danému vektorovém poli [$existuje_neexistuje].
+stejné, skalární potenciál k danému vektorovém poli [$existuje_neexistuje].
+[$nula_nenula]
 
 END_PGML_SOLUTION
 

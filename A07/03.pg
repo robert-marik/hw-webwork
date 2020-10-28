@@ -1,0 +1,145 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "MathObjects.pl",
+    "parserFormulaUpToConstant.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+Context("Vector");
+
+Context()->variables->are(x=>"Real",y=>"Real",a=>"Real");
+Context()->flags->set(ijk=>1 );
+Context()->constants->set(
+  i => {TeX => "\,\mathit{\vec i}"},
+  j => {TeX => "\,\mathit{\vec j}"},
+  k => {TeX => "\,\mathit{\vec k}"},
+);
+
+$nahoda1=random(0,1);
+$nahoda2=1-$nahoda1;
+
+$a=non_zero_random(2,4,1);
+$b=non_zero_random(1,3,1);
+
+$c=non_zero_random(1,5,1);
+$d=non_zero_random(1,5,1);
+$nasobek1=non_zero_random(-4,4,1);
+$nasobek2=non_zero_random(-4,4,1);
+
+
+$jmenovatel=gcd($a, $b);
+$jmenovatel=gcd($jmenovatel, $nasobek2 * $nahoda1 * ($c));
+$jmenovatel=gcd($jmenovatel, $nasobek2 * $nahoda2 * ($d));
+
+$potencial=Formula(" ( $nasobek1 * (x)^($a)*(y)^($b) + $nasobek2 * $nahoda1 * (x)^($c) + $nasobek2 * $nahoda2 * (y)^($d) ) / ($jmenovatel)")->reduce();
+
+$P=Formula("  a*(($a)/($jmenovatel)) * (x)^($a-1)*(y)^($b) + $nasobek2 * $nahoda1 * ($c)/($jmenovatel)*(x)^($c-1)")->reduce();
+$Pa=Formula("  $nasobek1*(($a)/($jmenovatel)) * (x)^($a-1)*(y)^($b) + $nasobek2 * $nahoda1 * ($c)/($jmenovatel)*(x)^($c-1)")->reduce();
+
+$Q=Formula(" $nasobek1 * ($b)/($jmenovatel) * (x)^($a)*(y)^($b-1) + $nasobek2 * $nahoda2 * ($d)/($jmenovatel)*(y)^($d-1)")->reduce();
+
+$Pint=Formula(" $nasobek1 /($jmenovatel) * (x)^($a)*(y)^($b) + $nasobek2 * $nahoda1 /($jmenovatel)*(x)^($c)")->reduce();
+$Qint=Formula(" $nasobek1 /($jmenovatel) * (x)^($a)*(y)^($b) + $nasobek2 * $nahoda2 /($jmenovatel)*(y)^($d)")->reduce();
+
+$dQ=$Q->D('x');
+$dP=$P->D('y');
+
+
+$Pole=Vector("<$P,$Q>");
+
+$i = random(0,6,1);
+$kolik=random(2,4);
+
+if ($i<3)
+{
+$bodX=1;
+$bodY=$kolik;
+}
+else
+{
+$bodX=$kolik;
+$bodY=1;
+}
+
+$answer1=$potencial->eval(x=>$bodX,y=>$bodY);
+$answer2=$potencial->eval(x=>1,y=>1);
+$answer=Compute("($answer1)-($answer2)")->reduce;
+
+
+BEGIN_PGML
+
+## Parametr zaručující nezávislost křivkového integrálu na integrační cestě
+
+Toto je reformulace [@ htmlLink("http://um.mendelu.cz/webwork2/AM-Marik/04_Rotace/9","úlohy 9") @]* ze sady úloh věnované rotaci, tentokrát v jazyce křivkového integrálu. Zopakujte si v případě potřeby tuto úlohu a její řešení, pokud je již k dispozici.
+
+-----------
+
+Určete, pro kterou hodnotu parametru je křivkový integrál
+[``` \int_C \vec F\,\mathrm d\vec r```]
+vektorového pole [``` \vec F(x,y)=[$Pole]```] nezávislý na integrační cestě. Pro tuto hodnotu parametru určete skalární potenciál a hodnotu křivkového integrálu po křivce z bodu [`(1,1)`] do bodu [`([$bodX],[$bodY]).`]
+
+Skalární potenciál existuje pro [``a={}``][____]{$nasobek1}.
+
+Při hodnotě parametru zaručující existenci skalárního potenciálu je tento skalární potenciál roven
+>> [``\varphi={}``][__________________]{$potencial->cmp(upToConstant=>1)}[``{}+C.``]<<
+
+Křivkový integrál je
+>> [`` \int_C \vec F\,\mathrm d\vec r={}``][___________]{$answer}<<
+
+END_PGML
+
+
+BEGIN_PGML_HINT
+
+Musíte najít hodnotu parametru pro kterou jsou stejné parciální derivace
+[``` \frac{\partial }{\partial x} ([$Q]) ```]
+a 
+[``` \frac{\partial }{\partial y} ([$P]) ```]
+a dále pracovat s touto hodnotou parametru způsobem stejným jako v předchozích dvou příkladech.
+
+Pro tuto hodnotu musíte vypočítat integrály
+[``` \int [$P]\,\mathrm dx ```]
+a
+[``` \int [$Q]\,\mathrm dy ```]
+a z výsledku sestavit skalární potenciál.
+
+Poté musíte určit nárůst skalárního potenciálu mezi body   [`([$bodX],[$bodY])`] a [`(1,1)`].
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Musíme najít hodnotu parametru pro kterou jsou stejné derivace
+[``` \frac{\partial }{\partial x} ([$Q])=[$dQ] ```]
+a 
+[``` \frac{\partial }{\partial y} ([$P])=[$dP]. ```]
+Tyto derivace jsou stejné pro [`a=[$nasobek1]`].
+
+Platí
+[``` \int [$Pa]\,\mathrm dx =[$Pint]+C(y)```]
+a
+[``` \int [$Q]\,\mathrm dy =[$Qint]+C(x).```]
+Skalární potenciál je (jednozančně až na případnou aditivní konstantu)
+[``` \varphi(x,y)=[$potencial].```]
+
+Po dosazení koncových bodů křivky dostáváme
+[```\varphi(1,1)=[$answer2]```]
+a 
+[```\varphi([$bodX],[$bodY])=[$answer1],```]
+v důsledku čehož
+[``` \int_C \vec F\,\mathrm d\vec r = [$answer1]-[$answer2]=\cdots```]
+(nemusíte dopočítávat, WeBWorK si tato čísla odečte sám.)
+
+END_PGML_SOLUTION
+
+
+
+ENDDOCUMENT();
