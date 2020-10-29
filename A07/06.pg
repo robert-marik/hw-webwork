@@ -41,6 +41,10 @@ $int = Compute( "$val1 + $val2 - $val3" );
 
 Context()->texStrings;
 TEXT(beginproblem());
+
+$showHint = 1;
+$showPartialCorrectAnswers = 1;
+
 BEGIN_PGML
 
 ##  Aditivita integrálu vzhledem k integračnímu oboru
@@ -52,15 +56,23 @@ Použijme toto označení a předpokládejme, že známe hodnotu následujícíc
 [``` \int_{[$pts[1]->[0]]}^{[$pts[1]->[1]]}\vec F \,\mathrm d\vec r = [$val2] ```]
 [``` \int_{[$pts[2]->[0]]}^{[$pts[2]->[1]]}\vec F \,\mathrm d\vec r = [$val3] ```]
 
-Najděte hodnotu následujícího integrálu.
+Najděte hodnotu následujícího integrálu. (Výsledek stačí zapsat ve formě součtu nebo rozdílu, nemusíte numericky dopočítávat, WeBWorK si případný součet nebo rozdíl vypočítá sám.)
 
->> [`` \int_{[$pt0]}^{[$pt1]}\vec F \,\mathrm d\vec r = {} ``][_______]{$int}<<
+>> [`` \int_{[$pt0]}^{[$pt1]}\vec F \,\mathrm d\vec r = {} ``][____________________]{$int}<<
 
 END_PGML
 Context()->normalStrings;
 
 
 Context()->texStrings;
+
+BEGIN_PGML_HINT
+
+Nakreslete si obrázek a využijte aditivitu vzhledem k integračnímu oboru. Pracujte s křivkami tvořícími strany jednotkového čtverce s vrcholy v bodech s vrcholy v bodech [`(0,0)`], [`(1,0)`], [`(1,1)`] a [`(0,1)`]. Mezi počátečním a koncovým bodem křivky se namísto po jedné straně křivky dostaneme po zbylých třech stranách. V případě, že bychom potřebovali směr křivky obrátit, můžeme tak učinit se současnou změnou znaménka integrálu (změnou orientace křivkový integrál mění znaménko).
+
+END_PGML_HINT
+
+
 SOLUTION(EV3(<<'END_SOLUTION'));
 $PAR Řešení $PAR
 
