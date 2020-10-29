@@ -1,0 +1,127 @@
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("left.css");
+
+$showPartialCorrectAnswers = 1;
+
+
+$co="";
+$i=random(1,3);
+if ($i==1)
+{
+  $co="jednorozměrný případ,";
+  $dimenze="Jednorozměrná";
+}
+elsif ($i==2)
+{
+  $co="dvourozměrný případ,";
+  $dimenze="Dvourozměrná";
+}
+else
+{
+  $dimenze="Trojrozměrná";
+}
+
+$i=random(1,2);
+if ($i==1)
+{
+ $stacionarnost=" stacionární";
+ $co=$co." stacionární";
+}
+else
+{
+ $stacionarnost=" nestacionární";
+}
+
+$i=random(1,2);
+if ($i==1)
+{
+ $zdroje=" bez zdrojů";
+ $co=$co." rovnici bez přítomnosti zdrojů";
+}
+else
+{
+ $stacionarnost=" se zdroji";
+}
+
+$i=random(1,2);
+if ($i==1)
+{
+ $izotropie=" izotropním";
+ $co=$co.", v izotropním materiálu,";
+}
+else
+{
+ $izotropie=" anizotropním";
+ $co=$co.", v anizotropním materiálu,";
+}
+
+
+$i=random(1,2);
+if ($i==1)
+{
+ $homogenita=" homogenní";
+ $co=$co." který je homogenní";
+}
+else
+{
+ $homogenita=" který je nehomogenní";
+}
+
+
+$i=random(1,2);
+if ($i==1)
+{
+ $linearita=" nelineární";
+ $co=$co." s nelineární materiálovou odevou";
+}
+else
+{
+ $linearita=" lineární";
+ $co=$co." s lineární materiálovou odevou";
+}
+
+
+
+
+BEGIN_PGML
+
+## Difuzní rovnice v souřadnicích
+
+Difuzní rovnice v trojrozměrném materiálu, má při volbě souřadných os ve vlastních směrech difuzní matice tvar [``` \frac{\partial u}{\partial t}=\sigma + \frac{\partial }{\partial x}\left(k_x \frac{\partial u}{\partial x}\right)+ \frac{\partial }{\partial y}\left(k_y \frac{\partial u}{\partial y}\right)+ \frac{\partial }{\partial z}\left(k_z \frac{\partial u}{\partial z}\right). ```]
+
+Napište tvar, do jakého se rovnice zjednoduší, pokud budeme uvažovat [$co].
+
+*Pravidla:* Otázka je randomizovaná a každý má své vlastní zadání. Z odpovědi proto musí být jasné, jaké je zadání a jaká odpověď. Můžete použít následující formulaci ve které je už zahrnuto Vaše osobní zadání: *[$dimenze] [$stacionarnost] rovnice [$zdroje] v [$izotropie] materiálu, který je [$homogenita] a s [$linearita] materiálovou odezvou má tvar ...*. Plnou rovnici si můžete vykopírovat v úvodu tohoto zadání a upravit podle potřeby. Vložte ji jako rovnici na samostatný řádek (tj. oddělovače pomocí zpětného lomítka a hranaté závorky v případě LaTeXu).
+
+*TIP:* Na webové stránce pluginu [@ htmlLink("https://www.mathjax.org/#demo","MathJax")@]* si můžete pohodlně text připravit v LaTeXu i v AsciiMath a poté vykopírovat sem.
+
+*TIP2:* Použijte pro psaní matematických znaků anglickou klávesnici (povolte si ji v operačním systému, pokud jste to neudělali dříve). Pokud nemáte na tlačítkách anglické znaky, najděte si je na [@ htmlLink("https://en.wikipedia.org/wiki/British_and_American_keyboards","webu")@]*. V případě problémů pište na Teams.
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box()\}
+END_TEXT
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+
+
+BEGIN_PGML_SOLUTION
+
+...
+
+END_PGML_SOLUTION
+
+ENDDOCUMENT();
