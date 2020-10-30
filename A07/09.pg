@@ -174,14 +174,14 @@ $aa = Compute("$cb*($r^2)/(2*$d)");
 Context()->texStrings;
 BEGIN_SOLUTION
 V označení použitém na přednášce a v předchozích příkladech máme \( P = $a x - $b y\) a \(Q = $c x \). Odsud
-\[ \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} =$c+ $b = $cb .\]
-Díky tomu můžeme psát Green's Theorem implies 
+\[ \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} =$c-(- $b) = $cb .\]
+Díky tomu můžeme psát
 \[ \begin{aligned} \int_{\partial M} \vec{F}   \mathrm d\vec{r}& =  
 \iint_M \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right)\,\mathrm dx\mathrm dy
 \\ &= \iint_M $cb \,\mathrm dx\mathrm dy  
 \\ &= $cb\iint_M 1 \,\mathrm dx\mathrm dy  
 \end{aligned}\]
-Integrál z jedničky je roven obsau množiny, tj. příslušnému obsahu kruhové výseče. Ten dostaneme jako příslušnou část obsahu kruhu o poloměru \($r\). Po vynásobení s faktorem \($cb\) dostáváme
+Integrál z jedničky je roven obsahu množiny, tj. příslušnému obsahu kruhové výseče. Ten dostaneme jako příslušnou část obsahu kruhu o poloměru \($r\). Po vynásobení s faktorem \($cb\) dostáváme
 \[ \int_{\partial M} \vec{F} d\vec{r} =  $aa \pi.\]
 END_SOLUTION
 
