@@ -28,6 +28,8 @@ BEGIN_PGML
 
 UPOZORNĚNÍ: V tomto příkladě si mimo jiné natrénujeme i zápis matematických výrazů v textovém editoru. Nepodceňte tuto dovednost, abyste měli možnost zapsat odpovědi při distančním zkoušení.
 
+_Máte za úkol naformulovat model růstu ledu, vysvětlit použité označení a podat slovní význam konstanty úmernosti, viz níže. Tento model se studoval mimo jiné i ve cvičení a pro ukázky formulované pro jiné rovnice můžete shlédnout ukázky níže. Zadání je poté dole u obrázku s medvědem._
+
 _Kdo chce na toto téma shlédnout online ukázky práce, má k dispozici [@ htmlLink("https://youtu.be/hSU3Vr4FgD0","video na tomto odkazu") @]*._
 
 ## Slovní interpretace konstant úměrnosti v diferenciální rovnici
