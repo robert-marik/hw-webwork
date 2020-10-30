@@ -1,0 +1,155 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+my $c=0;
+
+@nadpis=();
+@text=();
+@radio=();
+@reseni=();
+
+sub f {
+   my ($h,$a,$b)=(@_);
+   $c1=$c+1;
+   $nadpis[$c]="$c1. ".$h;
+   $text[$c]=$a;
+   $reseni[$c]=$b->[0]->[0];
+   $radio[$c]=RadioButtons($b,0);
+   $c=$c+1;
+}
+
+f(
+"Součin matice a vektoru",
+"Jaký dostaneme objekt po výpočtu součinu \(A\vec u\) čtvercové matice \(A\) a sloupcového vektoru \(\vec u\). (Sloupcový vektor chápeme také jako matici s jedním sloupcem.)",
+[["Sloupcový vektor",
+"Čtvercovou matici",
+"Reálné číslo"],
+"Operace není definována",
+]);
+
+f(
+"Součin matic",
+"Součin matic nemá jednu z vlastností, na kterou jsme zvyklí ze součinu reálných čísel. Jakou?",
+[["Komutativitu",
+"Asociativitu",
+"Distributivitu vzhledem ke sčítání",
+"Existenci neutrálního prvku",
+]]);
+
+f(
+"Neutrální prvek",
+"Jaký je neutrální prvek maticového součinu?",
+[["Čtvercová matice s jedničkami v hlavní diagonále a nulami jinde.",
+"Čtvercová matice s jedničkami v prvním řádku a nulami jinde.",
+"Čtvercová matice ze samých jedniček.",
+"Čtvercová matice ze samých nul."],
+"Neexistuje, operace nemá neutrální prvek."]
+);
+
+f(
+"Maticový součin",
+"Na jakou operaci se redukuje maticový součin matice a sloupcového vektoru",
+[["Na lineární kombinaci sloupců matice, kdy koeficienty jsou prvky sloupcového vektoru.",
+"Na lineární kombinaci vektoru, kde koeficienty jsou prvky matice.",
+"Na součin po složkách."],
+"Na žádnou, tato operace není definována"
+]);
+
+f("Matice v materiálovém inženýrství",
+"V materiálovém inženýrství pracujeme s maticemi, díky kterým můžeme formulovat zákony udávající odezvu na podnět. Jaké má tato operace vlastnosti.",
+[["Můžeme díky ní měnit směr i velikost vektoru.",
+"Můžeme měnit směr, ale zachovává se velikost vektoru.",
+"Můžeme měnit velikost vektoru při jistotě zachování směru vektoru."]]);
+
+f(
+"Vlastní vektory matice",
+"Jaká vlastnost charakterizuje vlastní vektory matice (vlastní směry matice).",
+[["Obraz je násobkem vektoru, má tedy stejný nebo opačný směr.",
+"Obraz je kladným násobkem vektoru, má tedy stejný směr.",
+"Obraz je nulovým násobkem vektoru, má nulovou velikost.",
+"Obraz je záporným vektoru, má tedy opačný směr.",
+"Obraz je kolmý na vzor a jejich skalární součin je nulový."]]
+);
+
+f(
+"Součin matic, je-li matice diagonální.",
+"Jak vypadá součin čtvercových matic \(AD\), je-li matice \(D\) diagonální?",
+[["Výsledek je tvořen sloupci matice \(A\), každý sloupec je vynásoben odpovídajícím diagonálním prvkem matice \(D\)",
+"Výsledek je tvořen řádky matice \(A\), každý řádek je vynásoben odpovídajícím diagonálním prvkem matice \(D\)",
+"Výsledkem je diagonální matice, kde násobíme odpovídající prvky v hlavní diagonále."]]);
+
+f(
+"Matice s vlastními směry ve směru souřadných os.",
+"Jak vypadá nejobecnější možná matice, která má vlastní vektory ve směru jednotlivých os?",
+[["Je diagonální",
+"Je nulová",
+"Je kladná",
+"Je jednotková",]]);
+
+
+
+BEGIN_PGML
+
+## Přednáška Lineární algebra (operace s vektory a maticemi)
+
+[@ image("hw07.jpg", width=>400) @]*
+
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/matice/","úvodní přednášky z lineární algebry") @]* a shlédnutí videa k této přednášce. 
+
+
+END_PGML
+
+
+$last=$c-1;
+
+foreach $i (0..$last) {
+
+BEGIN_PGML
+
+### [$nadpis[$i] ]*
+
+[$text[$i] ]*
+
+[_]{$radio[$i]}
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+_Řešení: [$reseni[$i] ]*_
+
+END_PGML_SOLUTION
+
+BEGIN_PGML
+-------------------
+END_PGML
+
+}
+
+BEGIN_PGML
+
+### Ještě nekončíme ...
+
+Pokračujte k další úloze. V ní se naučíte důležitou věc pro absolvování zkoušky: zapisovat matematické výrazy v textovém editoru. Budeme mít editor zde ve WeBWorKu, ale znalosti využijete například i v MS Wordu.
+
+END_PGML
+
+BEGIN_PGML_HINT
+Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
+END_PGML_HINT
+
+
+ENDDOCUMENT();
+

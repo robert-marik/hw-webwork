@@ -1,0 +1,48 @@
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("left.css");
+
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+$a=non_zero_random(-4,4,1);
+do { $b=non_zero_random(-8,8,1) } until ( abs($b) > 1 );
+$c=non_zero_random(-10,10);
+
+Context("Numeric")->variables->are($var=>'Real');
+
+$answer=Formula("$a+$b*($var-$c)")->reduce();   # funkce
+
+
+BEGIN_PGML
+
+## Slovní odpověď na otázku
+
+Derivaci funkce dané tabulkou v diskrétních bodech můžeme zapsat pomocí maticového násobení. V této souvislosti hraje roli matice, mající v hlavní diagonále čísla \(-2\), podél hlavní diagonály čísla \(1\) a jinak nuly. V přednášce je tato matice zapsána jako čtvercová matice s pěti řádky a pěti sloupci. Najděte ji, vykopírujte si ji (pravé tlačítko na matici -> Show Math As -> TeX Commands) a níže kód modifikujte tak, aby výsledkem byla matice stejného typu ale měla jenom čtyři řádky a čtyři sloupce.
+
+*TIP:* Na webové stránce pluginu [@ htmlLink("https://www.mathjax.org/#demo","MathJax")@]* si můžete pohodlně text připravit v LaTeXu i v AsciiMath. Uvidíte živý náhled vkládaného textu, nebudete muset klikat opakovaně na tlačítko s náhledem jako zde. Výsledný *zdrojový text* jenom vykopírujte do WeBWorKu.
+
+*TIP2:* Použijte pro psaní matematických znaků anglickou klávesnici (povolte si ji v operačním systému, pokud jste to neudělali dříve). Pokud nemáte na tlačítkách anglické znaky, najděte si je na [@ htmlLink("https://en.wikipedia.org/wiki/British_and_American_keyboards","webu")@]*. V případě problémů pište na Teams.
+
+Studenti, kterým se povede text zapsat správně dostanou 100%, ostatní méně.
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box()\}
+END_TEXT
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+
+ENDDOCUMENT();
