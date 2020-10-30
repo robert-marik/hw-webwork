@@ -135,7 +135,7 @@ BEGIN_TEXT
 ColumnTable(
 "Uvažujme vektorové pole \[ \vec{F}(x,y) = $F \] a křivku dle obrázku. Tato křivka je hranicí kruhové výseče \(M\) se středem v počátku, poloměrem  \( $r \) a úhlem u středu o velikosti
 \( \pi / $d \).
-Převeďte křivkový integrál \[\oint_{\partial C} \vec F\mathrm d\vec r\] použitím Greenovy věty na dvojnásobný.".
+Převeďte křivkový integrál \[\oint_{\partial M} \vec F\mathrm d\vec r\] použitím Greenovy věty na dvojnásobný.".
 $BR.
 $BR,
 $BCENTER.

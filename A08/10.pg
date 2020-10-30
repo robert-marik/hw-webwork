@@ -26,10 +26,6 @@ $answer=Formula("$a+$b*($var-$c)")->reduce();   # funkce
 
 BEGIN_PGML
 
-UPOZORNĚNÍ: V tomto příkladě si mimo jiné natrénujeme i zápis matematických výrazů v textovém editoru. Nepodceňte tuto dovednost, abyste měli možnost zapsat odpovědi při distančním zkoušení.
-
-_Kdo chce na toto téma shlédnout online ukázky práce, má k dispozici [@ htmlLink("https://youtu.be/hSU3Vr4FgD0","video na tomto odkazu") @]*._
-
 ## Slovní interpretace konstant úměrnosti v diferenciální rovnici
 
 Na přednáškách i ve cvičení jsme se setkali (a i dále se setkáme) s řadou matematických formulací přírodních jevů, kdy je rychlost úměrná jiné veličině. Slovní význam konstant úměrnosti je vhodné být schopen interpretovat slovně. Zpravidla postupujeme tak, že hodnotám, které figurují u konstanty úměrnosti přidělíme takovou číselnou hodnotu, aby na jedné straně rovnice zůstala buď jenom konstanta úměrnosti, nebo konstanta úměrnosti vynásobená záporným znaménkem. Veličina na pravé straně zpravidla derivace, tj. rychlost růstu a ta definuje význam konstanty. Pokud na pravé straně ještě navíc zůstane znaménko minus, máme rychlost poklesu. Několik příkladů následuje. Rychlost je někdy přirozenější formulovat jako změnu za jednotku času, ale obě vyjádření ("rychlost" a "změna za jednotku času") udávají totéž. 
@@ -61,11 +57,6 @@ Toto není ani tak matematický úkol, jako formulační. Pokud si nejste jisti 
 * Odpověď musí být jednoznačná a pokud možno stručná.
 * Všechny matematické objekty (proměnné, rovnice) musí být zapsány jako matematické objekty pomocí příslušného značkovacího jazyka. Pro zápis matematických výrazů použijte LaTeX nebo ASCIIMath.
 
-Doporučení k sazbě matematiky a příklady, jak zrealizovat tato doporučení jsou v úlohách k přednášce o diferenciálních rovnicích (přednáška číslo 6, [@htmlLink("http://um.mendelu.cz/webwork2/MT-Marik/Prednaska_06/2","druhý příklad")@]*). Zopakujte si tato doporučení a použijte je pro zápis své odpovědi.  Odpověď bude ohodnocena na
-100%, pokud bude správně věčně a bude zapsána podle pravidel českého
-pravopisu a podle doporučení pro sazbu matematických výrazů. (Zde je
-hlavně důležité dodržet označení proměnných jako matematických
-výrazů.) Výhodou je stručná a výstižná odpověď. Rovnice (matematický model) musí být na samostatném řádku, tj. pro její zápis použijeme buď dvojitý zpětný apostrof (v případě AsciiMath) nebo zpětné lomítko a hranaté závrky.
 
 **Podobně jako analogický úkol u přednášky: bodů za tuto činnost je málo, ale úokud se to nenaučíte, tak nebudete schopni zapsat odpovědi na některé otázky v písemce, pokud bude písemka distanční formou.**
 
