@@ -26,7 +26,7 @@ BEGIN_PGML
 
 ## Slovní odpověď na otázku
 
-Derivaci funkce dané tabulkou v diskrétních bodech můžeme zapsat pomocí maticového násobení. V této souvislosti hraje roli matice, mající v hlavní diagonále čísla \(-2\), podél hlavní diagonály čísla \(1\) a jinak nuly. V přednášce je tato matice zapsána jako čtvercová matice s pěti řádky a pěti sloupci. Najděte ji, vykopírujte si ji (pravé tlačítko na matici -> Show Math As -> TeX Commands) a níže kód modifikujte tak, aby výsledkem byla matice stejného typu ale měla jenom čtyři řádky a čtyři sloupce.
+Derivaci funkce dané tabulkou v diskrétních bodech můžeme zapsat pomocí maticového násobení. V této souvislosti hraje roli matice, mající v hlavní diagonále čísla [`-2`], podél hlavní diagonály čísla [`1`] a jinak nuly. V přednášce je tato matice zapsána jako čtvercová matice s pěti řádky a pěti sloupci. Najděte ji, vykopírujte si ji (pravé tlačítko na matici -> Show Math As -> TeX Commands) a níže kód modifikujte tak, aby výsledkem byla matice stejného typu ale měla jenom čtyři řádky a čtyři sloupce.
 
 *TIP:* Na webové stránce pluginu [@ htmlLink("https://www.mathjax.org/#demo","MathJax")@]* si můžete pohodlně text připravit v LaTeXu i v AsciiMath. Uvidíte živý náhled vkládaného textu, nebudete muset klikat opakovaně na tlačítko s náhledem jako zde. Výsledný *zdrojový text* jenom vykopírujte do WeBWorKu.
 
