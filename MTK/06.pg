@@ -41,7 +41,7 @@ f(
 
 f(
 "Praktická interpretace řešení",
-"Mějme rovnici popisující velikost populace živočišného druhu v dané lokalitě a počáteční podmínku udávající velikost této populace v současnosti. Co bude vyjadřovat řešení této počáteční úlohy.",
+"Mějme rovnici modelující růst populace živočišného druhu v dané lokalitě a počáteční podmínku udávající velikost této populace v současnosti. Co bude vyjadřovat řešení této počáteční úlohy.",
 [[
 "Řešením bude funkce udávající závislost velikosti populace na čase. Po dosazení libovolného času do této funkce budeme mít okamžitě velikost populace v daném časovém okamžiku.",
 "Řešením je funkce udávající, za jakých podmínek může být populace udržitelně lovena.",
