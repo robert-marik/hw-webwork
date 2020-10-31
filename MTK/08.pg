@@ -1,0 +1,133 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+my $c=0;
+
+@nadpis=();
+@text=();
+@radio=();
+@reseni=();
+
+sub f {
+   my ($h,$a,$b)=(@_);
+   $c1=$c+1;
+   $nadpis[$c]="$c1. ".$h;
+   $text[$c]=$a;
+   $reseni[$c]=$b->[0]->[0];
+   $radio[$c]=RadioButtons($b,0);
+   $c=$c+1;
+}
+
+f(
+"Inverzní matice",
+"Co rozumíme inverní maticí k zadané matici?",
+[["Součin matice a matice inverzní je roven jednotkové matici.",
+"Součet matice a matice invertní je roven nulové matici.",
+"Matice je symetrická podél hlavní diagonály.",
+"Matice se symetrická podél vedlejší diagonály.",
+"Matice jsou navzájem převrácené.",
+]]);
+
+
+f(
+"Ortogonální matice",
+"Jaké matice se nazývají ortogonální?",
+[["Ortogonální matice mají stejnou inverzní a transponovanou matici.",
+"Ortogonální matice jsou inverzní samy k sobě.",
+"Ortogonální matice nemají inverzní matici.",
+"Ortogonální matice mají nenulové prvky zarovnány v pravých úhlech.",
+]]);
+
+f(
+"Matice rotace",
+"Pro jaký úhel je matice rotace diagonální?",
+[["Vždy když \(\sin\theta=0\), tj. pro úhly \(0^{\circ}\) a \(180^\circ\).",
+"Vždy když \(\cos\theta=0\), tj. pro úhly \(90^{\circ}\) a \(-90^\circ\).",
+"Vždy když \(\cos\theta\sin\theta=0\), tj. pro úhly \(0^\circ\), \(90^{\circ}\) \(180^\circ\) a \(-90^\circ\)."],
+"Nikdy.",
+"Vždy."]
+);
+
+f(
+"Charakteristická rovnice matice",
+"K čemu slouží charakteristická rovnice matice?",
+[["Její kořeny (řešení) jsou vlastní čísla matice.",
+"Její koeficienty jsou vlastní čísla matice.",
+"Její funkční hodnoty udávají determinant matice.",
+"Její stupeň souvisí s počtem navzájemn různých vlastních čísel.",
+]]);
+
+f(
+"Rotace tenzoru",
+"Jak určujeme vlasnosti tenzoru (matice) v otočené soustavě souřadnic?",
+[["Násobíme matici zprava maticí rotace a zoleva inverzní maticí.",
+"Násobíme zleva maticí rotace.",
+"Násobíme zprava inverzní maticí k matici rotace.",
+"Násobíme zprava maticé rotace a celek dělíme determinantem.",
+]]);
+
+BEGIN_PGML
+
+## Přednáška Lineární algebra (inverzní matice, determinanty)
+
+[@ image("hw08.jpg", width=>400) @]*
+
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/inverzni_matice/","druhé přednášky z lineární algebry") @]* a shlédnutí videa k této přednášce. 
+
+
+END_PGML
+
+
+$last=$c-1;
+
+foreach $i (0..$last) {
+
+BEGIN_PGML
+
+### [$nadpis[$i] ]*
+
+[$text[$i] ]*
+
+[_]{$radio[$i]}
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+_Řešení: [$reseni[$i] ]*_
+
+END_PGML_SOLUTION
+
+BEGIN_PGML
+-------------------
+END_PGML
+
+}
+
+BEGIN_PGML
+
+### Ještě nekončíme ...
+
+Pokračujte k další úloze. 
+
+END_PGML
+
+BEGIN_PGML_HINT
+Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
+END_PGML_HINT
+
+
+ENDDOCUMENT();
+
