@@ -51,6 +51,8 @@ Pro  homogenní izotropní materiál s koeficientem tepelné vodivosti [`\lambda
 [``\nabla T=[$u]``].
 >> [``\vec q=-\lambda \nabla T =-\begin{bmatrix}[$lambda1]&[$lambda3]\\[$lambda3]&[$lambda2]\end{bmatrix}[$u]={}``][_____________________________]*{$ans}<<
 
+_Nezapomeňte, že pokud uděláte chybu v jedné komponentě, bude vektor vyhodnocený jako celek a červeně tedy budou označeny obě komponenty._
+
 END_PGML
 Context()->normalStrings;
 
@@ -65,7 +67,14 @@ END_PGML_HINT
 BEGIN_PGML_SOLUTION
 
 Přímým násobením vidíme, že
-[``-\lambda \nabla T =[$ans->reduce()]``].
+[```\begin{aligned}-\lambda \nabla T &=
+-\begin{bmatrix}[$lambda1]&[$lambda3]\\[$lambda3]&[$lambda2]\end{bmatrix}[$u]
+\\&=
+-([$u1])
+\begin{bmatrix}[$lambda1]\\[$lambda3]\end{bmatrix}
+-([$u2])
+\begin{bmatrix}[$lambda3]\\[$lambda2]\end{bmatrix}
+=[$ans->reduce()].\end{aligned}```]
 
 END_PGML_SOLUTION
 

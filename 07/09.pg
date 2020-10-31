@@ -54,6 +54,8 @@ Pro  homogenní ortotropní materiál s koeficientem tepelné vodivosti [`\lambd
 [``\nabla T=[$u]``].
 >> [``\vec q=-\lambda \nabla T =-\begin{bmatrix}[$lambda1]&0\\0&[$lambda2]\end{bmatrix}[$u]={}``][_________________]*{$ans}<<
 
+_Nezapomeňte, že pokud uděláte chybu v jedné komponentě, bude vektor vyhodnocený jako celek a červeně tedy budou označeny obě komponenty._
+
 END_PGML
 Context()->normalStrings;
 
