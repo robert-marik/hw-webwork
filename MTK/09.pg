@@ -42,7 +42,7 @@ BEGIN_PGML
 
 ## Přednáška Lineární algebra (inverzní matice, determinanty)
 
-[@ image("hw089.jpg", width=>400) @]*
+[@ image("hw09.jpg", width=>400) @]*
 
 V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/soustavy/","závěrečné přednášky z lineární algebry") @]* a shlédnutí videa k této přednášce. 
 
