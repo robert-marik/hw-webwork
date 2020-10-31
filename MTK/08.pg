@@ -71,7 +71,7 @@ f(
 
 f(
 "Rotace tenzoru",
-"Jak určujeme vlasnosti tenzoru (matice) v otočené soustavě souřadnic?",
+"Jak určujeme komponenty tenzoru (matice) v otočené soustavě souřadnic?",
 [["Násobíme matici zprava maticí rotace a zoleva inverzní maticí.",
 "Násobíme zleva maticí rotace.",
 "Násobíme zprava inverzní maticí k matici rotace.",
