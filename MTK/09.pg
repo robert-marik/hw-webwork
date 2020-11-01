@@ -40,7 +40,7 @@ f(
 
 f(
 "Řešení maticové rovnice",
-"Maticové řešení soustavy lineárních rovnic je založeno na inverzní matici. Tuto matici je však v obecném případě komplikované najít (časově náročné a numericky nestabilní). S touto nevýhodou se vypořádáva Jacobiho iterační metoda řešení tak, že přepíšeme soustavu do jiného tvaru a poté iteracemi hledáme řešení. V čem spočívá hlavní myšlenka této metody?",
+"Maticové řešení soustavy lineárních rovnic je založeno na inverzní matici. Tuto matici je však v obecném případě komplikované najít (časově náročné a numericky nestabilní). S touto nevýhodou se vypořádává Jacobiho iterační metoda řešení tak, že přepíšeme soustavu do jiného tvaru a poté iteracemi hledáme řešení. V čem spočívá hlavní myšlenka této metody?",
 [["Pracujeme s diagonální maticí.",
 "Pracujeme se symetrickou maticí.",
 "Pracujeme s maticí ve schodovitém tvaru",
@@ -87,8 +87,80 @@ f(
 "Je jednotková.",
 ]]);
 
+f(
+"Tenzor (matice) v otočené soustavě souřadnic",
+"Uvažujme tenzor napětí nebo libovolné zobrazení reprezentované čtvercovou \(2\times 2\) maticí \(A\in\mathbb R^{2\times 2}\). Jak bude vypadat matice zobrazení otočení o úhel \(\theta\) proti směru hodinových ručiček? Matice \(R(\theta)\) popisuje pootočení o úhel \(\theta\) proti směru hodinových ručiček.",
+[[
+"\(R(-\theta)AR(\theta)\)",
+"\(AR(-\theta)\)",
+"\(AR(\theta)\)",
+"\(R(-\theta)A\)",
+"\(R(\theta)A\)",
+]]);
 
+f(
+"Inverzní matice k matici rotace",
+"Uvažujme matici \(R(\theta)\) popisující rotaci o úhel \(\theta\) proti směru hodinových ručiček. Má tato matice inverzní matici?",
+[[
+"Ano, inverzní matice popisuje otočení v opačném směru, tj. o úhel \(-\theta\).",
+"Ano, ale pouze při otočení o úhel, který je celočíselným násobkem \(\pi\).",
+"Ano, matice rotace je inverzní sama k sobě.",
+"Ano, protože obě vlastní čísla matice jsou kladná.",
+"Ne, protože matice má právě dva různé vlastní směry.",
+"Ne, protože matice nemá vlastní směry.",
+]]);
 
+f(
+"Řešitelnost úlohy na vlastní čísla",
+"Za jaké podmínky má úloha \(A\vec u=\lambda \vec u\) na vlastní vektory a vlastní čísla nenulové řešení?",
+[[
+"Pokud je determinant matice \(A-\lambda I\) roven nule.",
+"Pokud je determinant matice \(A\) roven \(\lambda\).",
+"Pokud je determinant matice \(A\) roven \(\lambda^{-1}\).",
+"Pokud má matice \(A\) inverzi \(A^{-1}.\)",
+"Pokud má matice \(A\) nenulový determinant.",
+"Pokud má matice \(A\) nulový determinant.",
+]]);
+
+f(
+"Řešitelnost soustavy s invertibilní maticí",
+"Uvažujme soustavu lineárních rovnic s čtvercovou maticí soustavy \(A\), sloupcovým vektorem pravých stran \(B\) a sloupcovým vektorem neznámých \(X\). Co můžeme říct o řešitelnosti této soustavy. Předpokládejme, že všechny inverzní matice existují, pokud mají smysl.",
+[[
+"Soustava má jediné řešení vyjádřené vzorcem \(X=A^{-1}B\).",
+"Soustava má jediné řešení vyjádřené vzorcem \(X=A B^{-1}\).",
+"Soustava má nekonečně mnoho řešení a všechna řešení splňují relaci \(X=\frac{B}{A}\).",
+"Soustava má nekonečně mnoho řešení vyjádřených vzorcem \(X=A B^{-1}\).",
+"Soustava má nekonečně mnoho řešení vyjádřených vzorcem \(X=B-A\).",
+]]);
+
+f(
+"Význam vlastních směrů matice",
+"V čem je výhoda znalosti vlastních směrů matice popisující materiálové vlastnosti?",
+[[
+"Můžeme zvolit souřadnou soustavu tak, že matice je diagonální.",
+"Materiálová charakteristika je diagonální maticí.",
+"Materiálová charakteristika je reálné číslo.",
+"Matice je antisymetrická.",
+"Matici je možno transformovat s využitím inverzní matice.",
+]]);
+
+f(
+"Vlastní směr příslušející minimální vlastní hodnotě",
+"Uvažujme konstitutivní zákon se známým tenzorem (maticí) definujícím materiálové vlastnosti a známými vlastními směry této matice. Podnět je ve směru vlastního vektoru s minimální vlastní hodnotou. V jakém směru bude odezva?",
+[[
+"Ve stejném směru jako podnět.",
+"Obecně není možné rozhodnout, pokud materiál není izotropní.",
+"Ve směru kolmém na podnět.",
+]]);
+
+f(
+"Vlastní směr příslušející maximální vlastní hodnotě",
+"Uvažujme konstitutivní zákon se známým tenzorem (maticí) definujícím materiálové vlastnosti a známými vlastními směry této matice. Podnět je ve směru vlastního vektoru s maximální vlastní hodnotou. V jakém směru bude odezva?",
+[[
+"Ve stejném směru jako podnět.",
+"Obecně není možné rozhodnout, pokud materiál není izotropní.",
+"Ve směru kolmém na podnět.",
+]]);
 
 BEGIN_PGML
 
