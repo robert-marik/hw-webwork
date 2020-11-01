@@ -78,7 +78,9 @@ f(
 f(
 "Matice s vlastními směry v osách",
 "Jak vypadá matice, která má vlastní směry ve směrech jednotlivých souřadných os?",
-[["Je diagonální, nic více se o ní obecně nedá říci.",
+[[
+"Je diagonální, v diagonále má vlastní čísla.",
+"Je diagonální, nic více se o ní obecně nedá říci.",
 "Je ve schodovitém tvaru, nic více se o ní obecně nedá říci.",
 "Je symetrická, nic více se o ní obecně nedá říci.",
 "Je čtvercová, nic více se o ní obecně nedá říci.",
