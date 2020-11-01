@@ -168,7 +168,7 @@ BEGIN_PGML
 
 [@ image("hw09.jpg", width=>400) @]*
 
-V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/soustavy/","závěrečné přednášky z lineární algebry") @]* a shlédnutí videa k této přednášce. Otázky se však netýkají pouze poslední přednášky, ale protože se jedná o závěrečnou přednášku z lineární algebry, vrací se i k dalším důležitým pojmům z předchozích dvou přednášek. 
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/soustavy/","závěrečné přednášky z lineární algebry") @]* a shlédnutí videa k této přednášce. Otázky se však netýkají pouze poslední přednášky, ale protože se jedná o závěrečnou přednášku z lineární algebry, vrací se i k dalším důležitým pojmům z předchozích dvou přednášek. Listujte v textech a ve svých zápiscích. Přemýšlejte, jestli byste dokázali každouotázku odpovědět napoprvé. Přemýšlejte, zda byste dokázali odpovědět v případě, že by se nevybíralo z nabízených možností, ale měli byste odpověď zformulovat sami.
 
 
 END_PGML
