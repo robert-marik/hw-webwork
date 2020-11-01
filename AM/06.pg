@@ -152,7 +152,7 @@ BEGIN_PGML
 
 ## Přednáška Dvojný integrál
 
-[@ image("hw05.jpg", width=>400) @]*
+[@ image("hw06.jpg", width=>400) @]*
 
 V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/06/","přednášky o dvojném integrálu") @]* a shlédnutí videa k této přednášce. Na některé otázky se doyvíte odpověď přímo v textu, odpovědi na některé otázky musíte vymyslet sami podle obecných návodů ukazujících, kdy a v jaké situaci dvojný integrál používáme a co tento integrál vyjadřuje.
 
