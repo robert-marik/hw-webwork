@@ -1,0 +1,189 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+my $c=0;
+
+@nadpis=();
+@text=();
+@radio=();
+@reseni=();
+
+sub f {
+   my ($h,$a,$b)=(@_);
+   $c1=$c+1;
+   $nadpis[$c]="$c1. ".$h;
+   $text[$c]=$a;
+   $reseni[$c]=$b->[0]->[0];
+   $radio[$c]=RadioButtons($b,0);
+   $c=$c+1;
+}
+
+f("Konstitutivní vztah",
+"Při studiu transportních jevů, při odvození difuzní rovnice, hraje významnou roli konstitutivní vztah. Jak byste jeho význam charakterizovali slovně?",
+[[
+"Konstitutivní vztah převádí nerovnoměrnosti v prostorovém rozložení stavové veličiny na tok, který se snaží tyto nerovnoměrnosti vyhladit.",
+"Konstitutivní vztah přepočítává tok stavové veličiny na její akumulaci v daném bodě.",
+"Konstitutivní vztah vyjadřuje bilanci celkového množství stavové veličiny.",
+"Konstitutivní vztah vyjadřuje, jak se přítomnost zdrojů projeví na toku přenášejícím stavovou veličinu.",
+"Konstitutivní vztah vyjadřuje, že akumulaci stavové veličiny je možno chápat jako součet vydatnosti zdrojů v daném místě a intenzity, s jakou v daném místě klesá tok stavové veličiny.",
+]]);
+
+f("Divergence",
+"Která formulace vyjadřuje slovně pojem divergence vektorové funkce \(\vec q\), tj. \(\nabla \cdot \vec q\)?",
+[[
+"Divergence udává nárůst toku vektorového pole \(\vec q\) v daném místě.",
+"Divergence je rychlost růstu veličiny \(f\), tj. změna funkce \(f\) na intervalech \([x,x+h]\) a \([y,y+h]\).",
+"Divergence je rychlost růstu veličiny \(f\), tj. změna funkce \(f\) za jednotku času.",
+"Divergence je rychlost růstu veličiny \(f\), tj. změna funkce \(f\) způsobená jednotkovou změnou veličiny \(x\).",
+"Divergence je změna veličiny za zadaný časový interval.",
+"Divergence udává směr a intenzitu maximálního růstu veličiny \(f\).",
+]]);
+
+f("Gradient",
+"Která formulace vyjadřuje slovně pojem gradientu funkce \(f(x,y)\), tj. \(\nabla f\)?",
+[[
+"Gradient udává směr a intenzitu maximálního růstu veličiny \(f\).",
+"Gradient je rychlost růstu veličiny \(f\), tj. změna funkce \(f\) na intervalech \([x,x+h]\) a \([y,y+h]\).",
+"Gradient je rychlost růstu veličiny \(f\), tj. změna funkce \(f\) za jednotku času.",
+"Gradient je rychlost růstu veličiny \(f\), tj. změna funkce \(f\) způsobená jednotkovou změnou veličiny \(x\).",
+"Gradient je změna veličiny za zadaný časový interval.",
+]]);
+
+f("Tepelná modifikace",
+"V troubě tepelně modifikujete dřevo ve tvaru krychle. Do středu krychle máte zavedený teploměr. Měříte teplotu \(T\) jako funkci času \(t\). Jaká je slovní interpretace derivace této funkce, tj. \(\frac{\mathrm dT}{\mathrm dt}\)?",
+[[
+"změna teploty ve středu krychle za jednotku času",
+"celková změna teploty uprostřed krychle za celou dobu průběhu pokusu",
+"doba, za kterou se změní teplota o jednotku teploty",
+"okamžitá rychlost s jakou roste teplota v peci",
+"průměrná změna teploty v krychli za jednotku času",
+]]);
+
+f("Difuzní rovnice I",
+"Co lze s jistotou říci o difuzní rovnici ve tvaru \[\frac{\partial u}{\partial t}=\nabla\cdot(D\nabla u)?\]",
+[[
+"bezzdrojová",
+"dvourozměrná",
+"izotropní",
+"jednorozměrná",
+"stacionární",
+"trojrozměrná",
+]]);
+
+f("Difuzní rovnice II",
+"Jak byste v difuzní rovnici \[\frac{\partial u}{\partial t}=\nabla\cdot(D\nabla u)+\sigma\] slovně interpretovali člen na levé straně rovnice?",
+[[
+"rychlost růstu hustoty stavové veličiny, tj. změna množství stavové veličiny v jednotkovém objemu látky za jednotku času",
+"přírůstek toku přenášejícího stavovou veličinu, tedy část toku, která za jednotku času ubude v jednotkovém objemu ",
+"rychlost poklesu hustoty stavové veličiny, tj. množství stavové veličiny, které ubude v jednotkovém objemu látky za jednotku času",
+"úbytek toku přenášejícího stavovou veličinu, tedy část toku, která za jednotku času zůstane v jednotkovém objemu ",
+"výkon ze spotřebičů, tj. množství stavové veličiny, které v jednotkovém objemu za jednotku času spotřebují spotřebiče (zdroje bereme jako spotřebiče se záporným výkonem)",
+"výkon ze zdrojů, tj. množství stavové veličiny, které v jednotkovém objemu za jednotku času vygenerují zdroje (spotřebiče bereme jako zdroje se záporným výkonem)",
+]]);
+
+f("Difuzní rovnice III",
+"Jak byste v difuzní rovnici \[\frac{\partial u}{\partial t}=\nabla\cdot(D\nabla u)+\sigma\] slovně interpretovali člen \(\nabla\cdot(D\nabla u)\) na pravé straně rovnice?",
+[[
+"úbytek toku přenášejícího stavovou veličinu, tedy množství stavové veličiny, která za jednotku času zůstane v jednotkovém objemu ",
+"přírůstek toku přenášejícího stavovou veličinu, tedy množství stavové veličiny, která za jednotku času ubude v jednotkovém objemu ",
+"rychlost poklesu hustoty stavové veličiny, tj. množství stavové veličiny, které ubude v jednotkovém objemu látky za jednotku času",
+"rychlost růstu hustoty stavové veličiny, tj. změna množství stavové veličiny v jednotkovém objemu látky za jednotku času",
+"výkon ze spotřebičů, tj. množství stavové veličiny, které v jednotkovém objemu za jednotku času spotřebují spotřebiče (zdroje bereme jako spotřebiče se záporným výkonem)",
+"výkon ze zdrojů, tj. množství stavové veličiny, které v jednotkovém objemu za jednotku času vygenerují zdroje (spotřebiče bereme jako zdroje se záporným výkonem)",
+]]);
+
+f("Difuzní rovnice IV",
+"Jak byste v difuzní rovnici \[\frac{\partial u}{\partial t}=\nabla\cdot(D\nabla u)+\sigma\] slovně interpretovali člen \(\sigma\) na pravé straně rovnice?",
+[[
+"výkon ze zdrojů, tj. množství stavové veličiny, které v jednotkovém objemu za jednotku času vygenerují zdroje (spotřebiče bereme jako zdroje se záporným výkonem)",
+"přírůstek toku přenášejícího stavovou veličinu, tedy část toku, která za jednotku času ubude v jednotkovém objemu ",
+"rychlost poklesu hustoty stavové veličiny, tj. množství stavové veličiny, které ubude v jednotkovém objemu látky za jednotku času",
+"rychlost růstu hustoty stavové veličiny, tj. změna množství stavové veličiny v jednotkovém objemu látky za jednotku času",
+"úbytek toku přenášejícího stavovou veličinu, tedy část toku, která za jednotku času zůstane v jednotkovém objemu ",
+"výkon ze spotřebičů, tj. množství stavové veličiny, které v jednotkovém objemu za jednotku času spotřebují spotřebiče (zdroje bereme jako spotřebiče se záporným výkonem)",
+]]);
+
+f("Difuzní rovnice V",
+"Co lze s jistotou říci o difuzní rovnici ve tvaru  \[\frac{\partial u}{\partial t}=\frac{\partial}{\partial x}\left(D_x\frac{\partial u}{\partial x}\right)+\frac{\partial}{\partial y}\left(D_y\frac{\partial u}{\partial y}\right)?\]",
+[[
+"dvourozměrná",
+"izotropní",
+"jednorozměrná",
+"prostá",
+"rostoucí",
+"stacionární",
+"trojrozměrná",
+]]);
+
+f("Difuzní rovnice VI",
+"Co lze s jistotou říci o difuzní rovnici ve tvaru  \[0=\nabla\cdot(D\nabla u)+\sigma?\]",
+[[
+"stacionární",
+"bezzdrojová",
+"dvourozměrná",
+"izotropní",
+"jednorozměrná",
+"trojrozměrná",
+]]);
+
+BEGIN_PGML
+
+## Přednáška Vektorová pole, tok, zákony zachování
+
+[@ image("hw10.jpg", width=>400) @]*
+
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/vektorove_pole/","přednášky Vektorová pole, tok, zákony zachování") @]* a shlédnutí videa k této přednášce.
+
+
+END_PGML
+
+
+$last=$c-1;
+
+foreach $i (0..$last) {
+
+BEGIN_PGML
+
+### [$nadpis[$i] ]*
+
+[$text[$i] ]*
+
+[_]{$radio[$i]}
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+_Řešení: [$reseni[$i] ]*_
+
+END_PGML_SOLUTION
+
+BEGIN_PGML
+-------------------
+END_PGML
+
+}
+
+BEGIN_PGML
+
+END_PGML
+
+BEGIN_PGML_HINT
+Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
+END_PGML_HINT
+
+
+ENDDOCUMENT();
+
