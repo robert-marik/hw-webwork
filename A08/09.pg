@@ -46,7 +46,7 @@ $LHS=Formula("dy/(y^2+$d)")->reduce();
 
 BEGIN_PGML
 
-## Separace u separovatelné diferenciální rovnice
+## Separace proměnných II
 
 Nyní si vyzkoušíme  je zobecnění předchozího příkladu. Rovnice již není autonomní (vpravo jsou obě proměnné), ale proměnné se dají odseparovat.
 
