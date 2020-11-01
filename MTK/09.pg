@@ -76,6 +76,7 @@ f(
 ]]);
 
 
+
 BEGIN_PGML
 
 ## Přednáška Lineární algebra (inverzní matice, determinanty)
