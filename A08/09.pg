@@ -48,7 +48,7 @@ BEGIN_PGML
 
 ## Separace proměnných II
 
-Nyní si vyzkoušíme  je zobecnění předchozího příkladu. Rovnice již není autonomní (vpravo jsou obě proměnné), ale proměnné se dají odseparovat.
+Nyní si vyzkoušíme zobecnění předchozího příkladu. Rovnice již není autonomní (vpravo jsou obě proměnné), ale proměnné se dají odseparovat.
 
 Například  rovnici
 [``` \frac{\mathrm dy}{\mathrm dx}= e^y(3x^7-6)```]
