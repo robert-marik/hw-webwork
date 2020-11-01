@@ -1,0 +1,147 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+my $c=0;
+
+@nadpis=();
+@text=();
+@radio=();
+@reseni=();
+
+sub f {
+   my ($h,$a,$b)=(@_);
+   $c1=$c+1;
+   $nadpis[$c]="$c1. ".$h;
+   $text[$c]=$a;
+   $reseni[$c]=$b->[0]->[0];
+   $radio[$c]=RadioButtons($b,0);
+   $c=$c+1;
+}
+
+f(
+"Potenciál (kmenová funkce)",
+"Jak je definován skalární potenciál, tj. kmenová funkce vektorového pole \(\vec F\)?",
+[[
+"Funkce taková, že její gradient je \(\vec F\).",
+"Funkce taková, že její rotace je nulová.",
+"Funkce taková, že její rotace je rovna \(vec F\).",
+],"Otázka nemá smysl, skalární potenciál je možné definovat pouze pro skalární funkci."]
+);
+
+f(
+"Greenova věta",
+"Co vyjadřuje Greenova věta?",
+[[
+"Dává do souvislosti křivkový integrál po uzavřené křivce s jistým dvojným integrálem.",
+"Ukazuje nezávislost křivkového integrálu na integrační cestě (v jistých případech).",
+"Ukazuje nezávislost křivkového integrálu na integrační cestě (obecně, za všech okolností).",
+"Ukazuje nezávislost křivkového integrálu na parametrickém vyjádření křivky.",
+]]
+);
+
+f(
+"Greenova věta ve verzi pro tok a cirkulaci",
+"Greenovu větu umíme vyslovit pro cirkulaci (křivkový integrál) i pro tok křivkou (křivkový integrál kolmého pole). Jak se liší pravé strany Greenovy věty pro tyto případy?",
+[[
+"V jednom případě se integruje jedna z komponent rotace, ve druhém případě se integruje divergence.",
+"Nemění se, v obou případech je pravá strana stejná a rovna gradientu.",
+"Nemění se, v obou případech je pravá strana stejná a rovna kenové funkci.",
+],
+"Otázka nemá smysl, Greenovu větu nemůžeme použít pro výpočet toku.",
+"Otázka nemá smysl, Greenovu větu nemůžeme použít pro výpočet cirkulace.",
+]
+);
+
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+my $c=0;
+
+@nadpis=();
+@text=();
+@radio=();
+@reseni=();
+
+sub f {
+   my ($h,$a,$b)=(@_);
+   $c1=$c+1;
+   $nadpis[$c]="$c1. ".$h;
+   $text[$c]=$a;
+   $reseni[$c]=$b->[0]->[0];
+   $radio[$c]=RadioButtons($b,0);
+   $c=$c+1;
+}
+
+
+
+
+BEGIN_PGML
+
+## Přednáška Základní integrální věty z vektorové analýzy
+
+[@ image("hw07.jpg", width=>400) @]*
+
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/07/","přednášky o integrálních větách") @]* a shlédnutí videa k této přednášce. 
+
+Otázky jsou naformulovány tak, aby byly co nejkratší. Proto tiše předpokládáme, že všechny funkce jsou hladké, křivky regulární a uzavřené a všechny věty, které zmiňujeme, mají splněny všechny předpoklady. 
+
+END_PGML
+
+$last=$c-1;
+
+foreach $i (0..$last) {
+
+BEGIN_PGML
+
+### [$nadpis[$i] ]*
+
+[$text[$i] ]*
+
+[_]{$radio[$i]}
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+_Řešení: [$reseni[$i] ]*_
+
+END_PGML_SOLUTION
+
+BEGIN_PGML
+-------------------
+END_PGML
+
+}
+
+BEGIN_PGML_HINT
+Bez nápovědy, přečtěte si text přednášky, poslechněte video, přemýšlejte, poraďte se s kolegy, ...
+END_PGML_HINT
+
+
+ENDDOCUMENT();
+
