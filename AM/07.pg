@@ -64,42 +64,6 @@ f(
 ]
 );
 
-
-DOCUMENT();
-
-loadMacros(
-"PGstandard.pl",
-"MathObjects.pl",
-"parserRadioButtons.pl",
-"PGcourse.pl",
-"PGML.pl"
-);
-
-
-TEXT(beginproblem());
-$showPartialCorrectAnswers = 0;
-$showHint = 1;
-
-my $c=0;
-
-@nadpis=();
-@text=();
-@radio=();
-@reseni=();
-
-sub f {
-   my ($h,$a,$b)=(@_);
-   $c1=$c+1;
-   $nadpis[$c]="$c1. ".$h;
-   $text[$c]=$a;
-   $reseni[$c]=$b->[0]->[0];
-   $radio[$c]=RadioButtons($b,0);
-   $c=$c+1;
-}
-
-
-
-
 BEGIN_PGML
 
 ## Přednáška Základní integrální věty z vektorové analýzy
