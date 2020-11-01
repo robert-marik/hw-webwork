@@ -23,9 +23,10 @@ BEGIN_PGML
 
 [@ image("chemie.jpg", width=>400) @]*
 
-Derivace popisuje rychlost změny a proto je vhodná pro popis dějů probíhajících rychlostí, která se mění v čase. Někdy na rychlost změny má vliv více procesů a potom se jejich vlivy sčítají. Například při dopadu konstantního tepelného výkonu na těleso se zvyšuje teplota tohoto tělesa absorbováním dopadající energie. Teplota tedy roste konstantní rychlostí. Označme tuto konstantu [`k_1`]. Kromě toho těleso také vyzařuje teplo a toto vyzařování je podle vyzařovacího zákona úměrné čtvrté mocnině teploty. Proto vlivem vyzařování teplota klesá rychlostí úměrnou [`T^4`]. Označme konstantu úměrnosti [`k_2`]. Matematický model celého procesu je poté [``` \frac{\mathrm dT}{\mathrm dt} =k_1 - k_2 T^4.```]
+Derivace popisuje rychlost změny a proto je vhodná pro popis dějů probíhajících rychlostí, která se mění v čase.
 
-Někdy potřebujeme vyjádřit, že rychlost změny je úměrná dvěma veličinám. Například při chemické reakci ve které reaguje látka [`X`] s látkou [`Y`] je rychlost s jakou klesá veličina [`x`] udávající množství látky [`X`] úměrná současně sama sobě a současně veličině [`y`] udávající množství látky [`Y`]. Existuje tedy konstanta [`k`] taková, že platí [```\frac{\mathrm dx}{\mathrm dt}=-kxy.```]
+* Někdy na rychlost změny má vliv více procesů a potom se jejich vlivy sčítají. Například při dopadu konstantního tepelného výkonu na těleso se zvyšuje teplota tohoto tělesa absorbováním dopadající energie. Teplota tedy roste konstantní rychlostí. Označme tuto konstantu [`k_1`]. Kromě toho těleso také vyzařuje teplo a toto vyzařování je podle vyzařovacího zákona úměrné čtvrté mocnině teploty. Proto vlivem vyzařování teplota klesá rychlostí úměrnou [`T^4`]. Označme konstantu úměrnosti [`k_2`]. Matematický model celého procesu je poté [``` \frac{\mathrm dT}{\mathrm dt} =k_1 - k_2 T^4.```]
+* Někdy potřebujeme vyjádřit, že rychlost změny je úměrná dvěma veličinám. Například při chemické reakci ve které reaguje látka [`X`] s látkou [`Y`] je rychlost s jakou klesá veličina [`x`] udávající množství látky [`X`] úměrná současně sama sobě a současně veličině [`y`] udávající množství látky [`Y`]. Existuje tedy konstanta [`k`] taková, že platí [```\frac{\mathrm dx}{\mathrm dt}=-kxy.```]
 
 Pokusíme se o formulaci matematických modelů podobných procesů.
 

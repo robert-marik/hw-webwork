@@ -43,9 +43,9 @@ $co=Formula("($c*x^($b)+$d)")->reduce();
 
 BEGIN_PGML
 
-## Separace u autonomní diferenciální rovnice
+## Separace proměnných
 
-Autonomní diferenciální jsou automaticky rovnicemi se separovanými proměnnými. Zopakujte si postup řešení t ěchto rovnic podle přednášky a cvičení. Formálně derivaci chápeme jako podíl diferenciálů a násobením a dělením vhodnými veličinami se snažíme oddělit proměnné tak, aby jedna z proměnných byla vlevo a druhá vpravo. Například rovnici
+Zopakujte si postup řešení ODR se separovanými proměnnými podle přednášky a cvičení. Formálně derivaci chápeme jako podíl diferenciálů a násobením a dělením vhodnými veličinami se snažíme oddělit proměnné tak, aby jedna z proměnných byla vlevo a druhá vpravo. Například rovnici
 [``` \frac{\mathrm dx}{\mathrm dt}= 5(3x^7-6)```]
 můžeme po vydělení faktorem [``(3x^7-6)``] a vynásobení faktorem [`` \mathrm dt``] přepsat do tvaru
 [```\frac1{3x^7-6}\mathrm dx= 5\mathrm dt.```]
