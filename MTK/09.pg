@@ -31,10 +31,48 @@ sub f {
 }
 
 f(
-"Bude doplněno",
-"....",
-[["Ano.",
-"Ne.",
+"Maticová formulace soustavy rovnic",
+"Který z následujících zápisů je možno chápat jako kompaktní zápis soustavy rovnic s neznámou $X$.",
+[["$AX=B$",
+"$XA=B$",
+"$AB=X$"],
+"žádný z uvedených zápisů"]);
+
+f(
+"Řešení maticové rovnice",
+"Maticové řešení soustavy lineárních rovnic je založeno na inverzní matici. Tuto matici je však v obecném případě komplikované najít (časově náročné a numericky nestabilní). S touto nevýhodou se vypořádáva Jacobiho iterační metoda řešení tak, že přepíšeme soustavu do jiného tvaru a poté iteracemi hledáme řešení. V čem spočívá hlavní myšlenka této metody?",
+[["Pracujeme s diagonální maticí.",
+"Pracujeme se symetrickou maticí.",
+"Pracujeme s maticí ve schodovitém tvaru",
+"Pracujeme s maticí s nulovým determinantem.",
+"Transformujeme matici do vlastních směrů.",
+]]);
+
+f(
+"Konvergence Jacobiho metody",
+"Kdy je zaručeno, že Jacobiho metoda konverguje?",
+[["Když každý řádek má v hlavní diagonále větší číslo, než je součet absolutních hodnot ostatních prvků v tomto řádku.",
+"Když má matice nenulový determinant.",
+"Když je matice ve schodovitém tvaru.",
+"Když je determinant matice větší než součet prvků v hlavní diagonále.",
+"Když determinant každé submatice začínající v levém horním rohu je menší než determinant celé matice.",
+]]);
+
+f(
+"Vlastní vektory a vlastní směry",
+"Jak se hledají vlastní vektory a vlastní směry?",
+[["Pomocí determinantu určíme, pro jaké vlastní hodnoty má soustava pro vlastní vektory řešení a poté řešíme příslušnou soustavu pro každou vlastní hodnotu samostatně.",
+"Pomocí inverzní matice vynásobíme soustavu pro vlastní vektory inverzní maticí a tím nalezeme vlastní vektory. Vlastní hodnoty poté najdeme z definice vlastních hodnot porovnáním délky vzoru a obrazu vektoru.",
+"Otočíme matici soustavy vhodným pootočením tak, aby byla v diagonálním tvaru a poté v hlavní diagonále vidíme vlastní čísla a vlastní vektory jsou ve směru nových souřadných os.",
+]]);
+
+f(
+"Vlastní čísla matice rotace",
+"Jaké vlastní čísla má matice rotace o pravý úhel proti směru hodinových ručiček.",
+[["Matice nemá vlastní čísla, protože žádný směr se při této transformaci nezobrazuje sám na sebe.",
+"Matice má všechna vlastní čísla nulová, protože žádný směr se při této transformaci nezobrazuje sám na sebe.",
+"Matice má všechna vlastní čísla rovna jedné, protože žádný vektor se při této transformaci prodlužuje ani nezkracuje.",
+"Matice má všechna vlastní čísla rovna minus jedné, protože žádný vektor se při této transformaci prodlužuje ani nezkracuje, ale všem se mění směr na opačný.",
 ]]);
 
 
@@ -44,7 +82,7 @@ BEGIN_PGML
 
 [@ image("hw09.jpg", width=>400) @]*
 
-V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/soustavy/","závěrečné přednášky z lineární algebry") @]* a shlédnutí videa k této přednášce. 
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/soustavy/","závěrečné přednášky z lineární algebry") @]* a shlédnutí videa k této přednášce. Otázky se však netýkají pouze poslední přednášky, ale protože se jedná o závěrečnou přednášku z lineární algebry, vrací se i k dalším důležitým pojmům z předchozích dvou přednášek. 
 
 
 END_PGML
