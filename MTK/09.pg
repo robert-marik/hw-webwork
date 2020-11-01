@@ -75,6 +75,17 @@ f(
 "Matice má všechna vlastní čísla rovna minus jedné, protože žádný vektor se při této transformaci prodlužuje ani nezkracuje, ale všem se mění směr na opačný.",
 ]]);
 
+f(
+"Matice s vlastními směry v osách",
+"Jak vypadá matice, která má vlastní směry ve směrech jednotlivých souřadných os?",
+[["Je diagonální, nic více se o ní obecně nedá říci.",
+"Je ve schodovitém tvaru, nic více se o ní obecně nedá říci.",
+"Je symetrická, nic více se o ní obecně nedá říci.",
+"Je čtvercová, nic více se o ní obecně nedá říci.",
+"Je jednotková.",
+]]);
+
+
 
 
 BEGIN_PGML
@@ -116,10 +127,6 @@ END_PGML
 }
 
 BEGIN_PGML
-
-### Ještě nekončíme ...
-
-Pokračujte k další úloze. 
 
 END_PGML
 
