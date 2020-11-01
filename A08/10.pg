@@ -17,7 +17,7 @@ $showPartialCorrectAnswers = 1;
 $radio1 = RadioButtons(
 [[
 "Rychlost s jakou klesá hladina vody při jednotkové výšce hladiny.",
-"Výška hladiny v okamžiku jendotkové rychlosti poklesu hladiny.",
+"Výška hladiny v okamžiku jednotkové rychlosti poklesu hladiny.",
 "Čas, za který se hladina sníží na polovinu.",
 "Počáteční výška hladiny.",
 "Počáteční rychlost poklesu hladiny.",
