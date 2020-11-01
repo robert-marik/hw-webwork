@@ -4,77 +4,39 @@
 DOCUMENT(); 
 loadMacros(
 "PGstandard.pl",
-"PGML.pl",
 "MathObjects.pl",
-"PGessaymacros.pl",
+"parserRadioButtons.pl",
 "PGcourse.pl",
+"PGML.pl"
 );
 TEXT(beginproblem());
 ADD_CSS_FILE("left.css");
 
 $showPartialCorrectAnswers = 1;
 
-$var='x';
-$a=non_zero_random(-4,4,1);
-do { $b=non_zero_random(-8,8,1) } until ( abs($b) > 1 );
-$c=non_zero_random(-10,10);
-
-Context("Numeric")->variables->are($var=>'Real');
-
-$answer=Formula("$a+$b*($var-$c)")->reduce();   # funkce
+$radio1 = RadioButtons(
+[[
+"Rychlost s jakou klesá hladina vody při jednotkové výšce hladiny.",
+"Výška hladiny v okamžiku jendotkové rychlosti poklesu hladiny.",
+"Čas, za který se hladina sníží na polovinu.",
+"Počáteční výška hladiny.",
+"Počáteční rychlost poklesu hladiny.",
+]],0);  # První odpověď správná
 
 
 BEGIN_PGML
 
 ## Slovní interpretace konstant úměrnosti v diferenciální rovnici
 
-Na přednáškách i ve cvičení jsme se setkali (a i dále se setkáme) s řadou matematických formulací přírodních jevů, kdy je rychlost úměrná jiné veličině. Slovní význam konstant úměrnosti je vhodné být schopen interpretovat slovně. Zpravidla postupujeme tak, že hodnotám, které figurují u konstanty úměrnosti přidělíme takovou číselnou hodnotu, aby na jedné straně rovnice zůstala buď jenom konstanta úměrnosti, nebo konstanta úměrnosti vynásobená záporným znaménkem. Veličina na pravé straně zpravidla derivace, tj. rychlost růstu a ta definuje význam konstanty. Pokud na pravé straně ještě navíc zůstane znaménko minus, máme rychlost poklesu. Několik příkladů následuje. Rychlost je někdy přirozenější formulovat jako změnu za jednotku času, ale obě vyjádření ("rychlost" a "změna za jednotku času") udávají totéž. 
+[@ image("barel_rezavy.jpg", width=>400) @]*
 
-* Podle Newtonova zákona ochlazování je matematickým modelem ochlazování tělesa o teplotě [`T`] při tepelné výměně s okolím o teplotě [`T_0`] rovnice [``` \frac{\mathrm dT}{\mathrm dt}=-k(T-T_0),```] kde [`t`] je čas a [`k`] je konstanta úměrnosti. Pro [`T-T_0=1`] dostáváme [```\frac{\mathrm dT}{\mathrm dt}=-k.```] a odsud [``` k=-\frac {\mathrm dT}{\mathrm dt}.```] Konstanta [`k`] tedy udává rychlost ochlazování tělesa s teplotou o jednotku vyšší než je teplota okolí.
-* U radioaktivního rozpadu, kdy množství [`x`] dosud nerozpadnuté látky splňuje rovnici [``` \frac{\mathrm dx}{\mathrm dt}=-kx```] dostáváme pro [`x=1`] vztah
- [``` \frac{\mathrm dx}{\mathrm dt}=-x.```] Tento vztah ukazuje, že _konstanta úměrnosti [`k`] udává pokles množství látky za jednotku času při jednotkovém množství látky_, nebo také _rychlost, s jakou se rozpadá jednotkové množství látky._
-* U rovnice růstu úměrného velikosti populace pracujeme s rovnicí [``` \frac{\mathrm d x}{\mathrm dt}=kx.```] Volbou [`x=1`] vidíme, že konstanta [`k`] udává _rychlost růstu populace v okamžiku, kdy je velikost populace rovna jedné jednotkce_.
-* Diferenciální rovnice [``` \frac{\mathrm dh}{\mathrm dt}=-\frac{S_1}{S_2}\sqrt{2g}\sqrt {h}```]
+Diferenciální rovnice [``` \frac{\mathrm dh}{\mathrm dt}=-\frac{S_1}{S_2}\sqrt{2g}\sqrt {h}```]
 udává rychlost, s jakou klesá hladina v nádrži se svislými stěnami, povrchem dna [`S_2`], průřezem výpustě [`S_1`], ve které je hladina vody [`h`] ode dna. Veličina [`g`] je gravitační konstanta. To je poměrně komplikovaná rovnice. Pro snazší práci je možno ji přepsat do tvaru
-[``` \frac{\mathrm dh}{\mathrm dt}=-k\sqrt {h}```] a konstantu úměrnosti [`k=\frac{S_1}{S_2}\sqrt{2g}`] interpretovat jako rychlost, s jakou klesá hladina v okamžiku, kdy je hloubka rovna jedné jednotce délky.
+[``` \frac{\mathrm dh}{\mathrm dt}=-k\sqrt {h}```] a konstantu úměrnosti [`k=\frac{S_1}{S_2}\sqrt{2g}`] interpretovat jako ...  Jak? Jak byste slovně vyjádřili význam konstanty [`k`]?
 
-Všimněte si ještě, že se vyhýbáme použití konkrétních jednotek. Mluvíme o jednotkovém rozdílu teploty a ne o teplotním rozdílu jeden stupeň Celsia. Mluvíme o jednotkové velikosti populace a ne o tisících jedinců. Mluvíme o množství radioaktivní látky a ne o mikrogramech. To je výhoda, která dělá naše tvrzení univerzální pro libovolnou soustavu jednotek. Tvrzení bude platit i při použití jednotek SI, i při použití britských imperiálních jednotek (nepravděpodobný případ), i při použití jednotek ad hoc použitých pro řešení jednoho konkrétního problému (vysoce pravděpodobný případ po eliminaci parametrů a veličin nondimenzionalizací). Bude se měnit například číselná hodnota konstanty a její jednotky, její slovní interpretace však zůstane stále stejná.
-
--------
-
-### Úkol
-
-[@ image("medved.jpg", width=>400) @]*
-
-Tloušťka ledu v konstantních podmínkách roste podle Stefanova zákona rychlostí nepřímo úměrnou této tloušťce. Zapište tuto rovnici do odpovědního pole, vysvětlete všechny proměnné a zapište slovní interpretaci konstanty úměrnosti. Použijte vzor u Newtonova modelu výše. 
-
-Toto není ani tak matematický úkol, jako formulační. Pokud si nejste jisti matematickou formulací modelu, podívejte se do cvičení k diferenciálním rovnicím. 
-
-### Pravidla
-
-* Výsledné tvrzení musí být řešením úkolu.
-* Musí se jednat o českou nebo slovenskou větu s podmětem a přísudkem, gramaticky správně utvořenou a věcně snadno pochopitelnou.
-* Odpověď musí být jednoznačná a pokud možno stručná.
-* Všechny matematické objekty (proměnné, rovnice) musí být zapsány jako matematické objekty pomocí příslušného značkovacího jazyka. Pro zápis matematických výrazů použijte LaTeX nebo ASCIIMath.
-
-
-**Podobně jako analogický úkol u přednášky: bodů za tuto činnost je málo, ale úokud se to nenaučíte, tak nebudete schopni zapsat odpovědi na některé otázky v písemce, pokud bude písemka distanční formou.**
-
-*TIP:* Na webové stránce pluginu [@ htmlLink("https://www.mathjax.org/#demo","MathJax")@]* si můžete pohodlně text připravit v LaTeXu i v AsciiMath. Uvidíte živý náhled vkládaného textu, nebudete muset klikat opakovaně na tlačítko s náhledem jako zde. Výsledný *zdrojový text* jenom vykopírujte do WeBWorKu.
-
-*TIP2:* Použijte pro psaní matematických znaků anglickou klávesnici (povolte si ji v operačním systému, pokud jste to neudělali dříve). Pokud nemáte na tlačítkách anglické znaky, najděte si je na [@ htmlLink("https://en.wikipedia.org/wiki/British_and_American_keyboards","webu")@]*. V případě problémů pište na Teams.
-
+[_]{$radio1}
+    
 END_PGML
-
-
-BEGIN_TEXT
-\{essay_box()\}
-END_TEXT
-
-#Essay Boxs use the essay_cmp evaluator.
-ANS(essay_cmp());
-ENDDOCUMENT(); 
-
 
 
 ENDDOCUMENT();

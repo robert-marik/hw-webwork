@@ -1,92 +1,42 @@
-DOCUMENT() ;        # This should be the first executable line in the problem.
+##################################################
 
+DOCUMENT(); 
 loadMacros(
-  "PGstandard.pl",
-  "PGchoicemacros.pl",
-  "PGgraphmacros.pl",
-  "PGML.pl",
-  "PGcourse.pl"
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
 );
-
-TEXT(beginproblem()) ;
-$showPartialCorrectAnswers = 0 ;
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-$a = 4+random(-3.5, -2.5, 0.5);
-$b = $a + random(1,2,0.5);
-$c = $b + random(1,2,0.5);
-$d = $c + random(1,2,0.5);
-$pa = random(2, 5,.1);
-$pb = random(2, 5,.1);
-$pc = random(2, 5,.1);
-$pd = random(2, 5,.1);
-$sign = non_zero_random(-1,1,1);
+Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]],'dT'=>'Real', 'dx'=>'Real', 'dc'=>'Real', 'T'=>'Real', 't'=>'Real', 'k'=>'Real','p'=>'Real','c'=>'Real','x'=>'Real');
 
-$graph = init_graph(0,-4,8,4,axes =>[0,0], grid =>[8,8]);
-$hermite_obj = new Hermite( [0, $a,  $c, $d,8],
-                            [-5*$sign, 0,0,0, 5*$sign],
-                            [$sign, $sign*$pa, -$sign*$pc, $sign*$pd, $sign]);
-$fun_obj = new Fun($hermite_obj->rf_f,$graph);
-
+$k=random(15,28,1);
+$p=random(25,58,1);
 
 BEGIN_PGML
-## Stabilita autonomní diferenciální rovnice
 
-[@ image( insertGraph($graph) ,width=>400,height=>400,tex_size=>600) @]*
+## Čistění 
 
-V této úloze se budeme zabývat rovnicemi typu [``` \frac{\mathrm dx}{\mathrm dt}=f(x),```]
-tj. autonomními rovnicemi. Slovem autonomní je vyjádřeno, že pravá strana nezávisí na čase [`t`].
+[@ image("jezirko.jpg", width=>400) @]*
 
-U některých modelů vedoucích na tyto typy rovnic, nám stačí znát
-stacionární body a jejich stabilitu. Důvodem je to, že po uběhnutí
-dostatečně dlouhého času se řešení ustálí na hodnotě odpovídající
-některému stabilnímu stacionárnímu bodu. Z teorie víme, že pokud má pravá strana v uvažovaném stacionárním bodě kladnou derivaci, je tento stacionární bod nestabilní. V případě záporné derivace naopak stabilní. Graficky znaménko derivace poznáme z monotonie.
+Do chráněné lokality proudí znečišťující látky. Rychlost s jakou v dané lokalitě přibývají je [`[$k]`] jednotek za týden. Naštěstí je však látka nestabilní a rozkládá se. Za týden se samovolně rozloží [`[$p]`] procent látky. Napište výsledný matematický model pro vývoj množství znečišťující látky v dané lokalitě. Množství látky označte [`x`] a sledujte jej jako funkci času. Jednotku času volte pro maximální pohodlí jeden týden. (Nezapomeňte procenta převést na desetinné číslo nebo na setiny.)
+>> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{Formula("[$k]-[$p]*x/100")}<<
 
-Na obrázku je graf funkce [`f(x)`], která je pravou stranou uvažované diferenciální rovnice. Tučná vodorovná čára uprostřed je osa [`x`]. Obrázek je nakreslen pro [`0\leq x\leq 8`] a případné nulové body funkce [`f`] jsou buď celá čísla nebo uprostřed mezi celými čísly. Vidíme tři průsečíky grafu funkce s osou [`x`], tj. tři nulové body funkce [`f`]. Rovnice má tedy tři stacionární body.
 END_PGML
 
-BEGIN_TEXT
-
-
-$BR
-Zapište stacionární body (zleva doprava, tj. od nejmenšího po největší) a u každého vyznačte, zda je stabilní či nestabilní. 
-
-
-$BR
-Stacionárni bod vlevo: \(x_1={}\)\{ans_rule(10) \}  \{ pop_up_list(''=>'','stabilní'=>'stabilní', 'nestabilní'=>'nestabilní') \}
-$BR
-Stacionárni bod uprostřed: \(x_2={}\)\{ans_rule(10) \}  \{ pop_up_list(''=>'','stabilní'=>'stabilní', 'nestabilní'=>'nestabilní') \}
-$BR
-Stacionárni bod vpravo: \(x_3={}\)\{ans_rule(10) \}  \{ pop_up_list(''=>'','stabilní'=>'stabilní', 'nestabilní'=>'nestabilní') \}
-END_TEXT
-
-$ans1 = ($sign > 0) ? 'nestabilní': 'stabilní';
-$ans2 = ($sign > 0) ? 'stabilní': 'nestabilní';
-$ans3 = ($sign > 0) ? 'nestabilní':'stabilní' ;
-
-ANS(num_cmp($a),str_cmp($ans1));
-ANS(num_cmp($c),str_cmp($ans2));
-ANS(num_cmp($d),str_cmp($ans3));
-
 BEGIN_PGML_HINT
-Pokud máte špatně stacionární body, ujistěte se, že je máte uspořádány podle velikosti a že jste je správně odpočítali. Vlevo je nula, dílek je roven jedné a některé nulové body mohou být uprostřed mezi dvěma dílky.
-
-Stabilitu poznáte podle toho, zda v daném stacionárním bodě funkce klesá (záporná derivace, stabilní stacionární bod) nebo roste (kladná derivace, nestabilní stacionární bod).
+Postupujte podle vzoru a podle příkladů ve cvičeních a na přednášce. 
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
-Nulové body vidíme přímo z obrázku: [`x_1=[$a]`], [`x_2=[$c]`]  a [`x_3=[$d]`].
-
-Stabilitu poznáme podle toho, zda v daném bodě pravá strana roste (potom je stacionární bod nestabilní) či klesá (stabilní)
-
-* [`x_1=[$a]`]: [$ans1]
-* [`x_2=[$c]`]: [$ans2]
-* [`x_3=[$d]`]: [$ans3]
+Přímým přepisem slovního zadání do kvantitativních pojmů dostáváme rovnici
+[``` \frac{\mathrm dx}{\mathrm dt}= [$k]-[$p/100] x,```]
 
 END_PGML_SOLUTION
 
 
-ENDDOCUMENT() ;        # This should be the last executable line in the problem.
 
-
-
+ENDDOCUMENT();
