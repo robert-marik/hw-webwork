@@ -32,10 +32,10 @@ sub f {
 
 f(
 "Maticová formulace soustavy rovnic",
-"Který z následujících zápisů je možno chápat jako kompaktní zápis soustavy rovnic s neznámou $X$.",
-[["$AX=B$",
-"$XA=B$",
-"$AB=X$"],
+"Který z následujících zápisů je možno chápat jako kompaktní zápis soustavy rovnic s neznámou \(X\).",
+[["\(AX=B\)",
+"\(XA=B\)",
+"\(AB=X\)"],
 "žádný z uvedených zápisů"]);
 
 f(
