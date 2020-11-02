@@ -64,13 +64,81 @@ f(
 ]
 );
 
+f("Difuzní rovnice I",
+"Co lze s jistotou říci o difuzní rovnici ve tvaru \[\frac{\partial u}{\partial t}=\nabla\cdot(D\nabla u)?\]",
+[[
+"bezzdrojová",
+"dvourozměrná",
+"izotropní",
+"jednorozměrná",
+"stacionární",
+"trojrozměrná",
+]]);
+
+f("Difuzní rovnice II",
+"Jak byste v difuzní rovnici \[\frac{\partial u}{\partial t}=\nabla\cdot(D\nabla u)+\sigma\] slovně interpretovali člen na levé straně rovnice?",
+[[
+"rychlost růstu hustoty stavové veličiny, tj. změna množství stavové veličiny v jednotkovém objemu látky za jednotku času",
+"přírůstek toku přenášejícího stavovou veličinu; jinými slovy množství stavové veličiny, které za jednotku času ubude v jednotkovém objemu díky tomu, že se připojí k toku a odteče",
+"rychlost poklesu hustoty stavové veličiny, tj. množství stavové veličiny, které ubude v jednotkovém objemu látky za jednotku času",
+"úbytek toku přenášejícího stavovou veličinu; jinými slovy množství stavové veličiny, které za jednotku času přibude v jednotkovém objemu díky tomu, že se odpojí od toku a zůstane v daném místě",
+"výkon ze spotřebičů, tj. množství stavové veličiny, které v jednotkovém objemu za jednotku času spotřebují spotřebiče (zdroje bereme jako spotřebiče se záporným výkonem)",
+"výkon ze zdrojů, tj. množství stavové veličiny, které v jednotkovém objemu za jednotku času vygenerují zdroje (spotřebiče bereme jako zdroje se záporným výkonem)",
+]]);
+
+f("Difuzní rovnice III",
+"Jak byste v difuzní rovnici \[\frac{\partial u}{\partial t}=\nabla\cdot(D\nabla u)+\sigma\] slovně interpretovali člen \(\nabla\cdot(D\nabla u)\) na pravé straně rovnice?",
+[[
+"úbytek toku přenášejícího stavovou veličinu; jinými slovy množství stavové veličiny, které za jednotku času přibude v jednotkovém objemu díky tomu, že se odpojí od toku a zůstane v daném místě",
+"přírůstek toku přenášejícího stavovou veličinu; jinými slovy množství stavové veličiny, které za jednotku času ubude v jednotkovém objemu díky tomu, že se připojí k toku a odteče",
+"rychlost poklesu hustoty stavové veličiny, tj. množství stavové veličiny, které ubude v jednotkovém objemu látky za jednotku času",
+"rychlost růstu hustoty stavové veličiny, tj. změna množství stavové veličiny v jednotkovém objemu látky za jednotku času",
+"výkon ze spotřebičů, tj. množství stavové veličiny, které v jednotkovém objemu za jednotku času spotřebují spotřebiče (zdroje bereme jako spotřebiče se záporným výkonem)",
+"výkon ze zdrojů, tj. množství stavové veličiny, které v jednotkovém objemu za jednotku času vygenerují zdroje (spotřebiče bereme jako zdroje se záporným výkonem)",
+]]);
+
+f("Difuzní rovnice IV",
+"Jak byste v difuzní rovnici \[\frac{\partial u}{\partial t}=\nabla\cdot(D\nabla u)+\sigma\] slovně interpretovali člen \(\sigma\) na pravé straně rovnice?",
+[[
+"výkon ze zdrojů, tj. množství stavové veličiny, které v jednotkovém objemu za jednotku času vygenerují zdroje (spotřebiče bereme jako zdroje se záporným výkonem)",
+"přírůstek toku přenášejícího stavovou veličinu; jinými slovy množství stavové veličiny, které za jednotku času ubude v jednotkovém objemu díky tomu, že se připojí k toku a odteče",
+"rychlost poklesu hustoty stavové veličiny, tj. množství stavové veličiny, které ubude v jednotkovém objemu látky za jednotku času",
+"rychlost růstu hustoty stavové veličiny, tj. změna množství stavové veličiny v jednotkovém objemu látky za jednotku času",
+"úbytek toku přenášejícího stavovou veličinu; jinými slovy množství stavové veličiny, které za jednotku času přibude v jednotkovém objemu díky tomu, že se odpojí od toku a zůstane v daném místě",
+"výkon ze spotřebičů, tj. množství stavové veličiny, které v jednotkovém objemu za jednotku času spotřebují spotřebiče (zdroje bereme jako spotřebiče se záporným výkonem)",
+]]);
+
+f("Difuzní rovnice V",
+"Co lze s jistotou říci o difuzní rovnici ve tvaru  \[\frac{\partial u}{\partial t}=\frac{\partial}{\partial x}\left(D_x\frac{\partial u}{\partial x}\right)+\frac{\partial}{\partial y}\left(D_y\frac{\partial u}{\partial y}\right)?\]",
+[[
+"dvourozměrná",
+"izotropní",
+"jednorozměrná",
+"prostá",
+"rostoucí",
+"stacionární",
+"trojrozměrná",
+]]);
+
+f("Difuzní rovnice VI",
+"Co lze s jistotou říci o difuzní rovnici ve tvaru  \[0=\nabla\cdot(D\nabla u)+\sigma?\]",
+[[
+"stacionární",
+"bezzdrojová",
+"dvourozměrná",
+"izotropní",
+"jednorozměrná",
+"trojrozměrná",
+]]);
+
+
 BEGIN_PGML
 
-## Přednáška Základní integrální věty z vektorové analýzy
+## Přednáška Základní integrální věty z vektorové analýzy, difuzní rovnice podruhé
 
 [@ image("hw07.jpg", width=>400) @]*
 
-V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/07/","přednášky o integrálních větách") @]* a shlédnutí videa k této přednášce. 
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/07/","přednášky o integrálních větách") @]* a shlédnutí videa k této přednášce. Vracíme se zpět i k difuzní rovnici, protože představený aparát ji umožní odvodit v integrálním tvaru pomocí měřitelných makroskopických veličin. Tím je vše lépe fyzikálně podloženo. 
 
 Otázky jsou naformulovány tak, aby byly co nejkratší. Proto tiše předpokládáme, že všechny funkce jsou hladké, křivky regulární a uzavřené a všechny věty, které zmiňujeme, mají splněny všechny předpoklady. 
 
