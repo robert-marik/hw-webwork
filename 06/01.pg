@@ -25,6 +25,8 @@ $radio1 = RadioButtons(
 
 BEGIN_PGML
 
+V této sadě cvičení se budeme věnovat diferenciálním rovnicím. Na úvod budme formulovat matematické modely, podle slovního zadání, to jsme vlastně dělali už v ptrvních týdnech. Poté se budeme věnovat autonomním diferenciálním rovnicím, které byly rozebírány spíše na přednášce. Konečně se budeme zabývat i separací proměnných, což je látka ze cvičení.
+
 
 ## Model sušení dřevěné štěpky
 
