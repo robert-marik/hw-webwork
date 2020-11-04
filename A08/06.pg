@@ -22,7 +22,7 @@ BEGIN_PGML
 
 [@ image("infuze.jpg", width=>400) @]*
 
-Nechť [`c`] označuje koncentraci léku v krvi pacienta. Z farmakokinetiky je známo, že díky odbourávání klesá koncentrace rychlostí úměrnou této koncentraci. Konstantu úměrnosti označme [`k`]. Předpokládejme dále, že pacient je napojený na infuzi, která mu zvyšuje koncentraci léku v krvi konstantní rychostí.  Tuto rychlost označme [`p`]. Napište výsledný matematický model pro růst takové koncentrace.
+Nechť [`c`] označuje koncentraci léku v krvi pacienta. Z farmakokinetiky je známo, že díky odbourávání klesá koncentrace rychlostí úměrnou této koncentraci. Konstantu úměrnosti označme [`k`]. Předpokládejme dále, že pacient je napojený na infuzi, která mu zvyšuje koncentraci léku v krvi konstantní rychlostí.  Tuto rychlost označme [`p`]. Napište výsledný matematický model pro růst takové koncentrace.
 >> [``\frac{\mathrm dc}{\mathrm dt}=``][__________]{Formula("p-c*k")}<<
 
 

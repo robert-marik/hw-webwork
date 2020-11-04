@@ -45,7 +45,7 @@ Připomeňme, že při násobení čísla s vektorem násobíme každou komponen
 
 Následující příklad je analogický, jenom s jinými čísly, jinými funkcemi. Z důvodů vynucených programem jsou matice ohraničeny hranatými závorkami namísto kulatých.
 
-_Izotropní jsou látky, kde stavební elementy jsou rozmístěny náhodně. Typickými příklady jsou v běžných podmínkách kov, sklo, papír nebo guma. Popis těcho materiálů je jednodušší než u anizotropních materiálů . Pokud však náhodnost porušíme (za studena válcovaná ocel, napnutá guma), izotropii ztratíme a situace je podobná situaci ve dřevu. Tomuto se budeme věnovat v příkladě na další straně. Nyní si zkusme ten jednodušší případ, izotropní._
+_Izotropní jsou látky, kde stavební elementy jsou rozmístěny náhodně. Typickými příklady jsou v běžných podmínkách kov, sklo, papír nebo guma. Popis těchto materiálů je jednodušší než u anizotropních materiálů . Pokud však náhodnost porušíme (za studena válcovaná ocel, napnutá guma), izotropii ztratíme a situace je podobná situaci ve dřevu. Tomuto se budeme věnovat v příkladě na další straně. Nyní si zkusme ten jednodušší případ, izotropní._
 
 ----------------
 

@@ -69,7 +69,7 @@ a
 Do těchto vztahů dosazujeme za obě proměnné nuly a dostaneme čísla do prvního řádku hledané matice.
 Podobně počítáme čísla ve druhém řádku.
 
-Pokud je jedna komponenta špatně, je celá úloha vyhodnocena jako nesprávně odopovězená.
+Pokud je jedna komponenta špatně, je celá úloha vyhodnocena jako nesprávně zodpovězená.
 END_PGML_HINT
 
 

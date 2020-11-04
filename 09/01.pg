@@ -30,7 +30,7 @@ BEGIN_PGML
 
 [@ image("voda.jpg", width=>400) @]*
 
-V této sadě úloh budeme prozkoumávat parciální derivace. To jsou ideální nástroje pro popis dějů a jevů souvisejících s transportem látky nebo energie. Namísto částicové struktury budeme pracovat se spojitou strukutrou látky, díky čemuž snadno naformulujeme základní zákony, dávající do pohybu hmotu ve formě látky nebo energie. Výsledné zákony popisují proudění vody (mělká voda v korytě, podzemní voda v půdě, vlhkostní pole ve dřevě) nebo tepla (ve dřevě, v zemské kůře).
+V této sadě úloh budeme prozkoumávat parciální derivace. To jsou ideální nástroje pro popis dějů a jevů souvisejících s transportem látky nebo energie. Namísto částicové struktury budeme pracovat se spojitou strukturou látky, díky čemuž snadno naformulujeme základní zákony, dávající do pohybu hmotu ve formě látky nebo energie. Výsledné zákony popisují proudění vody (mělká voda v korytě, podzemní voda v půdě, vlhkostní pole ve dřevě) nebo tepla (ve dřevě, v zemské kůře).
 
 #### Výpočet parciálních derivací
 

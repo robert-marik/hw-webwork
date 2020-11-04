@@ -31,7 +31,7 @@ BEGIN_PGML
 [@ image("barel_rezavy.jpg", width=>400) @]*
 
 Diferenciální rovnice [``` \frac{\mathrm dh}{\mathrm dt}=-\frac{S_1}{S_2}\sqrt{2g}\sqrt {h}```]
-udává rychlost, s jakou klesá hladina v nádrži se svislými stěnami, povrchem dna [`S_2`], průřezem výpustě [`S_1`], ve které je hladina vody [`h`] ode dna. Veličina [`g`] je gravitační konstanta. To je poměrně komplikovaná rovnice. Pro snazší práci je možno ji přepsat do tvaru
+udává rychlost, s jakou klesá hladina v nádrži se svislými stěnami, povrchem dna [`S_2`], průřezem výpusti [`S_1`], ve které je hladina vody [`h`] ode dna. Veličina [`g`] je gravitační konstanta. To je poměrně komplikovaná rovnice. Pro snazší práci je možno ji přepsat do tvaru
 [``` \frac{\mathrm dh}{\mathrm dt}=-k\sqrt {h}```] a konstantu úměrnosti [`k=\frac{S_1}{S_2}\sqrt{2g}`] interpretovat jako ...  Jak? Jak byste slovně vyjádřili význam konstanty [`k`]?
 
 [_]{$radio1}

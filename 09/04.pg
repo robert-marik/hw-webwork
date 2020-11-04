@@ -77,7 +77,7 @@ Prozkoumáme cestu od rozložení teploty k rovnici vedení tepla. Úkolů je p�
 ## Gradient teploty, tok, zesilování versus zeslabování toku
 
 
-Uvažujme teplotu desky ležící v množině [``` \begin{gathered} 0\leq x\leq 2 \\ 0\leq y\leq 2\end{gathered}```] V jednotlivých krocích najdete gradient, tok, divegenci toku. Abyste si byli jisti, že se počítání ubírá správným směrem, můžete po každé části odeslat a zkontrolovat správnost odpovědí.
+Uvažujme teplotu desky ležící v množině [``` \begin{gathered} 0\leq x\leq 2 \\ 0\leq y\leq 2\end{gathered}```] V jednotlivých krocích najdete gradient, tok, divergenci toku. Abyste si byli jisti, že se počítání ubírá správným směrem, můžete po každé části odeslat a zkontrolovat správnost odpovědí.
 
 ### 1. Gradient (hnací síla dávající do pohybu energii ve formě tepla)
 
@@ -96,7 +96,7 @@ Vypočtěte obě parciální derivace a gradient [``\nabla T ``] teploty [```T(x
 
 _Tok vyjadřuje odezvu na podnět. Udává, jak "poslušně" materiál reaguje na podnět, zda je odezva ve směru podnětu, či zda se stáčí do preferovaného směru._
 
-Uvažujme materiál s tenzorem tepelné vodivosti [``` \lambda=\begin{pmatrix} [$lxx] & [$lxy] \\ [$lxy] & [$lyy] \end{pmatrix}.```] Tok tepla je dán vztahem [``` \vec q = -\lambda \nabla T,```] kde předchozí součin chápeme v maticovém smyslu, tj. počítáme lineární kombinace sloupců matice [``\lambda``], kde koeficienty  v lienární kombinaci jsou záporné vzaté komponenty gradientu [``\nabla T``]. Najděte  tok tepla.
+Uvažujme materiál s tenzorem tepelné vodivosti [``` \lambda=\begin{pmatrix} [$lxx] & [$lxy] \\ [$lxy] & [$lyy] \end{pmatrix}.```] Tok tepla je dán vztahem [``` \vec q = -\lambda \nabla T,```] kde předchozí součin chápeme v maticovém smyslu, tj. počítáme lineární kombinace sloupců matice [``\lambda``], kde koeficienty  v lineární kombinaci jsou záporné vzaté komponenty gradientu [``\nabla T``]. Najděte  tok tepla.
 
 >> [``\vec q={}``][__________________]*{$tok}<<
 
@@ -127,7 +127,7 @@ Zkusme vypočítat divergenci v bodě [`(1,1)`].
 
 Podle divergence můžeme z rovnice vedení tepla
 [``` \rho c \frac {\partial T}{\partial t}=\nabla \cdot (\lambda \nabla T)=-\nabla \cdot \vec q```]
-určit, zda v daném bodě teplota roste či klesá v čase.
+určit, zda v bodě [`(1,1)`] teplota roste či klesá v čase.
 
 [_]{$popup}
 
@@ -163,7 +163,9 @@ Při derivování podle [`x`] uvažujeme proměnnou [`y`] jako parametr a naopak
 
 _Tok vyjadřuje odezvu na podnět. Udává, jak "poslušně" materiál reaguje na podnět, zda je odezva ve směru podnětu, či zda se stáčí do preferovaného směru._
 
-Uvažujme materiál s tenzorem tepelné vodivosti [``` \lambda=\begin{pmatrix} [$lxx] & [$lxy] \\ [$lxy] & [$lyy] \end{pmatrix}.```] Tok tepla je dán vztahem [``` \vec q = -\lambda \nabla T,```] kde předchozí součin chápeme v maticovém smyslu, tj. počítáme lineární kombinace sloupců matice [``\lambda``], kde koeficienty  v lienární kombinaci jsou záporné vzaté komponenty gradientu [``\nabla T``]. V našem případě
+Uvažujme materiál s tenzorem tepelné vodivosti [``` \lambda=\begin{pmatrix} [$lxx] & [$lxy] \\ [$lxy] & [$lyy] \end{pmatrix}.```] Tok tepla je dán vztahem [``` \vec q = -\lambda \nabla T,```] kde předchozí součin chápeme v maticovém smyslu, tj. počítáme lineární kombinace sloupců matice [``\lambda``], kde koeficienty v lineární kombinaci jsou komponenty záporné vzatého gradientu [``-\nabla T``], tj.
+[``` -\nabla T= \begin{pmatrix}[$mdTx]\\[$mdTy]\end{pmatrix}.```]
+V našem případě
 [```\vec q=
 ([$mdTx])\begin{pmatrix} [$lxx] \\ [$lxy] \end{pmatrix}
 +([$mdTy])\begin{pmatrix} [$lxy] \\ [$lyy] \end{pmatrix}

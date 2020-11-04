@@ -63,7 +63,7 @@ jestliže [``\int_{[$a]}^{[$g]} [$ff](t) \,
 
 >> [`` \iint_{D} f(x)g(y) \,\mathrm dx\mathrm dy ={}``] [____________]{$answer} <<
 
-*Návod.* Na jménu proměnné pochopitelně nezáleží. Ujasněte si, například v proměnných [`x`] a [`y`] jaké integrály potřebujete, přepište je do promněné [`t`] a porovnejte s tím, co máte k dispozici. Pokud nemáte správné informace pro vyřešení úlohy, napište *nelze* nebo zkráceně *N*.
+*Návod.* Na jménu proměnné pochopitelně nezáleží. Ujasněte si, například v proměnných [`x`] a [`y`] jaké integrály potřebujete, přepište je do proměnné [`t`] a porovnejte s tím, co máte k dispozici. Pokud nemáte správné informace pro vyřešení úlohy, napište *nelze* nebo zkráceně *N*.
 
 END_PGML
 

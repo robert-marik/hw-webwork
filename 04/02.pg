@@ -37,7 +37,7 @@ BEGIN_PGML
 
 Integrál polynomu počítáme tak, že integrujeme jednotlivé mocniny a přitom používáme věty o integrálu součtu a konstantního násobku. Například
 [``` \int 3x^9+5x^2-97\,\mathrm dx=\frac 3{10}x^{10}+\frac 53 x^3 - 97 x +C,```]
-kdy ve vzorci pro integál mocninné funkce používáme postupně [`n=9`], [`n=2`] a [`n=0`].
+kdy ve vzorci pro integrál mocninné funkce používáme postupně [`n=9`], [`n=2`] a [`n=0`].
 Tento výsledek je možno zapsat jako *3/10 \* x^(10) + 5/3 \* x^3 - 97x*. 
 
 Vypočtěte následující integrál.
@@ -59,7 +59,7 @@ a po výpočtu integrálů pomocí vzorce
  [``` \int x^n\,\mathrm dx=\frac1{n+1}x^{n+1}+C```]
  dostáváme
  [``` \int [$funkce]\,\mathrm dx=[$int2]+C.```]
-(Je možné, že počítač nahradí zlomek desetiným číslem a musíte zpětně "rozšifrovat", o jaký zlomek se jedná.)
+(Je možné, že počítač nahradí zlomek desetinným číslem a musíte zpětně "rozšifrovat", o jaký zlomek se jedná.)
 
 END_PGML_SOLUTION
 

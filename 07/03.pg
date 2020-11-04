@@ -28,7 +28,7 @@ END_PGML
 
 BEGIN_TEXT
 
-Diagonální matice jsou důležitou třídou symetrických matic. Diagonální matice zobrazuje jednotkové vektory ve směru os na jejich násobky. Pokud tedy u materiálu volíme soustavu souřadnic tak, že ve směru os je materiálová odezva na podnět stejného směru jako podnět, bude příslušná matice popisující danou materiálovou vlasnost diagonální. U dřeva to jsou anatomické směry dřeva (podélný, radiální, tangenciální).
+Diagonální matice jsou důležitou třídou symetrických matic. Diagonální matice zobrazuje jednotkové vektory ve směru os na jejich násobky. Pokud tedy u materiálu volíme soustavu souřadnic tak, že ve směru os je materiálová odezva na podnět stejného směru jako podnět, bude příslušná matice popisující danou materiálovou vlastnost diagonální. U dřeva to jsou anatomické směry dřeva (podélný, radiální, tangenciální).
 
 $BR
 $BR

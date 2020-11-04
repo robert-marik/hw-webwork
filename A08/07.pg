@@ -57,7 +57,7 @@ $alt[1] = "Funkce, která exponenciálně roste a poté exponenciálně klesá."
   ];
 @reasons[1] =
   [ "teplota se bude zvyšovat, dokud je kovová součástka v peci a poté snižovat. Oba procesy budou probíhat exponenciálně, jak plyne z Newtonova zákona tepelné výměny.",
-    "parašutistova rychlost se bude narůstat na rychlost odpovídající rovnováze gravitační a odporové síly a po otevření padáku tato rychost začne klesat.",
+    "parašutistova rychlost se bude narůstat na rychlost odpovídající rovnováze gravitační a odporové síly a po otevření padáku tato rychlost začne klesat.",
   ];
 
 ## (2): constant, then linear drop
@@ -72,7 +72,7 @@ $alt[2] = "Funkce, která je konstantní a poté klesá lineárně.";
     "Vzdálenost běžce od cílové linie během čekání na start a následného běhu konstantní rychlostí.",
   ];
 @reasons[2] =
-  [ "rychlost auta je nejprve konstantní a při brzdění se začne ronovměrně snižovat.",
+  [ "rychlost auta je nejprve konstantní a při brzdění se začne rovnoměrně snižovat.",
     "při čekání na startu je vzdálenost od cíle konstantní a během závodu se díky pohybu konstantní rychlostí tato vzdálenost rovnoměrně zmenšuje.",
   ];
 
@@ -102,7 +102,7 @@ $alt[4] = "Periodická funkce, která se vrací na původní hodnotu.";
     "Výška vody v zálivu mezi dvěma přílivy.",
   ];
 @reasons[4] =
-  [ "koncentrace pylu je sezoní záležitost a hodnoty oscilují.",
+  [ "koncentrace pylu je sezonní záležitost a hodnoty oscilují.",
     "příliv a odliv jsou periodické děje.",
   ];
 
@@ -116,7 +116,7 @@ $alt[5] = "Rostoucí funkce, která roste exponenciálně.";
   [ "Velikost populace s růstem úměrným množství, tj. s neomezenou nosnou kapacitou prostředí.",
   ];
 @reasons[5] =
-  [ "populace, jejíž růst nebrzdí nosná kapacita prostředí roste expoenenciálně.",
+  [ "populace, jejíž růst nebrzdí nosná kapacita prostředí roste exponenciálně.",
   ];
 
 ## then pick five of the six graphs to show, and one of the descriptions
@@ -190,7 +190,7 @@ Ve všech případech se uvažuje závislost popisované veličiny na
 čase. Pět obrázků, každý patří k jednomu slovnímu popisu, tj. žádná
 odpověď se neopakuje a žádná není vynechána.
 
-Tiše přepokládejme, že jednotka času je vždy rozumně zvolena vzhledem k úloze, tj. v případě pádu parašutisty sekundy, v případě tepelných ztrát domu hodiny, v případě datování pomocí nestabilního izotopu uhlíku staletí.
+Tiše předpokládejme, že jednotka času je vždy rozumně zvolena vzhledem k úloze, tj. v případě pádu parašutisty sekundy, v případě tepelných ztrát domu hodiny, v případě datování pomocí nestabilního izotopu uhlíku staletí.
 
 END_PGML
 

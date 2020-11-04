@@ -51,7 +51,7 @@ BEGIN_PGML
 
 ## Rotace vektorového pole v rovině
 
-Rotace vektorového pole v rovině je, stejně jako v prostoru, vektorový součin nabla operátoru [`\nabla = \left(\frac{\partial }{\partial x},\frac{\partial }{\partial y},\frac{\partial }{\partial z}\right)^T`] a vektorového pole. "Součin" paricální derivace a funkce opět chápeme jako výpočet příslušné derivace. Protože ale vektorový součin je definovaný pouze pro trojrozměrné vektory, musíme dvoujrozměrné vektorové pole vnořit do trojrozměrného prostoru. Uděléme to tak, že třetí komponentu položíme rovnu nule. 
+Rotace vektorového pole v rovině je, stejně jako v prostoru, vektorový součin nabla operátoru [`\nabla = \left(\frac{\partial }{\partial x},\frac{\partial }{\partial y},\frac{\partial }{\partial z}\right)^T`] a vektorového pole. "Součin" parciální derivace a funkce opět chápeme jako výpočet příslušné derivace. Protože ale vektorový součin je definovaný pouze pro trojrozměrné vektory, musíme dvourozměrné vektorové pole vnořit do trojrozměrného prostoru. Uděláme to tak, že třetí komponentu položíme rovnu nule. 
 
 --------------
 

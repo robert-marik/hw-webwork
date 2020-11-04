@@ -156,7 +156,7 @@ Context()->texStrings;
 BEGIN_SOLUTION
 $PAR SOLUTION $BR $BR
 (a)
-Integrační obor je mezi parabolou \(y=x^2\) a přímkou \(y=x\). Tomu odpoídá obrázek $ALPHABET[$inv[0]]. Druhý obrázek by odpovídal integrálu
+Integrační obor je mezi parabolou \(y=x^2\) a přímkou \(y=x\). Tomu odpovídá obrázek $ALPHABET[$inv[0]]. Druhý obrázek by odpovídal integrálu
 \[ \displaystyle
 \int_{0}^{1} \int_{x}^{\sqrt x} $f \, \mathrm dy \mathrm dx.  
 \]

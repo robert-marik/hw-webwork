@@ -114,7 +114,7 @@ Napište tvar, do jakého se rovnice zjednoduší, pokud budeme uvažovat [$co].
 Připomenutí terminologie
 
 * _homogenní_ (v každém bodě stejné vlastnosti) versus _nehomogenní_ (v různých bodech různé vlasnosti)
-* _izotropní_ (v každém směru stejné vlastnosti) verus _anizotropní_ nebo _ortotropní_ (v různých směrech různé vlasnosti)
+* _izotropní_ (v každém směru stejné vlastnosti) versus _anizotropní_ nebo _ortotropní_ (v různých směrech různé vlasnosti)
 * _lineární_ (konstata úměrnosti z Fickova zákon nezávisí na stavové veličině) versus _nelineární_ (konstata úměrnosti z Fickova zákon závisí na stavové veličině)
 * _nestacionární_ (nezávislá na čase) versus _stacionární_
 * _bezzdrojová_ (bez přítomnosti zdrojů a spotřebičů) versus _rovnice se zdroji_

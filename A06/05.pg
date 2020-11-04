@@ -202,7 +202,7 @@ Context()->normalStrings;
 BEGIN_PGML_HINT
 
 Množina je definována nerovnostmi [``` [$C]\leq r\leq [$D] ```] a [``` [$A]\leq\varphi\leq [$B]. ```]
-Použijte tuto informaci a přiřaďte hodonty ke správným mezím.
+Použijte tuto informaci a přiřaďte hodnoty ke správným mezím.
 
 END_PGML_HINT
 

@@ -161,7 +161,7 @@ BEGIN_PGML
 
 ## Slovní popis vektorového pole
 
-_V této sadě úkolů se budeme věnovat křivkovému integrálu druhého druhu. Nejprve se na tento integrál podíváme graficky, což je snazší a proto tomu byla věnována menší péče  ve výuce. Pokud se ztratíte, čtěte podrobně instrukce, případně si prohlédněte řešení podoného příkladu (možnost se uvolní po několika nesprávných odpovědích) a pečlivě čtěte zdůvodnění._
+_V této sadě úkolů se budeme věnovat křivkovému integrálu druhého druhu. Nejprve se na tento integrál podíváme graficky, což je snazší a proto tomu byla věnována menší péče  ve výuce. Pokud se ztratíte, čtěte podrobně instrukce, případně si prohlédněte řešení podobného příkladu (možnost se uvolní po několika nesprávných odpovědích) a pečlivě čtěte zdůvodnění._
 
 Představme si vektorové pole jako pole znázorňující silové působení. Šipka udává směr a velikost působící síly. Větší šipka značí větší sílu. Spárujte vektorové pole se slovním popisem.
 END_PGML

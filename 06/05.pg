@@ -53,11 +53,11 @@ Zapište stacionární body (zleva doprava, tj. od nejmenšího po největší) 
 
 
 $BR
-Stacionárni bod vlevo: \(x_1={}\)\{ans_rule(10) \}  \{ pop_up_list(''=>'','stabilní'=>'stabilní', 'nestabilní'=>'nestabilní') \}
+Stacionární bod vlevo: \(x_1={}\)\{ans_rule(10) \}  \{ pop_up_list(''=>'','stabilní'=>'stabilní', 'nestabilní'=>'nestabilní') \}
 $BR
-Stacionárni bod uprostřed: \(x_2={}\)\{ans_rule(10) \}  \{ pop_up_list(''=>'','stabilní'=>'stabilní', 'nestabilní'=>'nestabilní') \}
+Stacionární bod uprostřed: \(x_2={}\)\{ans_rule(10) \}  \{ pop_up_list(''=>'','stabilní'=>'stabilní', 'nestabilní'=>'nestabilní') \}
 $BR
-Stacionárni bod vpravo: \(x_3={}\)\{ans_rule(10) \}  \{ pop_up_list(''=>'','stabilní'=>'stabilní', 'nestabilní'=>'nestabilní') \}
+Stacionární bod vpravo: \(x_3={}\)\{ans_rule(10) \}  \{ pop_up_list(''=>'','stabilní'=>'stabilní', 'nestabilní'=>'nestabilní') \}
 END_TEXT
 
 $ans1 = ($sign > 0) ? 'nestabilní': 'stabilní';

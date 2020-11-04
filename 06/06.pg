@@ -81,7 +81,7 @@ BEGIN_TEXT
 $BR
 Počet stacionárních bodů je \{ pop_up_list(''=>'','1'=>'1', '2'=>'2', '3'=>'3', 'jiná možnost'=>'jiná možnost') \}.
 $BR
-Stacionárni bod nejvíce vlevo je \{ pop_up_list(''=>'','stabilní'=>'stabilní', 'nestabilní'=>'nestabilní') \}.
+Stacionární bod nejvíce vlevo je \{ pop_up_list(''=>'','stabilní'=>'stabilní', 'nestabilní'=>'nestabilní') \}.
 
 END_TEXT
 
@@ -101,9 +101,9 @@ END_PGML_HINT
 BEGIN_PGML_SOLUTION
 Stacionární body jsou body, kde se křivky protínají. Proto je počet stacionárních bodů [$ans1].
 
-Stabilitu poznáte podle toho, která křivka je výše a která níže. Pro stabilní stacionární bod potřebujeme, aby v levém okolí řešení rostlo (modrá křivka nad červenou) a v pravém okolí klesalo (modrá křivka pod červenou).  V tomto případě je levý stacinární bod [$ans2].
+Stabilitu poznáte podle toho, která křivka je výše a která níže. Pro stabilní stacionární bod potřebujeme, aby v levém okolí řešení rostlo (modrá křivka nad červenou) a v pravém okolí klesalo (modrá křivka pod červenou).  V tomto případě je levý stacionární bod [$ans2].
 
-Poznámka: Tento příklad byl mnohokrát vyzkoušen. Pokud přesto něco selhalo a popsané řešení neodpovídá obrázku, informujte prosím vyučujícícho. 
+Poznámka: Tento příklad byl mnohokrát vyzkoušen. Pokud přesto něco selhalo a popsané řešení neodpovídá obrázku, informujte prosím vyučujícího. 
 
 END_PGML_SOLUTION
 

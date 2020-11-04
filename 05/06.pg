@@ -61,13 +61,13 @@ Formula("$int") => "Jste na dobré cestě. Toto je ale určitý integrál. Ješt
 END_PGML
 
 BEGIN_PGML_HINT
-Primitivní funkce je [``[$prim]``]. Použijte tuto funkci na nalezení určitého interálu a poté vydělte délkou intervalu.
+Primitivní funkce je [``[$prim]``]. Použijte tuto funkci na nalezení určitého integrálu a poté vydělte délkou intervalu.
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 Použijeme vztah
 [``` \int [$funkce]\,\mathrm dt=[$prim]+C.```]
-Odsud (v neupraveném tvaru pro snazší rozšifrování, jak jme získné výrazy dostali)
+Odsud (v neupraveném tvaru pro snazší rozšifrování, jak jme získané výrazy dostali)
 [```\int_{[$a]}^{[$b]} [$funkce]\,\mathrm dt =[$int] ```]
 a 
 [```\frac 1{[$b]-[$a]}\int_{[$a]}^{[$b]} [$funkce]\,\mathrm dt =[$stredni].```]

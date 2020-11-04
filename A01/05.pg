@@ -25,7 +25,7 @@ BEGIN_PGML
 
 ## Parciální derivace druhého řádu
 
-Parciální derivace můžeme aplikovat i opakovaně a dostáváme tak derivace vyššího řádu. Například pokud dvakrát derivujeme podle [`x`] dostaneme parciální derivaci [`\frac{\partial ^2}{\partial x^2}`] a analogicky podle [`y`]. (Smíšeným parciálním derivacím druhého řádu, kdy se derivuje pokždé podle jiné proměnné, se budeme věnovat v následujícím příkladě.) Například pro funkci [```f(x,y)=\sin(x^2y)```] dostáváme (použitím pravidla pro derivaci složené funkce)
+Parciální derivace můžeme aplikovat i opakovaně a dostáváme tak derivace vyššího řádu. Například pokud dvakrát derivujeme podle [`x`] dostaneme parciální derivaci [`\frac{\partial ^2}{\partial x^2}`] a analogicky podle [`y`]. (Smíšeným parciálním derivacím druhého řádu, kdy se derivuje pokaždé podle jiné proměnné, se budeme věnovat v následujícím příkladě.) Například pro funkci [```f(x,y)=\sin(x^2y)```] dostáváme (použitím pravidla pro derivaci složené funkce)
 [```\frac{\partial f}{\partial x}=2xy\cos(x^2y)```]
 a použitím vzorce pro derivaci součinu dále
 [```\frac{\partial^2 f}{\partial x^2}=2y\cos(x^2y)+2xy(-\sin(x^2y))(2xy)=

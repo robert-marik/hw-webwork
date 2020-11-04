@@ -72,7 +72,7 @@ Dostáváme následující.
 >>[``\int \frac 1x \,\mathrm dx =\ln|x|+C``] <<
 
 
-(Je možné, že počítač nahradí zlomek desetiným číslem a musíte zpětně "rozšifrovat", o jaký zlomek se jedná.)
+(Je možné, že počítač nahradí zlomek desetinným číslem a musíte zpětně "rozšifrovat", o jaký zlomek se jedná.)
 
 END_PGML_SOLUTION
 

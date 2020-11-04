@@ -127,7 +127,7 @@ Platí
 [``` \int [$Pa]\,\mathrm dx =[$Pint]+C(y)```]
 a
 [``` \int [$Q]\,\mathrm dy =[$Qint]+C(x).```]
-Skalární potenciál je (jednozančně až na případnou aditivní konstantu)
+Skalární potenciál je (jednoznačně až na případnou aditivní konstantu)
 [``` \varphi(x,y)=[$potencial].```]
 
 Po dosazení koncových bodů křivky dostáváme

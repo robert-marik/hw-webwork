@@ -36,7 +36,7 @@ BEGIN_PGML
 
 ## Lineární aproximace funkce zadané funkčním předpisem II
 
-Budeme postupovat podobně jako v předchozím příkladě, ale narozdíl od předešlého přikladu si musíte sami vypočítat i derivaci. 
+Budeme postupovat podobně jako v předchozím příkladě, ale na rozdíl od předešlého příkladu si musíte sami vypočítat i derivaci. 
 
 Uvažujme funkci
 [```f(x)=[$funkce] ```]

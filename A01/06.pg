@@ -35,7 +35,7 @@ Parciální derivace můžeme aplikovat i opakovaně a nemusíme přitom derivov
 [``` \frac{\partial f}{\partial x}=12(2x+5y^2)^5```] a pokud tento výsledek derivujeme podle [`y`], dostaneme smíšenou derivaci
 [``` \frac{\partial^2 f}{\partial x\partial y}=12\cdot 5 \cdot 5\cdot 2 y(2x+5y^2)^4.```]
 Stejný výsledek bychom obdrželi, kdybychom derivovali nejprve podle [`y`] na vztah
-[``` \frac{\partial f}{\partial y}=6\cdot 5 \cdot 2y(2x+5y^2)^5```] a poté podle [`x`]. Schvwarzova věta totiž zaručuje, že za jistých (zpravidla splněných) předpokladů jsou obě smíšené derivace druhého řádu stejné. Vyzkoušíme si to na následujícím příkladě.
+[``` \frac{\partial f}{\partial y}=6\cdot 5 \cdot 2y(2x+5y^2)^5```] a poté podle [`x`]. Schwarzova věta totiž zaručuje, že za jistých (zpravidla splněných) předpokladů jsou obě smíšené derivace druhého řádu stejné. Vyzkoušíme si to na následujícím příkladě.
 
 ---------------
 

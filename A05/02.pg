@@ -165,7 +165,7 @@ TEXT(beginproblem());
 BEGIN_PGML
 ## Vektorové pole jako gradient
 
-Některá vektorová pole je možno obdržet jako gradienty skalárních funkcí, tj. tato pole mají skalární potenciál (nebo, vyjádřeno matematickým jazykem, mají kmenovou funkci). To je případ vektorových polí na obrázku. Spárujte vektorové pole s obrázkem udávajícím vrstevnice odpovádajícího skalárního potenciálu.
+Některá vektorová pole je možno obdržet jako gradienty skalárních funkcí, tj. tato pole mají skalární potenciál (nebo, vyjádřeno matematickým jazykem, mají kmenovou funkci). To je případ vektorových polí na obrázku. Spárujte vektorové pole s obrázkem udávajícím vrstevnice odpovídajícího skalárního potenciálu.
 Stačí se řídit vlastností, že gradient je kolmý k vrstevnicím.
 END_PGML
 

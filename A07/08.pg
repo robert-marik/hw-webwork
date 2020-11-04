@@ -73,12 +73,12 @@ jako dvojnásobný integrál přes množinu [`M`].
 
 >> [``  \oint_{\partial M} \Bigl([$P]\Bigr)\,\mathrm dx+\Bigl([$Q]\Bigr)\,\mathrm dy=\iint_M``][___________________]    [``\,\mathrm dx\mathrm dy``] <<
 
-Poté vypočtěte hodnotu tohoto integrálu za předpokladu, že množina [`M`] je jendotkový čtverec daný nerovnostmi [```0\leq x\leq 1,```] [```0\leq y\leq 1.```] Využijte výsledek, který jsme dosáhli ve cvičení, tj. pro jednotkový čtverec [`M`] platí [``` \iint_M x^n \,\mathrm dx\mathrm dy = \iint_M y^n\,\mathrm dx\mathrm dy=\frac 1{n+1}.```]
+Poté vypočtěte hodnotu tohoto integrálu za předpokladu, že množina [`M`] je jednotkový čtverec daný nerovnostmi [```0\leq x\leq 1,```] [```0\leq y\leq 1.```] Využijte výsledek, který jsme dosáhli ve cvičení, tj. pro jednotkový čtverec [`M`] platí [``` \iint_M x^n \,\mathrm dx\mathrm dy = \iint_M y^n\,\mathrm dx\mathrm dy=\frac 1{n+1}.```]
  (Ve cvičení jsme vypočítali jeden z těchto integrálů, ale druhý je stejný vzhledem k symetrii.)
 
 >> [``  \oint_{\partial M} \Bigl([$P]\Bigr)\,\mathrm dx+\Bigl([$Q]\Bigr)\,\mathrm dy=``][___________________] <<
 
-*Poznámka.* Za každou parciální derivaci dostanete pouze 10 procent celkového ohdnocení za příklad. Za každou další odpověď náleží 30 procent. Po odeslání vidíte, jestli máte správně mezivýpočty.
+*Poznámka.* Za každou parciální derivaci dostanete pouze 10 procent celkového ohodnocení za příklad. Za každou další odpověď náleží 30 procent. Po odeslání vidíte, jestli máte správně mezivýpočty.
 
 END_PGML
 

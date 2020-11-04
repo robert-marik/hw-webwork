@@ -131,7 +131,7 @@ a
 Skalární potenciál je
 [``` f(x,y)=[$potencial]+C.```]
 
-(Pokud při vygenerování řešení došlo k použití desetiných čísel, berte výpočet pouze orientačně a pracujte se zlomky. Výsledek je v některých případech možno dále upravit do hezčího tvaru.)
+(Pokud při vygenerování řešení došlo k použití desetinných čísel, berte výpočet pouze orientačně a pracujte se zlomky. Výsledek je v některých případech možno dále upravit do hezčího tvaru.)
 
 END_PGML_SOLUTION
 

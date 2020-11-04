@@ -67,7 +67,7 @@ se ve stacionárním případě (tj. v případě kdy se v čase nemění množs
 [``` 0 = -\nabla\cdot(\vec F) + \sigma```]
 tj.
 [``` \nabla\cdot(\vec F) = \sigma.```]
-Divergence je tedy přimo rovna hustotě zdrojů. (Pokud nevíte o čem se mluví, přečtěte si přednášku a zkoukněte video o divergenci a rovnici kontinuity.)
+Divergence je tedy přímo rovna hustotě zdrojů. (Pokud nevíte o čem se mluví, přečtěte si přednášku a zkoukněte video o divergenci a rovnici kontinuity.)
 
 Divergence nám udává, zda tok v daném místě zesiluje či zeslabuje. U kladné divergence tok zesiluje (pokud je proudění stacionární, je v tomto místě zdroj) a u záporné divergence tok slábne (pokud je proudění stacionární, je v tomto místě spotřebič). Je-li divergence nulová, tok ani nezesiluje ani neslábne a pole je v tomto bodě nezřídlové (anglicky také _incompressible_, tj. nestlačitelné). Pojem "nezřídlový" vyplývá z toho, že zdroje umístěné uvnitř toku si představujeme jako zřídla.
 

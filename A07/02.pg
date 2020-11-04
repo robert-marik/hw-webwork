@@ -106,7 +106,7 @@ if ($i<2)
 BEGIN_PGML_SOLUTION
 Kontrolujeme, zda platí
 [``` \frac{\partial}{\partial x}\left([$dy]\right)=\frac{\partial}{\partial y}\left([$dx]\right).```]
-Tato rovnost neplatí a proto je odpověď na obě otázky [|nelze|]. Není možné najít skalární potenciál (kmenovou funkci) a není ani možné vypočítat křivkový interál.
+Tato rovnost neplatí a proto je odpověď na obě otázky [|nelze|]. Není možné najít skalární potenciál (kmenovou funkci) a není ani možné vypočítat křivkový integrál.
 
 END_PGML_SOLUTION
 }

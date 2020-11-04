@@ -37,7 +37,7 @@ BEGIN_PGML
 
 [@ image("drevo.jpg", width=>400) @]*
 
-Uvažujme dvourozměrný homogenní a ortotropní  materiál, kde jsou osy zvoleny v charakteristckých směrech. Díky těmto vlastnostem jsou koeficient tepelné vodivosti a difuzní koeficient konstantní a tok (tepla nebo difuzní tok) jsou diagonální matice a násobení matic se redukuje na relativně snadný případ. Konkrétně pro gradient teploty daný vektorem [`\nabla T=\begin{pmatrix} x+y\\3y^2\end{pmatrix}`] a koeficient tepelné vodivosti [`\lambda=\begin{pmatrix}0.3&0\\0&0.5\end{pmatrix}`], je tok tepla dán vztahem
+Uvažujme dvourozměrný homogenní a ortotropní  materiál, kde jsou osy zvoleny v charakteristických směrech. Díky těmto vlastnostem jsou koeficient tepelné vodivosti a difuzní koeficient konstantní a tok (tepla nebo difuzní tok) jsou diagonální matice a násobení matic se redukuje na relativně snadný případ. Konkrétně pro gradient teploty daný vektorem [`\nabla T=\begin{pmatrix} x+y\\3y^2\end{pmatrix}`] a koeficient tepelné vodivosti [`\lambda=\begin{pmatrix}0.3&0\\0&0.5\end{pmatrix}`], je tok tepla dán vztahem
 [```\vec q=-\lambda \nabla T=-\begin{pmatrix}0.3&0\\0&0.5\end{pmatrix} \begin{pmatrix} x+y\\3y^2\end{pmatrix}
 =\begin{pmatrix} -0.3-0.3y\\-1.5y^2\end{pmatrix}.
 ```]

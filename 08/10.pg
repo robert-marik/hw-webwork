@@ -60,7 +60,7 @@ BEGIN_PGML
 
 ## Maticový zápis soustavy lineárních rovnic
 
-Soustavu lineárních rovnic můžeme zapistovat s výhodou pomocí maticového násobení. Dostáváme tím do ruky nástroj umožňující práci se soustavami obsahujícími tisíce rovnic a neznámých.
+Soustavu lineárních rovnic můžeme zapisovat s výhodou pomocí maticového násobení. Dostáváme tím do ruky nástroj umožňující práci se soustavami obsahujícími tisíce rovnic a neznámých.
 
 Zapište soustavu
 [```

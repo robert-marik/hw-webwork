@@ -18,7 +18,7 @@ $p=random(25,58,1);
 
 BEGIN_PGML
 
-## Čistění 
+## Znečištění látkou podléhající samovolnému rozkladu
 
 [@ image("jezirko.jpg", width=>400) @]*
 

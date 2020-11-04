@@ -68,7 +68,7 @@ Určete, jaké integrály stačí znát pro nalezení dvojného integrálu [```\
 
 [_]{$radio}
 
-*Návod.* Na jménu proměnné pochopitelně nezáleží. Ujasněte si, například v proměnných [`x`] a [`y`] jaké integrály potřebujete, přepište je do promněné [`t`] a porovnejte s tím, co je v nabídce.
+*Návod.* Na jménu proměnné pochopitelně nezáleží. Ujasněte si, například v proměnných [`x`] a [`y`] jaké integrály potřebujete, přepište je do proměnné [`t`] a porovnejte s tím, co je v nabídce.
 
 
 END_PGML

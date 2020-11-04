@@ -92,12 +92,12 @@ Pro výpočet [`` \frac{\mathrm d}{\mathrm dr} \vec r(t)``] derivujeme jednotliv
 
 Pro vyjádření [`\vec F(\vec r(t))`] stačí do [``` \vec F=[$F]```] dosadit  [```x=[$r1]```] a [```y=[$r2]```] a případně upravit.
 
-Skalární součin vypočítáme vynásobením odpovídajících si komponent a seštením těchto součinů.
+Skalární součin vypočítáme vynásobením odpovídajících si komponent a sečtením těchto součinů.
 
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
-Řdešení níže jsou  vygenerována automaticky a pravděpodobně je možné je dále upravit, což již je mimo možnosti systému WeBWorK. Sami si vynásobte mocniny se stejným základem nebo konstanty atd.
+Řešení níže jsou  vygenerována automaticky a pravděpodobně je možné je dále upravit, což již je mimo možnosti systému WeBWorK. Sami si vynásobte mocniny se stejným základem nebo konstanty atd.
 
 
 Pro výpočet [`` \frac{\mathrm d}{\mathrm dr} \vec r(t)``] derivujeme jednotlivé komponenty vektorového pole [`\vec r(t).`]
