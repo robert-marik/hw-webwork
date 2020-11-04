@@ -84,12 +84,12 @@ $i=random(1,2);
 if ($i==1)
 {
  $linearita=" nelineární";
- $co=$co." s nelineární materiálovou odevou";
+ $co=$co." s nelineární materiálovou odezvou";
 }
 else
 {
  $linearita=" lineární";
- $co=$co." s lineární materiálovou odevou";
+ $co=$co." s lineární materiálovou odezvou";
 }
 
 
