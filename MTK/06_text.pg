@@ -116,6 +116,12 @@ BEGIN_TEXT
 \{essay_box()\}
 END_TEXT
 
+BEGIN_PGML_SOLUTION
+
+Viz [@ htmlLink("http://user.mendelu.cz/marik/mtk/hw.html","zde"). @]*
+
+END_PGML_SOLUTION
+
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 
