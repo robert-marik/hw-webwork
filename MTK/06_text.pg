@@ -118,7 +118,7 @@ END_TEXT
 
 BEGIN_PGML_SOLUTION
 
-Viz [@ htmlLink("http://user.mendelu.cz/marik/mtk/hw.html","zde"). @]*
+Viz [@ htmlLink("http://user.mendelu.cz/marik/mtk/hw.html","zde.") @]*
 
 END_PGML_SOLUTION
 
