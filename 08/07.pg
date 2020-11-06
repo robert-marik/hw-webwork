@@ -25,12 +25,13 @@ $m11=$eN;
 $m12=$eR;
 $m21=$eN*$el;
 $m22=$eM+$eR*$el;
+$det=($m11*$m22-$m21*$m12);
 
-# Inverzni matice k predchozimu
-$i11=$m22;
-$i12=-$m12;
-$i21=-$m21;
-$i22=$m11;
+# Inverzni matice k predchozimu, determinat je jenom znamenko a je jedno jestli delim nebo nasobim.
+$i11=$m22*$det;
+$i12=-$m12*$det;
+$i21=-$m21*$det;
+$i22=$m11*$det;
 
 # Soucin diagonalni ($l1,$l2) s M
 $s11=$l1*$m11;
@@ -58,22 +59,13 @@ Context()->texStrings;
 BEGIN_PGML
 ## Vlastní čísla
 
-
-[$l1]=non_zero_random(-5,5);
-[$l2]=non_zero_random(-5,5);
-[$eN]=non_zero_random(-1,1);
-[$eM]=non_zero_random(-1,1);
-[$eR]=non_zero_random(-3,3);
-[$el]=non_zero_random(-3,3);
-
-
 Vlastní čísla jsou kořeny charakteristického polynomu. V minulém příkladě jsme si ověřili, že umíme hledat charakteristický polynom a nyní najdeme vlastní čísla jako kořeny tohoto polynomu. Připomeňme vzorec pro kořeny kvadratické rovnice, který má pro rovnici [``` ax^2+bx+c=0```] tvar
 [``` x_{1,2}=\frac{-b\pm\sqrt{b^2-4ac}}{2a}.```]
 
 Najděte vlastní čísla matice [``` A=\begin{pmatrix} [$a11]&[$a12]\\[$a21]&[$a22]\end{pmatrix}.```]
 Charakteristický polynom zapište stejně jako v předchozím příkladě v proměnné [`\lambda`].
 
-Charakteristický polynom je [______________]{$Adet}.
+Charakteristický polynom je [_____________________________]{$Adet}.
 
 
 Vlastní čísla zapište do jednoho políčka v libovolném pořadí, oddělená čárkou.
