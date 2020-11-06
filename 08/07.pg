@@ -77,6 +77,10 @@ END_PGML
 
 $showHint = 1;
 BEGIN_PGML_HINT
+V závislosti na vygenerovaných hodnotách se může stát, že mimodiagonální prvek je nula. Potom jsou čísla v hlavní diagonále přímo vlastní čísla a není co počítat.
+
+Obecný postup v případě, že nám štestí tolik nepřeje, je následující.
+
 Musíme vypočítat charakteristický polynom jako determinant
 [```\begin{vmatrix}[$a11]-\lambda&[$a12]\\[$a21]&[$a22]-\lambda\end{vmatrix}```]
 a najít nulové body tohoto polynomu. Pro kontrolu: koeficienty u kvadratického člene je jednička a další koeficienty tohoto polynomu jsou záporně vzatá stopa matice [`A`] (součet prvků v hlavní diagonále vynásobený minus jedničkou) a determinant matice [`A`].
@@ -85,6 +89,10 @@ Kořeny charakteristického polynomu najdeme pomocí vzorce pro kořeny kvadrati
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
+V závislosti na vygenerovaných hodnotách se může stát, že mimodiagonální prvek je nula. Potom jsou čísla v hlavní diagonále přímo vlastní čísla a není co počítat.
+
+Obecný postup v případě, že nám štestí tolik nepřeje, je následující.
+
 Musíme vypočítat charakteristický polynom jako determinant
 [```\begin{vmatrix}[$a11]-\lambda&[$a12]\\[$a21]&[$a22]-\lambda\end{vmatrix}=[$Adet].```]
 Tento kvadratický polynom má kořeny
