@@ -15,12 +15,14 @@ TEXT(beginproblem());
 Context("Matrix");
 Context()->flags->set(tolerance => 0.01, tolType => "relative");
 
+do {
 $a11=random(1,6,1);
 $a22=random(1,6,1);
 $a12=random(1,sqrt($a11*$a22),1);
 $a21=$a12;
 $stopa=$a11+$a22;
 $determinant=($a11*$a22-$a12*$a21);
+} until ($determinant != 0);
 
 $u1=1;
 $u2=2;
