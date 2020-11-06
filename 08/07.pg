@@ -58,6 +58,15 @@ Context()->texStrings;
 BEGIN_PGML
 ## Vlastní čísla
 
+
+[$l1]=non_zero_random(-5,5);
+[$l2]=non_zero_random(-5,5);
+[$eN]=non_zero_random(-1,1);
+[$eM]=non_zero_random(-1,1);
+[$eR]=non_zero_random(-3,3);
+[$el]=non_zero_random(-3,3);
+
+
 Vlastní čísla jsou kořeny charakteristického polynomu. V minulém příkladě jsme si ověřili, že umíme hledat charakteristický polynom a nyní najdeme vlastní čísla jako kořeny tohoto polynomu. Připomeňme vzorec pro kořeny kvadratické rovnice, který má pro rovnici [``` ax^2+bx+c=0```] tvar
 [``` x_{1,2}=\frac{-b\pm\sqrt{b^2-4ac}}{2a}.```]
 
@@ -70,7 +79,7 @@ Charakteristický polynom je [______________]{$Adet}.
 Vlastní čísla zapište do jednoho políčka v libovolném pořadí, oddělená čárkou.
 
 
-Vlastní čísla jsou [_____________]{List(-$l1,-$l2)}.
+Vlastní čísla jsou [_____________]{List($l1,$l2)}.
 
 END_PGML
 
@@ -89,7 +98,7 @@ Musíme vypočítat charakteristický polynom jako determinant
 Tento kvadratický polynom má kořeny
 [``` \lambda_{1,2}=\frac{[$Mb]\pm \sqrt{([$b])^2-4\cdot ([$c])}}{2}```] a
 po výpočtu dostáváme
-[`\lambda_1=[-$l1]`] a [`\lambda_2=[-$l2]`].
+[`\lambda_1=[$l1]`] a [`\lambda_2=[$l2]`].
 END_PGML_SOLUTION
 
 
