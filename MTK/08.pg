@@ -32,7 +32,7 @@ sub f {
 
 f(
 "Inverzní matice",
-"Co rozumíme inverní maticí k zadané matici?",
+"Co rozumíme inverzní maticí k zadané matici?",
 [["Součin matice a matice inverzní je roven jednotkové matici.",
 "Součet matice a matice invertní je roven nulové matici.",
 "Matice je symetrická podél hlavní diagonály.",
@@ -66,16 +66,16 @@ f(
 [["Její kořeny (řešení) jsou vlastní čísla matice.",
 "Její koeficienty jsou vlastní čísla matice.",
 "Její funkční hodnoty udávají determinant matice.",
-"Její stupeň souvisí s počtem navzájemn různých vlastních čísel.",
+"Její stupeň souvisí s počtem navzájem různých vlastních čísel.",
 ]]);
 
 f(
 "Rotace tenzoru",
 "Jak určujeme komponenty tenzoru (matice) v otočené soustavě souřadnic?",
-[["Násobíme matici zprava maticí rotace a zoleva inverzní maticí.",
+[["Násobíme matici zprava maticí rotace a zleva inverzní maticí.",
 "Násobíme zleva maticí rotace.",
 "Násobíme zprava inverzní maticí k matici rotace.",
-"Násobíme zprava maticé rotace a celek dělíme determinantem.",
+"Násobíme zprava maticí rotace a celek dělíme determinantem.",
 ]]);
 
 BEGIN_PGML

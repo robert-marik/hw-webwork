@@ -76,9 +76,9 @@ Pokuste se ověřit (podobně jako výše u vektoru [`u`]) pro vektor
 * Obraz  [`U'`] vektoru [`U`] je
 >>[`` U'=\begin{pmatrix} [$a11]&[$a12]\\[$a21]&[$a22]\end{pmatrix} \begin{pmatrix}[$U1]\\[$U2]\end{pmatrix} ={}``][___________]*{$obraz}.<<
 * Délka vektoru [`U'`] je 
->>[``||U'||=\sqrt{U'^TU'}={}``][_______]{$normaUU}.<<
+>>[``||U'||=\sqrt{U'^TU'}={}``][__________________________]{$normaUU}.<<
 * Podíl délek obrazu a vzoru je
->>[`` \frac{||U'||}{||U||}={}``][_______]{$podil}.<<
+>>[`` \frac{||U'||}{||U||}={}``][__________________________]{$podil}.<<
 
 Úloha bude jistě reagovat na případné necitlivé zaokrouhlování. Snažte se nezaokrouhlovat (můžete psát například něco jako *sqrt(7^2+6^2)*) nebo alespoň nezaokrouhlovat více než je nutné.
 
