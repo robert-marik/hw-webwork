@@ -19,7 +19,7 @@ BEGIN_PGML
 
 *Vysvětlete formou Vašeho vlastního slovního projevu výpočet v příkladu 9 ze sady úloh "08 Matice a vlastní vektory"* (přímý odkaz je [@htmlLink("http://um.mendelu.cz/webwork2/MT-Marik/08_Matice_a_vlastni_vektory/9/","zde")@]*). Ověřte, že máte dovednost snadno a rychle nahrát komentář a nasdílet ho. Nejjednodušší je použití webové stránky [@ htmlLink("http://ctrlv.tv","ctrlv.tv")@]*, která Vám nahraje video v prohlížeči a vygeneruje odkaz, který odešlete v odpovědním formuláři.
 
-Odkaz na video vložte do odpovědního pole a odešlete. 
+Odkaz na video vložte do odpovědního pole a odešlete. Mělo by to být něco jako *https://ctrlv.tv/YBgL*.
 
 END_PGML
 
@@ -33,12 +33,13 @@ BEGIN_PGML
 
 ----------------------------
 
-Pokud Vám něco nefunguje, můžete použít i jinou službu (Youtube, Facebook, OneDrive, Stream, ...) ale musíte nasdílet jenom odkaz a ten musí být prohlédnutelný kliknutím bez přihlašování se někam jinam než do MS Teams. Pokud to neumíte, napište mi do odpovědi, v čem je problém.
+Pokud Vám něco nefunguje, můžete použít i jinou službu (Youtube, Facebook, OneDrive, Stream, ...), ale musíte nasdílet jenom odkaz a ten musí být prohlédnutelný prostým kliknutím (resp. překopírováním URL adresy) bez přihlašování se někam jinam než do MS Teams. Pokud to neumíte, napište mi do odpovědi, v čem je problém.
 
 Tato dovednost Vám (a mě) maximalizuje šanci vyhnout se při distančním zkoušení Teamsovému hovoru, který je nepříjemný, zdlouhavý a na zkoušení není moc vhodný (stres zda nespadne připojení atd). U zkoušky bude potřeba, abyste do videa začlenili na chvíli i buď svůj obličej nebo přihlášení do UIS (volte, co je pro vás snazší). Pro potřeby této úlohy to dělat nemusíte, jenom si ověřte, že byste to dokázali.
 
-Ukázka, jak to může vypadat, je vložena zde, ale to je jenom příklad. Je akceptovatelná jakákoliv rozumná forma. Kdo umí jenom natáčet mobilem, může natočit obrazovku nebo výpočet na papíru (ukazujte tužkou, nikoliv prstem) a pro doložení identity třeba svůj UIS na obrazovce nebo sebe před zrcadlem. Sami prosím zhodnoťte, jestli máte dostatečné světelné podmínky, jestli je snímaný text čitelný, mikrofon dostatečně hlasitý a práce celkově hodná odevzdání jako domácí úkol a u zkoušky jako součást hodnocení. 
+Ukázka, jak to může vypadat, je vložena zde, ale to je jenom příklad. Je akceptovatelná jakákoliv rozumná forma. Kdo umí jenom natáčet mobilem, může natočit obrazovku nebo výpočet na papíru (ukazujte tužkou, nikoliv prstem) a pro doložení identity třeba svůj UIS na obrazovce nebo sebe před zrcadlem. Sami prosím zhodnoťte, jestli máte dostatečné světelné podmínky, jestli je snímaný text čitelný, mikrofon dostatečně hlasitý a práce celkově hodná odevzdání jako domácí úkol a u zkoušky jako součást hodnocení.
 
+Výslovně připomínám, že nemusíte sdílet žádné soukromé informace. Pokud nahrajete svůj UIS tak nemusíte nahrávat svůj obličej. Nemusí jít vidět Vaše obydlí. Nemusíte video vystavovat celému světu (stačí odkaz a ten je určen jenom jenom vyučujícím). Chraňte si své soukromí :)
 
 END_PGML
 
