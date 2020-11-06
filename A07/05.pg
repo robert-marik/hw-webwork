@@ -38,7 +38,7 @@ END_PGML
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
-Context("Vector");
+Context("Vector2D");
 
 Context()->variables->are(x=>"Real",y=>"Real");
 Context()->flags->set(ijk=>1 );

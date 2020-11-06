@@ -1,0 +1,99 @@
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("left.css");
+
+$showPartialCorrectAnswers = 1;
+
+
+BEGIN_PGML
+
+## Vysvětlete postup
+
+*Vysvětlete formou Vašeho vlastního slovního projevu výpočet v příkladu 9 ze sady úloh "08 Matice a vlastní vektory"* (přímý odkaz je [@htmlLink("http://um.mendelu.cz/webwork2/MT-Marik/08_Matice_a_vlastni_vektory/9/","zde")@]*). Ověřte, že máte dovednost snadno a rychle nahrát komentář a nasdílet ho. Nejjednodušší je použití webové stránky [@ htmlLink("http://ctrlv.tv","ctrlv.tv")@]*, která Vám nahraje video v prohlížeči a vygeneruje odkaz, který odešlete v odpovědním formuláři.
+
+Odkaz na video vložte do odpovědního pole a odešlete. 
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box(5,40)\}
+END_TEXT
+
+
+BEGIN_PGML
+
+----------------------------
+
+Pokud Vám něco nefunguje, můžete použít i jinou službu (Youtube, Facebook, OneDrive, Stream, ...) ale musíte nasdílet jenom odkaz a ten musí být prohlédnutelný kliknutím bez přihlašování se někam jinam než do MS Teams. Pokud to neumíte, napište mi do odpovědi, v čem je problém.
+
+Tato dovednost Vám (a mě) maximalizuje šanci vyhnout se při distančním zkoušení Teamsovému hovoru, který je nepříjemný, zdlouhavý a na zkoušení není moc vhodný (stres zda nespadne připojení atd). U zkoušky bude potřeba, abyste do videa začlenili na chvíli i buď svůj obličej nebo přihlášení do UIS (volte, co je pro vás snazší). Pro potřeby této úlohy to dělat nemusíte, jenom si ověřte, že byste to dokázali.
+
+Ukázka, jak to může vypadat, je vložena zde, ale to je jenom příklad. Je akceptovatelná jakákoliv rozumná forma. Kdo umí jenom natáčet mobilem, může natočit obrazovku nebo výpočet na papíru (ukazujte tužkou, nikoliv prstem) a pro doložení identity třeba svůj UIS na obrazovce nebo sebe před zrcadlem. Sami prosím zhodnoťte, jestli máte dostatečné světelné podmínky, jestli je snímaný text čitelný, mikrofon dostatečně hlasitý a práce celkově hodná odevzdání jako domácí úkol a u zkoušky jako součást hodnocení. 
+
+
+END_PGML
+
+
+$video = MODES(
+HTML=> 
+'<iframe width="420" height="315" src="http://www.youtube.com/embed/Fs2ebW8kgjI" 
+frameborder="0" allowfullscreen></iframe>', 
+TeX =>
+"An embedded YouTube video."
+);
+
+Context()->texStrings;
+BEGIN_TEXT
+${BCENTER}
+$video
+$BR
+Pokud video nefunguje, 
+\{ htmlLink("https://youtu.be/Fs2ebW8kgjI",
+"použijte přímý odkaz.") \}
+${ECENTER}
+END_TEXT
+Context()->normalStrings;
+
+
+
+$video2 = MODES(
+HTML=> 
+'<iframe width="420" height="315" src="http://www.youtube.com/embed/hWamMVmQbBA" 
+frameborder="0" allowfullscreen></iframe>', 
+TeX =>
+"An embedded YouTube video."
+);
+
+Context()->texStrings;
+BEGIN_TEXT
+
+$BR
+$BR
+
+Ještě jedna ukázka.
+
+${BCENTER}
+$video2
+$BR
+Pokud video nefunguje, 
+\{ htmlLink("https://youtu.be/hWamMVmQbBA",
+"použijte přímý odkaz.") \}
+${ECENTER}
+END_TEXT
+Context()->normalStrings;
+
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+
+ENDDOCUMENT();

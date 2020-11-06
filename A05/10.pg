@@ -11,7 +11,7 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-Context("Vector");
+Context("Vector2D");
 
 Context()->variables->are(t=>"Real",x=>"Real",y=>"Real");
 Context()->flags->set(ijk=>1 );
