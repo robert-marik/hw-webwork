@@ -70,7 +70,7 @@ Charakteristický polynom je [______________]{$Adet}.
 Vlastní čísla zapište do jednoho políčka v libovolném pořadí, oddělená čárkou.
 
 
-Vlastní čísla jsou [_____________]{List($l1,$l2)}.
+Vlastní čísla jsou [_____________]{List(-$l1,-$l2)}.
 
 END_PGML
 
@@ -89,7 +89,7 @@ Musíme vypočítat charakteristický polynom jako determinant
 Tento kvadratický polynom má kořeny
 [``` \lambda_{1,2}=\frac{[$Mb]\pm \sqrt{([$b])^2-4\cdot ([$c])}}{2}```] a
 po výpočtu dostáváme
-[`\lambda_1=[$l1]`] a [`\lambda_2=[$l2]`].
+[`\lambda_1=[-$l1]`] a [`\lambda_2=[-$l2]`].
 END_PGML_SOLUTION
 
 
