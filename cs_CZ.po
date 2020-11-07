@@ -7985,3 +7985,9 @@ msgstr ""
 
 msgid "This answer will be graded at a later time."
 msgstr "Tato odpověď bude vyhodnocena ručně po uzavření úkolu. Budou přiděleny body a případně připsán komentář."
+
+msgid "Can't raise a negative number to a non-integer power"
+msgstr "Nemůžu umocňovat záporné číslo neceločíselným exponentem."
+
+msgid "Unexpected character '%s'"
+msgstr "Neočekávaný znak '%s'"

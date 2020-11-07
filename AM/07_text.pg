@@ -1,0 +1,100 @@
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("left.css");
+
+$showPartialCorrectAnswers = 1;
+
+
+BEGIN_PGML
+
+## Vysvětlete postup
+
+*Vysvětlete formou Vašeho vlastního slovního projevu odpověď v příkladu 10 ze sady úloh "07 Integralni vety"* (přímý odkaz je [@htmlLink("http://um.mendelu.cz/webwork2/AM-Marik/07_Integralni_vety/10","zde")@]*). Ověřte, že máte dovednost snadno a rychle nahrát komentář a nasdílet ho. Nejjednodušší je použití webové stránky [@ htmlLink("http://ctrlv.tv","ctrlv.tv")@]*, která Vám nahraje video v prohlížeči a vygeneruje odkaz, který odešlete v odpovědním formuláři.
+
+Odkaz na video vložte do odpovědního pole a odešlete. Mělo by to být něco jako *https://ctrlv.tv/YBgL*.
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box(5,40)\}
+END_TEXT
+
+
+BEGIN_PGML
+
+----------------------------
+
+Pokud Vám něco nefunguje, můžete použít i jinou službu (Youtube, Facebook, OneDrive, MS Streams, ...), ale to je všechno mnohem mnohem mnohem pomalejší a na hodně kliknutí. NIcméně můžete zvolit i vlastní cestu, ale musíte nasdílet jenom odkaz a ten musí být prohlédnutelný prostým kliknutím (resp. překopírováním URL adresy) bez přihlašování se někam jinam než do MS Teams. Můžete vyzkoušet například [@ htmlLink("https://docs.microsoft.com/cs-cz/stream/portal-create-screen-recording","návod pro MS Streams") @]*. Pokud to přes veškerou snahu nedokážete, napište mi do odpovědi, v čem je problém.
+
+*Tato dovednost Vám (a mě) maximalizuje šanci vyhnout se při distančním zkoušení Teamsovému hovoru, který je nepříjemný, zdlouhavý a na zkoušení není moc vhodný (stres zda nespadne připojení, zda budu rozumět otázce, zda dokážu bez přípravy nějak prezentovat své výpočty atd).* U zkoušky bude potřeba, abyste do videa začlenili na chvíli i buď svůj obličej nebo přihlášení do UIS (volte, co je pro vás snazší nebo lépe akceptovatelné). Pro potřeby této úlohy to dělat nemusíte, jenom si ověřte, že byste to dokázali.
+
+Ukázka, jak to může vypadat, je vložena níže, ale to je jenom příklad. Je akceptovatelná jakákoliv rozumná forma. Kdo umí jenom natáčet mobilem, může natočit obrazovku nebo výpočet na papíru (ukazujte tužkou, nikoliv prstem) a pro doložení identity třeba svůj UIS na obrazovce nebo sebe před zrcadlem. Sami prosím zhodnoťte, jestli máte dostatečné světelné podmínky, jestli je snímaný text čitelný, mikrofon dostatečně hlasitý a práce celkově hodná odevzdání jako domácí úkol a u zkoušky jako součást hodnocení.
+
+Výslovně připomínám, že nemusíte sdílet žádné soukromé informace. Pokud nahrajete svůj UIS tak nemusíte nahrávat svůj obličej. Nemusí jít vidět Vaše obydlí. Nemusíte video vystavovat celému světu (stačí odkaz a ten je určen jenom vyučujícím). Chraňte si své soukromí rozumnou mírou paranoidního chování!
+
+END_PGML
+
+
+$video = MODES(
+HTML=> 
+'<iframe width="420" height="315" src="http://www.youtube.com/embed/hWamMVmQbBA" 
+frameborder="0" allowfullscreen></iframe>', 
+TeX =>
+"An embedded YouTube video."
+);
+
+Context()->texStrings;
+BEGIN_TEXT
+${BCENTER}
+$video
+$BR
+Pokud video nefunguje, 
+\{ htmlLink("https://youtu.be/hWamMVmQbBA",
+"použijte přímý odkaz.") \}
+${ECENTER}
+END_TEXT
+Context()->normalStrings;
+
+
+
+$video2 = MODES(
+HTML=> 
+'<iframe width="420" height="315" src="http://www.youtube.com/embed/Fs2ebW8kgjI" 
+frameborder="0" allowfullscreen></iframe>', 
+TeX =>
+"An embedded YouTube video."
+);
+
+Context()->texStrings;
+BEGIN_TEXT
+
+$BR
+$BR
+
+Ještě jedna ukázka. Z jiného soudku, prvácká matematika.
+
+${BCENTER}
+$video2
+$BR
+Pokud video nefunguje, 
+\{ htmlLink("https://youtu.be/Fs2ebW8kgjI",
+"použijte přímý odkaz.") \}
+${ECENTER}
+END_TEXT
+Context()->normalStrings;
+
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+
+ENDDOCUMENT();
