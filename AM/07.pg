@@ -138,7 +138,7 @@ BEGIN_PGML
 
 [@ image("hw07.jpg", width=>400) @]*
 
-V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/07/","přednášky o integrálních větách") @]*, přidruženéhocvičení a shlédnutí videí k této přednášce a cvičení. Vracíme se zpět i k difuzní rovnici, protože představený aparát ji umožní odvodit v integrálním tvaru pomocí měřitelných makroskopických veličin. Tím je vše lépe fyzikálně podloženo. 
+V této sadě otázek jsou otázky, které byste měli být schopni zodpovědět po  prostudování [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/07/","přednášky o integrálních větách") @]*, přidruženého cvičení a shlédnutí videí k této přednášce a cvičení. Vracíme se zpět i k difuzní rovnici, protože představený aparát ji umožní odvodit v integrálním tvaru pomocí měřitelných makroskopických veličin. Tím je vše lépe fyzikálně podloženo. 
 
 Otázky jsou naformulovány tak, aby byly co nejkratší. Proto tiše předpokládáme, že všechny funkce jsou hladké, křivky regulární a uzavřené a všechny věty, které zmiňujeme, mají splněny všechny předpoklady. 
 
