@@ -7982,3 +7982,6 @@ msgstr ""
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/Index.pm:411
 msgid "your students"
 msgstr ""
+
+msgid "This answer will be graded at a later time."
+msgstr "Tato odpověď bude vyhodnocena ručně po uzavření úkolu. Budou přiděleny body a případně připsán komentář."
