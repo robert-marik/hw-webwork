@@ -120,6 +120,11 @@ BEGIN_TEXT
 \{essay_box()\}
 END_TEXT
 
+
+BEGIN_PGML
+_[@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "Nápověda pro LaTeX, ukázky kódů pro vykopírování") @]* (odkaz otevřete pravým tlačítem v novém panelu, aby Vám zůstala otevřená i stránka, kterou čtete). Dlaší ukázky jsou všechny vzorce v programu WeBWorK a v přednáškách. Použijte pravé tlačítko a zobrazení kódu v programu TeX._
+END_PGML
+
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 
