@@ -81,7 +81,7 @@ A nakonec najděte skalární součin obou vektorů
 >>[``\vec F(\vec r(t)) \cdot \frac{\mathrm d}{\mathrm dt} \vec r(t)={} ``][_____________________________________]{$answerFR} <<
 
 
-(Nezapomeňte, tam kde je odpovědí vektor, zadat odpověď jako vektor, tj. ve formátu *<...,...>* nebo *(...)\*i+(...)\*j*.)
+(Nezapomeňte tam kde je odpovědí vektor zadat odpověď jako vektor, tj. ve formátu *<...,...>* nebo *(...)\*i+(...)\*j*.)
 
 
 END_PGML

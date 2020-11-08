@@ -92,7 +92,7 @@ Nakonec najděte hodnotu integrálu vektorového pole po zadané křivce.
 >>[``\int_C \vec F\,{\mathrm d} \vec r={} ``][_____________________________________]{$answerKI} <<
 
 
-(Nezapomeňte, tam kde je odpovědí vektor, zadat odpověď jako vektor, tj. ve formátu *<...,...>* nebo *(...)\*i+(...)\*j*.)
+(Nezapomeňte tam kde je odpovědí vektor zadat odpověď jako vektor, tj. ve formátu *<...,...>* nebo *(...)\*i+(...)\*j*.)
 
 
 END_PGML

@@ -7991,3 +7991,6 @@ msgstr "Nemůžu umocňovat záporné číslo neceločíselným exponentem."
 
 msgid "Unexpected character '%s'"
 msgstr "Neočekávaný znak '%s'"
+
+msgid "Missing operand before '%s'"
+msgstr "Chybějící výraz nebo číslo před '%s'"
