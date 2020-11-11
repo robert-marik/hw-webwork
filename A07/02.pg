@@ -51,15 +51,15 @@ $answer=$potencial->eval(x=>$bodX,y=>$bodY);
 
 if ($i==0)
 {
-$sum=random(0,2);
-$dy=Compute("$a*$n*x^($m)*y^($n+$sum)+$na*$nn*x^($mm)*y^($nn)")->reduce();
+$sum=random(1,2);
+$dy=Compute("$a*$n*x^($m)*y^($n+$sum)+$aa*$nn*x^($mm)*y^($nn)")->reduce();
 $answer=Compute("nelze");
 $potencial=Compute("nelze");
 }
 elsif ($i==1)
 {
-$sum=random(0,2);
-$dy=Compute("$a*$m*x^($m+$sum)*y^($n)+$aa*$mm*x^($mm)*y^($nn)+")->reduce();
+$sum=random(1,2);
+$dy=Compute("$a*$m*x^($m+$sum)*y^($n)+$aa*$mm*x^($mm)*y^($nn)")->reduce();
 $answer=Compute("nelze");
 $potencial=Compute("nelze");
 }
