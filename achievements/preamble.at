@@ -1,0 +1,19 @@
+#Identify the introductory assignment and it's first problem
+
+ my %introproblems = (
+
+ '00_Uvod' => {
+
+ '1' => 1,  
+
+}
+
+ );
+
+ #If we are in the intro set on, disable achievements.
+
+ if ($introproblems{$problem->set_id}){
+
+ return 0;
+
+ }
