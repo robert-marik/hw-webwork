@@ -74,9 +74,9 @@ f(
 "Transformace rovnice tepelné výměny",
 "Uvažujme rovnici tepelné výměny s počáteční podmínkou, tj. úlohu ve tvaru \[\frac{\mathrm dT}{\mathrm dt}=-k(T-T_{\mathrm outside})\quad T(0)=T_0.\] Jaká transformace převede tuto rovnici na tvar, ve kterém nefiguruje venkovní teplota \(T_{\mathrm outside}\) a jak tuto transformaci můžeme popsat fyzikálně?",
 [[
-"vhodným posunutím jednotky teploty tak, aby teplota okolí v nové stupnici byla nulová",
-"vhodným zvětšením nebo zmenšením jednotky času tak, aby teplota okolí v nové stupnici byla nulová",
-"vhodným zvětšením nebo zmenšením jednotky teploty tak, aby teplota okolí v nové stupnici byla nulová",
+"vhodné posunutí jednotky teploty tak, aby teplota okolí v nové stupnici byla nulová",
+"vhodné zvětšení nebo zmenšení jednotky času tak, aby teplota okolí v nové stupnici byla nulová",
+"vhodné zvětšení nebo zmenšení jednotky teploty tak, aby teplota okolí v nové stupnici byla nulová",
 "požadovaného tvaru není možné dosáhnout, vliv okolí se nedá odfiltrovat, došlo by k zastavení tepelné výměny a nebylo by co modelovat"
 ]]);
 
@@ -85,9 +85,9 @@ f(
 "Transformace rovnice tepelné výměny II",
 "Uvažujme rovnici podle předchozího, kde jsme dosáhli toho, že rovnici popisujeme modelem \[\frac{\mathrm dT}{\mathrm dt}=-kT\quad T(0)=T_0.\] Jaká transformace převede tuto rovnici na tvar, ve kterém kromě venkovní teploty nefiguruje ani počáteční teplota \(T_0\) a jak tuto transformaci můžeme popsat fyzikálně?",
 [[
-"vhodným zvětšením nebo zmenšením jednotky teploty tak, aby teplota na počátku byla jednotková",
-"vhodným posunutím jednotky teploty tak, aby teplota na počátku byla jednotková",
-"vhodným zvětšením nebo zmenšením jednotky času tak, aby teplota na počátku byla jednotková",
+"vhodné zvětšení nebo zmenšení jednotky teploty tak, aby teplota na počátku byla jednotková",
+"vhodné posunutí jednotky teploty tak, aby teplota na počátku byla jednotková",
+"vhodné zvětšení nebo zmenšení jednotky času tak, aby teplota na počátku byla jednotková",
 "požadovaného tvaru není možné dosáhnout, počáteční stav se nedá odfiltrovat",
 "otázka nemá smysl, protože už odpověď na předchozí otázku byla záporná"
 ]]);
@@ -97,9 +97,9 @@ f(
 "Transformace rovnice tepelné výměny III",
 "Uvažujme rovnici podle předchozího, kde jsme dosáhli toho, že rovnici popisujeme modelem \[\frac{\mathrm dT}{\mathrm dt}=-kT\quad T(0)=1.\] Jaká transformace převede tuto rovnici na tvar, ve kterém kromě venkovní teploty a počáteční teploty nefiguruje konstana \(k\) a jak tuto transformaci můžeme popsat fyzikálně?",
 [[
-"vhodným zvětšením nebo zmenšením jednotky času tak, aby \(k\) bylo rovno jedné",
-"vhodným posunutím jednotky času do minulosti nebo přítomnosti tak, aby \(k\) bylo rovno jedné",
-"vhodným zvětšením nebo zmenšením jednotky teploty tak, aby \(k\) bylo rovno jedné",
+"vhodné zvětšení nebo zmenšení jednotky času tak, aby \(k\) bylo rovno jedné",
+"vhodné posunutí jednotky času do minulosti nebo přítomnosti tak, aby \(k\) bylo rovno jedné",
+"vhodné zvětšení nebo zmenšení jednotky teploty tak, aby \(k\) bylo rovno jedné",
 "požadovaného tvaru není možné dosáhnout, charakteristika systému se nedá odfiltrovat",
 "otázka nemá smysl, protože už odpověď na některou z předchozích otázek v řadě byla záporná"
 ]]);
@@ -110,9 +110,9 @@ f(
 "Uvažujme rovnici podle předchozího, kde jsme dosáhli toho, že rovnici popisujeme modelem \[\frac{\mathrm dT}{\mathrm dt}=-T\quad T(0)=1.\] Jaká transformace dále převede tuto rovnici na tvar, kdy na pravé straně místo teploty \(T\) figuruje jednička a jak tuto transformaci můžeme popsat fyzikálně?",
 [[
 "požadovaného tvaru není možné dosáhnout, teplota v rovnici musí figurovat",
-"vhodným zvětšením nebo zmenšením jednotky času tak",
-"vhodným posunutím jednotky času do minulosti nebo přítomnosti",
-"vhodným zvětšením nebo zmenšením jednotky teploty",
+"vhodné zvětšení nebo zmenšení jednotky času",
+"vhodné posunutí jednotky času do minulosti nebo přítomnosti",
+"vhodné zvětšení nebo zmenšení jednotky teploty",
 "otázka nemá smysl, protože už odpověď na některou z předchozích otázek v řadě byla záporná"
 ]]);
 
