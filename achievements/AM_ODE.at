@@ -21,6 +21,7 @@ my %validproblems = (
 if ($validproblems{$problem->set_id} &&
         $validproblems{$problem->set_id}{$problem->problem_id} &&
         $problem->status == 1 &&
+        $problem->num_incorrect < 2 &&
         $problem->num_correct == 1) {
             #update counter;
             $counter++;

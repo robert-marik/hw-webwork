@@ -1,0 +1,54 @@
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("left.css");
+
+$showPartialCorrectAnswers = 1;
+
+BEGIN_PGML
+
+## Korfova funkce
+
+Korfova funkce je funkce používaná pro odhad bonity lesa. Je založena na tom, že růstová funkce (označme ji například [`f`]) se mění rychlostí, která je současně přímo úměrná této funkci [`f`] a nepřímo úměrná [`n`]-té mocnině času. Zapište tuto funkci. 
+
+Nápověda: Před uzavřením úkolu několikrát nepravidelně zkontroluji a případně okomentuji odpovědi. Dokud nebude úkol uzavřen, můžete na komentář zareagovat a odpověď opravit. Po uzavření úkolu se sem můžete vrátit na prohlédnutí řešení a některých dalších souvislostí. Pro rovnici na samostatném řádku používejte prosím raději LaTeX než AsciiMath.
+
+*TIP:* Na webové stránce pluginu [@ htmlLink("https://www.mathjax.org/#demo","MathJax")@]* si můžete pohodlně text připravit v LaTeXu i v AsciiMath a poté vykopírovat sem.
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box()\}
+END_TEXT
+
+
+BEGIN_PGML
+_[@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "Nápověda pro LaTeX, ukázky kódů pro vykopírování") @]* (odkaz otevřete pravým tlačítem v novém panelu, aby Vám zůstala otevřená i stránka, kterou čtete). Další ukázky jsou všechny vzorce v programu WeBWorK a v přednáškách. Použijte pravé tlačítko a zobrazení kódu v programu TeX._
+END_PGML
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+
+
+BEGIN_PGML_SOLUTION
+
+Rovnice je
+[``` \frac{\mathrm df}{\mathrm dt}= \frac{kf}{t^n}.```]
+Nědy se uvádí ve tvaru pro relativní rychlost růstu, tj. vydělená faktorem [`f`] na tvar
+[``` \frac{\frac{\mathrm df}{\mathrm dt}}{f}=\frac{k}{t^n},```]
+tj. relativní rychlost růstu je nepřímo úměrná [`n`]-té mocnině času.
+
+Viz.  například [@ htmlLink("http://user.mendelu.cz/drapela/Nauka_o_rustu_lesa/Prednasky/Prednaska02_LesJakoSystem_ZakonyRustuLesa.pdf","tento materiál") @]* doc. Drápely, strana 31, kde je derivace označena čárkou.
+
+END_PGML_SOLUTION
+
+ENDDOCUMENT();
