@@ -93,7 +93,7 @@ BEGIN_PGML_SOLUTION
 **Následující je jedna z možných formulací.**
 
 Rovnice růstu tloušťky ledu podle uvedeného zákona je [``` \frac{\mathrm dh}{\mathrm dt} = \frac kh,```]
-kde `h`, `k` a `t` jsou po řadě tloušťka ledu, konstanta úměrnosti a čas. Konstanta úměrnosti `k` vyajdřuje rychlost s jakou roste tloušťka ledu v okamžiku, kdy je tato tloušťka rovna jedné.
+kde `h`, `k` a `t` jsou po řadě tloušťka ledu, konstanta úměrnosti a čas. Konstanta úměrnosti `k` vyjadřuje rychlost s jakou roste tloušťka ledu v okamžiku, kdy je tato tloušťka rovna jedné.
 
 END_PGML_SOLUTION
 
