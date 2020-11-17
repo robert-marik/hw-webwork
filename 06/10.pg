@@ -88,6 +88,15 @@ _[@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "Nápov
 END_PGML
 
 
+BEGIN_PGML_SOLUTION
+
+**Následující je jedna z možných formulací.**
+
+Rovnice růstu tloušťky ledu podle uvedeného zákona je [``` \frac{\mathrm dh}{\mathrm dt} = \frac kh,```]
+kde `h`, `k` a `t` jsou po řadě tloušťka ledu, konstanta úměrnosti a čas. Konstanta úměrnosti `k` vyajdřuje rychlost s jakou roste tloušťka ledu v okamžiku, kdy je tato tloušťka rovna jedné.
+
+END_PGML_SOLLUTION
+
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 ENDDOCUMENT(); 
