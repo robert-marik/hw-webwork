@@ -1,8 +1,8 @@
 # checks to see if a studen finished a set close to the due date
 
-open(MARIKFH, '>', "/tmp/lasttime");
-print MARIKFH $set->due_date;
-close(MARIKFH);
+# open(MARIKFH, '>', "/tmp/lasttime");
+# print MARIKFH $set->due_date;
+# close(MARIKFH);
 
     #test to see if it is within 30 min of the due date
     if (($set->due_date - time()) > 1800) {
