@@ -76,7 +76,7 @@ if ($i==1)
 else
 {
  $homogenita=" nehomogenní";
- $co=$co." homogenní materiál";
+ $co=$co." nehomogenní materiál";
 }
 
 
