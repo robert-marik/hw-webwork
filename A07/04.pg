@@ -135,7 +135,7 @@ Po dosazení koncových bodů křivky dostáváme
 a 
 [```\varphi([$bodX],[$bodY])=[$answer1],```]
 v důsledku čehož
-[``` \int_C \vec F\,\mathrm d\vec r = [$answer1]-[$answer2]=\cdots```]
+[``` \int_C \vec F\,\mathrm d\vec r = ([$answer1])-([$answer2])=\cdots```]
 (nemusíte dopočítávat, WeBWorK si tato čísla odečte sám.)
 
 END_PGML_SOLUTION
