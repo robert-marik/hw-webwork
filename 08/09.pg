@@ -30,10 +30,10 @@ $v1=$u1*$a11+$u2*$a12;
 $v2=$u1*$a21+$u2*$a22;
 $normau=sqrt($u1**2+$u2**2);
 $normav=sqrt($v1**2+$v2**2);
-$pomer=$normav/$normau;
+$pomer=sprintf("%.3f",$normav/$normau);
 
-$l1=($stopa-sqrt($stopa**2-4*$determinant))/(2);
-$l2=($stopa+sqrt($stopa**2-4*$determinant))/(2);
+$l1=sprintf("%.3f",($stopa-sqrt($stopa**2-4*$determinant))/(2));
+$l2=sprintf("%.3f",($stopa+sqrt($stopa**2-4*$determinant))/(2));
 if ($l1 > $l2) {
 $temp=$l2;
 $l2=$l1;
