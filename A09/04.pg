@@ -50,7 +50,7 @@ if ( $determinant < 0 ) { $reseni = 4; }
 elsif ( ($stopa)*($stopa) - 4*($determinant) < 0 ) { $reseni = 1; }
 else { $reseni = 0; }
 
-if ( $stopa > 0 ) {$reseni = $reseni + 2;}
+if ( $stopa < 0 ) {$reseni = $reseni + 2;}
 
 
 $radio=RadioButtons(["Stabilní uzel","Stabilní ohnisko","Nestabilní uzel","Nestabilní ohnisko","Sedlo","Jiná odpověď"],$reseni);
