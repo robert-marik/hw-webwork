@@ -1,0 +1,164 @@
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "MathObjects.pl",
+  "parserRadioButtons.pl",
+  "answerHints.pl",
+  "scaffold.pl",
+  "PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context("Vector")->variables->are(x=>'Real',y=>'Real', lambda=>"Real");
+
+do
+{
+$a = non_zero_random(-4,4);
+$b = non_zero_random(-4,4);
+$d = non_zero_random(-4,4);
+$e = non_zero_random(-4,4);
+$c = -($a) - ($b);
+$l = $e - ($d);
+
+$f=Formula("$a*x*y^2+($b)*x*y-($c)")->reduce();
+$g=Formula("$d*x^2*y-($e)*y^2+($l)")->reduce();
+
+$dfx=Formula("$a*y^2+($b)*y")->reduce();
+$dgx=Formula("$d*2*x*y")->reduce();
+$dfy=Formula("$a*x*2*y+($b)*x")->reduce();
+$dgy=Formula("$d*x^2-($e)*2*y")->reduce();
+
+$dfx1=Formula("$a+($b)")->reduce();
+$dgx1=Formula("$d*2")->reduce();
+$dfy1=Formula("$a*2+($b)")->reduce();
+$dgy1=Formula("$d-($e)*2")->reduce();
+
+$matice=Matrix([[$dfx,$dfy],[$dgx,$dgy]]);
+$matice11=Matrix([[$dfx1,$dfy1],[$dgx1,$dgy1]]);
+
+$stopa=$dfx1+($dgy1);
+$determinant=$dfx1*($dgy1)-($dfy1)*($dgx1);
+$polynom=Formula("lambda^2-($stopa)*lambda+($determinant)")->reduce();
+}
+until (($determinant != 0) && ( ($stopa)*($stopa) - 4*($determinant) != 0) && ($stopa != 0) );
+
+
+if ( $determinant < 0 ) { $reseni = 4; }
+elsif ( ($stopa)*($stopa) - 4*($determinant) < 0 ) { $reseni = 1; }
+else { $reseni = 0; }
+
+if ( $stopa > 0 ) {$reseni = $reseni + 2;}
+
+
+$radio=RadioButtons(["Stabilní uzel","Stabilní ohnisko","Nestabilní uzel","Nestabilní ohnisko","Sedlo","Jiná odpověď"],$reseni);
+
+
+#$Scaffold::isInstructor = 0;
+
+
+BEGIN_PGML
+
+# Stacionární bod autonomního systému
+
+Budeme studovat autonomní systém
+[```
+\begin{aligned}
+\frac{\mathrm dx}{\mathrm dt}&= [$f] \\
+\frac{\mathrm dy}{\mathrm dt}&= [$g]
+\end{aligned}```]
+v jeho stacionárním bodě [`(1,1)`].
+
+**Návod.** Úlohu budete řešit po částec. Jakmile odpovíte na aktuální část, bude zpřístupněna část další. Správně odpovězené části mají zelené záhlaví a kliknutím na záhlaví je můžete sbalit nebo poté opět rozbalit.
+
+END_PGML
+
+
+###########################################
+#  The scaffold
+Scaffold::Begin(is_open  => "correct_or_first_incorrect",hardcopy_is_open  => "always");
+
+###########################################
+Section::Begin("Část 1: Parciální derivace");
+
+BEGIN_PGML
+
+Určete parciální derivace pravých stran systému.
+
+>> [`` \frac{\partial }{\partial x}([$f])={}``][___________]*{$dfx} <<
+
+>> [`` \frac{\partial }{\partial y}([$f])={}``][___________]*{$dfy} <<
+
+>> [`` \frac{\partial }{\partial x}([$g])={}``][___________]*{$dgx} <<
+
+>> [`` \frac{\partial }{\partial y}([$g])={}``][___________]*{$dgy} <<
+
+END_PGML
+
+
+Section::End();
+
+
+###########################################
+Section::Begin("Část 2: Jacobiho matice");
+
+BEGIN_PGML
+
+Určete Jacobiho matici systému.
+
+>> [`` J(x,y)={}``][___________]*{$matice} <<
+
+END_PGML
+
+
+Section::End();
+
+###########################################
+Section::Begin("Část 3: Jacobiho matice ve stacionárním  bodě");
+
+BEGIN_PGML
+
+Bod [`(1,1)`] je stacionárním bodem systému. Jacobiho matice je [``` J(x,y)=[$matice].```]
+Najděte Jacobiho matici ve stacionárním bodě [`(1,1)`].
+
+>>[`` J(1,1)={}``][___________]*{$matice11}<<
+
+
+END_PGML
+
+Section::End();
+
+###########################################
+Section::Begin("Část 4: Charakteristický polynom Jacobiho matice");
+
+
+BEGIN_PGML
+
+Jacobiho matice v bodě [`(1,1)`] je [``` J(1,1)=[$matice11].```] Najděte charakteristický polynom [`P(\lambda)`]. Napište jej v proměnné lambda. 
+
+>> [``P(\lambda)={} ``][________________________________]{$polynom} <<
+
+END_PGML
+
+Section::End();
+
+#################################
+Section::Begin("Část 5: Vlastní čísla Jacobiho matice a typ stacionárního bodu");
+
+
+BEGIN_PGML
+
+Určete vlastní čísla (kořeny charakteristické rovnice) a na jejich základě rozhodněte o typu stacionárního bodu.
+
+[_]{$radio}
+
+END_PGML
+
+Section::End();
+
+#################################
+
+Scaffold::End();
+ENDDOCUMENT();
