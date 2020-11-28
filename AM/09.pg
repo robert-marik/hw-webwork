@@ -32,13 +32,13 @@ sub f {
 
 
 f(
-"Kvalitativní vlastnosti řešení atonomní diferenciální rozumíme",
+"Kvalitativní vlastnosti řešení autonomní diferenciální rozumíme",
 "Uvažujme autonomní diferenciální rovnici \[\frac{\mathrm dy}{\mathrm dt}=f(y).\] Vyberte, které tvrzení správně vyjadřuje souvislosti řešení \(y(t)\) této rovnice a pravé strany \(f(y)\) t0to rovnice.",
 [[
 "Monotonie řešení je jednoznačně determinována znaménkem pravé strany rovnice.",
 "Znaménko řešení je jednoznačně determinováno znaménkem pravé strany rovnice.",
 "Znaménko řešení je jednoznačně determinováno charakterem monotonie pravé strany rovnice.",
-"Řešení rovnice i pravá strana rovnice mají stejnou monotonii, tj. buď spočasně klesají nebo současně rostou.",
+"Řešení rovnice i pravá strana rovnice mají stejnou monotonii, tj. buď současně klesají nebo současně rostou.",
 ]]);
 
 
@@ -48,7 +48,7 @@ f(
 [[
 "Konstantní řešení rovnice.",
 "Kladné řešení rovnice.",
-"Řešení popisující všecny realizovatelné stavy systému popsaného danou rovnicí.",
+"Řešení popisující všechny realizovatelné stavy systému popsaného danou rovnicí.",
 "Řešení procházející počátkem.",
 ]]);
 
@@ -76,7 +76,7 @@ f(
 "Vysvětlete, jak poznáme, jestli řešení dvourozměrného autonomního systému oscilují okolo stacionárního bodu. (Nerozlišujeme cykly ani to, zda amplituda oscilací roste či klesá.)",
 [[
 "Vlastní čísla Jacobiho matice v tomto bodě mají nenulovou imaginární složku",
-"Jakobiho matice má v tomto bodě záporný determinant.",
+"Jacobiho matice má v tomto bodě záporný determinant.",
 "Obě pravé strany jsou v tomto bodě nulové.",
 "Obě pravé strany mají v tomto bodě opačný charakter monotonie (jedna roste a druhá klesá, nebo naopak).",
 ]]);
