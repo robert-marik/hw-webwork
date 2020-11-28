@@ -33,7 +33,7 @@ sub f {
 
 f(
 "Kvalitativní vlastnosti řešení atonomní diferenciální rozumíme",
-"Uvažujme autonomní diferenciální rovnici \[\frac{\mathrm dy}{\mathrm dt}=f(y)\]. Vyberte, které tvrzení správně vyjadřuje souvislosti řešení \(y(t)\) této rovnice a pravé strany \(f(y)\) t0to rovnice.",
+"Uvažujme autonomní diferenciální rovnici \[\frac{\mathrm dy}{\mathrm dt}=f(y).\] Vyberte, které tvrzení správně vyjadřuje souvislosti řešení \(y(t)\) této rovnice a pravé strany \(f(y)\) t0to rovnice.",
 [[
 "Monotonie řešení je jednoznačně determinována znaménkem pravé strany rovnice.",
 "Znaménko řešení je jednoznačně determinováno znaménkem pravé strany rovnice.",
@@ -73,7 +73,7 @@ f(
 
 f(
 "Oscilace okolo stacionárního bodu",
-"Vysvětlete, jak poznáme, jestli řešení dvourozměnrého autonomního systému oscilují okolo stacionárního bodu. (Nerozlišujeme cykly ani to, zda amplituda oscilací roste či klesá.)",
+"Vysvětlete, jak poznáme, jestli řešení dvourozměrného autonomního systému oscilují okolo stacionárního bodu. (Nerozlišujeme cykly ani to, zda amplituda oscilací roste či klesá.)",
 [[
 "Vlastní čísla Jacobiho matice v tomto bodě mají nenulovou imaginární složku",
 "Jakobiho matice má v tomto bodě záporný determinant.",
