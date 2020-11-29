@@ -16,7 +16,7 @@ BEGIN_PGML
 
 ## Korfova funkce
 
-Korfova funkce je funkce používaná pro odhad bonity lesa. Je založena na tom, že růstová funkce (označme ji například [`f`]) se mění rychlostí, která je současně přímo úměrná této funkci [`f`] a nepřímo úměrná [`n`]-té mocnině času. Zapište tuto funkci. 
+Korfova funkce je funkce používaná pro odhad bonity lesa. Je založena na tom, že růstová funkce (označme ji například [`f`]) se mění rychlostí, která je současně přímo úměrná této funkci [`f`] a nepřímo úměrná [`n`]-té mocnině času. Zapište tento slovně vyjádřený vztah matematickou rovnicí. 
 
 Nápověda: Před uzavřením úkolu několikrát nepravidelně zkontroluji a případně okomentuji odpovědi. Dokud nebude úkol uzavřen, můžete na komentář zareagovat a odpověď opravit. Po uzavření úkolu se sem můžete vrátit na prohlédnutí řešení a některých dalších souvislostí. Pro rovnici na samostatném řádku používejte prosím raději LaTeX než AsciiMath.
 
