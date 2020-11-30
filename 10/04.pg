@@ -11,7 +11,7 @@ loadMacros(
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
-$radio=RadioButtons([["Hodnota, o jakou musí být větší ostrov nebo rezervace, aby se na něm uživil jeden další živočišný druh.","Počet živočišných druhů, které se mohou usídlit na ostrově nebo rezervaci navíc, pokud velikost ostrova vzroste o jednotku.", "Rychlost s jakou roste počet druhů v čase", "Rychlost, s jakou je nutno zvětšovat ostrov nebo rezervaci, aby se na dané lokalitě uživilo o jeden druh více."]],0);
+$radio=RadioButtons([["Hodnota, o jakou musí být větší ostrov nebo rezervace, aby se na něm uživil jeden další živočišný druh.","Počet živočišných druhů, které se mohou usídlit na ostrově nebo v rezervaci navíc, pokud rozloha vzroste o jednotku.", "Rychlost s jakou roste počet druhů v čase", "Rychlost, s jakou je nutno zvětšovat ostrov nebo rezervaci, aby se na dané lokalitě uživilo o jeden druh více."]],0);
 
 BEGIN_PGML
 
@@ -20,7 +20,7 @@ BEGIN_PGML
 
 [@ image("ostrov.jpg", width=>400) @]*
 
-Počet [`A`] živočišných druhů na ostrově nebo v izolované oblasti (například rezervace a vysokou úrovní ochrany) o velikosti [`S`] je dána vztahem [``` S=c A^z,```]
+Počet [`S`] živočišných druhů na ostrově nebo v izolované oblasti (například rezervace a vysokou úrovní ochrany) o velikosti [`A`] je dána vztahem [``` S=c A^z,```]
 kde [`c`] a [`z`] jsou konstanty. Co vyjadřuje derivace [``` \frac{\mathrm dS}{\mathrm dA},```] pokud ji vyjáříme slovně?
 
 
