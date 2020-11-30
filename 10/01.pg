@@ -1,0 +1,89 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+
+$a=random(90,99,1);
+$b=random(1,4,1);
+$a=$a/100;
+
+Context("Numeric")->variables->are($var=>'Real','xn'=>'Real');
+
+Context()->variables->set(xn => {TeX => 'x_n'});
+#Context()->flags->set(
+#     reduceConstants => 0,
+#     reduceConstantFunctions => 0,
+#   );
+
+$f=Formula("$a*e^(-$b*x)")->reduce();   # funkce
+$g=Formula("1-x")->reduce();   # funkce
+
+$funkce=Formula("$a*e^(-$b*x)-1+x")->reduce();   # funkce
+$derivacefunkce=Formula("(-$b*$a)*e^(-$b*x)+1")->reduce();
+$funkcexn=Formula("$a*e^(-$b*xn)-1+xn")->reduce();   # funkce
+$derivacefunkcexn=Formula("(-$b*$a)*e^(-$b*xn)+1")->reduce();
+
+$answer=Formula("xn-$funkcexn/$derivacefunkcexn")->reduce(); 
+
+BEGIN_PGML
+
+## Newtonova metoda
+
+[@ image("virus.jpg", width=>400) @]*
+
+Newtonova metoda je efektivní nástroj pro hledání nulových bodů funkce, tj. pro řešení rovnice [``` f(x)=0.```] Je založena na lineární aproximaci funkce [`f(x)`] v bodě [`x_n`] (počáteční odhad řešení), tj.  na rovnici [``` f(x)\approx f(x_n)+f'(x_n)(x-x_n).```] Novou aproximaci [`x_n`] určujeme z podmínky
+[``` 0=f(x_n)+f'(x_n)(x_{n+1}-x_n).```]
+Odovzení iteračního vzorce pro tuto metodu jsme si procvičili ve třetí sadě úloh v úloze 9.
+Teď se k této problematice vracíme.
+V [@ htmlLink("https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology","teorii šíření epidemií") @]* je nutno pracovat s rovnicemi, které nejsou řešitelné pomocí elementárních funkcí. Řešíme je buď pomocí speciálních funkcí ([@ htmlLink("https://en.wikipedia.org/wiki/Lambert_W_function","Lambertova W funkce") @]*), nebo numericky.
+Dospějeme například k rovnici 
+[``` [$f]=[$g]. ```]
+
+Odvoďte pro tuto rovnici iterační vztah. Pište *xn* pro [`x_n`].
+
+>>[`` x_{n+1}={}``]
+[_______________________________________________]{$answer}<<
+
+
+END_PGML
+
+$showHint = 1;
+BEGIN_PGML_HINT
+
+Rovnici upravte tak, že převedeme pravou stranu doleva (nebo naopak). Například 
+[``` [$funkce]=0.```]
+
+Uvažujte funkci 
+[```f(x)=[$funkce], ```] vypočtěte derivaci a sestavte iterační vzorec.
+
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Rovnici upravíme tak, že převedeme pravou stranu doleva (nebo naopak). Dostáváme
+[``` [$funkce]=0.```]
+
+Uvažujme funkci
+[```f(x)=[$funkce], ```]
+která má derivaci 
+[```f'(x)=[$derivacefunkce]. ```]
+
+Iterační vzorec má tvar
+[``` x_{n+1}=x_n-\frac{[$funkcexn]}{[$derivacefunkcexn]}=[$answer].```]
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
+
