@@ -99,7 +99,7 @@ Najděte Jacobiho matici ve stacionárním bodě [`(1,1)`].
 
 --------------------
 
-Jacobiho matice v bodě [`(1,1)`] je [``` J(1,1)=[$matice11].```] Najděte charakteristický polynom [`P(\lambda)`]. Napište jej v proměnné lambda. Například *2\lambda^2-7lambda+2*.
+Jacobiho matici jste našli. Nyní najděte její charakteristický polynom [`P(\lambda)`]. Napište jej v proměnné lambda. Například *2\lambda^2-7lambda+2*.
 
 >> [``P(\lambda)={} ``][________________________________]{$polynom} <<
 
