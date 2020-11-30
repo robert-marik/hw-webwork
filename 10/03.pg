@@ -21,7 +21,7 @@ $vm0=Compute("12*([$m0])^(1/6)");
 $answerm0=Compute("2*([$m0])^(-5/6)");
 $answer_lin=Formula("12*($m0)^(1/6)+$answerm0*(m-$m0)");
 
-$radio=RadioButtons(["Lineární aproximace podhodnocuje, funkční hodnoty jsou ve skutečnosti větší","Lineární aproximace nadhodnocuje, funkční hodnoty jsou ve skutečnosti menší","Lineární aproximace nalevo nadhonodcuje a napravo podhodnocuje","Lineární aproximace nalevo podhodnocuje a napravo nadhodnocuje","Není dostatek informací nebo jiná odpověď"],1);
+$radio=RadioButtons(["Lineární aproximace podhodnocuje, funkční hodnoty jsou ve skutečnosti větší","Lineární aproximace nadhodnocuje, funkční hodnoty jsou ve skutečnosti menší","Lineární aproximace nalevo nadhodnocuje a napravo podhodnocuje","Lineární aproximace nalevo podhodnocuje a napravo nadhodnocuje","Není dostatek informací nebo jiná odpověď"],1);
 
 BEGIN_PGML
 
@@ -30,11 +30,14 @@ BEGIN_PGML
 
 [@ image("tazni_ptaci.jpg", width=>400) @]*
 
-Optimální cestovní rychlost [`v`] tažných ptáků souvisí s jejich hmotností [`m`] vztahem [``` v=12 m^{1/6}.```]
+Optimální cestovní rychlost [`v`] tažných ptáků souvisí s jejich hmotností [`m`] vztahem [``` v(m)=12 m^{1/6}.```]
 
-Najděte derivaci této rychlosti podle hmotonsti. Poté najděte lineární aproximaci funkce [`v(m)`] v okolí bodu [`m_0=[$m0]`] a určete, zda tato lineární aproximace podhodnocuje či nadhodnocuje funkční hodnoty. 
+Najděte derivaci této rychlosti podle hmotonsti. 
 
 >>[``\frac{\mathrm dv}{\mathrm dm}=``][_______________________]{$answer}<<
+
+
+Dále najděte lineární aproximaci funkce [`v(m)`] v okolí bodu [`m_0=[$m0]`] a určete, zda tato lineární aproximace podhodnocuje či nadhodnocuje funkční hodnoty. 
 
 >>[``v\approx {}``][_______________________]{$answer_lin}<<
 
