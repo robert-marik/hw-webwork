@@ -44,6 +44,8 @@ Dále najděte lineární aproximaci funkce [`v(m)`] v okolí bodu [`m_0=[$m0]`]
 
 [__]{$radio}
 
+_Podle Alan Garfinkel, Jane Shevtsov, Yina Guo: Modeling Life, The Mathematics of Biological Systems._
+
 END_PGML
 
 $showHint = 1;
