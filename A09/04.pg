@@ -5,7 +5,6 @@ loadMacros(
   "MathObjects.pl",
   "parserRadioButtons.pl",
   "answerHints.pl",
-  "scaffold.pl",
   "PGcourse.pl",
 );
 TEXT(beginproblem());
@@ -71,19 +70,7 @@ Budeme studovat autonomní systém
 \end{aligned}```]
 v jeho stacionárním bodě [`(1,1)`].
 
-**Návod.** Úlohu budete řešit po částech. Jakmile odpovíte na aktuální část, bude zpřístupněna část další. Správně odpovězené části mají zelené záhlaví a kliknutím na záhlaví je můžete sbalit nebo poté opět rozbalit.
-
-END_PGML
-
-
-###########################################
-#  The scaffold
-Scaffold::Begin(is_open  => "correct_or_first_incorrect",hardcopy_is_open  => "always");
-
-###########################################
-Section::Begin("Část 1: Parciální derivace");
-
-BEGIN_PGML
+------------------
 
 Určete parciální derivace pravých stran systému.
 
@@ -95,30 +82,14 @@ Určete parciální derivace pravých stran systému.
 
 >> [`` \frac{\partial }{\partial y}([$g])={}``][___________]*{$dgy} <<
 
-END_PGML
-
-
-Section::End();
-
-
-###########################################
-Section::Begin("Část 2: Jacobiho matice");
-
-BEGIN_PGML
+---------------
 
 Určete Jacobiho matici systému.
 
 >> [`` J(x,y)={}``][___________]*{$matice} <<
 
-END_PGML
 
-
-Section::End();
-
-###########################################
-Section::Begin("Část 3: Jacobiho matice ve stacionárním  bodě");
-
-BEGIN_PGML
+---------------------
 
 Bod [`(1,1)`] je stacionárním bodem systému. Jacobiho matice je [``` J(x,y)=[$matice].```]
 Najděte Jacobiho matici ve stacionárním bodě [`(1,1)`].
@@ -126,29 +97,14 @@ Najděte Jacobiho matici ve stacionárním bodě [`(1,1)`].
 >>[`` J(1,1)={}``][___________]*{$matice11}<<
 
 
-END_PGML
+--------------------
 
-Section::End();
-
-###########################################
-Section::Begin("Část 4: Charakteristický polynom Jacobiho matice");
-
-
-BEGIN_PGML
-
-Jacobiho matice v bodě [`(1,1)`] je [``` J(1,1)=[$matice11].```] Najděte charakteristický polynom [`P(\lambda)`]. Napište jej v proměnné lambda. 
+Jacobiho matice v bodě [`(1,1)`] je [``` J(1,1)=[$matice11].```] Najděte charakteristický polynom [`P(\lambda)`]. Napište jej v proměnné lambda. Například *2\lambda^2-7lambda+2*.
 
 >> [``P(\lambda)={} ``][________________________________]{$polynom} <<
 
-END_PGML
 
-Section::End();
-
-#################################
-Section::Begin("Část 5: Vlastní čísla Jacobiho matice a typ stacionárního bodu");
-
-
-BEGIN_PGML
+-------------------------------
 
 Určete vlastní čísla (kořeny charakteristické rovnice) a na jejich základě rozhodněte o typu stacionárního bodu.
 
@@ -156,9 +112,4 @@ Určete vlastní čísla (kořeny charakteristické rovnice) a na jejich základ
 
 END_PGML
 
-Section::End();
-
-#################################
-
-Scaffold::End();
 ENDDOCUMENT();
