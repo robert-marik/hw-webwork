@@ -20,7 +20,7 @@ BEGIN_PGML
 
 [@ image("ostrov.jpg", width=>400) @]*
 
-Počet [`S`] živočišných druhů na ostrově nebo v izolované oblasti (například rezervace a vysokou úrovní ochrany) o velikosti [`A`] je dána vztahem [``` S=c A^z,```]
+Počet [`S`] živočišných druhů na ostrově nebo v izolované oblasti (například rezervace s vysokou úrovní ochrany) o velikosti [`A`] je dána vztahem [``` S=c A^z,```]
 kde [`c`] a [`z`] jsou konstanty. Co vyjadřuje derivace [``` \frac{\mathrm dS}{\mathrm dA},```] pokud ji vyjáříme slovně?
 
 

@@ -91,7 +91,7 @@ Určete Jacobiho matici systému.
 
 ---------------------
 
-Bod [`(1,1)`] je stacionárním bodem systému. Jacobiho matice je [``` J(x,y)=[$matice].```]
+Bod [`(1,1)`] je stacionárním bodem systému. Jacobiho matice je vypočtena v předchozím kroku. 
 Najděte Jacobiho matici ve stacionárním bodě [`(1,1)`].
 
 >>[`` J(1,1)={}``][___________]*{$matice11}<<
