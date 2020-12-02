@@ -68,7 +68,7 @@ END_PGML
 
 $showHint = 1;
 BEGIN_PGML_HINT
-Pozorně čtěte, rychlost změny jaké veličiny sledujeme a která závislá proměnná co znamená. Rychlosti jsou derivace, vzájemné působní je charakterizováno členy obsahujícími populaci dravce v rovnici pro populaci kořisti a naopak.
+Pozorně čtěte, rychlost změny jaké veličiny sledujeme a která závislá proměnná co znamená. Rychlosti jsou derivace, vzájemné působení je charakterizováno členy obsahujícími populaci dravce v rovnici pro populaci kořisti a naopak.
 END_PGML_HINT
 
 ############################
