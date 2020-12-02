@@ -41,7 +41,7 @@ Vypočtěte následující neurčitý integrál, určitý integrál a střední 
 
 >>[``\int_{0}^{[$a]} [$funkce]\,\mathrm dt ={}``][_________________________]{$int} <<
 
->>[``\frac 1a\int_{0}^{[$a]} [$funkce]\,\mathrm dt ={}``][_________________________]{$str} <<
+>>[``\frac 1{[$a]}\int_{0}^{[$a]} [$funkce]\,\mathrm dt ={}``][_________________________]{$str} <<
 
 END_PGML
 
