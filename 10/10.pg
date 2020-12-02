@@ -20,7 +20,7 @@ Context()->flags->set(
 
 $n=random(2,5,1);
 $n1=$n+1;
-$a=random(1,5,1);
+$a=random(2,5,1);
 $b=random(3,5,1);
 $c=random(1,5,1);
 
