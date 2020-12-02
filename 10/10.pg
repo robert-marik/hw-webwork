@@ -56,6 +56,8 @@ Použijeme vztah
 Odsud
 [```\int_{0}^{[$a]} [$funkce]\,\mathrm dt =[$int]. ```]
 Po vydělení hodnotou [`` [$a] ``] dostáváme střední hodnotu [`` [$str]. ``]
+
+(Vztahy jsou automaticky vygenerovány a pravděpodobně je možné je upravit do hezčího tvaru.)
 END_PGML_SOLUTION
 
 
