@@ -64,6 +64,13 @@ f(
 );
 
 
+f(
+"Kontaminace půdy",
+"Pomocí difuzní rovnice je možno modelovat šíření kontaminace, která unikla například pod chemickým provozem, prosákla na nepropustné dno a vlivem difuze se šíří. Předpokládejme, že ke kontaminaci došlo jednorázovým únikem a že materiál má ve všech směrech stejné vlastnosti (úloha je izotropní). Zajímá nás časový průběh procesu. ",
+"$t=$Dxa","$t=\sigma+$dx","0=$dx","0=\sigma+$Dx"
+);
+
+
 BEGIN_PGML
 
 ## Difuzní rovnice
