@@ -10,7 +10,7 @@ loadMacros(
 
 
 TEXT(beginproblem());
-$showPartialCorrectAnswers = 1;
+$showPartialCorrectAnswers = 0;
 $showHint = 1;
 
 my $c=0;
