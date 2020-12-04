@@ -16,7 +16,7 @@ $a=random(90,99,1);
 $b=random(1,4,1);
 $a=$a/100;
 
-Context("Numeric")->variables->are('xn'=>'Real');
+Context("Numeric")->variables->are('xn'=>'Real','x'=>'Real');
 
 Context()->variables->set(xn => {TeX => 'x_n'});
 #Context()->flags->set(
@@ -49,6 +49,13 @@ Dospějeme například k rovnici
 [``` [$f]=[$g]. ```]
 
 Odvoďte pro tuto rovnici iterační vztah vycházející z Newtonovy iterační metody. Pište *xn* pro [`x_n`].
+
+END_PGML
+
+
+Context()->variables->are('xn'=>'Real');
+
+BEGIN_PGML
 
 >>[`` x_{n+1}={}``]
 [_______________________________________________]{$answer}<<
