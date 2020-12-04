@@ -16,7 +16,7 @@ $a=random(90,99,1);
 $b=random(1,4,1);
 $a=$a/100;
 
-Context("Numeric")->variables->are($var=>'Real','xn'=>'Real');
+Context("Numeric")->variables->are('xn'=>'Real');
 
 Context()->variables->set(xn => {TeX => 'x_n'});
 #Context()->flags->set(

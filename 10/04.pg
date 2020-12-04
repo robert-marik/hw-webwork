@@ -11,7 +11,7 @@ loadMacros(
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
-$radio=RadioButtons([["Hodnota, o jakou musí být větší ostrov nebo rezervace, aby se na něm uživil jeden další živočišný druh.","Počet živočišných druhů, které se mohou usídlit na ostrově nebo v rezervaci navíc, pokud rozloha vzroste o jednotku.", "Rychlost s jakou roste počet druhů v čase", "Rychlost, s jakou je nutno zvětšovat ostrov nebo rezervaci, aby se na dané lokalitě uživilo o jeden druh více."]],0);
+$radio=RadioButtons([["Hodnota, o jakou musí být větší ostrov nebo rezervace, aby se na něm uživil jeden další živočišný druh.","Počet živočišných druhů, které se mohou usídlit na ostrově nebo v rezervaci navíc, pokud rozloha vzroste o jednotku.", "Rychlost s jakou roste počet druhů v čase", "Rychlost, s jakou je nutno zvětšovat ostrov nebo rezervaci, aby se na dané lokalitě uživilo o jeden druh více."]],1);
 
 BEGIN_PGML
 

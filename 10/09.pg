@@ -15,9 +15,9 @@ do
 $a=non_zero_random(-1, 5);
 $b=non_zero_random(-1, 5);
 $c=non_zero_random(-2, 3);
-$stopa=$a+$b;
-$Mstopa=-($a+$b);
-$determinant=($a)*($b)-($c)*($c);
+$stopa=$a+$c;
+$Mstopa=-($a+$c);
+$determinant=($a)*($c)-($b)*($b);
 }
  until ( (($stopa)^2-4*($determinant)) >0 );
  
@@ -56,5 +56,5 @@ Musíme najít hodnoty, pro které je nulový determinant
 Řešením příslušné kvadratické rovnice dostáváme vlastní čísla [`\lambda_1=[$l1]`] a [`\lambda_2=[$l2]`].
 END_PGML_SOLUTION
 
-
+z
 ENDDOCUMENT();
