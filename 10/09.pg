@@ -56,5 +56,4 @@ Musíme najít hodnoty, pro které je nulový determinant
 Řešením příslušné kvadratické rovnice dostáváme vlastní čísla [`\lambda_1=[$l1]`] a [`\lambda_2=[$l2]`].
 END_PGML_SOLUTION
 
-z
 ENDDOCUMENT();
