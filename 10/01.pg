@@ -60,6 +60,7 @@ BEGIN_PGML
 >>[`` x_{n+1}={}``]
 [_______________________________________________]{$answer}<<
 
+(Nezapomeňte vše napsat v proměnné [`x_n`]. Použití proměnné [`x`] vyvolá chybovou hlášku, protože se výstup očekává ve tvaru vhodném pro iterace.)
 
 END_PGML
 
