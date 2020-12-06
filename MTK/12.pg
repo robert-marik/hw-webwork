@@ -1,0 +1,59 @@
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("left.css");
+
+$showPartialCorrectAnswers = 1;
+
+
+BEGIN_PGML
+
+## Modelujte populaci dravce a kořisti
+
+[@ image("lotka.png", width=>400) @]*
+
+Otevřete si (nejlépe v novém okně nebo v novém panelu abyste se mohli vrátit sem) [@ htmlLink("https://homepages.bluffton.edu/~nesterd/apps/slopefields.html?flags=2&dxdt=1*x%20-x*y&dydt=-y+0.5*x*y&x=0,10,20&y=0,5,15&method=rk4&h=0.01&f1=80-30cos(2pi%20x/24)&f2=exp(2x)&f3=zeta(x)&f4=gamma(x)&pts1=%5B1.886120996441281,1.0119928400954654%5D,%5B1.3928571428571428,1.9588129496402877%5D,%5B0.8571428571428571,2.753776978417266%5D","tento odkaz na numerický řešič pro model dravce a kořisti") @]*
+[``` \begin{aligned}
+\frac{\mathrm dx}{\mathrm dt}&=x-xy\\
+\frac{\mathrm dy}{\mathrm dt}&=-y+0.5xy,\\
+\end{aligned}```]
+kde [`x`] je velikost populace kořisti a [`y`] je velikost populace dravce. Měli vidět to, co je na obrázku. Vodorovně jsou hodnoty [`x`] a svisle [`y`]. Vaším úkolem je modifikovat model pro jinou situaci, popsanou níže, a nasdílet odkaz na vytvořený model v odpovědním políčku. Postupujte podle odrážek.
+
+
+* V modelu zvyšte intenzitu růstu populace kořisti. To je koeficient označený v obrázku jedničkou. (Kliknutím na obrázek jej otevřete v novém okně a můžete jej zvětšit.) Z hodnoty 1 opravte koeficient na vyšší hodnotu a uložte (Enter). Tím by se měl obrázek po přepočítání změnit.
+* I po změně bude model oscilovat. Zkuste kliknutím do obrázku nadefinovat počáteční podmínku pro nějaký cyklus, který odpovídá malým oscilacím. Něco jako je malý kroužek označený dvojkou.  Všímejte si vodorovné a svislé souřadnice kroužku. V původním modelu byla vodorovná souřadnice rovna dvěma a svislá jedné. Pokud pro novou hodnotnu parametru nevidíte rozdíl oproti předchozímu nastavení, zkuste větší změnu koeficientu. Nezapomeňte použít desetinnou tečku pro případný zápis desetinných čísel.
+* Pokud je obrázek po nakreslení mnoha čar nepřehledný, rozklikněte menu označené trojkou a zde je možnost vymazat nakreslené křivky a začít kreslit znovu (clear all curves)
+* Svůj model uložte. Kliḱněte na odkaz "link 1" (v obrázku označeno čtyřkou). Tím se nastavení zkopíruje do políčka s URL adresou ve Vašem prohlížeči. Zkopírujte do odpověďního políčka na této stránce. Jiná možnost je kliknout na odkaz pravým tlačítkem, zkopírovat adresu odkazu (copy link location nebo něco podobného, závisí na nastavení Vašeho počítače a na Vašem prohlížeči) a opět vložit do odpověďního okénka.
+
+Námi uvažovaný model byl poprvé použit jako model sardinek a jejich predátorů. Podpoření populace sardinek bylo způsobeno nepřímo, omezením rybolovu během první svétové války. Došlo k nečekanému efektu: namísto posílení populace sardinek došlo omezením rybolovu k posílení populace jejich predátorů. V obrázku jste viděli, že bod okolo kterého populace oscilují (malý kroužek) se posunul nahoru, tj. do oblastí odpovídající vyššímu počtu predátorů. Vaším numerickým experimentem jsme prokázali, že efekt je vysvětlitelný v rámci modelované interakce mezi sardinkami a jejich predátory. 
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box(5,40)\}
+END_TEXT
+
+
+BEGIN_PGML
+
+Po odeslání si ještě zkontrolujte, že odkaz funguje. Například odkaz, který jsem nasdílel jako základní model je na následujícím řádku.
+
+https://homepages.bluffton.edu/~nesterd/apps/slopefields.html?flags=2&dxdt=1*x%20-x*y&dydt=-y+0.5*x*y&x=0,10,20&y=0,5,15&method=rk4&h=0.01&f1=80-30cos(2pi%20x/24)&f2=exp(2x)&f3=zeta(x)&f4=gamma(x)&pts1=%5B1.886120996441281,1.0119928400954654%5D,%5B1.3928571428571428,1.9588129496402877%5D,%5B0.8571428571428571,2.753776978417266%5D
+
+END_PGML
+
+
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+
+ENDDOCUMENT();
