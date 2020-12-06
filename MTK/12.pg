@@ -48,6 +48,8 @@ Po odeslání si ještě zkontrolujte, že odkaz funguje. Například odkaz, kte
 
 https://homepages.bluffton.edu/~nesterd/apps/slopefields.html?flags=2&dxdt=1*x%20-x*y&dydt=-y+0.5*x*y&x=0,10,20&y=0,5,15&method=rk4&h=0.01&f1=80-30cos(2pi%20x/24)&f2=exp(2x)&f3=zeta(x)&f4=gamma(x)&pts1=%5B1.886120996441281,1.0119928400954654%5D,%5B1.3928571428571428,1.9588129496402877%5D,%5B0.8571428571428571,2.753776978417266%5D
 
+Odkaz není klikací, musí se nakopírovat a vložit do políčka s URL adresou přes schránku operačního systému (Ctrl+C a Ctrl+V), ale to nevadí. Jiná cesta v současnosti (prosinec 2020) není.
+
 END_PGML
 
 
