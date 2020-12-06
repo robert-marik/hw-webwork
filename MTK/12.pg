@@ -28,7 +28,7 @@ Otevřete si (nejlépe v novém okně nebo v novém panelu abyste se mohli vrát
 \end{aligned}```]
 kde [`x`] je velikost populace kořisti a [`y`] je velikost populace dravce. Měli vidět to, co je na obrázku. Vodorovně jsou hodnoty [`x`] a svisle [`y`]. Vaším úkolem je modifikovat model pro jinou situaci, popsanou níže, a nasdílet odkaz na vytvořený model v odpovědním políčku. Postupujte podle odrážek.
 
-Smysl je takový, že budeme měnit rychlost s jakou se vyvíjí populace a budeme sledovat, jak se mění chování řešení. Budeme tedy uvažovat systém
+Smysl je takový, že budeme měnit rychlost s jakou se vyvíjí populace kořisti a budeme sledovat, jak se mění chování celého systému. Budeme tedy uvažovat systém
 [``` \begin{aligned}
 \frac{\mathrm dx}{\mathrm dt}&=ax-xy\\
 \frac{\mathrm dy}{\mathrm dt}&=-y+0.5xy,\\
