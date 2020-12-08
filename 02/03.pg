@@ -25,7 +25,7 @@ $tf->ra_pop_up_list( [
 "da/dt"  => "da/dt", 
 "db/dt"  => "db/dt", 
 "dc/dt"  => "dc/dt", 
-"dH/dt"  => "dH/dt", 
+"dL/dt"  => "dL/dt", 
 "dh/dt"  => "dh/dt", 
 "d alpha/dt"  => "d alpha/dt", 
 ]);
@@ -47,7 +47,7 @@ BEGIN_PGML
 
 [@ image("clovek_lampa.png", width=>400) @]*
 
-Na obrázku je člověk, který v noci za chůze míjí svítící lampu. Jak se vzdaluje od lampy, jeho stín se prodlužuje. Chceme zjistit, jak souvisí rychlost chůze s rychlostí, s jakou se prodlužuje stín a s rychlostí pohybu stínu hlavy. Které veličiny nás zajímají? Použijme označení podle obrázku. Tedy [`H`] je výška lampy, [`h`] je výška člověka, [`a`] je vzdálenost člověka od paty lampy, [`b`] je délka stínu, [`c`] je vzdálenost stínu hlavy od lampy a [`\alpha`] je úhel v naznačeném trojúhelníku. Čas je [`t`] a v rozbalovacím menu jsou derivace podle času.
+Na obrázku je člověk, který v noci za chůze míjí svítící lampu. Jak se vzdaluje od lampy, jeho stín se prodlužuje. Chceme zjistit, jak souvisí rychlost chůze s rychlostí, s jakou se prodlužuje stín a s rychlostí pohybu stínu hlavy. Které veličiny nás zajímají? Použijme označení podle obrázku. Tedy [`L`] je výška lampy, [`h`] je výška člověka, [`a`] je vzdálenost člověka od paty lampy, [`b`] je délka stínu, [`c`] je vzdálenost stínu hlavy od lampy a [`\alpha`] je úhel v naznačeném trojúhelníku. Čas je [`t`] a v rozbalovacím menu jsou derivace podle času.
 
 
 [@ $tf -> print_q() @]*

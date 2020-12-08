@@ -26,14 +26,14 @@ $tf->ra_pop_up_list( [
 "db/dt"  => "db/dt", 
 "dL/dt"  => "dL/dt", 
 "dH/dt"  => "dH/dt", 
-"dh/dt"  => "dh/dt", 
+"dz/dt"  => "dz/dt", 
 "dm/dt"  => "dm/dt", 
 ]);
 
 # Questions and answers
 $tf -> qa ( 
 "Vyberte z rozbalovací nabídky veličinu vyjadřující rychlost chůze (pohybu) člověka směrem od kladky. (Bude nulová pokud člověk stojí na stále stejném místě.)","da/dt",
-"Vyberte z rozbalovací nabídky veličinu vyjadřující rychlost, s jakou stoupá zátěž.","dh/dt",
+"Vyberte z rozbalovací nabídky veličinu vyjadřující rychlost, s jakou stoupá zátěž.","dz/dt",
 "Vyberte z rozbalovací nabídky veličinu vyjadřující rychlost, s jakou se mění délka lana. (Tato derivace bude nulová pro neprotažitelné lano, které držíme stále ve stejném místě. Bude kladná buď pro elastické lano, které se prodlužuje, nebo pro lano které klouže mezi prsty. Bude záporná v případě, že člověk při vytahování lano přechytává a tím zkracuje část lana nesoucí zátěž.)","dL/dt",
 "Vyberte z rozbalovací nabídky veličinu vyjadřující rychlost, s jakou se mění výška ve které se nachází kladka. (Bude nulová pro pevně ukotvenou kladku, což je asi prakticky nejvíce využitelný případ.)","dH/dt",
 );
@@ -51,7 +51,7 @@ BEGIN_PGML
 Na obrázku je člověk, který tahá přes kladku na provaze délky [`L`] zátěž o hmotnosti [`m`]. Délku lana [`L`] uvažujeme mezi úchopem a zátěží. Přebývající konec lana za místem úchopu není důležitý. Taktika vytahování zátěže může spočívat buď v pohybu člověka vodorovným směrem od kladky, nebo ve zkracování lana přechytáváním nebo může být kombinací obojího.
 
 * Výška ve které je umístěna kladka je [`H`].
-* Výška ve které je zátěž je [`h`].
+* Výška ve které je zátěž je [`z`].
 * Výška ve které člověk drží lano je [`b`].
 
 Čas označíme [`t`] a v rozbalovacím menu jsou derivace podle času. Vyberte ke každé rychlosti změny správnou derivaci.
