@@ -36,7 +36,7 @@ f(
 [[
 "Doplňuje mechanismus vývoje o počáteční stav. Ze všech reálných průběhů modelovaného děje vybírá ten, který odpovídá modelované situaci.",
 "Zaručuje řešitelnost už od provedení prvního kroku řešení. Ze všech matematicky platných řešení vybírá ta, která jsou realizovatelná a v souladu s přírodními zákony.",
-"Zaručuje jednoznačnost díky nastavení počátečních dat pro numerické simulace. Ze včech možných řešení vybera tak, která mají význam pro praktické modelování.",
+"Zaručuje jednoznačnost díky nastavení počátečních dat pro numerické simulace. Ze všech možných řešení vybera tak, která mají význam pro praktické modelování.",
 ]]);
 
 f(
@@ -64,7 +64,7 @@ f(
 [[
 "Konstantní řešení rovnice.",
 "Kladné řešení rovnice.",
-"Řešení popisující všecny realizovatelné stavy systému popsaného danou rovnicí.",
+"Řešení popisující všechny realizovatelné stavy systému popsaného danou rovnicí.",
 "Řešení procházející počátkem.",
 ]]);
 
