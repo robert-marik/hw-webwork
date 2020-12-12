@@ -200,7 +200,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:1613
 msgid "(This problem will not count towards your grade.)"
-msgstr "(Tato úloha se nezapočítává do celkového bodového zisku)"
+msgstr "(Tato úloha se nezapočítává do celkového bodového zisku.)"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:1990
 msgid "(This test is overtime because it was not submitted in the allowed time.)"
@@ -5781,7 +5781,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Problem.pm:533
 msgid "This problem will not count towards your grade."
-msgstr ""
+msgstr "Tato úloha se nezapočítává do celkového bodového zisku."
 
 #. ($EMAIL)
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/SendMail.pm:1019
