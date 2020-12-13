@@ -94,14 +94,14 @@ foreach $n (1..4) {
        $ans=RadioButtons(["Ano, integrál je nulový pro libovolnou uzavřenou křivku \(C\).","Ne, integrál po uzavřené křivce \(C\) může být i nenulový."],0);
        $jsou_nejsou="jsou";
        $existuje_neexistuje="existuje";
-       $nula_nenula="Křivkový integrál je roven nule pro libovolnou uzavřenou křivku \(C\).";
+       $nula_nenula="Křivkový integrál je roven nule pro libovolnou uzavřenou křivku [`C`].";
        }
        else
        {
        $ans=RadioButtons(["Ano, integrál je nulový pro libovolnou uzavřenou křivku \(C\).","Ne, integrál po uzavřené křivce \(C\) může být i nenulový."],1);
        $jsou_nejsou="nejsou";
        $existuje_neexistuje="neexistuje";
-       $nula_nenula="Není garantováno, že křivkový integrál je roven nule pro libovolnou uzavřenou křivku \(C\). Obecně být roven nule nemusí.";
+       $nula_nenula="Není garantováno, že křivkový integrál je roven nule pro libovolnou uzavřenou křivku [`C`]. Obecně být roven nule nemusí.";
        }
 
 BEGIN_PGML
