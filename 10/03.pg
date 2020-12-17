@@ -32,7 +32,7 @@ BEGIN_PGML
 
 Optimální cestovní rychlost [`v`] tažných ptáků souvisí s jejich hmotností [`m`] vztahem [``` v(m)=12 m^{1/6}.```]
 
-Najděte derivaci této rychlosti podle hmotonsti. 
+Najděte derivaci této rychlosti podle hmotnosti. 
 
 >>[``\frac{\mathrm dv}{\mathrm dm}=``][_______________________]{$answer}<<
 

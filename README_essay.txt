@@ -4,3 +4,26 @@ td:nth-child(4) {
   word-break: break-all;    
 }
 
+
+
+$("tr td:nth-child(4)").css("word-break","break-all");
+
+
+library(htmltab)
+url <- "Grader.html"
+moje <- htmltab(doc = url)
+library(dplyr)
+moje %>% subset(`Latest Answers`!="There are no answers for this student.") -> moje2
+length(unique(moje2$`Latest Answers`))
+
+potom mozna https://stackoverflow.com/questions/16905425/find-duplicate-values-in-r
+
+
+Skryti toho co je prazdne.
+
+$("td:contains('There are no answers for this student.')").parent().css("display","none");
+
+
+Obarveni nevyplnene reakce.
+
+$("textarea[name$='comment']:empty").css("background-color","#FAA");

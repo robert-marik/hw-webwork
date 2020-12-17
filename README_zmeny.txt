@@ -1,4 +1,10 @@
 Zmeny, ktere je potreba udelat
 
-* do uvodni seznamovaci sady pridat LaTeXove prikazy
-* 
+* Do uvodni seznamovaci sady pridat LaTeXove prikazy
+* Zkratit priklady, kde predstavuji LaTeX
+
+
+Bazální metabolismus a růst hmotnosti jedince
+* pridat otazku na dW/dM
+* zduraznit, ze u dW/dt se chce dosazeni
+
