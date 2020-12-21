@@ -58,13 +58,16 @@ V tomto příkladě se podobný postup pokusíme aplikovat ne na kouli, ale na k
 
 -----
 
-[@ image("hromada.png", width=>400) @]*
+[@ image("hromada.jpg", width=>400) @]*
 
 Na hromadu sypkého materiálu přisypáváme další a další materiál. Tvar hromady je dán geometrickými a fyzikálními vlastnostmi materiálu. To v praxi znamená, že hromada má tvar kužele se stálým poměrem poloměru podstavy a výšky. Objem [`V`] je tedy jednoznačně určen výškou [`h`] a naopak. Obě tyto veličiny se při přisypávání dalšího materiálu na hromadu mění v čase. Čas označíme [`t`].
 
 Určete, která derivace je spjata s jednotlivými slovními formulacemi. Správnou derivaci vyberte z rozbalovacího menu, kde je zapsána pomocí Leibnizovy notace.
 
 [@ $tf -> print_q() @]*
+
+
+_Obrázek: pixabay.com, Derks24_
 
 END_PGML
 

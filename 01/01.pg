@@ -22,7 +22,7 @@ $answer = $f->D();   # derivace
 
 BEGIN_PGML
 
-V této sadě úloh si procvičíte derivování (látka ze cvičení) a v závěrečné otázce si prověříme, jak jste byli pozorní při sledování přednášky.
+V této sadě úloh si procvičíte (nebo naučíte) derivování.
 
 ## Derivace mocninné funkce
 
