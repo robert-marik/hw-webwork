@@ -71,8 +71,8 @@ f(
 "Jaké vlastní čísla má matice rotace o pravý úhel proti směru hodinových ručiček.",
 [["Matice nemá vlastní čísla, protože žádný směr se při této transformaci nezobrazuje sám na sebe.",
 "Matice má všechna vlastní čísla nulová, protože žádný směr se při této transformaci nezobrazuje sám na sebe.",
-"Matice má všechna vlastní čísla rovna jedné, protože žádný vektor se při této transformaci prodlužuje ani nezkracuje.",
-"Matice má všechna vlastní čísla rovna minus jedné, protože žádný vektor se při této transformaci prodlužuje ani nezkracuje, ale všem se mění směr na opačný.",
+"Matice má všechna vlastní čísla rovna jedné, protože žádný vektor se při této transformaci neprodlužuje ani nezkracuje.",
+"Matice má všechna vlastní čísla rovna minus jedné, protože žádný vektor se při této transformaci neprodlužuje ani nezkracuje, ale všem se mění směr na opačný.",
 ]]);
 
 f(

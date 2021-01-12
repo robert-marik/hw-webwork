@@ -52,7 +52,7 @@ $showHint = 1;
 BEGIN_PGML_HINT
 Derivaci vypočtěte pomocí vzorce pro derivaci násobku a pro derivaci mocninné funkce. 
 Použijte vzorec
-[``` f(x)\approx f(x_0)+f'(x_0)(x-x_0).```] Pro rozhodnutí zda aproximace podhonodcuje nebo nadhodnocuje použijte druhou derivaci. Viz sedmý příklad ze třetí sady.
+[``` f(x)\approx f(x_0)+f'(x_0)(x-x_0).```] Pro rozhodnutí zda aproximace podhodnocuje nebo nadhodnocuje použijte druhou derivaci. Viz sedmý příklad ze třetí sady.
 END_PGML_HINT
 
 
@@ -63,10 +63,10 @@ Derivaci vypočteme pomocí vzorce pro derivaci násobku a pro derivaci mocninn�
 Pro lineární aproximaci použijeme vzorec
 [``` f(x)\approx f(x_0)+f'(x_0)(x-x_0), ```] tj. v našem označení
 [``` v(m)\approx v(m_0)+v'(m_0)(m-m_0). ```] V našem případě máme
-[```  \begin{aligned}v(m_0)=[$vm0],\\v'(m_0)=[$answerm0],\\
-v(m)\approx{}[$answer_lin].\end{aligned} ```]
-Abyste neměli problém s přeností vyhodnocování, nevypočítávejte mocniny. 
-Pro rozhodnutí zda aproximace podhonodcuje nebo nadhodnocuje použijeme druhou derivaci. Ta je záporná a lineární aproximace nadhodnocuje (lineární aproximace je nad grafem, funkční hodnoty jsou ve skutečnosti menší než je lineární aproximace).
+[```  \begin{aligned}v(m_0)&=[$vm0],\\v'(m_0)&=[$answerm0],\\
+v(m)&\approx{}[$answer_lin].\end{aligned} ```]
+Abyste neměli problém s přesností vyhodnocování, nevypočítávejte mocniny. 
+Pro rozhodnutí zda aproximace podhodnocuje nebo nadhodnocuje použijeme druhou derivaci. Ta je záporná a lineární aproximace nadhodnocuje (lineární aproximace je nad grafem, funkční hodnoty jsou ve skutečnosti menší než je lineární aproximace).
 
 END_PGML_SOLUTION
 
