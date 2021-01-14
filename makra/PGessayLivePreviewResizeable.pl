@@ -19,7 +19,6 @@ var Preview = {
   Init: function () {
     this.preview = document.getElementById("MathPreview");
     this.buffer = document.getElementById("MathBuffer");
-    jQuery("#AnSwEr0001").keyup(function() {Preview.Update();});
   },
 
   //
@@ -58,7 +57,7 @@ var Preview = {
     Preview.timeout = null;
     if (this.mjPending) return;
     var text = document.getElementById("AnSwEr0001").value;
-    text = text.replace(/\\n *\\n/g, "<p>");
+    text = text.replace(/\\n *\\n/g, "<p>"); 
     if (text === this.oldtext) return;
     if (this.mjRunning) {
       this.mjPending = true;
@@ -93,17 +92,27 @@ Preview.callback.autoReset = true;  // make sure it can run more than once
 function Viditelnost()
 {
 Preview.Init();
-Preview.Update();
 jQuery("#AnSwEr0001").css("width","100%");
 jQuery("#AnSwEr0001").css("box-sizing","border-box");
 jQuery("#AnSwEr0001").css("height","200px");
 jQuery("#AnSwEr0001").css("display","inline-block");
-jQuery("#obalkaPreview").slideToggle();
+jQuery("#AnSwEr0001").css("width","100%");
+jQuery("#obalkaPreview").css("width","100%");
+Preview.Update();
+jQuery("#obalkaPreview").toggle();
+jQuery("#obalkaPreview").css("display","inline-block");
+//alert(jQuery("#obalkaPreview").height());
+jQuery("#AnSwEr0001").css({'height':("200"+'px')});
+//jQuery("#obalkaPreview").draggable().resizable();
+jQuery("#AnSwEr0001").keyup(function() {Preview.Update();});
+
 }
 
 
+
 jQuery( function() {
-jQuery("#AnSwEr0001").after('<div id="obalkaPreview"><div id="MathPreview"></div><div id="MathBuffer" style="visibility:hidden; position:absolute; top:0; left: 0"></div></div><br> <a class="btn btn-primary btn-essay" onclick="Viditelnost();">Živý náhled Zapnout/Vypnout</a>');
+jQuery("#AnSwEr0001").after("<div id=obalkaPreview><div id=MathPreview></div><div id=MathBuffer></div></div>");
+Viditelnost();
 });
 
 </script>
@@ -114,14 +123,26 @@ jQuery("#AnSwEr0001").after('<div id="obalkaPreview"><div id="MathPreview"></div
 background-color: #ffd633;
 padding:10px;
 width:100%;
-height:auto;
+height:100%;
 box-sizing: border-box;
 display: inline-block;
-visible:hidden;
 }
 
-#obalkaPreview{display:none;}
+
+#obalkaPreview{display:none; overflow:hidden; width:50%;}
+
+#AnSwEr0001, #obalkaPreview {vertical-align: top; }
 </style>
+
+<link rel="stylesheet" type="text/css" href="/webwork2_files/css/jquery-ui-1.8.18.custom.css"/>
+<script type="text/javascript" src="/webwork2_files/js/jquery-ui-1.9.0.js"></script>
+
+<script>
+  jQuery( function() {
+    jQuery( "#obalkaPreview" ).draggable().resizable();
+  } );
+</script>
+
 
 EOF
 
