@@ -108,11 +108,13 @@ jQuery("#AnSwEr0001").keyup(function() {Preview.Update();});
 
 
 jQuery( function() {
-jQuery("#AnSwEr0001").after("<div class=tlacitka><a onclick=doplnit('\\\\\\\\\\\\[','\\\\\\\\\\\\]');>\\\\&ZeroWidthSpace;[XXX\\\\&ZeroWidthSpace;]</a>"+
-"<a onclick=doplnit('\\\\\\\\\\\\(','\\\\\\\\\\\\)');>\\\\&ZeroWidthSpace;(XXX\\\\&ZeroWidthSpace;)</a>"+
-"<a onclick=doplnit('^{','}');>^{XXX}</a><a onclick=doplnit('_{','}');>_{XXX}</a>"+
-"<a onclick=doplnitZlomek();>\\\\frac{XXX}{YYY}</a>"+
-"<a onclick=doplnit('\\\\\\\\left(','\\\\\\\\right)');>\\\\left(XXX\\\\right)</a>"+
+jQuery("#AnSwEr0001").after("<div class=tlacitka><a onclick=\\"doplnit('\\\\\\\\\\\\[','\\\\\\\\\\\\]');\\" title=\'Doplní matematické prostředí umístěné na samostatném řádku buď okolo vybraného úseku textu nebo na místo kurzoru. Ve druhém případě předvyplní textem se třemi X. Ve druhém případě předvyplní textem se třemi X. \'>\\\\&ZeroWidthSpace;[XXX\\\\&ZeroWidthSpace;]</a>"+
+"<a onclick=\\"doplnit('\\\\\\\\\\\\(','\\\\\\\\\\\\)');\\" title=\'Funguje stejně jako vedlejší tlačítko, ale matematický výraz zůstává na řádku s textem.\'>\\\\&ZeroWidthSpace;(XXX\\\\&ZeroWidthSpace;)</a>"+
+"<a onclick=\\"doplnit(\'^{\',\'}\');\\" title=\'Okolo vybraného textu doplní příkazy, které text přesunou do horního indexu. Pokud není vybraný žádný text, vloži na dané místo značku pro horní index se třemi X. Pozor, každý objekt může mít jenom jeden dolní a jeden horní index.\'>^{XXX}</a>"+
+"<a onclick=\\"doplnit(\'_{\',\'}\');\\" title=\'Okolo vybraného textu doplní příkazy, které text přesunou do dolního indexu. Pokud není vybraný žádný text, vloži na dané místo značku pro dolní index se třemi X. Pozor, každý objekt může mít jenom jeden dolní a jeden horní index.\'>_{XXX}</a>"+
+"<a onclick=\\"doplnitZlomek();\\" title=\'Vloží zlomek s předepsaným čitatelem a jmenovatelem na místo kurzoru. Pokud je vybrán nějaký text obsahující lomítko, použije se do čitatele výraz před prvním lomítkem a do jmenovatele výraz za tímto lomítkem. Pokud lomítko ve vybraném textu není, umístí se celý text do čitatele.\'>\\\\frac{XXX}{YYY}</a>"+
+"<a onclick=\\"doplnit('\\\\\\\\left(','\\\\\\\\right)');\\" title=\'Přidá natahovací závorky okolo vybraného textu. Pokud žádný text není vybrán, vloží se konstrukce na místo kurzoru a dovnitř se vloží tři X.\'>\\\\left(XXX\\\\right)</a>"+
+"<a onclick=\\"doplnit('{','}');\\" title=\'Přidá složené závorky okolo vybraného textu. Používá se pro rozšíření obsahu působnosti příkazů (do složených závorek se píšou víceznakové indexy, čitatel, jmenovatel, argument odmocniny a další). Pokud žádný text není vybrán, vloží se konstrukce na místo kurzoru a dovnitř se vloží tři X.\'>{XXX}</a>"+
 "<a onclick=doplnitPred('\\\\\\\\mathrm');>\\\\mathrm </a>"+
 "<a onclick=doplnitPred('\\\\\\\\partial');>\\\\partial </a>"+
 "<a onclick=doplnitPred('\\\\\\\\int');>\\\\int </a>"+
@@ -171,6 +173,10 @@ function doplnitZlomek(mujtext1,mujtext2)
   editor.focus();
 }
 
+jQuery(document).ready(function(){
+  jQuery('.tlacitka a').tooltip();   
+});
+
 </script>
 
 <style>
@@ -223,6 +229,22 @@ display:inline-block;
 
 .tlacitka a {box-shadow: 3px 3px 1px grey;}
 
+
+.tooltip-inner {
+  max-width: 200px;
+  padding: 8px;
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  background-color: #FFF;
+  border-style:solid;
+  border-width: 1px;
+}
+
+.tooltip.top .tooltip-arrow {
+  border-width: 5px 5px 0;
+  border-top-color: #FFF;
+}
 
 </style>
 
