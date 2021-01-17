@@ -1,0 +1,70 @@
+Logistická rovnice je rovnice
+\[      \frac{\mathrm dx}{\mathrm dt} = 
+        r x \left(1-\frac{x}{K}\right),      \]
+kde \(x\) je velikost populace, \(r\) je konstanta 
+úměrosti a \(K\) je nosná  kapacita prostředí.
+
+Pro \(x>K\) je řešení klesající a pro \(0 < x < K\) 
+rostoucí.
+
+-----
+
+Model, který vyjadřuje, že teplota tekutiny, klesá 
+rychlostí úměrnou teplotnímu rozdílu mezi teplotou 
+tekutiny a teplotou okolí, je
+\[ \frac{\mathrm dT}{\mathrm dt}=-k(T-T_0),\]
+kde \(T\) je teplota tekutiny, \(T_0\) je teplota 
+okolí a \(k\) je konstanta.
+
+Druhý model, který popisuje situaci, kdy do tekutiny 
+navíc ponoříme ohřívač přispívající k růstu teploty 
+konstantní rychlostí je 
+\[\frac{\mathrm dT}{\mathrm dt}=-k(T-T_0)+q,\] 
+kde \(q\) je konstantní rychlost s jakou přispívá 
+ohřívač k růstu teploty.
+
+Oba modely mají stabilní konstantní řešení a to 
+\[T=T_0\] 
+v případě prvního modelu a 
+\[T=T_0+\frac qk\] 
+v případě druhého modelu.
+
+-----
+
+Rychlost stoupání je derivace nadmořské výšky podle 
+času. Rychlost růstu počtu obyvatel je derivace počtu 
+obyvatel podle času. Podle zadání je 
+\(\frac{\mathrm dh}{\mathrm dt}=
+   0.2\,\mathrm{m}/\mathrm{rok} \)
+a \(\frac{\mathrm dN}{\mathrm dt}=
+    100\,\mathrm{obyvatel}/\mathrm{rok}. \)
+
+Derivováním vztahu \(S=\pi r^2\) pro obsah kruhu 
+dostáváme
+\[\frac{\mathrm dS}{\mathrm dt} = 
+   \frac{\mathrm dS}{\mathrm dr} 
+   \frac{\mathrm dr}{\mathrm dt} 
+   = 2\pi r  \frac{\mathrm dr}{\mathrm dt}.      \] 
+Po dosazení zadaných hodnot \(r=9000\,\mathrm{m}\) a 
+\(\frac{\mathrm dr}{\mathrm dt}
+   =0.2\,\mathrm{m}/\mathrm{rok}\) dostáváme
+\[
+\frac{\mathrm dS}{\mathrm dt} =
+  3600 \pi\, \mathrm{m}^2/\mathrm{rok}.    \]
+
+------
+
+Rychlost stoupání je derivace nadmořské výšky podle 
+času. Rychlost růstu počtu obyvatel je derivace počtu 
+obyvatel podle času. Podle zadání je 
+\(\frac{dh}{dt}=0.2\) m/rok
+a \(\frac{dN}{dt}=100\)obyvatel/rok. 
+
+Derivováním vztahu \(S=\pi r^2\) pro obsah kruhu 
+dostáváme
+\[\frac{dS}{dt}= \frac{dS}{dr} \frac{dr}{dt}
+      = 2\pi r  \frac{dr}{dt}.\]
+Po dosazení zadaných hodnot 
+\(r=9000\)m a \(\frac{dr}{dt}=0.2\)m/rok 
+dostáváme \(\frac{dS}{dt} = 3600 \pi\) 
+m\({}^2\)/rok.

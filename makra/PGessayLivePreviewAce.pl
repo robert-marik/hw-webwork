@@ -185,7 +185,7 @@ display: inline-block;
 }
 
 
-#obalkaPreview{display:none; overflow:hidden; width:50%;}
+#obalkaPreview{display:none; width:50%;}
 
 #AnSwEr0001, #obalkaPreview, #Aeditor {vertical-align: top; }
 
@@ -220,6 +220,9 @@ display:inline-block;
 }
 
 .tlacitka {margin-bottom:5px; border-top: solid; border-top-width: 5px;border-top-color: #AAA; background: #AAA; }
+
+.tlacitka a {box-shadow: 3px 3px 1px grey;}
+
 
 </style>
 
