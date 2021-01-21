@@ -1,0 +1,70 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"answerHints.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$var='x';
+$a=non_zero_random(6,900,1)/100;
+$b=non_zero_random(120,800,1)/1000;
+$ans=Formula("$a");
+
+Context("Numeric")->variables->are($var=>'Real');
+
+$f=Formula("(x+($b))^2")->reduce();   # funkce
+
+BEGIN_PGML
+
+## Desetinná čísla
+
+Ukážeme si, jak zapisovat desetinná čísla a také, jak se počítají body za otázky, které odpovíte jenom částečně správně. Naučíme se také pracovat s nejběžnějšími chybovými hláškami.
+
+Úkolem je přepsat výraz nalevo od rovnítka napravo. Postupujte podle odrážek pod příkladem.
+
+>>[``[$a]={}``][__________]{$ans}<<
+
+>>[``-[$a]={}``][__________]{-$ans}<<
+
+>>[``(x+[$b])^2={}``][_______________________________________]{$f}<<
+
+* Zapište odpověď na první dvě otázky a odešlete. Ověřte, že máte dvě třetiny bodů za dvě otázky ze tří.
+* Zapište i odpověď na třetí otázku a odešlete. Měli byste mít správně odpovězeny všechny otázky a přiděleno plné hodnocení.
+* Poté opravte odpovědi podle následujícího seznamu.
+    * V první odpovědi vyměňte desetinnou tečku za čárku.
+    * I ve třetí odpovědi vyměňte desetinnou tečku za čárku.
+    * Ve druhé odpovědi označte myší číslo nalevo od rovnítka a překopírujte napravo.
+    * Odpovědi odešlete a všímejte si chybových hlášení.
+* Měli byste mít všechny odpovědi špatně a každou s jiným chybovým hlášením. Co se stalo a proč jsou odpovědi špatně?
+    * První odpověď je špatně, protože při použití čárky počítač vidí, že odpovědí uživatele je seznam dvou čísel. Po porovnání s očekávanou odpovědí, číslem, vrací chybu informující uživatele o tom, že očekává číslo nebo výraz a nikoliv seznam čísel. **Desetinná místa oddělujte tečkou. Toto platí skoro při jakékoliv práci s čísly na počítači.**
+    * Druhá odpověď je špatně, protože při sazbě na www stránce je znaménko minus z klávesnice nahrazeno znakem, který vypadá podobně, ale má jinou délku, je umístěn v jiné výšce a má nastaveno jiné mezerování okolo. To je přesně to, co chceme při zobrazení záporného čísla v textu, ale nechceme pro další zpracování počítačem. Proto chyba varuje před neočekávaným znakem Minus Sign, Unicode kódování U+2212. Viz [@ htmlLink("https://en.wikipedia.org/wiki/Hyphen-minus","Wikipedie Hyphen-minus")@]*. **Ne každá vodorovná čárka je znaménko minus.**
+    * Třetí odpověď je špatně, počítač ji nedokáže vyhodnotit. Použití čárky interpretuje jako pokus o vytvoření seznamu a tento seznam se uživatel snaží umocňovat na druhou, což není povolená operace. Proto je chybová hláška poněkud matoucí a mluví o seznamech, namísto o oddělovači desetinných míst. Naštěstí teď již víme, jak a proč tato chyba vzniká a že souvisí právě s nesprávným oddělovačem desetinných míst. **Někdy se chybová hláška týká podstaty problému jenom vzdáleně a je na uživateli, aby ji interpretoval ve správném kontextu.**
+
+END_PGML
+
+BEGIN_PGML_HINT
+
+* Nezapomeňte, že oddělovačem desetinných míst je tečka.
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Výsledek je samozřejmě
+[$a]
+a
+[$f].
+
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

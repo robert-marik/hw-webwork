@@ -1,0 +1,78 @@
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGessayLivePreviewAce.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("left.css");
+
+
+BEGIN_PGML
+
+
+## Odpovědí je text
+
+
+Tento úkol vám dá asi časvoě zabrat. Není to nic složitého, musíte napsat text obsahující matematické výrazy. Vyhledem k tomu, že tato dovednost nepatří mezi bežnou výbavu uživatele, je potřeba se to naučit. Naučíme se univerzální značkovací jazyk umožňující zařadit matematické výrazy do textů typu Wikipedie, i do programů typu MS Word.
+
+Půjde vlastně o další rozšíření matematické gramotnosti. Kromě dovednosti zadávat matematické výrazy do předpřipravených políček musíme být schopni naformulovat myšlenky nebo tvrzení jako ucelený logicky sestavený text kombinující přirozený jazyk a matematické výrazy. Příkladem může být následující odstavec.
+
+------
+
+    Podle Newtonova gravitačního zákona je gravitační síla [`F`], která působí mezi tělesy o hmotnostech [`m_1`] a [`m_2`] přímo úměrná těmto hmotnostem a nepřímo úměrná druhé mocnině jejich vzdálenosti [`r`]. Existuje tedy konstanta [`k`] taková, že [```F=k\frac{m_1 m_2}{r^2}.```]
+
+-------------
+
+Všimněte si na tomto textu následujících poznatků.
+
+1. Matematické výrazy jsou jsou zapsány speciálním fontem: matematickou kurzívou. Toho dosáhneme zapsáním výrazu mezi značky [|\(|]* a [|\)|]* pokud má být matematický výraz v řádku a mezi značky [|\[|]* a [|\]|]* pokud má být matematický výraz na samostatném řádku. Tedy zpětné lomítko (hledejte na anglické klávesnici) a závorka, kulatá nebo hranatá.
+1. Zlomky, odmocniny, mocniny, dolní indexy, řecká písmena a další objekty zapisujeme pomocí speciálního značkovacího jazyka [`\mathrm \LaTeX`] (čteme "latech"). Jeho základy jsou a ukázky jsou [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html","zde") @]*.
+1. Naučte se zapisovat v programu [`\mathrm\LaTeX`] zapisovat základní matematické výrazy. V programu WeBWorK nebo v prezentacích pro přednášky a cvičení zjistíte kód libovolného matematického výrazu kliknutím pravým tlačítkem na tento výraz a volbou "Show Math As" -> "TeX Commands"
+1. Všimněte si, že matematický výraz je přirozenou součástí věty. Například druhá věta končí tečkou, jak jsme zvyklí. Pokud by tam tato tečka nebyla, nebylo by zřejmé, že věta končí za matematickým výrazem a vypadalo by to, že se část textu ztratila. U delších textů nerespektování základních pravidel typu tečka na konci věty rozbíjí čitelnost. Přestože se s něčím podobným asi často setkáte, nesvědčí to o pečlivosti autora a o jeho snaze učinit sdělení co nejsrozumitelnějším.
+
+Do následujícího políčka přepište text dvou vět o Newtonově gravitačním zákonu. Jsou na této stránce mezi vodovnými linkami. Abyste se mohli soustředit na matematiku a neopisovali slova, nezapomeňte běžná slova překopírovat. [`\mathrm\LaTeX`] kód matematických výrazů si můžete zobrazit přes pravé tlačítko myši. Soustřeďte se na to, aby text vypadal po odeslání stejně jako vzor.
+
+Toto je jediný druh otázky, kterou neumí WeBWorK vyhodnotit automaticky. Vyhodnocení provádí vyučující po uzavření domácích úloh. Opravení spočívá v přidělení bodů a připsání komentáře. Tento komentář poté uvidíte nad otázkou. Pokud Vám budou body přiděleny s komentářem před uzavřením, můžete odpověď vylepšit a poté bude tato oprava zohledněna opět ručním novým hodnocením.
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box(25,80)\}
+END_TEXT
+
+
+
+BEGIN_PGML
+
+* _Pro pohodlnou tvorbu textu můžete využít nástroj [@ htmlLink("http://user.mendelu.cz/marik/latexovatko","LaTeXovátko") @]*. Tam si také můžete do editoru nakliknout repertoár textů a ty upravovat a sledovat efekt jednotlivých úprav._
+* Stáhli jste si předešlém úkolu [@ htmlLink("https://github.com/robert-marik/hw-webwork/blob/master/cheatsheet/cheatsheet.pdf","cheatsheet") @]*? Na straně 2 jsou konstrukce pro [`\mathrm \LaTeX`] a dále jsou ukázky textů.
+* _Můžete využít [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "nápovědu") @]*  pro [`\mathrm \LaTeX`] s ukázkami kódů pro vykopírování. Odkaz otevřete pravým tlačítkem v novém panelu, aby Vám zůstala otevřená i stránka, kterou čtete._
+* _Další ukázky jsou všechny vzorce v programu WeBWorK a v přednáškách. Použijte pravé tlačítko a zobrazení kódu v programu TeX, tj. Show Math As a TeX commands._
+END_PGML
+
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+BEGIN_PGML_SOLUTION
+
+Vstup do textového pole může vypadat například takto.
+
+:   Podle Newtonova gravitačního zákona je gravitační síla \\(F\\), 
+:   která působí mezi tělesy o hmotnostech \\(m_1\\) a \\(m_2\\) 
+:   přímo úměrná těmto hmotnostem 
+:   a nepřímo úměrná druhé mocnině jejich vzdálenosti \\(r\\). 
+:   Existuje tedy konstanta \\(k\\) taková, že 
+:   \\\[F=k\\frac{m_1  m_2}{r^2}.\\\]
+
+END_PGML_SOLUTION
+
+
+
+ENDDOCUMENT();

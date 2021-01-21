@@ -1,0 +1,47 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$var='r';
+$a=non_zero_random(2,8);
+$c=non_zero_random(-10,10);
+
+Context("Numeric")->variables->are($var=>'Real');
+
+$f=Formula("4/3 * pi * r^3")->reduce();   # funkce
+
+BEGIN_PGML
+
+## Otázka s odpovědí ve tvaru funkce
+
+Na některé otázky je odpovědí funkce. Ze zadání úlohy musí být zřejmé jméno proměnné.
+Například vzorec pro obsah kruhu o poloměru [`r`] je [```S=\pi r^2```] a pravou stranu tohoto vzorce je možno zapsat jako *pi\*r^2*.
+
+Zkusme vzorec pro objem koule o poloměru [`r`]. V tomto případě vzorec obsahuje i konstantu [`\pi`], kterou zapíšete jako *pi*.
+
+>>Vzorec pro objem [`V`] koule o poloměru [`r`] je [`V={}`][__________________]{$f}.<<
+
+_Poznámky_:
+
+* Před odesláním odpovědi si můžete prohlédnout pomocí náhledu, jak systém interpretuje Vaši odpověď. Tím je možno opravit překlep bez započítání chybné odpovědi.
+* Odpověď na tuto otázku vyžaduje zadat funkci proměnné [`r`]. Vyskoušejte si sami, jak bude systém reagovat, pokud zadáte správný vzorec, ale s velkým [`R`] nebo pokud použijete jinou proměnnou, například [`x`]. V takových chvílích systém generuje příslušné chybové hlášky. Pomocí těchto hlášek byste měli být později schopni identifikovat problém, až chybu neuděláte plánovitě, ale v ostrém nasazení v domácí úloze nebo ve zkouškové písemce.
+
+END_PGML
+
+
+BEGIN_PGML_SOLUTION
+
+Výsledek je [``\frac 43 \pi r^3``], zapíšeme jej jako *4/3 \* pi \* r^3*.
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

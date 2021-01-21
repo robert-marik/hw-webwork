@@ -1,0 +1,74 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"answerHints.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a=non_zero_random(2,8);
+$c=non_zero_random(-10,10);
+
+Context("Numeric")->variables->are('x'=>'Real','a'=>'Real');
+
+$f=Formula("-2*a*x*exp(-a*x^2)")->reduce();   # funkce
+
+BEGIN_PGML
+
+## Sage
+
+Mnoho výpočtů za nás dokáží provést počítače. A když už umíme v řeči počítačů zapisovat matematické výrazy, bylo by škoda nevyužít dostupný potenciál.
+
+Programy pracující s matematickými funkcemi jsou systémy počítačové
+algebry, Computer algebra systems, CAS. Jedním ze snadno použitelných
+je Sage. Je volně šiřitelný, postavený na moderním jazyce Python a má
+i webové rozhraní, kde je možné používat tento program bez instalace.
+
+Následující [@ htmlLink("https://sagecell.sagemath.org/?z=eJxVyzEKgDAMQNFd8A4Bh7bi5O5VhFBTKGpbQlvi7Y2j01_e78jWCKBxMMFB54WMnqBobqrcAKFwviklGodgxW0kxeIs-_o_QkunV3PEEOwHF3Ggoj8le6oqOXaFLyajJOo=&lang=sage&interacts=eJyLjgUAARUAuQ==","odkaz") @]* spustí v programu Sage kód pro výpočet derivace funkce [```f(x)=e^{a x^2}.```]
+(Použijte pravé tlačítko myši a otevření v druhém panelu, aby zůstal otevřen i WeBWorK.)
+
+:   var(\'x a\')      # deklarace parametru a promenne
+:   f(x)=exp(a*x^2) # deklarace funkce
+:   diff(f(x),x)    # vypocet derivace
+
+Vaším úkolem je výše uvedeným odkazem spustit kód pro výpočet derivace na serveru sagecell.org a tento kód poté modifikovat tak, aby vypočítal derivaci funkce [```f(x)=e^{-a x^2}.```] Funkce se tedy liší od funkce v předpřipraveném výpočtu přidáním znaménka minus do exponentu. Po modifikaci vstupního pole s příkazy spustíte nový výpočet tlačítkem Evaluate. Výsledek překopírujte do pole s odpovědí (zápis můžete nechat tak jak ho zobrazí Sage).
+
+>>[``\frac{\mathrm d}{\mathrm dx} e^{-a x^2}={}``][__________________]{$f->cmp()->withPostFilter(AnswerHints(Formula("2*a*x*e^(a*x^2)") => "Toto je derivace původní funkce. Nezapomeňte, že máte přidat znaménko minus do exponentu."))}.<<
+
+_Poznámka 1:_ V tomto příkladě je opět pojistka ve formě chybového hlášení, kdybyste zapomněli funkci přednastavenou v programu Sage modifikovat a pokusili se jako odpověď zadat derivaci původní funkce, bez změněného znaménka v exponentu. Můžete si to vyzkoušet buď před nebo i po odeslání správné odpovědi. 
+
+_Poznámka 2:_ Pro pěkné zobrazení funkce a její derivace můžete psát například [@ htmlLink("https://sagecell.sagemath.org/?z=eJxVjsENwjAMRe9I7GCJQ1PEiTurIJnGEVHaOAptCN2BCZihU7SDkQAFerK-_P7TD-hFEQGLEjYgydTosSJw6TTU-g4QnOeGrKX1SolYHig6gdt43C8bqrOmSszlzFeh8q_nk8eerP7-JHkdEpw1UislsnAXS0h0uDmuqIWZ-ZjmuBT-oD_la847QUiD2DfYdnl-kht22nPAXGZwXI_DdDcIF2DpOEwPOQ5P8cleOA==&lang=sage&interacts=eJyLjgUAARUAuQ==","následující") @]*.
+
+:   var(\'x a\')                # deklarace parametru a promenne
+:   f(x)=exp(a*x^2)           # deklarace funkce
+:   show(f)                   # zobrazeni funkce
+:   derivace(x)=diff(f(x),x)  # vypocet derivace
+:   show(derivace)            # zobrazeni derivace
+:   derivace(x)               # derivace ve formatu pro vykopirovani odpovědi
+
+Odkazy spouštějte pravým tlačítkem a nechte jej otevřít v novém
+panelu, ať se můžete vrátit zpět k otázce. Pokud se Vám opakovaně
+nepodaří zapsat správnou odpověď, objeví se nápověda.
+
+END_PGML
+
+
+$showHint = 1;
+BEGIN_PGML_HINT
+Předpřipravená ukázka je pro funkci  [``e^{ax^2}``]. Musíte ji modifikovat tak, že tuto funkci nahradíte funkcí [``e^{-ax^2}``] (tj. na správné místo přidat záporné znaménko) a tlačítkem Evaluate spustit výpočet s novým zadáním.
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Výsledek je [``-2ax e^{-ax^2}``], zapíšeme jej jako *-2\*a\*x\*e^(-a\*x^2)*.
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
