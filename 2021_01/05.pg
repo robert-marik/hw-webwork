@@ -3,6 +3,8 @@ DOCUMENT();
 loadMacros(
     "PGstandard.pl",
     "PGML.pl",
+    "parserRadioButtons.pl",
+    "MathObjects.pl",
     "PGcourse.pl",
 );
 
@@ -11,68 +13,106 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-$b=random(2,10,1);
-$c=non_zero_random(-4,7,1);
-$k=random(3,5,1);
-do  { $l=random(3,7,1); } until ($l != $k);
-do  { $m=random(3,9,1); } until (($m != $k) and ($m != $k));
-
-Context("Numeric")->variables->add(y=>"Real", a=>"Real");
+Context("Numeric")->variables->are(m=>"Real", h=>"Real");
 
 $n=random(0,1);
 
-if ($n==0)
+$data=
+[
 {
-$soucin="y";
-
-$funkce=Formula("$b*x^$k*y^$l*e^(-a*y)")->reduce();
-$dfx=Formula("$b*$k*x^($k-1)*y^$l*e^(-a*y)")->reduce();
-$dfy=Formula("$b*x^($k)*($l*y^($l-1)+(-a)*y^$l)*e^(-a*y)")->reduce();
+formula=>"Mosteller formula",
+BSA=>" = 0.016667 * m^0.5 * h^0.5"
+},{
+formula=>"Du Bois formula",
+BSA=>" 0.007184 * m^0.425 * h^0.725"
+},{
+formula=>"Haycock formula",
+BSA=>" 0.024265 * m^0.5378 * h^0.3964"
+},{
+formula=>"Gehan and George formula",
+BSA=>" 0.0235 * m^0.51456 * h^0.42246"
+},{
+formula=>"Fujimoto formula",
+BSA=>" 0.008883 * m^0.444 * h^0.663"
+},{
+formula=>"Takahira formula",
+BSA=>" 0.007241 * m^0.425 * h^0.725"
+},{
+formula=>"Schlich Women formula",
+BSA=>" 0.000975482 * m^0.46 * h^1.08"
+},{
+formula=>"Schlich Men formula",
+BSA=>" 0.000579479 * m^0.38 * h^1.24"
 }
-else
-{
-$soucin="x";
+];
 
-$funkce=Formula("$b*x^$k*y^$l*e^(-a*x)")->reduce();
-$dfx=Formula(" $b*x^($k-1)*y^$l*($k-a*x)*e^(-a*x)")->reduce();
-$dfy=Formula("$b*x^$k*$l*y^($l-1)*e^(-a*x)")->reduce();
 
-}
+$radio=RadioButtons([[
+"Parciální derivace udává změnu povrchu těla při zvýšení hmotnosti o kilogram: Jednotkou je metr čtvereční na kilogram.",
+"Parciální derivace udává změnu hmotnosti nutnou pro zvýšení povrchu těla o jeden metr čtvereční. Jednotkou je koligram na metr čtvereční.",
+"Parciální derivace udává změnu povrchu těla při zvýšení výšky o metr. Jednotkou je metr.",
+"Parciální derivace udává změnu výšky spojenou se změnou hmotnosti o jeden kilogram. Jednotkou je metr na kilogram.",
+"Parciální derivace udává změnu hmotnosti odpovídající změně výšky o jeden metr. Jednotkou je kilogram na metr.",
+]],1);
+
+
+
+# Pocet otazek
+$pocet=@$data;
+
+
+$posledni=$pocet-1;  # indexujeme od nuly
+
+$cislo=random(0,$posledni);
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$cislo]->{BSA};
+$jmeno       =  $data->[$cislo]->{formula};
+
+$formule=Compute("$ot");
+$df=Compute("$ot")->D('m');
 
 BEGIN_PGML
 
-## Rychlost běhu dinosaurů
+## Povrch těla jako funkce hmotnosti a výšky
 
-Rychlost jakou dosahovali dvounozí dinosauři se dá odhadnout ze vzdálenosti jejich stop a z délky stehenní kosti. První takový odhad představil v roce 1976 bristký zoolog [@ htmlLink("https://en.wikipedia.org/wiki/Robert_McNeill_Alexander","Robert McNeill Alexander")@]* ve tvaru
-[``` v=```]
+[@ image("doktor.jpg", width=>400) @]*
 
-Funkce někdy mohou obsahovat i parametry. Tyto parametry se chovají stejně jako proměnné, přes které se nederivuje, tj. jako konstanty.
+Povrch těla je jeden z důležitých parametrů v klinické medicíně. V historii známe celou řadu aproximačních vzorců umožňujících určit povrch těla z hmotnosti a výšky. Například tzv. [$jmeno] má tvar [``` S=[$formule], ```]
+kde [`m`] je hmotnost v kilogramech a [`h`] výška v metrech. Určete parciální derivaci [``` \frac{\partial S}{\partial m} ```] a její slovní interpretaci a fyzikální jednotku. 
 
----------------
+---------------------------
 
-Vypočtěte obě dvě parciální derivace funkce [``` f(x,y)=[$funkce].```]
+>>[``\frac{\partial S}{\partial m}={}``][_________________________]{$df} <<
 
->>[``\frac{\partial f}{\partial x}={}``][_________________________]{$dfx} <<
+Nezapomeňte desetinné číslo zadávat s desetinnou tečkou.
 
->>[``\frac{\partial f}{\partial y}={}``][_________________________]{$dfy} <<
+Desetinná čísla nemusíte násobit mezi sebou, můžete je napsat ve tvaru součinu. Totéž platí pro rozdíl.
+
+-------------------
+
+Vyberte správné tvrzení pro parciální derivaci  [``` \frac{\partial S}{\partial m} .```]
+
+
+[__]{$radio}
+
+
 
 END_PGML
 
 BEGIN_PGML_HINT
 
-Derivujte jako v předchozích příkladech: proměnné, podle kterých se nederivuje, se chovají jako konstanty.
-Při derivaci podle [`[$soucin]`] nezapomeňte vzorec na derivaci součinu.
+Derivujte jako v předchozích příkladech: proměnné, podle kterých se nederivuje, se chovají jako konstanty. Nezapomeňte desetinné číslo zadávat s desetinnou tečkou.
 
 END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
 
-Derivujeme podle běžných pravidel a proměnné, podle kterých se nederivuje, se chovají jako konstanty.
-Při derivaci podle [`[$soucin]`] používáme vzorec na derivaci součinu a poté vytkneme opakující se členy.
+Derivujeme vlastně jenom konstantní násobek mocninné funkce. Násobek je složen ze dvou faktorů: z numerické konstany před funkcí a z mocniny proměnné, přes kterou se nederivuje.
 
-[``` \frac{\partial f}{\partial x}= [$dfx] ```]							   
-[``` \frac{\partial f}{\partial y}= [$dfy] ```]							   
+[``` \frac{\partial S}{\partial m}= [$df] ```]							   
 							   
 END_PGML_SOLUTION							   
 
