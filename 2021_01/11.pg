@@ -1,106 +1,123 @@
+###########################
+#  Initialization
 
-DOCUMENT();
+DOCUMENT();  
 
 loadMacros(
   "PGstandard.pl",
+  "MathObjects.pl",
   "PGchoicemacros.pl",
+  "PGgraders.pl",
   "unionTables.pl",
   "PGML.pl",
   "PGcourse.pl"
 );
 
-
 TEXT(beginproblem());
 
-$showPartialCorrectAnswers = 1;
 
-##############################################
+###########################
 #  Setup
 
-
+#
+#  Create a matching list and use popups
+#
 $ml = new_match_list();
+$ml->rf_print_q(~~&pop_up_list_print_q);
+$ml->ra_pop_up_list([
+"No answer" => "?",
+"A" => "A", "B" => "B", "C" => "C", 
+"D" => "D", "E" => "E", "F" => "F",
+"G" => "G"
+]);
+
+#
+#  Add correct questions and answers
+#
 $ml->qa(
-"Změna teploty způsobená tím, že se Slunce pohybuje na obloze a tím, že přichází studená fronta.",
-"\( \displaystyle \frac{\partial H}{\partial t} \) $BR",
-"Společný vliv závislosti teploty na zeměpisné délce a posunu bizona východo-západním směrem.",
-"\( \displaystyle \frac{\partial H}{\partial x} \frac{\partial x}{\partial t} \) $BR",
-"Společný vliv závislosti teploty na zeměpisné šířce a pohybu bizona severo-jižním směrem.",
-"\( \displaystyle \frac{\partial H}{\partial y} \frac{\partial y}{\partial t} \) $BR",
+"\(\displaystyle\frac{\partial T}{\partial t}\)", "Časová změna teploty, tj. rychlost s jakou v daném místě roste teplota jako funkce času.",
+"\(\displaystyle-\frac{\partial T}{\partial t}\)", "Záporně vzatá časová změna teploty, tj. rychlost s jakou v daném místě klesá teplota podle času.",
+"\(\displaystyle\frac{\partial T}{\partial x}\)", "Rychlost s jakou v daném okamžiku roste teplota ve směru osy \(x\).",
+"\(\displaystyle-\frac{\partial T}{\partial x}\)", "Rychlost s jakou v daném okamžiku klesá teplota ve směru osy \(x\).",
+"\(\displaystyle-\lambda\frac{\partial T}{\partial x}\)", "Tok tepla.",
+"\(\displaystyle\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", "Rychlost s jakou roste tok tepla ve směru osy \(x\).",
+"\(\displaystyle-\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", "Rychlost s jakou klesá tok tepla ve směru osy \(x\)."
 );
 
-# use pop-up-lists
-$ml->rf_print_q(~~&pop_up_list_print_q);
-# you may need to add more letters D=>"D", etc. 
-$ml->ra_pop_up_list([No_answer=>"?",A=>"A",B=>"B",C=>"C"]);
 
-$ml->choose(3);
+$ml->choose(7);
+
+#
+#  Add extra incorrect answers
+#
+#$ml->extra(
+#"Extra answer 1", 
+#"Extra answer 2",
+#);
+#$ml->choose_extra(2);
+  
+#$ml->makeLast("None of the above");
 
 
 
-##############################################
+###########################
 #  Main text
 
 BEGIN_PGML
-## Bizon na prérii
 
-[@ image("bizon.jpg", width=>400) @]*
+## Fyzikální interpretace členů z jednorozměrné rovnice vedení tepla
+
+Rovnice vedení tepla v jedné dimenzi má tvar (pro fyzikální interpretaci
+ponecháváme bez úpravy záporná znaménka)
+[```m \rho  \frac{\partial T}{\partial t}=-\frac{\partial}{\partial x}
+\left(-\lambda \frac{\partial T}{\partial x}\right).```]
+
+Pro jednotlivé složky této rovnice podejte jejich slovní interpretaci.
+
 END_PGML
 
 BEGIN_TEXT
 
-Jedno ráno studujeme bizona na prérii.  Jeho pohyb je popsán prostorovými souřadnicemi \( (x,y) \) a časem \( t \).  Protože je bizon pohybuje, jsou jeho prostorové souřadnice  \( x \) a \( y \)  funkcemi času \(t\).  Jak Slunce po obloze stoupá, dodává více tepla na jednotkovou plochu Země ("více hřeje").
-
-Osa \(y\) míří na sever a směrem na sever je vždy nižší teplota. Kromě toho z východu přichází studená fonta a proto se teplota mění i východo-západním směrem.
-
-Teplotu vzduchu v místě kde je bizon  označíme \(H\). Tato teplota závisí na čase (protože jednak Slunce na obloze stoupá a jednak přichází studená fronta) a na poloze bizona (vlivem teplotních změn severo-jižním a východo-západním směrem). Platí tedy \( H = f(x,y,t) \). Pomocí řetězového pravidla pro derivaci funkce více proměnných je možné vyjádřit rychlost změny teploty podle času, tj. 
-derivaci \( \mathrm dH / \mathrm dt \), jako součet tří členů:
+\{ $ml->print_q() \}
 $BR
-\[
-\frac{\mathrm dH}{\mathrm dt} 
-= 
-\frac{\partial H}{\partial x} \frac{\partial x}{\partial t}
-+
-\frac{\partial H}{\partial y} \frac{\partial y}{\partial t}
-+
-\frac{\partial H}{\partial t}.
-\]
-$BR
-Identifikujte u každého z těchto členů jeho reálnou fyzikální podstatu.
-$BR
-\{
-ColumnTable(
-$ml->print_q(),
-$ml->print_a(),
-indent => 0, separation => 20, valign => "MIDDLE"
-); 
-\}
+\{ $ml->print_a() \}
 
-(podle knihy Huges, Hallet: Calculus)
 END_TEXT
 
 
 
 
-##################################################
-#  Answers
+############################
+#  Answer evaluation
 
-#install_problem_grader(~~&std_problem_grader);
+$showPartialCorrectAnswers = 0;
 
-ANS(str_cmp($ml->ra_correct_ans) );
+#
+#  Incremental grader
+#
+install_problem_grader(~~&custom_problem_grader_fluid);
+$ENV{'grader_numright'} = [2,4,7];
+$ENV{'grader_scores'} = [0.3,0.6,1];
+$ENV{'grader_message'} = "Můžete mít částečné hodnocení za částečně správnou odpověď.";
+
+#
+#  All or nothing grader
+#  
+# install_problem_grader(~~&std_problem_grader);
+
+ANS( str_cmp( $ml->ra_correct_ans ) );
 
 
+############################
+#  Solution
 
-$showHint = 1;
-
-BEGIN_PGML_HINT
-Musíte ke změně každé veličiny přiřadit příslušnou derivaci. Tam, kde se jedná o společné působení dvou efektů je součin dvou derivací. Například rychlost změny teploty, způsobená severojižním pohybem bizona, závisí i na tom, jak rychle se bizon pohybuje, i na tom, jak moc se mění teplota směrem ze severu na jih.
-
-END_PGML_HINT
+@correct = @{$ml->ra_correct_ans()};
+$answerstring = join(", ", @correct);
 
 BEGIN_PGML_SOLUTION
-Musíte ke změně každé veličiny přiřadit příslušnou derivaci. Tam, kde se jedná o společné působení dvou efektů je součin dvou derivací. Například rychlost změny teploty, způsobená severojižním pohybem bizona, závisí i na tom, jak rychle se bizon pohybuje, i na tom, jak moc se mění teplota směrem ze severu na jih.
-
+The correct answers are [$answerstring].
 END_PGML_SOLUTION
 
+COMMENT('MathObject version. Uses PGML.');
 
-ENDDOCUMENT(); 
+ENDDOCUMENT();
