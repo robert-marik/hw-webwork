@@ -36,10 +36,9 @@ BEGIN_PGML
 
 [@ image("lek.jpg", width=>300) @]*
 
-Pacientovi je jednorázově podán lék. Tento lék se v těle s časem odbourává podle farmakokinetických zákonů. Předpokládejme, že lék se rychle vstřebá do krve a čas mezi podáním léku a dosažením odpovídající koncentrace léku v krvi pacienta je prakticky nulový.
+Pacientovi je jednorázově podán lék. Tento lék se v těle s časem odbourává podle farmakokinetických zákonů. Předpokládejme, že lék byl podán nitrožilně, což znamená, že koncentrace léku v krvi se prakticky okamžitě skokově zvýší a dále již je lék odbouráván fyziologickými procesy.
 
 Uvažujme koncentraci [`C(x,t)`] (v jednotce mg/litr) léku v těle pacienta jako funkci počáteční dávky [`x`] a času od aplikace [`t`].
-
 
 *Část 1:* Jaké znaménko má derivace podle času, tj. [``\frac{\partial C}{\partial t}``]? Je tato derivace kladná nebo záporná? Nebo není možné rozhodnout?
 
