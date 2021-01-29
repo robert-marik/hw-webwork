@@ -21,7 +21,7 @@ $data=
 [
 {
 formula=>"Mosteller formula",
-BSA=>" = 0.016667 * m^0.5 * h^0.5"
+BSA=>" 0.016667 * m^0.5 * h^0.5"
 },{
 formula=>"Du Bois formula",
 BSA=>" 0.007184 * m^0.425 * h^0.725"
