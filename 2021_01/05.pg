@@ -48,7 +48,7 @@ BSA=>" 0.000579479 * m^0.38 * h^1.24"
 
 
 $radio=RadioButtons([[
-"Parciální derivace udává změnu povrchu těla při zvýšení hmotnosti o kilogram: Jednotkou je metr čtvereční na kilogram.",
+"Parciální derivace udává změnu povrchu těla při zvýšení hmotnosti o kilogram. Jednotkou je metr čtvereční na kilogram.",
 "Parciální derivace udává změnu hmotnosti nutnou pro zvýšení povrchu těla o jeden metr čtvereční. Jednotkou je koligram na metr čtvereční.",
 "Parciální derivace udává změnu povrchu těla při zvýšení výšky o metr. Jednotkou je metr.",
 "Parciální derivace udává změnu výšky spojenou se změnou hmotnosti o jeden kilogram. Jednotkou je metr na kilogram.",
