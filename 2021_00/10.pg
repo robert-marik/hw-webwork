@@ -12,15 +12,71 @@ TEXT(beginproblem());
 ADD_CSS_FILE("left.css");
 
 
+
+$video = MODES(
+HTML=> 
+'
+<style>
+.container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+ <div class="container">
+  <iframe class="responsive-iframe" src="https://www.youtube.com/embed/TjOtImR8odM"></iframe>
+</div> 
+', 
+TeX =>
+"An embedded YouTube video."
+);
+
+
+
 BEGIN_PGML
 
 
 ## Odpovědí je text
 
 
-Tento úkol vám dá asi časvoě zabrat. Není to nic složitého, musíte napsat text obsahující matematické výrazy. Vyhledem k tomu, že tato dovednost nepatří mezi bežnou výbavu uživatele, je potřeba se to naučit. Naučíme se univerzální značkovací jazyk umožňující zařadit matematické výrazy do textů typu Wikipedie, i do programů typu MS Word.
+
+Tento úkol vám dá asi časově zabrat. Není to nic složitého, musíte napsat text obsahující matematické výrazy. Vyhledem k tomu, že tato dovednost nepatří mezi bežnou výbavu uživatele, je potřeba se to naučit. Naučíme se univerzální značkovací jazyk umožňující zařadit matematické výrazy do textů typu Wikipedie, i do programů typu MS Word.
 
 Půjde vlastně o další rozšíření matematické gramotnosti. Kromě dovednosti zadávat matematické výrazy do předpřipravených políček musíme být schopni naformulovat myšlenky nebo tvrzení jako ucelený logicky sestavený text kombinující přirozený jazyk a matematické výrazy. Příkladem může být následující odstavec.
+
+
+Nejprve video které Vám ukáže základy práce. Bude se hodit [@ htmlLink("https://raw.githubusercontent.com/robert-marik/hw-webwork/master/cheatsheet/cheatsheet.pdf","cheatsheet") @]*
+
+
+
+END_PGML
+
+
+BEGIN_TEXT
+$video
+END_TEXT
+
+
+
+BEGIN_PGML
+
+
+## A teď ten úkol
+
+
+Následující text mezi dvěma vodorovnými linkami přepište do odpověďního pole.
 
 ------
 
@@ -51,7 +107,6 @@ END_TEXT
 BEGIN_PGML
 
 * _Pro pohodlnou tvorbu textu můžete využít nástroj [@ htmlLink("http://user.mendelu.cz/marik/latexovatko","LaTeXovátko") @]*. Tam si také můžete do editoru nakliknout repertoár textů a ty upravovat a sledovat efekt jednotlivých úprav._
-* Stáhli jste si předešlém úkolu [@ htmlLink("https://github.com/robert-marik/hw-webwork/blob/master/cheatsheet/cheatsheet.pdf","cheatsheet") @]*? Na straně 2 jsou konstrukce pro [`\mathrm \LaTeX`] a dále jsou ukázky textů.
 * _Můžete využít [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "nápovědu") @]*  pro [`\mathrm \LaTeX`] s ukázkami kódů pro vykopírování. Odkaz otevřete pravým tlačítkem v novém panelu, aby Vám zůstala otevřená i stránka, kterou čtete._
 * _Další ukázky jsou všechny vzorce v programu WeBWorK a v přednáškách. Použijte pravé tlačítko a zobrazení kódu v programu TeX, tj. Show Math As a TeX commands._
 END_PGML
