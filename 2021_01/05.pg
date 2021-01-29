@@ -41,7 +41,10 @@ $dfy=Formula("$b*x^$k*$l*y^($l-1)*e^(-a*x)")->reduce();
 
 BEGIN_PGML
 
-## Parciální derivace funkce s parametrem
+## Rychlost běhu dinosaurů
+
+Rychlost jakou dosahovali dvounozí dinosauři se dá odhadnout ze vzdálenosti jejich stop a z délky stehenní kosti. První takový odhad představil v roce 1976 bristký zoolog [@ htmlLink("https://en.wikipedia.org/wiki/Robert_McNeill_Alexander","Robert McNeill Alexander")@]* ve tvaru
+[``` v=```]
 
 Funkce někdy mohou obsahovat i parametry. Tyto parametry se chovají stejně jako proměnné, přes které se nederivuje, tj. jako konstanty.
 
