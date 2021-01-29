@@ -1,0 +1,123 @@
+###########################
+#  Initialization
+
+DOCUMENT();  
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGchoicemacros.pl",
+  "PGgraders.pl",
+  "unionTables.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+
+###########################
+#  Setup
+
+#
+#  Create a matching list and use popups
+#
+$ml = new_match_list();
+$ml->rf_print_q(~~&pop_up_list_print_q);
+$ml->ra_pop_up_list([
+"No answer" => "?",
+"A" => "A", "B" => "B", "C" => "C", 
+"D" => "D", "E" => "E", "F" => "F",
+"G" => "G"
+]);
+
+#
+#  Add correct questions and answers
+#
+$ml->qa(
+"\(\displaystyle\frac{\partial T}{\partial t}\)", "Časová změna teploty, tj. rychlost s jakou v daném místě roste teplota jako funkce času.",
+"\(\displaystyle-\frac{\partial T}{\partial t}\)", "Záporně vzatá časová změna teploty, tj. rychlost s jakou v daném místě klesá teplota podle času.",
+"\(\displaystyle\frac{\partial T}{\partial x}\)", "Rychlost s jakou v daném okamžiku roste teplota ve směru osy \(x\).",
+"\(\displaystyle-\frac{\partial T}{\partial x}\)", "Rychlost s jakou v daném okamžiku klesá teplota ve směru osy \(x\).",
+"\(\displaystyle-\lambda\frac{\partial T}{\partial x}\)", "Tok tepla.",
+"\(\displaystyle\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", "Rychlost s jakou roste tok tepla ve směru osy \(x\).",
+"\(\displaystyle-\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", "Rychlost s jakou klesá tok tepla ve směru osy \(x\)."
+);
+
+
+$ml->choose(7);
+
+#
+#  Add extra incorrect answers
+#
+#$ml->extra(
+#"Extra answer 1", 
+#"Extra answer 2",
+#);
+#$ml->choose_extra(2);
+  
+#$ml->makeLast("None of the above");
+
+
+
+###########################
+#  Main text
+
+BEGIN_PGML
+
+## Fyzikální interpretace členů z jednorozměrné rovnice vedení tepla
+
+Rovnice vedení tepla v jedné dimenzi má tvar (pro fyzikální interpretaci
+ponecháváme bez úpravy záporná znaménka)
+[```m \rho  \frac{\partial T}{\partial t}=-\frac{\partial}{\partial x}
+\left(-\lambda \frac{\partial T}{\partial x}\right).```]
+
+Pro jednotlivé složky této rovnice podejte jejich slovní interpretaci.
+
+END_PGML
+
+BEGIN_TEXT
+
+\{ $ml->print_q() \}
+$BR
+\{ $ml->print_a() \}
+
+END_TEXT
+
+
+
+
+############################
+#  Answer evaluation
+
+$showPartialCorrectAnswers = 0;
+
+#
+#  Incremental grader
+#
+install_problem_grader(~~&custom_problem_grader_fluid);
+$ENV{'grader_numright'} = [2,4,7];
+$ENV{'grader_scores'} = [0.3,0.6,1];
+$ENV{'grader_message'} = "Můžete mít částečné hodnocení za částečně správnou odpověď.";
+
+#
+#  All or nothing grader
+#  
+# install_problem_grader(~~&std_problem_grader);
+
+ANS( str_cmp( $ml->ra_correct_ans ) );
+
+
+############################
+#  Solution
+
+@correct = @{$ml->ra_correct_ans()};
+$answerstring = join(", ", @correct);
+
+BEGIN_PGML_SOLUTION
+The correct answers are [$answerstring].
+END_PGML_SOLUTION
+
+COMMENT('MathObject version. Uses PGML.');
+
+ENDDOCUMENT();

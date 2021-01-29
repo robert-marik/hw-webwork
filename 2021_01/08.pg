@@ -1,0 +1,108 @@
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "niceTables.pl",	
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+
+Context("Numeric");
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+@spd = ( 8, 9, 10, 11 );
+@wgt = ( 120, 140, 160, 180, 200 );
+
+$sum=random(-4,4)/10;
+@cal = ( [ 4.2+$sum, 5.8+$sum,  7.4+$sum,  8.9 +$sum],
+	 [ 5.1+$sum, 6.7+$sum,  8.3+$sum,  9.9 +$sum],
+	 [ 6.1+$sum, 7.7+$sum,  9.2+$sum, 10.8 +$sum],
+	 [ 7.0+$sum, 8.6+$sum, 10.2+$sum, 11.7 +$sum],
+	 [ 7.9+$sum, 9.5+$sum, 11.1+$sum, 12.6 +$sum] );
+
+$d = random(6,12,2);
+
+## the weights of person one and two
+$wInd1 = random(1,3,1);
+
+## the speeds of person one and two, which we make sure
+##    are in the reverse order
+$sInd1 = random(1,2,1);
+
+## the rate at which the people burn calories are
+$ders = ($cal[$wInd1]->[$sInd1+1]-$cal[$wInd1]->[$sInd1-1])/2;
+$derw = ($cal[$wInd1+1]->[$sInd1]-$cal[$wInd1-1]->[$sInd1])/40;
+
+
+Context()->texStrings;
+TEXT(beginproblem());
+BEGIN_PGML
+
+## Kolečkové brusle a spalování kalorií    
+
+[@ image("inline.jpg", width=>400) @]*
+
+    
+    Tabulka (podle _Parade Magazine_,  28. dubna 1994)) ukazuje počet kalorií [`c`] spálených za minutu při jízdě na kolečkových burslích v závislosti na hmotnosti osoby ([`m`], v librách) a rychlosti pohybu ([`v`], v mílích za hodinu). 
+    
+    [@ DataTable(
+	   [
+	    [ " ",["rychlost, \\(v\\)", colspan => 4,headerrow=>1]],
+	    [["hmotnost, \\(m\\)", midrule => 1,headerrow=>1],@spd],
+	    [  $wgt[0], @{$cal[0]} ],
+	    [  $wgt[1], @{$cal[1]} ],
+	    [  $wgt[2], @{$cal[2]} ],
+	    [  $wgt[3], @{$cal[3]} ],
+	    [  $wgt[4], @{$cal[4]} ]
+	   ], 
+	   caption => 'Počet kalorií spálených za minutu pohybu'
+     ); @]*
+    
+    Pomocí centrální diference vypočtěte obě parciální derivace v bodě [`v=[$spd[$sInd1]]`], [`m=[$wgt[$wInd1]]`].
+    
+>>[``\frac{\partial c}{\partial m}(v=[$spd[$sInd1]],m=[$wgt[$wInd1]])={}``][________________________]{$derw}<<
+       
+>>[``\frac{\partial c}{\partial v}(v=[$spd[$sInd1]],m=[$wgt[$wInd1]])={}``][________________________]{$ders}<<
+    
+	  
+END_PGML
+
+BEGIN_PGML_HINT
+Při aproximaci derivací pomocí centrálních diferencí postupujeme podle vzorců
+[```\frac{\partial f}{\partial x}\approx \frac{f(x+h,y)-f(x-h,y)}{2h}```]
+a
+[```\frac{\partial f}{\partial y}\approx \frac{f(x,y+h)-f(x,y-h)}{2h}.```]
+
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+
+Při aproximaci derivací pomocí centrálních diferencí postupujeme podle vzorců
+[```\frac{\partial f}{\partial x}\approx \frac{f(x+h,y)-f(x-h,y)}{2h}```]
+a
+[```\frac{\partial f}{\partial y}\approx \frac{f(x,y+h)-f(x,y-h)}{2h}.```]
+Stačí tedy vzorce adaptovat na na naše proměnné, najít požadované hodnoty v tabulce a tyto hodnoty použít.
+Zjednodušeně: rozdíl dvou hodnot, které jsou okolo hodnoty, v níž počítáme parciální derivace, dělíme odpovídající změnou rychlosti nebo hmotnosti.
+
+Hodnota v tabulce odpovídající [`v=[$spd[$sInd1]]`] a [`m=[$wgt[$wInd1]]`] je [`[$cal[$wInd1]->[$sInd1]]`]. Pod ní a nad ní jsou hodnoty pro stejnou rychlost a hmotnost o 20 liber větší a 20 liber menší. Proto rozdíl budeme dělit 40 librami a získáme změnu připadající na jednu libru. Tím dostaneme derivaci podle hmotnosti. 
+
+[```\frac{\partial c}{\partial m}(v=[$spd[$sInd1]],m=[$wgt[$wInd1]])=\frac {[$cal[$wInd1+1]->[$sInd1]] -[$cal[$wInd1-1]->[$sInd1]]}{40}```]
+
+Analogicky počítáme derivaci podle rychlosti. Řídíme se hodnotou vlevo a vpravo od odpovídajícího místa v tabulce, protože v tabulce rychlost roste zleva doprava. Dělíme hodnotou 2, protože rychlost je odstupňována po mílích za hodinu a hodnoty, které odčítáme, dělí dvě míle za hodinu.
+
+[```\frac{\partial c}{\partial v}(v=[$spd[$sInd1]],m=[$wgt[$wInd1]])=\frac {[$cal[$wInd1]->[$sInd1+1]] -[$cal[$wInd1]->[$sInd1-1]]}{2}```]
+
+   
+END_PGML_SOLUTION
+
+   
+Context()->normalStrings;
+
+
+   
+
+ENDDOCUMENT();

@@ -1,0 +1,66 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$k=random(2,5,1);
+$m=random(2,3,1);
+
+Context("Numeric")->variables->add(y=>"Real");
+	
+$funkce=Formula("y*e^(x^$m+$k*y)")->reduce();
+$dfx=Formula("$m*x^($m - 1)*y*e^(x^$m+$k*y)")->reduce();
+$ddfx=Formula("( ($m)^2*x^(2*$m - 2)*y + ($m - 1)*$m*x^($m - 2)*y) *e^($k*y + x^$m)")->reduce();
+
+
+BEGIN_PGML
+
+## Parciální derivace druhého řádu
+
+Parciální derivace můžeme aplikovat i opakovaně a dostáváme tak derivace vyššího řádu. Například pokud dvakrát derivujeme podle [`x`] dostaneme parciální derivaci [`\frac{\partial ^2}{\partial x^2}`] a analogicky podle [`y`]. (Smíšeným parciálním derivacím druhého řádu, kdy se derivuje pokaždé podle jiné proměnné, se budeme věnovat v následujícím příkladě.) Například pro funkci [```f(x,y)=\sin(x^2y)```] dostáváme (použitím pravidla pro derivaci složené funkce)
+[```\frac{\partial f}{\partial x}=2xy\cos(x^2y)```]
+a použitím vzorce pro derivaci součinu dále
+[```\frac{\partial^2 f}{\partial x^2}=2y\cos(x^2y)+2xy(-\sin(x^2y))(2xy)=
+2y\cos(x^2y)-4x^2y^2\sin(x^2y).```]
+
+---------------
+
+Vypočtěte parciální derivaci [`` \frac{\partial^2 f}{\partial x^2} ``]funkce [``` f(x,y)=[$funkce].```]
+
+>>[``\frac{\partial^2 f}{\partial x^2} ={}``][_________________________________]{$ddfx} <<
+
+Tip: po výpočtu druhé derivace je výhodné vytknout exponenciální část. Tím bude odpověď kratší, přehlednější a sníží se riziko numerické chyby.
+
+END_PGML
+
+BEGIN_PGML_HINT
+První derivace je (s využitím pravidla pro derivaci složené funkce, protože exponenciální funkce má vnitřní složku)
+[```\frac{\partial f}{\partial x} =[$dfx].```]
+Výraz [`y`] před exponencielou bereme jako konstantní násobek.
+
+Pro druhou derivaci budete muset použít ještě vzorec pro derivaci součinu.
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+
+První derivace je (s využitím pravidla pro derivaci složené funkce, protože exponenciální funkce má vnitřní složku)
+[```\frac{\partial f}{\partial x} =[$dfx].```]
+Výraz [`y`] před exponencielou bereme jako konstantní násobek.
+
+
+Druhou derivaci počítáme podle pravidla pro derivaci součinu.  Opakující se exponenciální člen (opět jej budeme derivovat jako složenou funkci) se objeví v obou sčítancích a je možné jej vytknout.
+[```\frac{\partial^2 f}{\partial x^2} =[$ddfx]```]
+
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

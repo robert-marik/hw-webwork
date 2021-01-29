@@ -1,0 +1,70 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$a=random(2,5,1);
+$b=$a+1;
+repeat { $b=random(2,5,1); } until ( $b != $a);
+$m=random(1,3,1);
+$n=random(1,3,1);
+$c=random(2,7,1);
+
+
+Context("Numeric")->variables->add(y=>"Real");
+	
+$funkce=Formula("($a*x^$m-$b*y^$n)^$c")->reduce();
+$dfx=Formula("$a*$m*x^($m-1)*$c*($a*x^$m-$b*y^$n)^($c-1)")->reduce();
+$dfy=Formula("-$b*$n*y^($n-1)*$c*($a*x^$m-$b*y^$n)^($c-1)")->reduce();
+$ddfxy=Formula("-$b*$c*($c-1)*$a*$m*$n*x^($m-1)*y^($n-1)*($a*x^$m-$b*y^$n)^($c-2)")->reduce();
+
+
+BEGIN_PGML
+
+## Smíšené parciální derivace druhého řádu
+
+Parciální derivace můžeme aplikovat i opakovaně a nemusíme přitom derivovat vždy podle stejné proměnné. Například pro funkci [```f(x,y)=(2x+5y^2)^6```] dostáváme při derivování podle [`x`] první derivaci ve tvaru
+[``` \frac{\partial f}{\partial x}=12(2x+5y^2)^5```] a pokud tento výsledek derivujeme podle [`y`], dostaneme smíšenou derivaci
+[``` \frac{\partial^2 f}{\partial x\partial y}=12\cdot 5 \cdot 5\cdot 2 y(2x+5y^2)^4.```]
+Stejný výsledek bychom obdrželi, kdybychom derivovali nejprve podle [`y`] na vztah
+[``` \frac{\partial f}{\partial y}=6\cdot 5 \cdot 2y(2x+5y^2)^5```] a poté podle [`x`]. Schwarzova věta totiž zaručuje, že za jistých (zpravidla splněných) předpokladů jsou obě smíšené derivace druhého řádu stejné. Vyzkoušíme si to na následujícím příkladě.
+
+---------------
+
+Vypočtěte parciální derivaci [`` \frac{\partial^2 f}{\partial x \partial y} ``]funkce [``` f(x,y)=[$funkce]```] oběma způsoby a společný výsledek zapište do pole pro odpověď.
+
+>>[``\frac{\partial^2 f}{\partial x \partial y} ={}``][_________________________________]{$ddfxy} <<
+
+END_PGML
+
+BEGIN_PGML_HINT
+První derivace jsou
+[```\frac{\partial f}{\partial x} =[$dfx]```]
+a
+[```\frac{\partial f}{\partial y} =[$dfy].```]
+
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+
+První derivace jsou
+[```\frac{\partial f}{\partial x} =[$dfx]```]
+a
+[```\frac{\partial f}{\partial y} =[$dfy].```]
+
+Smíšená derivace je
+[```\frac{\partial^2 f}{\partial x \partial y} =[$ddfxy].```]
+
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
