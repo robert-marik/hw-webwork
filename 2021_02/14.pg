@@ -13,18 +13,18 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
-
 $data =
 [
 {
-    nadpis=>"Matice figurující v konstitutivních zákonech",
-    otazka=>"Může se za určitých podmínek konstanta úměrnosti z konstitutivních zákonů redukovat na diagonální matici?",
-    odpoved=>"Ano, při vhodně zvolené soustavě souřadnic je matice diagonální. Tyto úlohy jsou jednodušší na řešení a proto se snažíme soustavu souřadnic volit tímto způsobem.",
+    nadpis=>"Konstitutivní zákony",
+    otazka=>"Konstitutivní zákony jsou vztahy mezi veličinami charakterizující vliv působení vnějšího prostředí na materiál (podnět) na děje probíhající v maeriálu jako reakci na tento podnět (odazva). Pokud jsou tyto veličny (podnět a odezva) vyjádřeny vektorovými veličinami, mají všechny  konstitutivní zákony (Fickův, Darcyho, Fourierův, Ohmův, Hookův, ...) jednotnou formu. Z čeho tato forma vyplývá?",
+    odpoved=>"Jedná se vždy o lineární aproximaci případné obecnější závislosti v nule pomocí Jacobiho matice.",
     moznosti=>[
-"Ne, tím by se zcela zastřela výhoda spočívající v zapojení matic do formulace materiálových vztahů.",
-"Ano, ale pouze pro určité materiály (ortotropní). Pro tyto materiály je potom matice diagonální vždy a nezávisle na volbě soustavy souřadnic."
+"Jedná se vždy o problematiku lokálních extrémů funkce více proměnných.",
+"Jedná se vždy o společnou fyzikální podstatu uvedených zákonů, proto je společný i matematický popis.",
+"Neexistuje racionální vysvětlení, je to otevřený problém filozofie přírodních věd.",
 ],
-	}
+}
 ];
 
 # Pocet otazek
@@ -56,19 +56,16 @@ BEGIN_PGML
 
 ## [$na]
 
-[@ image("$obrazek.jpg", width=>400) @]*
 
 [$ot]
 
 [_]{$radio}
 
-_[$zdroj]_
-
 END_PGML
 
 BEGIN_PGML_SOLUTION
 
-[``` [$od] ```]
+[$od]
 
 END_PGML_SOLUTION
 

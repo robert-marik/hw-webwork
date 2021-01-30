@@ -9,21 +9,20 @@ loadMacros(
 );
 
 
-TEXT(beginproblem());
-$showPartialCorrectAnswers = 0;
-$showHint = 1;
-
 $data =
 [
 {
-    nadpis=>"Konstitutivní zákony",
-    otazka=>"Konstitutivní zákony jsou vztahy mezi veličinami charakterizující vliv působení vnějšího prostředí na materiál (podnět) na děje probíhající v maeriálu jako reakci na tento podnět (odazva). Pokud jsou tyto veličny (podnět a odezva) vyjádřeny vektorovými veličinami, mají všechny  konstitutivní zákony (Fickův, Darcyho, Fourierův, Ohmův, Hookův, ...) jednotnou formu. Z čeho tato forma vyplývá?",
-    odpoved=>"Jedná se vždy o lineární aproximaci případné obecnější závislosti v nule pomocí Jacobiho matice.",
+    obrazek=>"Gradient",
+    nadpis=>"Slovní interpretace gradientu",
+    otazka=>"Která formulace vystihuje slovně praktický význam gradientu?",
+    odpoved=>"Gradient vyjadřuje směr a intenzitu maximálního nárůstu skalární funkce definované v rovině nebo v prostoru.",
     moznosti=>[
-"Jedná se vždy o problematiku lokálních extrémů funkce více proměnných.",
-"Jedná se vždy o společnou fyzikální podstatu uvedených zákonů, proto je společný i matematický popis.",
-"Neexistuje racionální vysvětlení, je to otevřený problém filozofie přírodních věd.",
+"Gradient vyjadřuje směr a intenzitu maximálního poklesu skalární funkce definované v rovině nebo v prostoru.",
+"Gradient vyjadřuje směr a intenzitu toku vektorového pole nebo stavové veličiny v rovině nebo v prostoru.",
+"Gradient vyjadřuje směr a nárůst intenzity toku vektorového pole nebo stavové veličiny v rovině nebo v prostoru.",
+"Gradient vyjadřuje směr a pokles intenzity toku vektorového pole nebo stavové veličiny v rovině nebo v prostoru.",
 ],
+zdroj=>"Obrázek: pixabay.com"
 }
 ];
 
@@ -60,6 +59,7 @@ BEGIN_PGML
 [$ot]
 
 [_]{$radio}
+
 
 END_PGML
 
