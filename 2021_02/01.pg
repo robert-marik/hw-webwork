@@ -1,0 +1,81 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "MathObjects.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$b=random(2,10,1);
+$c=non_zero_random(-4,7,1);
+$k=random(2,4,1);
+do  { $l=random(2,6,1); } until ($l != $k);
+#do  { $m=random(3,9,1); } until (($m != $k) and ($m != $k));
+$m=non_zero_random(-9,9,1);
+
+Context("Vector");
+	
+$funkce=Formula("$b*x^$k*y^$l+$m*x+6")->reduce();
+$dfx=$funkce->D("x");
+$dfy=$funkce->D("y");
+
+$gradient = Vector("<$dfx, $dfy>");
+
+BEGIN_PGML
+
+## Gradient funkce dvou proměnných
+
+[@ image("vitr.jpg", width=>400) @]*
+
+Gradient je mimořádně důležitý diferenciální operátor v aplikacích. U stavových veličiny nerovnoměrně rozložených v prostoru udává, kterým směrem tyto stavové veličiny rostou a tento směr je opačný ke směru, kterým působí síla snažící se tyto nerovnoměrnosti "vyhladit". Například u nerovnoměrně rozloženého tlaku vzduchu můžeme určit, kterým směrem má tendenci foukat vítr.
+
+Gradient je vektor sestavený z parciálních derivací funkce více proměnných. V aplikacích zpravidla počítáme gradient vzhledem k prostorovým proměnným a derivace řadíme podle abecedy. Podle kontextu uvažujeme gradient jako sloupcový nebo řádkový vektor. Například funkce
+[``` f(x,y)=x^2y^3+x+5y+9 ```]
+má parciální derivace
+[``` \frac{\partial f}{\partial x}=2xy^3+1```]
+a
+[``` \frac{\partial f}{\partial y}=3x^2y^2+5.```]
+Její gradient je proto (zapsáno jako sloupcový vektor)
+[``` \nabla f=\begin{pmatrix}2xy^3+1 \\ 3x^2y^2+5\end{pmatrix}.```]
+Pomocí jednotkových vektorů ve směru souřadnicových os můžeme tentýž výsledek psát také
+[``` \nabla f=(2xy^3+1)\vec i +(3x^2y^2+5)\vec j.```]
+Tento výsledek je možno zapsat jako uspořádanou dvojici ohraničenou ostrými závorkami, nebo pomocí jednotkových vektorů. tj. *<2xy^3+1,3x^2y^2+5>* nebo *(2xy^3+1)\*i +(3x^2y+5)\*j.*
+
+---------------
+
+Vypočtěte gradient funkce [``` f(x,y)=[$funkce].```]
+
+>>[``\nabla f(x,y)={}``][____________________________________]{$gradient}<<
+
+END_PGML
+
+BEGIN_PGML_HINT
+Pozorně počítejte derivace. Například derivace podle [`x`] je [``` \frac{\partial f}{\partial x}=[$dfx]. ```]
+a toto je možné zapsat jako [$dfx] .
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu a přepis do elegantnějšího tvaru.
+
+[``` \frac{\partial f}{\partial x}=[$dfx] ```]
+
+[``` \frac{\partial f}{\partial y}=[$dfy] ```]
+
+Vektor sestavený z těchto parciálních derivací je gradient.
+
+[``` \nabla f=\begin{pmatrix}[$dfx]\\[$dfy]\end{pmatrix}```]
+
+END_PGML_SOLUTION
+
+
+
+
+ENDDOCUMENT();

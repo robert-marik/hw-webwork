@@ -1,0 +1,77 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+$data =
+[
+{
+    obrazek=>"Gradient",
+    nadpis=>"Slovní interpretace gradientu",
+    otazka=>"Která formulace vystihuje slovně praktický význam gradientu?",
+    odpoved=>"Gradient vyjadřuje směr a intenzitu maximálního nárůstu skalární funkce definované v rovině nebo v prostoru.",
+    moznosti=>[
+"Gradient vyjadřuje směr a intenzitu maximálního poklesu skalární funkce definované v rovině nebo v prostoru.",
+"Gradient vyjadřuje směr a intenzitu toku vektorového pole nebo stavové veličiny v rovině nebo v prostoru.",
+"Gradient vyjadřuje směr a nárůst intenzity toku vektorového pole nebo stavové veličiny v rovině nebo v prostoru.",
+"Gradient vyjadřuje směr a pokles intenzity toku vektorového pole nebo stavové veličiny v rovině nebo v prostoru.",
+],
+zdroj=>"Obrázek: pixabay.com"
+}
+];
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
+
+BEGIN_PGML
+
+## [$na]
+
+
+[$ot]
+
+[_]{$radio}
+
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$od]
+
+END_PGML_SOLUTION
+
+};
+# konec cyklu
+
+
+ENDDOCUMENT();
+

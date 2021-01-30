@@ -1,0 +1,80 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+
+$data =
+[
+{
+    nadpis=>"Matice figurující v konstitutivních zákonech",
+    otazka=>"Může se za určitých podmínek konstanta úměrnosti z konstitutivních zákonů redukovat na diagonální matici?",
+    odpoved=>"Ano, při vhodně zvolené soustavě souřadnic je matice diagonální. Tyto úlohy jsou jednodušší na řešení a proto se snažíme soustavu souřadnic volit tímto způsobem.",
+    moznosti=>[
+"Ne, tím by se zcela zastřela výhoda spočívající v zapojení matic do formulace materiálových vztahů.",
+"Ano, ale pouze pro určité materiály (ortotropní). Pro tyto materiály je potom matice diagonální vždy a nezávisle na volbě soustavy souřadnic."
+],
+	}
+];
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
+
+BEGIN_PGML
+
+## [$na]
+
+[@ image("$obrazek.jpg", width=>400) @]*
+
+[$ot]
+
+[_]{$radio}
+
+_[$zdroj]_
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[``` [$od] ```]
+
+END_PGML_SOLUTION
+
+};
+# konec cyklu
+
+
+ENDDOCUMENT();
+

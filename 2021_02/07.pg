@@ -1,0 +1,99 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "MathObjects.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$b=random(2,6,1);
+$c=non_zero_random(1,4,1);
+$l=random(2,4,1);
+$k=random(2,4,1);
+#do  { $m=random(3,9,1); } until (($m != $k) and ($m != $k));
+$m=non_zero_random(-9,9,1);
+
+Context("Vector")->variables->add(a=>"Real");
+
+$P=Formula("x^$b*y^$c")->reduce();
+$Q=Formula("x^$b+y+1")->reduce();
+$dPx=$P->D("x");
+$dPy=$P->D("y");
+$dQx=$Q->D("x");
+$dQy=$Q->D("y");
+
+$matice=Matrix([[$dPx,$dPy],[$dQx,$dQy]]);
+
+BEGIN_PGML
+
+## Jacobiho matice
+
+[@ image("molo.jpg", width=>400) @]*
+
+Pokud chceme aproximovat vektorové funkce, musíme lineární aproximaci funkcí více proměnných provést pro každou komponentu samostatně. Namísto gradientu poté pracujeme s Jacobiho maticí. Pro pohodlnější zápis je vhodnější pracovat s jednotlivými komponentami funkce. Pro vektorovou funkci [``\vec F(x,y)=P(x,y)\vec i+Q(x,y)\vec j``] má Jacobiho matice tvar
+[``` J(x,y)=\begin{pmatrix}\frac{\partial P}{\partial x} &\frac{\partial P}{\partial y}\\\frac{\partial Q}{\partial x} &\frac{\partial Q}{\partial y}\end{pmatrix}.```]
+
+Například pro vektorovou funkci [``` \vec F=x^3y\vec i + 5y^2\vec j ```] má Jacobiho matice tvar
+[``` J(x,y) = \begin{pmatrix}3x^2y & x^3 \\ 0 & 10y\end{pmatrix}.```]
+
+Jacobiho matice se používá například pro vyjádření materiálových vztahů mezi vektorovými veličinami. V těchto případech pracujeme typicky s funkcí, která je v počátku soustavy souřadnic nulová a lineární aproximace se redukuje na součin matice a podnětu. Podnětem je zpravidla záporně vzatý gradient nějaké fyzikální veličiny (teploty, vlhkosti, koncentrace) a matice je napoříklad tenzor tepelné vodivosti nebo tenzorový difuzní koeficient. Tento aparát využijeme například při modelování působení vlhkosti na dřevo u konstrukce jako na obrázku.
+
+---------------
+
+Vypočtěte Jacobiho matici vektorové funkce [``` F(x,y)=([$P])\vec i+([$Q])\vec j.```]
+
+>>[``J(x,y)={}``][_________]*{$matice}<<
+
+END_PGML
+
+
+BEGIN_PGML_HINT
+Pozorně počítejte derivace. Například derivace první komponenty
+[``` P=[$P]```]
+jsou
+[``` \frac{\partial P}{\partial x}=[$dPx] ```]
+a
+[``` \frac{\partial P}{\partial y}=[$dPy]. ```]
+Toto je možné zapsat jako [$dPx] a [$dPy] a tyto hodnoty patří do prvního řádku matice.
+
+Podobně vypočtěte derivace do druhého řádku matice jako derivace druhé komponenty vektorového pole.
+(Uvedené derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu.)
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu.
+
+Derivace první komponenty
+[``` P(x,y)=[$P]```]
+jsou
+[``` \frac{\partial P}{\partial x}=[$dPx] ```]
+a
+[``` \frac{\partial P}{\partial y}=[$dPy]. ```]
+
+Derivace druhé komponenty
+[``` Q(x,y)=[$Q]```]
+jsou
+[``` \frac{\partial Q}{\partial x}=[$dQx] ```]
+a
+[``` \frac{\partial Q}{\partial y}=[$dQy]. ```]
+
+
+
+
+[``` J(x,y)=
+\begin{pmatrix}\frac{\partial P}{\partial x}&\frac{\partial P}{\partial y}\\\frac{\partial Q}{\partial x}&\frac{\partial Q}{\partial y}\end{pmatrix}
+=
+\begin{pmatrix}[$dPx]&[$dPy]\\[$dQx]&[$dQy]\end{pmatrix}```]
+
+END_PGML_SOLUTION
+
+
+
+ENDDOCUMENT();

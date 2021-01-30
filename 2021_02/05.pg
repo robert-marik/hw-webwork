@@ -1,0 +1,60 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "MathObjects.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context("Numeric")->variables->add(y=>"Real");
+
+$F=random(2,10,1);
+$A=non_zero_random(-4,7,1);
+$B=random(2,4,1);
+$x0=random(2,6,1);
+$y0=(-1)*random(1,4,1);
+
+$aproximace=Formula("$F+$A*(x-$x0)+$B*(y-$y0)")->reduce();
+
+BEGIN_PGML
+
+## Lineární aproximace funkce dvou proměnných
+
+Gradient definuje rychlost, s jakou se mění funkce více proměnných ve směrech souřadnicových os a proto jej můžeme použít k lineární aproximaci funkce. Je-li gradient funkce [`f(x,y)`] v bodě [`(x_0,y_0`] roven [``\nabla f(x_0,y_0)=\begin{pmatrix}A\\B\end{pmatrix}``], platí v okolí bodu [`(x_0,y_0)`] vztah [``` f(x,y)\approx f(x_0,y_0)+A(x-x_0)+B(y-y_0).```] Toto je lineární aproximace funkce [`f(x,y)`] v okolí bodu [`(x_0,y_0).`] Například funkce [`f`], která má v bodě [`(3,0)`] funkční hodnotu [`f(3,0)=10`] a gradient [`\nabla f(3,0)=(2,5)^T`] má v okolí bodu [`(3,0)`] lineární aproximaci
+[``` f(x,y)\approx 10 + 2 (x-3) + 5y.```]
+
+_Poznámka: Všimněte si triku jak do textu odstavce zapsat sloupcový vektor. Použití transponování matice umožní zápis do jednoho řádku a proto nezmění výšku řádku a nerozbíjí okolní text._
+
+---------------
+
+Najděte lineární aproximaci funkce [`` f(x,y)``] v okolí bodu [`([$x0],[$y0])`], jestliže platí [`f([$x0],[$y0])=[$F]`] a [`\nabla f([$x0],[$y0])=([$A],[$B])^T.`]
+
+>>[`` f(x,y)\approx{}``][____________________________________]{$aproximace} v okolí bodu [`([$x0],[$y0])`]<<
+
+END_PGML
+
+
+BEGIN_PGML_HINT
+
+Stačí vlastně dosadit do vzorce. Pozorně ztotožněte jednotlivé části vzorce s odpovídajícími částmi zadání, sestavte lineární aproximaci a přepište do políčka s odpovědí.
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Přímým použitím zadaných hodnot a vzorce dostáváme
+[``` f(x,y)\approx [$aproximace]. ```]
+
+
+END_PGML_SOLUTION
+
+
+
+ENDDOCUMENT();

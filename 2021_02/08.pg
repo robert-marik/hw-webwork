@@ -1,0 +1,104 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "MathObjects.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$b=random(2,6,1);
+$c=non_zero_random(1,4,1);
+$l=random(2,4,1);
+$k=random(2,4,1);
+#do  { $m=random(3,9,1); } until (($m != $k) and ($m != $k));
+$m=non_zero_random(-9,9,1);
+
+Context("Vector")->variables->add(a=>"Real");
+
+$P=Formula("x^$b+$c*x-y")->reduce();
+$Q=Formula("-x+$l*y")->reduce();
+$dPx=$P->D("x");
+$dPy=$P->D("y");
+$dQx=$Q->D("x");
+$dQy=$Q->D("y");
+$dPx0=$c;
+$dPy0=-1;
+$dQx0=-1;
+$dQy0=$l;
+
+$matice=Matrix([[$dPx0,$dPy0],[$dQx0,$dQy0]]);
+
+BEGIN_PGML
+
+## Jacobiho matice v bodě
+
+[@ image("predator.jpg", width=>400) @]*
+
+V minulém příkladě jsme hledali Jacobiho matici pro zobrazení mezi vektory. V materiálovém inženýrství tato matice vystupuje s vypočtenými hodnotami parciálních derivací, aby v ní byly přímo koeficienty požadované linearizace funkce popisující materiální odezvu.
+
+V tomto příkladě se posuneme naznačeným směrem. Vypočteme matici stejně jako v příkladě předchozím a dosadíme do matice bod, který je počátkem a vyjadřuje nulový materiálový podnět (například nulový gradient teploty, nebo nulový gradient koncentrace). 
+
+Například pro vektorovou funkci [``` \vec F=(x^3-x+4y)\vec i + \sin (x)\vec j ```] má Jacobiho matice tvar
+[``` J(x,y) = \begin{pmatrix}3x^2-1 & 4 \\ \cos (x) & 0\end{pmatrix}```] a Jacobiho matice v nule je
+[``` J(0,0) = \begin{pmatrix}-1 & 4 \\ 1 & 0\end{pmatrix}.```]
+
+Kromě materiálového inženýrství se s těmito výpočty setkáme i při studiu autonomních systémů: speciálních soustav diferenciálních rovnic, které budou sloužit například k popisu stability ekosystémů. Klasickým příkladem je studium interakce dravce a kořisti. Jiným příkladem je modelování epidemií, které je velmi intenzivně a na různých úrovních podrobnosti studováno nejenom v souvislosti s epidemií COVID-19.
+
+---------------
+
+Vypočtěte Jacobiho matici vektorové funkce [``` F(x,y)=([$P])\vec i+([$Q])\vec j ```] v bodě [`(0,0)`].
+
+>>[``J(0,0)={}``][_________]*{$matice}<<
+
+END_PGML
+
+
+BEGIN_PGML_HINT
+Pozorně počítejte derivace. Například derivace první komponenty
+[``` P=[$P]```]
+jsou
+[``` \frac{\partial P}{\partial x}=[$dPx] ```]
+a
+[``` \frac{\partial P}{\partial y}=[$dPy]. ```]
+Do těchto vztahů dosazujeme za obě proměnné nuly a dostaneme čísla do prvního řádku hledané matice.
+Podobně počítáme čísla ve druhém řádku.
+
+Pokud je jedna komponenta špatně, je celá úloha vyhodnocena jako nesprávně zodpovězená.
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu.
+
+Derivace první komponenty
+[``` P(x,y)=[$P]```]
+jsou
+[``` \frac{\partial P}{\partial x}=[$dPx] ```]
+a
+[``` \frac{\partial P}{\partial y}=[$dPy]. ```]
+
+Derivace druhé komponenty
+[``` Q(x,y)=[$Q]```]
+jsou
+[``` \frac{\partial Q}{\partial x}=[$dQx] ```]
+a
+[``` \frac{\partial Q}{\partial y}=[$dQy]. ```]
+
+
+Jacobiho matici sestavíme z těchto derivací.
+[``` J(x,y)=\begin{pmatrix}[$dPx]&[$dPy]\\[$dQx]&[$dQy]\end{pmatrix}```]
+
+V bodě [`(0,0)`] potom
+[``` J(0,0)=\begin{pmatrix}[$dPx0]&[$dPy0]\\[$dQx0]&[$dQy0]\end{pmatrix}.```]
+
+END_PGML_SOLUTION
+
+
+
+ENDDOCUMENT();
