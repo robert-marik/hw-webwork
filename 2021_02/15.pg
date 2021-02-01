@@ -11,6 +11,7 @@ TEXT(beginproblem());
 
 ADD_CSS_FILE("left.css");
 
+BEGIN_PGML
 
 ## Slovní interpretace gradientu
 

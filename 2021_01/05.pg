@@ -13,7 +13,7 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-Context("Numeric")->variables->are(m=>"Real", h=>"Real");
+Context("Numeric")->variables->are(m=>['Real',limits=>[1,3]], h=>['Real',limits=>[1,3]]);
 
 $n=random(0,1);
 

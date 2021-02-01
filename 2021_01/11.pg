@@ -27,8 +27,7 @@ $ml->rf_print_q(~~&pop_up_list_print_q);
 $ml->ra_pop_up_list([
 "No answer" => "?",
 "A" => "A", "B" => "B", "C" => "C", 
-"D" => "D", "E" => "E", "F" => "F",
-"G" => "G"
+"D" => "D"
 ]);
 
 #
@@ -45,7 +44,7 @@ $ml->qa(
 );
 
 
-$ml->choose(7);
+$ml->choose(4);
 
 #
 #  Add extra incorrect answers
@@ -67,9 +66,13 @@ BEGIN_PGML
 
 ## Fyzikální interpretace členů z jednorozměrné rovnice vedení tepla
 
-Rovnice vedení tepla v jedné dimenzi má tvar (pro fyzikální interpretaci
-ponecháváme bez úpravy záporná znaménka)
-[```m \rho  \frac{\partial T}{\partial t}=-\frac{\partial}{\partial x}
+
+Rovnice vedení tepla v jedné dimenzi má tvar
+[``` \rho  c \frac{\partial T}{\partial t}=\frac{\partial}{\partial x}
+\left(\lambda \frac{\partial T}{\partial x}\right).```]
+
+Abychom v ní zřetelně viděli tok, můžeme v ní také nechat záporná znaménka, tj. psát
+[``` \rho  c\frac{\partial T}{\partial t}=-\frac{\partial}{\partial x}
 \left(-\lambda \frac{\partial T}{\partial x}\right).```]
 
 Pro jednotlivé složky této rovnice podejte jejich slovní interpretaci.
@@ -96,7 +99,7 @@ $showPartialCorrectAnswers = 0;
 #  Incremental grader
 #
 install_problem_grader(~~&custom_problem_grader_fluid);
-$ENV{'grader_numright'} = [2,4,7];
+$ENV{'grader_numright'} = [2,3,4];
 $ENV{'grader_scores'} = [0.3,0.6,1];
 $ENV{'grader_message'} = "Můžete mít částečné hodnocení za částečně správnou odpověď.";
 
