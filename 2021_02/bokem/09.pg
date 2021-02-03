@@ -1,0 +1,88 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "MathObjects.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$b=random(2,4,1);
+$c=non_zero_random(140,280,1);
+$k=random(2,4,1);
+do  { $l=random(2,6,1); } until ($l != $k);
+#do  { $m=random(3,9,1); } until (($m != $k) and ($m != $k));
+$m=non_zero_random(-9,9,1);
+
+Context("Vector");
+	
+$funkce=Formula("$c+$b/(x^2+$k*y^2)")->reduce();
+$dfx=$funkce->D("x");
+$dfy=$funkce->D("y");
+
+$gradient = Vector("<$dfx, $dfy>");
+
+BEGIN_PGML
+
+## Gradient teploty
+
+Při posouzení toho, zda v daném objektu za daných podmínek dochází k tepelné výměně či nikoliv je zásadní gradient teploty. To je vektor ve směru maximálního růstu teploty. Tedy vektor mířící přesně v opačném směru než je tendence těles předávat si energii a tedy vést teplo. Hnacím faktorem při tepelné výměně je totiž právě nerovnoměrnost v rozložení teploty (tj. fakt, že ve studovaném objektu jsou některá místa teplejší než ostatní).
+
+Teplo se předává z míst o vyšší teplotě do míst o nižší teplotě. Směr nejintenzivnějšího poklesu teploty je směr záporně vzatého gradientu. Tímto směrem také skutečně teče teplo u izotropních materiálů. Zopakujeme si v tomto kontextu nejprve první příklad z této série domácích úloh, prostý výpočet gradientu.
+
+-------------------
+
+
+Teplota v místě [`(x,y)`] dvourozměrné desky je dána vztahem [``` T(x,y)=(x+5y^2)^3.```] Určíme její gradient.
+Pomocí derivace složené funkce máme
+[``` \frac{\partial T}{\partial x}=3(x+5y^2)^2```]
+a
+[``` \frac{\partial T}{\partial y}=3(x+5y^2)^2\cdot 5\cdot 2y=30y (x+5y^2)^2.```]
+Gradient se vektor sestavený z těchto derivací. Protože se však velká část derivace opakuje, můžeme elegantně gradient zapsat jako součin skaláru a vektoru následovně.  [``` \nabla T=3(x+5y^2)^2\vec i + 30y (x+5y^2)^2 \vec j=3(x+5y^2)^2 ( \vec i + 10y \vec j)```]
+Tento výsledek je možno zapsat jako *3(x+5y^2)^2 (i + 10 y j)* nebo *3(x+5y^2)^2 <1,10y>*.
+
+
+-------------------
+Zkusíme příklad podobný řešenému příkladu. Teplota v místě [`(x,y)`] dvourozměrné desky je dána vztahem [``` T(x,y)=[$funkce].```] Určete její gradient. Zápis vektoru je stejný jako v úvodních příkladech této série. 
+
+>>[``\nabla T(x,y)={}``][____________________________________]{$gradient}<<
+
+_Poznámka 1: Funkce které jsou  ve tvaru zlomku a v čitateli zlomku je jenom konstanta je pro potřeby derivování často vhodné převést do tvaru mocninné funkce kdy jmenovatel je umocněn mocninou [`-1`] a derivovat jako složenou funkci. Výpočet je zpravidla kratší a vede k jednodušší derivaci než aplikace vzorce pro derivaci podílu._
+
+_Poznámka 2: Pokud jsou obě komponenty násobky stejného výrazu, je možné gradient zapsat jako součin vektoru a skaláru. Například vektor
+[`` \frac {x}{x^2+y^2} \vec i + \frac {y}{x^2+y^2} \vec j ``] je možné chápat jako [`` \frac {1}{x^2+y^2} (x \vec i + y \vec j) ``]  a zapsat jako
+*1/(x^2+y^2) \* <x,y>* nebo *1/(x^2+y^2) \* (x\*i+y\*j)*._
+
+END_PGML
+
+BEGIN_PGML_HINT
+Pozorně počítejte derivace. Například derivace podle [`x`] je [``` \frac{\partial T}{\partial x}=[$dfx]. ```]
+a toto je možné zapsat jako [$dfx] .
+
+Derivaci je výhodnější počítat tak, že se funkce nejprve přepíše do tvaru [``` [$c]+[$b] (x^2+[$k]*y^2)^{-1} ```] a derivuje jako složená funkce.
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu a přepis do elegantnějšího tvaru.
+
+[``` \frac{\partial T}{\partial x}=[$dfx] ```]
+
+[``` \frac{\partial T}{\partial y}=[$dfy] ```]
+
+Vektor sestavený z těchto parciálních derivací je gradient.
+
+[``` \nabla T=\begin{pmatrix}[$dfx]\\[$dfy]\end{pmatrix}=-\frac {[$b]}{(x^2+[$k]*y^2)^2} \begin{pmatrix} 2x \\ 2\cdot [$k] \cdot y\end{pmatrix}```]
+
+END_PGML_SOLUTION
+
+
+
+
+ENDDOCUMENT();

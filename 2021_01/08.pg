@@ -47,7 +47,7 @@ BEGIN_PGML
 [@ image("inline.jpg", width=>400) @]*
 
     
-    Tabulka (podle _Parade Magazine_,  28. dubna 1994)) ukazuje počet kalorií [`c`] spálených za minutu při jízdě na kolečkových burslích v závislosti na hmotnosti osoby ([`m`], v librách) a rychlosti pohybu ([`v`], v mílích za hodinu). 
+    Tabulka (volně podle _Parade Magazine_,  28. dubna 1994, ale se "zašuměnými" hodnotami pro zvýšení náhodnosti příkladu) ukazuje počet kalorií [`c`] spálených za minutu při jízdě na kolečkových burslích v závislosti na hmotnosti osoby ([`m`], v librách) a rychlosti pohybu ([`v`], v mílích za hodinu). 
     
     [@ DataTable(
 	   [
