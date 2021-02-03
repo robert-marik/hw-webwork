@@ -53,7 +53,7 @@ $radio=RadioButtons([[
 "Parciální derivace udává změnu povrchu těla při zvýšení výšky o metr. Jednotkou je metr.",
 "Parciální derivace udává změnu výšky spojenou se změnou hmotnosti o jeden kilogram. Jednotkou je metr na kilogram.",
 "Parciální derivace udává změnu hmotnosti odpovídající změně výšky o jeden metr. Jednotkou je kilogram na metr.",
-]],1);
+]],0);
 
 
 
