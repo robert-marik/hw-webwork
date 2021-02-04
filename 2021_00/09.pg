@@ -22,10 +22,10 @@ $d =non_zero_random(1,12,1);
 $f=non_zero_random(1,12,1);
 
 $f1=Formula("(100-$a)/(x^2+$b)")->reduce;
-$f2=Formula("$a ($b x^($n)+$c)/(x^2+$d x - $f)");
-$f3=Formula("$a * e^(-$b*t/50)");
-$f4=Formula("$b * sqrt( ($n)*x + ($c)*t)");
-$f5=Formula("9/( pi + ($c)*t)^($n)");
+$f2=Formula("$a ($b x^($n)+$c)/(x^2+$d x - $f)")->reduce;
+$f3=Formula("$a * e^(-$b*t/50)")->reduce;
+$f4=Formula("$b * sqrt( ($n)*x + ($c)*t)")->reduce;
+$f5=Formula("9/( pi + ($c)*t)^($n)")->reduce;
 
 
 $f=Formula("10")->reduce();   # funkce
