@@ -1,0 +1,75 @@
+############################3
+Nastavení hlašení o údržbě serveru a zablokování zobrazování příkladů
+
+V souboru
+
+/opt/webwork/webwork2/htdocs/themes/math4-green/math4-overrides.js
+
+dopsat následující
+
+$("#output_problem_body").html("<h2>Probíhá údržba</h2><p>Na serveru probíhá údržba, bude trvat cca 30 minut. Přístup k příkladům je na tuto dobu zablokován aby nedošlo k porušení databáze. Děkujeme za pochopení.</p><center><img src='http://um.mendelu.cz/working.jpg' style='margin:auto'></center>");
+
+
+
+#####################################
+Přepnout všechny studenty na Drop
+
+class -> edit -> Java konzole -> jQuery("select[id$='status_id']").val("D");
+
+
+
+##########################
+WebWork zkousky
+
+
+Prikaz 
+
+for i in `cat ~/Downloads/export.csv | cut -f5 -d,`; do echo $i; done | sort | paste -sd "," | sed 's/"//g'
+
+vypise loginy pro prihaseni a prikaz
+
+str=prompt("Enter logins, comma separated"); 
+logins=str.split(",");
+$.each(logins,function(index,login){$('input[value='+login+']').each(function() { $(this).prop( "checked", true ); }) })
+
+je prihlasi
+
+
+
+#################################33
+Essay
+
+#CSS
+
+td:nth-child(4) {
+  max-width:800px;  
+  word-break: break-all;    
+}
+
+
+# Zalamovani radku, napr. dlouha URL
+$("tr td:nth-child(4)").css("word-break","break-all");
+
+# Kontrola duplikatu
+
+library(htmltab)
+url <- "Grader.html"
+moje <- htmltab(doc = url)
+library(dplyr)
+moje %>% subset(`Latest Answers`!="There are no answers for this student.") -> moje2
+length(unique(moje2$`Latest Answers`))
+
+potom mozna https://stackoverflow.com/questions/16905425/find-duplicate-values-in-r
+
+
+# Skryti toho co je prazdne.
+
+$("td:contains('There are no answers for this student.')").parent().css("display","none");
+
+
+# Obarveni nevyplnene reakce.
+
+$("textarea[name$='comment']:empty").css("background-color","#FAA");
+
+
+

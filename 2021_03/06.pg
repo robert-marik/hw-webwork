@@ -1,0 +1,122 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "MathObjects.pl",
+    "PGML.pl",
+    "parserRadioButtons.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$b=random(2,10,1);
+$c=non_zero_random(2,7,1);
+$k=random(2,4,1);
+do  { $l=random(2,6,1); } until ($l != $k);
+#do  { $m=random(3,9,1); } until (($m != $k) and ($m != $k));
+$m=non_zero_random(-9,9,1);
+$x0=random(-4,4);
+$y0=random(-4,4);
+
+Context("Numeric")->variables->add(y=>"Real");
+	
+$P=Formula("x^$k*y")->reduce();
+$dP=Formula("$k*x^($k-1)*y")->reduce();
+$dPBod=Formula("$k*($x0)^($k-1)*$y0")->reduce();
+
+$Q=Formula("x*y^$l+$m*y^$c")->reduce();
+$dQ=Formula("$l*x*y^($l-1)+$m*$c*y^($c-1)")->reduce();
+$dQBod=Formula("$l*$x0*($y0)^($l-1)+$m*$c*($y0)^($c-1)")->reduce();
+
+$divergence = Formula("$dP+$dQ")->reduce;
+#$divergenceBod = Formula("$dPBod+$dQBod")->reduce;
+$divergenceBod=$k*($x0)**($k-1)*$y0+$l*($x0)*($y0)**($l-1)+$m*$c*$y0**($c-1);
+
+$ans=2; $longans="Divergence v bodě je nulová. Vektorové pole v je daném místě nezřídlové."; 
+if ($divergenceBod > 0)
+{$ans=0; $longans="Divergence v bodě je kladná. Tok vektorového pole v daném místě zesiluje."; }
+if ($divergenceBod < 0)
+{$ans=1; $longans="Divergence v bodě je záporná. Tok vektorového pole v daném místě slábne."; }
+
+
+$radio = RadioButtons(
+["Tok vektorového pole v daném místě zesiluje.",
+"Tok vektorového pole v daném místě slábne.",
+"Vektorové pole v je daném místě nezřídlové."
+],
+$ans); 
+
+
+BEGIN_PGML
+
+## Slovní interpretace divergence
+
+Divergence nám udává, zda tok v daném místě zesiluje či zeslabuje. U kladné divergence tok zesiluje (pokud je proudění stacionární, je v tomto místě zdroj) a u záporné divergence tok slábne (pokud je proudění stacionární, je v tomto místě spotřebič). Je-li divergence nulová, tok ani nezesiluje ani neslábne a pole je v tomto bodě nezřídlové (anglicky také _incompressible_, tj. nestlačitelné).
+
+-------------------------
+
+Například pro vektorové pole
+[``` \vec F(x,y)=x^2y\vec i + (x+y^2)\vec j ```]
+jsou parciální derivace 
+[``` \frac{\partial }{\partial x}(x^2y)=2xy```]
+a
+[``` \frac{\partial }{\partial y}(x+y^2)=2y```]
+a divergence je
+[``` \nabla \cdot \vec F (x,y)=2xy+2y=2y(x+1).```]
+Divergence v bodě [`` (x_0,y_0)=(2,1)``] je
+[``` \nabla \cdot \vec F (2,1)=2\cdot 1 \cdot (2+1)=6>0```]
+a tok pole v daném místě zesiluje.
+Tento výsledek je možno zapsat například jako *6* nebo (pokud se nechcete v případě složitějších vztahů pouštět do úprav výrazů) *2\*(2+1)*.
+
+---------------
+
+Vypočtěte divergenci vektorového pole [``` \vec F(x,y)=[$P]\vec i +\left([$Q]\right)\vec j```] v bodě [``(x_0,y_0)=([$x0],[$y0])``] a rozhodněte, zda tok vektorového pole v tomto bodě zesiluje, zeslabuje, nebo zda je pole nezřídlové.
+
+>>[``\nabla \cdot \vec F(x,y)={}``][____________________________________]{$divergence}<<
+
+>>[``\nabla \cdot \vec F([$x0],[$y0])={}``][____________________________________]{$divergenceBod}<<
+
+[_]{$radio}
+
+END_PGML
+
+BEGIN_PGML_HINT
+Pozorně počítejte derivace.
+
+Například derivace první komponenty podle [`x`] je [``` \frac{\partial }{\partial x}([$P])=[$dP]. ```]
+a toto je možné zapsat jako [$dP] .
+
+Například derivace druhé komponenty podle [`y`] je [``` \frac{\partial }{\partial y}([$Q])=[$dQ]. ```]
+a toto je možné zapsat jako [$dQ] .
+
+Tyto dvě složky musíte sečíst pro vyjádření divergence v obecném bodě (první otázka). Poté musíte dosadit zadané hodnoty pro vyjádření divergence v uvažovaném bodě (druhá otázka). Nakonec musíte podle znaménka divergence v uvažovaném bodě rozhodnout, která volba je aktuální pro náš případ.
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu a přepis do elegantnějšího tvaru. 
+
+[``` P=[$P]\qquad Q=[$Q]```]
+
+[``` \frac{\partial P}{\partial x}=[$dP] ```]
+
+[``` \frac{\partial Q}{\partial y}=[$dQ] ```]
+
+Součet těchto parciálních derivací je divergence.
+
+[``` \nabla \cdot F(x,y)=[$divergence]```]
+
+Po dosazení hodnot vidíme, že platí
+[``` \nabla \cdot F([$x0],[$y0])=[$divergenceBod].```]
+
+[$longans]
+
+END_PGML_SOLUTION
+
+ENDDOCUMENT();
