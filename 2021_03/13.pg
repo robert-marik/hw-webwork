@@ -9,19 +9,18 @@ loadMacros(
 );
 
 
+
 $data =
 [
 {
     obrazek=>"divergence",
-    nadpis=>"Slovní interpretace divergence",
-    otazka=>"Která formulace vystihuje slovně praktický význam divergence?",
-    odpoved=>"Zesílení toku stavové veličiny v daném místě, přepočtený na jednotkové množství látky.",
+    nadpis=>"Rovnice kontinuity slovy",
+    otazka=>"Jak byste slovně vyjádřili rovnici kontinuity?",
+    odpoved=>"Jedná se o celkovou bilanci stavové veličiny v daném bodě. Rychlost nárůstu množství stavové veličiny v daném bodě (akumulace) je dána vydatností zdrojů snížené o tok z tohoto místa ven.",
     moznosti=>[
-    "Zeslabení toku stavové veličiny v daném místě, přepočtený na jednotkové množství látky.",
-    "Zeslabení toku stavové veličiny v daném místě, přepočtený na nekonečně malý obejm látky.",
-    "Objem materiálu nutný pro zeslabení toku stavové veličiny o jednotku toku za jendotku času.",
-    "Objem materiálu nutný pro zesílení toku stavové veličiny o jednotku.",
-    "Intenzita toku stavové veličiny v daném místě.",
+    "Jedná se o celkovou bilanci toku stavové veličiny v daném bodě. Rozdíl mezi přítokem a odtokem determinuje vydatnost zdrojů v daném místě. ",
+    "Jedná se o celkovou bilanci spojitosti všech veličin vystupujících v transportním jevu. Nutná podmínka pro formulaci fyzikálně relevantního matematického modelu je spojitost všech veličiny, které v modelu vystupují.",
+    "Jedná se o vztah vyjadřující nestlačitelnost proudící stavové veličiny. Množství stavové veličiny, které do uvažovaného objemu vteče je stejné jako množství stavové veličiny, které vyteče.",
 ],
 zdroj=>"Obrázek: pixabay.com"
 }

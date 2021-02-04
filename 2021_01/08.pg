@@ -2,8 +2,8 @@ DOCUMENT();
 
 loadMacros(
   "PGstandard.pl",
-  "PGchoicemacros.pl",
   "MathObjects.pl",
+  "parserRadioButtons.pl",
   "niceTables.pl",	
   "PGML.pl",
   "PGcourse.pl"
@@ -38,6 +38,24 @@ $ders = ($cal[$wInd1]->[$sInd1+1]-$cal[$wInd1]->[$sInd1-1])/2;
 $derw = ($cal[$wInd1+1]->[$sInd1]-$cal[$wInd1-1]->[$sInd1])/40;
 
 
+$n = random(0,1);
+
+
+if ($n==0) {$otazka="v"} else {$otazka="m"};
+
+$radio=RadioButtons([[
+"Parciální derivace udává změnu počtu spálených kalorií za minutu při zvýšení rychlosti o jednu míli za hodinu a zachování hmotnosti. Jednotkou je kalorie za minutu na míli za hodinu.",
+"Parciální derivace udává změnu počtu spálených kalorií za minutu při zvýšení hmotnosti o jednu libru a zachování rychlosti. Jednotkou je kalorie za minutu na libru.",
+"Parciální derivace udává změnu rychlosti při zvýšení hmotnosti o jednu libru a zachování počtu spálených kalorií za minutu. Jednotkou je míle za hodinu na libru.",
+"Parciální derivace udává změnu hmotnosti při zvýšení rychlosti a zachování počtu spálených kalorií za minutu. Jednotkou je libra na míli za hodinu.",
+"Parciální derivace udává změnu rychlosti při zvýšení počtu spálených kalorií za minutu o jednotku a zachování hmotnosti. Jednotkou je míle za hodinu na kalorii za minutu.",
+"Parciální derivace udává změnu hmotnosti při zvýšení rychlosti a zachování počtu spálených kalorií za minutu. Jednotkou je libra na míli za hodinu.",
+]],0);
+
+
+
+
+
 Context()->texStrings;
 TEXT(beginproblem());
 BEGIN_PGML
@@ -67,7 +85,19 @@ BEGIN_PGML
 >>[``\frac{\partial c}{\partial m}(v=[$spd[$sInd1]],m=[$wgt[$wInd1]])={}``][________________________]{$derw}<<
        
 >>[``\frac{\partial c}{\partial v}(v=[$spd[$sInd1]],m=[$wgt[$wInd1]])={}``][________________________]{$ders}<<
-    
+
+-------------------
+
+Vyberte správné tvrzení pro parciální derivaci  [`` \frac{\partial c}{\partial [$otazka]} .``]
+
+
+[__]{$radio}
+
+
+--------------------
+
+Jednotky jsou schválně ponechány imperiální podle původního zdroje dat abychom se příliš nefixovali na konkrétní soustavu veličin. Nemusíte si s tím lámat hlavu, prostě hmotnost i rychlost měříme v jednotkách, které v některém kontextu lépe vyhovují (např. mimo Evropu). 
+
 	  
 END_PGML
 
@@ -88,14 +118,23 @@ a
 Stačí tedy vzorce adaptovat na na naše proměnné, najít požadované hodnoty v tabulce a tyto hodnoty použít.
 Zjednodušeně: rozdíl dvou hodnot, které jsou okolo hodnoty, v níž počítáme parciální derivace, dělíme odpovídající změnou rychlosti nebo hmotnosti.
 
-Hodnota v tabulce odpovídající [`v=[$spd[$sInd1]]`] a [`m=[$wgt[$wInd1]]`] je [`[$cal[$wInd1]->[$sInd1]]`]. Pod ní a nad ní jsou hodnoty pro stejnou rychlost a hmotnost o 20 liber větší a 20 liber menší. Proto rozdíl budeme dělit 40 librami a získáme změnu připadající na jednu libru. Tím dostaneme derivaci podle hmotnosti. 
+Hodnota v tabulce odpovídající [`v=[$spd[$sInd1]]`] a [`m=[$wgt[$wInd1]]`] je [`[$cal[$wInd1]->[$sInd1]]`]. Pod ní a nad ní jsou hodnoty pro stejnou rychlost a hmotnost o [`20`] liber větší a [`20`] liber menší. Proto rozdíl budeme dělit [`40`] librami a získáme změnu připadající na jednu libru. Tím dostaneme derivaci podle hmotnosti v kaloriích za minutu na libru.
 
 [```\frac{\partial c}{\partial m}(v=[$spd[$sInd1]],m=[$wgt[$wInd1]])=\frac {[$cal[$wInd1+1]->[$sInd1]] -[$cal[$wInd1-1]->[$sInd1]]}{40}```]
 
-Analogicky počítáme derivaci podle rychlosti. Řídíme se hodnotou vlevo a vpravo od odpovídajícího místa v tabulce, protože v tabulce rychlost roste zleva doprava. Dělíme hodnotou 2, protože rychlost je odstupňována po mílích za hodinu a hodnoty, které odčítáme, dělí dvě míle za hodinu.
+Analogicky počítáme derivaci podle rychlosti. Řídíme se hodnotou vlevo
+a vpravo od odpovídajícího místa v tabulce, protože v tabulce rychlost
+roste zleva doprava. Dělíme hodnotou [`2`], protože rychlost je
+odstupňována po mílích za hodinu a hodnoty, které odčítáme, dělí dvě
+míle za hodinu.  Tím dostaneme derivaci podle rychlost v kaloriích za
+minutu na míli za hodinu.
 
 [```\frac{\partial c}{\partial v}(v=[$spd[$sInd1]],m=[$wgt[$wInd1]])=\frac {[$cal[$wInd1]->[$sInd1+1]] -[$cal[$wInd1]->[$sInd1-1]]}{2}```]
 
+
+Parciální derivace [``` \frac{\partial c}{\partial v} ```] udává změnu počtu spálených kalorií za minutu při zvýšení rychlosti o jednu míli za hodinu. Jednotkou je kalorie za minutu na míli za hodinu. Tato jednotka se dá upravit například převedením hodiny na minuty a zkrácením minut, avšak pro snadnou interpretaci je pravděpodobně lepší ji nechat v tomto tvaru.
+   
+Parciální derivace [``` \frac{\partial c}{\partial m} ```] udává změnu počtu spálených kalorií za minutu při zvýšení hmotnosti o jednu libru. Jednotkou je kalorie za minutu na libru.
    
 END_PGML_SOLUTION
 

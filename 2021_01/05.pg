@@ -113,7 +113,9 @@ BEGIN_PGML_SOLUTION
 Derivujeme vlastně jenom konstantní násobek mocninné funkce. Násobek je složen ze dvou faktorů: z numerické konstanty před funkcí a z mocniny proměnné, přes kterou se nederivuje.
 
 [``` \frac{\partial S}{\partial m}= [$df] ```]							   
-							   
+
+Parciální derivace [``` \frac{\partial S}{\partial m} ```] udává změnu povrchu těla při zvýšení hmotnosti o kilogram. Jednotkou je metr čtvereční na kilogram.
+
 END_PGML_SOLUTION							   
 
 

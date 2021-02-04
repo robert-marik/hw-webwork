@@ -1,226 +1,79 @@
 DOCUMENT();
 
 loadMacros(
-  "PGstandard.pl",
-  "PGchoicemacros.pl",
-  "PGunion.pl",
-  "PGML.pl",
-  "MathObjects.pl",
-  "VectorField2D.pl",
-  "PGcourse.pl"
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
 );
 
-TEXT(beginproblem());
 
-$refreshCachedImages=1;
-
-$showPartialCorrectAnswers = 1;
-$showHint = 1;
-
-
-#####################################
-#  Setup
-
-
-$width = 300;
-$height = 300;
-#$size = [250,250];   # the size of the images
-$tsize = 310;        # tex size of the images
-
-Context("Numeric")->variables->are(x=>"Real",y=>"Real");
-
-foreach my $i (0..2) {
-  $gr[$i] = init_graph(-4,-4,4,4,grid=>[8,8],axes=>[0,0],pixels=>[400,400]);
-  $gr[$i]->lb('reset');
-#  foreach my $j (1..3) {
-#    $gr[$i]->lb( new Label(-3.7,  $j, $j,'black','center','middle'));
-#    $gr[$i]->lb( new Label(-3.7, -$j,-$j,'black','center','middle'));
-#    $gr[$i]->lb( new Label(  $j,-3.7, $j,'black','center','middle'));
-#    $gr[$i]->lb( new Label( -$j,-3.7,-$j,'black','center','middle'));
-#  }
-  $gr[$i]->lb( new Label(3.7,0.2,'x','black','center','middle'));
-  $gr[$i]->lb( new Label(0.2,3.7,'y','black','center','middle'));
-  $gr[$i]->new_color("lightblue", 214,230,244); # RGB
-  $gr[$i]->new_color("darkblue",  100,100,255);
-  $gr[$i]->new_color("lightgreen",156,215,151); 
-  $gr[$i]->new_color("darkgreen",   0, 86, 34);
-  $gr[$i]->new_color("lightred",245,234,229); # light red-purple
-  $gr[$i]->new_color("darkred", 159, 64, 16); # red-brown
-  $gr[$i]->new_color("nicegreen",0,110,0);
+$data =
+[
+{
+    obrazek=>"divergence",
+    nadpis=>"Slovní interpretace divergence",
+    otazka=>"Která formulace vystihuje slovně praktický význam divergence?",
+    odpoved=>"Zesílení toku stavové veličiny v daném místě, přepočtený na jednotkové množství látky.",
+    moznosti=>[
+    "Zeslabení toku stavové veličiny v daném místě, přepočtený na jednotkové množství látky.",
+    "Zeslabení toku stavové veličiny v daném místě, přepočtený na nekonečně malý obejm látky.",
+    "Objem materiálu nutný pro zeslabení toku stavové veličiny o jednotku toku za jendotku času.",
+    "Objem materiálu nutný pro zesílení toku stavové veličiny o jednotku.",
+    "Intenzita toku stavové veličiny v daném místě.",
+],
+zdroj=>"Obrázek: pixabay.com"
 }
+];
 
 
-############################
-$s[0] = random(-1,1,2);
-if ($s[0] == 1) { 
-  $answer[0] = "Kladná"; 
-} else { 
-  $answer[0] = "Záporná"; 
-}
-VectorField2D(
-graphobject => $gr[0],
-Fx => Formula("$s[0]*x"),
-Fy => Formula("$s[0]*y"),
-xvar => "x",
-yvar => "y",
-xmin => -4,
-xmax =>  4,
-ymin => -4,
-ymax =>  4,
-xsamples => 8,
-ysamples => 8,
-vectorcolor => "nicegreen",
-vectorscale => 0.2,
-vectorthickness => 2,
-xavoid=>0,
-yavoid=>0,
-);
-$gr[0]->stamps( closed_circle(1.5,1.5,'blue') );
-$gr[0]->lb( new Label(1.5,1.2,'P','blue','center','middle'));
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
 
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
 
-#######################
-$s[1] = random(-1,1,2);
-$answer[1] = "Nulová";
-VectorField2D(
-graphobject => $gr[1],
-Fx => Formula("$s[1]*y"),
-Fy => Formula("0"),
-xvar => "x",
-yvar => "y",
-xmin => -4,
-xmax =>  4,
-ymin => -4,
-ymax =>  4,
-xsamples => 8,
-ysamples => 8,
-vectorcolor => "nicegreen",
-vectorscale => 0.2,
-vectorthickness => 2,
-xavoid=>0,
-yavoid=>0,
-);
-$gr[1]->stamps( closed_circle(-1.5,-2.5,'blue') );
-$gr[1]->lb( new Label(-1.5,-2.7,'P','blue','center','middle'));
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
 
 
 
-############################
-$s[2] = -($s[0]);
-if ($s[2]==1) {
-  $answer[2] = "Kladná";
-} else {
-  $answer[2] = "Záporná";
-}
-VectorField2D(
-graphobject => $gr[2],
-Fx => Formula("0"),
-Fy => Formula("$s[2]*y"),
-xvar => "x",
-yvar => "y",
-xmin => -4,
-xmax =>  4,
-ymin => -4,
-ymax =>  4,
-xsamples => 8,
-ysamples => 8,
-vectorcolor => "nicegreen",
-vectorscale => 0.2,
-vectorthickness => 2,
-xavoid=>0,
-yavoid=>0,
-);
-$gr[2]->stamps( closed_circle(1.5,-2.5,'blue') );
-$gr[2]->lb( new Label(1.5,-2.7,'P','blue','center','middle'));
-
-
-
-@perm = shuffle(3);
-
-#@answers = (
-#"Positive",
-#"Zero",
-#"Negative",
-#);
-
-@choices = ("?","Kladná","Záporná","Nulová");
-
-foreach my $i (0..2) {
-  $fig[$i] = image(insertGraph($gr[$i]),width=>$width,height=>$height,tex_size=>310);
-}
-
-########################################
-#  Main text
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
 
 
 BEGIN_PGML
-## Divergence odhadnutá podle obrázku
 
-Divergenci ustáleného proudění můžeme odhadnout i podle obrázku znázorňujícího vektorové pole. Pokud máme zadaný bod, můžeme si okolo něj myslet malý reprezentativní element s jednoduchou hranicí, například kroužek, čtvereček nebo u radiálního pole výsek z mezikruží, kdy hranici tvoří dvě soustředné kružnice a dva paprsky směrem do středu. Poté sledujeme množství toku vstupujícího dovnitř a vystupujícího ven.
+## [$na]
 
-* Delší šipky představují více toku na jednotkovou délku.
-* Delší hranice znamená více toku.
-* Šipky kolmější na hranici představují více toku než šipky skloněné podél k hranici. Šipky ve směru hranice představují nulový tok.
+
+[$ot]
+
+[_]{$radio}
+
 
 END_PGML
 
-BEGIN_TEXT
-U každého vektorového pole odhadněte, zda je divergence tohoto vektorového pole v modrém bodě \(P\) kladná, záporná nebo nulová.  U toku vodorovným nebo svislým směrem je rozhodnutí nejjednodušší při posuzování toku přes čtvereček se stranami podél os. U toku do středu nebo ze středu se řiďte vhodným výsekem z mezikruží nebo si okolo bodu našeho zájmu představte kruh.
-$BR
-$BR
-$BCENTER
-\{
-BeginTable().
-  AlignedRow([$fig[$perm[0]],$fig[$perm[1]],$fig[$perm[2]]]).
-  TableSpace(5,0).
-  AlignedRow(["Obr. 1","Obr. 2","Obr. 3"]).
-  AlignedRow([pop_up_list([@choices]),pop_up_list([@choices]),pop_up_list([@choices])]).
-EndTable().
-$BR.
-"(Kliknutí na graf jej zvětší v samostatném okně)"
-\}
-$ECENTER
+BEGIN_PGML_SOLUTION
 
-END_TEXT
+[$od]
 
+END_PGML_SOLUTION
 
-BEGIN_PGML_HINT
+};
+# konec cyklu
 
-Představte si okolo bodu reprezentativní element a podle velikosti šipek posuďte, jestli do tohoto elementu pole spíše přitéká nebo spíše odtéká. Představte si proudění vody a řiďte se logikou. Přemýšlejte, jestli pro dosažení nakresleného proudění v okolí bodu [`P`] musí voda v tomto bodě mizet (to signalizuje zápornou divergenci) či přibývat (signalizuje kladnou divergenci).
-
-U vektorového pole tvořeného rovnoběžnými šipkami (dva případy) je výhodné si představit čtverec, protože dvě strany mohou být rovnoběžné s vektorovým polem a tok těmito stranami bude nulový. K posouzení tedy zůstanou pouze dvě zbylé strany. U jednoho z takových čtverců jsou podél celé strany stejně dlouhé šipky. Podle toho, která strana má šipky delší a jakým směrem šipky směřují dokážeme odhadnout, zda více pole teče dovnitř nebo ven. Tam kde je situace na obou stranách stejná (délka šipek se mění podél strany a na obou stranách míří stejným směrem) je bilance nulová a co do objemu vteče to i vyteče.
-
-U vektorového pole tvořeného sbíhavými či rozbíhavými šipkami si představte okolo bodu kružnici a řiďte se směrem delších šipek.
-
-END_PGML_HINT
-
-###############################################
-#  Answer evaluation
-
-install_problem_grader(~~&std_problem_grader);
-
-$showPartialCorrectAnswers = 0;
-
-ANS(str_cmp([@answer[@perm]]));
-
-if ($s[0]==1) { $sign1 = 'kladná'; $flow1 = 'větší'; $length1= 'delší'} else
- {$sign1='záporná'; $flow1='menší'; $length1='kratší'};
-if ($s[2]==1) { $sign2 = 'kladná'; $flow2 = 'větší'; $length2= 'delší'} else 
-{$sign2='záporná'; $flow2 = 'menší'; $length2='kratší'};
-@explanation=("Pokud si představíme malý reprezentativní element okolo bodu \(P\), vidíme, že tok ven 
- $flow1 než dok dovnitř (vektory směřující ven jsou $length1 než vektory směřující dovnitř). Divergence je proto $sign1. ",
-" Pokud si představíme malý reprezentativní element okolo bodu \(P\), vidíme, že tok ven je stejný jako tok dovnitř. Divergence je tedy nulová.  Vektorové pole je v bodě \(P\) nezřídlové.",
-"Pokud si představíme malý reprezentativní element okolo bodu \(P\), vidíme, že tok ven 
- $flow2 než dok dovnitř (vektory směřující ven jsou $length2 než vektory směřující dovnitř). Divergence je proto $sign2. ",);
-
-@sexplanation=@explanation[@perm];
-BEGIN_SOLUTION
-$PAR SOLUTION $BR
-Obr 1: $sexplanation[0]
-$BR $BR
-Obr 2: $sexplanation[1]
-$BR $BR
-Obr 3: $sexplanation[2]
-END_SOLUTION
 
 ENDDOCUMENT();
+
