@@ -18,14 +18,17 @@ BEGIN_PGML
 
 Naformulujte některý z konstitutivních zákonů (Fourierův, Fickův, Darcyho, Ohmův, ...). Použijte **tenzorovou formulaci** popisující vztah mezi podnětem a odezvou v daném místě materiálu. Odpověď naformulujte jako **ucelenou větu nebo jako ucelený text** skládající se z vět a vysvětlete i použité veličiny. Jako vzor můžete použít například následující formulaci Newtonova zákona ochlazování.
 
-*Rychlost [``\frac{\mathrm dT}{\mathrm dt} ``] s jakou se mění teplota tělesa [`T`] při tepelné výměně v prostředí se stálou teplotou [`T_0`] je dána vztajem
+-----
+
+_Rychlost [``\frac{\mathrm dT}{\mathrm dt} ``] s jakou se mění teplota tělesa [`T`] při tepelné výměně v prostředí se stálou teplotou [`T_0`] je dána vztahem
 [``` \frac{\mathrm  dT}{\mathrm  dt}=k(T_0-T),```]
-kde [`k`] je skalární konstanta úměrnosti.*
+kde [`k`] je skalární konstanta úměrnosti._
 
 ----
 
+Vektor se zapisuje příkazem [|\vec|] a gradient příkazem [|\nabla|].
 
-Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérum si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
+Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
 
 Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
 
