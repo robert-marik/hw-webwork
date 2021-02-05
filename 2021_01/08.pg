@@ -41,7 +41,7 @@ $derw = ($cal[$wInd1+1]->[$sInd1]-$cal[$wInd1-1]->[$sInd1])/40;
 $n = random(0,1);
 
 
-if ($n==0) {$otazka="v"} else {$otazka="m"};
+if ($n==0) {$otazka="v"; $odpoved=0;} else {$otazka="m"; $odpoved=1;}
 
 $radio=RadioButtons([[
 "Parciální derivace udává změnu počtu spálených kalorií za minutu při zvýšení rychlosti o jednu míli za hodinu a zachování hmotnosti. Jednotkou je kalorie za minutu na míli za hodinu.",
@@ -50,7 +50,7 @@ $radio=RadioButtons([[
 "Parciální derivace udává změnu hmotnosti při zvýšení rychlosti a zachování počtu spálených kalorií za minutu. Jednotkou je libra na míli za hodinu.",
 "Parciální derivace udává změnu rychlosti při zvýšení počtu spálených kalorií za minutu o jednotku a zachování hmotnosti. Jednotkou je míle za hodinu na kalorii za minutu.",
 "Parciální derivace udává změnu hmotnosti při zvýšení rychlosti a zachování počtu spálených kalorií za minutu. Jednotkou je libra na míli za hodinu.",
-]],0);
+]],$odpoved);
 
 
 

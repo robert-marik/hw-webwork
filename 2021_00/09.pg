@@ -14,16 +14,16 @@ $showHint = 1;
 
 Context("Numeric")->variables->are(x=>'Real', t=>'Real');
 
-$a=non_zero_random(1,87,1);
-$n=non_zero_random(2,6,1);
-$b=non_zero_random(1,12,1);
-$c=non_zero_random(1,12,1);
-$d =non_zero_random(1,12,1);
-$f=non_zero_random(1,12,1);
+$a=non_zero_random(2,7,1);
+$n=non_zero_random(2,4,1);
+$b=non_zero_random(2,6,1);
+$c=non_zero_random(2,6,1);
+$d =non_zero_random(2,6,1);
+$f=non_zero_random(2,6,1);
 
-$f1=Formula("(100-$a)/(x^2+$b)")->reduce;
+$f1=Formula("($a)/(x^2+$b)")->reduce;
 $f2=Formula("$a ($b x^($n)+$c)/(x^2+$d x - $f)")->reduce;
-$f3=Formula("$a * e^(-$b*t/50)")->reduce;
+$f3=Formula("$a * e^(-$b*t/7)")->reduce;
 $f4=Formula("$b * sqrt( ($n)*x + ($c)*t)")->reduce;
 $f5=Formula("9/( pi + ($c)*t)^($n)")->reduce;
 

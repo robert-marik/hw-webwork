@@ -84,7 +84,7 @@ kde [`m`] je hmotnost v kilogramech a [`h`] výška v metrech. Určete parciáln
 
 ---------------------------
 
->>[``\frac{\partial S}{\partial m}={}``][_________________________]{$df} <<
+>>[``\frac{\partial S}{\partial m}={}``][__________________________________________]{$df} <<
 
 Nezapomeňte desetinné číslo zadávat s desetinnou tečkou.
 
