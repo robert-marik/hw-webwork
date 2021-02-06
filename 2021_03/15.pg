@@ -132,4 +132,11 @@ END_PGML
 ANS(essay_cmp());
 
 
+BEGIN_PGML_SOLUTION
+
+Řešení není k dispozici, protože každý má vlastní zadání. Souvislost vlastností materiálu a členů difuzní rovnice je popsána v cheatsheetu a můžete si procvičit v úlohách číslo 11 a 12. Verze těchto úloh bez nutnosti přihlášení je nalinkována z přednášek a cvičení.
+
+END_PGML_SOLUTION
+
+
 ENDDOCUMENT();

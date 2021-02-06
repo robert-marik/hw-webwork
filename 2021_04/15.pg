@@ -59,7 +59,7 @@ angličtině (zapněte si případně titulky), tj. operátor rotace zde
 vystupuje jako *curl*. Není dlouhé, stojí za to si jej zkouknout
 celé. Mimo jiné je zde zmíněno, že pro přímou řeku bez překážek je
 rozdělení rychlosti přibližně kvadratické. Dále, pro kvadratickou
-funkci $u(x)$ a vektorové pole [`\vec v(x,y)=u(x)\vec j`] (tj. tok ve
+funkci [`u(x)`] a vektorové pole [`\vec v(x,y)=u(x)\vec j`] (tj. tok ve
 směru osy [`y `] a rychlost závislou na vzdálenosti od břehu) je
 rotace mimo střed řeky nenulová.
 
@@ -68,7 +68,7 @@ rotace mimo střed řeky nenulová.
 
 
 Viděli jste video? Zamyslete se nad tím, jak by musela vypadat funkce
-[`u(x)`] tak, aby rotace vektorového pole [`\vec v(x,y)=u(x)\vec j`]
+[`u(x)`] tak, aby rotace vektorového pole [```\vec v(x,y)=u(x)\vec j```]
 byla všude nulová. Odpověď zdůvodněte a napište také, jak by vypadalo
 výsledné proudění. Stručně, jasně. Zdůvodnění je čistá matematika a ve
 videu to nehledejte. Tam jste si spíše prohlédli chování plovoucích
@@ -77,7 +77,7 @@ proudění).
 
 ----
 
-Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérum si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
+Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
 
 Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
 
@@ -101,6 +101,16 @@ END_PGML
 
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
+
+BEGIN_PGML_SOLUTION
+
+Vektorové pole [`\vec v=u(x)\vec j`] má rotaci
+[``` \nabla \times \vec v = \begin{vmatrix}\vec i& \vec j & \vec k\\
+\frac{\partial }{\partial x}&\frac{\partial }{\partial y}&\frac{\partial }{\partial z}\\
+0& u(x) & 0\end{vmatrix} = \frac{\partial u(x)}{\partial x}\vec k = u'(x)\vec k,```]
+kde jsme nahradili parciální derivaci derivací obyčejnou, protože funkce [`u`] je funkce jedné proměnné. Odsud vidíme, že rotace vektorového pole [`\vec v`] je nulová právě tehdy když je nulová derivace  [`u'(x)`] a to je právě tehdy, když je funkce [`u`] konstantní. To znamená, že rychlost toku bude ve všech místech stejná.
+
+END_PGML_SOLUTION
 
 
 ENDDOCUMENT();

@@ -60,7 +60,7 @@ BEGIN_PGML
 ## Základní informace
 
 
-Nejprve video které Vám ukáže základy práce. Bude se hodit [@ htmlLink("https://raw.githubusercontent.com/robert-marik/hw-webwork/master/cheatsheet/cheatsheet.pdf","cheatsheet") @]*
+Nejprve video které Vám ukáže základy práce. Bude se hodit [@ htmlLink("https://raw.githubusercontent.com/robert-marik/hw-webwork/master/cheatsheet/cheatsheet.pdf","cheatsheet.") @]*
 
 
 [$video]*
