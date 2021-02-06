@@ -63,16 +63,7 @@ BEGIN_PGML
 Nejprve video které Vám ukáže základy práce. Bude se hodit [@ htmlLink("https://raw.githubusercontent.com/robert-marik/hw-webwork/master/cheatsheet/cheatsheet.pdf","cheatsheet") @]*
 
 
-END_PGML
-
-
-BEGIN_TEXT
-$video
-END_TEXT
-
-
-
-BEGIN_PGML
+[$video]*
 
 
 ## Otázka s odpovědí ve tvaru čísla
