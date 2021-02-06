@@ -1,0 +1,78 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+
+$data =
+    [
+     {
+	 nadpis=>"Zákon šíření chyb",
+	 otazka=>"Co vyjadřuje zákon šíření chyb?",
+	 odpoved=>"Udává, jak se chyby ve vstupních datech vzorce (vypočítávané veličiny) projeví na chybě vypočítané hodnoty.",
+	 moznosti=>[
+	     "Udává skutečnost, že v každém výpočtu je z přírodní podstaty nějaká chyba.",
+	     "Udává, za jakých podmínek se chyba ve vstupních datech vzorce (vypočítávané veličiny) přenese i na data na výstupu z výpočtu.",
+	     "Udává maximální možnou míru přesnosti (minimální chybu), s jakou je možné naměřit fyzikální veličiny.",
+	     ],
+     }
+    ];
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+    
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
+
+BEGIN_PGML
+
+## [$na]
+
+
+[$ot]
+
+[_]{$radio}
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$od]
+
+END_PGML_SOLUTION
+
+};
+# konec cyklu
+
+
+ENDDOCUMENT();
+

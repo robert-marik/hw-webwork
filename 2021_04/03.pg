@@ -1,0 +1,134 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context("Vector");
+Context()->variables->are(x=>"Real",y=>"Real");
+Context()->flags->set(ijk=>1 );
+Context()->flags->set( reduceConstants => 0,reduceConstantFunctions => 0);
+Context()->constants->set(
+  i => {TeX => "\,\mathit{\vec i}"},
+  j => {TeX => "\,\mathit{\vec j}"},
+  k => {TeX => "\,\mathit{\vec k}"},
+);
+
+$u1="\frac{\partial }{\partial x}";
+$u2="\frac{\partial }{\partial y}";
+$u3="\frac{\partial }{\partial z}";
+
+$a=non_zero_random(-2,2,1);
+$b=non_zero_random(-4,4,1);
+$c=non_zero_random(1,3,1);
+$n=random(2,4,1);
+
+$v1=Formula("$a*x^($n)+$b*y")->reduce();
+$v2=Formula("$b*x^2+$c*y^2")->reduce();
+$v3=Formula("0")->reduce();
+
+	
+$v=Vector("<$v1,$v2,$v3>");
+$F=$v;
+
+$ans1=0;
+$ans2m=0;
+$ans2=0;
+$ans3=($v2)->D('x')-($v1)->D('y');
+
+Context()->flags->set( reduceConstants => 1,reduceConstantFunctions => 1);
+
+$answer=Vector("<$ans1,$ans2,$ans3>")->reduce();
+
+BEGIN_PGML
+
+## Rotace vektorového pole v rovině
+
+Rotace vektorového pole v rovině je, stejně jako v prostoru, vektorový součin nabla operátoru [`\nabla = \left(\frac{\partial }{\partial x},\frac{\partial }{\partial y},\frac{\partial }{\partial z}\right)^T`] a vektorového pole. "Součin" parciální derivace a funkce opět chápeme jako výpočet příslušné derivace. Protože ale vektorový součin je definovaný pouze pro trojrozměrné vektory, musíme dvourozměrné vektorové pole vnořit do trojrozměrného prostoru. Uděláme to tak, že třetí komponentu položíme rovnu nule. 
+
+--------------
+
+Rotace vektorového pole [`\vec F= xy^2 \vec i+x^3\vec j`] je
+[``` \begin{aligned}\nabla \times \vec F &= \begin{vmatrix}\vec i& \vec j & \vec k\\
+\frac{\partial }{\partial x}&\frac{\partial }{\partial y}&\frac{\partial }{\partial z}\\
+xy^2& x^3 & 0
+\end{vmatrix}\\&
+=\left( \frac{\partial }{\partial y} (0)
+- \frac{\partial }{\partial z} (x^3)\right)\cdot \vec i
+\\&{}\ +
+\left(
+\frac{\partial }{\partial z} (xy^2)
+-
+\frac{\partial }{\partial x} (0)
+\right)\cdot \vec j
+\\&{}\ +\left( \frac{\partial }{\partial x} (x^3)
+- \frac{\partial }{\partial y} (xy^2)\right)\cdot \vec k
+\\&=0\cdot\vec i+0\cdot\vec j+(3x^2-2xy)\vec k.
+\end{aligned}
+```]
+
+Tento výsledek je možno zapsat jako *(3x^2-2xy)k* nebo *<0,0,3x^2-2xy>*. Všimněte si, že výsledný vektor má jenom jednu komponentu. První dvě komponenty jsou nulové. Tedy pro vektorové pole
+[```\vec F=P\vec i+Q\vec j,```]
+kde [`P`] a [`Q`] jsou funkce dvou proměnných [`x`] a [`y`], platí
+[```\nabla \times \vec F=
+\begin{vmatrix}\vec i& \vec j & \vec k\\
+\frac{\partial }{\partial x}&\frac{\partial }{\partial y}&\frac{\partial }{\partial z}\\
+P& Q & 0
+\end{vmatrix}=
+\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\vec k.```]
+
+
+---------------
+
+Vypočtěte rotaci vektorového pole [```\vec F=[$F].```]
+
+>>[``\nabla \times \vec F=\begin{vmatrix}\vec i&\vec j& \vec k \\ [$u1]&[$u2]&[$u3]\\
+[$v1]&[$v2]&[$v3]
+\end{vmatrix} ={} ``][_____________________________________]{$answer} <<
+
+END_PGML
+
+BEGIN_PGML_HINT
+
+Nemusíte počítat Sarussovým pravidlem uvedený determinant.  Inspirujte
+se vzorcem
+[```\nabla \times \vec F=\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\vec j,```]
+kde
+[```\vec F=P\vec i+Q\vec j,```]
+a [`P`], [`Q`] jsou funkce dvou proměnných [`x`] , [`y`].
+Musíte tedy vypočítat
+[```\nabla \times \vec F=\left( \frac{\partial }{\partial x} ([$v2])
+- \frac{\partial }{\partial y} ([$v1])\right)\cdot \vec k.```]
+
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Použijeme vzorec
+[```\nabla \times \vec F=\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\vec j,```]
+kde
+[```\vec F=P\vec i+Q\vec j,```]
+a [`P`], [`Q`] jsou funkce dvou proměnných [`x`] , [`y`].
+V našem případě máme [```\vec F=[$F].```]
+Musíme tedy vypočítat
+[```\nabla \times \vec F=\left( \frac{\partial }{\partial x} ([$v2])
+- \frac{\partial }{\partial y} ([$v1])\right)\cdot \vec k.```]
+Tento vzorec vyplývá přímo z výpočtu determinantu 
+[``` \nabla \times \vec F=\begin{vmatrix}\vec i&\vec j& \vec k \\ [$u1]&[$u2]&[$u3]\\
+[$v1]&[$v2]&[$v3]
+\end{vmatrix}.```]
+
+Po výpočtu parciálních derivací dostáváme
+[``` \nabla \times \vec F=
+[$answer] ```]
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

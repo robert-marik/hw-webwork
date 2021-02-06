@@ -1,0 +1,81 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+$data =
+[
+{
+    obrazek=>"divergence",
+    nadpis=>"Rotace dvourozměrného vektorového pole",
+    otazka=>"Co je možné říci o rotaci dvourozměrného vektorového pole? Mluvíme tedy o dvourozměrném vektorové poli, které vnoříme do trojrozměrného připsáním nulové třetí komponenty.",
+    odpoved=>"První dvě komponenty jsou nulové. Třetí může být nulová i nenulová.",
+    moznosti=>[
+	"První komponenta je nulová. Zbylé mohou být nulové i nenulové.",
+	"První komponenta je nulová. Zbylé musí být nenulové.",
+	"První dvě komponenty jsou nulové. Třetí musí být nenulová.",
+	"Rotace není definována.",
+	"Poslední komponenta je nulová. Zbylé mohou být nulové i nenulové.",
+	"Poslední komponenta je nulová. Zbylé musí být nenulové.",
+	"Všechny komponenty jsou nulové.",
+	],
+    zdroj=>"Obrázek: pixabay.com"
+}
+];
+
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
+
+BEGIN_PGML
+
+## [$na]
+
+
+[$ot]
+
+[_]{$radio}
+
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$od]
+
+END_PGML_SOLUTION
+
+};
+# konec cyklu
+
+
+ENDDOCUMENT();
+

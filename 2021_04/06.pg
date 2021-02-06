@@ -1,0 +1,76 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "parserFunctionPrime.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context("Vector");
+
+Context()->variables->are(x=>"Real",y=>"Real");
+Context()->flags->set(ijk=>1 );
+Context()->constants->set(
+  i => {TeX => "\,\mathit{\vec i}"},
+  j => {TeX => "\,\mathit{\vec j}"},
+  k => {TeX => "\,\mathit{\vec k}"},
+);
+
+
+parser::FunctionPrime->Enable();
+parserFunction("f(x)" => "3sin(x^2)+e^(pi*x)-2.63");
+parserFunction("g(x)" => "cos(x^2)+e^(2.4*x)+2.63");
+
+$answer=Vector("<0,0,0*x>")->reduce();
+
+BEGIN_PGML
+
+## Vektorové pole s komponentami závislými na jediné proměnné.
+
+Uvažujme vektorové pole v rovině, kde první komponenta závisí jenom na proměnné [`x`] a druhá komponenta jenom na proměnné [`y`]. Vektorové pole má tedy tvar
+[``` \vec F(x,y)= f(x)\vec i+g(y)\vec j + 0\vec k.```]
+O funkcích [`f(x)`] a [`g(y)`] předpokládejme, že mají dostatečnou hladkost pro výpočet rotace, tj. že mají derivace. Tyto derivace budeme označovat [`f'(x)`] a [`g'(x)`].
+
+Vypočtěte rotaci vektorového pole  [``\vec F(x,y),``] tj.
+
+>>
+[``\nabla \times \vec F = \begin{vmatrix}\vec i& \vec j & \vec k\\
+\frac{\partial }{\partial x}&\frac{\partial }{\partial y}&\frac{\partial }{\partial z}\\ 
+f(x)& g(y) & 0
+\end{vmatrix}={}``][________________]{$answer}.
+<<
+
+Nezapomeňte zadat odpověď jako vektor, tj. ve formátu *<0,0,...>* nebo *(...)\*k*. (Máme dvourozměrné vektorové pole a rotace tedy bude mít první dvě komponenty nulové.) Funkce [`f`] a [`g`] a jejich derivace můžeme zapsat jako [|f(x)|], [|(y)|],  [|f'(x)|], [|g'(y)|].
+
+END_PGML
+
+BEGIN_PGML_HINT
+
+Nezapomeňte, že
+[``` \frac{\partial }{\partial x}g(y)=0```]
+a
+[``` \frac{\partial }{\partial y}f(x)=0.```]
+
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Použijeme vzorec
+[```\nabla \times \vec F=\left(\frac{\partial g}{\partial x}-\frac{\partial f}{\partial y}\right)\vec k,```]
+kde
+[```\vec F=f\vec i+g\vec j.```]
+Platí (pro úplnost zapisujeme i s proměnnými)
+[``` \frac{\partial }{\partial x}g(y)=0```]
+a
+[``` \frac{\partial }{\partial y}f(x)=0.```]
+Rotace je tedy nulová. Nezávisle na konkrétním tvaru funkcí [`f(x)`] a [`g(y)`] bude rotace nulová. Studované  vektorové pole je vždy konzervativní. Má nulovou rotaci a dá se k němu zavést skalární potenciál.
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
