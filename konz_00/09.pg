@@ -1,0 +1,100 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"answerHints.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context("Numeric")->variables->are(x=>'Real', t=>'Real');
+
+$a=non_zero_random(2,7,1);
+$n=non_zero_random(2,4,1);
+$b=non_zero_random(2,6,1);
+$c=non_zero_random(2,6,1);
+$d =non_zero_random(2,6,1);
+$f=non_zero_random(2,6,1);
+
+$f1=Formula("($a)/(x^2+$b)")->reduce;
+$f2=Formula("$a ($b x^($n)+$c)/(x^2+$d x - $f)")->reduce;
+$f3=Formula("$a * e^(-$b*t/7)")->reduce;
+$f4=Formula("$b * sqrt( ($n)*x + ($c)*t)")->reduce;
+$f5=Formula("9/( pi + ($c)*t)^($n)")->reduce;
+
+
+$f=Formula("10")->reduce();   # funkce
+
+BEGIN_PGML
+
+## Matematické výrazy pro mírně pokročilé
+
+Zkusíme si zapsat matematické výrazy, které jsou o něco složitěší než lehoučké výrazy na úvod.
+
+Nalevo je vždy výsledek, který máte přepsat napravo.
+
+Zkuste tři metody práce. 
+
+* Zapište odpověď klasicky, jak jste postupovali doposud. Můžete použít [@ htmlLink("https://raw.githubusercontent.com/robert-marik/hw-webwork/master/cheatsheet/cheatsheet.pdf","cheatsheet") @]* s nápovědou pro zápis matematických výrazů. Toto je nejsnazší cesta pro lidi zběhlé v problematice a pro jendoduché výrazy.
+* Můžete si pomoci použitím prohlížeče Chrome a nainstalováním pluginu [@ htmlLink("https://chrome.google.com/webstore/detail/webwork-mathview","WeBWorK MathView") @]*, který  při zadávání vzorce rovnou vykresluje náhled.
+* Můžete využít [@ htmlLink("http://mathquill.com/","editor MathQuill") @]*, umožňující zápis ve dvourozměnrné formě. Zpřístupníte si jej v menu [@ htmlLink("../../options","Uživatelská nastavení") @]*, volba "Use live equation rendering?" na Ano. Můžete vyzkoušet a později vrátit na původní hodnotu. Osobně myslím, že je lepší používat klasická vytupní políčka, která nevkládají žádné speciální znaky, ale pokud byste měli být ztraceni se zadáváním matematických výrazů, je dobré o této cestě vědět.
+* Poslední postup, který do WeBWorKu není integrovaný, je nainstalovat si do smarphonu "appku", která umí rozpoznat vzorec napsaný na papíře a převede jej do formátu srozumitelného počítačům. Tady si však musíte případně poradit sami mezi sebou, co funguje lépe a co funguje hůře. My rozhodně nebudeme pracovat s tak složitými výrazy, že by nebylo schůdné je zadat do vstupního pole přímo z klávesnice.
+
+>>[``[$f1]={}``][_______________________________]{$f1}<<
+
+>>[``[$f2]={}``][_______________________________]{$f2}<<
+
+>>[``[$f3]={}``][_______________________________]{$f3}<<
+
+>>[``[$f4]={}``][_______________________________]{$f4}<<
+
+>>[``[$f5]={}``][_______________________________]{$f5}<<
+
+Až zdoláte tento příklad, jste opět o kus dál v matematické gramotnosti - umíte zadávat matematické výrazy do počítače tak, aby je počítač uměl dále zpracovávat. V posledním úkolu se podíváme na další druh matematické gramotnosti a to na psaní textů obsahujících matematiku.
+
+END_PGML
+
+BEGIN_PGML_HINT
+
+
+Návrhy (ne nutně nejkratší) jsou následující.
+
+[$f1]
+
+[$f2]
+
+[$f3]
+
+[$f4]
+
+[$f5]
+
+
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Návrhy (ne nutně nejkratší) jsou následující.
+
+[$f1]
+
+[$f2]
+
+[$f3]
+
+[$f4]
+
+[$f5]
+
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

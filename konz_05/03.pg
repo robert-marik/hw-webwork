@@ -1,0 +1,50 @@
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "parserFormulaUpToConstant.pl",
+  "PGcourse.pl"
+);
+
+TEXT(&beginproblem);
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context()->variables->are(t=>'Real');
+
+$a=random(5,20,1);
+$b=random(6,10,1);
+$k=random(1,4,1);
+$kk=2*$k;
+$c=random(150,200,1);
+$prim=Formula("[$c] t - [$k]t^2")->reduce();
+
+BEGIN_PGML
+
+## Vytékající voda a praktický význam integrálu
+
+[@ image("cisterna.jpg", width=>400) @]*
+
+Při zásobování vodou se někdy musíme uchýlit k použití cisteren. Vypouštění cisterny je poté typický děj probíhající proměnnou rychlostí, protože během odběru se snižuje tlak v místě výpusti a rychlost vytékání se snižuje.
+
+Předpokládejme, že voda vytéká z ventilu u dna cisterny rychlostí  [`r(t)=[$c]-[$kk]t`] litrů za minutu, kde [`0 \le t \le 50.`]  Najděte objem vody (v litrech), který vyteče z nádrže za [$a] minut.
+
+V tomto příkladě tedy máme zadánu rychlost s jakou se mění jistá veličina a úkolem je najít celkovou změnu této veličiny. To je přesně případ řešitelný pomocí integrálu. Musíme tedy vypočítat [``` \int_0^{[$a]}[$c]-[$kk]*t\,\mathrm dt.```]
+
+Mezivýpočet:[``\int [$c]-[$kk]t \,\mathrm dt={}``][________]{$prim->cmp(upToConstant=>1)}
+
+Odpověď: Vyteče [________________]{$c*$a-$k*($a**2)} litrů vody.
+
+END_PGML
+
+
+BEGIN_PGML_SOLUTION
+Množství vody bude integrál z rychlosti, se kterou voda vytéká.
+[``` \int_0^{[$a]} [$c]-[$kk]t \,\mathrm dt = \left[[$prim] \right] _{0}^{[$a]}=[$c]\cdot[$a] - [$k]\cdot ([$a])^2```]
+END_PGML_SOLUTION
+
+
+
+ENDDOCUMENT();

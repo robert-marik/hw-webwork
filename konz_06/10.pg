@@ -1,0 +1,106 @@
+
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+ADD_CSS_FILE("left.css");
+
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+$a=non_zero_random(-4,4,1);
+do { $b=non_zero_random(-8,8,1) } until ( abs($b) > 1 );
+$c=non_zero_random(-10,10);
+
+Context("Numeric")->variables->are($var=>'Real');
+
+$answer=Formula("$a+$b*($var-$c)")->reduce();   # funkce
+
+
+BEGIN_PGML
+
+UPOZORNĚNÍ: V tomto příkladě si mimo jiné natrénujeme i zápis matematických výrazů v textovém editoru. Nepodceňte tuto dovednost, abyste měli možnost zapsat odpovědi při distančním zkoušení.
+
+_Máte za úkol naformulovat model růstu ledu, vysvětlit použité označení a podat slovní význam konstanty úměrnosti, viz níže. Tento model se studoval mimo jiné i ve cvičení a pro ukázky formulované pro jiné rovnice můžete shlédnout ukázky níže. Zadání je poté dole u obrázku s medvědem._
+
+_Kdo chce na téma pořizování elektronického textu obsahujícího matematiku shlédnout online ukázky práce, má k dispozici [@ htmlLink("https://youtu.be/hSU3Vr4FgD0","video na tomto odkazu") @]*._
+
+## Slovní interpretace konstant úměrnosti v diferenciální rovnici
+
+Na přednáškách i ve cvičení jsme se setkali (a i dále se setkáme) s řadou matematických formulací přírodních jevů, kdy je rychlost úměrná jiné veličině. Slovní význam konstant úměrnosti je vhodné být schopen interpretovat slovně. Zpravidla postupujeme tak, že hodnotám, které figurují u konstanty úměrnosti přidělíme takovou číselnou hodnotu, aby na jedné straně rovnice zůstala buď jenom konstanta úměrnosti, nebo konstanta úměrnosti vynásobená záporným znaménkem. Veličina na pravé straně zpravidla derivace, tj. rychlost růstu a ta definuje význam konstanty. Pokud na pravé straně ještě navíc zůstane znaménko minus, máme rychlost poklesu. Několik příkladů následuje. Rychlost je někdy přirozenější formulovat jako změnu za jednotku času, ale obě vyjádření ("rychlost" a "změna za jednotku času") udávají totéž. 
+
+* Podle Newtonova zákona ochlazování je matematickým modelem ochlazování tělesa o teplotě [`T`] při tepelné výměně s okolím o teplotě [`T_0`] rovnice [``` \frac{\mathrm dT}{\mathrm dt}=-k(T-T_0),```] kde [`t`] je čas a [`k`] je konstanta úměrnosti. Pro [`T-T_0=1`] dostáváme [```\frac{\mathrm dT}{\mathrm dt}=-k.```] a odsud [``` k=-\frac {\mathrm dT}{\mathrm dt}.```] Konstanta [`k`] tedy udává rychlost ochlazování tělesa s teplotou o jednotku vyšší než je teplota okolí.
+* U radioaktivního rozpadu, kdy množství [`x`] dosud nerozpadnuté látky splňuje rovnici [``` \frac{\mathrm dx}{\mathrm dt}=-kx```] dostáváme pro [`x=1`] vztah
+ [``` \frac{\mathrm dx}{\mathrm dt}=-k.```] Tento vztah ukazuje, že _konstanta úměrnosti [`k`] udává pokles množství látky za jednotku času při jednotkovém množství látky_, nebo také _rychlost, s jakou se rozpadá jednotkové množství látky._
+* U rovnice růstu úměrného velikosti [`x`] populace pracujeme s rovnicí [``` \frac{\mathrm d x}{\mathrm dt}=kx,```] kde [`k`] je konstanta úměrnosti. Volbou [`x=1`] vidíme, že konstanta [`k`] udává _rychlost růstu populace v okamžiku, kdy je velikost populace rovna jedné jednotce_.
+* Diferenciální rovnice [``` \frac{\mathrm dh}{\mathrm dt}=-\frac{S_1}{S_2}\sqrt{2g}\sqrt {h}```]
+udává rychlost, s jakou klesá hladina v nádrži se svislými stěnami, povrchem dna [`S_2`], průřezem výpusti [`S_1`], ve které je hladina vody [`h`] ode dna. Veličina [`g`] je gravitační konstanta. To je poměrně komplikovaná rovnice. Pro snazší práci je možno ji přepsat do tvaru
+[``` \frac{\mathrm dh}{\mathrm dt}=-k\sqrt {h}```] a konstantu úměrnosti [`k=\frac{S_1}{S_2}\sqrt{2g}`] interpretovat jako rychlost, s jakou klesá hladina v okamžiku, kdy je hloubka rovna jedné jednotce délky.
+
+Všimněte si ještě, že se vyhýbáme použití konkrétních jednotek. Mluvíme o jednotkovém rozdílu teploty a ne o teplotním rozdílu jeden stupeň Celsia. Mluvíme o jednotkové velikosti populace a ne o tisících jedinců. Mluvíme o množství radioaktivní látky a ne o mikrogramech. To je výhoda, která dělá naše tvrzení univerzální pro libovolnou soustavu jednotek. Tvrzení bude platit i při použití jednotek SI, i při použití britských imperiálních jednotek (nepravděpodobný případ), i při použití jednotek ad hoc použitých pro řešení jednoho konkrétního problému (vysoce pravděpodobný případ po eliminaci parametrů a veličin nondimenzionalizací). Bude se měnit například číselná hodnota konstanty a její jednotky, její slovní interpretace však zůstane stále stejná.
+
+-------
+
+### Úkol
+
+[@ image("medved.jpg", width=>400) @]*
+
+Tloušťka ledu v konstantních podmínkách roste podle Stefanova zákona rychlostí nepřímo úměrnou této tloušťce. Zapište tuto rovnici do odpovědního pole, vysvětlete všechny proměnné a zapište slovní interpretaci konstanty úměrnosti. Použijte vzor u Newtonova modelu výše. 
+
+Toto není ani tak matematický úkol, jako formulační. Pokud si nejste jisti matematickou formulací modelu, podívejte se do cvičení k diferenciálním rovnicím. 
+
+### Pravidla
+
+* Výsledné tvrzení musí být řešením úkolu.
+* Musí se jednat o českou nebo slovenskou větu s podmětem a přísudkem, gramaticky správně utvořenou a věcně snadno pochopitelnou.
+* Odpověď musí být jednoznačná a pokud možno stručná.
+* Všechny matematické objekty (proměnné, rovnice) musí být zapsány jako matematické objekty pomocí příslušného značkovacího jazyka. Pro zápis matematických výrazů použijte LaTeX nebo ASCIIMath.
+
+Doporučení k sazbě matematiky a příklady, jak zrealizovat tato doporučení jsou v úlohách k přednášce o diferenciálních rovnicích (přednáška číslo 6, [@htmlLink("http://um.mendelu.cz/webwork2/MT-Marik/Prednaska_06/2","druhý příklad")@]*). Zopakujte si tato doporučení a použijte je pro zápis své odpovědi.  Odpověď bude ohodnocena na
+100%, pokud bude správně věčně a bude zapsána podle pravidel českého
+pravopisu a podle doporučení pro sazbu matematických výrazů. (Zde je
+hlavně důležité dodržet označení proměnných jako matematických
+výrazů.) Výhodou je stručná a výstižná odpověď. Rovnice (matematický model) musí být na samostatném řádku, tj. pro její zápis použijeme buď dvojitý zpětný apostrof (v případě AsciiMath) nebo zpětné lomítko a hranaté závorky.
+
+**Podobně jako analogický úkol u přednášky: bodů za tuto činnost je málo, ale pokud se to nenaučíte, tak nebudete schopni zapsat odpovědi na některé otázky v písemce, pokud bude písemka distanční formou.**
+
+*TIP:* Na webové stránce pluginu [@ htmlLink("https://www.mathjax.org/#demo","MathJax")@]* si můžete pohodlně text připravit v LaTeXu i v AsciiMath. Uvidíte živý náhled vkládaného textu, nebudete muset klikat opakovaně na tlačítko s náhledem jako zde. Výsledný *zdrojový text* jenom vykopírujte do WeBWorKu.
+
+*TIP2:* Použijte pro psaní matematických znaků anglickou klávesnici (povolte si ji v operačním systému, pokud jste to neudělali dříve). Pokud nemáte na tlačítkách anglické znaky, najděte si je na [@ htmlLink("https://en.wikipedia.org/wiki/British_and_American_keyboards","webu")@]*. V případě problémů pište na Teams.
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box()\}
+END_TEXT
+
+
+BEGIN_PGML
+_[@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "Nápověda pro LaTeX, ukázky kódů pro vykopírování") @]* (odkaz otevřete pravým tlačítem v novém panelu, aby Vám zůstala otevřená i stránka, kterou čtete). Další ukázky jsou všechny vzorce v programu WeBWorK a v přednáškách. Použijte pravé tlačítko a zobrazení kódu v programu TeX._
+END_PGML
+
+
+BEGIN_PGML_SOLUTION
+
+**Následující je jedna z možných formulací.**
+
+Rovnice růstu tloušťky ledu podle uvedeného zákona je [``` \frac{\mathrm dh}{\mathrm dt} = \frac kh,```]
+kde `h`, `k` a `t` jsou po řadě tloušťka ledu, konstanta úměrnosti a čas. Konstanta úměrnosti `k` vyjadřuje rychlost s jakou roste tloušťka ledu v okamžiku, kdy je tato tloušťka rovna jedné.
+
+END_PGML_SOLUTION
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+ENDDOCUMENT(); 
+
+
+
+ENDDOCUMENT();

@@ -1,0 +1,83 @@
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "parserMultiAnswer.pl",
+  "AnswerFormatHelp.pl",
+  "PGcourse.pl",
+  "PGML.pl"
+  );
+$showPartialCorrectAnswers = 0;
+TEXT(beginproblem()); 
+$showHint = 1;
+
+Context('Matrix');
+
+$A = Matrix([[1,2,3],[2,4,5],[3,5,6]]);
+
+Context()->texStrings;
+
+BEGIN_PGML
+## Symetrická matice
+
+[@ image("lepenka.jpg", width=>400) @]*
+
+Symetrické matice jsou matice, kde platí [`a_{ij}=a_{ji}`]. Jinými slovy, prvky ležící symetricky podle hlavní diagonály jsou stejné. Například prvek v prvním řádku a třetím sloupci je stejný jako prvek ve třetím řádku a prvním sloupci.
+
+Pro matice [`3\times 3`] odsud plynou tři podmínky: [``` a_{12}=a_{21},\quad a_{13}=a_{31},\quad a_{23}=a_{32}.```] Symetrická [`3\times 3`] matice má tedy sice devět prvků, ale jenom šest prvků je nezávislých. Tři zbylé prvky jsou definovány podmínkou symetrie, která je pro [`3\times 3`] matice realizována třemi výše uvedenými  vztahy.
+
+Matice [``` \begin{pmatrix}0&2&4\\1&-1&7\\4&7&3\end{pmatrix}```] není symetrická, symetrii "kazí" dvojice čísel [`2`] a [`1`]. Na číslech v hlavní diagonále nezáleží a zbylé dva páry symetricky položených prvků jsou v pořádku (dvě čtyřky a dvě sedmičky).
+
+Symetrické matice jsou důležitou třídou matic v aplikacích. Z obecnějších úvah plyne, že materiálové vlastnosti jsou v materiálech popisovány právě symetrickými maticemi. Symetrické matice mají spoustu užitečných vlastností. Například je možné otočit soustavu souřadnic tak, že příslušná materiálová vlastnost je dokonce popsána diagonální maticí. To nastane, pokud volíme soustavu souřadnic tak, že ve směru os je materiálová odezva na podnět stejného směru jako podnět. Má-li materiál patrnou vnitřní strukturu a potřebnou symetrii, je vhodná orientace os dobře patrná. To je příklad vlnité lepenky nebo dřeva. Proto u dřeva zpravidla volíme při popisu osy v anatomických směrech dřeva (podélný, radiální, tangenciální). V některých případech však takovou možnost nemáme a potom ztrácíme výhodu popisu pomocí diagonálních matice a pracujeme s obecnými symetrickými maticemi (přesněji, se symetrickými tenzory).
+
+*Upozornění:* Je-li odpovědí na otázku matice nebo vektor, jak tomu je zde i v následujících úlohách, je odpověď vždy vyhodnocována jako jediný objekt. Proto musí být všechny komponenty správně. Pokud správnost odpovědi "kazí" byť jen jediný prvek vektoru nebo matice, celá odpověď je nesprávná. Všechny prvky jsou potom označeny jako nesprávné. 
+
+END_PGML
+
+BEGIN_TEXT
+$BR
+
+Diagonální matice jsou vždy symetrické, protože mají mimo hlavní diagonálu všechny prvky stejné, totiž nuly. Uveďte příklad \( 3 \times 3 \) symetrické matice \( A \), která není diagonální.
+$BR
+$BR
+$BCENTER
+\( A = \)
+\{ $A->ans_array(3,3,5) \}
+$ECENTER
+
+END_TEXT
+
+BEGIN_PGML_HINT
+Na třech prvcích v hlavní diagonále nezáleží, sem můžete napsat libovolné číslo. Ze zbylých třech prvků zvolte jeden nenulový, stejný prvek přidejte i na místo symetricky podle hlavní diagonály a zbytek doplňte buď podobným způsobem, nebo nulami. 
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+[``` \begin{pmatrix}0&0&1\\0&0&0\\1&0&0\end{pmatrix}```]
+END_PGML_SOLUTION
+
+Context()->normalStrings;
+
+install_problem_grader(~~&std_problem_grader);
+
+ANS( $A->cmp(  checker => sub {
+    my ( $correct, $student, $ansHash ) = @_;
+    $S = Matrix($student);
+    if ( 
+      $S->element(1,2) == 0 and 
+      $S->element(1,3) == 0 and 
+      $S->element(2,3) == 0 and
+      $S->element(2,1) == 0 and 
+      $S->element(3,1) == 0 and 
+      $S->element(3,2) == 0 ) 
+    {
+      return 0;
+    } else {
+      return ($S->transpose) == $S;
+    }
+  }
+) );
+
+;
+
+ENDDOCUMENT();

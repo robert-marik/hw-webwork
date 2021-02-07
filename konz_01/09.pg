@@ -1,0 +1,79 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+$a=non_zero_random(2,8);
+$k=non_zero_random(2,4);
+$b=non_zero_random(-8,8);
+do { $b=non_zero_random(1,9) } until ( $b != $a );
+$c=non_zero_random(2,9);
+
+Context("Numeric")->variables->are($var=>'Real');
+
+$f=Formula("($a*x^$k+$b)^$c")->reduce();   # funkce
+$g=Formula("($a*x^$k+$b)")->reduce();   # vnitrni funkce
+$fder=Formula("$c*($a*x^$k+$b)^($c-1)*($a*$k*x^($k-1))")->reduce();   # derivace funkce
+$gder=Formula("$a*$k*x^($k-1)")->reduce();   # derivace vnitrni funkce
+
+$answer = $f->D();   # derivace
+
+BEGIN_PGML
+
+## Derivace mocninné funkce s polynomiální vnitřní složkou
+
+Derivace složené funkce je [``` (f(g(x)))' = f'(g(x)) g'(x).```]
+Zkusme si tento vzorec specifikovat na konkrétním příkladě funkce [`f`]. Například, pokud je vnější funkce mocninná funkce, 
+tj. pro [`f(x)=x^n`] a [`f'(x)=nx^{n-1}`], dostáváme
+[```  ((g(x))^n)'=n (g(x))^{n-1}g'(x)```] nebo (v Leibnizově notaci s menším počtem závorek)
+[``` \frac{\mathrm d}{\mathrm dx} (g(x))^n  = n(g(x))^{n-1} \frac{\mathrm dg}{\mathrm dx}.```]
+
+Lépe je asi vyjádřit tento vzorec slovně. Tentokrát ve variantě zahrnující na rozdíl od prvního příkladu i derivaci složené funkce: _Mocninou funkci derivujeme tak, že exponent přidáme dopředu jako konstantní násobek a v mocnině exponent o jedničku snížíme. Pokud je základem mocniny přímo proměnná přes kterou derivujeme, jsme hotovi. V opačném případě ještě násobíme derivací vnitřní složky._
+
+Můžeme tedy psát
+[```\frac{\mathrm d}{\mathrm dx} (5x^2+7)^{13}=13(5x^2+7)^{12}\frac{\mathrm d}{\mathrm dx}(5x^2+7)=13(5x^2+7)^{12} (5\cdot 2x + 0) = 130 x(5x^2+7)^{12}.```]
+Tento výsledek můžeme zapsat například ve tvaru *130\*x\*(5\*x^2+7)^(12)* nebo (pokud se nám nechce násobit a přeskládávat součinitele)
+*13\*(5x^2+7)^(12)\*5\*2x*
+
+-----
+
+Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$f] .```]
+Příklad je analogický výše uvedenému vzoru.
+
+>>[`` f'([$var])=\frac{\mathrm d}{\mathrm d[$var]} [$f] ={}``]
+[_____________________]{$answer}<<
+
+END_PGML
+
+
+$showHint = 1;
+
+BEGIN_PGML_HINT
+Použijte vzorec pro derivaci složené funkce, kdy vnější funkcí je mocninná funkce, tj. 
+[``` \frac{\mathrm d}{\mathrm dx} (g(x))^[$c]  = [$c](g(x))^{[$c-1]} \frac{\mathrm dg}{\mathrm dx}```]
+pro [`` g(x)=[$g].``]
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Použijeme vzorec pro derivaci složené funkce, kdy vnější funkcí je mocninná funkce, tj. 
+[``` \frac{\mathrm d}{\mathrm dx} (g(x))^[$c]  = [$c](g(x))^{[$c-1]} \frac{\mathrm dg}{\mathrm dx}.```]
+Vnitřní složka a její derivace jsou [`` g(x)=[$g], ``] a  [``` \frac{\mathrm dg}{\mathrm dx} = [$gder].```] Výsledek je 
+[```  \frac{\mathrm df}{\mathrm d[$var]}=[$fder->reduce();]```]
+
+(Řešení je pravděpodobně možné dále upravit.)
+
+END_PGML_SOLUTION
+
+
+
+ENDDOCUMENT();

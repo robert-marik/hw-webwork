@@ -1,0 +1,64 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "parserFormulaUpToConstant.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context()->flags->set(
+     reduceConstants => 0,
+     reduceConstantFunctions => 0,
+   );
+
+do { $n=random(3,7,1); } until ( $n != 6);
+$n1=$n+1;
+$a=random(0,2,1);
+$b=random(3,7,1);
+
+$funkce=Formula("x^($n)");
+$prim=Formula("1/($n1)*x^($n1)");
+$int=Formula("1/($n1)*($b)^($n1)-1/($n1)*($a)^($n1)");
+
+
+BEGIN_PGML
+
+## Určitý integrál mocninné funkce
+
+Určitý integrál počítáme podle vzorce [```\int_a^b f(x)\,\mathrm dx=F(b)-F(a),```] kde [`F(x)`] je primitivní funkce k [`f(x)`]. Slovně vyjádřeno je určitý integrál roven přírůstku primitivní funkce na daném intervalu.
+
+Například platí [``` \int x^6\,\mathrm dx=\frac 17 x^7+C```] a proto [``` \int_1^5 x^6\,\mathrm dx=\left[\frac 17 x^7\right]_1^5=\frac 17 5^7 - \frac 17=\frac {78124}{7}.```] Tuto odpověď je možno zapsat jedním číslem jako *78124/7* nebo jednodušeji a bez nepříjemného počítání se zlomky jako *1/7 \* 5^7 - 1/7*.
+
+Nyní zkusíme něco podobného s jinými hodnotami.
+
+--------------------
+
+
+Vypočtěte následující integrál.
+>>[``\int_{[$a]}^{[$b]} [$funkce]\,\mathrm dx ={}``][_________________________]{$int} <<
+
+
+END_PGML
+
+BEGIN_PGML_HINT
+Použijte neurčitý integrál
+[``` \int x^{[$n]}\,\mathrm dx=\frac1{[$n1]}x^{[$n1]}+C```] a vypočtěte změnu primitivní funkce na intervalu [`[[$a],[$b]]`], tj. rozdíl funkční hodnoty pro [`x=[$b]`] a [`x=[$a]`].
+
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Použijeme vztah
+[``` \int [$funkce]\,\mathrm dx=\frac1{[$n1]}x^{[$n1]}+C.```]
+Odsud
+[```\int_{[$a]}^{[$b]} [$funkce]\,\mathrm dx =[$int] ```]
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

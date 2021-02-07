@@ -1,0 +1,79 @@
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "parserPopUp.pl",
+  "AnswerFormatHelp.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+TEXT(beginproblem()); 
+
+Context('Matrix');
+
+do {
+
+$A = Matrix([
+[non_zero_random(-5,5,1),non_zero_random(-5,5,1)],
+[non_zero_random(-5,5,1),non_zero_random(-5,5,1)],
+]);
+
+$B = Matrix([
+[non_zero_random(-5,5,1),non_zero_random(-5,5,1)],
+[non_zero_random(-5,5,1),non_zero_random(-5,5,1)],
+]);
+
+} until ( $A!= $B );
+
+
+$C = Matrix([
+[non_zero_random(-5,5,1),non_zero_random(-5,5,1)],
+[non_zero_random(-5,5,1),non_zero_random(-5,5,1)],
+]);
+
+
+$answer = $A + $B;
+$answerB = $A + $B;
+$answer2 = $A + $C;
+
+$popup = PopUp(['Vyberte odpověď','Pravda','Nepravda'],'Pravda');
+
+Context()->texStrings;
+
+BEGIN_PGML
+
+## Součet matic
+
+Součet matic je snadná operace: provádí se po složkách, tj. sečtou se čísla na pozicích, které si odpovídají. Například platí následující.
+[``` [$A] + [$C] = [$answer2]```]
+
+
+Nechť 
+[``` A = [$A],\qquad B = [$B].```]
+Sečtěte matice, pokud je tato operace definována.
+
+>>[``A + B ={} ``][_____]*{$answer}<<
+
+>>[``B + A ={} ``][_____]*{$answerB}<<
+
+Rozhodněte o pravdivosti následujícího tvrzení: Platí [` A + B = B + A `] pro každou dvojici matic 
+[`A`] a [`B`] se stejným počtem řádků a sloupců.
+[@ $popup->menu() @]*
+
+END_PGML
+
+BEGIN_PGML_HINT
+Sčítejte po složkách. Například v levém horním rohu bude součet dvou čísel z levých horních rohů sčítaných matic. Díky komutativitě sčítání navíc bude odpověď na obě otázky stejná.
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Sčítejte po složkách. Díky komutativitě navíc je odpověď na obě otázky stejná, a to
+[``` A+B=B+A=[$A+$B]. ```]
+END_PGML_SOLUTION
+
+ANS( $popup->cmp() );
+
+ENDDOCUMENT();

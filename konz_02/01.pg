@@ -1,0 +1,121 @@
+###########################
+#  Initialization
+
+DOCUMENT();  
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGchoicemacros.pl",
+  "PGgraders.pl",
+  "unionTables.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+$showHint = 1;
+
+
+###########################
+#  Setup
+
+#
+#  Create a matching list and use popups
+#
+$ml = new_match_list();
+$ml->rf_print_q(~~&pop_up_list_print_q);
+$ml->ra_pop_up_list([
+"No answer" => "?",
+"A" => "A", "B" => "B", "C" => "C", 
+"D" => "D", "E" => "E"
+]);
+
+#
+#  Add correct questions and answers
+#
+$ml->qa(
+"\(f(t+\Delta t)-f(t)\)", "Změna  veličiny \(f\) za časový interval mezi okamžiky \(t\) a \(t+\Delta t\).",
+"\(\displaystyle\frac{f(t+\Delta t)-f(t)}{\Delta t}\)", "Průměrná rychlost změny  veličiny \(f\) za časový interval mezi okamžiky \(t\) a \(t+\Delta t\).",
+"\(\displaystyle\lim_{\Delta t\to 0}\frac{f(t+\Delta t)-f(t)}{\Delta t}\)", "Okamžitá rychlost změny  veličiny \(f\) v okamžiku \(t\)."
+);
+
+
+$ml->choose(3);
+
+#
+#  Add extra incorrect answers
+#
+$ml->extra(
+"Průměrná rychlost změny  veličiny \(f\) v okamžiku \(t\).", 
+"Okamžitá rychlost změny  veličiny \(f\) za časový interval mezi okamžiky \(t\) a \(t+\Delta t\)."
+);
+$ml->choose_extra(2);
+  
+#$ml->makeLast("None of the above");
+
+
+
+###########################
+#  Main text
+
+BEGIN_PGML
+
+## Definice derivace funkce jedné proměnné
+
+Derivace funkce [``f``] proměnné [``x``] je definována vztahem 
+[```\lim_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}.```] Pro správné pochopení toho, co derivace vyjadřuje, je nutno rozumět jednotlivým částem tohoto definičního vztahu.
+
+Podáme slovní jednotlivých celků, ze kterých se skládá definice derivace. Uvažujme veličinu [``f``], která se mění v čase, tj. je funkcí proměnné [``t``]. Přepište jednotlivé části definice derivace do proměnné [``t``] a podejte jejich slovní interpretaci.
+
+END_PGML
+
+BEGIN_TEXT
+
+\{ $ml->print_q() \}
+$BR
+\{ $ml->print_a() \}
+
+END_TEXT
+
+
+############################
+#  Answer evaluation
+
+$showPartialCorrectAnswers = 0;
+
+#
+#  Incremental grader
+#
+install_problem_grader(~~&custom_problem_grader_fluid);
+$ENV{'grader_numright'} = [1,2,3];
+$ENV{'grader_scores'} = [0.3,0.6,1];
+$ENV{'grader_message'} = "Můžete dostat částečné hodnocení za částečně správnou odpověď.";
+
+#
+#  All or nothing grader
+#  
+# install_problem_grader(~~&std_problem_grader);
+
+ANS( str_cmp( $ml->ra_correct_ans ) );
+
+
+BEGIN_PGML_HINT
+Dvě volby jsou zřejmě nesmyslné: "průměrná rychlost v okamžiku ..." a "okamžitá rychlost na intervalu ...". Ostatní tři páry již sestavíte pravděpodobně snadno. Soustřeďte se mimo jiné i na to, abyste si ještě jednou pečlivě přečetli odpovězené možnosti. Cílem je, abyste dokázali interpretovat význam jednotlivých částí definice samostatně a nejenom v otázce s výběrem možností.
+END_PGML_HINT
+
+
+############################
+#  Solution
+
+@correct = @{$ml->ra_correct_ans()};
+$answerstring = join(", ", @correct);
+
+BEGIN_PGML_SOLUTION
+Řešení je [$answerstring]. Derivace je okamžitá rychlost změny a je to limita průměrné rychlosti změny. Tato průměrná rychlost změny je podílem změny a času, za který nastala. Varianty "průměrná rychlost v okamžiku ..." a "okamžitá rychlost na intervalu ..." nedávají smysl, okamžitá rychlost se nemůže vztahovat k intervalu, naopak průměrná rychlost se k intervalu vztahovat musí.
+END_PGML_SOLUTION
+
+COMMENT('MathObject version. Uses PGML.');
+
+ENDDOCUMENT();
