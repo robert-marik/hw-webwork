@@ -32,7 +32,7 @@ Zkusme vzorec pro objem koule o poloměru [`r`]. V tomto případě vzorec obsah
 _Poznámky_:
 
 * Před odesláním odpovědi si můžete prohlédnout pomocí náhledu, jak systém interpretuje Vaši odpověď. Tím je možno opravit překlep bez započítání chybné odpovědi.
-* Odpověď na tuto otázku vyžaduje zadat funkci proměnné [`r`]. Vyskoušejte si sami, jak bude systém reagovat, pokud zadáte správný vzorec, ale s velkým [`R`] nebo pokud použijete jinou proměnnou, například [`x`]. V takových chvílích systém generuje příslušné chybové hlášky. Pomocí těchto hlášek byste měli být později schopni identifikovat problém, až chybu neuděláte plánovitě, ale v ostrém nasazení v domácí úloze nebo ve zkouškové písemce.
+* Odpověď na tuto otázku vyžaduje zadat funkci proměnné [`r`]. Vyzkoušejte si sami, jak bude systém reagovat, pokud zadáte správný vzorec, ale s velkým [`R`] nebo pokud použijete jinou proměnnou, například [`x`]. V takových chvílích systém generuje příslušné chybové hlášky. Pomocí těchto hlášek byste měli být později schopni identifikovat problém, až chybu neuděláte plánovitě, ale v ostrém nasazení v domácí úloze nebo ve zkouškové písemce.
 
 END_PGML
 
