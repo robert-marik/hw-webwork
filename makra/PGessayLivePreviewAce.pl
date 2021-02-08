@@ -132,7 +132,7 @@ editor.setOptions({maxLines: 200, minLines:10});
 editor.setOption("indentedSoftWrap", false);
 var textarea = jQuery('textarea[name="AnSwEr0001"]');
 editor.getSession().on("change", function () {
-    textarea.val(editor.getSession().getValue());
+    textarea.val(editor.getSession().getValue().replace(/\\n/g," "));
     Preview.Update();
 });
 });
