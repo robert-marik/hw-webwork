@@ -129,6 +129,7 @@ editor.setTheme("ace/theme/textmate");
 editor.getSession().setMode("ace/mode/latex");
 editor.setFontSize(15);
 editor.setOptions({maxLines: 200, minLines:10});
+editor.setOption("wrap", true);
 editor.setOption("indentedSoftWrap", false);
 var textarea = jQuery('textarea[name="AnSwEr0001"]');
 editor.getSession().on("change", function () {
