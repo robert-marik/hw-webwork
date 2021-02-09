@@ -1,0 +1,22 @@
+diff --git a/lib/WeBWorK/AchievementEvaluator.pm b/lib/WeBWorK/AchievementEvaluator.pm
+index a065b9293..35bf183d2 100644
+--- a/lib/WeBWorK/AchievementEvaluator.pm
++++ b/lib/WeBWorK/AchievementEvaluator.pm
+@@ -149,7 +149,7 @@ sub checkForAchievements {
+ 		$ce->{achievementPointsPerProblem});
+ 	    #this variable is shared and should be considered iffy
+ 	    $achievementPoints += $ce->{achievementPointsPerProblem};
+-	    $globalData->{'completeProblems'} += 1;
++	    if ($thisProblem->set_id ne '00_Uvod') { $globalData->{'completeProblems'} += 1;}  # Robert Marik - do not increment counter if the problem is from 00_Uvod set
+ 	    $allcorrect = 1;
+ 	}
+     }
+@@ -160,7 +160,7 @@ sub checkForAchievements {
+     foreach my $thisProblem (@setProblems) {
+ 	if ($thisProblem->problem_id eq $problem->problem_id) {
+ 	    $setProblems[$index] = $problem;
+-	} elsif ($thisProblem->status != 1) {
++	} elsif ( ($thisProblem->status != 1) && ($thisProblem->problem_id != 15) ) {
+ 	    $allcorrect = 0;
+ 	}
+ 	$index++;
