@@ -1,0 +1,14 @@
+diff --git a/lib/WeBWorK/Utils.pm b/lib/WeBWorK/Utils.pm
+index 9151921c8..42312112e 100644
+--- a/lib/WeBWorK/Utils.pm
++++ b/lib/WeBWorK/Utils.pm
+@@ -452,6 +452,9 @@ sub unformatDateAndTime {
+ 	my ($string) = @_;
+ 	my $orgString = $string;
+ 
++
++	$string =~ s|odp\.|pm|;
++	$string =~ s|dop\.|am|;
+ 	$string =~ s|^\s+||;
+ 	$string =~ s|\s+$||;
+ 	$string =~ s|at| at |i; ## OK if forget to enter spaces or use wrong case

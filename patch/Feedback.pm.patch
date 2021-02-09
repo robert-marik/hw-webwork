@@ -1,0 +1,39 @@
+diff --git a/lib/WeBWorK/ContentGenerator/Feedback.pm b/lib/WeBWorK/ContentGenerator/Feedback.pm
+index dd5708afc..0b8fcfeb0 100644
+--- a/lib/WeBWorK/ContentGenerator/Feedback.pm
++++ b/lib/WeBWorK/ContentGenerator/Feedback.pm
+@@ -329,6 +329,34 @@ $emailableURL
+ 			$msg .= Dumper($ce). "\n\n";
+ 		}
+ 
++    $msg =~ s/ě/e/g;
++    $msg =~ s/š/s/g;
++    $msg =~ s/č/c/g;
++    $msg =~ s/ř/r/g;
++    $msg =~ s/ž/z/g;
++    $msg =~ s/ý/y/g;
++    $msg =~ s/á/a/g;
++    $msg =~ s/í/i/g;
++    $msg =~ s/é/e/g;
++    $msg =~ s/Ě/E/g;
++    $msg =~ s/Š/S/g;
++    $msg =~ s/Č/C/g;
++    $msg =~ s/Ř/R/g;
++    $msg =~ s/Ž/Z/g;
++    $msg =~ s/Ý/Y/g;
++    $msg =~ s/Á/A/g;
++    $msg =~ s/Í/I/g;
++    $msg =~ s/É/E/g;
++    $msg =~ s/ú/u/g;
++    $msg =~ s/ů/u/g;
++    $msg =~ s/Ú/U/g;
++    $msg =~ s/ď/d/g;
++    $msg =~ s/ť/t/g;
++    $msg =~ s/ä/a/g;
++    $msg =~ s/ö/o/g;
++    $msg =~ s/ü/u/g;
++    $msg =~ s/[^[:ascii:]]//g;
++    
+     $email->body_set(encode_utf8($msg));
+ 
+ 		try {
