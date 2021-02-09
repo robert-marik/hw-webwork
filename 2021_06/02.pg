@@ -1,0 +1,92 @@
+DOCUMENT();		# This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+$showHint = 1;
+
+Context()->strings->add(nelze=>{},N=>{alias=>"nelze"});
+
+$showPartialCorrectAnswers = 1;
+
+$a = random(-5, 5, 1);
+$b = random(1, 4, 1);
+do
+{
+	$c = random(-5, 5, 1);
+	$d = random(1, 4, 1);
+}
+until ($a!=$b) or ($c!=$d);
+
+$e = random(-5, 5, 1);
+$f = random(-5, 5, 1);
+$answer=Compute("$e*$f");
+
+$i = random(0, 2,1);
+
+if ($i==0)
+{
+$ff="g";
+$fg="f";
+$answer=Compute("nelze");
+}
+else
+{
+$ff="f";
+$fg="g";
+}
+
+$g = $a + $b;
+$h = $c + $d;
+
+
+
+BEGIN_PGML
+
+## Fubiniova věta na obdélníku pro funkci se separovanými proměnnými II
+
+Speciálním případem Fubiniovy věty, kdy se integrál ze součinu dvou funkcí jedné proměnné přes obdélník redukuje na součin integrálů je vzorec
+[``` \iint_\Omega f(x)g(y)\,\mathrm dx\mathrm dy=\int_{a}^bf(x)\,\mathrm dx \int _c^dg(y)\,\mathrm dy,```]
+kde množina [``\Omega``] je dána nerovnostmi [`` a\leq x\leq b``] a [`` c\leq y\leq d``].
+
+
+Nechť [`D`] je obdélník daný nerovnostmi [``[$a] \leq x \leq [$g]``] a [``[$c] \leq y \leq [$h]``]. 
+Určete [```\iint_{D} f(x) g(y) \,\mathrm dx\mathrm dy, ```]
+jestliže [``\int_{[$a]}^{[$g]} [$ff](t) \, 
+\mathrm dt = [$e] ``] a [`` \int_{[$c]}^{[$h]} [$fg](t) \,\mathrm dt = [$f] ``].
+
+>> [`` \iint_{D} f(x)g(y) \,\mathrm dx\mathrm dy ={}``] [____________]{$answer} <<
+
+*Návod.* Na jménu proměnné pochopitelně nezáleží. Ujasněte si, například v proměnných [`x`] a [`y`] jaké integrály potřebujete, přepište je do proměnné [`t`] a porovnejte s tím, co máte k dispozici. Pokud nemáte správné informace pro vyřešení úlohy, napište *nelze* nebo zkráceně *N*.
+
+END_PGML
+
+BEGIN_PGML_HINT
+
+
+Rozmyslete si, zda máte k dispozici hodnoty, které stačí vynásobit.
+
+END_PGML_HINT
+
+if ($i==0)
+{
+BEGIN_PGML_SOLUTION
+ Nejsou k dispozici informace nutné pro vyřešení úlohy. Potřebovali bychom znát integrály
+ [``\int_{[$a]}^{[$g]} [$fg](t) \, 
+\mathrm dt ``] a [`` \int_{[$c]}^{[$h]} [$ff](t) \,\mathrm dt ``].
+END_PGML_SOLUTION
+}
+else
+{
+BEGIN_PGML_SOLUTION
+Stačí vynásobit zadané integrály. Odpověď je [`` [$answer] ``].
+END_PGML_SOLUTION
+}
+
+ENDDOCUMENT();

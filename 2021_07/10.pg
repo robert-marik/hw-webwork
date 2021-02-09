@@ -1,0 +1,147 @@
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("left.css");
+
+$showPartialCorrectAnswers = 1;
+
+
+$co="";
+$i=random(1,3);
+if ($i==1)
+{
+  $co="jednorozměrný případ,";
+  $dimenze="Jednorozměrná";
+}
+elsif ($i==2)
+{
+  $co="dvourozměrný případ,";
+  $dimenze="Dvourozměrná";
+}
+else
+{
+  $co="trojrozměrný případ,";
+  $dimenze="Trojrozměrná";
+}
+
+$i=random(1,2);
+if ($i==1)
+{
+ $stacionarnost=" stacionární";
+ $co=$co." stacionární děj,";
+}
+else
+{
+ $stacionarnost=" nestacionární";
+ $co=$co." nestacionární děj,";
+}
+
+$i=random(1,2);
+if ($i==1)
+{
+ $zdroje=" bez zdrojů";
+ $co=$co." rovnici bez přítomnosti zdrojů,";
+}
+else
+{
+ $zdroje=" se zdroji";
+}
+
+$i=random(1,2);
+if ($i==1)
+{
+ $izotropie=" izotropním";
+ $co=$co." izotropní";
+}
+else
+{
+ $izotropie=" ortotropním";
+ $co=$co." ortotropní";
+}
+
+
+$i=random(1,2);
+if ($i==1)
+{
+ $homogenita=" homogenní";
+ $co=$co." homogenní materiál";
+}
+else
+{
+ $homogenita=" nehomogenní";
+ $co=$co." nehomogenní materiál";
+}
+
+
+$i=random(1,2);
+if ($i==1)
+{
+ $linearita=" nelineární";
+ $co=$co." s nelineární materiálovou odezvou";
+}
+else
+{
+ $linearita=" lineární";
+ $co=$co." s lineární materiálovou odezvou";
+}
+
+
+
+
+BEGIN_PGML
+
+## Difuzní rovnice v souřadnicích
+
+Difuzní rovnice v trojrozměrném materiálu, má při volbě souřadných os ve vlastních směrech difuzní matice tvar [``` \frac{\partial u}{\partial t}=\sigma + \frac{\partial }{\partial x}\left(k_x \frac{\partial u}{\partial x}\right)+ \frac{\partial }{\partial y}\left(k_y \frac{\partial u}{\partial y}\right)+ \frac{\partial }{\partial z}\left(k_z \frac{\partial u}{\partial z}\right). ```]
+
+Napište tvar, do jakého se rovnice zjednoduší, pokud budeme uvažovat [$co].
+
+*Pravidla:* Otázka je randomizovaná a každý má své vlastní zadání. Z odpovědi proto musí být jasné, jaké je zadání a jaká odpověď. Můžete použít následující formulaci ve které je už zahrnuto Vaše osobní zadání: *[$dimenze] [$stacionarnost] rovnice [$zdroje] v [$izotropie] materiálu, který je [$homogenita] s [$linearita] materiálovou odezvou, má tvar ...*. Plnou rovnici si můžete vykopírovat v úvodu tohoto zadání a upravit podle potřeby. Vložte ji jako rovnici na samostatný řádek (tj. oddělovače pomocí zpětného lomítka a hranaté závorky v případě LaTeXu).
+
+*TIP:* Na webové stránce pluginu [@ htmlLink("https://www.mathjax.org/#demo","MathJax")@]* si můžete pohodlně text připravit v LaTeXu i v AsciiMath a poté vykopírovat sem.
+
+*TIP2:* Použijte pro psaní matematických znaků anglickou klávesnici (povolte si ji v operačním systému, pokud jste to neudělali dříve). Pokud nemáte na tlačítkách anglické znaky, najděte si je na [@ htmlLink("https://en.wikipedia.org/wiki/British_and_American_keyboards","webu")@]*. V případě problémů pište na Teams.
+
+*TIP3:* Předpoklady o materiálu a k jakým zjednodušením základní rovnice vedou jsou okomentovány ve cvičení. Jsou shrnuty v PDF zápiscích [@ htmlLink("http://user.mendelu.cz/marik/am/notes/Difuzni_rovnice_kartezske_souradnice.pdf","zde") @]*.
+
+Připomenutí terminologie
+
+* _homogenní_ (v každém bodě stejné vlastnosti) versus _nehomogenní_ (v různých bodech různé vlasnosti)
+* _izotropní_ (v každém směru stejné vlastnosti) versus _anizotropní_ nebo _ortotropní_ (v různých směrech různé vlasnosti)
+* _lineární_ (konstata úměrnosti z Fickova zákon nezávisí na stavové veličině) versus _nelineární_ (konstata úměrnosti z Fickova zákon závisí na stavové veličině)
+* _stacionární_ (nezávislá na čase) versus _nestacionární_
+* _bezzdrojová_ (bez přítomnosti zdrojů a spotřebičů) versus _rovnice se zdroji_
+
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box()\}
+END_TEXT
+
+
+BEGIN_PGML
+_[@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "Nápověda pro LaTeX, ukázky kódů pro vykopírování") @]* (odkaz otevřete pravým tlačítem v novém panelu, aby Vám zůstala otevřená i stránka, kterou čtete). Další ukázky jsou všechny vzorce v programu WeBWorK a v přednáškách. Použijte pravé tlačítko a zobrazení kódu v programu TeX._
+END_PGML
+
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+
+
+BEGIN_PGML_SOLUTION
+
+...
+
+END_PGML_SOLUTION
+
+ENDDOCUMENT();

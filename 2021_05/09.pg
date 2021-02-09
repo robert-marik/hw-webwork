@@ -1,0 +1,127 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context("Vector2D");
+
+Context()->variables->are(t=>"Real",x=>"Real",y=>"Real");
+Context()->flags->set(ijk=>1 );
+Context()->constants->set(
+  i => {TeX => "\,\mathit{\vec i}"},
+  j => {TeX => "\,\mathit{\vec j}"},
+  k => {TeX => "\,\mathit{\vec k}"},
+);
+
+$a=non_zero_random(-2,3,1);
+$b=non_zero_random(-4,4,1);
+$c=non_zero_random(1,3,1);
+$rr=non_zero_random(-3,3,1);
+
+do
+{
+$n=random(1,3,1);
+$m=random(1,3,1);
+} until ($m+$n>2) and ($n != $m);
+
+$k=random(3,7,1);
+$nasobek=random(1,3,1);
+$tmax=random(1,3,1);
+
+$r1=Formula("$a*(t)^($n)")->reduce();
+$r2=Formula("(t)^($m)")->reduce();
+$r=Vector("<$r1,$r2>");
+
+$ansr1=Formula("$a*$n*(t)^($n-1)")->reduce();
+$ansr2=Formula("$m*(t)^($m-1)")->reduce();
+$answerR=Vector("<$ansr1,$ansr2>");
+
+
+$f1=random(3,8,1);
+$f2=random(3,8,1);
+$k=random(1,3,1);
+$l=random(1,2,1);
+
+$Fx=Formula("$b*x*y^($k)")->reduce();
+$Fy=Formula("$c*x^($l)")->reduce();
+$Fxt=Formula("($a*$b)*t^($n+$k*$m)")->reduce();
+$Fyt=Formula("($c*($a)^$l)*t^($n*$l)")->reduce();
+
+$F=Vector("<$Fx,$Fy>");
+$answerF=Vector("<$Fxt,$Fyt>");
+
+$answerFRa=Formula("$Fxt*$ansr1+$Fyt*$ansr2")->reduce();
+$answerFR=Formula("(($a)^2*$b*$n)*t^($n+$k*$m+$n-1)+$m*$c*($a)^($l)*t^($l*$n+$m-1)")->reduce();
+
+$answerKIP=Compute("(($a)^2*$b*$n)/($n+$k*$m+$n)*t^($n+$k*$m+$n)+$m*$c*($a)^($l)/($l*$n+$m)*t^($l*$n+$m)")->reduce();
+$answerKI=$answerKIP->substitute(t=>$tmax)->reduce();
+
+# [@ return ($answerFR == $answerFRa ? "1. OK" : "1. Error"); @]*
+
+BEGIN_PGML
+
+## Výpočet křivkového integrálu druhého druhu
+
+
+Je dána křivka [` \vec r(t)=[$r]`] pro [`t\in [0,[$tmax]]`] a vektorové pole [`\vec F(x,y)=[$F].`] 
+
+>>[``\frac{\mathrm d}{\mathrm dt} \vec r(t)={} ``][_____________________________________]{$answerR} <<
+
+Poté najděte vyjádření vektorového pole podél křivky.
+
+>>[``\vec F(\vec r(t))={} ``][_____________________________________]{$answerF} <<
+
+Dále najděte skalární součin obou vektorů
+
+>>[``\vec F(\vec r(t)) \cdot \frac{\mathrm d}{\mathrm dt} \vec r(t)={} ``][_____________________________________]{$answerFR} <<
+
+Nakonec najděte hodnotu integrálu vektorového pole po zadané křivce.
+
+>>[``\int_C \vec F\,{\mathrm d} \vec r={} ``][_____________________________________]{$answerKI} <<
+
+
+(Nezapomeňte tam kde je odpovědí vektor zadat odpověď jako vektor, tj. ve formátu *<...,...>* nebo *(...)\*i+(...)\*j*.)
+
+
+END_PGML
+
+BEGIN_PGML_HINT
+
+Pro výpočet [`` \frac{\mathrm d}{\mathrm dr} \vec r(t)``] derivujeme jednotlivé komponenty vektorového pole [`\vec r(t).`]
+
+Pro vyjádření [`\vec F(\vec r(t))`] stačí do [``` \vec F=[$F]```] dosadit  [```x=[$r1]```] a [```y=[$r2]```] a případně upravit.
+
+Skalární součin vypočítáme vynásobením odpovídajících si komponent a sečtením těchto součinů.
+
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+
+Pro výpočet [`` \frac{\mathrm d}{\mathrm dr} \vec r(t)``] derivujeme jednotlivé komponenty vektorového pole [`\vec r(t).`]
+Platí [```\frac{\mathrm d}{\mathrm dt}([$r1])=[$ansr1] ```] a [```\frac{\mathrm d}{\mathrm dt}([$r2])=[$ansr2]. ```] Derivace je tedy [```\frac{\mathrm d }{\mathrm dt}\vec r(t)=[$answerR]. ```]
+
+Pro vyjádření [`\vec F(\vec r(t))`] stačí do [``` \vec F=[$F]```] dosadit [```x=[$r1]```] a [```y=[$r2]```] a případně upravit. Vychází [```\vec F(\vec r(t))=[$answerF]. ```]
+
+Po výpočtu skalárního součinu dostáváme
+[```\vec F(\vec r(t))\frac{\mathrm d }{\mathrm dt}\vec r(t)=
+([$ansr1])\cdot([$Fxt])+([$ansr2])\cdot([$Fyt])=
+[$answerFR]. ```]
+
+Tento výraz musíme integrovat v mezích příslušejících hodnotě parametru a výsledkem je hodnota integrálu.
+
+[```\int_C \vec F\,{\mathrm d} \vec r=\int_{0}^{[$tmax]}[$answerFR]\,\mathrm dt=\left[[$answerKIP]\right]_0^{[$tmax]}=[$answerKI] ```]
+
+
+					      
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
