@@ -1,0 +1,13 @@
+diff --git a/lib/WeBWorK/Utils/AttemptsTable.pm b/lib/WeBWorK/Utils/AttemptsTable.pm
+index aef254ccc..dd75026b9 100644
+--- a/lib/WeBWorK/Utils/AttemptsTable.pm
++++ b/lib/WeBWorK/Utils/AttemptsTable.pm
+@@ -453,6 +453,8 @@ sub formatToolTip {  # note that formatToolTip output includes CGI::td wrapper
+ 	my $self = shift;
+ 	my $answer = shift;
+ 	my $formattedAnswer = shift;
++	$answer =~ s/<BR\/>//g;
++	$formattedAnswer =~ s/<BR\/>//g;
+ 	return CGI::td({onmouseover=>qq!Tip('$answer',SHADOW, true, 
+ 		                    DELAY, 1000, FADEIN, 300, FADEOUT, 300, STICKY, 1, OFFSETX, -20, CLOSEBTN, true, CLICKCLOSE, false, 
+ 		                    BGCOLOR, '#F4FF91', TITLE, 'Entered:',TITLEBGCOLOR, '#F4FF91', TITLEFONTCOLOR, '#000000')!},

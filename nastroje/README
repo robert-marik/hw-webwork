@@ -1,0 +1,3 @@
+## Perl oneliner pro zobrazeni dat z achievementu globalnich
+
+perl -e 'use Storable qw(nfreeze thaw); use MIME::Base64 qw(encode_base64 decode_base64); $hash = thaw(decode_base64("BQoDAAAAAgiBAAAADkhhbGZDcmVkaXRQcm9iCIwAAAAQY29tcGxldGVQcm9ibGVtcw==")); print $hash->{"completeProblems"}'
