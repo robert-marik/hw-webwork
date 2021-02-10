@@ -1,0 +1,35 @@
+diff --git a/lib/WeBWorK/ContentGenerator/Instructor/AchievementList.pm b/lib/WeBWorK/ContentGenerator/Instructor/AchievementList.pm
+index 9ecc6e6f8..caa85b0fa 100644
+--- a/lib/WeBWorK/ContentGenerator/Instructor/AchievementList.pm
++++ b/lib/WeBWorK/ContentGenerator/Instructor/AchievementList.pm
+@@ -54,6 +54,7 @@ use WeBWorK::Debug;
+ use WeBWorK::Utils qw(timeToSec readFile listFilesRecursive cryptPassword sortAchievements);
+ use DateTime;
+ use Text::CSV;
++use Encode;
+ 
+ #constants for forms and the various handlers
+ use constant BLANK_ACHIEVEMENT => "blankachievement.at";
+@@ -594,7 +595,7 @@ sub score_handler {
+ 	    my $user_id = $userRecord->user_id;
+ 	    next unless $db->existsGlobalUserAchievement($user_id);
+ 	    next if ($userRecord->{status} eq 'D' || $userRecord->{status} eq 'A');
+-	    print SCORE "$user_id, $userRecord->{last_name}, $userRecord->{first_name}, $userRecord->{section}, ";
++	    print SCORE Encode::encode("UTF-8","$user_id, $userRecord->{last_name}, $userRecord->{first_name}, $userRecord->{section}, ");
+ 	    my $globalUserAchievement = $db->getGlobalUserAchievement($user_id);
+ 	    my $level_id = $globalUserAchievement->level_achievement_id;
+ 	    $level_id = ' ' unless $level_id;
+@@ -970,11 +971,11 @@ sub saveExport_handler {
+ 	#run through achievements outputing data as csv list.  This format is not documented anywhere
+ 	foreach my $achievement (@achievements) {
+ 	    my $line = [$achievement->achievement_id,
+-			$achievement->name,
++			Encode::encode("UTF-8","$achievement->name"),
+ 			$achievement->number,
+ 			$achievement->category,
+ 			$achievement->assignment_type,
+-			$achievement->description,
++			Encode::encode("UTF-8","$achievement->description"),
+ 			$achievement->points,
+ 			$achievement->max_counter,
+ 			$achievement->test,
