@@ -25,7 +25,7 @@ BEGIN_PGML
 
 ## Dřevěná kostka v peci pro teplotní modifikaci
 
-Dřevěnou kostku o délce strany [``10\,\mathrm{cm}``] dáme do pece k teplotní modifikaci a pec zapneme. Pec se ohřeje rychle, od vzduchu v peci se rychle ohřejí stěny a ty potom předávají teplo dál do kostky. Co se bude dít s jednotlivými parciálními derivacemi teploty? Pro jednoznačnost orientujme souřadnicové osy podle obrázku. Přední stranou kostky rozumíme tu, která je na obrázku vidět.
+Dřevěnou kostku o délce strany [``10\,\mathrm{cm}``] dáme do pece k teplotní modifikaci a pec zapneme. Pec se ohřeje rychle, od vzduchu v peci se rychle ohřejí stěny a ty potom předávají teplo dál do kostky. Co se bude dít s jednotlivými parciálními derivacemi teploty? Pro jednoznačnost orientujme souřadnicové osy podle obrázku. Přední stranou kostky rozumíme tu, která je na obrázku vidět. Veličina [`T`] je teplota koskty a tato se může měnit podle toho, jak běží čas a které místo kostky sledujeme. Je tedy funkcí čtyř proměnných [``` T=T(t,x,y,z).```]
 
 [@ image("drevena_kostka.png", width=>300) @]*
 
