@@ -1,139 +1,100 @@
-###########################
-#  Initialization
-
-DOCUMENT();  
+DOCUMENT();
 
 loadMacros(
-  "PGstandard.pl",
-  "MathObjects.pl",
-  "PGchoicemacros.pl",
-  "PGgraders.pl",
-  "unionTables.pl",
-  "PGML.pl",
-  "PGcourse.pl"
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
 );
 
 TEXT(beginproblem());
 
+# komentiovany kod viz soubor umernost_slovne.pg
 
-###########################
-#  Setup
+$DEBUG=0;
 
-#
-#  Create a matching list and use popups
-#
-$ml = new_match_list();
-$ml->rf_print_q(~~&pop_up_list_print_q);
-$ml->ra_pop_up_list([
-"No answer" => "?",
-"A" => "A", "B" => "B", "C" => "C", 
-"D" => "D", "E" => "E"
-]);
+$data =
+[
+{
+    obrazek=>"ryby",
+    otazka=>"Hmotnost objektu souvisí s jeho velikostí. U některých živočišných druhů, jako jsou například mnohé ryby, mají mláďata přibližně stejný tvar jako dospělí a proto je u těchto druhů hmotnost \(m\) svázána se třetí mocninou délky \(l\) vztahem \[m= kl^3.\] Jak byste tento vztah přečetli slovně?",
+    odpoved=>"Hmotnost je přímo úměrná třetí mocnině její délky.",
+    zdroj=>"Obrázek: wikimedia.org, autor: Hamid Badar Osmany",
+    moznosti=>["Hmotnost ryby je nepřímo úměrná třetí mocnině její délky.",
+	  "Hmotnost ryby je nepřímo úměrná třetí odmocnině její délky.",
+	  "Hmotnost ryby je přímo úměrná třetí odmocnině její délky.",
+	  "Hmotnost ryby je přímo úměrná její délce.",
+	  "Hmotnost ryby je nepřímo úměrná její délce."],
+}
+,
+{
+    obrazek=>"hvezdy",
+    otazka=>"Ve vědě zpravidla navazuje každý vědec na své předchůdce. Klasickou ukázkou je odvození gravitačního zákona. Na začátku byla podrobná pozorování pohybu planet, která vykonal Tycho Brahe. Z nich později Johanes Keppler vyvodil geniální zákony pro pohyb planet. Na tuto činnost navázal později Isaac Newton, který brilantní analýzou, v níž položil základy diferenciálního a integrálního počtu, prokázal, že Keplerovy zákony je možné odvodit matematickou cestou, pokud mezi gravitační silou \(F\) působící mezi dvěma objekty a jejich vzdáleností \(r\) je vztah tvaru \[F=\frac k{r^2}.\] Jak byste tento vztah mezi gravitační silou a vzdáleností vyjádřili slovně?",
+    odpoved=>"Gravitační síla je nepřímo úměrná druhé mocnině vzdálenosti.",
+    moznosti=>["Gravitační síla je přímo úměrná druhé mocnině vzdálenosti.",
+	  "Gravitační síla je přímo úměrná druhé odmocnině vzdálenosti.",
+	  "Gravitační síla je nepřímo úměrná druhé odmocnině vzdálenosti.",
+	  "Gravitační síla je nepřímo úměrná vzdálenosti.",
+	  "Gravitační síla je přímo úměrná vzdálenosti."
+	 ],
+    zdroj=>"Obrázek: wikimedia.org, autor: Hamid Badar Osmany"
+}
+,
+{
+    obrazek=>"kukacky",
+    otazka=>"Jedním z pravidelných dějů je kmitání kyvadla. Pomocí něj se dokonce dříve měřil čas. Pro matematické kyvadlo délky \(l\) je perioda \(T\) dána vzorcem  \[T=2\pi \sqrt{\frac lg},\]  kde \(g\) je tíhové zrychlení. Jak byste tento vztah mezi periodou \(T\) a délkou kyvadla \(l\) vyjádřili slovně?",
+    odpoved=>"Perioda kyvadla je přímo úměrná odmocnině z délky kyvadla.",
+    moznosti=>[
+	  "Perioda kyvadla je nepřímo úměrná odmocnině z délky kyvadla.",
+	  "Perioda kyvadla je přímo úměrná druhé mocnině délky kyvadla.",
+	  "Perioda kyvadla je nepřímo úměrná druhé mocnině z délky kyvadla.",
+	  "Perioda kyvadla je přímo úměrná délce kyvadla.",
+	  "Perioda kyvadla je nepřímo úměrná délce kyvadla.",
+	 ],
+    zdroj=>"Obrázek: www.timestore.cz",
+}
+];
 
-#
-#  Add correct questions and answers
-#
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
 
 
-$ml->qa(
-"Z venku dokonale izolovaná stěna. Na hranici \(x=L\) nedochází k toku tepla.", "Tok tepla pro \(x=L\) je roven nule.",
-"Vnitřní část stěny je udržovaná na konstantní teplotě.", "Je zadána konstantní hodnota teploty pro \(x=0\).",
-"Stěna je zvenku osvětlená a zahřívaná Sluncem. Na vnější hranici je konstantní tok tepla směrem do stěny.", "Je zadána nenulová konstantní hodnota toku pro \(x=L\).",
-"Stěna je zvenku ochlazována prouděním vzduchu. Tok tepla mezi stěnou a okolím je úměrný rozdílu teplot stěny a okolí.", "Je zadán vztah mezi tokem pro \(x=L\) a teplotou v bodě \(x=L\).",
-"Stěna je zevnitř ohřívána prouděním vzduchu od radiátorů. Tok tepla mezi stěnou a okolím je úměrný rozdílu teplot stěny a okolí", "Je zadán vztah mezi tokem pro \(x=0\) a teplotou v bodě \(x=0\)."
-);
+foreach $i (@pole)
+{
 
+$ot=$data->[$i]->{otazka};
+$obrazek=$data->[$i]->{obrazek};
+$od=$data->[$i]->{odpoved};
+$zdroj=$data->[$i]->{zdroj};
+@moznosti=@{$data->[$i]->{moznosti}};
+$radio = RadioButtons([[$od,@moznosti]],0);
 
-
-$ml->choose(5);
-
-#
-#  Add extra incorrect answers
-#
-#$ml->extra(
-#"Extra answer 1", 
-#"Extra answer 2",
-#);
-#$ml->choose_extra(2);
-  
-#$ml->makeLast("None of the above");
-
-
-
-###########################
-#  Main text
 
 BEGIN_PGML
 
-## Okrajové podmínky pro rovnici vedení tepla
+## Slovní vyjádření souvislosti veličin
 
-Rovnice vedení tepla v jedné dimenzi je rovnice
-[```m \varrho \frac{\partial T}{\partial t}=\frac{\partial}{\partial x}
-\left(\lambda \frac{\partial T}{\partial x}\right).```] Zde [`T`] je teplota v daném místě a čase, derivace podle času [``\frac{\partial T}{\partial t}``] označuje rychlost s jakou se mění (roste) teplota a [``\frac{\partial T}{\partial x}``] je jednorozměrný gradient teploty (prostorová změna teploty). Tento gradient úzce souvisí s tokem podle Fourierova zákona a proto můžeme tok přepočítávat na derivaci teploty podle \(x\) a naopak.
+[@ image("$obrazek.jpg", width=>400) @]*
 
-Uvedená rovnice může modelovat teplotní pole ve stěně, ve které zanedbáváme efekty spojené s chováním teplotního pole v rozích. Proto je nutné tuto rovnici doplnit ještě dalšími informacemi charakterizujícími podmínky, ve kterých se tato stěna nachází.
+[@ $ot @]
 
-[@ image("stena.png", width=>300) @]*
+[_]{$radio}
 
-Stěna je na intervalu [`x\in[0,L]`], [`x=0`] je vnitřní okraj a [`x=L`] je vnější okraj. Výraz [``-\lambda\frac{\partial T}{\partial x}``] udává tok tepla ve směru osy [`x`]. Tok ve směru osy [`x`] má kladné znaménko. 
-
-Spárujte jednotlivé situace s podmínkami, kterým je stěna vystavena.
+_[@ $zdroj @]_
 
 END_PGML
 
-BEGIN_TEXT
-
-\{ $ml->print_q() \}
-$BR
-\{ $ml->print_a() \}
-
-END_TEXT
-
-
-
-
-############################
-#  Answer evaluation
-
-$showPartialCorrectAnswers = 0;
-
-#
-#  Incremental grader
-#
-install_problem_grader(~~&custom_problem_grader_fluid);
-$ENV{'grader_numright'} = [2,3,5];
-$ENV{'grader_scores'} = [0.3,0.6,1];
-$ENV{'grader_message'} = "Za částečně odpovězenou otázku je možné získat částečné hodnocení.";
-
-#
-#  All or nothing grader
-#  
-# install_problem_grader(~~&std_problem_grader);
-
-ANS( str_cmp( $ml->ra_correct_ans ) );
-
-
-############################
-#  Solution
-
-@correct = @{$ml->ra_correct_ans()};
-$answerstring = join(", ", @correct);
-
-$showHint = 1;
-
-BEGIN_PGML_HINT
-* Ujasněte si, kdy pracujeme s vnější a kdy vnitřní stěnou a která hodnota [`x`] k tomuto patří.
-* Ujasněte si, zda je v podmínce pevně definována teplota, nebo tok, nebo vztah mezi teplotou a tokem.
-END_PGML_HINT
-
 BEGIN_PGML_SOLUTION
-Správné odpovědi jsou [$answerstring].
-
-* Pokud se podmínka týká vnitřní strany stěny, formulujeme ji pro [`x=0`], pokud vnější, formulujeme podmínku pro [`x=L`], protože takto je úloha zadána.
-* Pokud je podmínkou zadána konstantní teplota, je ve formulaci podmínky hodnota [`T`] v příslušném bodě.
-* Pokud je předepsaný tok, ať již nulový, nebo konstantní, nebo úměrný rozdílu teplot, je podmínka formulována pro tok. Je-li zadán konstantní tok, i nulový, je předepsána hodnota tohoto toku. Je-li zadána souvilost mezi tokem a a teplotou, je obsahuje podmínka tok i teplotu.
+[@ $od @]
 END_PGML_SOLUTION
 
-COMMENT('MathObject version. Uses PGML.');
+
+}
 
 ENDDOCUMENT();

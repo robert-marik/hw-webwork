@@ -8,25 +8,54 @@ loadMacros(
 "PGML.pl"
 );
 
-
 TEXT(beginproblem());
-$showPartialCorrectAnswers = 0;
-$showHint = 1;
 
+$DEBUG=0;
 
 $data =
 [
 {
-    obrazek=>"horici_spalek",
-    nadpis=>"Rovnice vedení tepla",
-    otazka=>"Vedení tepla je spojeno s nerovnoměrným rozložením teploty v přímce, rovině nebo prostoru a proto předpokládá existenci zdrojů tepla, které takovou nerovnoměrnost vytvoří. Proč tedy nejsou v rovnici zastoupeny zdroje tepla?",
-    odpoved=>"Protože při vedení tepla nás zajímá co se děje uvnitř materiálu a tam se žádné teplo netvoří. Jak vniklo teplo, které do materiálu prostupuje, je pro popis chování tepla uvnitř materiálu irelevantní.",    
+    obrazek=>"sloup",
+    otazka=>"U nosníku namáhaného na vzpěr je nutné, aby zatížení nepřekročilo jistou mez. Maximální zatížení nosníku daného průřezu souvisí délkou nosníku. Fyzikální analýzou je možné ukázat, že maximální svislá síla \(F\) působící v ose nosníku je nepřímo úměrná druhé mocnině jeho délky \(l\). Vyjádřete tento vztah matematicky.",
+    odpoved=>"\(\displaystyle F=\frac k{l^2}\)",    
     moznosti=>[
-"Protože by rovnici jinak nebylo možné sestavit. Jedná se o aproximaci pro zdroje malé vydatnosti.",
-"Protože by rovnici jinak nebylo možné vyřešit. Jedná se o aproximaci pro malá toky tepla.",
-"Protože aby se něco mohlo ohřát, musí se něco jiného ochladit a výsledný součet je vždy nulový podle zákona zachování energie.",
+	  "\(\displaystyle F= k{l^2}\)",
+	  "\(\displaystyle F= k{l}\)",
+	  "\(\displaystyle F= k\sqrt {l}\)",
+	  "\(\displaystyle F= \frac k{l}\)",
+	  "\(\displaystyle F= \frac {k}{\sqrt {l}}\)",
 ],
-zdroj=>"Obrázek: pixabay.com, autor Wendy-Baars"
+zdroj=>"Obrázek: pixabay.com, autor alsen"
+}
+,
+{
+    obrazek=>"kytara",
+    otazka=>"Princip hry na strunné hudební nástroje spočívá ve zkracování struny na hmatníku, čímž se mění frekvence jejích kmitů a tím i výška tónu, tj. frekvence kmitů. Je známo, že frekvence \(f\) kmitů struny je nepřímo úměrná délce \(l\) struny. Vyjádřete tento vztah matematicky.",
+    odpoved=>"\(\displaystyle f=\frac k{l}\)",    
+    moznosti=>[
+          "\(\displaystyle f= k{l^2}\)",
+	  "\(\displaystyle f= k{l}\)",
+	  "\(\displaystyle f= k\sqrt {l}\)",
+	  "\(\displaystyle f= \frac k{l^2}\)",
+	  "\(\displaystyle f= \frac k{\sqrt {l}}\)",
+	 ],
+    zdroj=>"Obrázek: pixabay.com, autor Couleur"
+}
+,
+{
+    obrazek=>"nakladaky",
+    otazka=>"Odolnost nosníků zajímá nejenom stavaře dřevěných konstrukcí, ale například i arboristy (strom je možno chápat jako vetknutý nosník) nebo stavitele mostů (most je možno chápat jako nosník podepřený na dvou koncích). Při zátěžovém testu se zatíží most pomocí nákladních aut a porovnává se naměřený průhyb a jeho teoretická hodnota. 
+
+Pro rovnoměrně zatížený nosník je jeho prohnutí \(\delta\) úměrné čtvrté mocnině délky \(l\). Jak byste tuto souvislost zapsali matematicky?",
+    odpoved=>"\(\displaystyle \delta=k{l^4}\)",
+    moznosti=>[
+	  "\(\displaystyle \delta= k{l^3}\)",
+	  "\(\displaystyle \delta= k{\sqrt {l}}\)",
+	  "\(\displaystyle \delta= \frac k{l}\)",
+	  "\(\displaystyle \delta= \frac k{l^3}\)",
+	  "\(\displaystyle \delta= \frac k{\sqrt[4]{l}}\)",
+	 ],
+    zdroj=>"",
 }
 ];
 
@@ -42,12 +71,9 @@ if ($DEBUG) {@pole = (0..$posledni);}
 foreach $i (@pole)
 {
 
-
-
 # Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
 # s interpretaci hranatych zavorek
 $ot       =  $data->[$i]->{otazka};
-$na       =  $data->[$i]->{nadpis};
 $obrazek  =  $data->[$i]->{obrazek};
 $od       =  $data->[$i]->{odpoved};
 $zdroj    =  $data->[$i]->{zdroj};
@@ -57,7 +83,7 @@ $radio    =  RadioButtons([[$od,@moznosti]],0);
 
 BEGIN_PGML
 
-## [$na]
+## Matematické vyjádření souvislosti veličin
 
 [@ image("$obrazek.jpg", width=>400) @]*
 
@@ -78,6 +104,4 @@ END_PGML_SOLUTION
 };
 # konec cyklu
 
-
 ENDDOCUMENT();
-

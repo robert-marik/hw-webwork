@@ -9,25 +9,20 @@ loadMacros(
 );
 
 
-TEXT(beginproblem());
-$showPartialCorrectAnswers = 0;
-$showHint = 1;
-
-
 $data =
 [
 {
-    obrazek=>"vedeni_tepla",
-    nadpis=>"Rovnice vedení tepla",
-    otazka=>"Rovnice vedení tepla v jednorozměrném materiálu má tvar \[ \rho c\frac{\partial T}{\partial t}=-\frac{\partial}{\partial x}\left(-k\frac{\partial T}{\partial x}\right). \] Co vyjadřuje člen \[ -k\frac{\partial T}{\partial x} \] nacházející se uvnitř závorky na pravé straně?",
-    odpoved=>"Tok tepla.",    
+    obrazek=>"konvice",
+    nadpis=>"Slovní interpretace derivace",
+    otazka=>"V rychlovarné konvici vaříte vodu na čaj z pokojové teploty 18 stupňů Celsia.
+Čas měřený ve sekundách od zapnutí konvice a označíme \(t\).
+Funkce \(T(t)\) udává teplotu vody v čase \(t\). Najděte slovní interpretaci derivace funkce \(T\), tj. najděte slovní interpretaci pro derivaci \[\frac{\mathrm dT}{\mathrm dt}.\]",
+    odpoved=>"Rychlost, s jakou roste teplota vody.",
     moznosti=>[
-"Spád teploty",
-"Rychlost růstu toku tepla v ose \(x\)",
-"Rychlost růstu toku tepla ve směru opačném k ose \(x\)",
-"Rychlost změny teploty v čase",
-"Rychlost změny teploty v ose \(x\)",
-"Rychlost poklesu teploty v ose \(x\)",
+"Rychlost, s jakou se předává teplo z topné spirály do vody.",
+"Celkový čas nutný pro přivedení vody k bodu varu.",
+"Teplota vody po uplynutí jedné sekundy.",
+"Teplota vody po uplynutí jedné sekundy."
 ],
 zdroj=>"Obrázek: pixabay.com, autor ptdh"
 }
@@ -62,13 +57,11 @@ BEGIN_PGML
 
 ## [$na]
 
-[@ image("$obrazek.jpg", width=>400) @]*
 
 [$ot]
 
 [_]{$radio}
 
-_[$zdroj]_
 
 END_PGML
 
