@@ -1,3 +1,8 @@
 ## Perl oneliner pro zobrazeni dat z achievementu globalnich
 
 perl -e 'use Storable qw(nfreeze thaw); use MIME::Base64 qw(encode_base64 decode_base64); $hash = thaw(decode_base64("BQoDAAAAAgiBAAAADkhhbGZDcmVkaXRQcm9iCIwAAAAQY29tcGxldGVQcm9ibGVtcw==")); print $hash->{"completeProblems"}'
+
+
+## MYSQL pro nastaveni MathQuill na 0 pro studenty, kteri to maji jako NULL
+
+UPDATE `AM-Marik_user` SET `useMathQuill` = 0 WHERE `useMathQuill` IS NULL
