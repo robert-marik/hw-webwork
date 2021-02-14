@@ -29,7 +29,7 @@ kde [`v`] je rychlost dinosaura v metrech za sekundu, [`h`] je (zjednodušeně �
 
 Uvažujme stále stejného dinosaura, tj. [`h`] je konstantní a hraje v našem případě roli parametru. Rychlost je tedy funkcí délky kroku, [``` v=v(l).```]
 Pro konkrétního dinosaura můžeme mít například
-[``` v=0.8 l^{1.67}```]
+[``` v(l)=0.8 l^{1.67}```]
 a jak bývá někdy v takovýchto situacích zvykem, neuvažujeme ve vzorci jednotky, ale doplníme k němu informaci, že délku kroku určujeme v metrech a rychlost v metrech za sekundu.
 
 Vypočtěte derivaci této funkce a najděte její fyzikální jednotku a slovní interpretaci.
