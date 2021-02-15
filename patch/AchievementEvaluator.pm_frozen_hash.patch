@@ -1,0 +1,48 @@
+diff --git a/lib/WeBWorK/AchievementEvaluator.pm b/lib/WeBWorK/AchievementEvaluator.pm
+index a065b9293..0d4e678e4 100644
+--- a/lib/WeBWorK/AchievementEvaluator.pm
++++ b/lib/WeBWorK/AchievementEvaluator.pm
+@@ -53,6 +53,9 @@ sub checkForAchievements {
+     my $isGatewaySet = ( $set->assignment_type =~ /gateway/ ) ? 1 : 0;
+     my $isJitarSet = ( $set->assignment_type eq 'jitar' ) ? 1 : 0;
+ 
++    my $setNumber;
++    my $testIfScored;
++    
+     #### Temporary Transition Code ####
+     # If an achievement doesn't have either a number or an assignment_type
+     # then its probably an old achievement in which case we should
+@@ -141,6 +144,24 @@ sub checkForAchievements {
+ 	@problemsToCheck = @setProblems;
+     }
+ 
++    # Exit if we are in the initial set
++    foreach my $thisProblem (@problemsToCheck) {
++	if ($thisProblem->set_id eq '00_Uvod') {
++	    return '';
++	}
++    }
++
++    # Check if the achivements for this problem have been already awarded
++    if ( not $globalData->{'alreadyScored'} ) { $globalData->{'alreadyScored'} = ""; }
++    foreach my $thisProblem (@problemsToCheck) {
++	$testIfScored = ":".(substr $thisProblem->set_id, 0, 2)."".$thisProblem->problem_id.":";
++	if (index ($globalData->{'alreadyScored'}.":",$testIfScored) != -1) {
++	    return '';
++	}
++    }
++
++
++    
+     foreach my $thisProblem (@problemsToCheck) {
+ 
+ 	if ($thisProblem->status == 1 && $thisProblem->num_correct == 1) {
+@@ -151,6 +172,8 @@ sub checkForAchievements {
+ 	    $achievementPoints += $ce->{achievementPointsPerProblem};
+ 	    $globalData->{'completeProblems'} += 1;
+ 	    $allcorrect = 1;
++	    $setNumber = substr $thisProblem->set_id, 0, 2;
++	    $globalData->{'alreadyScored'} = $globalData->{'alreadyScored'}.":".$setNumber."".$thisProblem->problem_id;
+ 	}
+     }
+ 
