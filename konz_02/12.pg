@@ -14,22 +14,20 @@ $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
 
+
+
 $data =
 [
 {
-    obrazek=>"vedeni_tepla",
-    nadpis=>"Rovnice vedení tepla",
-    otazka=>"Rovnice vedení tepla v jednorozměrném materiálu má tvar \[ \rho c\frac{\partial T}{\partial t}=-\frac{\partial}{\partial x}\left(-k\frac{\partial T}{\partial x}\right). \] Co vyjadřuje člen \[ -k\frac{\partial T}{\partial x} \] nacházející se uvnitř závorky na pravé straně?",
-    odpoved=>"Tok tepla.",    
+    nadpis=>"Aproximace derivace",
+    otazka=>"Označte výraz, který udává numerickou aproximaci derivace funkce pomocí centrální diference.",
+    odpoved=>"\(\displaystyle\frac{f(x+h)-f(x-h)}{2h}\)",
     moznosti=>[
-"Spád teploty",
-"Rychlost růstu toku tepla v ose \(x\)",
-"Rychlost růstu toku tepla ve směru opačném k ose \(x\)",
-"Rychlost změny teploty v čase",
-"Rychlost změny teploty v ose \(x\)",
-"Rychlost poklesu teploty v ose \(x\)",
+"\(\displaystyle\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}\)",
+"\(\displaystyle\lim_{h\to 0}\frac{f(x+h)+f(x)}{2h}\)",
+"\(\displaystyle\frac{f(x+h)-f(x)}{h}\)",
+"\(\displaystyle\frac{f(x+h)-2f(x)+f(x-h)}{h^2}\)",
 ],
-zdroj=>"Obrázek: pixabay.com, autor ptdh"
 }
 ];
 
@@ -62,8 +60,6 @@ BEGIN_PGML
 
 ## [$na]
 
-[@ image("$obrazek.jpg", width=>400) @]*
-
 [$ot]
 
 [_]{$radio}
@@ -74,7 +70,7 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 
-[``` [$od] ```]
+[$od]
 
 END_PGML_SOLUTION
 

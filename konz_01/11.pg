@@ -22,6 +22,8 @@ $data =
     odpoved=>"Umožní převést průměrnou rychlost na rychlost okamžitou, protože stáhne délku intervalu přes který počítáme průměr na nulu.",
     moznosti=>[
 "Zajistí, že výsledná funkce prochází počátkem (nulou) a má díky tomu reálné fyzikální využití.",
+"Limita zajistí, že derivace je spojitá a má proto smysluplnou intepretaci v reálných situacích.",
+"Bez této limity by nebylo možno odlišit nepřímou úměrnost (v nule nekonečná) od úměrnosti přímé (v nule nulová).",
 "Dokáže oddělit rostoucí a klesající funkce. Derivace těchto funkcí se liší znaménkem a nula je oddělovačem mezi kladnými a reálnými čísly.",
 ],
 }

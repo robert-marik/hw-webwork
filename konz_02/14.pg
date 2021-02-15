@@ -13,20 +13,33 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
+$DEBUG=1;
 
 $data =
 [
 {
-    obrazek=>"horici_spalek",
-    nadpis=>"Rovnice vedení tepla",
-    otazka=>"Vedení tepla je spojeno s nerovnoměrným rozložením teploty v přímce, rovině nebo prostoru a proto předpokládá existenci zdrojů tepla, které takovou nerovnoměrnost vytvoří. Proč tedy nejsou v rovnici zastoupeny zdroje tepla?",
-    odpoved=>"Protože při vedení tepla nás zajímá co se děje uvnitř materiálu a tam se žádné teplo netvoří. Jak vniklo teplo, které do materiálu prostupuje, je pro popis chování tepla uvnitř materiálu irelevantní.",    
+    nadpis=>"Slovní interpretace vzorce pro lineární aproximaci",
+    otazka=>"Lineární aproximace je založena na vzorci \[f(x)\approx f(x_0)+f'(x_0)(x-x_0).\] Co v tomto kontextu vyjadřuje výraz \(f'(x_0)\)?",
+    odpoved=>"Odhad změny veličiny \(f\) na intervalu jednotkové délky, začínajícího v bodě \(x_0\).",
     moznosti=>[
-"Protože by rovnici jinak nebylo možné sestavit. Jedná se o aproximaci pro zdroje malé vydatnosti.",
-"Protože by rovnici jinak nebylo možné vyřešit. Jedná se o aproximaci pro malá toky tepla.",
-"Protože aby se něco mohlo ohřát, musí se něco jiného ochladit a výsledný součet je vždy nulový podle zákona zachování energie.",
+"Odhad změny veličiny \(f\) na intervalu mezi \(x_0\) a \(x\).",
+"Odhad průměrné rychlosti růstu veličiny \(f\) na intervalu mezi \(x_0\) a \(x\).",
+"Odhad hodnoty veličiny \(f\) v bodě \(x\).",
+"Odhad hodnoty veličiny \(f\) v bodě \(x_0\).",
 ],
-zdroj=>"Obrázek: pixabay.com, autor Wendy-Baars"
+}
+,
+{
+    nadpis=>"Slovní interpretace vzorce pro lineární aproximaci",
+    otazka=>"Lineární aproximace je založena na vzorci \[f(x)\approx f(x_0)+f'(x_0)(x-x_0).\] Co v tomto kontextu vyjadřuje výraz \(f'(x_0)(x-x_0)\)?",
+    odpoved=>"Odhad změny veličiny \(f\) na intervalu mezi \(x_0\) a \(x\).",
+    moznosti=>[
+"Odhad změny veličiny \(f\) na intervalu jednotkové délky, začínajícího v bodě \(x_0\).",
+"Odhad okamžité rychlosti růstu veličiny \(f\) v bodě \(x_0\).",
+"Odhad průměrné rychlosti růstu veličiny \(f\) na intervalu mezi \(x_0\) a \(x\).",
+"Odhad hodnoty veličiny \(f\) v bodě \(x\).",
+"Odhad hodnoty veličiny \(f\) v bodě \(x_0\).",
+],
 }
 ];
 
@@ -58,8 +71,6 @@ $radio    =  RadioButtons([[$od,@moznosti]],0);
 BEGIN_PGML
 
 ## [$na]
-
-[@ image("$obrazek.jpg", width=>400) @]*
 
 [$ot]
 
