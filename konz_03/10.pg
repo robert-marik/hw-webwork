@@ -6,7 +6,6 @@ loadMacros(
 "PGstandard.pl",
 "PGML.pl",
 "MathObjects.pl",
-"PGessaymacros.pl",
 "PGcourse.pl",
 );
 TEXT(beginproblem());
@@ -46,31 +45,15 @@ Nyní v tomto kontextu připomeneme jednu úlohu ze cvičení a budete se snaži
 
 Ve cvičení jsme v příkladě 1.7 pracovali s kopcem soli, kde je díky struktuře soli dán úhel u vrcholu. V důsledku toho (s použitím středoškolské matematiky a trigonometrie, nebo s použitím Buckinghamova [`\Pi`] teorému a bez počítání) víme, že existuje konstanta [`k`] taková, že mezi objemem [`V`] kopce soli a výškou [`h`] kopce soli platí [``` V=kh^3.```] V konstantě [`k`] je jakýmsi způsobem "schován" vrcholový úhel, my však budeme hledat jednodušší interpretaci této konstanty. Pokuste se podobně jako výše uvedené příklady stručně naformulovat slovně význam konstanty [`k`].
 
-Výsledné tvrzení musí být odpovědí na úkol. Musí se jednat o českou nebo slovenskou větu s podmětem a přísudkem, gramaticky správně utvořenou a věcně snadno pochopitelnou. Odpověď musí být jednoznačná a pokud možno stručná. (Po zobrazení řešení uvidíte dva návrhy do deseti slov.)
-
-**Upozornění.** Tuto otázku opravuje ručně vyučující a bodové hodnocení dostanete až po uzavření úlohy a ručním obodování.
 
 END_PGML
 
-
-BEGIN_TEXT
-\{essay_box()\}
-END_TEXT
-
-BEGIN_PGML
-_[@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "Nápověda pro LaTeX, ukázky kódů pro vykopírování") @]* (odkaz otevřete pravým tlačítem v novém panelu, aby Vám zůstala otevřená i stránka, kterou čtete). Další ukázky jsou všechny vzorce v programu WeBWorK a v přednáškách. Použijte pravé tlačítko a zobrazení kódu v programu TeX._
-END_PGML
-
-
-#Essay Boxs use the essay_cmp evaluator.
-ANS(essay_cmp());
 
 
 BEGIN_PGML_SOLUTION
 
 * Konstanta `k` vyjadřuje objem kopce hromady soli o jednotkové výšce.
 * Konstanta `k` udává objem kopce jednotkové výšky.
-* ...
 
 END_PGML_SOLUTION
 
