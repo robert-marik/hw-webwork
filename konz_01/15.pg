@@ -67,7 +67,7 @@ Pro funkci
 [``` v=0.8 l^{1.67}```]
 platí podle pravidla pro derivaci mocninné funkce
 [``` \frac{\mathrm dv}{\mathrm d l}=0.8 \cdot 1.67\cdot l^{0.67}.```]
-Tato derivace má jednotku metr za sekundu na metr. Udává o kolik matrů za sekundu je vyšší rychlost při kroku o metr delším.
+Tato derivace má jednotku metr za sekundu na metr. Udává o kolik metrů za sekundu je vyšší rychlost při kroku o metr delším.
 
 ----
 
