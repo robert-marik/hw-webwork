@@ -1,92 +1,407 @@
 DOCUMENT();
 
 loadMacros(
-    "PGstandard.pl",
-    "PGML.pl",
-    "PGcourse.pl",
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGunion.pl",
+  "MathObjects.pl",
+  "VectorField2D.pl",
+  "PGgraphmacros.pl",
+  "PGgraders.pl",
+  "PGML.pl",
+  "PGcourse.pl"
 );
 
 TEXT(beginproblem());
 
-$showPartialCorrectAnswers = 1;
-$showHint = 1;
+$refreshCachedImages=1;
 
-Context("Vector2D");
+#####################################
+#  Setup
 
-Context()->variables->are(t=>"Real",x=>"Real",y=>"Real");
-Context()->flags->set(ijk=>1 );
-Context()->constants->set(
-  i => {TeX => "\,\mathit{\vec i}"},
-  j => {TeX => "\,\mathit{\vec j}"},
-  k => {TeX => "\,\mathit{\vec k}"},
+$size = [250,250];   # the size of the images
+$tsize = 250;        # tex size of the images
+
+
+Context("Numeric")->variables->are(x=>"Real",y=>"Real");
+
+foreach my $i (0..5) {
+  $gr[$i] = init_graph(-4,-4,4,4,grid=>[8,8],axes=>[0,0],pixels=>[400,400]);
+  $gr[$i]->lb('reset');
+#  foreach my $j (1..3) {
+#    $gr[$i]->lb( new Label(-3.7,  $j, $j,'black','center','middle'));
+#    $gr[$i]->lb( new Label(-3.7, -$j,-$j,'black','center','middle'));
+#    $gr[$i]->lb( new Label(  $j,-3.7, $j,'black','center','middle'));
+#    $gr[$i]->lb( new Label( -$j,-3.7,-$j,'black','center','middle'));
+#  }
+  $gr[$i]->lb( new Label(3.7,0.2,'x','black','center','middle'));
+  $gr[$i]->lb( new Label(0.2,3.7,'y','black','center','middle'));
+  $gr[$i]->new_color("lightblue", 214,230,244); # RGB
+  $gr[$i]->new_color("darkblue",  100,100,255);
+  $gr[$i]->new_color("lightgreen",156,215,151); 
+  $gr[$i]->new_color("darkgreen",   0, 86, 34);
+  $gr[$i]->new_color("lightred",245,234,229); # light red-purple
+  $gr[$i]->new_color("darkred", 159, 64, 16); # red-brown
+  $gr[$i]->new_color("nicegreen",0,110,0);
+}
+
+
+############################
+$s[0] = random(-1,1,2);
+if ($s[0] == 1) { 
+  $answer[0] = "Kladný"; 
+} else { 
+  $answer[0] = "Záporný"; 
+}
+VectorField2D(
+graphobject => $gr[0],
+Fx => Formula("$s[0] * (y+4)"),
+Fy => Formula("0"),
+xvar => "x",
+yvar => "y",
+xmin => -4,
+xmax =>  4,
+ymin => -4,
+ymax =>  4,
+xsamples => 8,
+ysamples => 8,
+vectorcolor => "blue",
+vectorscale => 0.15,
+vectorthickness => 2,
+);
+add_functions($gr[0],
+"sqrt(4-x^2) for x in <0,2> using color:red and weight:2",
+"-sqrt(4-x^2) for x in <0,2> using color:red and weight:2",
+);
+$gr[0]->moveTo(1.41,1.41);
+$gr[0]->arrowTo(1.51,1.31,"red",3);
+$gr[0]->moveTo(1.41,-1.41);
+$gr[0]->arrowTo(1.31,-1.51,"red",3);
+$gr[0]->stamps( closed_circle(0,2,'red') );
+$gr[0]->stamps( closed_circle(0,-2,'red') );
+
+
+
+#######################
+$s[1] = random(-1,1,2);
+if ($s[1]= -($s[0])) { $s[1]=-($s[1]); }
+if ($s[1]==1) {
+  $answer[1] = "Záporný";
+} else {
+  $answer[1] = "Kladný";
+}
+VectorField2D(
+graphobject => $gr[1],
+Fx => Formula("$s[1]*y"),
+Fy => Formula("-($s[1])*x"),
+xvar => "x",
+yvar => "y",
+xmin => -4,
+xmax =>  4,
+ymin => -4,
+ymax =>  4,
+xsamples => 8,
+ysamples => 8,
+vectorcolor => "blue",
+vectorscale => 0.2,
+vectorthickness => 2,
+xavoid=>0,
+yavoid=>0,
+);
+foreach my $r (1.5,3.5) {
+  my $fn = new Fun( sub { my $t=shift(); return $r * cos($t); }, sub { my $t=shift(); return $r * sin($t);}, $gr[1] );
+  $fn->domain(1.5708,6.2832);
+  $fn->color("red");
+}
+$gr[1]->moveTo(0,1.5);
+$gr[1]->lineTo(0,3.5,"red",2);
+$gr[1]->moveTo(1.5,0);
+$gr[1]->lineTo(3.5,0,"red",2);
+#
+$gr[1]->moveTo(2.5,0);
+$gr[1]->arrowTo(2.4,0,"red",3);
+$gr[1]->moveTo(0,-1.5);
+$gr[1]->arrowTo(-0.1,-1.5,"red",3);
+$gr[1]->moveTo(-1.5,0);
+$gr[1]->arrowTo(-1.5,0.1,"red",3);
+$gr[1]->moveTo(0,2.5);
+$gr[1]->arrowTo(0,2.6,"red",3);
+$gr[1]->moveTo(-3.5,0);
+$gr[1]->arrowTo(-3.5,-0.1,"red",3);
+$gr[1]->moveTo(0,-3.5);
+$gr[1]->arrowTo(0.1,-3.5,"red",3);
+$gr[1]->stamps( closed_circle(1.5,0,'red') );
+$gr[1]->stamps( closed_circle(3.5,0,'red') );
+$gr[1]->stamps( closed_circle(0,1.5,'red') );
+$gr[1]->stamps( closed_circle(0,3.5,'red') );
+
+
+
+
+############################
+$s[2] = random(-1,1,2);
+$answer[2] = "Nulový";
+VectorField2D(
+graphobject => $gr[2],
+Fx => Formula("$s[2]*x"),
+Fy => Formula("$s[2]*y"),
+xvar => "x",
+yvar => "y",
+xmin => -4,
+xmax =>  4,
+ymin => -4,
+ymax =>  4,
+xsamples => 8,
+ysamples => 8,
+vectorcolor => "blue",
+vectorscale => 0.2,
+vectorthickness => 2,
+xavoid=>0,
+yavoid=>0,
+);
+foreach my $r (1.5,3.5) {
+  my $fn = new Fun( sub { my $t=shift(); return $r * cos($t); }, sub { my $t=shift(); return $r * sin($t);}, $gr[2] );
+  $fn->domain(1.5708,6.2832);
+  $fn->color("red");
+}
+$gr[2]->moveTo(0,1.5);
+$gr[2]->lineTo(0,3.5,"red",2);
+$gr[2]->moveTo(1.5,0);
+$gr[2]->lineTo(3.5,0,"red",2);
+#
+$gr[2]->moveTo(2.5,0);
+$gr[2]->arrowTo(2.4,0,"red",3);
+$gr[2]->moveTo(0,-1.5);
+$gr[2]->arrowTo(-0.1,-1.5,"red",3);
+$gr[2]->moveTo(-1.5,0);
+$gr[2]->arrowTo(-1.5,0.1,"red",3);
+$gr[2]->moveTo(0,2.5);
+$gr[2]->arrowTo(0,2.6,"red",3);
+$gr[2]->moveTo(-3.5,0);
+$gr[2]->arrowTo(-3.5,-0.1,"red",3);
+$gr[2]->moveTo(0,-3.5);
+$gr[2]->arrowTo(0.1,-3.5,"red",3);
+$gr[2]->stamps( closed_circle(1.5,0,'red') );
+$gr[2]->stamps( closed_circle(3.5,0,'red') );
+$gr[2]->stamps( closed_circle(0,1.5,'red') );
+$gr[2]->stamps( closed_circle(0,3.5,'red') );
+
+
+
+
+################################
+$s[3] = random(-1,1,2);
+if ($s[3]==1) {
+  $answer[3] = "Záporný";
+} else {
+  $answer[3] = "Kladný";
+}
+VectorField2D(
+graphobject => $gr[3],
+Fx => Formula("$s[3]*y"),
+Fy => Formula("-($s[3])*x"),
+xvar => "x",
+yvar => "y",
+xmin => -4,
+xmax =>  4,
+ymin => -4,
+ymax =>  4,
+xsamples => 8,
+ysamples => 8,
+vectorcolor => "blue",
+vectorscale => 0.2,
+vectorthickness => 2,
+xavoid=>0,
+yavoid=>0,
+);
+$gr[3]->moveTo(0,0);
+$gr[3]->lineTo(3,0,"red",2);
+$gr[3]->lineTo(0,3,"red",2);
+$gr[3]->lineTo(0,0,"red",2);
+#
+$gr[3]->moveTo(1.5,0);
+$gr[3]->arrowTo(1.6,0,"red",3);
+$gr[3]->moveTo(1.5,1.5);
+$gr[3]->arrowTo(1.4,1.6,"red",3);
+$gr[3]->moveTo(0,1.5);
+$gr[3]->arrowTo(0,1.4,"red",3);
+$gr[3]->stamps( closed_circle(0,0,'red') );
+$gr[3]->stamps( closed_circle(3,0,'red') );
+$gr[3]->stamps( closed_circle(0,3,'red') );
+
+
+
+
+################################
+$s[4] = random(-1,1,2);
+$answer[4] = "Nulový";
+VectorField2D(
+graphobject => $gr[4],
+Fx => Formula("$s[4]*y"),
+Fy => Formula("-($s[4])*x"),
+xvar => "x",
+yvar => "y",
+xmin => -4,
+xmax =>  4,
+ymin => -4,
+ymax =>  4,
+xsamples => 8,
+ysamples => 8,
+vectorcolor => "blue",
+vectorscale => 0.2,
+vectorthickness => 2,
+xavoid=>0,
+yavoid=>0,
+);
+$gr[4]->moveTo(-2,-1);
+$gr[4]->lineTo(0,0,"red",2);
+$gr[4]->lineTo(3,0,"red",2);
+#
+$gr[4]->moveTo(1.5,0);
+$gr[4]->arrowTo(1.6,0,"red",3);
+$gr[4]->moveTo(-1,-0.5);
+$gr[4]->arrowTo(-0.9,-0.45,"red",3);
+$gr[4]->stamps( closed_circle(0,0,'red') );
+$gr[4]->stamps( closed_circle(3,0,'red') );
+$gr[4]->stamps( closed_circle(-2,-1,'red') );
+
+
+
+
+################################
+$s[5] = random(-1,1,2);
+$answer[5] = "Nulový";
+VectorField2D(
+graphobject => $gr[5],
+Fx => Formula("$s[5]*x"),
+Fy => Formula("$s[5]*y"),
+xvar => "x",
+yvar => "y",
+xmin => -4,
+xmax =>  4,
+ymin => -4,
+ymax =>  4,
+xsamples => 8,
+ysamples => 8,
+vectorcolor => "blue",
+vectorscale => 0.2,
+vectorthickness => 2,
+xavoid=>0,
+yavoid=>0,
+);
+$gr[5]->moveTo(-2,-2);
+$gr[5]->lineTo(2,-2,"red",2);
+$gr[5]->lineTo(2,2,"red",2);
+$gr[5]->lineTo(-2,2,"red",2);
+$gr[5]->lineTo(-2,-2,"red",2);
+#
+$gr[5]->moveTo(0,-2);
+$gr[5]->arrowTo(0.1,-2,"red",3);
+$gr[5]->moveTo(2,0);
+$gr[5]->arrowTo(2,0.1,"red",3);
+$gr[5]->moveTo(0,2);
+$gr[5]->arrowTo(-0.1,2,"red",3);
+$gr[5]->moveTo(-2,0);
+$gr[5]->arrowTo(-2,-0.1,"red",3);
+#
+$gr[5]->stamps( closed_circle(-2,-2,'red') );
+$gr[5]->stamps( closed_circle(2,-2,'red') );
+$gr[5]->stamps( closed_circle(2,2,'red') );
+$gr[5]->stamps( closed_circle(-2,2,'red') );
+
+
+@perm = shuffle(6);
+@choices = ("?","Kladný","Záporný","Nulový");
+
+foreach my $i (0..5) {
+  $fig[$i] = image(insertGraph($gr[$i]),width=>200,height=>200,tex_size=>310);
+}
+
+
+########################################
+#  Main text
+
+if ($s[0]>0) {$sign0='kladný' ; $dir0='stejným'} else
+{$sign0='záporný'; $dir0= 'opačným'};
+if ($s[1]>0) {$sign1='záporný' ; $dir1='opačným'} else
+{$sign1='kladný'; $dir1= 'stejným'};
+if ($s[3]>0) {$sign3='záporný' ; $dir3='opačným'} else
+{$sign3='kladný'; $dir3= 'stejným'};
+
+@explanation=("Půlkružnici rozdělíme na dvě čtvrtkružnice a porovnáváme příspěvky od těchto čtvrtkružnic. Rozhodující bude ta část, kde jsou delší vektory. Na této části vektory a křivka směřují přibližně $dir0 směrem. Proto je integrál $sign0.",
+"Křivku rozdělíme na čtyři části: dvě třičtvrtě-kružnice, jeden svislý a jeden vodorovný úsek. Příspěvek od vodorovného a svislého úseku je nulový, protože tyto úseky jsou kolmé na vektorové pole. Vektory podél větší kružnice mají větší velikost a směřují $dir1 směrem jako křivka. Proto je integrál $sign1.",
+"Křivku rozdělíme na čtyři části: dvě třičtvrtě-kružnice, jeden svislý a jeden vodorovný úsek. Vektory jsou kolmé ke kružnicím a proto je integrál podél částí kružnic nulový. Křivkové integrály podél rovných úseků jsou jeden kladný a jeden záporný a v absolutní hodnotě stejně velké. Proto se vykompenzují a integrál po celé křivce je nulový.",
+"Křivku rozdělíme na tři části, tři strany trojúhelníka. Křivkový integrál je nulový podél svislého a vodorovného úseku, protože zde je vektorové pole kolmé na křivku. Podél šikmého úseku směřují vektorové pole a křivka $dir3 směrem. Proto je integrál $sign3.",
+"Vektorové pole je v každém bodě křivky kolmé na tuto křivku a proto je křivkový intergál nulový.",
+"Křivkový integrál podél křivky v prvním kvadrantu je díky symetrii a opačnému znaménku vyvážen stejně velkým integrálem opačného znaménka ve třetím kvadrantu. Podobně druhý a čtvrtý kvadrant. Integrál je proto roven nule."
 );
 
-$a=non_zero_random(-2,2,1);
-$b=non_zero_random(-4,4,1);
-$c=non_zero_random(1,3,1);
-$rr=non_zero_random(-3,3,1);
-$n=random(1,8,1);
-$m=random(1,5,1);
-$k=random(3,7,1);
-$nasobek=random(1,3,1);
-$tmax=random(1,5,1);
-
-$r1=Formula("$a*t^($n)")->reduce();
-$r2=Formula("t^($m)")->reduce();
-$r=Vector("<$r1,$r2>");
-
-$f1=random(3,8,1);
-$f2=random(3,8,1);
-$k=random(1,3,1);
-$l=random(1,2,1);
-
-$F1=Formula("$b*x*y^($k)")->reduce();
-$F2=Formula("$c*x^($l)+$rr*y")->reduce();
-$F=Vector("<$F1,$F2>");
-
-Context()->flags->set( reduceConstants => 1,reduceConstantFunctions => 1);
-
-$F1s=$F1->substitute(x=>$r1,y=>$r2)->reduce();
-$F2s=$F2->substitute(x=>$r1,y=>$r2)->reduce();
-$answers=Vector("<$F1s,$F2s>");
-
-$F1m=Formula("($a*$b)*t^($n+$k*$m)")->reduce();
-$F2m=Formula("($c*($a)^$l)*t^($n*$l)+$rr*t^($m)")->reduce();
-$answer=Vector("<$F1m,$F2m>");
-
-# [@ return ($F1s == $F1m ? "1. OK" : "1. Error"); @]*
-# [@ return ($F2s == $F2m ? "2. OK" : "2. Error"); @]*
-
-
 BEGIN_PGML
+## Odhad křivkového integrálu po složené cestě
 
-## Vyjádření vektorového pole podél křivky
+Nyní rozšíříme předchozí příklad. Křivky jsou zpravidla z několika úseků. Na každém určíme, zda je křivkový integrál kladný, záporný nebo nulový a poté sečteme jednotlivé příspěvky. Opět platí, že
 
+* pole kolmo na křivku nepřispívá k celkové hodnotě,
+* pole ve směru křivky přispívá k celkové hodnotě kladně a to tím více, čím je větší délka vektorů tohoto pole, čím více je pole orientováno ve směru křivky a čím je křivka delší,
+* pole proti směru křivky přispívá k celkové hodnotě záporně a to tím více, čím je větší délka vektorů tohoto pole, čím více je pole orientováno proti směru křivky a čím je křivka delší,
+* stejné pole podél delší křivky přispívá numericky více (tj. více kladně, nebo více záporně, podle vzájemné orientace křivky a pole).
 
-
-Je dána křivka [` \vec r(t)=[$r]`] pro [`t\in [0,[$tmax]]`] a vektorové pole [`\vec F(x,y)=[$F].`] Najděte vyjádření vektorového pole podél křivky
-					      
->>[``\vec F(\vec r(t))={} ``][_____________________________________]{$answer} <<
-
-(Nezapomeňte zadat odpověď jako vektor, tj. ve formátu *<...,...>* nebo *(...)\*i+(...)\*j*.)
-
-
+Pokud se u obrázku sejde část křivky s kladným příspěvkem a záporným příspěvkem, musíme porovnat vzájemnou velikost.  Sledujeme případnou symetrii (kladný a záporný příspěvek se vyruší), délku vektorů, délku příslušné části křivky a podobně.
+V případě půlkružnice se situace mění podél křivky, proto je výhodné tuto půlkružnici rozdělit na dvě čtvrtkružnice a porovnat vzájemné příspěvky od těchto čtvrtkružnic.
 END_PGML
 
-BEGIN_PGML_HINT
+BEGIN_TEXT
+Určete, který křivkový integrál je kladný, který záporný a který je roven nule.
+$BR
+$BR
+$BCENTER
+\{
+BeginTable().
+  AlignedRow([$fig[$perm[0]],$fig[$perm[1]],$fig[$perm[2]]]).
+  TableSpace(5,0).
+  AlignedRow([pop_up_list([@choices]),pop_up_list([@choices]),pop_up_list([@choices])]).
+  TableSpace(25,6).
+  AlignedRow([$fig[$perm[3]],$fig[$perm[4]],$fig[$perm[5]]]).
+  TableSpace(5,0).
+  AlignedRow([pop_up_list([@choices]),pop_up_list([@choices]),pop_up_list([@choices])]).
+EndTable().
+$BR."(Graf se otevře v samostatném okně po kliknutí.)"
+\}
+$ECENTER
+END_TEXT
 
-Stačí do [``` \vec F=[$F]```] dosadit  [```x=[$r1]```] a [```y=[$r2]```] a případně upravit.
 
-END_PGML_HINT
+###############################################
+#  Answer evaluation
 
-BEGIN_PGML_SOLUTION
+install_problem_grader(~~&custom_problem_grader_fluid);
+$ENV{'grader_numright'} = [3,6];
+$ENV{'grader_scores'} = [0.5,1];
+$ENV{'grader_message'} = "Za 3 až pět správných odpovědí dostáváte hodnocení 50%.";
 
-Stačí do [``` \vec F=[$F]```] dosadit [```x=[$r1]```] a [```y=[$r2]```] a případně upravit.
+$showPartialCorrectAnswers = 0;
 
-Řešení je tedy [```\vec F(\vec r(t))=[$answers]=[$answer]. ```]
-Toto řešení je vygenerováno automaticky a pravděpodobně je možné jej dále upravit, což již je mimo možnosti systému WeBWorK. Sami si vynásobte mocniny se stejným základem nebo konstanty.
-					      
-END_PGML_SOLUTION
+ANS(str_cmp([@answer[@perm]]));
 
+@explanationp=@explanation[@perm];
+
+BEGIN_SOLUTION
+
+$PAR
+
+Všímáme si, kde je vektorové pole ve směru křivky a kdy je proti směru. Podle toho poznáme kladný a záporný příspěvek k celému integrálu. Pokud u jedné křivky máme i kladné i záporné příspěvky, musíme posoudit jejich velikost. Obecně dělší křivka a delší vektory vektorového pole podél křivky značí větší příspěvek k celkovému integrálu. Ze symetrie je někdy možno odhadnout, že kladný a záporný příspěvek jsou v abosolutní hodnotě stejně velké a proto se vyruší.
+
+$PAR
+
+Následující odpovědi jsou vygenerovány automatem a  proto někdy mírně kostrbaté z jazykového hlediska. To, že pole a křivka míří "přibližně stejným směrem" znamená, že velikost úhlu mezi tečným vektorem ke křivce a vektorovým polem je menší než 90 stupňů. Obrat "přibližně opačný směr" značí úhel větší než 90 stupňů.
+
+ $BR $BR
+1. $explanationp[0] $BR $BR
+2. $explanationp[1] $BR $BR
+3. $explanationp[2] $BR $BR
+4. $explanationp[3] $BR $BR
+5. $explanationp[4] $BR $BR
+6. $explanationp[5] 
+END_SOLUTION
 
 ENDDOCUMENT();

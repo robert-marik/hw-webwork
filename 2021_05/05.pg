@@ -3,59 +3,26 @@ DOCUMENT();
 loadMacros(
   "PGstandard.pl",
   "PGchoicemacros.pl",
-  "PGunion.pl",
   "MathObjects.pl",
-  "VectorField2D.pl",
   "PGgraphmacros.pl",
-  "PGgraders.pl",
+  "parserPopUp.pl",
+  "VectorField2D.pl",
   "PGML.pl",
   "PGcourse.pl"
 );
 
-TEXT(beginproblem());
+Context("Numeric");
+$showPartialCorrectAnswers = 0;
 
 $refreshCachedImages=1;
 
-#####################################
-#  Setup
-
-$size = [250,250];   # the size of the images
-$tsize = 250;        # tex size of the images
-
+$gr = init_graph(0,0,4,4, size=>[250,250]);
 
 Context("Numeric")->variables->are(x=>"Real",y=>"Real");
 
-foreach my $i (0..5) {
-  $gr[$i] = init_graph(-4,-4,4,4,grid=>[8,8],axes=>[0,0],pixels=>[400,400]);
-  $gr[$i]->lb('reset');
-#  foreach my $j (1..3) {
-#    $gr[$i]->lb( new Label(-3.7,  $j, $j,'black','center','middle'));
-#    $gr[$i]->lb( new Label(-3.7, -$j,-$j,'black','center','middle'));
-#    $gr[$i]->lb( new Label(  $j,-3.7, $j,'black','center','middle'));
-#    $gr[$i]->lb( new Label( -$j,-3.7,-$j,'black','center','middle'));
-#  }
-  $gr[$i]->lb( new Label(3.7,0.2,'x','black','center','middle'));
-  $gr[$i]->lb( new Label(0.2,3.7,'y','black','center','middle'));
-  $gr[$i]->new_color("lightblue", 214,230,244); # RGB
-  $gr[$i]->new_color("darkblue",  100,100,255);
-  $gr[$i]->new_color("lightgreen",156,215,151); 
-  $gr[$i]->new_color("darkgreen",   0, 86, 34);
-  $gr[$i]->new_color("lightred",245,234,229); # light red-purple
-  $gr[$i]->new_color("darkred", 159, 64, 16); # red-brown
-  $gr[$i]->new_color("nicegreen",0,110,0);
-}
-
-
-############################
-$s[0] = random(-1,1,2);
-if ($s[0] == 1) { 
-  $answer[0] = "Kladný"; 
-} else { 
-  $answer[0] = "Záporný"; 
-}
 VectorField2D(
-graphobject => $gr[0],
-Fx => Formula("$s[0] * (y+4)"),
+graphobject => $gr,
+Fx => Formula("1"),
 Fy => Formula("0"),
 xvar => "x",
 yvar => "y",
@@ -63,334 +30,220 @@ xmin => -4,
 xmax =>  4,
 ymin => -4,
 ymax =>  4,
-xsamples => 8,
-ysamples => 8,
-vectorcolor => "blue",
-vectorscale => 0.15,
-vectorthickness => 2,
-);
-add_functions($gr[0],
-"sqrt(4-x^2) for x in <0,2> using color:red and weight:2",
-"-sqrt(4-x^2) for x in <0,2> using color:red and weight:2",
-);
-$gr[0]->moveTo(1.41,1.41);
-$gr[0]->arrowTo(1.51,1.31,"red",3);
-$gr[0]->moveTo(1.41,-1.41);
-$gr[0]->arrowTo(1.31,-1.51,"red",3);
-$gr[0]->stamps( closed_circle(0,2,'red') );
-$gr[0]->stamps( closed_circle(0,-2,'red') );
-
-
-
-#######################
-$s[1] = random(-1,1,2);
-if ($s[1]= -($s[0])) { $s[1]=-($s[1]); }
-if ($s[1]==1) {
-  $answer[1] = "Záporný";
-} else {
-  $answer[1] = "Kladný";
-}
-VectorField2D(
-graphobject => $gr[1],
-Fx => Formula("$s[1]*y"),
-Fy => Formula("-($s[1])*x"),
-xvar => "x",
-yvar => "y",
-xmin => -4,
-xmax =>  4,
-ymin => -4,
-ymax =>  4,
-xsamples => 8,
-ysamples => 8,
-vectorcolor => "blue",
-vectorscale => 0.2,
+xsamples => 20,
+ysamples => 20,
+vectorcolor => "red",
+vectorscale => 0.3,
 vectorthickness => 2,
 xavoid=>0,
 yavoid=>0,
 );
-foreach my $r (1.5,3.5) {
-  my $fn = new Fun( sub { my $t=shift(); return $r * cos($t); }, sub { my $t=shift(); return $r * sin($t);}, $gr[1] );
-  $fn->domain(1.5708,6.2832);
-  $fn->color("red");
-}
-$gr[1]->moveTo(0,1.5);
-$gr[1]->lineTo(0,3.5,"red",2);
-$gr[1]->moveTo(1.5,0);
-$gr[1]->lineTo(3.5,0,"red",2);
-#
-$gr[1]->moveTo(2.5,0);
-$gr[1]->arrowTo(2.4,0,"red",3);
-$gr[1]->moveTo(0,-1.5);
-$gr[1]->arrowTo(-0.1,-1.5,"red",3);
-$gr[1]->moveTo(-1.5,0);
-$gr[1]->arrowTo(-1.5,0.1,"red",3);
-$gr[1]->moveTo(0,2.5);
-$gr[1]->arrowTo(0,2.6,"red",3);
-$gr[1]->moveTo(-3.5,0);
-$gr[1]->arrowTo(-3.5,-0.1,"red",3);
-$gr[1]->moveTo(0,-3.5);
-$gr[1]->arrowTo(0.1,-3.5,"red",3);
-$gr[1]->stamps( closed_circle(1.5,0,'red') );
-$gr[1]->stamps( closed_circle(3.5,0,'red') );
-$gr[1]->stamps( closed_circle(0,1.5,'red') );
-$gr[1]->stamps( closed_circle(0,3.5,'red') );
 
+$desc = "Graph of a constant vector field pointing horizontally to the " .
+    "right.  ";
 
-
-
-############################
-$s[2] = random(-1,1,2);
-$answer[2] = "Nulový";
-VectorField2D(
-graphobject => $gr[2],
-Fx => Formula("$s[2]*x"),
-Fy => Formula("$s[2]*y"),
-xvar => "x",
-yvar => "y",
-xmin => -4,
-xmax =>  4,
-ymin => -4,
-ymax =>  4,
-xsamples => 8,
-ysamples => 8,
-vectorcolor => "blue",
-vectorscale => 0.2,
-vectorthickness => 2,
-xavoid=>0,
-yavoid=>0,
-);
-foreach my $r (1.5,3.5) {
-  my $fn = new Fun( sub { my $t=shift(); return $r * cos($t); }, sub { my $t=shift(); return $r * sin($t);}, $gr[2] );
-  $fn->domain(1.5708,6.2832);
-  $fn->color("red");
-}
-$gr[2]->moveTo(0,1.5);
-$gr[2]->lineTo(0,3.5,"red",2);
-$gr[2]->moveTo(1.5,0);
-$gr[2]->lineTo(3.5,0,"red",2);
-#
-$gr[2]->moveTo(2.5,0);
-$gr[2]->arrowTo(2.4,0,"red",3);
-$gr[2]->moveTo(0,-1.5);
-$gr[2]->arrowTo(-0.1,-1.5,"red",3);
-$gr[2]->moveTo(-1.5,0);
-$gr[2]->arrowTo(-1.5,0.1,"red",3);
-$gr[2]->moveTo(0,2.5);
-$gr[2]->arrowTo(0,2.6,"red",3);
-$gr[2]->moveTo(-3.5,0);
-$gr[2]->arrowTo(-3.5,-0.1,"red",3);
-$gr[2]->moveTo(0,-3.5);
-$gr[2]->arrowTo(0.1,-3.5,"red",3);
-$gr[2]->stamps( closed_circle(1.5,0,'red') );
-$gr[2]->stamps( closed_circle(3.5,0,'red') );
-$gr[2]->stamps( closed_circle(0,1.5,'red') );
-$gr[2]->stamps( closed_circle(0,3.5,'red') );
-
-
-
-
-################################
-$s[3] = random(-1,1,2);
-if ($s[3]==1) {
-  $answer[3] = "Záporný";
-} else {
-  $answer[3] = "Kladný";
-}
-VectorField2D(
-graphobject => $gr[3],
-Fx => Formula("$s[3]*y"),
-Fy => Formula("-($s[3])*x"),
-xvar => "x",
-yvar => "y",
-xmin => -4,
-xmax =>  4,
-ymin => -4,
-ymax =>  4,
-xsamples => 8,
-ysamples => 8,
-vectorcolor => "blue",
-vectorscale => 0.2,
-vectorthickness => 2,
-xavoid=>0,
-yavoid=>0,
-);
-$gr[3]->moveTo(0,0);
-$gr[3]->lineTo(3,0,"red",2);
-$gr[3]->lineTo(0,3,"red",2);
-$gr[3]->lineTo(0,0,"red",2);
-#
-$gr[3]->moveTo(1.5,0);
-$gr[3]->arrowTo(1.6,0,"red",3);
-$gr[3]->moveTo(1.5,1.5);
-$gr[3]->arrowTo(1.4,1.6,"red",3);
-$gr[3]->moveTo(0,1.5);
-$gr[3]->arrowTo(0,1.4,"red",3);
-$gr[3]->stamps( closed_circle(0,0,'red') );
-$gr[3]->stamps( closed_circle(3,0,'red') );
-$gr[3]->stamps( closed_circle(0,3,'red') );
-
-
-
-
-################################
-$s[4] = random(-1,1,2);
-$answer[4] = "Nulový";
-VectorField2D(
-graphobject => $gr[4],
-Fx => Formula("$s[4]*y"),
-Fy => Formula("-($s[4])*x"),
-xvar => "x",
-yvar => "y",
-xmin => -4,
-xmax =>  4,
-ymin => -4,
-ymax =>  4,
-xsamples => 8,
-ysamples => 8,
-vectorcolor => "blue",
-vectorscale => 0.2,
-vectorthickness => 2,
-xavoid=>0,
-yavoid=>0,
-);
-$gr[4]->moveTo(-2,-1);
-$gr[4]->lineTo(0,0,"red",2);
-$gr[4]->lineTo(3,0,"red",2);
-#
-$gr[4]->moveTo(1.5,0);
-$gr[4]->arrowTo(1.6,0,"red",3);
-$gr[4]->moveTo(-1,-0.5);
-$gr[4]->arrowTo(-0.9,-0.45,"red",3);
-$gr[4]->stamps( closed_circle(0,0,'red') );
-$gr[4]->stamps( closed_circle(3,0,'red') );
-$gr[4]->stamps( closed_circle(-2,-1,'red') );
-
-
-
-
-################################
-$s[5] = random(-1,1,2);
-$answer[5] = "Nulový";
-VectorField2D(
-graphobject => $gr[5],
-Fx => Formula("$s[5]*x"),
-Fy => Formula("$s[5]*y"),
-xvar => "x",
-yvar => "y",
-xmin => -4,
-xmax =>  4,
-ymin => -4,
-ymax =>  4,
-xsamples => 8,
-ysamples => 8,
-vectorcolor => "blue",
-vectorscale => 0.2,
-vectorthickness => 2,
-xavoid=>0,
-yavoid=>0,
-);
-$gr[5]->moveTo(-2,-2);
-$gr[5]->lineTo(2,-2,"red",2);
-$gr[5]->lineTo(2,2,"red",2);
-$gr[5]->lineTo(-2,2,"red",2);
-$gr[5]->lineTo(-2,-2,"red",2);
-#
-$gr[5]->moveTo(0,-2);
-$gr[5]->arrowTo(0.1,-2,"red",3);
-$gr[5]->moveTo(2,0);
-$gr[5]->arrowTo(2,0.1,"red",3);
-$gr[5]->moveTo(0,2);
-$gr[5]->arrowTo(-0.1,2,"red",3);
-$gr[5]->moveTo(-2,0);
-$gr[5]->arrowTo(-2,-0.1,"red",3);
-#
-$gr[5]->stamps( closed_circle(-2,-2,'red') );
-$gr[5]->stamps( closed_circle(2,-2,'red') );
-$gr[5]->stamps( closed_circle(2,2,'red') );
-$gr[5]->stamps( closed_circle(-2,2,'red') );
-
-
-@perm = shuffle(6);
-@choices = ("?","Kladný","Záporný","Nulový");
-
-foreach my $i (0..5) {
-  $fig[$i] = image(insertGraph($gr[$i]),width=>200,height=>200,tex_size=>310);
+## we pick from six curves; these are defined by
+##    [ startpt, endpt, labelloc, descr ]; in the array @curves, they appear
+##    in increasing magnitude of line integral.
+@curves = ( [ [ 3.5, 0.2 ], [ 2, 0.2 ], [ 3, 0.35, 'left', 'bottom' ],
+	      'a horizontal line segment with a length 1.5, ' .
+	      'extending along the bottom of the graph from right to left' ],
+	    [ [ 2, 3.5 ], [ 1.25, 2.20 ], [ 1.75, 2.75, 'left', 'top' ],
+	      'a diagonal line with a length 1.67 extending from the top ' .
+	      'center of the graph down to the left, moving down about 1.5 ' .
+	      'units and to the left 0.75 units' ],
+	    [ [ 3.5, 3.5 ], [ 3.5, 2 ], [ 3.65, 2.75, 'left','middle' ],
+	      'a vertical line extending from a point at the top right of ' .
+	      'the graph downwards 1.5 units' ],
+	    [ [ 3, 1.5 ], [ 3, 3 ], [ 2.85, 2.25, 'right', 'middle' ],
+	      'a vertical line extending from a point to the right side ' .
+	      'of the graph upwards 1.5 units' ],
+	    [ [ 0.5, 2 ], [ 1.25, 3.3 ], [ 0.85, 2.9, 'right', 'bottom' ],
+	      'a diagonal line with length 1.67 extending from the left of ' .
+	      'of the graph near the midline up 1.5 units and to the ' .
+	      'right 0.75 units' ],
+	    [ [ 0.5, 0.5 ], [ 2, 0.5 ], [ 1.25, 0.65, 'left', 'bottom' ],
+	      'a horizontal line starting at the lower left of the graph ' .
+	      'and extending to the right 1.5 units.' ] );
+@pickem = NchooseK( scalar(@curves), 4 );
+## make sure we didn't get both of the curves with an integral of zero
+$foundzero = 0;
+for ( my $i=0; $i<3; $i++ ) {
+    if ( ( $pickem[$i] == 2 || $pickem[$i] == 3 ) && $foundzero ) {
+	$pickem[$i] = $pickem[3];
+	last;
+    } elsif ( $pickem[$i] == 2 || $pickem[$i] == 3 ) {
+	$foundzero++;
+    }
 }
 
+## the correct ordering of the integrals is that which takes the index
+##    pickem[i] from smallest to largest, so make an inverse mapping of
+##    pickem[i] => i
+%invMap = ( );
 
-########################################
-#  Main text
+## add the curves to the graph
+for ( my $i=0; $i<3; $i++ ) {
+    $gr->moveTo( @{$curves[$pickem[$i]]->[0]} );
+    $gr->lineTo( $curves[$pickem[$i]]->[1]->[0], $curves[$pickem[$i]]->[1]->[1],
+	         'blue', 2 );
+    $gr->stamps( closed_circle(@{$curves[$pickem[$i]]->[0]}, 'blue') );
+    $gr->stamps( closed_circle(@{$curves[$pickem[$i]]->[1]}[0,1], 'blue') );
+    ## add the arrow
+    $midx = .5*($curves[$pickem[$i]]->[0]->[0]+$curves[$pickem[$i]]->[1]->[0]);
+    $midy = .5*($curves[$pickem[$i]]->[0]->[1]+$curves[$pickem[$i]]->[1]->[1]);
+    $gr->moveTo( @{$curves[$pickem[$i]]->[0]} );
+    $gr->arrowTo( $midx, $midy, 'blue', 2 );
 
-if ($s[0]>0) {$sign0='kladný' ; $dir0='stejným'} else
-{$sign0='záporný'; $dir0= 'opačným'};
-if ($s[1]>0) {$sign1='záporný' ; $dir1='opačným'} else
-{$sign1='kladný'; $dir1= 'stejným'};
-if ($s[3]>0) {$sign3='záporný' ; $dir3='opačným'} else
-{$sign3='kladný'; $dir3= 'stejným'};
+    ## and a label
+    $gr->lb( new Label( $curves[$pickem[$i]]->[2]->[0],
+			$curves[$pickem[$i]]->[2]->[1],
+			"C" . ($i+1), 'black',
+			$curves[$pickem[$i]]->[2]->[2],
+			$curves[$pickem[$i]]->[2]->[3] ) );
 
-@explanation=("Vektory větší velikosti směřují přibližně $dir0 
-směrem jako křivka. Proto je integrál $sign0.",
-"Příspěvek od vodorovného a svislého úseku je nulový, protože tyto úseky jsou kolmé na vektorové pole. Vektory podél větší kružnice mají větší velikost a směřují $dir1 směrem jako křivka. Proto je integrál $sign1.",
-"Křivkový integrál podél křivky v prvním kvadrantu je díky symetrii a opačnému znaménku vyvážen stejně velkým integrálem opačného znaménka ve třetím kvadrantu. Podobně druhý a čtvrtý kvadrant. Integrál je proto roven nule."
-);
+    $invMap{$pickem[$i]} = $i;
+
+    $desc .= "Curve C" . ($i+1) . " is " . $curves[$pickem[$i]]->[3] . ".  ";
+}
+
+## then the popups are
+@picked = num_sort( ($pickem[0], $pickem[1], $pickem[2]) );
+@intdesc = ( "?", "integral podel C1", "integral podel C2", "integral podel C3" );
+$int1 = PopUp( [ @intdesc ], $intdesc[$invMap{$picked[0]} + 1] );
+$int2 = PopUp( [ @intdesc ], $intdesc[$invMap{$picked[1]} + 1] );
+$int3 = PopUp( [ @intdesc ], $intdesc[$invMap{$picked[2]} + 1] );
+
+Context()->texStrings;
+TEXT(beginproblem());
 
 BEGIN_PGML
-## Odhad křivkového integrálu podle obrázku
+Tento příklad navazuje na předchozí, ale ještě se přidává srovnání velikostí integrálů.
 
-Nyní rozšíříme předchozí příklad. Křivky jsou zpravidla z několika úseků. Na každém určíme, zda je křivkový integrál kladný, záporný nebo nulový a poté sečteme jednotlivé příspěvky. Opět platí, že
+## Odhad uspořádání křivkových integrálů podle velikosti z obrázku
 
-* pole kolmo na křivku nepřispívá k celkové hodnotě,
-* pole ve směru křivky přispívá k celkové hodnotě kladně a to tím více, čím je větší délka vektorů tohoto pole a čím více je pole orientováno ve směru křivky,
-* pole proti směru křivky přispívá k celkové hodnotě záporně a to tím více, čím je větší délka vektorů tohoto pole a čím více je pole orientováno proti směru křivky,
-* stejné pole podél delší křivky přispívá numericky více (tj více kladně, nebo více záporně, podle vzájemné orientace křivky a pole).
+[@ image( insertGraph( $gr ), tex_size=>250, height=>250, width=>250,
+	  extra_html_tags=>'alt="' . $desc . '"' )
+@]*
 
-Pokud se u obrázku sejde část křivky s kladným příspěvkem a záporným příspěvkem, musíme porovnat vzájemnou velikost.  Sledujeme případnou symetrii (kladný a záporný příspěvek se vyruší), délku vektorů, délku příslušné části křivky a podobně.
-V případě půlkružnice se situace mění podél křivky, proto je výhodné tuto půlkružnici rozdělit na dvě čtvrtkružnice a porovnat vzájemné příspěvky od těchto čtvrtkružnic.
+Křivkový integrál můžeme odhadnout podle obrázku. Představme si, že se jedná o práci. Křivka odpovídá posunutí, vektorové pole odpovídá síle. Všechny křivky jsou stejně dlouhé.
+
+* Na úseku, kde je vektorové pole kolmé ke křivce, je příspěvek ke křivkovému integrálu nulový.
+* Na úseku, kde vektorové pole má s křivkou úhel menší než 90 stupňů, tj. křivka je jenom lehce odkloněná od směru vektorového pole, je příspěvek ke křivkovému integrálu kladný. Tento příspěvek je tím větší, čím je delší křivka, nebo silnější pole (delší vektory) nebo menší úhel mezi křivkou a polem. Pokud sledujeme jenom orientaci, je největší příspěvek v případě, že křivka je přesně ve směru vektorového pole, tj. vektorové pole je tečné ke křivce.
+* Na úseku, kde má vektorové pole s křivkou větší úhel než 90 stupňů, tj. křivka jde "proti" směrovému poli, je situace podobná jako výše, ale příslušná hodnota je záporná. Nejzápornější příspěvek k celkové hodnotě integrálu je tam, kde je křivka přesně proti vektorovému poli. 
+
 END_PGML
 
+
 BEGIN_TEXT
-Určete, který křivkový integrál je kladný, který záporný a který je roven nule.
-$BR
-$BR
+
+Uvažujte vektorové pole  \( \vec{F} \) podle obrázku a tři křivky \( C_1 \), \( C_2 \) a \( C_3 \).
+$PAR
+$PAR
+Seřaďte křivkové integrály  \( \displaystyle \int_{C_1} \vec{F} \,\mathrm d\vec{r} \),
+\(\displaystyle \int_{C_2} \vec{F} \,\mathrm d\vec{r} \) a
+\(\displaystyle \int_{C_3} \vec{F} \,\mathrm d\vec{r} \) podle velikosti od nejmenšího po největší:
+$PAR
+
 $BCENTER
-\{
-BeginTable().
-  AlignedRow([$fig[$perm[0]],$fig[$perm[1]],$fig[$perm[2]]]).
-  TableSpace(5,0).
-  AlignedRow([pop_up_list([@choices]),pop_up_list([@choices]),pop_up_list([@choices])]).
-  TableSpace(25,6).
-  AlignedRow([$fig[$perm[3]],$fig[$perm[4]],$fig[$perm[5]]]).
-  TableSpace(5,0).
-  AlignedRow([pop_up_list([@choices]),pop_up_list([@choices]),pop_up_list([@choices])]).
-EndTable().
-$BR."(Graf se otevře v samostatném okně po kliknutí.)"
-\}
+\{ $int1->menu() \} \( < \)
+\{ $int2->menu() \} \( < \)
+\{ $int3->menu() \}.
 $ECENTER
+
 END_TEXT
+Context()->normalStrings;
+
+ANS( $int1->cmp() );
+ANS( $int2->cmp() );
+ANS( $int3->cmp() );
 
 
-###############################################
-#  Answer evaluation
+if ( $pickem[0] < 2 ) {
+    $expl1 = "$BR Platí \(\displaystyle\int_{C_1}\vec F\,\mathrm d\vec r < 0\), protože křivka míří doleva a vektorové pole doprava.";
+} elsif ( $pickem[0] == 2 || $pickem[0] == 3 ) {
+    $expl1 = "$BR Platí \(\displaystyle\int_{C_1}\vec F\,\mathrm d\vec r = 0\), protože křivka je kolmá k vektorovému poli.";
+} else {
+    $expl1 = "$BR Platí \(\displaystyle\int_{C_1}\vec F\,\mathrm d\vec r > 0\), protože křivka míří stejným směrem jako vektorové pole.";
+}
+if ( $pickem[1] < 2 ) {
+    $expl1 = $expl1." $BR Platí \(\displaystyle\int_{C_2}\vec F\,\mathrm d\vec r < 0\), protože křivka míří doleva a vektorové pole doprava.";
+} elsif ( $pickem[1] == 2 || $pickem[1] == 3 ) {
+    $expl1 = $expl1." $BR Platí \(\displaystyle\int_{C_2}\vec F\,\mathrm d\vec r = 0\), protože křivka je kolmá k vektorovému poli.";
+} else {
+    $expl1 = $expl1." $BR Platí \(\displaystyle\int_{C_2}\vec F\,\mathrm d\vec r > 0\), protože křivka míří stejným směrem jako vektorové pole.";
+}
+if ( $pickem[2] < 2 ) {
+    $expl1 = $expl1." $BR Platí \(\displaystyle\int_{C_3}\vec F\,\mathrm d\vec r < 0\), protože křivka míří doleva a vektorové pole doprava.";
+} elsif ( $pickem[2] == 2 || $pickem[2] == 3 ) {
+    $expl1 = $expl1." $BR Platí \(\displaystyle\int_{C_4}\vec F\,\mathrm d\vec r = 0\), protože křivka je kolmá k vektorovému poli.";
+} else {
+    $expl1 = $expl1." $BR Platí \(\displaystyle\int_{C_5}\vec F\,\mathrm d\vec r > 0\), protože křivka míří stejným směrem jako vektorové pole.";
+}
 
-install_problem_grader(~~&custom_problem_grader_fluid);
-$ENV{'grader_numright'} = [3,6];
-$ENV{'grader_scores'} = [0.5,1];
-$ENV{'grader_message'} = "Za 3 až pět správných odpovědí dostáváte hodnocení 50%.";
+@whichPos = ();
+@whichNeg = ();
+for ( my $i=0; $i<3; $i++ ) {
+    if ( $pickem[$i] < 2 ) {
+	push( @whichNeg, $i );
+    } elsif ( $pickem[$i] > 3 ) {
+	push( @whichPos, $i );
+    }
+}
 
-$showPartialCorrectAnswers = 0;
+if ( @whichNeg > 1 ) {
+    if ( $pickem[$whichNeg[0]] > $pickem[$whichNeg[1]] ) {
+	$largercurve = "C_" . ($whichNeg[0]+1);
+        $smallercurve = "C_" . ($whichNeg[1]+1);
+    } else {
+        $largercurve = "C_" . ($whichNeg[1]+1);
+	$smallercurve = "C_" . ($whichNeg[0]+1);
+    }
+    $twosignexpl = "Oba integrály " .
+        "\(\displaystyle\int_{C" . ($whichNeg[0]+1) . "}\vec F\,\mathrm d\vec r\) a " .
+	"\(\displaystyle\int_{C" . ($whichNeg[1]+1) . "}\vec F\,\mathrm d\vec r\) jsou záporné a musíme porovnat jejich vzájemnou velikost zvážením úhlu mezi křivkou a vektorovým polem (délka křivky je příbližně stejná, tedy hlavní roli hraje úhel)." .
+	"Protože \($largercurve\) je více napříč " .
+	"vektorovým polem a méně proti jeho směru" .
+	"je integrál podél \($largercurve\) větší (záporný a blíže k nule) " .
+	"než podél \($smallercurve\).$PAR";
+} elsif ( @whichPos > 1 ) {
+    if ( $pickem[$whichPos[0]] > $pickem[$whichPos[1]] ) {
+	$largercurve = "C_" . ($whichPos[0]+1);
+        $smallercurve = "C_" . ($whichPos[1]+1);
+    } else {
+        $largercurve = "C_" . ($whichPos[1]+1);
+	$smallercurve = "C_" . ($whichPos[0]+1);
+    }
+    $twosignexpl = "Oba integrály " .
+        "\(\displaystyle\int_{C" . ($whichPos[0]+1) . "}\vec F\,\mathrm d\vec r\) a " .
+	"\(\displaystyle\int_{C" . ($whichPos[1]+1) . "}\vec F\,\mathrm d\vec r\) jsou kladné a musíme porovnat jejich vzájemnou velikost zvážením úhlu mezi křivkou a vektorovým polem (délka křivky je příbližně stejná, tedy hlavní roli hraje úhel). " .
+	"Protože \($largercurve\) je víc ve směru vektorového pole, je integrál podél \($largercurve\) větší než integrál podél \($smallercurve\).$PAR";
+} else {
+    $twosignexpl = "";
+}
 
-ANS(str_cmp([@answer[@perm]]));
+$c1 = $invMap{$picked[0]} + 1;
+$c2 = $invMap{$picked[1]} + 1;
+$c3 = $invMap{$picked[2]} + 1;
 
-@explanationp=@explanation[@perm];
+Context()->texStrings;
+SOLUTION(EV3(<<'END_SOLUTION'));
+$PAR 
+Sledujeme směr křivek a vektorového pole.
+Porovnáme relativní velikosti integrálů zvážením úhlu mezi křivkou a vektorovým polem.  Křivka se směru vektorového pole produkuje kladný interál, křivka kolmá na pole nulový a křivka proti směru vektorového pole záporný interál.
 
-BEGIN_SOLUTION
-$PAR SOLUTION $BR $BR
-1. $explanationp[0] $BR $BR
-2. $explanationp[1] $BR $BR
-3. $explanationp[2] $BR $BR
-4. $explanationp[3] $BR $BR
-5. $explanationp[4] $BR $BR
-6. $explanationp[5] 
+$PAR
+$expl1
+
+$PAR
+$twosignexpl
+
+Použitím tohoto postupu vidíme, že platí
+\[ \int_{C_{$c1}}\vec F\,\mathrm d\vec r <
+   \int_{C_{$c2}}\vec F\,\mathrm d\vec r <
+   \int_{C_{$c3}}\vec F\,\mathrm d\vec r. \]
+
 END_SOLUTION
+Context()->normalStrings;
 
 ENDDOCUMENT();

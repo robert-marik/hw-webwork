@@ -177,6 +177,11 @@ $showPartialCorrectAnswers = 0;
 
 ANS(str_cmp($ml->ra_correct_ans));
 
+BEGIN_PGML_SOLUTION
 
-;
+Vektorové pole [` \vec F = x\vec i+y\vec j`] míří od středu. Vektorové pole [` \vec G = -y\vec i+x\vec j`] rotuje proti směru hodinových ručiček. Zbylé vektorové pole odpovídá třetí možnosti.
+END_PGML_SOLUTION
+
+
+
 ENDDOCUMENT();

@@ -181,9 +181,9 @@ AlignedRow([$vf[0],$vf[1],$vf[2]]).
 TableSpace(5,0).
 
 AlignedRow([ 
- "1. ".pop_up_list(["Choose","A","B","C"]),
- "2. ".pop_up_list(["Choose","A","B","C"]),
- "3. ".pop_up_list(["Choose","A","B","C"])
+ "1. ".pop_up_list(["???","A","B","C"]),
+ "2. ".pop_up_list(["???","A","B","C"]),
+ "3. ".pop_up_list(["???","A","B","C"])
 ]).
 
 TableSpace(26,5).
@@ -218,12 +218,12 @@ ANS(str_cmp([@ALPHABET[@inv]]));
 @letters=@ALPHABET[@inv];
 
 BEGIN_SOLUTION
-$PAR SOLUTION $BR $BR
+$PAR Řešení $BR $BR
 Gradient je kolmý na vrstevnice. Řešení je tedy následující.
 $BR
-1. matches $letters[0]. $BR
-2. matches $letters[1]. $BR
-3. matches $letters[2]. $BR
+Pole 1. je gradientem funkce s vrstevnicemi na obrázku  $letters[0]. $BR
+Pole 2. je gradientem funkce s vrstevnicemi na obrázku  $letters[1]. $BR
+Pole 3. je gradientem funkce s vrstevnicemi na obrázku  $letters[2]. $BR
 END_SOLUTION
 
 ENDDOCUMENT();

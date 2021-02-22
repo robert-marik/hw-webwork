@@ -5,7 +5,7 @@ loadMacros(
   "PGchoicemacros.pl",
   "MathObjects.pl",
   "PGgraphmacros.pl",
-  "parserPopUp.pl",
+  "parserRadioButtons.pl",
   "VectorField2D.pl",
   "PGML.pl",
   "PGcourse.pl"
@@ -33,7 +33,7 @@ ymax =>  4,
 xsamples => 20,
 ysamples => 20,
 vectorcolor => "red",
-vectorscale => 0.2,
+vectorscale => 0.3,
 vectorthickness => 2,
 xavoid=>0,
 yavoid=>0,
@@ -109,16 +109,28 @@ for ( my $i=0; $i<3; $i++ ) {
 
 ## then the popups are
 @picked = num_sort( ($pickem[0], $pickem[1], $pickem[2]) );
-@intdesc = ( "?", "integrál podél C1", "integrál podél C2", "integrál podél C3" );
-$int1 = PopUp( [ @intdesc ], $intdesc[$invMap{$picked[0]} + 1] );
-$int2 = PopUp( [ @intdesc ], $intdesc[$invMap{$picked[1]} + 1] );
-$int3 = PopUp( [ @intdesc ], $intdesc[$invMap{$picked[2]} + 1] );
+@intdesc = ( "?", "integral podel C1", "integral podel C2", "integral podel C3" );
+
+@answer=(2,2,2);
+for ( my $i=0; $i<3; $i++ ) {
+    if ($pickem[$i]<2) {$answer[$i]=1;}
+    if ($pickem[$i]>3) {$answer[$i]=0;}
+}
+
+$int1 = RadioButtons(["Kladný", "Záporný", "Nulový",], $answer[0]);
+$int2 = RadioButtons(["Kladný", "Záporný", "Nulový",], $answer[1]);
+$int3 = RadioButtons(["Kladný", "Záporný", "Nulový",], $answer[2]);
+
 
 Context()->texStrings;
 TEXT(beginproblem());
 
 BEGIN_PGML
-## Odhad křivkového integrálu podle obrázku
+Tento příklad je ze série dvou podobných příkladů. Zde si u jednotlivých integrálů určíme znaménko a v dalším příkladě přidáme další úkol. Nejprve to znaménko ...
+
+
+## Odhad znaménka křivkového integrálu podle obrázku
+
 
 [@ image( insertGraph( $gr ), tex_size=>250, height=>250, width=>250,
 	  extra_html_tags=>'alt="' . $desc . '"' )
@@ -137,91 +149,48 @@ BEGIN_TEXT
 
 Uvažujte vektorové pole  \( \vec{F} \) podle obrázku a tři křivky \( C_1 \), \( C_2 \) a \( C_3 \).
 $PAR
-$PAR
-Seřaďte křivkové integrály  \( \int_{C_1} \vec{F} \cdot d\vec{r} \),
-\( \int_{C_2} \vec{F} \cdot d\vec{r} \) a
-\( \int_{C_3} \vec{F} \cdot d\vec{r} \) podle velikosti od nejmenšího po největší:
-$PAR
-\{ $int1->menu() \} \( < \)
-\{ $int2->menu() \} \( < \)
-\{ $int3->menu() \}.
+
+Určete znaménko jednotlivých integrálů.
+
 
 END_TEXT
+
+
+BEGIN_PGML
+
+----
+Je integrál [`` \int_{C_1} \vec{F} \,\mathrm d\vec{r} ``] kladný, záporný, nebo nulový?
+
+[_]{$int1}
+
+----
+
+Je integrál [`` \int_{C_2} \vec{F} \,\mathrm d\vec{r} ``] kladný, záporný, nebo nulový?
+
+
+[_]{$int2}
+
+----
+
+Je integrál [`` \int_{C_3} \vec{F} \,\mathrm d\vec{r} ``] kladný, záporný, nebo nulový?
+
+
+[_]{$int3}
+
+
+END_PGML
+
 Context()->normalStrings;
 
-ANS( $int1->cmp() );
-ANS( $int2->cmp() );
-ANS( $int3->cmp() );
 
-if ( $pickem[0] < 2 ) {
-    $expl1 = "Platí \(\int_{C_1}\vec F\cdot d\vec r < 0\), protože křivka míří doleva a vektorové pole doprava.";
-} elsif ( $pickem[0] == 2 || $pickem[0] == 3 ) {
-    $expl1 = "Platí \(\int_{C_1}\vec F\cdot d\vec r = 0\), protože křivka je kolmá k vektorovému poli.";
-} else {
-    $expl1 = "Platí \(\int_{C_1}\vec F\cdot d\vec r > 0\), protože křivka míří stejným směrem jako vektorové pole.";
-}
-@whichPos = ();
-@whichNeg = ();
-for ( my $i=0; $i<3; $i++ ) {
-    if ( $pickem[$i] < 2 ) {
-	push( @whichNeg, $i );
-    } elsif ( $pickem[$i] > 3 ) {
-	push( @whichPos, $i );
-    }
-}
+BEGIN_PGML_SOLUTION
 
-if ( @whichNeg > 1 ) {
-    if ( $pickem[$whichNeg[0]] > $pickem[$whichNeg[1]] ) {
-	$largercurve = "C_" . ($whichNeg[0]+1);
-        $smallercurve = "C_" . ($whichNeg[1]+1);
-    } else {
-        $largercurve = "C_" . ($whichNeg[1]+1);
-	$smallercurve = "C_" . ($whichNeg[0]+1);
-    }
-    $twosignexpl = "Podobnou argumentací vidíme, že oba integrály " .
-        "\(\int_{C" . ($whichNeg[0]+1) . "}\vec F\cdot d\vec r\) a " .
-	"\(\int_{C" . ($whichNeg[1]+1) . "}\vec F\cdot d\vec r\) jsou záporné " .
-	"Protože \($largercurve\) je více napříč " .
-	"vektorovým polem " .
-	"je integrál podél \($largercurve\) větší (záporný a blíže k nule) " .
-	"než podél \($smallercurve\).$PAR";
-} elsif ( @whichPos > 1 ) {
-    if ( $pickem[$whichPos[0]] > $pickem[$whichPos[1]] ) {
-	$largercurve = "C_" . ($whichPos[0]+1);
-        $smallercurve = "C_" . ($whichPos[1]+1);
-    } else {
-        $largercurve = "C_" . ($whichPos[1]+1);
-	$smallercurve = "C_" . ($whichPos[0]+1);
-    }
-    $twosignexpl = "Podobnou argumentací vidíme, že oba integrály " .
-        "\(\int_{C" . ($whichPos[0]+1) . "}\vec F\cdot d\vec r\) a " .
-	"\(\int_{C" . ($whichPos[1]+1) . "}\vec F\cdot d\vec r\) jsou kladné. " .
-	"Protože \($largercurve\) je víc ve směru vektorového pole, je integrál podél \($largercurve\) větší než integrál podél \($smallercurve\).$PAR";
-} else {
-    $twosignexpl = "";
-}
+Vektorové pole směřuje doprava. Tam, kde křivka směřuje doprava, nebo
+doprava nahoru nebo doprava dolů, bude křivkový integrál kladný. Tam
+kde křivka směřuje sisle nahoru nebo svisle dolů, bude křivkový
+integrál nulový. V opačném případě (křivka doleva, včetně doleva dolů nebo doleva nahoru) záporný.
 
-$c1 = $invMap{$picked[0]} + 1;
-$c2 = $invMap{$picked[1]} + 1;
-$c3 = $invMap{$picked[2]} + 1;
-
-Context()->texStrings;
-SOLUTION(EV3(<<'END_SOLUTION'));
-$PAR 
-Sledujeme směr křivek a vektorového pole.
-Porovnáme relativní velikosti integrálů zvážením úhlu mezi křivkou a vektorovým polem.  Křivka se směru vektorového pole produkuje kladný interál, křivka kolmá na pole nulový a křivka proti směru vektorového pole záporný interál.
-
-$expl1
-
-$PAR
-$twosignexpl
-
-Použitím tohoto postupu vidíme, že platí
-\[ \int_{C_{$c1}}\vec F\cdot\vec r <
-   \int_{C_{$c2}}\vec F\cdot\vec r <
-   \int_{C_{$c3}}\vec F\cdot\vec r. \]
-
-END_SOLUTION
+END_PGML_SOLUTION
 Context()->normalStrings;
 
 ENDDOCUMENT();
