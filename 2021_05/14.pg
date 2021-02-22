@@ -307,7 +307,7 @@ BEGIN_PGML
 
 Při zkoumání toku vektorového pole orientovanou křivkou si můžeme představit křivku jako otevřené okno, skrz které fouká vítr a rychlost je v každém bodě dána vektorovým polem. Pokud okno není přesně po větru (vektory nejsou tečné ke křivce), je tok křivkou nenulový. Znaménko je dáno následující úmluvou: postavme se myšleně na křivku (do okna) a dívejme se ve směru křivky. Pokud tok "fouká" z naší levé strany na pravou, je kladný.
 
-Pronásledující vektorová pole a křivky určete, zda je tok křivkou kladný, záporný, či nulový. 
+Pro následující vektorová pole a křivky určete, zda je tok křivkou kladný, záporný, či nulový. 
 
 END_PGML
 

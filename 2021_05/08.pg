@@ -48,11 +48,14 @@ BEGIN_PGML
 
 V dalším  si procvičíme hledání tečného vektoru ke křivce, vyjádření vektorového pole podél křivky, nalezení skalárního součinu tečného vektoru a vektorového pole podél křivky, přepis na Riemannův integrál a konečně výpočet křivkového integrálu jako až do konce. Nejprve ve dvourozměrném a poté v trojrozměrném případě.
 
-Referenční úlohy jsou příklady ze cvičení ze [@ htmlLink("http://user.mendelu.cz/marik/wiki/am/slidy","sbírky") @]* z kapitoly 5.
+Pro křivkový integrál je zásadní průmět vektorového pole do směru křivky a proto je nutno znát v libovolném bodě směr křivky, tj. tečný vektor. Ten najdeme derivováním. Například tečný vektor ke křivce [``` \vec r(t)=t^3\vec i+(1+5t-t^2)\vec j```]
+je
+[``` \frac{\mathrm d}{\mathrm dt}\vec r(t)=3t^2\vec i+(5-2t)\vec j.```] Tento vektor můžeme zapsat v programu WeBWorK jako *3\*t^2\*i + (5-2\*t)\*j* nebo *<3\*t^2,5-2\*t>*. (Hvězdičky pro násobení se dají případně vynechat.) Zkráceně na tento vektor odkazujeme jako na derivaci křivky a tuto derivaci chápeme po složkách.
+
 
 --------------
 
-Je dána křivka [` \vec r(t)=[$r]`] pro [`t\in [0,[$tmax]].`] Najděte derivaci této křivky. 
+Je dána křivka [` \vec r(t)=[$r]`] pro [`t\in [0,[$tmax]].`] Najděte derivaci této křivky (tečný vektor). 
 					      
 >>[``\frac{\mathrm d}{\mathrm dt} \vec r(t)={} ``][_____________________________________]{$answer} <<
 

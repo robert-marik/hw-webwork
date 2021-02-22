@@ -67,18 +67,20 @@ BEGIN_PGML
 
 ## Skalární součin vektorového pole s tečným vektorem 
 
+V tomto příkladě najdeme funkci, která figuruje v integrálu vzniklém po převodu křivkového integrálu druhého druhu na Riemannův. První dva kroky jsou natrénovány v předchozích příkladech. Skalární násobení je standardní operací, ale na vzorové příklady je možno se podívat ve cvičení ke křivkovému integrálu.
+
 
 Je dána křivka [` \vec r(t)=[$r]`] pro [`t\in [0,[$tmax]]`] a vektorové pole [`\vec F(x,y)=[$F].`] 
 
->>[``\frac{\mathrm d}{\mathrm dt} \vec r(t)={} ``][_____________________________________]{$answerR} <<
+>>[``\frac{\mathrm d}{\mathrm dt} \vec r(t)={} ``][___________________________________________]{$answerR} <<
 
 Poté najděte vyjádření vektorového pole podél křivky.
 
->>[``\vec F(\vec r(t))={} ``][_____________________________________]{$answerF} <<
+>>[``\vec F(\vec r(t))={} ``][___________________________________________]{$answerF} <<
 
 A nakonec najděte skalární součin obou vektorů
 
->>[``\vec F(\vec r(t)) \cdot \frac{\mathrm d}{\mathrm dt} \vec r(t)={} ``][_____________________________________]{$answerFR} <<
+>>[``\vec F(\vec r(t)) \cdot \frac{\mathrm d}{\mathrm dt} \vec r(t)={} ``][___________________________________________]{$answerFR} <<
 
 
 (Nezapomeňte tam kde je odpovědí vektor zadat odpověď jako vektor, tj. ve formátu *<...,...>* nebo *(...)\*i+(...)\*j*.)

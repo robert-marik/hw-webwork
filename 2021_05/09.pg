@@ -63,10 +63,23 @@ BEGIN_PGML
 ## Vyjádření vektorového pole podél křivky
 
 
+Při výpočtu křivkového integrálu parametrizujeme křivku a celý integrál. Je tedy přirozené parametrizovat i vektorové pole. Přesněji, vyjádříme vektorové pole v bodech křivky jako funkci parametru, který je použitý pro parametrizaci této křivky. Formálně vzato, dosadíme rovnice křivky do vektorového pole. Tedy například pro křivku
+ [``` \vec r(t)=t^3\vec i+(1+5t-t^2)\vec j```]
+a vektorové pole [``` \vec F(x,y)=x^2\vec i + (x-2y)\vec j```]
+dostáváme
+[``` \vec F(\vec r(t))= (t^3)^2\vec i + \Bigl(t^3-2(1+5t-t^2)\Bigr)\vec j
+=t^6\vec i + (t^3+2t^2-10t-2)\vec j.
+```]
+Tento vektor můžeme zapsat v programu WeBWorK jako *t^6 i + (t^3+2t^2-10t-2)j*.
+
+
+
+
+---------------
 
 Je dána křivka [` \vec r(t)=[$r]`] pro [`t\in [0,[$tmax]]`] a vektorové pole [`\vec F(x,y)=[$F].`] Najděte vyjádření vektorového pole podél křivky
 					      
->>[``\vec F(\vec r(t))={} ``][_____________________________________]{$answer} <<
+>>[``\vec F(\vec r(t))={} ``][____________________________________________]{$answer} <<
 
 (Nezapomeňte zadat odpověď jako vektor, tj. ve formátu *<...,...>* nebo *(...)\*i+(...)\*j*.)
 

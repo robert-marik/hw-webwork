@@ -73,15 +73,15 @@ BEGIN_PGML
 
 Je dána křivka [` \vec r(t)=[$r]`] pro [`t\in [0,[$tmax]]`] a vektorové pole [`\vec F(x,y)=[$F].`] 
 
->>[``\frac{\mathrm d}{\mathrm dt} \vec r(t)={} ``][_____________________________________]{$answerR} <<
+>>[``\frac{\mathrm d}{\mathrm dt} \vec r(t)={} ``][___________________________________________]{$answerR} <<
 
 Poté najděte vyjádření vektorového pole podél křivky.
 
->>[``\vec F(\vec r(t))={} ``][_____________________________________]{$answerF} <<
+>>[``\vec F(\vec r(t))={} ``][___________________________________________]{$answerF} <<
 
 Dále najděte skalární součin obou vektorů
 
->>[``\vec F(\vec r(t)) \cdot \frac{\mathrm d}{\mathrm dt} \vec r(t)={} ``][_____________________________________]{$answerFR} <<
+>>[``\vec F(\vec r(t)) \cdot \frac{\mathrm d}{\mathrm dt} \vec r(t)={} ``][___________________________________________]{$answerFR} <<
 
 Nakonec najděte hodnotu integrálu vektorového pole po zadané křivce.
 
