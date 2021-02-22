@@ -1,1 +1,67 @@
- ## Bude doplneno 
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGessayLivePreviewAce.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("left.css");
+
+
+BEGIN_PGML
+
+## Křivkový integrál
+
+Je dáno vektorové pole [`` \vec F=(M,N) ``] a jednotkový kruh [`` \Omega ``]. Kladně orientovanou křivku tvořící hranici tohoto kruhu označme [`` \partial \Omega``]. Napište, jak můžeme pomocí křivkového inetrgálu druhého druhu vypočítat tok vektorového pole přes hranici tohoto kruhu.
+
+Níže jsou poznámky, které máte zohlednit v odpovědi na tuto otázku. Pod nimi jsou univerzální požadavky, které jsou platné pro úlohy pro celý semestr. Pod nimi odpověďní pole. 
+
+----
+
+* Výrazy [`M`] a [`N`] jsou funkcemi dvou proměnných, ale pro stručnost a přehlednost je nemusíme vypisovat.
+* Integrál je po uzavřené křivce, tedy použijeme [``\oint``] namísto [``\int``].
+* Hranice se zapisuje stejným příkazem jako parciální derivace. Dolní index je složen ze dvou znaků (značka pro hranici a písmenko označující kruh) a proto musí být ve složených závorkách. Abyste napsali něco jako [``` \oint_{\partial \Omega} \dots\mathrm dx + \dots \mathrm dy```] musíte napsat *\\oint_{\\partial\\Omega} \\dots\\mathrm dx + \\dots \\mathrm dy* a umístit tento text do matematického módu.
+* Text je kratičký, možná použijete jen jednu větu. Každopádně text napište jako jediný odstavec. V odpovědi tedy nesmí být prázdné řádky.
+* Výsledný výraz si zaslouží umístění do matematického módu na samostatném řádku. Použijte jako oddělovač variantu s hranatými závorkami.
+
+
+----
+
+Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
+
+Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
+
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box(25,80)\}
+END_TEXT
+
+
+
+BEGIN_PGML
+
+* _Pro pohodlnou tvorbu textu můžete využít nástroj [@ htmlLink("http://user.mendelu.cz/marik/latexovatko","LaTeXovátko") @]*. Tam si také můžete do editoru nakliknout repertoár textů a ty upravovat a sledovat efekt jednotlivých úprav._
+* _Můžete využít [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "nápovědu") @]*  pro LaTeX s ukázkami kódů pro vykopírování. Odkaz otevřete pravým tlačítkem v novém panelu, aby Vám zůstala otevřená i stránka, kterou čtete._
+* _Další ukázky jsou všechny vzorce v programu WeBWorK a v přednáškách. Použijte pravé tlačítko a zobrazení kódu v programu TeX, tj. Show Math As a TeX commands._
+END_PGML
+
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+BEGIN_PGML_SOLUTION
+
+Je dáno vektorové pole [`` \vec F=(M,N) ``] a jednotkový kruh [`` \Omega ``]. Kladně orientovanou křivku tvořící hranici tohoto kruhu označme [`` \partial \Omega``]. Tok vektorového pole přes hranici tohoto kruhu je možno vyjádřit křivkovým integrálem [``` \oint_{\partial \Omega} -N\mathrm dx + M \mathrm dy.```]
+
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
