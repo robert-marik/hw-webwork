@@ -29,6 +29,12 @@ kde [`v`] je rychlost dinosaura v metrech za sekundu, [`h`] je (zjednodušeně �
 
 Vypočtěte parciální derivaci rychlosti podle délky kroku a najděte její fyzikální jednotku a slovní interpretaci.
 
+------
+
+O technickém psaní (například že jednotky se nepíšou do hranatých závorek) například [@ htmlLink("http://people.fsv.cvut.cz/www/vydra/files/Typograficka_Pravidla.pdf","http://people.fsv.cvut.cz/www/vydra/files/Typograficka_Pravidla.pdf")@]*. Pokud nechcete řešit zápis jednotek (měly by být textovým fontem a ne matematickou v kurzívou), můžete použít trik z přednášky (vypsat slovně). V přednášce jsem se přehlédl a jako jednotku rychlosti použil kilometr za hodinu místo metru za sekundu, jak je zde v zadání.
+
+-----
+
 Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
 
 Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
