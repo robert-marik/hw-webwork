@@ -227,13 +227,13 @@ $gr[4]->stamps( closed_circle(-2,$znam[4]*1,'red') );
 $s[5] = random(-1,1,2);
 $x5=random(-1,1);
 if ($x5==0) {$y5=random(-1,1,2);} else {$y5=0;}
-$x5=3*$x5;
-$y5=3*$y5;
-if ($s[5] == 1) { 
+if (($x5)*$s[5] == 1) { 
   $answer[5] = "Kladný"; 
 } else { 
   $answer[5] = "Záporný"; 
 }
+$x5=3*$x5;
+$y5=3*$y5;
 VectorField2D(
 graphobject => $gr[5],
 Fx => Formula("$s[5]*x"),
