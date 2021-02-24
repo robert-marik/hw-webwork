@@ -48,7 +48,8 @@ foreach my $i (0..5) {
 
 ############################
 $s[0] = random(-1,1,2);
-if ($s[0] == 1) { 
+$otocit = random(-1,1,2);
+if ($otocit*$s[0] == 1) { 
   $answer[0] = "Kladný"; 
 } else { 
   $answer[0] = "Záporný"; 
@@ -73,16 +74,19 @@ add_functions($gr[0],
 "sqrt(4-x^2) for x in <-2,2> using color:red and weight:2",
 );
 $gr[0]->moveTo(1.41,1.41);
-$gr[0]->arrowTo(1.51,1.31,"red",3);
+$gr[0]->arrowTo(1.41+0.1*($otocit),1.41-0.1*($otocit),"red",3);
 $gr[0]->stamps( closed_circle(-2,0,'red') );
 $gr[0]->stamps( closed_circle(2,0,'red') );
 
+if (($otocit)*($s[0])>0) {$sign0='kladný' ; $dir0='stejným'} else
+{$sign0='záporný'; $dir0= 'opačným'};
 
 
 #######################
 $s[1] = random(-1,1,2);
+$otocit = random(-1,1,2);
 if ($s[1]= -($s[0])) { $s[1]=-($s[1]); }
-if ($s[1]==1) {
+if ($s[1]*($otocit)==1) {
   $answer[1] = "Záporný";
 } else {
   $answer[1] = "Kladný";
@@ -112,15 +116,18 @@ foreach my $r (3) {
 }
 #
 $gr[1]->moveTo(3/sqrt(2),3/sqrt(2));
-$gr[1]->arrowTo(3/sqrt(2)-0.1,3/sqrt(2)+0.1,"red",3);
+$gr[1]->arrowTo(3/sqrt(2)-0.1*($otocit),3/sqrt(2)+0.1*($otocit),"red",3);
 $gr[1]->stamps( closed_circle(3,0,'red') );
 $gr[1]->stamps( closed_circle(0,3,'red') );
 
+if (($otocit)*($s[1])>0) {$sign1='záporný' ; $dir1='opačným'} else
+{$sign1='kladný'; $dir1= 'stejným'};
 
 
 
 ############################
 $s[2] = random(-1,1,2);
+$otocit = random(-1,1,2);
 $answer[2] = "Nulový";
 VectorField2D(
 graphobject => $gr[2],
@@ -147,7 +154,7 @@ foreach my $r (2) {
 }
 #
 $gr[2]->moveTo(-2,0);
-$gr[2]->arrowTo(-2,-0.1,"red",3);
+$gr[2]->arrowTo(-2,-0.1*($otocit),"red",3);
 $gr[2]->stamps( closed_circle(0,2,'red') );
 $gr[2]->stamps( closed_circle(0,-2,'red') );
 
@@ -156,7 +163,8 @@ $gr[2]->stamps( closed_circle(0,-2,'red') );
 
 ################################
 $s[3] = random(-1,1,2);
-if ($s[3]==1) {
+$otocit = random(-1,1,2);
+if ($s[3]*($otocit)==1) {
   $answer[3] = "Záporný";
 } else {
   $answer[3] = "Kladný";
@@ -183,16 +191,20 @@ $gr[3]->moveTo(3,0);
 $gr[3]->lineTo(0,3,"red",2);
 #
 $gr[3]->moveTo(1.5,1.5);
-$gr[3]->arrowTo(1.4,1.6,"red",3);
+$gr[3]->arrowTo(1.5-0.1*($otocit),1.5+0.1*($otocit),"red",3);
 $gr[3]->stamps( closed_circle(3,0,'red') );
 $gr[3]->stamps( closed_circle(0,3,'red') );
 
+if (($otocit)*($s[3])>0) {$sign3='záporný' ; $dir3='opačným'} else
+{$sign3='kladný'; $dir3= 'stejným'};
 
 
 
 ################################
 $s[4] = random(-1,1,2);
-$znam[4] = random(-1,1,2);
+$r = random(2,3);
+$phi = random(0,60)*0.1;
+$otocit = random(-1,1,2);
 $answer[4] = "Nulový";
 VectorField2D(
 graphobject => $gr[4],
@@ -212,28 +224,29 @@ vectorthickness => 2,
 xavoid=>0,
 yavoid=>0,
 );
-$gr[4]->moveTo(-2,$znam[4]*1);
-$gr[4]->lineTo(0,0,"red",2);
+$gr[4]->moveTo(0,0);
+$gr[4]->lineTo($r*cos($phi),$r*sin($phi),"red",3);
 #
-$gr[4]->moveTo(-1,$znam[4]*0.5);
-$gr[4]->arrowTo(-0.9,$znam[4]*0.45,"red",3);
+$gr[4]->moveTo(0.5*$r*cos($phi),0.5*$r*sin($phi));
+$gr[4]->arrowTo((0.5*$r+0.1*$otocit)*cos($phi),(0.5*$r+0.1*$otocit)*sin($phi),"red",3); 
+#
 $gr[4]->stamps( closed_circle(0,0,'red') );
-$gr[4]->stamps( closed_circle(-2,$znam[4]*1,'red') );
+$gr[4]->stamps( closed_circle($r*cos($phi),$r*sin($phi),'red') );
 
 
 
 
 ################################
 $s[5] = random(-1,1,2);
-$x5=random(-1,1);
+$r = random(2,3);
+$phi = random(0,60)*0.1;
+$otocit = random(-1,1,2);
 if ($x5==0) {$y5=random(-1,1,2);} else {$y5=0;}
-if (($x5)*$s[5] == 1) { 
+if (($otocit)*$s[5] == 1) { 
   $answer[5] = "Kladný"; 
 } else { 
   $answer[5] = "Záporný"; 
 }
-$x5=3*$x5;
-$y5=3*$y5;
 VectorField2D(
 graphobject => $gr[5],
 Fx => Formula("$s[5]*x"),
@@ -253,17 +266,16 @@ xavoid=>0,
 yavoid=>0,
 );
 $gr[5]->moveTo(0,0);
-$gr[5]->lineTo($x5,$y5,"red",3);
+$gr[5]->lineTo($r*cos($phi),$r*sin($phi),"red",3);
 #
-$gr[5]->moveTo(0.5*$x5,0.5*$y5);
-if ($y5==0)
-{ $gr[5]->arrowTo(0.5*($x5)+0.1,0.5*($y5),"red",3); }
-else
-{ $gr[5]->arrowTo(0.5*($x5),0.5*($y5)+0.5,"red",3); }
+$gr[5]->moveTo(0.5*$r*cos($phi),0.5*$r*sin($phi));
+$gr[5]->arrowTo((0.5*$r+0.1*$otocit)*cos($phi),(0.5*$r+0.1*$otocit)*sin($phi),"red",3); 
 #
 $gr[5]->stamps( closed_circle(0,0,'red') );
-$gr[5]->stamps( closed_circle($x5,$y5,'red') );
+$gr[5]->stamps( closed_circle($r*cos($phi),$r*sin($phi),'red') );
 
+if (($otocit)*($s[5])>0) {$sign5='kladný' ; $dir5='stejným'} else
+{$sign5='záporný'; $dir5= 'opačným'};
 
 
 @perm = shuffle(6);
@@ -278,14 +290,6 @@ foreach my $i (0..5) {
 #  Main text
 
 
-if ($s[0]>0) {$sign0='kladný' ; $dir0='stejným'} else
-{$sign0='záporný'; $dir0= 'opačným'};
-if ($s[1]>0) {$sign1='záporný' ; $dir1='opačným'} else
-{$sign1='kladný'; $dir1= 'stejným'};
-if ($s[3]>0) {$sign3='záporný' ; $dir3='opačným'} else
-{$sign3='kladný'; $dir3= 'stejným'};
-if ($s[5]>0) {$sign5='kladný' ; $dir5='stejným'} else
-{$sign5='záporný'; $dir5= 'opačným'};
 
 @explanation=("Vektorové pole a křivka směřují přibližně $dir0 směrem. Proto je integrál $sign0.",
 "Vektorové pole a křivka směřují $dir1 směrem. Proto je integrál $sign1.",
@@ -335,7 +339,7 @@ END_TEXT
 install_problem_grader(~~&custom_problem_grader_fluid);
 $ENV{'grader_numright'} = [3,6];
 $ENV{'grader_scores'} = [0.5,1];
-$ENV{'grader_message'} = "Za 3 až pět správných odpovědí dostáváte hodnocení 50%.";
+$ENV{'grader_message'} = "Za 3 až pět správných odpovědí dostavate hodnocení 50%.";
 
 $showPartialCorrectAnswers = 0;
 

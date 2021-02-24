@@ -268,52 +268,52 @@ $gr[4]->stamps( closed_circle(-2,-1,'red') );
 
 
 
-################################
-$s[5] = random(-1,1,2);
-$answer[5] = "Nulový";
-VectorField2D(
-graphobject => $gr[5],
-Fx => Formula("$s[5]*x"),
-Fy => Formula("$s[5]*y"),
-xvar => "x",
-yvar => "y",
-xmin => -4,
-xmax =>  4,
-ymin => -4,
-ymax =>  4,
-xsamples => 8,
-ysamples => 8,
-vectorcolor => "blue",
-vectorscale => 0.2,
-vectorthickness => 2,
-xavoid=>0,
-yavoid=>0,
-);
-$gr[5]->moveTo(-2,-2);
-$gr[5]->lineTo(2,-2,"red",2);
-$gr[5]->lineTo(2,2,"red",2);
-$gr[5]->lineTo(-2,2,"red",2);
-$gr[5]->lineTo(-2,-2,"red",2);
-#
-$gr[5]->moveTo(0,-2);
-$gr[5]->arrowTo(0.1,-2,"red",3);
-$gr[5]->moveTo(2,0);
-$gr[5]->arrowTo(2,0.1,"red",3);
-$gr[5]->moveTo(0,2);
-$gr[5]->arrowTo(-0.1,2,"red",3);
-$gr[5]->moveTo(-2,0);
-$gr[5]->arrowTo(-2,-0.1,"red",3);
-#
-$gr[5]->stamps( closed_circle(-2,-2,'red') );
-$gr[5]->stamps( closed_circle(2,-2,'red') );
-$gr[5]->stamps( closed_circle(2,2,'red') );
-$gr[5]->stamps( closed_circle(-2,2,'red') );
+#### ################################
+#### $s[5] = random(-1,1,2);
+#### $answer[5] = "Nulový";
+#### VectorField2D(
+#### graphobject => $gr[5],
+#### Fx => Formula("$s[5]*x"),
+#### Fy => Formula("$s[5]*y"),
+#### xvar => "x",
+#### yvar => "y",
+#### xmin => -4,
+#### xmax =>  4,
+#### ymin => -4,
+#### ymax =>  4,
+#### xsamples => 8,
+#### ysamples => 8,
+#### vectorcolor => "blue",
+#### vectorscale => 0.2,
+#### vectorthickness => 2,
+#### xavoid=>0,
+#### yavoid=>0,
+#### );
+#### $gr[5]->moveTo(-2,-2);
+#### $gr[5]->lineTo(2,-2,"red",2);
+#### $gr[5]->lineTo(2,2,"red",2);
+#### $gr[5]->lineTo(-2,2,"red",2);
+#### $gr[5]->lineTo(-2,-2,"red",2);
+#### #
+#### $gr[5]->moveTo(0,-2);
+#### $gr[5]->arrowTo(0.1,-2,"red",3);
+#### $gr[5]->moveTo(2,0);
+#### $gr[5]->arrowTo(2,0.1,"red",3);
+#### $gr[5]->moveTo(0,2);
+#### $gr[5]->arrowTo(-0.1,2,"red",3);
+#### $gr[5]->moveTo(-2,0);
+#### $gr[5]->arrowTo(-2,-0.1,"red",3);
+#### #
+#### $gr[5]->stamps( closed_circle(-2,-2,'red') );
+#### $gr[5]->stamps( closed_circle(2,-2,'red') );
+#### $gr[5]->stamps( closed_circle(2,2,'red') );
+#### $gr[5]->stamps( closed_circle(-2,2,'red') );
 
 
-@perm = shuffle(6);
+@perm = shuffle(5);
 @choices = ("?","Kladný","Záporný","Nulový");
 
-foreach my $i (0..5) {
+foreach my $i (0..4) {
   $fig[$i] = image(insertGraph($gr[$i]),width=>200,height=>200,tex_size=>310);
 }
 
@@ -357,13 +357,13 @@ $BR
 $BCENTER
 \{
 BeginTable().
-  AlignedRow([$fig[$perm[0]],$fig[$perm[1]],$fig[$perm[2]]]).
+  AlignedRow([$fig[$perm[0]],$fig[$perm[1]]]).
   TableSpace(5,0).
-  AlignedRow([pop_up_list([@choices]),pop_up_list([@choices]),pop_up_list([@choices])]).
+  AlignedRow([pop_up_list([@choices]),pop_up_list([@choices])]).
   TableSpace(25,6).
-  AlignedRow([$fig[$perm[3]],$fig[$perm[4]],$fig[$perm[5]]]).
+  AlignedRow([$fig[$perm[2]],$fig[$perm[3]]]).
   TableSpace(5,0).
-  AlignedRow([pop_up_list([@choices]),pop_up_list([@choices]),pop_up_list([@choices])]).
+  AlignedRow([pop_up_list([@choices]),pop_up_list([@choices])]).
 EndTable().
 $BR."(Graf se otevře v samostatném okně po kliknutí.)"
 \}
@@ -381,7 +381,7 @@ $ENV{'grader_message'} = "Za 3 až pět správných odpovědí dostáváte hodno
 
 $showPartialCorrectAnswers = 0;
 
-ANS(str_cmp([@answer[@perm]]));
+ANS(str_cmp([@answer[@perm[0 .. 3]]]));
 
 @explanationp=@explanation[@perm];
 
@@ -400,8 +400,7 @@ Následující odpovědi jsou vygenerovány automatem a  proto někdy mírně ko
 2. $explanationp[1] $BR $BR
 3. $explanationp[2] $BR $BR
 4. $explanationp[3] $BR $BR
-5. $explanationp[4] $BR $BR
-6. $explanationp[5] 
+
 END_SOLUTION
 
 ENDDOCUMENT();
