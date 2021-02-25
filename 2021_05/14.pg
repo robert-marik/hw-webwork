@@ -290,7 +290,7 @@ if ($s[1]>0) {$sign1='záporný' ; $dir1='opačným'} else
 if ($s[3]>0) {$sign3='záporný' ; $dir3='opačným'} else
 {$sign3='kladný'; $dir3= 'stejným'};
 if ($s[5]>0) {$sign5='kladný' ; $dir5='stejným'} else
-{$sign5='záýporný'; $dir5= 'opačným'};
+{$sign5='záporný'; $dir5= 'opačným'};
 
 @explanation=("Vektorové pole a křivka směřují přibližně $dir0 směrem. Proto je integrál $sign0.",
 "Vektorové pole a křivka směřují $dir1 směrem. Proto je integrál $sign1.",
