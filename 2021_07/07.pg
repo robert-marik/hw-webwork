@@ -1,106 +1,147 @@
-DOCUMENT();		# This should be the first executable line in the problem.
+DOCUMENT();
 
 loadMacros(
-  "PGstandard.pl",
-  "MathObjects.pl",
-  "weightedGrader.pl",
-  "PGML.pl",
-  "PGcourse.pl"
+    "PGstandard.pl",
+    "MathObjects.pl",
+    "parserRadioButtons.pl",
+    "PGML.pl",
+    "PGcourse.pl",
 );
-
-install_weighted_grader();
 
 TEXT(beginproblem());
 
-$showHint = 1;
-$showPartialCorrectAnswers = 1;
-
-Context()->variables->are(x=>"Real",y=>"Real");
-
-$a = non_zero_random(1, 3, 1);
-do
-{
-   $b = non_zero_random(-3, 3, 1);
-} until (abs($b)!=$a);
-$aa = non_zero_random(1, 4, 1);
-$m = random(2, 4, 1);
-$n = random(2, 4, 1);
-
-# $P=Compute("$a*x^($m)*y^($n)+$b*x^($m-1)")->reduce();
-# $dPx=Compute("$a*$m*x^($m-1)*y^($n)+$b*($m-1)*x^($m-2)")->reduce();
-# $dPy=Compute("$a*$n*x^($m)*y^($n-1)")->reduce();
-
-$P=Compute("$a*x^($m)*y^($n)")->reduce();
-$dPx=Compute("$a*$m*x^($m-1)*y^($n)")->reduce();
-$dPy=Compute("$a*$n*x^($m)*y^($n-1)")->reduce();
-
-
-$Q=Compute("$aa*x^($m-1)*y^($n)+$b*x^($m)")->reduce();
-$dQx=Compute("$aa*($m-1)*x^($m-2)*y^($n)+$b*$m*x^($m-1)")->reduce();
-$dQy=Compute("$aa*($n)*x^($m-1)*y^($n-1)")->reduce();
-
-$ans=Compute("$dQx-($dPy)")->reduce();
 
 BEGIN_PGML
 
-## Greenova věta na obecné množině
+## Je křivkový integrál po uzavřené křivce nulový?
 
-Vypočtěte následující derivace.
 
->>[``\frac{\partial}{\partial x}\left([$P]\right)={} ``][______________________] <<
+Toto je reformulace [@ htmlLink("http://um.mendelu.cz/webwork2/AM-2021-Marik/04_Rotace/7","úlohy 7") @]* ze sady úloh věnované rotaci, tentokrát v jazyce křivkového integrálu. Zopakujte si v případě potřeby tuto úlohu a její řešení, pokud je již k dispozici.
 
->>[``\frac{\partial}{\partial y}\left([$P]\right)={} ``][______________________] <<
+-----------
 
->>[``\frac{\partial}{\partial x}\left([$Q]\right)={} ``][______________________] <<
+[@ image("kiting.jpg", width=>400) @]*
 
->>[``\frac{\partial}{\partial y}\left([$Q]\right)={} ``][______________________] <<
+Vektorové pole, které je gradientem nějaké skalární funkce [`f`], má tu vlastnost, že křivkový integrál po uzavřené křivce je nulový.
 
-Uvažujte křivkový integrál
-[``` \int_{\partial M} \Bigl([$P]\Bigr)\,\mathrm dx+\Bigl([$Q]\Bigr) \mathrm dy```]
-po kladně orientované hranici množiny [`M`]. Přepište tento integrál pomocí Greenovy věty
-[```
-\oint_{\partial M}P(x,y)\mathrm{d}x +Q(x,y)\mathrm{d}y =   \iint_{M}{\left(\frac{\partial Q(x,y)}{\partial x}-\frac{\partial P(x,y)}{\partial y}\right)}\,\mathrm{d}x \mathrm{d}y.
-```]
-jako dvojnásobný integrál přes množinu [`M`].
+Například komponenty vektorového pole [``` \vec F= x^2y\vec i+ x^3\vec j```]
+splňují
+[``` \frac{\partial}{\partial y}\left(x^2y\right)=x^2```]
+a
+[``` \frac{\partial}{\partial x}\left(x^3\right)=3x^2.```]
+Protože jsou obě parciální derivace různé, vektorové pole [`\vec F`] nemá skalární potenciál a integrál [``` \oint_C x^2y\,\mathrm dx + x^3\,\mathrm dy```] po uzavřené křivce [`C`] může být nenulový. Pokud by naopak byly obě derivace stejné, znamenalo by to, že existuje skalární potenciál a integrál je nulový pro libovolnou uzavřenou křivku [`C`]. 
 
->> [``  \oint_{\partial M} \Bigl([$P]\Bigr)\,\mathrm dx+\Bigl([$Q]\Bigr)\,\mathrm dy=\iint_M``][___________________]    [``\,\mathrm dx\mathrm dy``] <<
-
-*Poznámka.* Takto by mohla vypadat otázka v závěrečné písemce v případě, že ve výpočtu budou nějaké netriviální mezivýpočty. Tyto mezivýpočty jsou méně honorovány (za každou parciální derivaci pouze 10 procent celkového hodnocení za příklad) a po odeslání vidíte, jestli je  máte správně. Výsledek za zbylých 60 procent bodů a cca dva nebo tři pokusy pro zodpovězení, podle složitosti otázky a počtu polí v otázce.
+Tato problematika úzce souvisí se zavedením veličiny, která funguje podobně jak jsme zvyklí na potenciální energii v gravitačním poli Země. 
 
 END_PGML
 
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+Context("Vector2D");
+
+Context()->variables->are(x=>"Real",y=>"Real");
+Context()->flags->set(ijk=>1 );
+Context()->constants->set(
+  i => {TeX => "\,\mathit{\vec i}"},
+  j => {TeX => "\,\mathit{\vec j}"},
+  k => {TeX => "\,\mathit{\vec k}"},
+);
+
+@f=();
+@v=();
+@fx=();
+@fy=();
+@ans=();
+
+
+foreach $n (1..4) {
+
+    $nahoda=random(0,1);
+    $nasobek=random(1,3);
+    $n1=random(1,2);
+    $m1=random(1,2);
+    do
+    {
+	$n2=random(1,3);
+	$m2=random(1,3);
+    }
+    until ($n1!=$n2) or ($m1!=$m2);
+    $a=non_zero_random(1,4);
+    $b=random(1,5);
+    $b=0;
+
+
+#    $f[$n]=Formula("$a*(x)^($n1)*(y)^($m1)+$b*(x)^($n2)*(y)^($m2)")->reduce();
+#    $g[$n]=Formula("($a+$nahoda)*(x)^($n1)*(y)^($m1)+$b*(x)^($n2)*(y)^($m2)")->reduce();
+#    $fx[$n]=$f[$n]->D('x')->reduce();
+#    $fy[$n]=$g[$n]->D('y')->reduce();
+
+# Podle toho jaka je $nahoda jsou nebo nejsou funkce f a g stejne. Z kazde se vypocitava jedna parcialni derivace. Pokud je nahoda nulova a f=g, potom spolecna hodnota je skalarni potencial.
+
+    $f=Formula("$a*(x)^($n1)*(y)^($m1)")->reduce();
+    $g=Formula("($a+$nahoda)*(x)^($n1)*(y)^($m1)")->reduce();
+    $nasobek1=$a*$n1;
+    $nasobek2=($a+$nahoda)*$m1;
+    $spolecny=gcd($nasobek1,$nasobek2);
+    $nasobek1=$nasobek1/$spolecny;
+    $nasobek2=$nasobek2/$spolecny;
+    $fx=Formula("$nasobek1*(x)^($n1-1)*(y)^($m1)")->reduce()->reduce();
+    $fy=Formula("$nasobek2*(x)^($n1)*(y)^($m1-1)")->reduce()->reduce();
+    $v=Vector($fx,$fy)->reduce();
+    if ($nahoda==0)
+    {
+       $ans=RadioButtons(["Ano, integrál je nulový pro libovolnou uzavřenou křivku \(C\).","Ne, integrál po uzavřené křivce \(C\) může být i nenulový."],0);
+       $jsou_nejsou="jsou";
+       $existuje_neexistuje="existuje";
+       $nula_nenula="Křivkový integrál je roven nule pro libovolnou uzavřenou křivku [`C`].";
+       }
+       else
+       {
+       $ans=RadioButtons(["Ano, integrál je nulový pro libovolnou uzavřenou křivku \(C\).","Ne, integrál po uzavřené křivce \(C\) může být i nenulový."],1);
+       $jsou_nejsou="nejsou";
+       $existuje_neexistuje="neexistuje";
+       $nula_nenula="Není garantováno, že křivkový integrál je roven nule pro libovolnou uzavřenou křivku [`C`]. Obecně být roven nule nemusí.";
+       }
+
+BEGIN_PGML
+
+----------------
+
+Je možné s jistotou tvrdit, že následující integrál po uzavřené křivce je nulový?
+
+    [``` I_{[$n]}=\oint_C [$fx]\,\mathrm dx+[$fy]\,\mathrm dy```]
+    [_]{$ans}
+
+
+END_PGML
+
+
 BEGIN_PGML_HINT
 
-Musíme ve vzorci
-[```
-\oint_{\partial M}P(x,y)\mathrm{d}x +Q(x,y)\mathrm{d}y =   \iint_{M}{\left(\frac{\partial Q(x,y)}{\partial x}-\frac{\partial P(x,y)}{\partial y}\right)}\,\mathrm{d}x \mathrm{d}y.
-```]
-identifikovat, jaké parciální derivace potřebujeme, a poté tyto parciální derivace ve správném pořadí odečíst.
+Musíme vypočítat parciální derivace
+[``` \frac{\partial }{\partial x}\left([$fy]\right) ```]
+a
+[``` \frac{\partial }{\partial y}\left([$fx]\right) ```]
+a podle toho zda jsou nebo nejsou stejné správně usoudit na existenci nebo neexistenci skalárního potenciálu a tím i na nulovost nebo možnou nenulovost daného integrálu.
 
 END_PGML_HINT
 
+
 BEGIN_PGML_SOLUTION
 
-Při výpočtu parciálních derivací používáme pro nás již běžná pravidla pro derivování.
-[```\frac{\partial}{\partial x}\left([$P]\right)=[$dPx] ```]
-[```\frac{\partial}{\partial y}\left([$P]\right)=[$dPy] ```]
-[```\frac{\partial}{\partial x}\left([$Q]\right)=[$dQx] ```]
-[```\frac{\partial}{\partial y}\left([$Q]\right)=[$dQy] ```]
-
-Musíme ve vzorci
-[```
-\oint_{\partial M}P(x,y)\mathrm{d}x +Q(x,y)\mathrm{d}y =   \iint_{M}{\left(\frac{\partial Q(x,y)}{\partial x}-\frac{\partial P(x,y)}{\partial y}\right)}\,\mathrm{d}x \mathrm{d}y.
-```]
-identifikovat, jaké parciální derivace potřebujeme, a poté tyto parciální derivace ve správném pořadí odečíst.
-
+Parciální derivace
+[``` \frac{\partial }{\partial x}\left([$fy]\right) ```]
+a
+[``` \frac{\partial }{\partial y}\left([$fx]\right) ```]
+[$jsou_nejsou]
+stejné, skalární potenciál k danému vektorovém poli [$existuje_neexistuje].
+[$nula_nenula]
 
 END_PGML_SOLUTION
 
+}
 
-WEIGHTED_ANS( ($dPx)->cmp(), 10 );
-WEIGHTED_ANS( ($dPy)->cmp(), 10 );
-WEIGHTED_ANS( ($dQx)->cmp(), 10 );
-WEIGHTED_ANS( ($dQy)->cmp(), 10 );
-WEIGHTED_ANS( ($ans)->cmp(), 60 );
+
 
 ENDDOCUMENT();
