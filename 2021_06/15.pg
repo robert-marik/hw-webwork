@@ -14,7 +14,7 @@ ADD_CSS_FILE("left.css");
 
 BEGIN_PGML
 
-## Dvojný integrál
+## Dvojný integrál a mechanická stabilita
 
 Dvojný integrál je důležitý pro posouzení mechanické stability. Prostřednictvím jedné veličiny souvisí například s tuhostí. Identifikujte tuto veličinu, napište její definiční vztah a vysvětlete stručně symboly figurující v této definici.
 
