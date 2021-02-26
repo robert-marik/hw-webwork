@@ -1,0 +1,129 @@
+DOCUMENT();		# This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "parserRadioButtons.pl",
+  "PGchoicemacros.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+$showHint = 1;
+
+Context()->variables->are('t'=>'Real','x'=>'Real','y'=>'Real');
+
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+
+$funkceA=[
+{ funkce=> 'x^3', mnozina=>'A', odpoved=>'Ano'},
+{ funkce=> 'y^2', mnozina=>'A', odpoved=>'Ano'},
+{ funkce=> 'x(y-1)^2', mnozina=>'A', odpoved=>'Ano'},
+{ funkce=> 'x^3y^2', mnozina=>'A', odpoved=>'Ano'},
+{ funkce=> '\frac yx', mnozina=>'A', odpoved=>'Ano'},
+{ funkce=> '\frac y{x^2+1}', mnozina=>'A', odpoved=>'Ano'},
+{ funkce=> 'x^2 \sqrt y', mnozina=>'A', odpoved=>'Ano'},
+{ funkce=> '(x+y^2)', mnozina=>'A', odpoved=>'Ne'},
+{ funkce=> '(x^2-y^2)', mnozina=>'A', odpoved=>'Ne'},
+{ funkce=> '(x-y)', mnozina=>'A', odpoved=>'Ne'},
+{ funkce=> '(x-y)(x+y)', mnozina=>'A', odpoved=>'Ne'},
+];
+
+$funkceB=
+[
+{ funkce=> 'x^3', mnozina=>'B', odpoved=>'Ne'},
+{ funkce=> 'x+y^2', mnozina=>'B', odpoved=>'Ne'},
+{ funkce=> 'xy^2', mnozina=>'B', odpoved=>'Ne'},
+{ funkce=> 'y^2', mnozina=>'B', odpoved=>'Ne'},
+{ funkce=> 'x-y', mnozina=>'B', odpoved=>'Ne'},
+{ funkce=> 'x^2 \sqrt y', mnozina=>'B', odpoved=>'Ne'},
+];
+
+
+$pocetA=@$funkceA;
+$pocetB=@$funkceB;
+@permA=shuffle($pocetA);
+@permB=shuffle($pocetB);
+
+
+BEGIN_PGML
+
+## Fubiniova věta a redukce dvojného integrálu na součin dvou jednoduchých
+
+Speciálním případem Fubiniovy věty, kdy se integrál ze součinu dvou funkcí jedné proměnné přes obdélník redukuje na součin integrálů, je vzorec
+[``` \iint_\Omega f(x)g(y)\,\mathrm dx\mathrm dy=\int_{a}^bf(x)\,\mathrm dx \int _c^dg(y)\,\mathrm dy,```]
+kde množina [``\Omega``] je dána nerovnostmi [`` a\leq x\leq b``] a [`` c\leq y\leq d``].
+
+U následujících integrálů rozhodněte, zde ja možné je vypočítat pomocí této metody. Množina [`A`] vznikne jako levá půlka obdélníka [`\Omega`] po **rozpůlení svislou osou souměrnosti**. Množina [`B`] vznikne jako dolní půlka obdélníka [`\Omega`] po **rozpůlení úhlopříčkou**.
+
+Tedy [``` A\colon\quad a\leq x\leq \frac{a+b}2, \quad c\leq y\leq d ```]
+a
+[``` B\colon\quad a\leq x\leq b, \quad c\leq y\leq c+\frac{d-c}{b-a}(x-a). ```]
+
+END_PGML
+
+
+$funkce=[
+    $funkceA->[$permA[0]],
+    $funkceA->[$permA[1]],
+    $funkceA->[$permA[2]],
+    $funkceA->[$permA[3]],
+    $funkceB->[$permB[0]],
+    $funkceB->[$permB[1]],
+    ];
+
+$pocet=@$funkce;
+
+@perm=shuffle($pocet);
+
+foreach $i (@perm)
+{
+$integrand=$funkce->[$i]->{funkce};
+$mnozina=$funkce->[$i]->{mnozina};
+$odpoved=$funkce->[$i]->{odpoved};
+
+$answer=RadioButtons(["Ano","Ne"],$odpoved);
+
+BEGIN_PGML
+
+---
+
+[`` \iint\limits_{[$mnozina]} [$integrand]\,\mathrm dx\mathrm dy ``]
+
+[_]{$answer}
+
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$odpoved]
+
+END_PGML_SOLUTION
+
+}
+
+BEGIN_PGML_HINT
+
+Musí být splněny dvě podmínky.
+
+* Integrál musí být přes obdélník. Jednom jedna z množin [`A`] a [`B`] má obdélníkový tvar.
+* Integrál musí být z funkce, kterou je možno zapsat ve tvaru dvou součinitelů, z nichž první nezávisí na [`y`] a druhý nezávisí na [`x`].
+
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+
+Musí být splněny dvě podmínky.
+
+* Integrál musí být přes obdélník. Množina [`B`] nemá obdélníkový tvar a pro takový integrál je odpovědí automaticky Ne.
+* Integrál musí být z funkce, kterou je možno zapsat ve tvaru dvou součinitelů, z nichž první nezávisí na [`y`] a druhý nezávisí na [`x`].
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
