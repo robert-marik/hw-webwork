@@ -1,100 +1,145 @@
 DOCUMENT();
 
 loadMacros(
-  "PGstandard.pl",
-  "PGchoicemacros.pl",
-  "MathObjects.pl",
-  "PGML.pl",
-  "PGcourse.pl"
+    "PGstandard.pl",
+    "MathObjects.pl",
+    "parserFormulaUpToConstant.pl",
+    "PGML.pl",
+    "PGcourse.pl",
 );
 
-Context("Numeric");
-$showPartialCorrectAnswers = 1;
-
-$val1 = random(4,6,0.1);
-$val2 = random(2,4,0.1);
-$val3 = random(3,5,0.1);
-
-$findWhich = random(0,3,1);
-if ( $findWhich == 0 ) {
-    $pt0 = "(0,0)";
-    $pt1 = "(0,1)";
-    @pts = ( [ "(0,0)", "(1,0)" ], [ "(1,0)", "(1,1)" ],
-	     [ "(0,1)", "(1,1)" ] );
-} elsif ( $findWhich == 1 ) {
-    $pt0 = "(0,1)";
-    $pt1 = "(1,1)";
-    @pts = ( [ "(0,0)", "(1,0)" ], [ "(1,0)", "(1,1)" ],
-	     [ "(0,0)", "(0,1)" ] );
-} elsif ( $findWhich == 2 ) {
-    $pt0 = "(1,0)";
-    $pt1 = "(1,1)";
-    @pts = ( [ "(0,0)", "(0,1)" ], [ "(0,1)", "(1,1)" ],
-	     [ "(0,0)", "(1,0)" ] );
-} else {
-    $pt0 = "(0,0)";
-    $pt1 = "(1,0)";
-    @pts = ( [ "(0,0)", "(0,1)" ], [ "(0,1)", "(1,1)" ],
-	     [ "(1,0)", "(1,1)" ] );
-}
-$int = Compute( "$val1 + $val2 - $val3" );
-
-Context()->texStrings;
 TEXT(beginproblem());
 
-$showHint = 1;
 $showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context("Vector2D");
+
+Context()->variables->are(x=>"Real",y=>"Real",a=>"Real");
+Context()->flags->set(ijk=>1 );
+Context()->constants->set(
+  i => {TeX => "\,\mathit{\vec i}"},
+  j => {TeX => "\,\mathit{\vec j}"},
+  k => {TeX => "\,\mathit{\vec k}"},
+);
+
+$nahoda1=random(0,1);
+$nahoda2=1-$nahoda1;
+
+$a=non_zero_random(2,4,1);
+$b=non_zero_random(1,3,1);
+
+$c=non_zero_random(1,5,1);
+$d=non_zero_random(1,5,1);
+$nasobek1=non_zero_random(-4,4,1);
+$nasobek2=non_zero_random(-4,4,1);
+
+
+$jmenovatel=gcd($a, $b);
+$jmenovatel=gcd($jmenovatel, $nasobek2 * $nahoda1 * ($c));
+$jmenovatel=gcd($jmenovatel, $nasobek2 * $nahoda2 * ($d));
+
+$potencial=Formula(" ( $nasobek1 * (x)^($a)*(y)^($b) + $nasobek2 * $nahoda1 * (x)^($c) + $nasobek2 * $nahoda2 * (y)^($d) ) / ($jmenovatel)")->reduce();
+
+$P=Formula("  a*(($a)/($jmenovatel)) * (x)^($a-1)*(y)^($b) + $nasobek2 * $nahoda1 * ($c)/($jmenovatel)*(x)^($c-1)")->reduce();
+$Pa=Formula("  $nasobek1*(($a)/($jmenovatel)) * (x)^($a-1)*(y)^($b) + $nasobek2 * $nahoda1 * ($c)/($jmenovatel)*(x)^($c-1)")->reduce();
+
+$Q=Formula(" $nasobek1 * ($b)/($jmenovatel) * (x)^($a)*(y)^($b-1) + $nasobek2 * $nahoda2 * ($d)/($jmenovatel)*(y)^($d-1)")->reduce();
+
+$Pint=Formula(" $nasobek1 /($jmenovatel) * (x)^($a)*(y)^($b) + $nasobek2 * $nahoda1 /($jmenovatel)*(x)^($c)")->reduce();
+$Qint=Formula(" $nasobek1 /($jmenovatel) * (x)^($a)*(y)^($b) + $nasobek2 * $nahoda2 /($jmenovatel)*(y)^($d)")->reduce();
+
+$dQ=$Q->D('x');
+$dP=$P->D('y');
+
+
+$Pole=Vector("<$P,$Q>");
+
+$i = random(0,6,1);
+$kolik=random(2,4);
+
+if ($i<3)
+{
+$bodX=1;
+$bodY=$kolik;
+}
+else
+{
+$bodX=$kolik;
+$bodY=1;
+}
+
+$answer1=$potencial->eval(x=>$bodX,y=>$bodY);
+$answer2=$potencial->eval(x=>1,y=>1);
+$answer=Compute("($answer1)-($answer2)")->reduce;
+
 
 BEGIN_PGML
 
-##  Aditivita integrálu vzhledem k integračnímu oboru
+## Parametr zaručující nezávislost křivkového integrálu na integrační cestě
 
-Nechť vektorové pole [`\vec F`] má skalární potenciál a nechť tedy křivkový integrál v tomto poli nezávisí na integrační cestě. Potom o hodnotě integrálu rozhodují pouze počáteční a koncový bod křivky a má smysl používat označení analogické tomu, jaké známe u integrálu funkce jedné proměnné: do horní meze integrálu napíšeme koncový bod křivky a do dolní meze počáteční bod křivky.
-Použijme toto označení a předpokládejme, že známe hodnotu následujících tří integrálů.
+Toto je reformulace [@ htmlLink("http://um.mendelu.cz/webwork2/AM-Marik/04_Rotace/9","úlohy 9") @]* ze sady úloh věnované rotaci, tentokrát v jazyce křivkového integrálu. Zopakujte si v případě potřeby tuto úlohu a její řešení, pokud je již k dispozici.
 
-[``` \int_{[$pts[0]->[0]]}^{[$pts[0]->[1]]}\vec F \,\mathrm d\vec r = [$val1] ```]
-[``` \int_{[$pts[1]->[0]]}^{[$pts[1]->[1]]}\vec F \,\mathrm d\vec r = [$val2] ```]
-[``` \int_{[$pts[2]->[0]]}^{[$pts[2]->[1]]}\vec F \,\mathrm d\vec r = [$val3] ```]
+-----------
 
-Najděte hodnotu následujícího integrálu. (Výsledek stačí zapsat ve formě součtu nebo rozdílu, nemusíte numericky dopočítávat, WeBWorK si případný součet nebo rozdíl vypočítá sám.)
+Určete, pro kterou hodnotu parametru je křivkový integrál
+[``` \int_C \vec F\,\mathrm d\vec r```]
+vektorového pole [``` \vec F(x,y)=[$Pole]```] nezávislý na integrační cestě. Pro tuto hodnotu parametru určete skalární potenciál a hodnotu křivkového integrálu po křivce z bodu [`(1,1)`] do bodu [`([$bodX],[$bodY]).`]
 
->> [`` \int_{[$pt0]}^{[$pt1]}\vec F \,\mathrm d\vec r = {} ``][____________________]{$int}<<
+Skalární potenciál existuje pro [``a={}``][____]{$nasobek1}.
+
+Při hodnotě parametru zaručující existenci skalárního potenciálu je tento skalární potenciál roven
+>> [``\varphi={}``][__________________]{$potencial->cmp(upToConstant=>1)}[``{}+C.``]<<
+
+Křivkový integrál je
+>> [`` \int_C \vec F\,\mathrm d\vec r={}``][___________]{$answer}<<
 
 END_PGML
-Context()->normalStrings;
 
-
-Context()->texStrings;
 
 BEGIN_PGML_HINT
 
-Nakreslete si obrázek a využijte aditivitu vzhledem k integračnímu oboru. Pracujte s křivkami tvořícími strany jednotkového čtverce s vrcholy v bodech s vrcholy v bodech [`(0,0)`], [`(1,0)`], [`(1,1)`] a [`(0,1)`]. Mezi počátečním a koncovým bodem křivky se namísto po jedné straně křivky dostaneme po zbylých třech stranách. V případě, že bychom potřebovali směr křivky obrátit, můžeme tak učinit se současnou změnou znaménka integrálu (změnou orientace křivkový integrál mění znaménko).
+Musíte najít hodnotu parametru pro kterou jsou stejné parciální derivace
+[``` \frac{\partial }{\partial x} ([$Q]) ```]
+a 
+[``` \frac{\partial }{\partial y} ([$P]) ```]
+a dále pracovat s touto hodnotou parametru způsobem stejným jako v předchozích dvou příkladech.
+
+Pro tuto hodnotu musíte vypočítat integrály
+[``` \int [$P]\,\mathrm dx ```]
+a
+[``` \int [$Q]\,\mathrm dy ```]
+a z výsledku sestavit skalární potenciál.
+
+Poté musíte určit nárůst skalárního potenciálu mezi body   [`([$bodX],[$bodY])`] a [`(1,1)`].
 
 END_PGML_HINT
 
 
-SOLUTION(EV3(<<'END_SOLUTION'));
-$PAR Řešení $PAR
+BEGIN_PGML_SOLUTION
+Musíme najít hodnotu parametru pro kterou jsou stejné derivace
+[``` \frac{\partial }{\partial x} ([$Q])=[$dQ] ```]
+a 
+[``` \frac{\partial }{\partial y} ([$P])=[$dP]. ```]
+Tyto derivace jsou stejné pro [`a=[$nasobek1]`].
 
-Protože integrál nezávisí na integrační cestě, je možné najít integrál  \[ \int_{$pt0}^{$pt1}\vec F \,\mathrm d\vec r \] z
-bodu \($pt0\) do bodu \($pt1\) integrací po zbylých stranách jednotkového čtverce s vrcholy v bodech \((0,0)\), \((1,0)\), \((1,1)\) a \((0,1)\).
-Odsud (nakreslete si obrázek, jak na sebe křivky navazují)
-\[
-\int_{$pt0}^{$pt1}\vec F \,\mathrm  d\vec r =
-  \int_{$pts[0]->[0]}^{$pts[0]->[1]}\vec F \,\mathrm  d\vec r +
-  \int_{$pts[1]->[0]}^{$pts[1]->[1]}\vec F \,\mathrm  d\vec r +
-  \int_{$pts[2]->[1]}^{$pts[2]->[0]}\vec F \,\mathrm  d\vec r,
-\]
-a proto
-\[
-\int_{$pt0}^{$pt1}\vec F \,\mathrm  d\vec r =
-  \int_{$pts[0]->[0]}^{$pts[0]->[1]}\vec F \,\mathrm  d\vec r +
-  \int_{$pts[1]->[0]}^{$pts[1]->[1]}\vec F \,\mathrm  d\vec r -
-  \int_{$pts[2]->[0]}^{$pts[2]->[1]}\vec F \,\mathrm  d\vec r =
-  $val1 + $val2 - $val3 = $int.
-\]
+Platí
+[``` \int [$Pa]\,\mathrm dx =[$Pint]+C(y)```]
+a
+[``` \int [$Q]\,\mathrm dy =[$Qint]+C(x).```]
+Skalární potenciál je (jednoznačně až na případnou aditivní konstantu)
+[``` \varphi(x,y)=[$potencial].```]
 
-END_SOLUTION
-Context()->normalStrings;
+Po dosazení koncových bodů křivky dostáváme
+[```\varphi(1,1)=[$answer2]```]
+a 
+[```\varphi([$bodX],[$bodY])=[$answer1],```]
+v důsledku čehož
+[``` \int_C \vec F\,\mathrm d\vec r = ([$answer1])-([$answer2])=\cdots```]
+(nemusíte dopočítávat, WeBWorK si tato čísla odečte sám.)
+
+END_PGML_SOLUTION
+
+
 
 ENDDOCUMENT();

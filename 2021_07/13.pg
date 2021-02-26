@@ -1,1 +1,124 @@
- ## Bude doplneno 
+DOCUMENT();		# This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "weightedGrader.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+install_weighted_grader();
+
+TEXT(beginproblem());
+
+$showHint = 1;
+$showPartialCorrectAnswers = 1;
+
+Context()->variables->are(x=>"Real",y=>"Real");
+
+$m = random(1, 2, 1);
+$a = non_zero_random(1, 3, 1);
+do
+{
+   $b = non_zero_random(-3, 3, 1);
+} until (($m+1)*($b)!=$a);
+
+$aa = non_zero_random(1, 4, 1);
+$n = 1;
+
+# $P=Compute("$a*x^($m)*y^($n)+$b*x^($m-1)")->reduce();
+# $dPx=Compute("$a*$m*x^($m-1)*y^($n)+$b*($m-1)*x^($m-2)")->reduce();
+# $dPy=Compute("$a*$n*x^($m)*y^($n-1)")->reduce();
+
+$P=Compute("$a*x^($m)*y^($n)")->reduce();
+$dPx=Compute("$a*$m*x^($m-1)*y^($n)")->reduce();
+$dPy=Compute("$a*$n*x^($m)*y^($n-1)")->reduce();
+
+
+# $Q=Compute("$aa*x^($m-1)*y^($n)+$b*x^($m)")->reduce();
+# $dQx=Compute("$aa*($m-1)*x^($m-2)*y^($n)+$b*$m*x^($m-1)")->reduce();
+# $dQy=Compute("$aa*($n)*x^($m-1)*y^($n-1)")->reduce();
+$Q=Compute("$b*x^($m+1)")->reduce();
+$dQx=Compute("$b*($m+1)*x^($m)")->reduce();
+$dQy=Compute("0")->reduce();
+
+$ans=Compute("$dQx-($dPy)")->reduce();
+
+Context()->flags->set(reduceConstants=>0); # Preserve constant formulas
+$citatel=Compute("($b*($m+1)-$a )");
+$Ans=Compute("($citatel)/($m+1)");
+
+BEGIN_PGML
+
+## Greenova věta na jednotkovém čtverci
+
+Vypočtěte následující derivace.
+
+>>[``\frac{\partial}{\partial x}\left([$P]\right)={} ``][______________________] <<
+
+>>[``\frac{\partial}{\partial y}\left([$P]\right)={} ``][______________________] <<
+
+>>[``\frac{\partial}{\partial x}\left([$Q]\right)={} ``][______________________] <<
+
+>>[``\frac{\partial}{\partial y}\left([$Q]\right)={} ``][______________________] <<
+
+Uvažujte křivkový integrál
+[``` \int_{\partial M} \Bigl([$P]\Bigr)\,\mathrm dx+\Bigl([$Q]\Bigr) \mathrm dy```]
+po kladně orientované hranici množiny [`M`]. Přepište tento integrál pomocí Greenovy věty
+[```
+\oint_{\partial M}P(x,y)\mathrm{d}x +Q(x,y)\mathrm{d}y =   \iint_{M}{\left(\frac{\partial Q(x,y)}{\partial x}-\frac{\partial P(x,y)}{\partial y}\right)}\,\mathrm{d}x \mathrm{d}y.
+```]
+jako dvojnásobný integrál přes množinu [`M`].
+
+>> [``  \oint_{\partial M} \Bigl([$P]\Bigr)\,\mathrm dx+\Bigl([$Q]\Bigr)\,\mathrm dy=\iint_M``][___________________]    [``\,\mathrm dx\mathrm dy``] <<
+
+Poté vypočtěte hodnotu tohoto integrálu za předpokladu, že množina [`M`] je jednotkový čtverec daný nerovnostmi [```0\leq x\leq 1,```] [```0\leq y\leq 1.```] Využijte výsledek, který jsme dosáhli ve cvičení, tj. pro jednotkový čtverec [`M`] platí [``` \iint_M x^n \,\mathrm dx\mathrm dy = \iint_M y^n\,\mathrm dx\mathrm dy=\frac 1{n+1}.```]
+ (Ve cvičení jsme vypočítali jeden z těchto integrálů, ale druhý je stejný vzhledem k symetrii.)
+
+>> [``  \oint_{\partial M} \Bigl([$P]\Bigr)\,\mathrm dx+\Bigl([$Q]\Bigr)\,\mathrm dy=``][___________________] <<
+
+*Poznámka.* Za každou parciální derivaci dostanete pouze 10 procent celkového ohodnocení za příklad. Za každou další odpověď náleží 30 procent. Po odeslání vidíte, jestli máte správně mezivýpočty.
+
+END_PGML
+
+BEGIN_PGML_HINT
+
+Musíme ve vzorci
+[```
+\oint_{\partial M}P(x,y)\mathrm{d}x +Q(x,y)\mathrm{d}y =   \iint_{M}{\left(\frac{\partial Q(x,y)}{\partial x}-\frac{\partial P(x,y)}{\partial y}\right)}\,\mathrm{d}x \mathrm{d}y.
+```]
+identifikovat, jaké parciální derivace potřebujeme, a poté tyto parciální derivace ve správném pořadí odečíst.
+
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+
+Při výpočtu parciálních derivací používáme pro nás již běžná pravidla pro derivování.
+[```\frac{\partial}{\partial x}\left([$P]\right)=[$dPx] ```]
+[```\frac{\partial}{\partial y}\left([$P]\right)=[$dPy] ```]
+[```\frac{\partial}{\partial x}\left([$Q]\right)=[$dQx] ```]
+[```\frac{\partial}{\partial y}\left([$Q]\right)=[$dQy] ```]
+
+Musíme ve vzorci
+[```
+\oint_{\partial M}P(x,y)\mathrm{d}x +Q(x,y)\mathrm{d}y =   \iint_{M}{\left(\frac{\partial Q(x,y)}{\partial x}-\frac{\partial P(x,y)}{\partial y}\right)}\,\mathrm{d}x \mathrm{d}y.
+```]
+identifikovat, jaké parciální derivace potřebujeme, a poté tyto parciální derivace ve správném pořadí odečíst. Tím najdeme funkci, kterou potřebujeme integrovat. Mělo by se jednat o lineární funkci a hodnotu integrálu můžeme vypočítat pomocí lineární kombinace integrálů z nápovědy.
+V našem případě
+[```
+\oint_{\partial M}P(x,y)\mathrm{d}x +Q(x,y)\mathrm{d}y =  [$citatel] \iint_{M}x^{[$m]} \,\mathrm{d}x \mathrm{d}y=\frac{[$citatel]}{[$m+1]}=[$Ans].
+```]
+
+
+END_PGML_SOLUTION
+
+
+WEIGHTED_ANS( ($dPx)->cmp(), 10 );
+WEIGHTED_ANS( ($dPy)->cmp(), 10 );
+WEIGHTED_ANS( ($dQx)->cmp(), 10 );
+WEIGHTED_ANS( ($dQy)->cmp(), 10 );
+WEIGHTED_ANS( ($ans)->cmp(), 30 );
+WEIGHTED_ANS( ($Ans)->cmp(), 30 );
+
+ENDDOCUMENT();
