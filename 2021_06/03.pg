@@ -1,136 +1,92 @@
-DOCUMENT();        
+DOCUMENT();		# This should be the first executable line in the problem.
 
 loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
   "PGML.pl",
-  "contextFraction.pl",
-  "PGgraphmacros.pl",
-  "unionTables.pl",
-  "alignedChoice.pl",
   "PGcourse.pl"
 );
-
 
 TEXT(beginproblem());
 
 $showHint = 1;
 
-$refreshCachedImages=1;
-
-##############################################
-#  Setup
-
-Context("Numeric")->variables->are(x=>"Real",y=>"Real");
-
-$xmin = random(-4,0,1);
-$xmax = random(1,4,1);
-$dx = $xmax - $xmin;
-
-$ymin = random(-4,-1,1);
-$ymid = $ymin;
-$ymax = random(0,4,1);
-$dy = $ymid - $ymin;
-
-Context()->texStrings;
-
-$al1 = new_aligned_list(ans_rule_len=>10, numbered=>0, tex_spacing=>"3pt", equals=>0);
-$al1->qa(
-"\(A={}\)",Compute("$xmin")->cmp,
-"\(B={}\)",Compute("$xmax")->cmp,
-"\(C={}\)",Compute("$ymin + ($dy / $dx) * (x - $xmin)")->reduce->cmp,
-"\(D={}\)",Compute("$ymax")->cmp,
-);
-
-Context()->normalStrings;
-
-################
-#  Graph
-#
-$gr = init_graph(-5,-5,5,5,grid=>[10,10],axes=>[0,0],pixels=>[400,400]);
-$gr->lb('reset');
-foreach my $i (1..4) {
-  $gr->lb( new Label(-4.7,$i,$i,'black','center','middle'));
-  $gr->lb( new Label(-4.7,-$i,-$i,'black','center','middle'));
-  $gr->lb( new Label($i,-4.7,$i,'black','center','middle'));
-  $gr->lb( new Label(-$i,-4.7,-$i,'black','center','middle'));
-}
-$gr->lb( new Label(4.7,0.2,'x','black','center','middle'));
-$gr->lb( new Label(0.2,4.7,'y','black','center','middle'));
-
-$gr->new_color("lightblue", 214,230,244);
-$gr->new_color("lightgreen",156,215,151);
-$gr->new_color("darkgreen",0,86,34);
-
-$gr->moveTo($xmin,$ymin);
-$gr->lineTo($xmax,$ymid,"darkgreen",2); # bottom edge
-$gr->lineTo($xmax,$ymax,"darkgreen",2); # right edge
-$gr->lineTo($xmin,$ymax,"darkgreen",2); # top edge
-$gr->lineTo($xmin,$ymin,"darkgreen",2); # left edge
-$gr->fillRegion([$xmin+0.1,$ymid+0.1,"lightgreen"]);
-
-
-##############################################
-#  Main text
-
-Context()->texStrings;
-
-BEGIN_PGML
-
-## Dvojný integrál přes obdélník
-
-END_PGML
-
-BEGIN_TEXT
-\{
-ColumnTable(
-"Nechť \(R\) je obdélník na obrázku a \( f(x,y) \) je funkce definovaná na  \( R \).  Převeďte dvojný integrál na dvojnásobný (s vnější integrací podle proměnné \(x\)) a určete meze.".
-$PAR.
-"\[ \displaystyle
-\iint\limits_R f(x,y) \, \mathrm dx\mathrm dy
-=
-\int_A^B  \int_C^D f(x,y) \, \mathrm dy \, \mathrm dx
-\]".
-$al1->print_q(),
-$BCENTER.
-image(insertGraph($gr),width=>400,height=>400,tex_size=>600).
-$ECENTER,
-indent => 0, separation => 30, valign => "TOP"
-)
-\}
-END_TEXT
-Context()->normalStrings;
-
-BEGIN_PGML
-
-*Poznámka:* Jednotlivé meze se hodnotí nezávisle na sobě. Test tedy vyhodnocuje čtyři odpovědi, každou samostatně.
-
-END_PGML
-
-
-##################################################
-#  Answers
+Context()->strings->add(nelze=>{},N=>{alias=>"nelze"});
 
 $showPartialCorrectAnswers = 1;
-ANS($al1->correct_ans );
 
-Context("Fraction");
-$m=Compute("$dy/$dx");
-Context()->texStrings;
+$a = random(-5, 5, 1);
+$b = random(1, 4, 1);
+do
+{
+	$c = random(-5, 5, 1);
+	$d = random(1, 4, 1);
+}
+until ($a!=$b) or ($c!=$d);
 
-BEGIN_HINT
-Obdélník je definován nerovnostmi \($xmin \le x \le $xmax\) a
-\( $ymin \le y \le $ymax\). Použijte tuto informaci a správně tyto hodnoty přiřaďte k mezím.
-END_HINT
+$e = random(-5, 5, 1);
+$f = random(-5, 5, 1);
+$answer=Compute("$e*$f");
+
+$i = random(0, 2,1);
+
+if ($i==0)
+{
+$ff="g";
+$fg="f";
+$answer=Compute("nelze");
+}
+else
+{
+$ff="f";
+$fg="g";
+}
+
+$g = $a + $b;
+$h = $c + $d;
 
 
-BEGIN_SOLUTION
-$PAR Řešení $BR $BR
-Obdélník je definován nerovnostmi \($xmin \le x \le $xmax\) a
-\( $ymin \le y \le $ymax\)
-$BR
-Tedy \[ \iint_R  f(x,y) \,\mathrm dx\mathrm dy = \int_{$xmin}^{$xmax} \int_{$ymin}^{$ymax}
-f(x,y) \, \mathrm dy \mathrm dx. \]
-END_SOLUTION
+
+BEGIN_PGML
+
+## Fubiniova věta na obdélníku pro funkci se separovanými proměnnými II
+
+Speciálním případem Fubiniovy věty, kdy se integrál ze součinu dvou funkcí jedné proměnné přes obdélník redukuje na součin integrálů je vzorec
+[``` \iint_\Omega f(x)g(y)\,\mathrm dx\mathrm dy=\int_{a}^bf(x)\,\mathrm dx \int _c^dg(y)\,\mathrm dy,```]
+kde množina [``\Omega``] je dána nerovnostmi [`` a\leq x\leq b``] a [`` c\leq y\leq d``].
+
+
+Nechť [`D`] je obdélník daný nerovnostmi [``[$a] \leq x \leq [$g]``] a [``[$c] \leq y \leq [$h]``]. 
+Určete [```\iint_{D} f(x) g(y) \,\mathrm dx\mathrm dy, ```]
+jestliže [``\int_{[$a]}^{[$g]} [$ff](t) \, 
+\mathrm dt = [$e] ``] a [`` \int_{[$c]}^{[$h]} [$fg](t) \,\mathrm dt = [$f] ``].
+
+>> [`` \iint_{D} f(x)g(y) \,\mathrm dx\mathrm dy ={}``] [____________]{$answer} <<
+
+*Návod.* Na jménu proměnné pochopitelně nezáleží. Ujasněte si, například v proměnných [`x`] a [`y`] jaké integrály potřebujete, přepište je do proměnné [`t`] a porovnejte s tím, co máte k dispozici. Pokud nemáte správné informace pro vyřešení úlohy, napište *nelze* nebo zkráceně *N*.
+
+END_PGML
+
+BEGIN_PGML_HINT
+
+
+Rozmyslete si, zda máte k dispozici hodnoty, které stačí vynásobit.
+
+END_PGML_HINT
+
+if ($i==0)
+{
+BEGIN_PGML_SOLUTION
+ Nejsou k dispozici informace nutné pro vyřešení úlohy. Potřebovali bychom znát integrály
+ [``\int_{[$a]}^{[$g]} [$fg](t) \, 
+\mathrm dt ``] a [`` \int_{[$c]}^{[$h]} [$ff](t) \,\mathrm dt ``].
+END_PGML_SOLUTION
+}
+else
+{
+BEGIN_PGML_SOLUTION
+Stačí vynásobit zadané integrály. Odpověď je [`` [$answer] ``].
+END_PGML_SOLUTION
+}
 
 ENDDOCUMENT();

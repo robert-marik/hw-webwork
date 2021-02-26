@@ -2,13 +2,15 @@ DOCUMENT();
 
 loadMacros(
   "PGstandard.pl",
-  "PGML.pl",
   "MathObjects.pl",
-  "parserMultiAnswer.pl",
+  "PGML.pl",
+  "contextFraction.pl",
   "PGgraphmacros.pl",
   "unionTables.pl",
+  "alignedChoice.pl",
   "PGcourse.pl"
 );
+
 
 TEXT(beginproblem());
 
@@ -21,212 +23,126 @@ $refreshCachedImages=1;
 
 Context("Numeric")->variables->are(x=>"Real",y=>"Real");
 
-$select = random(0,3,1);
+$xmin = random(-4,-1,1);
+$xmax = random(1,4,1);
+$dx = $xmax - $xmin;
 
-$r = random(1,5,1);
-$R = random(1,5,1);
-while ($r == $R) {  $R = random(1,5,1); }
+$ymin = random(-4,-1,1);
+$ymid = random(0,1,1);
+$ymax = random(2,4,1);
+$dy = $ymid - $ymin;
 
-$min = ($r, $R)[$r > $R];
-$max = ($r, $R)[$r < $R];
+Context()->texStrings;
 
-$gr = init_graph(-5.5,-5.5,5.5,5.5,axes=>[0,0],size=>[400,400]);
+$al1 = new_aligned_list(ans_rule_len=>10, numbered=>0, tex_spacing=>"3pt", equals=>0);
+$al1->qa(
+"\(A={}\)",Compute("$xmin")->cmp,
+"\(B={}\)",Compute("$xmax")->cmp,
+"\(C={}\)",Compute("$ymin + ($dy / $dx) * (x - $xmin)")->reduce->cmp,
+"\(D={}\)",Compute("$ymax")->cmp,
+);
+
+Context()->normalStrings;
+
+################
+#  Graph
+#
+$gr = init_graph(-5,-5,5,5,grid=>[10,10],axes=>[0,0],pixels=>[400,400]);
 $gr->lb('reset');
-$gr->lb( new Label(5.2,0.2,'x','black','center','middle'));
-$gr->lb( new Label(0.2,5.2,'y','black','center','middle'));
-#$gr->new_color("lightblue",214,230,244);
-#$gr->new_color("darkblue", 100,100,255);
-$gr->new_color("lightred",  245,234,229); # light red-purple
-$gr->new_color("darkred",   159, 64, 16); # red-brown
-$gr->h_grid("gray",-5,-4,-3,-2,-1,1,2,3,4,5);
-$gr->v_grid("gray",-5,-4,-3,-2,-1,1,2,3,4,5);
-  foreach my $i (1..4) {
-    $gr->lb( new Label($i,-5.2,$i,  'black','center','middle'));
-    $gr->lb( new Label(-$i,-5.2,-$i,'black','center','middle'));
-    $gr->lb( new Label(-5.2,$i,$i,  'black','center','middle'));
-    $gr->lb( new Label(-5.2,-$i,-$i,'black','center','middle'));
-  }
-
-
-if ($select == 0) {
-
-$A = Formula("0");
-$B = Formula("pi");
-add_functions($gr,
-"sqrt($max^2-x^2) for x in <-$max,$max> using color:darkred and weight:2",
-"sqrt($min^2-x^2) for x in <-$min,$min> using color:darkred and weight:2",
-);
-$gr->moveTo(-$max,0);
-$gr->lineTo(-$min,0,"darkred",2);
-$gr->moveTo($min,0);
-$gr->lineTo($max,0,"darkred",2);
-$gr->fillRegion([($min+$max)/2,0.1,"lightred"]);
-
-} elsif ($select == 1) {
-
-$A = Formula("pi/2");
-$B = Formula("3*pi/2");
-add_functions($gr,
-"sqrt($max^2-x^2)  for x in <-$max,0> using color:darkred and weight:2",
-"sqrt($min^2-x^2)  for x in <-$min,0> using color:darkred and weight:2",
-"-sqrt($max^2-x^2) for x in <-$max,0> using color:darkred and weight:2",
-"-sqrt($min^2-x^2) for x in <-$min,0> using color:darkred and weight:2",
-);
-$gr->moveTo(0,$max);
-$gr->lineTo(0,$min,"darkred",2);
-$gr->moveTo(0,-$min);
-$gr->lineTo(0,-$max,"darkred",2);
-$gr->fillRegion([-($min+$max)/2,0.1,"lightred"]);
-
-} elsif ($select == 2) {
-
-$A = Formula("pi");
-$B = Formula("2*pi");
-add_functions($gr,
-"-sqrt($max^2-x^2) for x in <-$max,$max> using color:darkred and weight:2",
-"-sqrt($min^2-x^2) for x in <-$min,$min> using color:darkred and weight:2",
-);
-$gr->moveTo(-$max,0);
-$gr->lineTo(-$min,0,"darkred",2);
-$gr->moveTo($min,0);
-$gr->lineTo($max,0,"darkred",2);
-$gr->fillRegion([($min+$max)/2,-0.1,"lightred"]);
-
-
-} else {
-
-$A = Formula("-pi/2");
-$B = Formula("pi/2");
-add_functions($gr,
-"sqrt($max^2-x^2)  for x in <0,$max> using color:darkred and weight:2",
-"sqrt($min^2-x^2)  for x in <0,$min> using color:darkred and weight:2",
-"-sqrt($max^2-x^2) for x in <0,$max> using color:darkred and weight:2",
-"-sqrt($min^2-x^2) for x in <0,$min> using color:darkred and weight:2",
-);
-$gr->moveTo(0,$max);
-$gr->lineTo(0,$min,"darkred",2);
-$gr->moveTo(0,-$min);
-$gr->lineTo(0,-$max,"darkred",2);
-$gr->fillRegion([($min+$max)/2,0.1,"lightred"]);
-
+foreach my $i (1..4) {
+  $gr->lb( new Label(-4.7,$i,$i,'black','center','middle'));
+  $gr->lb( new Label(-4.7,-$i,-$i,'black','center','middle'));
+  $gr->lb( new Label($i,-4.7,$i,'black','center','middle'));
+  $gr->lb( new Label(-$i,-4.7,-$i,'black','center','middle'));
 }
+$gr->lb( new Label(4.7,0.2,'x','black','center','middle'));
+$gr->lb( new Label(0.2,4.7,'y','black','center','middle'));
 
-$C = Formula("$min");
-$D = Formula("$max");
+$gr->new_color("lightblue", 214,230,244);
+$gr->new_color("lightgreen",156,215,151);
+$gr->new_color("darkgreen",0,86,34);
 
-
-
-$multians1 = MultiAnswer($A, $B)->with(
-  singleResult => 1, separator => ' až ', tex_separator => '\mbox{ až }',
-  checker => sub {
-      my ( $correct, $student, $self ) = @_;
-      my ( $Astu, $Bstu ) = @{$student};
-#     my ( $a, $b ) = @{$correct};
-      if ( (($Bstu - $Astu) == ($B - $A)) && 
-           (cos($Astu) == cos($A)) &&
-           (sin($Astu) == sin($A)) &&
-           (cos($Bstu) == cos($B)) &&
-           (sin($Bstu) == sin($B))
-         ) { return 1; } else { return 0; }
-  }
-);
-
-
-$multians2 = MultiAnswer($C, $D)->with(
-  singleResult => 1, separator => ' až ', tex_separator => '\mbox{ až }',
-  checker => sub {
-      my ( $correct, $student, $self ) = @_;
-      my ( $Cstu, $Dstu ) = @{$student};
-#     my ( $a, $b ) = @{$correct};
-      if ( ($Cstu  == $C) && ($Dstu == $D)
-         ) { return 1; } else { return 0; }
-  }
-);
-
-
-
+$gr->moveTo($xmin,$ymin);
+$gr->lineTo($xmax,$ymid,"darkgreen",2); # bottom edge
+$gr->lineTo($xmax,$ymax,"darkgreen",2); # right edge
+$gr->lineTo($xmin,$ymax,"darkgreen",2); # top edge
+$gr->lineTo($xmin,$ymin,"darkgreen",2); # left edge
+$gr->fillRegion([$xmin+0.1,$ymid+0.1,"lightgreen"]);
 
 
 ##############################################
 #  Main text
 
 Context()->texStrings;
-Context()->flags->set(reduceConstants=>0);
+
 
 BEGIN_PGML
 
-## Integrál přes obdélník v polárních souřadnicích
-
-Integrál přes následující množinu má snadné vyjádření v polárních souřadnicích, protože v nich jsou meze pro jednotlivé proměnné konstantní a jedná se tedy o jakousi obodobu obrazce, který se v kartézských souřadnicích nazývá obdélník. To vysvětluje poněkud nelogický název této úlohy.
+## Dvojný integrál přes lichoběžník
 
 END_PGML
+
 
 BEGIN_TEXT
 \{
 ColumnTable(
-"Nechť \(\Omega\) je oblast vyznačená na obrázku. Zapište následující dvojný integrál jako dvojnásobný pro naznačené pořadí integrace. ".
+"Nechť \(R\) je lichoběžník na obrázku a \( f(x,y) \) je funkce definovaná na  \( R \).  Převeďte dvojný integrál na dvojnásobný (s vnější integrací podle proměnné \(x\)) a určete meze.".
 $PAR.
-$BCENTER.
-"\( \displaystyle
-\iint\limits_\Omega f(x,y) \,\mathrm dx\mathrm dy
+"\[ \displaystyle
+\iint\limits_R f(x,y) \, \mathrm dx\mathrm dy
 =
-\int_A^B \int_C^D f(r\cos(\theta),r\sin(\theta)) \, r \, \mathrm dr \mathrm d\varphi
-\)".
-$ECENTER.
-$PAR.
-$BR.
-$BR.
-"\(A ={}\) ".$multians1->ans_rule(20).$BR.
-"\(B ={}\) ".$multians1->ans_rule(20).$BR.
-"\(C ={}\) ".$multians2->ans_rule(20).$BR.
-"\(D ={}\) ".$multians2->ans_rule(20).$BR,
+\int_A^B  \int_C^D f(x,y) \, \mathrm dy \, \mathrm dx
+\]".
+$al1->print_q(),
 $BCENTER.
-image(insertGraph($gr),width=>300,height=>300,tex_size=>700).
-$BR.
-"(Pro zvětšení klikněte na obrázek)".
+image(insertGraph($gr),width=>400,height=>400,tex_size=>600).
 $ECENTER,
-indent=>0, separation=>30, valign=>"TOP"
+indent => 0, separation => 30, valign => "TOP"
 )
 \}
 END_TEXT
 
 BEGIN_PGML
 
-*Poznámka:* Meze pro stejnou proměnnou se hodnotí jako celek. Například, pokud je špatně [`A`], je jako špatně označeno [`A`] i [`B`]. Podobně pro další meze.
+*Poznámka:* Jednotlivé meze se hodnotí nezávisle na sobě. Test tedy vyhodnocuje čtyři odpovědi, každou samostatně. 
 
 END_PGML
+
 
 Context()->normalStrings;
 
 
-BEGIN_PGML_HINT
-
-Množina je definována nerovnostmi [``` [$C]\leq r\leq [$D] ```] a [``` [$A]\leq\varphi\leq [$B]. ```]
-Použijte tuto informaci a přiřaďte hodnoty ke správným mezím.
-
-END_PGML_HINT
-
-BEGIN_PGML_SOLUTION
-
-Množina je definována nerovnostmi [``` [$C]\leq r\leq [$D] ```] a [``` [$A]\leq\varphi\leq [$B]. ```]
-Integrál má tvar
-[``` \iint\limits_\Omega f(x,y) \,\mathrm dx\mathrm dy
-=
-\int_{[$A]}^{[$B]} \int_{[$C]}^{[$D]} f(r\cos(\theta),r\sin(\theta)) \, r \, \mathrm dr \mathrm d\varphi.
-```]
-END_PGML_SOLUTION
-
 ##################################################
 #  Answers
 
-#WEIGHTED_ANS($multians1->cmp(), 50);
-#WEIGHTED_ANS($multians2->cmp(), 50);
-
-ANS($multians1->cmp());
-ANS($multians2->cmp());
-
 $showPartialCorrectAnswers = 1;
+ANS($al1->correct_ans );
+
+Context("Fraction");
+$m=Compute("$dy/$dx");
+Context()->texStrings;
+
+BEGIN_HINT
+Množina je zdola ohraničena přímkou procházející body
+\( ( $xmin, $ymin) \) a\( ( $xmax , $ymid) \). Tato přímka má rovnici
+\( y = $m (x-$xmin) + $ymin \).
+
+Oblast integrace je definována nerovnostmi \[$xmin \le x \le $xmax\] a
+\[ $m (x-$xmin) + $ymin  \le y \le $ymax.\] Použijte tuto informaci a správně tyto informace přiřaďte k mezím.
+END_HINT
 
 
-;
+BEGIN_SOLUTION
+$PAR Řešení $BR $BR
+Množina je zdola ohraničena přímkou procházející body
+\( ( $xmin, $ymin) \) a\( ( $xmax , $ymid) \). Tato přímka má rovnici
+\( y = $m (x-$xmin) + $ymin \).
+
+Oblast integrace je definována nerovnostmi \[$xmin \le x \le $xmax\] a
+\[ $m (x-$xmin) + $ymin  \le y \le $ymax.\]
+$BR
+Tedy \[ \iint_R  f(x,y) \,\mathrm dx\mathrm dy = \int_{$xmin}^{$xmax} \int_{$m (x-$xmin) + $ymin }^{$ymax}
+f(x,y) \, \mathrm dy \mathrm dx. \]
+END_SOLUTION
+
 ENDDOCUMENT();

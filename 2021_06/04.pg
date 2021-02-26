@@ -23,13 +23,13 @@ $refreshCachedImages=1;
 
 Context("Numeric")->variables->are(x=>"Real",y=>"Real");
 
-$xmin = random(-4,-1,1);
+$xmin = random(-4,0,1);
 $xmax = random(1,4,1);
 $dx = $xmax - $xmin;
 
 $ymin = random(-4,-1,1);
-$ymid = random(0,1,1);
-$ymax = random(2,4,1);
+$ymid = $ymin;
+$ymax = random(0,4,1);
 $dy = $ymid - $ymin;
 
 Context()->texStrings;
@@ -75,18 +75,16 @@ $gr->fillRegion([$xmin+0.1,$ymid+0.1,"lightgreen"]);
 
 Context()->texStrings;
 
-
 BEGIN_PGML
 
-## Dvojný integrál přes lichoběžník
+## Dvojný integrál přes obdélník
 
 END_PGML
-
 
 BEGIN_TEXT
 \{
 ColumnTable(
-"Nechť \(R\) je lichoběžník na obrázku a \( f(x,y) \) je funkce definovaná na  \( R \).  Převeďte dvojný integrál na dvojnásobný (s vnější integrací podle proměnné \(x\)) a určete meze.".
+"Nechť \(R\) je obdélník na obrázku a \( f(x,y) \) je funkce definovaná na  \( R \).  Převeďte dvojný integrál na dvojnásobný (s vnější integrací podle proměnné \(x\)) a určete meze.".
 $PAR.
 "\[ \displaystyle
 \iint\limits_R f(x,y) \, \mathrm dx\mathrm dy
@@ -101,15 +99,13 @@ indent => 0, separation => 30, valign => "TOP"
 )
 \}
 END_TEXT
+Context()->normalStrings;
 
 BEGIN_PGML
 
-*Poznámka:* Jednotlivé meze se hodnotí nezávisle na sobě. Test tedy vyhodnocuje čtyři odpovědi, každou samostatně. 
+*Poznámka:* Jednotlivé meze se hodnotí nezávisle na sobě. Test tedy vyhodnocuje čtyři odpovědi, každou samostatně.
 
 END_PGML
-
-
-Context()->normalStrings;
 
 
 ##################################################
@@ -123,25 +119,17 @@ $m=Compute("$dy/$dx");
 Context()->texStrings;
 
 BEGIN_HINT
-Množina je zdola ohraničena přímkou procházející body
-\( ( $xmin, $ymin) \) a\( ( $xmax , $ymid) \). Tato přímka má rovnici
-\( y = $m (x-$xmin) + $ymin \).
-
-Oblast integrace je definována nerovnostmi \[$xmin \le x \le $xmax\] a
-\[ $m (x-$xmin) + $ymin  \le y \le $ymax.\] Použijte tuto informaci a správně tyto informace přiřaďte k mezím.
+Obdélník je definován nerovnostmi \($xmin \le x \le $xmax\) a
+\( $ymin \le y \le $ymax\). Použijte tuto informaci a správně tyto hodnoty přiřaďte k mezím.
 END_HINT
 
 
 BEGIN_SOLUTION
 $PAR Řešení $BR $BR
-Množina je zdola ohraničena přímkou procházející body
-\( ( $xmin, $ymin) \) a\( ( $xmax , $ymid) \). Tato přímka má rovnici
-\( y = $m (x-$xmin) + $ymin \).
-
-Oblast integrace je definována nerovnostmi \[$xmin \le x \le $xmax\] a
-\[ $m (x-$xmin) + $ymin  \le y \le $ymax.\]
+Obdélník je definován nerovnostmi \($xmin \le x \le $xmax\) a
+\( $ymin \le y \le $ymax\)
 $BR
-Tedy \[ \iint_R  f(x,y) \,\mathrm dx\mathrm dy = \int_{$xmin}^{$xmax} \int_{$m (x-$xmin) + $ymin }^{$ymax}
+Tedy \[ \iint_R  f(x,y) \,\mathrm dx\mathrm dy = \int_{$xmin}^{$xmax} \int_{$ymin}^{$ymax}
 f(x,y) \, \mathrm dy \mathrm dx. \]
 END_SOLUTION
 
