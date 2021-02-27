@@ -16,8 +16,10 @@ loadMacros(
 "Celkový výkon zdrojů v množině \(M\).",
 "Celkové množství stavové veličiny, které za jednotku času projde přes hranici množiny \(M\) směrem ven.",
 "Celkové množství stavové veličiny na jednotkové délce hranice materiálu odpovídající množině \(M\).",
-"Celkové množství stavové veličiny, které za jednotku času projde přes hranici množiny \(M\) směrem ven.",
-"Celkové množství stavové veličiny, které cirkuluje podél hranice (cirkulace vektorového pole");
+"Celkové množství stavové veličiny, které za jednotku času projde přes hranici množiny \(M\) směrem dovnitř.",
+"Celkové množství stavové veličiny, které cirkuluje podél hranice (cirkulace vektorového pole.",
+"Rychlost s jakou roste výkon zdrojů v množině \(M\)."
+);
 
 @perm=shuffle(7);
 @inv = invert(@perm);
