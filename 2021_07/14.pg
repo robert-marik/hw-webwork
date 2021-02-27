@@ -42,18 +42,21 @@ if ($d == 6) {
   $answer = Compute("($b + $c) pi $rr / 12"); 
   $x = $r * sqrt(3)/2;
   $y = $r/2;
+  $cast="dvanáctinou";
 
 } elsif ($d == 4) {
 
   $answer = Compute("($b + $c) pi $rr / 8");
   $x = $r / sqrt(2);
   $y = $r / sqrt(2);
+  $cast="osminou";
 
 } else {
 
   $answer = Compute("($b + $c) pi $rr / 6");
   $x = $r/2;
   $y = $r * sqrt(3)/2;
+  $cast="šestinou";
 
 }
 
@@ -153,7 +156,7 @@ BEGIN_PGML
 >> [`` \oint_{\partial M} \vec F\,\mathrm d\vec r=\iint_{M}``][______________________][``\,\mathrm dx\mathrm dy ``] <<
 
 
-Nyní tento integrál vypočtěte. Snažte se v maximální možné míře využít vlastnosti integrálu a jeho geometrický význam. Například integrál z jedničky je možné najít bez integrování, jenom ze znalosti vzorce pro obsah kruhu a uvážením, jak velkou část kruhu uvažujeme v tomto příkladě.
+Nyní určete velikost tohoto integrálu. Nemusíte vůbec integrovat! Využijte vlastnosti integrálu a jeho geometrický význam. Například integrál z jedničky na množině [`M`] je možné najít bez integrování, jenom ze znalosti vzorce pro obsah kruhu a uvážením, že pracujeme s množinou, která je jednou [$cast] kruhu o poloměru [`[$r]`]. Integrál z libovolné konstanty potom bude příslušným násobkem integrálu z jedničky.
 
 >> [`` \oint_{\partial M} \vec F\,\mathrm d\vec r={}``][______________________] <<
 
