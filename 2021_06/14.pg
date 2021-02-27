@@ -80,18 +80,6 @@ _Obrázek: pixabay.com, JayMantri_
 END_PGML
 
 
-BEGIN_PGML_HINT
-
-Můžete si místo funkcí proměnných [`x`] a [`y`] představit konstantní funkce a dvojný integrál se poté redukuje na součin této funkce s obsahem množiny.
- 
-END_PGML_HINT
-
-
-BEGIN_PGML_SOLUTION
-
-
-
-END_PGML_SOLUTION
 
 
 

@@ -35,7 +35,7 @@ BEGIN_PGML
 
 [@ image("wood.jpg", width=>400) @]*
 
-Uvažujme dvourozměrný materiál a v něm libovolnou podmnožinu [`M`]. Materiál obsahuje vlhkost.
+Uvažujme dvourozměrný materiál a v něm libovolnou podmnožinu [`M`] a její hranici [`\partial M`]. Materiál obsahuje vlhkost.
 
 * Plošnou hustotu [`c(x,y)`] s jakou je voda v materiálu v místě [`(x,y)`] budeme sledovat v gramech na centimetr čtvereční. Tato veličina udává množství vody, které je v centimetru čtverečním v okolí bodu o souřadnicích [`(x,y)`].
 * Materiál je ve vlhkém prostředí a může se tedy další vlhkost do materiálu dostávat. Z hlediska dvourozměrného materiálu tedy existují zdroje vody a jejich výkonnost [`z(x,y)`] v bodě [`(x,y)`] budeme sledovat v gramech za hodinu na centimetr čtvereční. Tato veličina udává, kolik gramů vody zasákne v daném místě v plošce o velikosti centimetr čtvereční za hodinu. 
@@ -79,19 +79,6 @@ _Obrázek: pixabay.com, SnapwireSnaps_
 
 END_PGML
 
-
-BEGIN_PGML_HINT
-
-Můžete si místo funkcí proměnných [`x`] a [`y`] představit konstantní funkce a dvojný integrál se poté redukuje na součin této funkce s obsahem množiny.
- 
-END_PGML_HINT
-
-
-BEGIN_PGML_SOLUTION
-
-
-
-END_PGML_SOLUTION
 
 
 
