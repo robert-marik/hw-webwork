@@ -31,7 +31,7 @@ Vypočtěte parciální derivaci rychlosti podle délky kroku a najděte její f
 
 ------
 
-O technickém psaní (například že jednotky se nepíšou do hranatých závorek) například [@ htmlLink("http://people.fsv.cvut.cz/www/vydra/files/Typograficka_Pravidla.pdf","http://people.fsv.cvut.cz/www/vydra/files/Typograficka_Pravidla.pdf")@]*. Pokud nechcete řešit zápis jednotek (měly by být textovým fontem a ne matematickou v kurzívou), můžete použít trik z přednášky (vypsat slovně). V přednášce jsem se přehlédl a jako jednotku rychlosti použil kilometr za hodinu místo metru za sekundu, jak je zde v zadání.
+O technickém psaní (například že jednotky se nepíšou do hranatých závorek) například [@ htmlLink("zde","http://people.fsv.cvut.cz/www/vydra/files/Typograficka_Pravidla.pdf")@]*. Pokud nechcete řešit zápis jednotek (měly by být textovým fontem a ne matematickou v kurzívou), můžete použít trik z přednášky (vypsat slovně). V přednášce jsem se přehlédl a jako jednotku rychlosti použil kilometr za hodinu místo metru za sekundu, jak je zde v zadání.
 
 -----
 
