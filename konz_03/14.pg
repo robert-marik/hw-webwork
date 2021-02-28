@@ -17,16 +17,12 @@ $showHint = 1;
 $data =
 [
 {
-    obrazek=>"horici_spalek",
-    nadpis=>"Rovnice vedení tepla",
-    otazka=>"Vedení tepla je spojeno s nerovnoměrným rozložením teploty v přímce, rovině nebo prostoru a proto předpokládá existenci zdrojů tepla, které takovou nerovnoměrnost vytvoří. Proč tedy nejsou v rovnici zastoupeny zdroje tepla?",
-    odpoved=>"Protože při vedení tepla nás zajímá co se děje uvnitř materiálu a tam se žádné teplo netvoří. Jak vniklo teplo, které do materiálu prostupuje, je pro popis chování tepla uvnitř materiálu irelevantní.",    
+    nadpis=>"Buckinghamův \(\Pi\) teorém",
+    otazka=>"Jaký je význam Buckinghamova \(\Pi\) teorému? K čemu slouží bezrozměrné parametry?",
+    odpoved=>"Bezrozměrné parametry umožňují minimalizovat počet proměnných vystupujících ve fyzikálních zákonech",
     moznosti=>[
-"Protože by rovnici jinak nebylo možné sestavit. Jedná se o aproximaci pro zdroje malé vydatnosti.",
-"Protože by rovnici jinak nebylo možné vyřešit. Jedná se o aproximaci pro malá toky tepla.",
-"Protože aby se něco mohlo ohřát, musí se něco jiného ochladit a výsledný součet je vždy nulový podle zákona zachování energie.",
-],
-zdroj=>"Obrázek: pixabay.com, autor Wendy-Baars"
+"Bezrozměrné parametry zjednodušují úlohu díky absenci fyzikálních jednotek.",
+"Bezrozměrné parametry usnadňují výpočet derivací a s tím souvisejících rychlostí změn fyzikálních veličin",],
 }
 ];
 
@@ -58,8 +54,6 @@ $radio    =  RadioButtons([[$od,@moznosti]],0);
 BEGIN_PGML
 
 ## [$na]
-
-[@ image("$obrazek.jpg", width=>400) @]*
 
 [$ot]
 

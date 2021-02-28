@@ -16,27 +16,29 @@ ADD_CSS_FILE("left.css");
 BEGIN_PGML
 
 
+## Slovní interpretace konstant úměrnosti
 
-## Slovní interpretace parciální derivace
+[@ image("kopec_soli.jpg", width=>400) @]*
 
-[@ image("dinosaurus.jpg", width=>400) @]*
+Následující úloha sice nepracuje s derivacemi, ale jedná se o problematikou řešenou v úlohách spjatých s diferenciálním počtem.
 
-Rychlost jakou dosahovali dvounozí dinosauři se dá odhadnout ze vzdálenosti jejich stop a z délky stehenní kosti. První takový odhad představil v roce 1976 bristký zoolog [@ htmlLink("https://en.wikipedia.org/wiki/Robert_McNeill_Alexander","Robert McNeill Alexander")@]* ve tvaru
-[``` v=0.25 \sqrt g l^{1.67} h^{-1.17},```]
-tj. (ve tvaru s explicitně zapsanými znaménky pro součin)
-[``` v=0.25 \cdot \sqrt g \cdot  l^{1.67} \cdot h^{-1.17},```]
-kde [`v`] je rychlost dinosaura v metrech za sekundu, [`h`] je (zjednodušeně řečeno) délka stehenní kosti v metrech, [`l`] je délka kroku v metrech a [`g`] je tíhové zrychlení v metrech za sekundu na druhou.
+Ve cvičení jsme se setkali (a i dále se setkáme) s řadou matematických formulací přírodních jevů, kdy jsou si určité hodnoty úměrné. Slovní význam konstant úměrnosti je vhodné být schopen interpretovat slovně. Zpravidla postupujeme tak, že hodnotám, které figurují u konstanty úměrnosti přidělíme takovou číselnou hodnotu, aby na jedné straně rovnice zůstala jenom konstanta úměrnosti. To znamená například, že tato pokud tato konstanta je něčím násobena, musí být násobena jedničkou. Výsledná veličina je poté rovna konstantě úměrnosti. Například v rovnici [``` y=kx^2```] volíme [``x=1``] a konstantu [`k`] tedy interpretujeme tak, že je číselně rovna hodnotě veličiny [`y`] pro jednotkovou veličinu [`x`]. Několik příkladů následuje.
 
-Vypočtěte parciální derivaci rychlosti podle délky kroku a najděte její fyzikální jednotku a slovní interpretaci.
+* U dráhy rovnoměrného pohybu je dráha [`s`] úměrná času [`t`]. Matematicky vyjádřeno platí [``` s=kt,```] kde [`k`] je konstanta úměrnosti. Pro [`t=1`] dostáváme [`s=k`] a _konstanta [`k`] tedy udává dráhu tělesa za jednotku času._ 
+* U [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/derivace_I/#z%C3%A1kon-ochlazov%C3%A1n%C3%AD","Newtonova modelu ochlazování") @]* z přednášky je rychlost s jakou klesá teplota, tj. veličina [`` -\frac{\mathrm dT}{\mathrm dt} ``], úměrná rozdílu teploty tělesa a okolí, tj. rozdílu [`(T-T_0).`] Matematicky vyjádřeno platí [``` \frac{\mathrm dT}{\mathrm dt}=-k(T-T_0),```] kde [`k`] je konstanta úměrnosti. Pro [`T-T_0=1`] dostáváme [```\frac{\mathrm dT}{\mathrm dt}=-k.```] _Konstanta [`k`] tedy udává rychlost ochlazování tělesa s teplotou o jednotku vyšší než je teplota okolí._
+* Ve cvičení jsme v příkladě 1.3 pracovali s Kleiberovým zákonem, který udává, že bazální metabolismus [`M`]  souvisí
+s hmotností [`W`] vztahem [``` M = A W^n,```] kde [`n`] je pro mnoho živočišných druhů blízké číslu [`0.75`] a [`A`] je konstanta. Pro [`W=1`] dostáváme [`M=A`]. _Konstanta [`A`] vyjadřuje bazální metabolismus jedince o jednotkové hmotnosti._
+* Z [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/derivace_III/#buckingham%C5%AFv-pi-teor%C3%A9m","přednášky") @]* víme, že z Buckinghamova [`\Pi`] teorému vyplývá vztah mezi objemem [`V`] a povrchem [`S`] koule ve tvaru [``` V=kS^{\frac 32}.```] Bez jakéhokoliv počítání a bez znalosti vzorců pro objem nebo povrch koule. Pro [`S=1`] dostáváme [`V=k`] a _konstanta úměrnosti [`k`] tedy udává  objem koule, která má jednotkový povrch._
 
-Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
+Všimněte si ještě, že se vyhýbáme použití konkrétních jednotek. Mluvíme o dráze a ne o počtu metrů. Mluvíme o jednotkovém rozdílu teploty a ne o teplotním rozdílu jeden stupeň Celsia. Mluvíme o jednotkové hmotnosti a ne o hmotnosti jeden gram nebo kilogram. To je výhoda, která dělá naše tvrzení univerzální pro libovolnou soustavu jednotek. Tvrzení bude platit i při použití jednotek SI, i při použití britských imperiálních jednotek, i při použití jednotek ad hoc použitých pro řešení jednoho konkrétního problému. Bude se měnit například číselná hodnota konstanty a její jednotky, její slovní interpretace však zůstane stále stejná.
 
-Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
+Nyní v tomto kontextu připomeneme jednu úlohu ze cvičení a budete se snažit podat slovní interpretaci konstanty úměrnosti z této úlohy.
 
-_Obrázek: pixabay.com, DariuszSankowski_
+-------
+
+Ve cvičení jsme v příkladě 1.7 pracovali s kopcem soli, kde je díky struktuře soli dán úhel u vrcholu. V důsledku toho (s použitím středoškolské matematiky a trigonometrie, nebo s použitím Buckinghamova [`\Pi`] teorému a bez počítání) víme, že existuje konstanta [`k`] taková, že mezi objemem [`V`] kopce soli a výškou [`h`] kopce soli platí [``` V=kh^3.```] V konstantě [`k`] je jakýmsi způsobem "schován" vrcholový úhel, my však budeme hledat jednodušší interpretaci této konstanty. Pokuste se podobně jako výše uvedené příklady stručně naformulovat slovně význam konstanty [`k`]. Napište odstavec tak, aby se jednalo o ucelený text. Odpověď tedy musí obsahovat vzorec včetně  vysvětlení jaké situace se vzorec týká a co značí proměnné a slovní interpretaci konstanty úměrnosti v duchu výše uvedených příkladů.
 
 END_PGML
-
 
 BEGIN_TEXT
 \{essay_box(25,80)\}

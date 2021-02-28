@@ -1,126 +1,79 @@
-###########################
-#  Initialization
-
-DOCUMENT();  
+DOCUMENT();
 
 loadMacros(
-  "PGstandard.pl",
-  "MathObjects.pl",
-  "PGchoicemacros.pl",
-  "PGgraders.pl",
-  "unionTables.pl",
-  "PGML.pl",
-  "PGcourse.pl"
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
 );
 
 TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
 
+$data =
+[
+{
+    nadpis=>"Graf sudé funkce",
+    otazka=>"Jaká vlastnost slouží k identifikaci sudé funkce?",
+    odpoved=>"Graf je osově symetrický podle osy \(y\).",
+    moznosti=>[
+    "Graf je osově symetrický podle osy \(x\).",
+"Graf je bodově symetrický podle počátku.",
+"Graf je rostoucí křivka."
+],
+   last => "Žádná z nabízených možností.",
+}
+];
 
-###########################
-#  Setup
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
 
-#
-#  Create a matching list and use popups
-#
-$ml = new_match_list();
-$ml->rf_print_q(~~&pop_up_list_print_q);
-$ml->ra_pop_up_list([
-"No answer" => "?",
-"A" => "A", "B" => "B", "C" => "C", 
-"D" => "D"
-]);
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
 
-#
-#  Add correct questions and answers
-#
-$ml->qa(
-"\(\displaystyle\frac{\partial T}{\partial t}\)", "Časová změna teploty, tj. rychlost s jakou v daném místě roste teplota jako funkce času.",
-"\(\displaystyle-\frac{\partial T}{\partial t}\)", "Záporně vzatá časová změna teploty, tj. rychlost s jakou v daném místě klesá teplota podle času.",
-"\(\displaystyle\frac{\partial T}{\partial x}\)", "Rychlost s jakou v daném okamžiku roste teplota ve směru osy \(x\).",
-"\(\displaystyle-\frac{\partial T}{\partial x}\)", "Rychlost s jakou v daném okamžiku klesá teplota ve směru osy \(x\).",
-"\(\displaystyle-\lambda\frac{\partial T}{\partial x}\)", "Tok tepla.",
-"\(\displaystyle\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", "Rychlost s jakou roste tok tepla ve směru osy \(x\).",
-"\(\displaystyle-\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", "Rychlost s jakou klesá tok tepla ve směru osy \(x\)."
-);
-
-
-$ml->choose(4);
-
-#
-#  Add extra incorrect answers
-#
-#$ml->extra(
-#"Extra answer 1", 
-#"Extra answer 2",
-#);
-#$ml->choose_extra(2);
-  
-#$ml->makeLast("None of the above");
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
 
 
 
-###########################
-#  Main text
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+$last    =  $data->[$i]->{last};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti],$last],0);
+
 
 BEGIN_PGML
 
-## Fyzikální interpretace členů z jednorozměrné rovnice vedení tepla
+## [$na]
 
+[$ot]
 
-Rovnice vedení tepla v jedné dimenzi má tvar
-[``` \rho  c \frac{\partial T}{\partial t}=\frac{\partial}{\partial x}
-\left(\lambda \frac{\partial T}{\partial x}\right).```]
+[_]{$radio}
 
-Abychom v ní zřetelně viděli tok, můžeme v ní také nechat záporná znaménka, tj. psát
-[``` \rho  c\frac{\partial T}{\partial t}=-\frac{\partial}{\partial x}
-\left(-\lambda \frac{\partial T}{\partial x}\right).```]
-
-Pro jednotlivé složky této rovnice podejte jejich slovní interpretaci.
+_[$zdroj]_
 
 END_PGML
 
-BEGIN_TEXT
-
-\{ $ml->print_q() \}
-$BR
-\{ $ml->print_a() \}
-
-END_TEXT
-
-
-
-
-############################
-#  Answer evaluation
-
-$showPartialCorrectAnswers = 0;
-
-#
-#  Incremental grader
-#
-install_problem_grader(~~&custom_problem_grader_fluid);
-$ENV{'grader_numright'} = [2,3,4];
-$ENV{'grader_scores'} = [0.3,0.6,1];
-$ENV{'grader_message'} = "Můžete mít částečné hodnocení za částečně správnou odpověď.";
-
-#
-#  All or nothing grader
-#  
-# install_problem_grader(~~&std_problem_grader);
-
-ANS( str_cmp( $ml->ra_correct_ans ) );
-
-
-############################
-#  Solution
-
-@correct = @{$ml->ra_correct_ans()};
-$answerstring = join(", ", @correct);
-
 BEGIN_PGML_SOLUTION
-The correct answers are [$answerstring].
+
+[$od]
+
 END_PGML_SOLUTION
 
-COMMENT('MathObject version. Uses PGML.');
+};
+# konec cyklu
+
 
 ENDDOCUMENT();
+

@@ -1,60 +1,79 @@
+DOCUMENT();
 
-##################################################
-
-DOCUMENT(); 
 loadMacros(
 "PGstandard.pl",
-"PGML.pl",
 "MathObjects.pl",
+"parserRadioButtons.pl",
 "PGcourse.pl",
+"PGML.pl"
 );
+
+
 TEXT(beginproblem());
-$showPartialCorrectAnswers = 1;
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
 
-$var='x';
-$a=non_zero_random(-4,4,1);
-do { $b=non_zero_random(-8,8,1) } until ( abs($b) > 1 );
-$c=non_zero_random(-10,10);
 
-Context("Numeric")->variables->are($var=>'Real');
+$data =
+[
+{
+    nadpis=>"Gradient",
+    otazka=>"Která formulace vyjadřuje slovně pojem gradientu funkce \(f(x,y)\), tj. \(\nabla f\)?",
+    odpoved=>"Gradient udává směr a intenzitu maximálního růstu veličiny \(f\).",
+    moznosti=>[
+"Gradient je rychlost růstu veličiny \(f\), tj. změna funkce \(f\) za jednotku času.",
+"Gradient je rychlost růstu veličiny \(f\), tj. změna funkce \(f\) na intervalech \([x,x+h]\) a \([y,y+h]\).",
+"Gradient je změna veličiny za zadaný časový interval."
+],
+}
+];
 
-$answer=Formula("$a+$b*($var-$c)")->reduce();   # funkce
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
 
 
 BEGIN_PGML
 
-## Slovní interpretace konstant úměrnosti
+## [$na]
 
-[@ image("kopec_soli.jpg", width=>400) @]*
+[$ot]
 
-Následující úloha sice nepracuje s derivacemi, ale jedná se o problematikou řešenou v úlohách spjatých s diferenciálním počtem.
+[_]{$radio}
 
-Ve cvičení jsme se setkali (a i dále se setkáme) s řadou matematických formulací přírodních jevů, kdy jsou si určité hodnoty úměrné. Slovní význam konstant úměrnosti je vhodné být schopen interpretovat slovně. Zpravidla postupujeme tak, že hodnotám, které figurují u konstanty úměrnosti přidělíme takovou číselnou hodnotu, aby na jedné straně rovnice zůstala jenom konstanta úměrnosti. To znamená například, že tato pokud tato konstanta je něčím násobena, musí být násobena jedničkou. Výsledná veličina je poté rovna konstantě úměrnosti. Například v rovnici [``` y=kx^2```] volíme [``x=1``] a konstantu [`k`] tedy interpretujeme tak, že je číselně rovna hodnotě veličiny [`y`] pro jednotkovou veličinu [`x`]. Několik příkladů následuje.
-
-* U dráhy rovnoměrného pohybu je dráha [`s`] úměrná času [`t`]. Matematicky vyjádřeno platí [``` s=kt,```] kde [`k`] je konstanta úměrnosti. Pro [`t=1`] dostáváme [`s=k`] a _konstanta [`k`] tedy udává dráhu tělesa za jednotku času._ 
-* U [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/derivace_I/#z%C3%A1kon-ochlazov%C3%A1n%C3%AD","Newtonova modelu ochlazování") @]* z přednášky je rychlost s jakou klesá teplota, tj. veličina [`` -\frac{\mathrm dT}{\mathrm dt} ``], úměrná rozdílu teploty tělesa a okolí, tj. rozdílu [`(T-T_0).`] Matematicky vyjádřeno platí [``` \frac{\mathrm dT}{\mathrm dt}=-k(T-T_0),```] kde [`k`] je konstanta úměrnosti. Pro [`T-T_0=1`] dostáváme [```\frac{\mathrm dT}{\mathrm dt}=-k.```] _Konstanta [`k`] tedy udává rychlost ochlazování tělesa s teplotou o jednotku vyšší než je teplota okolí._
-* Ve cvičení jsme v příkladě 1.3 pracovali s Kleiberovým zákonem, který udává, že bazální metabolismus [`M`]  souvisí
-s hmotností [`W`] vztahem [``` M = A W^n,```] kde [`n`] je pro mnoho živočišných druhů blízké číslu [`0.75`] a [`A`] je konstanta. Pro [`W=1`] dostáváme [`M=A`]. _Konstanta [`A`] vyjadřuje bazální metabolismus jedince o jednotkové hmotnosti._
-* Z [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/derivace_III/#buckingham%C5%AFv-pi-teor%C3%A9m","přednášky") @]* víme, že z Buckinghamova [`\Pi`] teorému vyplývá vztah mezi objemem [`V`] a povrchem [`S`] koule ve tvaru [``` V=kS^{\frac 32}.```] Bez jakéhokoliv počítání a bez znalosti vzorců pro objem nebo povrch koule. Pro [`S=1`] dostáváme [`V=k`] a konstanta úměrnosti [`k`] tedy udává  objem koule, která má jednotkový povrch.
-
-Všimněte si ještě, že se vyhýbáme použití konkrétních jednotek. Mluvíme o dráze a ne o počtu metrů. Mluvíme o jednotkovém rozdílu teploty a ne o teplotním rozdílu jeden stupeň Celsia. Mluvíme o jednotkové hmotnosti a ne o hmotnosti jeden gram nebo kilogram. To je výhoda, která dělá naše tvrzení univerzální pro libovolnou soustavu jednotek. Tvrzení bude platit i při použití jednotek SI, i při použití britských imperiálních jednotek, i při použití jednotek ad hoc použitých pro řešení jednoho konkrétního problému. Bude se měnit například číselná hodnota konstanty a její jednotky, její slovní interpretace však zůstane stále stejná.
-
-Nyní v tomto kontextu připomeneme jednu úlohu ze cvičení a budete se snažit podat slovní interpretaci konstanty úměrnosti z této úlohy.
-
--------
-
-Ve cvičení jsme v příkladě 1.7 pracovali s kopcem soli, kde je díky struktuře soli dán úhel u vrcholu. V důsledku toho (s použitím středoškolské matematiky a trigonometrie, nebo s použitím Buckinghamova [`\Pi`] teorému a bez počítání) víme, že existuje konstanta [`k`] taková, že mezi objemem [`V`] kopce soli a výškou [`h`] kopce soli platí [``` V=kh^3.```] V konstantě [`k`] je jakýmsi způsobem "schován" vrcholový úhel, my však budeme hledat jednodušší interpretaci této konstanty. Pokuste se podobně jako výše uvedené příklady stručně naformulovat slovně význam konstanty [`k`].
-
+_[$zdroj]_
 
 END_PGML
 
-
-
 BEGIN_PGML_SOLUTION
 
-* Konstanta `k` vyjadřuje objem kopce hromady soli o jednotkové výšce.
-* Konstanta `k` udává objem kopce jednotkové výšky.
+[$od]
 
 END_PGML_SOLUTION
 
+};
+# konec cyklu
+
+
 ENDDOCUMENT();
+
