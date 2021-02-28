@@ -17,16 +17,14 @@ $showHint = 1;
 $data =
 [
 {
-    obrazek=>"horici_spalek",
-    nadpis=>"Rovnice vedení tepla",
-    otazka=>"Vedení tepla je spojeno s nerovnoměrným rozložením teploty v přímce, rovině nebo prostoru a proto předpokládá existenci zdrojů tepla, které takovou nerovnoměrnost vytvoří. Proč tedy nejsou v rovnici zastoupeny zdroje tepla?",
-    odpoved=>"Protože při vedení tepla nás zajímá co se děje uvnitř materiálu a tam se žádné teplo netvoří. Jak vniklo teplo, které do materiálu prostupuje, je pro popis chování tepla uvnitř materiálu irelevantní.",    
+    nadpis=>"Integrál a aditivní veličina",
+    otazka=>"S integrálem se setkáváme tam, kde se pracuje s aditivními veličinami. Co rozumíme pojmem aditivní veličina?",
+    odpoved=>"Veličina, která se dá u objektu určit tak, že ji nejprve určíme pro jednotlivé komponenty objektu a poté všechny dílčí příspěvky sečteme. Například hmotnost.",
     moznosti=>[
-"Protože by rovnici jinak nebylo možné sestavit. Jedná se o aproximaci pro zdroje malé vydatnosti.",
-"Protože by rovnici jinak nebylo možné vyřešit. Jedná se o aproximaci pro malá toky tepla.",
-"Protože aby se něco mohlo ohřát, musí se něco jiného ochladit a výsledný součet je vždy nulový podle zákona zachování energie.",
+    "Veličina, kterou v matematických operacích nemá smysl uvažovat jinak než s operací sčítání. Například obsah.",
+"Veličina, která sama o sobě nemá žádný význam. Pro interpretaci musíme přidat další fyzikální parametry. Příkladem je celková síla na přehradu.",
+"Veličina, kterou můžeme jenom zvětšovat a nemůžeme ji zmenšovat. Například kvadratický moment."
 ],
-zdroj=>"Obrázek: pixabay.com, autor Wendy-Baars"
 }
 ];
 
@@ -58,8 +56,6 @@ $radio    =  RadioButtons([[$od,@moznosti]],0);
 BEGIN_PGML
 
 ## [$na]
-
-[@ image("$obrazek.jpg", width=>400) @]*
 
 [$ot]
 

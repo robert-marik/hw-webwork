@@ -17,10 +17,9 @@ $data =
 	 otazka=>"Jaká je souvislost mezi rotací dvourozměrného vektorového pole a existencí skalárního potenciálu?",
 	 odpoved=>"Jedná se o celkovou bilanci stavové veličiny v daném bodě. Rychlost nárůstu množství stavové veličiny v daném bodě (akumulace) je dána vydatností zdrojů snížené o tok z tohoto místa ven.",
 	 moznosti=>[
-	     "Skalární potenciál existuje právě tehdy, když je rotace rovna nule (přesněji, nulovému vektoru).",
 	     "Skalární potenciál existuje právě tehdy, když má rotace první dvě komponenty nulové.",
 	     "Žádná. Rotace dvourozměrného vektorového pole není definována.",
-	     "Žádná. Oba pojmy josu nezávislé.",
+	     "Žádná. Oba pojmy jsou nezávislé.",
 	     ],
 	 zdroj=>"Obrázek: pixabay.com"
      }
