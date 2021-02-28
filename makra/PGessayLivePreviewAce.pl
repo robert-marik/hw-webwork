@@ -140,7 +140,7 @@ editor.getSession().on("change", function () {
 });
 
 function CheckForAscii(string){
-    if (/^[\000-\177 ěščřžýáíéúůťďŠČŘŽÝÁÍÉ]*$/.test(string))
+    if (/^[\\000-\\177 ěščřžýáíéúůťďŠČŘŽÝÁÍÉ]*\$/.test(string))
     { return (string);}
     else
     {return ("Nepovolený znak na vstupu. Zkontrolujte si, že píšete jenom základní ASCII znaky a českou a slovenskou diakritiku. Pokud kopírujete text z webu, zkontolujte i neviditelné znaky jako různé druhy mezer, různé pomlčky atd.");}
