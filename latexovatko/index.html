@@ -157,11 +157,18 @@ editor.setOption("wrap", true);
 editor.setOption("indentedSoftWrap", false);
 var textarea = jQuery('textarea[name="AnSwEr0001"]');
 editor.getSession().on("change", function () {
-    textarea.val(editor.getSession().getValue());
+    textarea.val(CheckForAscii(editor.getSession().getValue()));
     Preview.Update();
 });
 });
 
+
+function CheckForAscii(string){
+    if (/^[\000-\177 ěščřžýáíéúůťďŠČŘŽÝÁÍÉ]*$/.test(string))
+    { return (string);}
+    else
+    {return ("Nepovolený znak na vstupu. Zkontrolujte si, že píšete jenom základní ASCII znaky a českou a slovenskou diakritiku. Pokud kopírujete text z webu, zkontolujte i neviditelné znaky jako různé druhy mezer, různé pomlčky atd.");}
+};
 
 function doplnit(mujtext1,mujtext2)
 {
