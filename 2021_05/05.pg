@@ -14,7 +14,7 @@ loadMacros(
 Context("Numeric");
 $showPartialCorrectAnswers = 0;
 
-$refreshCachedImages=1;
+#$refreshCachedImages=1;
 
 $gr = init_graph(0,0,4,4, size=>[250,250]);
 

@@ -11,7 +11,7 @@ loadMacros(
   "PGcourse.pl"
 );
 
-$refreshCachedImages=1;
+#$refreshCachedImages=1;
 
 
 Context("Numeric")->variables->are(x=>"Real",y=>"Real");

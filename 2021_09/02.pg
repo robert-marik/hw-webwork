@@ -12,7 +12,7 @@ TEXT(beginproblem()) ;
 $showPartialCorrectAnswers = 1 ;
 $showHint = 1;
 
-$refreshCachedImages = 1;
+#$refreshCachedImages = 1;
 
 #$a = 4+random(-3.5, -2.5, 0.5);
 #$b = $a + random(1,2,0.5);

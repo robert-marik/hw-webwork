@@ -14,7 +14,7 @@ TEXT(beginproblem());
 
 $showHint = 1;
 
-$refreshCachedImages=1;
+#$refreshCachedImages=1;
 
 ##############################################
 #  Setup
