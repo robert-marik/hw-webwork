@@ -15,7 +15,7 @@ $data =
 	 obrazek=>"divergence",
 	 nadpis=>"Existence skalárního potenciálu",
 	 otazka=>"Jaká je souvislost mezi rotací dvourozměrného vektorového pole a existencí skalárního potenciálu?",
-	 odpoved=>"Jedná se o celkovou bilanci stavové veličiny v daném bodě. Rychlost nárůstu množství stavové veličiny v daném bodě (akumulace) je dána vydatností zdrojů snížené o tok z tohoto místa ven.",
+	 odpoved=>"Skalární potenciál existuje právě tehdy, když je rotace rovna nule (přesněji, nulovému vektoru).",
 	 moznosti=>[
 	     "Skalární potenciál existuje právě tehdy, když má rotace první dvě komponenty nulové.",
 	     "Žádná. Rotace dvourozměrného vektorového pole není definována.",
