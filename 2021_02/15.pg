@@ -26,7 +26,7 @@ kde [`k`] je skalární konstanta úměrnosti._
 
 ----
 
-Vektor se zapisuje příkazem [|\vec|] a gradient příkazem [|\nabla|]. Předpokládejte, že čtenář je obeznámen s poujmy jako teplota, koncentrace, tok tepla, difuzní tok atd, takže tyto pojmy nemusíte vysvětlovat, pouze napíšete, které písmenko ve vašem označení odpovídá jakému pojmu. Tedy podobně jako ve výše uvedeném vzoru.
+Vektor se zapisuje příkazem [|\vec|] a gradient příkazem [|\nabla|]. Předpokládejte, že čtenář je obeznámen s pojmy jako teplota, koncentrace, tok tepla, difuzní tok atd, takže tyto pojmy nemusíte vysvětlovat, pouze napíšete, které písmenko ve vašem označení odpovídá jakému pojmu. Tedy podobně jako ve výše uvedeném vzoru.
 
 Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
 
