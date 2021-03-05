@@ -57,7 +57,7 @@ f(
 [[
 "V jednom případě se integruje jedna z komponent rotace, ve druhém případě se integruje divergence.",
 "Nemění se, v obou případech je pravá strana stejná a rovna gradientu.",
-"Nemění se, v obou případech je pravá strana stejná a rovna kenové funkci.",
+"Nemění se, v obou případech je pravá strana stejná a rovna kmenové funkci.",
 ],
 "Otázka nemá smysl, Greenovu větu nemůžeme použít pro výpočet toku.",
 "Otázka nemá smysl, Greenovu větu nemůžeme použít pro výpočet cirkulace.",
