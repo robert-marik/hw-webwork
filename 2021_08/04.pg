@@ -11,42 +11,45 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-Context("Numeric")->variables->are('k'=>'Real', 'r'=>'Real', 'l'=>'Real', 'T'=>'Real','t'=>'Real');
+Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]], 'dx'=>'Real', 't'=>'Real', 'k'=>'Real', 'x'=>'Real','h'=>'Real','K'=>'Real','r'=>'Real');
 
-$T0=random(10,20,1);
-
-$r1=Formula("r-k*(T-[$T0])");
+$rovnice=Formula("-k*x**2");
 
 
 BEGIN_PGML
 
-## Dřevo vystavené slunečnímu záření
+## Štěpení enzymů
 
-[@ image("chata.jpg", width=>400) @]*
+[@ image("molekula.jpg", width=>400) @]*
 
+V živé přírodě, u rostlin i u živočichů, je řada dějů řízena enzymy. Tyto enzymy se tvoří nebo odbourávají chemickými reakcemi za přítomnosti dalších enzymů nebo za přítomnosti katalyzátorů. Jedním z takových řídících procesů může být chemická reakce, kdy se spotřebovává enzym tak, že spolu za přítomnosti katalyzátoru reagují dvě molekuly tohoto enzymu. V důsledku toho rychlost s jakou se snižuje množství enzymu je úměrná druhé mocnině koncentrace a tedy i druhé mocnině množství tohoto enzymu. Napište diferenciální rovnici popisující tento děj.
 
-Dřevo tvořící stěny dřevěné chaty je v prostředí s konstantní teplotou [`[$T0]{}^\circ\mathrm{C}`] vystaveno slunečnímu záření. Díky tomu teplota roste konstantní rychlostí [`r`]. Kromě toho teplota klesá díky předávání tepla do okolí. Tento proces předávání tepla do okolí probíhá rychlostí úměrnou velikosti rozdílu teploty dřeva a teploty okolí (o teplotě [`[$T0]{}^\circ\mathrm{C}`]).
-
-Napište matematický model popisující danou situaci. Konstantu úměrnosti označte [`k`], teplotu označte [`T`]. Model formulujte tak, aby konstanta úměrnosti byla kladná.
->> [``\frac{\mathrm dT}{\mathrm dt}=``][__________]{$r1->cmp()->withPostFilter(AnswerHints(
-Formula("r+k*(T-[$T0])") => "Jste na dobré cestě. Buď máte přehozené členy v rozdílu, nebo neuvažujete, že se chata ochlazuje.",
-Formula("r*k*(T-[$T0])") => "Jste na dobré cestě. Jenom musíte zohlednit, že rychlost není úměrná současně oběma efektům, ale jejich součtu, resp. rozdílu.",
-Formula("-k*(T-[$T0])") => "Jste na dobré cestě. Ještě je potřeba zohlednit konstantní intenzitu ohřevu."
+Množství enzymu označte [`x`], konstantu úměrnosti [`k`]. Model naformulujte tak, aby konstanta úměrnosti byla kladná. 
+>> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{$rovnice->cmp()->withPostFilter(AnswerHints(
+Formula("k*x**2") => "Jste na dobré cestě. Ještě musíte zohlednit, že se jedná o pokles.",
+Formula("-k*x") => "Jste na dobré cestě. Ještě musíte zohlednit, že se rychlost není úměrná koncentraci, ale druhé mocnině koncentrace.",
+Formula("k*x") => "Jste na dobré cestě. Ještě musíte zohlednit, že se rychlost není úměrná koncentraci, ale druhé mocnině koncentrace a že se jedná o pokles"
 ))}<<
 
 END_PGML
 
 BEGIN_PGML_HINT
-Teplotu ovlivňují dva procesy a jejich efekt se sčítá. Jeden má na rychlost růstu teploty kladný konstantní vliv, druhý záporný a úměrný rozdílu [`(T-[$T0])`]. Dejte také pozor na to, že jsou předepsány písmena pro označení konstant úměrnosti.
+Přečtěte si pozorně zadání. Je zde přímo napsáno, jaké mocnině koncetrace je změna koncentrace úměrná. Musíte tedy
+
+* vhodným znaménkem zohlednit, zda koncetrace roste či klesá,
+* vyjádřit úměrnost pomocí vhodné konstanty (její jméno je součástí zadání)
+* použít správnou mocninu koncentrace na pravé straně.
+
 END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
-Na pravé straně rovnice přičteme konstantní člen [`r`] popisující růst teploty vlivem slunečního záření a odečteme člen [`k(T-[$T0])`] popisující výdej tepla do okolí. 
-[``` \frac{\mathrm dT}{\mathrm dt}=[$r1].```]
+Přímým přepisem zadání do matematických ekvivalentů máme
+[```\frac{\mathrm dx}{\mathrm dt}=-kx^2,```]
+kde [`k`] je kladná konstanta. 
 END_PGML_SOLUTION
 
-COMMENT('Používá PGML.');
+COMMENT('Uses PGML.');
 
 
 ENDDOCUMENT();

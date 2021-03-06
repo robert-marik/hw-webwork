@@ -1,1 +1,82 @@
- ## Bude doplneno 
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"answerHints.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]], 'dx'=>'Real', 't'=>'Real', 'x'=>'Real');
+Context()->variables->set(dx => {TeX => '{\mathrm dx}'});
+
+
+$a=1;
+$b=non_zero_random(1,5);
+do { $c=non_zero_random(-7,7,2); } until ($c!=$a);
+$d=non_zero_random(-6,10,2);
+
+$n=random(0,1);
+
+if ($n==1)
+{
+$rovnice=Formula("$c*x^($b)+$d")->reduce();
+$uprava=Formula("dx/($c*x^($b)+$d)")->reduce();
+$akce="vydělení";
+$co=$rovnice;
+}
+else
+{
+$rovnice=Formula("1/($c*x^($b)+$d)")->reduce();
+$uprava=Formula("($c*x^($b)+$d)*dx")->reduce();
+$akce="vynásobení";
+$co=Formula("($c*x^($b)+$d)")->reduce();
+}
+
+
+
+BEGIN_PGML
+
+## Separace proměnných
+
+Zopakujte si postup řešení ODR se separovanými proměnnými podle přednášky a cvičení. Formálně derivaci chápeme jako podíl diferenciálů a násobením a dělením vhodnými veličinami se snažíme oddělit proměnné tak, aby jedna z proměnných byla vlevo a druhá vpravo. Například rovnici
+[``` \frac{\mathrm dx}{\mathrm dt}= 5(3x^7-6)```]
+můžeme po vydělení faktorem [``(3x^7-6)``] a vynásobení faktorem [`` \mathrm dt``] přepsat do tvaru
+[```\frac1{3x^7-6}\mathrm dx= 5\mathrm dt.```]
+Levou stranu můžeme v programu WeBWork zapsat například jako *1/(3x^7-6) \* dx*.
+
+V následujícím příkladě zkusíme podobnou úlohu, pouze s jinými čísly. Podle výrazu na pravé straně poznáte, jakým výrazem rovnici násobíme nebo dělíme a co zůstane na straně levé.
+
+--------------------
+
+Odseparujte proměnné v následující rovnici. [```  \frac{\mathrm dx}{\mathrm dt}=[$rovnice] ```]
+
+>> [_______________]{$uprava}[``{}=\mathrm dt``]<<
+
+END_PGML
+
+BEGIN_PGML_HINT
+Proměnné odseparujeme po vynásobení rovnice
+[```  \frac{\mathrm dx}{\mathrm dt}=[$rovnice] ```]
+výrazem [``\mathrm dt ``] a [$akce] výrazem [`` [$co]``].
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Po vynásobení rovnice
+[```  \frac{\mathrm dx}{\mathrm dt}=[$rovnice] ```]
+výrazem [``\mathrm dt ``] a [$akce] výrazem [`` [$co]``] dostáváme [``` [$uprava]=\mathrm dt.```]
+END_PGML_SOLUTION
+
+COMMENT('Uses PGML.');
+
+
+ENDDOCUMENT();
+
+

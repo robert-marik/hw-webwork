@@ -1,43 +1,54 @@
-##################################################
-
 DOCUMENT(); 
 loadMacros(
 "PGstandard.pl",
 "PGML.pl",
 "MathObjects.pl",
+"answerHints.pl",
 "PGcourse.pl",
 );
 TEXT(beginproblem());
+
 $showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]],'dT'=>'Real', 'dx'=>'Real', 'dc'=>'Real', 'T'=>'Real', 't'=>'Real', 'k'=>'Real','p'=>'Real','c'=>'Real','x'=>'Real');
+Context("Numeric")->variables->are('k'=>'Real', 'r'=>'Real', 'l'=>'Real', 'T'=>'Real','t'=>'Real');
 
-$k=random(15,28,1);
-$p=random(25,58,1);
+$T0=random(10,20,1);
+
+$r1=Formula("r-k*(T-[$T0])");
+
 
 BEGIN_PGML
 
-## Matematický model infuze
+## Dřevo vystavené slunečnímu záření
 
-[@ image("infuze.jpg", width=>400) @]*
+[@ image("chata.jpg", width=>400) @]*
 
-Nechť [`c`] označuje koncentraci léku v krvi pacienta. Z farmakokinetiky je známo, že díky odbourávání klesá koncentrace rychlostí úměrnou této koncentraci. Konstantu úměrnosti označme [`k`]. Předpokládejme dále, že pacient je napojený na infuzi, která mu zvyšuje koncentraci léku v krvi konstantní rychlostí.  Tuto rychlost označme [`p`]. Napište výsledný matematický model pro růst takové koncentrace.
->> [``\frac{\mathrm dc}{\mathrm dt}=``][__________]{Formula("p-c*k")}<<
 
+Dřevo tvořící stěny dřevěné chaty je v prostředí s konstantní teplotou [`[$T0]{}^\circ\mathrm{C}`] vystaveno slunečnímu záření. Díky tomu teplota roste konstantní rychlostí [`r`]. Kromě toho teplota klesá díky předávání tepla do okolí. Tento proces předávání tepla do okolí probíhá rychlostí úměrnou velikosti rozdílu teploty dřeva a teploty okolí (o teplotě [`[$T0]{}^\circ\mathrm{C}`]).
+
+Napište matematický model popisující danou situaci. Konstantu úměrnosti označte [`k`], teplotu označte [`T`]. Model formulujte tak, aby konstanta úměrnosti byla kladná.
+>> [``\frac{\mathrm dT}{\mathrm dt}=``][__________]{$r1->cmp()->withPostFilter(AnswerHints(
+Formula("r+k*(T-[$T0])") => "Jste na dobré cestě. Buď máte přehozené členy v rozdílu, nebo neuvažujete, že se chata ochlazuje.",
+Formula("r*k*(T-[$T0])") => "Jste na dobré cestě. Jenom musíte zohlednit, že rychlost není úměrná současně oběma efektům, ale jejich součtu, resp. rozdílu.",
+Formula("-k*(T-[$T0])") => "Jste na dobré cestě. Ještě je potřeba zohlednit konstantní intenzitu ohřevu."
+))}<<
 
 END_PGML
 
 BEGIN_PGML_HINT
-Postupujte podle vzoru a podle příkladů ve cvičeních a na přednášce. 
+Teplotu ovlivňují dva procesy a jejich efekt se sčítá. Jeden má na rychlost růstu teploty kladný konstantní vliv, druhý záporný a úměrný rozdílu [`(T-[$T0])`]. Dejte také pozor na to, že jsou předepsány písmena pro označení konstant úměrnosti.
 END_PGML_HINT
 
-BEGIN_PGML_SOLUTION
-Přímým přepisem slovního zadání do kvantitativních pojmů dostáváme  rovnici
-[``` \frac{\mathrm dc}{\mathrm dt}= p-kc.```]
 
+BEGIN_PGML_SOLUTION
+Na pravé straně rovnice přičteme konstantní člen [`r`] popisující růst teploty vlivem slunečního záření a odečteme člen [`k(T-[$T0])`] popisující výdej tepla do okolí. 
+[``` \frac{\mathrm dT}{\mathrm dt}=[$r1].```]
 END_PGML_SOLUTION
 
+COMMENT('Používá PGML.');
 
 
 ENDDOCUMENT();
+
+

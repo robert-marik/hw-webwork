@@ -1,69 +1,59 @@
-DOCUMENT(); 
+DOCUMENT();
+
 loadMacros(
 "PGstandard.pl",
-"PGML.pl",
 "MathObjects.pl",
+"parserRadioButtons.pl",
 "PGcourse.pl",
+"PGML.pl"
 );
+
+
 TEXT(beginproblem());
-
 $showPartialCorrectAnswers = 1;
-$showHint = 1;
 
-Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]], 'dx'=>'Real', 't'=>'Real', 'k'=>'Real', 'x'=>'Real','h'=>'Real','K'=>'Real','r'=>'Real');
+$radio1 = RadioButtons(
+[[
+"\(\displaystyle \frac{\mathrm dm}{\mathrm dt}=-k(m-e)\)",
+"\(\displaystyle \frac{\mathrm dm}{\mathrm dt}=-km-e\)",
+"\(\displaystyle \frac{\mathrm dm}{\mathrm dt}=-\frac{k}{m-e}\)",
+"\(\displaystyle \frac{\mathrm dm}{\mathrm dt}=-\frac{e}{km}\)",
+"\(\displaystyle \frac{\mathrm dm}{\mathrm dt}=-k(e-m)\)",
+]],0);  # První odpověď správná
 
-$r1=Formula("k*x");
-$r2=Formula("r*x*(1-x/K)");
-$r3=Formula("r*x*(1-x/K)-h");
-$r4=Formula("r*x*(1-x/K)-h*x");
+
 
 BEGIN_PGML
 
-## Základní růstové modely a modely lovu
 
-[@ image("chemie.jpg", width=>400) @]*
+## Model sušení dřevěné štěpky
 
-Derivace popisuje rychlost změny a proto je vhodná pro popis dějů probíhajících rychlostí, která se mění v čase.
+[@ image("stepka.jpg", width=>400) @]*
 
-* Někdy na rychlost změny má vliv více procesů a potom se jejich vlivy sčítají. Například při dopadu konstantního tepelného výkonu na těleso se zvyšuje teplota tohoto tělesa absorbováním dopadající energie. Teplota tedy roste konstantní rychlostí. Označme tuto konstantu [`k_1`]. Kromě toho těleso také vyzařuje teplo a toto vyzařování je podle vyzařovacího zákona úměrné čtvrté mocnině teploty. Proto vlivem vyzařování teplota klesá rychlostí úměrnou [`T^4`]. Označme konstantu úměrnosti [`k_2`]. Matematický model celého procesu je poté [``` \frac{\mathrm dT}{\mathrm dt} =k_1 - k_2 T^4.```]
-* Někdy potřebujeme vyjádřit, že rychlost změny je úměrná dvěma veličinám. Například při chemické reakci ve které reaguje látka [`X`] s látkou [`Y`] je rychlost s jakou klesá veličina [`x`] udávající množství látky [`X`] úměrná současně sama sobě a současně veličině [`y`] udávající množství látky [`Y`]. Existuje tedy konstanta [`k`] taková, že platí [```\frac{\mathrm dx}{\mathrm dt}=-kxy.```]
+Uvažujme model sušení dřeva, kdy nemá vliv difuze vody ve dřevě. Například by se mohlo jednat o sušení štěpky, která je promíchávána.
 
-Pokusíme se o formulaci matematických modelů podobných procesů.
+Označme veličinami [`m`] a [`e`] aktuální množství vody v materiálu a množství vody v materiálu po dosažení rovnovážného stavu (z anglického "moisture content" a "equilibrium moisture content"). Je známo, že rychlost s jakou se snižuje množství vody v materiálu je úměrná rozdílu mezi aktuální vlhkostí a rovnovážnou vlhkostí.
 
------
+Vyberte v následující nabídce matematický model, který tento děj popisuje kvantitativně. 
 
-[@ image("lov.jpg", width=>400) @]*
-
-* *Růst úměrný velikosti.* Populace se rozmnožuje tak, že její rychlost růstu je úměrná velikosti [`x`] populace. Napište diferenciální rovnici popisující takovýto růst. Konstantu úměrnosti volte [`k`].
->> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{$r1}<<
-* *Logistický růst.*  Populace v prostředí s omezenou nosnou kapacitou prostředí [`K`] se rozmnožuje tak, že její rychlost růstu je úměrná velikosti [`x`] populace a  procentu volného místa v lokalitě, tj. výrazu [``\left(1-\frac xK\right)``]. Napište diferenciální rovnici popisující takovýto růst. Konstantu úměrnosti volte [`r`] (z anglického **rate**).
->> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{$r2} <<
-* *Logistický růst a lov konstantní intenzity.* Populace v prostředí s omezenou nosnou kapacitou prostředí [`K`] se rozmnožuje tak, že její rychlost růstu je úměrná velikosti [`x`] populace a  procentu volného místa v lokalitě, tj. výrazu [``\left(1-\frac xK\right)``]. Kromě toho je populace vystavena lovu konstantní intenzity. Napište diferenciální rovnici popisující takovýto růst. Konstantu úměrnosti volte [`r`] (z anglického **rate**), konstantu charakterizující intenzitu lovu [`h`] (z anglického **harvesting**).
->> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{$r3} <<
-* *Logistický růst a lov úměrný velikosti.* Populace v prostředí s omezenou nosnou kapacitou prostředí [`K`] se rozmnožuje tak, že její rychlost růstu je úměrná velikosti [`x`] populace a  procentu volného místa v lokalitě, tj. výrazu [``\left(1-\frac xK\right)``]. Kromě toho je populace vystavena lovu o velikosti úměrné velikosti populace. Napište diferenciální rovnici popisující takovýto růst. Konstantu úměrnosti pro rychlost růstu volte [`r`] (z anglického **rate**), konstantu úměrnosti pro lov volte [`h`] (z anglického **harvesting effort**).
->> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{$r4} <<
-
-
+[_]{$radio1}
+    
+    
 END_PGML
 
+$showHint = 1;
 BEGIN_PGML_HINT
-První dvě otázky jsou otázky na klasický exponenciální růst a logistický růst. Prohlédněte si ještě jednou dostupnou literaturu a ujistěte se, že používáte správná písmena pro konstanty úměrnosti.
-
-Poslední dvě rovnice jsou modifikacemi rovnice logistického růstu (druhá v pořadí) a liší se jenom odečtením vhodného členu od pravé strany. Jak má tento člen vypadat vyčtete ze zadání.
+Jedná se o prakticky stejný model, jako o ochlazování podle Newtonova zákona tepelné výměny. Podívejte se do úvodních pasáží semestru.
 END_PGML_HINT
 
-
 BEGIN_PGML_SOLUTION
-Model s rychlostí úměrnou velikosti populace je [``` \frac{\mathrm dx}{\mathrm dt}=kx.```] Logistický růst s rychlostí úměrnou jak velikosti populace tak volnému místu v prostředí je postupně (bez lovu, s konstantním lovem a s lovem úměrným velikosti)
-[``` \frac{\mathrm dx}{\mathrm dt}=rx \left(1-\frac xK\right),```]
-[``` \frac{\mathrm dx}{\mathrm dt}=rx \left(1-\frac xK\right)-h```]
-a
-[``` \frac{\mathrm dx}{\mathrm dt}=rx \left(1-\frac xK\right)-hx.```]
+Rozdíl vlhkosti a rovnovážné vlhkosti je [`(m-e)`] a rychlost s jakou klesá vlhkost, tj. derivace vlhkosti podle času s opačným znaménkem, je této veličině úměrná. Existuje tedy konstanta [`k`] taková, že platí
+[```\frac{\mathrm dm}{\mathrm dt}=-k(m-e).```]
 END_PGML_SOLUTION
 
-COMMENT('Používá PGML, obsahuje 4 modely (Malthus, logisticka, logisticka se dvema strategiemi lovu).');
-
-
 ENDDOCUMENT();
+
+
+
 
 

@@ -1,1 +1,112 @@
- ## Bude doplneno 
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+
+$data =
+[
+{
+nadpis=>"Transformace rovnice tepelné výměny",
+ otazka=>"Uvažujme rovnici tepelné výměny s počáteční podmínkou, tj. úlohu ve tvaru \[\frac{\mathrm dT}{\mathrm dt}=-k(T-T_{\mathrm outside}),\quad T(0)=T_0.\] Jaká transformace převede tuto rovnici na tvar \[\frac{\mathrm dT}{\mathrm dt}=-kT,\quad T(0)=T_0,\] ve kterém nefiguruje venkovní teplota \(T_{\mathrm outside}\) a jak tuto transformaci můžeme popsat fyzikálně?",
+odpoved=>"vhodné posunutí jednotky teploty tak, aby teplota okolí v nové stupnici byla nulová",
+moznosti=>[
+"vhodné zvětšení nebo zmenšení jednotky času tak, aby teplota okolí v nové stupnici byla nulová",
+"vhodné zvětšení nebo zmenšení jednotky teploty tak, aby teplota okolí v nové stupnici byla nulová",
+"požadovaného tvaru není možné dosáhnout, vliv okolí se nedá odfiltrovat, došlo by k zastavení tepelné výměny a nebylo by co modelovat"
+    ]
+}
+,
+{
+   nadpis=>"Transformace rovnice tepelné výměny II",
+otazka=>"Uvažujme rovnici podle předchozího, kde jsme dosáhli toho, že rovnici popisujeme modelem \[\frac{\mathrm dT}{\mathrm dt}=-kT,\quad T(0)=T_0.\] Jaká transformace převede tuto rovnici na tvar \[\frac{\mathrm dT}{\mathrm dt}=-kT,\quad T(0)=1,\] ve kterém kromě venkovní teploty nefiguruje ani počáteční teplota \(T_0\) a jak tuto transformaci můžeme popsat fyzikálně?",
+odpoved=>"vhodné zvětšení nebo zmenšení jednotky teploty tak, aby teplota na počátku byla jednotková",
+moznosti=>[
+"vhodné posunutí jednotky teploty tak, aby teplota na počátku byla jednotková",
+"vhodné zvětšení nebo zmenšení jednotky času tak, aby teplota na počátku byla jednotková",
+"požadovaného tvaru není možné dosáhnout, počáteční stav se nedá odfiltrovat",
+"otázka nemá smysl, protože už odpověď na předchozí otázku byla záporná"
+       ]
+}
+,
+{
+   nadpis=>"Transformace rovnice tepelné výměny III",
+otazka=>"Uvažujme rovnici podle předchozího, kde jsme dosáhli toho, že rovnici popisujeme modelem \[\frac{\mathrm dT}{\mathrm dt}=-kT,\quad T(0)=1.\] Jaká transformace převede tuto rovnici na tvar \[\frac{\mathrm dT}{\mathrm dt}=-T,\quad T(0)=1.\] ve kterém kromě venkovní teploty a počáteční teploty nefiguruje konstana \(k\) a jak tuto transformaci můžeme popsat fyzikálně?",
+odpoved=>"vhodné zvětšení nebo zmenšení jednotky času tak, aby \(k\) bylo rovno jedné",
+moznosti=>[
+"vhodné posunutí jednotky teploty tak, aby teplota na počátku byla jednotková",
+"vhodné zvětšení nebo zmenšení jednotky času tak, aby teplota na počátku byla jednotková",
+"požadovaného tvaru není možné dosáhnout, počáteční stav se nedá odfiltrovat",
+"otázka nemá smysl, protože už odpověď na předchozí otázku byla záporná"
+       ]
+}
+# ,
+# {
+# 	  nadpis=>"Transformace rovnice tepelné výměny IV",
+# 	  otazka=>"Uvažujme rovnici podle předchozího, kde jsme dosáhli toho, že rovnici popisujeme modelem \[\frac{\mathrm dT}{\mathrm dt}=-T\quad T(0)=1.\] Jaká transformace dále převede tuto rovnici na tvar, kdy na pravé straně místo teploty \(T\) figuruje jednička a jak tuto transformaci můžeme popsat fyzikálně?",
+# 	  odpoved=>"požadovaného tvaru není možné dosáhnout, teplota v rovnici musí figurovat",
+# 	  moznosti=>[
+# "vhodné zvětšení nebo zmenšení jednotky času",
+# "vhodné posunutí jednotky času do minulosti nebo přítomnosti",
+# "vhodné zvětšení nebo zmenšení jednotky teploty",
+# "otázka nemá smysl, protože už odpověď na některou z předchozích otázek v řadě byla záporná"
+# 	      ]
+# }
+];
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+$DEBUG=1;
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$od       =  $data->[$i]->{odpoved};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
+
+BEGIN_PGML
+
+## [$na]
+
+
+[@ $ot @]*
+
+[_]{$radio}
+
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$od]
+
+END_PGML_SOLUTION
+
+};
+# konec cyklu
+
+
+ENDDOCUMENT();
+
+

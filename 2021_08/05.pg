@@ -1,5 +1,3 @@
-##################################################
-
 DOCUMENT(); 
 loadMacros(
 "PGstandard.pl",
@@ -8,35 +6,64 @@ loadMacros(
 "PGcourse.pl",
 );
 TEXT(beginproblem());
+
 $showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]],'dT'=>'Real', 'dx'=>'Real', 'dc'=>'Real', 'T'=>'Real', 't'=>'Real', 'k'=>'Real','p'=>'Real','c'=>'Real','x'=>'Real');
+Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]], 'dx'=>'Real', 't'=>'Real', 'k'=>'Real', 'x'=>'Real','h'=>'Real','K'=>'Real','r'=>'Real');
 
-$k=random(15,28,1);
-$p=random(25,58,1);
+$r1=Formula("k*x");
+$r2=Formula("r*x*(1-x/K)");
+$r3=Formula("r*x*(1-x/K)-h");
+$r4=Formula("r*x*(1-x/K)-h*x");
 
 BEGIN_PGML
 
-## Znečištění látkou podléhající samovolnému rozkladu
+## Základní růstové modely a modely lovu
 
-[@ image("jezirko.jpg", width=>400) @]*
+[@ image("chemie.jpg", width=>400) @]*
 
-Do chráněné lokality proudí znečišťující látky. Rychlost s jakou v dané lokalitě přibývají je [`[$k]`] jednotek za týden. Naštěstí je však látka nestabilní a rozkládá se. Za týden se samovolně rozloží [`[$p]`] procent látky. Napište výsledný matematický model pro vývoj množství znečišťující látky v dané lokalitě. Množství látky označte [`x`] a sledujte jej jako funkci času. Jednotku času volte pro maximální pohodlí jeden týden. (Nezapomeňte procenta převést na desetinné číslo nebo na setiny.)
->> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{Formula("[$k]-[$p]*x/100")}<<
+Derivace popisuje rychlost změny a proto je vhodná pro popis dějů probíhajících rychlostí, která se mění v čase.
+
+* Někdy na rychlost změny má vliv více procesů a potom se jejich vlivy sčítají. Například při dopadu konstantního tepelného výkonu na těleso se zvyšuje teplota tohoto tělesa absorbováním dopadající energie. Teplota tedy roste konstantní rychlostí. Označme tuto konstantu [`k_1`]. Kromě toho těleso také vyzařuje teplo a toto vyzařování je podle vyzařovacího zákona úměrné čtvrté mocnině teploty. Proto vlivem vyzařování teplota klesá rychlostí úměrnou [`T^4`]. Označme konstantu úměrnosti [`k_2`]. Matematický model celého procesu je poté [``` \frac{\mathrm dT}{\mathrm dt} =k_1 - k_2 T^4.```]
+* Někdy potřebujeme vyjádřit, že rychlost změny je úměrná dvěma veličinám. Například při chemické reakci ve které reaguje látka [`X`] s látkou [`Y`] je rychlost s jakou klesá veličina [`x`] udávající množství látky [`X`] úměrná současně sama sobě a současně veličině [`y`] udávající množství látky [`Y`]. Existuje tedy konstanta [`k`] taková, že platí [```\frac{\mathrm dx}{\mathrm dt}=-kxy.```]
+
+Pokusíme se o formulaci matematických modelů podobných procesů.
+
+-----
+
+[@ image("lov.jpg", width=>400) @]*
+
+* *Růst úměrný velikosti.* Populace se rozmnožuje tak, že její rychlost růstu je úměrná velikosti [`x`] populace. Napište diferenciální rovnici popisující takovýto růst. Konstantu úměrnosti volte [`k`].
+>> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{$r1}<<
+* *Logistický růst.*  Populace v prostředí s omezenou nosnou kapacitou prostředí [`K`] se rozmnožuje tak, že její rychlost růstu je úměrná velikosti [`x`] populace a  procentu volného místa v lokalitě, tj. výrazu [``\left(1-\frac xK\right)``]. Napište diferenciální rovnici popisující takovýto růst. Konstantu úměrnosti volte [`r`] (z anglického **rate**).
+>> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{$r2} <<
+* *Logistický růst a lov konstantní intenzity.* Populace v prostředí s omezenou nosnou kapacitou prostředí [`K`] se rozmnožuje tak, že její rychlost růstu je úměrná velikosti [`x`] populace a  procentu volného místa v lokalitě, tj. výrazu [``\left(1-\frac xK\right)``]. Kromě toho je populace vystavena lovu konstantní intenzity. Napište diferenciální rovnici popisující takovýto růst. Konstantu úměrnosti volte [`r`] (z anglického **rate**), konstantu charakterizující intenzitu lovu [`h`] (z anglického **harvesting**).
+>> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{$r3} <<
+* *Logistický růst a lov úměrný velikosti.* Populace v prostředí s omezenou nosnou kapacitou prostředí [`K`] se rozmnožuje tak, že její rychlost růstu je úměrná velikosti [`x`] populace a  procentu volného místa v lokalitě, tj. výrazu [``\left(1-\frac xK\right)``]. Kromě toho je populace vystavena lovu o velikosti úměrné velikosti populace. Napište diferenciální rovnici popisující takovýto růst. Konstantu úměrnosti pro rychlost růstu volte [`r`] (z anglického **rate**), konstantu úměrnosti pro lov volte [`h`] (z anglického **harvesting effort**).
+>> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{$r4} <<
+
 
 END_PGML
 
 BEGIN_PGML_HINT
-Postupujte podle vzoru a podle příkladů ve cvičeních a na přednášce. 
+První dvě otázky jsou otázky na klasický exponenciální růst a logistický růst. Prohlédněte si ještě jednou dostupnou literaturu a ujistěte se, že používáte správná písmena pro konstanty úměrnosti.
+
+Poslední dvě rovnice jsou modifikacemi rovnice logistického růstu (druhá v pořadí) a liší se jenom odečtením vhodného členu od pravé strany. Jak má tento člen vypadat vyčtete ze zadání.
 END_PGML_HINT
 
-BEGIN_PGML_SOLUTION
-Přímým přepisem slovního zadání do kvantitativních pojmů dostáváme rovnici
-[``` \frac{\mathrm dx}{\mathrm dt}= [$k]-[$p/100] x,```]
 
+BEGIN_PGML_SOLUTION
+Model s rychlostí úměrnou velikosti populace je [``` \frac{\mathrm dx}{\mathrm dt}=kx.```] Logistický růst s rychlostí úměrnou jak velikosti populace tak volnému místu v prostředí je postupně (bez lovu, s konstantním lovem a s lovem úměrným velikosti)
+[``` \frac{\mathrm dx}{\mathrm dt}=rx \left(1-\frac xK\right),```]
+[``` \frac{\mathrm dx}{\mathrm dt}=rx \left(1-\frac xK\right)-h```]
+a
+[``` \frac{\mathrm dx}{\mathrm dt}=rx \left(1-\frac xK\right)-hx.```]
 END_PGML_SOLUTION
 
+COMMENT('Používá PGML, obsahuje 4 modely (Malthus, logisticka, logisticka se dvema strategiemi lovu).');
 
 
 ENDDOCUMENT();
+
+
