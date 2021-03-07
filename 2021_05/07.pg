@@ -375,9 +375,9 @@ END_TEXT
 #  Answer evaluation
 
 install_problem_grader(~~&custom_problem_grader_fluid);
-$ENV{'grader_numright'} = [3,6];
+$ENV{'grader_numright'} = [2,4];
 $ENV{'grader_scores'} = [0.5,1];
-$ENV{'grader_message'} = "Za 3 až pět správných odpovědí dostáváte hodnocení 50%.";
+$ENV{'grader_message'} = "Za 2 až 3 správných odpovědí dostáváte hodnocení 50%.";
 
 $showPartialCorrectAnswers = 0;
 
