@@ -1,0 +1,85 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+$data =
+[
+{
+    nadpis=>"Jednoznačnost řešení diferenciální rovnice I",
+    otazka=>"Pro jednoznačnou řešitelnost úlohy \[\frac{\mathrm{d}y}{\mathrm{d}x}=\varphi(x,y), \quad y(x_0)=y_0\] stačí mít zajištěnu ohraničenost parciální derivace pravé strany podle \(y\) v okolí počáteční podmínky. Specifikujte tuto podmínku pro rovnici se separovanými proměnnými \[\frac{\mathrm dx}{\mathrm dt}=f(x)g(t), \quad x(0)=x_0.\]",
+    odpoved=>"\(f\) musí mít ohraničenou derivaci v bodě \(x_0\)",
+    moznosti=>[
+"\(g\) musí mít ohraničenou derivaci v počátku",
+"\(f\) musí mít nulovou derivaci v bodě \(x_0\)",
+"\(g\) musí mít nulovou derivaci v počátku",
+],
+}
+,
+{
+    nadpis=>"Jednoznačnost řešení diferenciální rovnice II",
+    otazka=>"U separovatelných rovnic je často řešitelnost a jednoznačnost garantována ještě jinou podmínkou, která nevyžaduje znalost derivace. Která podmínka stačí pro jednoznačnou řešitelnost úlohy se separovatelnou diferenciální rovnicí \[\frac{\mathrm dx}{\mathrm dt}=f(x)g(t), \quad x(0)=x_0?\]",
+    odpoved=>"\(f(x_0)\neq 0\)",
+    moznosti=>[
+"\(g(0)\neq 0\)",
+"\(g'(0)\neq 0\)",
+"\(g'(0)\neq 0\)",
+"\(f'(x_0)\) je ohraničená",
+],
+},
+];
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+$DEBUG=1;
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$od       =  $data->[$i]->{odpoved};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
+
+BEGIN_PGML
+
+## [$na]
+
+
+[@ $ot @]*
+
+[_]{$radio}
+
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$od]
+
+END_PGML_SOLUTION
+
+};
+# konec cyklu
+
+
+ENDDOCUMENT();
