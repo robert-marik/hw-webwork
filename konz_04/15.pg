@@ -21,7 +21,7 @@ BEGIN_PGML
 
 [@ image("radon.png", width=>400) @]*
 
-V rozpadové řadě uranu je nebezpečím zejména radoaktivní radon. To je totiž plynný prvek o velké hustotě. Tento se v oblastech s aktivním radonem kumuluje ve sklepech nebo přízemích budov. Chráníme se před ním izolací nebo větráním.
+V rozpadové řadě uranu je nebezpečím zejména radoaktivní radon. To je totiž plynný prvek o velké hustotě. Tento plyn se v oblastech s aktivním radonem kumuluje ve sklepech nebo přízemích budov. Obyvatelům může dlouhodobé působení radonu způsobovat rakovinu plic. Před účinky radonu se chráníme izolací nebo větráním.
 
 Nechť [`r(t)`] je rychlost s jakou roste koncentrace radonu v přízemí nevětrané budovy. Určete slovní interpretaci integrálu [``` \int_0^T r(t)\,\mathrm dt. ```] Co tento integrál vyjadřuje?
 
@@ -29,7 +29,7 @@ Odpovědí musí být ucelený smysluplný text, matematicky správně a celou v
 
 Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
 
-_Obrázek: pixabay.com, DariuszSankowski_
+_Obrázek: https://www.inspiralia.com/iot-connection-prevent-lung-cancer/_
 
 END_PGML
 
