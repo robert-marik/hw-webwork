@@ -19,7 +19,7 @@ BEGIN_PGML
 
 ## Slovní interpretace integrálu
 
-[@ image("dinosaurus.jpg", width=>400) @]*
+[@ image("radon.png", width=>400) @]*
 
 Nechť [`r`] je rychlost s jakou roste koncentrace radonu ve sklepě nevětrané budovy. Určete slovní interpretaci integrálu
 [``` \int_0^T r(t)\,\mathrm dt. ```] Co tento integrál vyjadřuje?
