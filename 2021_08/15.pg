@@ -52,7 +52,7 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-Je-li [`x`] množství kocentrace a [`M`] maximální dosažitelná hodnota koncentrace, je model popisující rychlost růstu úměrnou rozdílu koncentrací tvaru
+Je-li [`x`] koncentrace a [`M`] maximální dosažitelná hodnota koncentrace, je model popisující rychlost růstu úměrnou rozdílu koncentrací tvaru
 [``` \frac{\mathrm dx}{\mathrm dt} = k(M-x). ```] Tento model má konstantní řešení [`x=M,`].
 
 Po modifikaci způsobené větráním bude modifikovaný model tvaru [```  \frac{\mathrm dx}{\mathrm dt} = k_1(M-x)-k_2x```]
