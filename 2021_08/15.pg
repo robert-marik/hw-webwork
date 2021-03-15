@@ -1,1 +1,67 @@
- ## Bude doplneno 
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGessayLivePreviewAce.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("left.css");
+
+
+BEGIN_PGML
+
+## Formaldehyd z nábytku
+
+Do malého skladu byl navezen nový nábytek. Z něj se uvolňuje formaldehyd a zamořuje místnost. Napište matematické modely pro koncentraci formaldehydu v místnosti pro následující scénáře.
+
+* Nábytek je v nevětrané místnosti. Koncentrace formaldehydu ve vzduchu může nabýt jisté maximální hodnoty. (Například nebude větší než koncentrace v nábytku). Tuto hodnotu považujte za konstantní. V čase roste koncentrace formaldehydu ve vzduchu rychlostí úměrnou rozdílu aktuální koncentrace ve vzduchu a uvažované maximální hodnoty.
+* Zajistíme větrání. Modifikujte předchozí model přidáním předpokladu, že část formaldehydu odvětráváme. Odvětrávání přidává k předchozímu modelu další efekt, který snižuje koncentraci formaldehydu ve vzduchu rychlostí úměrnou této koncentraci.
+
+U obou modelů určete, zda existuje konstantní řešení.
+
+----
+
+Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
+
+Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
+
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box(25,80)\}
+END_TEXT
+
+
+
+BEGIN_PGML
+
+* _Pro pohodlnou tvorbu textu můžete využít nástroj [@ htmlLink("http://user.mendelu.cz/marik/latexovatko","LaTeXovátko") @]*. Tam si také můžete do editoru nakliknout repertoár textů a ty upravovat a sledovat efekt jednotlivých úprav._
+* _Můžete využít [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "nápovědu") @]*  pro LaTeX s ukázkami kódů pro vykopírování. Odkaz otevřete pravým tlačítkem v novém panelu, aby Vám zůstala otevřená i stránka, kterou čtete._
+* _Další ukázky jsou všechny vzorce v programu WeBWorK a v přednáškách. Použijte pravé tlačítko a zobrazení kódu v programu TeX, tj. Show Math As a TeX commands._
+END_PGML
+
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+BEGIN_PGML_SOLUTION
+
+Je-li [`x`] množství kocentrace a [`M`] maximální dosažitelná hodnota koncentrace, je model popisující rychlost růstu úměrnou rozdílu koncentrací tvaru
+[``` \frac{\mathrm dx}{\mathrm dt} = k(M-x). ```] Tento model má konstantní řešení [`x=M,`].
+
+Po modifikaci způsobené větráním bude modifikovaný model tvaru [```  \frac{\mathrm dx}{\mathrm dt} = k_1(M-x)-k_2x```]
+a tento model má konstantní řešení, které bude řešením rovnice [``` k_1(M-x)-k_2x=0,```] tj. bude to 
+[``` x=\frac{k_1}{k_1+k_2}M. ```]
+
+
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

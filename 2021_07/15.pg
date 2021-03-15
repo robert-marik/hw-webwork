@@ -16,6 +16,7 @@ BEGIN_PGML
 
 ## Greenova věta
 
+Napište Greenovu větu ve formulaci pro tok vektorového pole křivkou a identifikujte, kde v této větě najdeme divergenci. Předpoklady nutné pro platnost tvrzení, jako jsou například hladkost funkcí a to, že křivka je kladně orientovanou částí hranice, berte jako samozřejmé a nemusíte je zmiňovat.
 
 ----
 
@@ -45,12 +46,6 @@ END_PGML
 ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
-
-Tuhost nosníku souvisí s kvadratickým momentem průřezu. Ten značíme
-[`I`] a definujeme vztahem [``` I=\iint_{M} y^2\,\mathrm dx\,\mathrm
-dy,```] kde [`M`] je průřez a [`y`] je vzdálenost od neturální osy
-(zpravidla od osy procházející těžištěm, například pro symetrické
-průřezy).
 
 END_PGML_SOLUTION
 
