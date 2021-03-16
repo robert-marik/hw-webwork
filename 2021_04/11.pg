@@ -14,7 +14,7 @@ $data =
 {
     obrazek=>"divergence",
     nadpis=>"Rotace dvourozměrného vektorového pole",
-    otazka=>"Co je možné říci o rotaci dvourozměrného vektorového pole? Mluvíme tedy o dvourozměrném vektorové poli, které vnoříme do trojrozměrného připsáním nulové třetí komponenty.",
+    otazka=>"Co je možné říci o rotaci dvourozměrného vektorového pole? Mluvíme tedy o dvourozměrném vektorovém poli, které vnoříme do trojrozměrného připsáním nulové třetí komponenty.",
     odpoved=>"První dvě komponenty jsou nulové. Třetí může být nulová i nenulová.",
     moznosti=>[
 	"První komponenta je nulová. Zbylé mohou být nulové i nenulové.",
