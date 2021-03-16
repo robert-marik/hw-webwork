@@ -46,7 +46,7 @@ f(x)& g(y) & 0
 \end{vmatrix}={}``][________________]{$answer}.
 <<
 
-Nezapomeňte zadat odpověď jako vektor, tj. ve formátu *<0,0,...>* nebo *(...)\*k*. (Máme dvourozměrné vektorové pole a rotace tedy bude mít první dvě komponenty nulové.) Funkce [`f`] a [`g`] a jejich derivace můžeme zapsat jako [|f(x)|], [|(y)|],  [|f'(x)|], [|g'(y)|].
+Nezapomeňte zadat odpověď jako vektor, tj. ve formátu *<0,0,...>* nebo *(...)\*k*. (Máme dvourozměrné vektorové pole a rotace tedy bude mít první dvě komponenty nulové.) Funkce [`f`] a [`g`] a jejich derivace můžeme zapsat jako [|f(x)|], [|g(y)|],  [|f'(x)|], [|g'(y)|].
 
 END_PGML
 
