@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-03-14 22:34+0100\n"
+"PO-Revision-Date: 2021-03-16 17:59+0100\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -599,11 +599,11 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:190
 msgid "Adds 24 hours to the close date of a homework."
-msgstr ""
+msgstr "Posune uzávěrku jedné sady úloh o 24 hodin."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:273
 msgid "Adds 48 hours to the close date of a homework."
-msgstr ""
+msgstr "Posune uzávěrku jedné sady úloh o 48 hodin."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/ProblemSet.pm:417
 msgid "Adjusted Status"
@@ -1147,7 +1147,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:649
 msgid "Causes a single homework problem to be worth twice as much."
-msgstr ""
+msgstr "Zdvojovací kouzlo způsobí, že vybraná úloha bude za dvojnásobný počet bodů."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/CourseAdmin.pm:938
 msgid "Change Course Title to:"
@@ -1232,7 +1232,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:477
 msgid "Choose the set which you would like to be worth twice as much."
-msgstr ""
+msgstr "Vyberte sadu úloh, jejíž hodnocení se má zdvojnásobit."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:386
 msgid "Choose the set which you would like to enable partial credit for."
@@ -1245,7 +1245,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:216 /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:299
 msgid "Choose the set whose close date you would like to extend."
-msgstr ""
+msgstr "Vyberte sadu úloh, pro kterou chcete posunout termín odevzdání."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetList2.pm:908
 msgid "Choose visibility of the sets to be affected"
@@ -1577,7 +1577,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:648
 msgid "Cupcake of Enlargement"
-msgstr ""
+msgstr "Zdvojovací kouzlo"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/Config.pm:704
 msgid "Current"
@@ -2654,7 +2654,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:968
 msgid "Gives full credit on a single homework problem."
-msgstr ""
+msgstr "Pro jednu vybranou úlohu nastaví splnění na sto procent."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:1079
 msgid "Gives full credit on every problem in a set."
@@ -2662,7 +2662,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:762
 msgid "Gives half credit on a single homework problem."
-msgstr ""
+msgstr "Pro jednu vybranou úlohu zvýší úspěšnost o padesát procent, nejvýše však na sto procent."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:878
 msgid "Gives half credit on every problem in a set."
@@ -2722,7 +2722,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:967
 msgid "Greater Rod of Revelation"
-msgstr ""
+msgstr "Velké zvětšovátko"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:1078
 msgid "Greater Tome of Enlightenment"
@@ -2976,11 +2976,11 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Achievements.pm:85
 msgid "Item Used Successfully!"
-msgstr ""
+msgstr "Odměna byla použita!"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Achievements.pm:226
 msgid "Items"
-msgstr ""
+msgstr "Odměny"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:2079
 msgid "Jump to Page:"
@@ -3048,7 +3048,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:761
 msgid "Lesser Rod of Revelation"
-msgstr ""
+msgstr "Malé zvětšovátko"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:877
 msgid "Lesser Tome of Enlightenment"
@@ -3814,19 +3814,19 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:1016
 msgid "Please choose the set name and problem number of the question which should be given full credit."
-msgstr ""
+msgstr "Vyberte sadu úloh a číslo úlohy, kde se má opravit hodnocení na sto procent."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:811
 msgid "Please choose the set name and problem number of the question which should be given half credit."
-msgstr ""
+msgstr "Vyberte sadu úloh a číslo úlohy, kde se má navýšit hodnocení."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:587
 msgid "Please choose the set name and problem number of the question which should have its incorrect attempt count reset."
-msgstr ""
+msgstr "Vyberte sadu úloh a číslo úlohy, kde se má vynulovat počet nesprávných odpovědí."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:698
 msgid "Please choose the set name and problem number of the question which should have its weight doubled."
-msgstr ""
+msgstr "Vyberte sadu úloh a číslo úlohy, která se má započítat dvojnásobně."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:1214
 msgid "Please choose the set, the problem you would like to copy, and the problem you would like to copy it to."
@@ -3874,7 +3874,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:537
 msgid "Potion of Forgetfulness"
-msgstr ""
+msgstr "Nápoj zapomění"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/URLPath.pm:674
 msgid "Preflight Log"
@@ -4276,7 +4276,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:538
 msgid "Resets the number of incorrect attempts on a single homework problem."
-msgstr ""
+msgstr "Použitím této odměny systém zapomene počet nesprávných odpovědí u jedné úlohy z právě otevřené sady."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/CourseAdmin.pm:2091
 msgid ""
@@ -4360,7 +4360,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:272
 msgid "Robe of Longevity"
-msgstr ""
+msgstr "Velký stroj času"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/Scoring.pm:34
 msgid "SECTION"
@@ -4709,7 +4709,7 @@ msgstr ""
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetList2.pm:781 /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetList2.pm:802
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetList2.pm:825
 msgid "Set Name"
-msgstr ""
+msgstr "Sada úloh"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:1017 /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:1105
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:1215 /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:127
@@ -4718,7 +4718,7 @@ msgstr ""
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:588 /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:699
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:812 /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:904
 msgid "Set Name "
-msgstr ""
+msgstr "Sada úloh "
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetDetail.pm:2085
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetDetail2.pm:2277
@@ -5986,7 +5986,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:189
 msgid "Tunic of Extension"
-msgstr ""
+msgstr "Malý stroj času"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/Localize.pm:105
 msgid "Two Columns"
@@ -6147,7 +6147,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Achievements.pm:239
 msgid "Use Item"
-msgstr ""
+msgstr "Použít odměnu"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetList2.pm:2743
 msgid "Use System Default"
@@ -7994,3 +7994,12 @@ msgstr "Neočekávaný znak '%s'"
 
 msgid "Missing operand before '%s'"
 msgstr "Chybějící výraz nebo číslo před '%s'"
+
+msgid "Quarter Tome of Enlightenment"
+msgstr "Čtvrtina zdarma"
+
+msgid "Gives quarter credit on every problem in a set."
+msgstr "Každé úloze v jedné sadě se navýší hodnocení o 25%, nejvýše však na 100%."
+
+msgid "Choose the set which you would like to enhance."
+msgstr "Vyberte si sadu úloh, ve které chcete vylepšit hodnocení."
