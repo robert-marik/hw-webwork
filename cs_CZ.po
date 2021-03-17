@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-03-16 17:59+0100\n"
+"PO-Revision-Date: 2021-03-17 10:47+0100\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1016,7 +1016,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:450
 msgid "Cake of Enlargement"
-msgstr ""
+msgstr "Superzdvojovací kouzlo"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/Localize.pm:295
 msgid "Can e-mail instructor"
@@ -1139,7 +1139,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:451
 msgid "Cause the selected homework set to count for twice as many points as it normally would."
-msgstr ""
+msgstr "Superzdvojovací kouzlo způsobí, že vybraná sada se počítá za dvojnásobek bodů."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:1164
 msgid "Causes a homework problem to become a clone of another problem from the same set."
@@ -1241,7 +1241,7 @@ msgstr ""
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:1104 /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:126
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:903
 msgid "Choose the set which you would like to resurrect."
-msgstr ""
+msgstr "Vyberte sadu úloh, kterou chcete znovu otevřít."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:216 /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:299
 msgid "Choose the set whose close date you would like to extend."
@@ -2658,7 +2658,7 @@ msgstr "Pro jednu vybranou úlohu nastaví splnění na sto procent."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:1079
 msgid "Gives full credit on every problem in a set."
-msgstr ""
+msgstr "Pro jednu vybranou sadu úloh nastaví splnění každé úlohy na sto procent."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:762
 msgid "Gives half credit on a single homework problem."
@@ -2726,7 +2726,7 @@ msgstr "Velké zvětšovátko"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:1078
 msgid "Greater Tome of Enlightenment"
-msgstr ""
+msgstr "Dar z nebes"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Login.pm:286
 msgid "Guest Login"
@@ -3657,6 +3657,8 @@ msgstr ""
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:99
 msgid "Opens any homework set for 24 hours."
 msgstr ""
+"Tato odměna otevře jednu z už uzavřených úloh na dalších 24 hodin. Zadání budou změněna, ale hodnocení zůstanou. Vyřešením nového zadání je možné si opravit úlohy které "
+"chcete. Počet neúspěšných pokusů se nemění."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/Localize.pm:195
 msgid "Optional Modules"
@@ -4497,7 +4499,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:98
 msgid "Scroll of Resurrection"
-msgstr ""
+msgstr "Dočasné zmrtvýchvstání"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/ProblemSetList.pm:771
 msgid "Secondary sort"
@@ -6689,7 +6691,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Achievements.pm:263
 msgid "You don't have any items!"
-msgstr ""
+msgstr "Nemáte žádné odměny k použití!"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/GatewayQuiz.pm:1975
 msgid "You exceeded the allowed time."
@@ -8003,3 +8005,7 @@ msgstr "Každé úloze v jedné sadě se navýší hodnocení o 25%, nejvýše v
 
 msgid "Choose the set which you would like to enhance."
 msgstr "Vyberte si sadu úloh, ve které chcete vylepšit hodnocení."
+
+msgid "Opens any homework set for 4 hours."
+msgstr "Tato odměna otevře jednu z už uzavřených úloh na další 4 hodiny. Zadání budou změněna, ale hodnocení zůstanou. Vyřešením nového zadání je možné si opravit úlohy které chcete. Počet neúspěšných pokusů se nemění."
+
