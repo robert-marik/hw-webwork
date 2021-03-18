@@ -1,1 +1,22 @@
- ## Bude doplneno 
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "MathObjects.pl",
+  "parserRadioButtons.pl",
+  "answerHints.pl",
+  "PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+
+BEGIN_PGML
+
+# Bude doplněno
+
+END_PGML
+
+ENDDOCUMENT();
+

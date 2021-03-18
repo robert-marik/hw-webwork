@@ -24,7 +24,7 @@ BEGIN_PGML
 
 [@ image("rubik.jpg", width=>400) @]*
 
-Umíte složit Rubikovu kostku? Odborník odhaduje na základě stáří, obecné zručnosti a fyziologických možností konkrétního člověka, že jeho limit je skládat kostku za [``[$T0]``] sekund. Tréninkem je možno se k této metě může přibližovat. Konstantním tréninkem klesá doba [`T`] nutná ke složení kostky rychlostí úměrnou času, o kolik skládáme pomaleji než je hranice možností, v tomto případě [`[$T0]`] sekund.
+Umíte složit Rubikovu kostku? Odborník odhaduje na základě stáří, obecné zručnosti a fyziologických možností konkrétního člověka, že jeho limit je skládat kostku za [``[$T0]``] sekund. Tréninkem je možno se k této metě přibližovat. Konstantním tréninkem klesá doba [`T`] nutná ke složení kostky rychlostí úměrnou času, o kolik skládáme pomaleji než je hranice možností, v tomto případě [`[$T0]`] sekund.
 
 Napište matematický model popisující danou situaci. Konstantu úměrnosti označte [`k`]. Model formulujte tak, aby konstanta úměrnosti byla kladná.
 >> [``\frac{\mathrm dT}{\mathrm dt}=``][__________]{$r1->cmp()->withPostFilter(AnswerHints(

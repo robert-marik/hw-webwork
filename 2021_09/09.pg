@@ -1,1 +1,89 @@
- ## Bude doplneno 
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "MathObjects.pl",
+  "parserRadioButtons.pl",
+  "answerHints.pl",
+  "PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context("Vector")->variables->are(x=>'Real',y=>'Real', lambda=>"Real");
+
+do
+{
+$dfx1=random(-5,5);
+$dgx1=random(-5,5);
+$dfy1=random(-5,5);
+$dgy1=random(-5,5);;
+
+$matice11=Matrix([[$dfx1,$dfy1],[$dgx1,$dgy1]]);
+
+$stopa=$dfx1+($dgy1);
+$determinant=$dfx1*($dgy1)-($dfy1)*($dgx1);
+$polynom=Formula("lambda^2-($stopa)*lambda+($determinant)")->reduce();
+}
+until (($determinant != 0) && ( ($stopa)*($stopa) - 4*($determinant) != 0) && ($stopa != 0) );
+
+
+if ( $determinant < 0 ) { $reseni = 4; }
+elsif ( ($stopa)*($stopa) - 4*($determinant) < 0 ) { $reseni = 1; }
+else { $reseni = 0; }
+
+if ( $stopa > 0 ) {$reseni = $reseni + 2;}
+
+
+$diskriminant = ($stopa)*($stopa) - 4*($determinant);
+if ($diskriminant<0)
+{
+$realorcomplex="komplexně sdružené";
+$real=-(-$stopa)/2;
+$imag=sqrt(-$diskriminant)/2;
+$lambda1="$real + $imag i";
+$lambda2="$real - $imag i";
+
+}
+else
+{
+$realorcomplex="reálné";
+$lambda1=(-$stopa-sqrt($diskriminant))/(2);
+$lambda2=(-$stopa+sqrt($diskriminant))/(2);
+}
+
+
+if ( $determinant < 0 ) { $reseni = 4; }
+
+
+$radio=RadioButtons(["Stabilní uzel","Stabilní ohnisko","Nestabilní uzel","Nestabilní ohnisko","Sedlo","Jiná odpověď"],$reseni);
+
+
+BEGIN_PGML
+
+# Charakteristický polynom a vlastní čísla Jacobiho matice
+
+O stabilitě stacionárního bodu rozhodují vlastní čísla Jacobiho matice. Uvažujme autonomní systém
+[``` \begin{aligned}\frac{\mathrm dx}{\mathrm dt}&=f(x,y)\\\frac{\mathrm dy}{\mathrm dt}&=g(x,y)\end{aligned}```]
+a jeho stacionární bod [`(x_0,y_0)`], tj. platí [`f(x_0,y_0)=0`] a [`g(x_0,y_0)=0`].
+
+
+Předpokládejme, že Jacobiho matice v bodě  [`(x_0,y_0)`] je [``J(x_0,y_0)=[$matice11]``] a systém je tedy možno linearizovat do tvaru [``` \frac{\mathrm d}{\mathrm dt}\begin{bmatrix}x\\y\end{bmatrix}=[$matice11] \begin{bmatrix}x-x_0\\y-y_0\end{bmatrix}.```]
+
+Charakteristický polynom zadané Jacobiho matice je determinant
+[``` \begin{vmatrix} [$dfx1]-\lambda & [$dfy1] \\ [$dgx1] & [$dgy1]-\lambda \end{vmatrix}.```]
+
+Rozepište tento determinant Sarussovým pravidlem a najděte charakteristický polynom [`P(\lambda)`] Jacobiho matice v proměnné lambda. Pište například *2\*lambda^2-7\*lambda+2*.
+
+>> [``P(\lambda)={} ``][________________________________]{$polynom} <<
+
+
+Pokud jste postupovali správně, kořeny charakteristického polynomu jsou [$realorcomplex] a rovnají se [`\lambda_1=[$lambda1]`] a [`\lambda_2=[$lambda2]`]. Určete typ stacionárního bodu.
+
+[_]{$radio}
+
+END_PGML
+
+ENDDOCUMENT();
+

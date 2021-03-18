@@ -1,1 +1,104 @@
- ## Bude doplneno 
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "MathObjects.pl",
+  "parserRadioButtons.pl",
+  "answerHints.pl",
+  "PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context("Vector")->variables->are(x=>'Real',y=>'Real', lambda=>"Real");
+
+do
+{
+$x0 = random(-1,2);
+$y0 = random(-1,2);
+$a = non_zero_random(1,4);
+$b = non_zero_random(-4,4);
+$d = non_zero_random(-4,4);
+$e = non_zero_random(1,4);
+$c = ($x0)*($a) + ($y0)*($b);
+$l = ($x0)*($d) + ($y0)*($e);
+
+$f=Formula("$a*x+($b)*y-($c)")->reduce();
+$g=Formula("$d*x+($e)*y-($l)")->reduce();
+
+$dfx=Formula("$a")->reduce();
+$dgx=Formula("$d")->reduce();
+$dfy=Formula("$b")->reduce();
+$dgy=Formula("$e")->reduce();
+
+$matice=Matrix([[$dfx,$dfy],[$dgx,$dgy]]);
+
+$stopa=$dfx+($dgy);
+$determinant=$dfx*($dgy)-($dfy)*($dgx);
+$polynom=Formula("lambda^2-($stopa)*lambda+($determinant)")->reduce();
+}
+until (($determinant != 0) && ( ($stopa)*($stopa) - 4*($determinant) != 0) && ($stopa != 0) );
+
+
+if ( $determinant < 0 ) { $reseni = 4; }
+elsif ( ($stopa)*($stopa) - 4*($determinant) < 0 ) { $reseni = 1; }
+else { $reseni = 0; }
+
+if ( $stopa > 0 ) {$reseni = $reseni + 2;}
+
+if ( $determinant < 0 ) { $reseni = 4; }
+
+$radio=RadioButtons(["Stabilní uzel","Stabilní ohnisko","Nestabilní uzel","Nestabilní ohnisko","Sedlo","Jiná odpověď"],$reseni);
+
+
+#$Scaffold::isInstructor = 0;
+
+
+BEGIN_PGML
+
+# Stacionární bod lineárního autonomního systému
+
+Budeme studovat autonomní systém
+[```
+\begin{aligned}
+\frac{\mathrm dx}{\mathrm dt}&= [$f] \\
+\frac{\mathrm dy}{\mathrm dt}&= [$g]
+\end{aligned}```]
+v jeho stacionárním bodě [`([$x0],[$y0])`].
+
+------------------
+
+Určete parciální derivace pravých stran systému.
+
+>> [`` \frac{\partial }{\partial x}([$f])={}``][___________]*{$dfx} <<
+
+>> [`` \frac{\partial }{\partial y}([$f])={}``][___________]*{$dfy} <<
+
+>> [`` \frac{\partial }{\partial x}([$g])={}``][___________]*{$dgx} <<
+
+>> [`` \frac{\partial }{\partial y}([$g])={}``][___________]*{$dgy} <<
+
+---------------
+
+Určete Jacobiho matici systému.
+
+>> [`` J(x,y)={}``][___________]*{$matice} <<
+
+
+---------------------
+
+Bod [`([$x0],[$y0])`] je stacionárním bodem systému. Jacobiho matice je vypočtena v předchozím kroku. Nyní najděte její charakteristický polynom [`P(\lambda)`] Jacobiho matice z předešlého kroku. Napište jej v proměnné lambda. Například *2\lambda^2-7lambda+2*.
+
+>> [``P(\lambda)={} ``][________________________________]{$polynom} <<
+
+
+-------------------------------
+
+Určete vlastní čísla (kořeny charakteristické rovnice) a na jejich základě rozhodněte o typu stacionárního bodu.
+
+[_]{$radio}
+
+END_PGML
+
+ENDDOCUMENT();

@@ -17,8 +17,8 @@ $data =
     otazka=>"Která formulace vhodně podtrhuje roli diferenciálních rovnic v modelech?",
     odpoved=>"Rovnice je matematickým vyjádřením souvislosti rychlosti změny veličiny s hodnotami této veličiny a hodnotami parametrů. Je to tedy matematické vyjádření mechanismu definujícího rychlost studovaného děje.",
     moznosti=>[
-"Rovnice je matematickým vyjádřením souvislosti výchozího a koncového stavu modelovaného děje. Ze zadaného výchozího a koncového stavu umožňuje zrekontruovat průběh děje a pomoci tak s utvořením představy o dynamice studovaného děje.",
-"V modelech je rovnice výsledkem nafitování experimentálních dat na nejběžnější matematické funcke. Tím je zajištěno, že rovnce věrně odráží realitu a skutečně realisticky modeluje studovaný proces."
+"Rovnice je matematickým vyjádřením souvislosti výchozího a koncového stavu modelovaného děje. Ze zadaného výchozího a koncového stavu umožňuje zrekonstruovat průběh děje a pomoci tak s utvořením představy o dynamice studovaného děje.",
+"V modelech je rovnice výsledkem nafitování experimentálních dat na nejběžnější matematické funkce. Tím je zajištěno, že rovnice věrně odráží realitu a skutečně realisticky modeluje studovaný proces."
 ],
 },
 {
@@ -27,7 +27,7 @@ $data =
     odpoved=>"Doplňuje mechanismus vývoje o počáteční stav. Ze všech reálných průběhů modelovaného děje vybírá ten, který odpovídá modelované situaci.",
     moznosti=>[
 "Zaručuje řešitelnost už od provedení prvního kroku řešení. Ze všech matematicky platných řešení vybírá ta, která jsou realizovatelná a v souladu s přírodními zákony.",
-"Zaručuje jednoznačnost díky nastavení počátečních dat pro numerické simulace. Ze včech možných řešení vybera tak, která mají význam pro praktické modelování.",
+"Zaručuje jednoznačnost díky nastavení počátečních dat pro numerické simulace. Ze všech možných řešení vybere ta, která mají význam pro praktické modelování.",
 "Definuje souvislosti rychlosti změny veličiny s hodnotami této veličiny a hodnotami parametrů. Je to tedy matematické vyjádření mechanismu děje.",
 ],
 },

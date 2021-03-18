@@ -32,7 +32,7 @@ sub f {
 
 
 f(
-"Kvalitativní vlastnosti řešení autonomní diferenciální rozumíme",
+"Kvalitativní vlastnosti řešení autonomní diferenciální rovnice",
 "Uvažujme autonomní diferenciální rovnici \[\frac{\mathrm dy}{\mathrm dt}=f(y).\] Vyberte, které tvrzení správně vyjadřuje souvislosti řešení \(y(t)\) této rovnice a pravé strany \(f(y)\) této rovnice.",
 [[
 "Monotonie řešení je jednoznačně determinována znaménkem pravé strany rovnice.",

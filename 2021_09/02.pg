@@ -1,114 +1,94 @@
-DOCUMENT() ;        # This should be the first executable line in the problem.
+DOCUMENT();
 
 loadMacros(
-  "PGstandard.pl",
-  "PGchoicemacros.pl",
-  "PGgraphmacros.pl",
-  "PGML.pl",
-  "PGcourse.pl"
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
 );
 
-TEXT(beginproblem()) ;
-$showPartialCorrectAnswers = 1 ;
-$showHint = 1;
 
-#$refreshCachedImages = 1;
 
-#$a = 4+random(-3.5, -2.5, 0.5);
-#$b = $a + random(1,2,0.5);
-#$c = $b + random(1,2,0.5);
-#$d = $c + random(1,2,0.5);
+$data =
+[
+{
+nadpis=>"Stabilita stacionárního bodu",
+otazka=>"Vysvětlete, jak prakticky vnímáme stabilitu stacionárního bodu rovnice \[\frac{\mathrm dx}{\mathrm dt}=f(x).\] Co reprezentuje stabilní stacionární bod?",
+odpoved=>"Reprezentuje rovnovážný stav systému, který se obnoví po malých poruchách řešení.",
+moznosti=>[
+"Reprezentuje rovnovážný stav systému, který se obnoví po libovolně velkých poruchách řešení.",
+"Reprezentuje rovnovážný stav systému, který se neobnoví ani po malých poruchách řešení a neodpovídá tedy prakticky dosažitelnému stavu systému.",
+]
+},
+{
+nadpis=>"Stabilita stacionárního bodu II",
+otazka=>"Předpokládejme, že \(x_0\) je stacionárním bodem systému \[\frac{\mathrm dx}{\mathrm dt}=f(x).\] Jaká podmínka dokáže zaručit nestabilitu tohoto stacionárního bodu a co to znamená prakticky?",
+odpoved=>"\(f'(x_0)>0\), takový bod neodpovídá stavu, ve kterém se systém může dlouhodobě nacházet",
+moznosti=>[
+"\(f'(0)<0\), takový bod neodpovídá stavu, ve kterém se systém může dlouhodobě nacházet",
+"\(f'(x_0)<0\), takový bod zaručuje, že systém nikdy nemůže přejít do ustáleného stavu",
+"\(f'(0)>0\), takový bod zaručuje, že systém nikdy nemůže přejít do ustáleného stavu",
+]
+},
+{
+nadpis=>"Oscilace okolo stacionárního bodu",
+otazka=>"Vysvětlete, jak poznáme, jestli řešení dvourozměrného autonomního systému oscilují okolo stacionárního bodu. (Nerozlišujeme cykly ani to, zda amplituda oscilací roste či klesá.)",
+odpoved=>"Vlastní čísla Jacobiho matice v tomto bodě mají nenulovou imaginární složku",
+moznosti=>[
+"Jacobiho matice má v tomto bodě záporný determinant.",
+"Obě pravé strany jsou v tomto bodě nulové.",
+"Obě pravé strany mají v tomto bodě opačný charakter monotonie (jedna roste a druhá klesá, nebo naopak).",
+]
+}
+];
 
-$a=2;
-$c=4;
-$d=6;
 
-do { $fa = random(-1.5, 3,.1); } until ((abs(abs($fa)-1)>0.2)  and (abs($fa)>0.2) );
-do { $fd = random(-3, 1,.1); } until ( (abs($fa-$fd)>1) and ((abs(abs($fd)-1)>0.2)) and (abs($fd)>0.2) );
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
 
-$pa = random(2, 5,.1);
-$pd = random(2, 5,.1);
+$DEBUG=1;
 
-$sign = non_zero_random(-1,1,1);
-$sign2 = non_zero_random(-1,1,1);
-#$fa=2;
-#$fd=1;
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
 
-$graph = init_graph(0,-5,8,5,axes =>[0,0], grid =>[8,10]);
-#$hermite_obj = new Hermite( [0, $a,  $d,8],
-#                            [-5*$sign, $fa*$sign,$fd*$sign, 5*$sign],
-#                            [0, 0,0, 0]);
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
 
-$hermite2_obj = new Hermite( [0, $a,   $d,8],
-                            [$sign2, $sign2,-$sign2, -$sign2],
-                            [0, 0.0*$sign2,  0.0*$sign2, 0]);
 
-$hermite3_obj = new Hermite( [0, $a,  $d,8],
-                            [-5*$sign+$sign2, $fa*$sign+$sign2,$fd*$sign-$sign2, 5*$sign-$sign2],
-                            [0,0.0*$sign2,0.0*$sign2,0]);
-#$fun_obj = new Fun($hermite_obj->rf_f,$graph);
-#$fun_obj->color('green');
 
-$fun2_obj = new Fun($hermite2_obj->rf_f,$graph);
-$fun2_obj->color('red');
-$fun3_obj = new Fun($hermite3_obj->rf_f,$graph);
-$fun3_obj->color('blue');
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$od       =  $data->[$i]->{odpoved};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
 
-$posf=5*$sign-$sign2;
-if ($posf>4.5) {$posf=4.5;}
-if ($posf<-4.5) {$posf=-4.5;}
-
-$graph -> lb(new Label ( 7.2,$posf,'f(x)','blue','left','bottom'));
-$graph -> lb(new Label ( 7.2,-$sign2,'g(x)','red','left','bottom'));
 
 BEGIN_PGML
-## Stabilita autonomní diferenciální rovnice II
 
-[@ image( insertGraph($graph) ,width=>400,height=>400,tex_size=>600) @]*
+## [$na]
 
-V této úloze se budeme zabývat rovnicemi typu [``` \frac{\mathrm dx}{\mathrm dt}=f(x)-g(x),```]
-tj. autonomními rovnicemi s pravou stranou zapsanou ve formě rozdílu dvou funkcí. Slovem autonomní je vyjádřeno, že pravá strana nezávisí na čase [`t`].
 
-Grafy funkcí jsou na obrázku. Modrý graf je grafem funkce [`f(x)`], červený grafem funkce [`g(x)`]. Tedy pravá strana je kladná tam, kde je modrá křivka výše než červená.
+[@ $ot @]*
 
-Určete počet a stabilitu stacionárních bodů této diferenciální rovnice. Odpovězte na otázku týkající se počtu stacionárních bodů a stability stacionárního bodu, který je nejvíce vlevo.
+[_]{$radio}
+
 
 END_PGML
 
-BEGIN_TEXT
-
-
-$BR
-Počet stacionárních bodů je \{ pop_up_list(''=>'','1'=>'1', '2'=>'2', '3'=>'3', 'jiná možnost'=>'jiná možnost') \}.
-$BR
-Stacionární bod nejvíce vlevo je \{ pop_up_list(''=>'','stabilní'=>'stabilní', 'nestabilní'=>'nestabilní') \}.
-
-END_TEXT
-
-$ans1 = (($fa > 0) and ($fd<0)) ? '3': '1';
-$ans2 = ($sign < 0) ? 'stabilní': 'nestabilní';
-
-ANS(str_cmp($ans1));
-ANS(str_cmp($ans2));
-
-BEGIN_PGML_HINT
-Stacionární body jsou body, kde se křivky protínají. Měly by být tři nebo jeden. Pokud náhoda není na Vaší straně a z grafů není jasné, kolik mají průsečíků, pošlete mail vyučujícímu pomocí tlačítka "Email WeBWorK TA".
-
-Stabilitu poznáte podle toho, která křivka je výše a která níže. Pro stabilní stacionární bod potřebujeme, aby v levém okolí řešení rostlo (modrá křivka nad červenou) a v pravém okolí klesalo (modrá křivka pod červenou).
-END_PGML_HINT
-
-
 BEGIN_PGML_SOLUTION
-Stacionární body jsou body, kde se křivky protínají. Proto je počet stacionárních bodů [$ans1].
 
-Stabilitu poznáte podle toho, která křivka je výše a která níže. Pro stabilní stacionární bod potřebujeme, aby v levém okolí řešení rostlo (modrá křivka nad červenou) a v pravém okolí klesalo (modrá křivka pod červenou).  V tomto případě je levý stacionární bod [$ans2].
-
-Poznámka: Tento příklad byl mnohokrát vyzkoušen. Pokud přesto něco selhalo a popsané řešení neodpovídá obrázku, informujte prosím vyučujícího. 
+[$od]
 
 END_PGML_SOLUTION
 
+};
+# konec cyklu
 
-ENDDOCUMENT() ;        # This should be the last executable line in the problem.
 
-
-
+ENDDOCUMENT();

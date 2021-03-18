@@ -1,1 +1,62 @@
- ## Bude doplneno 
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"answerHints.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context("Numeric")->variables->are('x'=>'Real', 'y'=>'Real');
+
+$r1=Formula("0.3 * x- 0.0075*x*y");
+$r2=Formula("-0.2 * y + 0.0025*x*y");
+
+
+BEGIN_PGML
+
+## Plejtvák obrovský
+
+[@ image("plejtvak.jpg", width=>400) @]*
+
+Oblíbenou potravou plejtváka obrovského je kril. Tito drobní korýši žijí ve velkém množství v mořské vodě. Nechť [`x`] je velikost populace krilu a [`y`] velikost populace plejtváka. Velikost populace plejtváka můžeme měřit v počtu jedinců, velikost populace krilu v hmotnosti biomasy v oceánech.
+
+Předpokládejme následující.
+
+* Kril se rozmnožuje rychlostí 30 procent za jednotku času.
+* Každý plejtvák uloví 0.0075 jednotek biomasy krilu za jednotku času.
+* Bez potravy je úmrtnost v populaci plejtváka 20 procent za jednotku času.
+* Celkový vliv snížení úmrtnosti a posílení porodnosti plejtváka (pozitivně působící člen v rovnici pro populaci plejtváka) je úměrný velikosti plejtváka a krilu. Konstanta úměrnosti je 0.0025.
+
+Napište matematický model popisující danou situaci.
+
+>> [``\frac{\mathrm dx}{\mathrm dt}=``][_______________________]{$r1}<<
+
+>> [``\frac{\mathrm dy}{\mathrm dt}=``][_______________________]{$r2}<<
+
+END_PGML
+
+BEGIN_PGML_HINT
+Situace je v podstatě stejná jako situace s puštíkem ve cvičení.
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+[```\frac{\mathrm dx}{\mathrm dt}= [$r1] ```]
+[```\frac{\mathrm dy}{\mathrm dt}= [$r2] ```]
+
+
+END_PGML_SOLUTION
+
+COMMENT('Používá PGML.');
+
+
+ENDDOCUMENT();
+
+

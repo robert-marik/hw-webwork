@@ -1,1 +1,81 @@
- ## Bude doplneno 
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "MathObjects.pl",
+  "parserRadioButtons.pl",
+  "answerHints.pl",
+  "PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+BEGIN_PGML
+
+# Stacionární bod autonomní rovnice s rozdílem vpravo
+
+Uvažujme autonomní rovnici [``` \frac{\mathrm dx}{\mathrm dt}=f(x)-g(x) ```]
+s pravou stranou ve formě rozdílu. Situace je stejná jako pro obecnou rovnici, roli hraje nulovost či nenulovost pravéstrany a její růst či klesání ve stacionárním bodě.
+
+Opět stačí minimální množství informace: nemusíme znát řešení zadané diferenciální rovnice, nemusíme dokonce znát ani analytické předpisy funkcí na pravé straně rovnice. Stačí hodnoty [`f(x_0)`], [`g(x_0)`], [` f'(x_0)`] a [` g'(x_0)`] a z nich umíme určit, zda je bod [`x_0`] stacionárním bodem a zda odpovídá stabilnímu stavu, či nestabilnímu.
+
+* Pokud je [`f(x_0)=g(x_0)`], je bod [`x_0`] stacionárním bodem a tento bod je stabilní pokud platí [`f'(x_0)<g'(x_0)`] a nestabilní pokud platí [`f'(x_0)>g'(x_0)`].
+* Pokud je [`f(x_0)=g(x_0)`] a [`f'(x_0)=g'(x_0),`] jedná se o stacionární bod , ale o jeho stabilitě není možno rozhodnout jenom z těchto informací.
+* Pokud je [`f(x_0)\neq g(x_0),`] nejedná se o stacionární bod a o stabilitě nemá smysl hovořit.
+
+
+V každém z následujících případů rozhodněte, zda je v daném bodě stacionární bod a zda je tento bod stabilní. 
+
+
+END_PGML
+
+
+for (my $i = 0; $i < 5; $i++) {
+
+$x0 = random(-1,4);
+
+$Sfx0 = random(0,1);
+$Sdfx0 = random(-3,3);
+$nasobek = random(1,2);
+$mocnina = random(1,2);
+$Sfx0=$Sfx0*($nasobek)*(-1**($mocnina));
+
+$fx0=random(0,3);
+$dfx0=random(-2,2);
+$gx0=$fx0+$Sfx0;
+$dgx0=$dfx0-$Sdfx0;
+
+if ($Sfx0 != 0) {$reseni=2; $answer="Funkce \(f\) a \(g\) mají v bodě \($x0\) různé funkční hodnoty, bod není stacionárním bodem.";}
+elsif ($Sdfx0 < 0 ) {$reseni=0; $answer="Funkce \(f\) a \(g\) mají v bodě \($x0\) různé funkční hodnoty, bod je stacionárním bodem. Rozdíl \(f(x)-g(x)\) je v tomto bodě klesající a stacionární bod je stabilní.";}
+elsif ($Sdfx0 > 0 ) {$reseni=1;  $answer="Funkce \(f\) a \(g\) mají v bodě \($x0\) různé funkční hodnoty, bod je stacionárním bodem. Rozdíl \(f(x)-g(x)\) je v tomto bodě rostoucí a stacionární bod je nestabilní."}
+else {$reseni=3;  $answer="Funkce \(f\) a \(g\) mají v bodě \($x0\) různé funkční hodnoty, bod je stacionárním bodem. O jeho stabilitě však není možno pomocí prvních derivací rozhodnout, protože nedokážeme určit, zda je pravá strana v tomto bodě rostoucí či klesající."}
+
+$radio=RadioButtons(["Stabilní stacionární bod","Nestabilní stacionární bod","Nejedná se o stacionární bod","Stacionární bod, o jehož stabilitě není možné rozhodnout z daných informací","Jiná odpověď"],$reseni);
+
+
+BEGIN_PGML
+
+-------------------------------
+
+
+Pro funkci [`f`] platí [`f([$x0])=[$fx0]`] a [`f'([$x0])=[$dfx0].`]
+
+Pro funkci [`g`] platí [`g([$x0])=[$gx0]`] a [`g'([$x0])=[$dgx0].`]
+
+Rozhodněte, zda [```x=[$x0]```] je stacionárním bodem rovnice [``` \frac{\mathrm dx}{\mathrm dt}=f(x)-g(x) ```] a pokud ano, rozhodněte o jeho stabilitě.
+
+[_]{$radio}
+
+END_PGML
+
+
+BEGIN_PGML_SOLUTION
+
+[$answer]
+
+END_PGML_SOLUTION
+
+}
+
+ENDDOCUMENT();
