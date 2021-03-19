@@ -13,10 +13,10 @@ $showHint = 1;
 
 BEGIN_PGML
 
-# Stacionární bod autonomní rovnice s rozdílem vpravo
+## Stacionární bod autonomní rovnice s rozdílem vpravo
 
 Uvažujme autonomní rovnici [``` \frac{\mathrm dx}{\mathrm dt}=f(x)-g(x) ```]
-s pravou stranou ve formě rozdílu. Situace je stejná jako pro obecnou rovnici, roli hraje nulovost či nenulovost pravéstrany a její růst či klesání ve stacionárním bodě.
+s pravou stranou ve formě rozdílu. Situace je stejná jako pro obecnou rovnici, roli hraje nulovost či nenulovost pravé strany a její růst či klesání ve stacionárním bodě.
 
 Opět stačí minimální množství informace: nemusíme znát řešení zadané diferenciální rovnice, nemusíme dokonce znát ani analytické předpisy funkcí na pravé straně rovnice. Stačí hodnoty [`f(x_0)`], [`g(x_0)`], [` f'(x_0)`] a [` g'(x_0)`] a z nich umíme určit, zda je bod [`x_0`] stacionárním bodem a zda odpovídá stabilnímu stavu, či nestabilnímu.
 

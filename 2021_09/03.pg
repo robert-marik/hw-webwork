@@ -13,9 +13,13 @@ $showHint = 1;
 
 BEGIN_PGML
 
-# Stacionární bod autonomní rovnice
+## Stabilita stacionárního bodu autonomní rovnice
+
+[@ image("jenga.jpg", width=>400) @]*
 
 Uvažujme autonomní rovnici [``` \frac{\mathrm dx}{\mathrm dt}=f(x). ```]
+Pro posouzení kvalitativního chování řešení nemusíme vždy řešení hledat analyticky. Velmi nám pomohou stacioární body a jejich stabilita. Podle nich totiž poznáme, jak se řešení chovají v dlouhodobém časovém horizontu. Také nám to umožní identifikovat stavy, které jsou sice stacionární, ale nestabilní, tj. v praxi nerepreyentují stav ve kterém by mohl systém přetrvávat dlouhodobě. 
+
 V této úloze si ukážeme, že v naprosté většině případů umíme rozhodnout o stabilitě stacionárního bodu z minimálního množství informace: z funkční hodnoty a hodnoty derivace pravé strany rovnice, funkce [`f`]. Nemusíme znát řešení zadané diferenciální rovnice, nemusíme dokonce znát ani analytický předpis pravé strany. Stačí hodnoty [`f(x_0)`] a [` f'(x_0)`]. Z těchto hodnot umíme určit, zda je bod [`x_0`] stacionárním bodem a zda odpovídá stabilnímu stavu, či nestabilnímu.
 
 * Pokud je [`f(x_0)=0`], je bod [`x_0`] stacionárním bodem a tento bod je stabilní pokud platí [`f'(x_0)<0`] a nestabilní pokud platí [`f'(x_0)>0`].
@@ -25,6 +29,7 @@ V této úloze si ukážeme, že v naprosté většině případů umíme rozhod
 
 V každém z následujících případů rozhodněte, zda je v daném bodě stacionární bod a zda je tento bod stabilní. 
 
+_Obrázek: pixabay.com, autor Zaimful_
 
 END_PGML
 

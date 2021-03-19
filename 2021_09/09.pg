@@ -11,7 +11,8 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-Context("Vector")->variables->are(x=>'Real',y=>'Real', lambda=>"Real");
+Context()->variables->are(x=>'Real',y=>'Real', lambda=>"Real");
+Context()->variables->set(lambda => {TeX => '{\lambda}'});
 
 do
 {
@@ -29,11 +30,30 @@ $polynom=Formula("lambda^2-($stopa)*lambda+($determinant)")->reduce();
 until (($determinant != 0) && ( ($stopa)*($stopa) - 4*($determinant) != 0) && ($stopa != 0) );
 
 
-if ( $determinant < 0 ) { $reseni = 4; }
-elsif ( ($stopa)*($stopa) - 4*($determinant) < 0 ) { $reseni = 1; }
-else { $reseni = 0; }
+if ( $determinant < 0 ) {
+  $reseni = 4;
+  $odpoved="Kořeny charakteristického polynomu jsou reálné s opačným znaménkem. Jedná se tedy o sedlo.";
+  }
+elsif ( ($stopa)*($stopa) - 4*($determinant) < 0 )
+  {
+     $reseni = 1;
+     $odpoved="Kořeny charakteristického polynomu jsou komplexně sdružená čísla se zápornou reálnou částí. Jedná se tedy o stabilní ohnisko.";
+     if ( $stopa > 0 ) {
+     	$reseni = $reseni + 2;
+        $odpoved="Kořeny charakteristického polynomu jsou komplexně sdružená čísla s kladnou reálnou částí. Jedná se tedy o nestabilní ohnisko.";
+     }
+  }
+else
+  {
+     $reseni = 0;
+     $odpoved="Kořeny charakteristického polynomu jsou záporná  reálná čísla. Jedná se tedy o stabilní uzel.";
+     if ( $stopa > 0 ) {
+     	$reseni = $reseni + 2;
+        $odpoved="Kořeny charakteristického polynomu jsou kladná reálná čísla. Jedná se tedy o nestabilní uzel.";
+  }
+  }
 
-if ( $stopa > 0 ) {$reseni = $reseni + 2;}
+
 
 
 $diskriminant = ($stopa)*($stopa) - 4*($determinant);
@@ -64,7 +84,13 @@ BEGIN_PGML
 
 # Charakteristický polynom a vlastní čísla Jacobiho matice
 
-O stabilitě stacionárního bodu rozhodují vlastní čísla Jacobiho matice. Uvažujme autonomní systém
+Nelineární autonomní systémy umíme v okolí stacionárního bodu nahradit systémem lineárním, u kterého je zaručeno stejné chování (ve smyslu stejného chování trajektorií v okolí těchto bodů). Tento systém je dán Jacobiho maticí. O chování řešení v okolí tohoto stacionárního bodu rozhodují vlastní čísla. Podle nich poznáme, za je stacionární bod stabilní či nestabilní. U stabilních bodů poznáme, zda rovnováha je dosažena monotonně, nebo pomocí postupně mizejících oscilací.
+
+Analýzu si vyzkoušíme na následujícím příkladě. Budeme mít systém již linearizovaný, tj. budeme mít vypočtenu Jacobiho matici. Její vlastní čísla se hledají jako kořeny charakteristického polynomu. Projdeme si výpočetně méně obtěžující kroky, jako je sestavení charakteristického polynomu a posouzení typu stacionárního bodu podle kořenů. Vlastní řešení kvadratické rovnice dané charakteristickým polynomem provádět nemusíte, je to látka již dobře známá ze střední školy.
+
+------
+
+Uvažujme autonomní systém
 [``` \begin{aligned}\frac{\mathrm dx}{\mathrm dt}&=f(x,y)\\\frac{\mathrm dy}{\mathrm dt}&=g(x,y)\end{aligned}```]
 a jeho stacionární bod [`(x_0,y_0)`], tj. platí [`f(x_0,y_0)=0`] a [`g(x_0,y_0)=0`].
 
@@ -74,7 +100,7 @@ Předpokládejme, že Jacobiho matice v bodě  [`(x_0,y_0)`] je [``J(x_0,y_0)=[$
 Charakteristický polynom zadané Jacobiho matice je determinant
 [``` \begin{vmatrix} [$dfx1]-\lambda & [$dfy1] \\ [$dgx1] & [$dgy1]-\lambda \end{vmatrix}.```]
 
-Rozepište tento determinant Sarussovým pravidlem a najděte charakteristický polynom [`P(\lambda)`] Jacobiho matice v proměnné lambda. Pište například *2\*lambda^2-7\*lambda+2*.
+Rozepište tento determinant křížovým pravidlem a najděte charakteristický polynom [`P(\lambda)`] Jacobiho matice v proměnné lambda. Pište například *2\*lambda^2-7\*lambda+2*.
 
 >> [``P(\lambda)={} ``][________________________________]{$polynom} <<
 
@@ -84,6 +110,13 @@ Pokud jste postupovali správně, kořeny charakteristického polynomu jsou [$re
 [_]{$radio}
 
 END_PGML
+
+BEGIN_PGML_SOLUTION
+Platí
+[``` \begin{vmatrix} [$dfx1]-\lambda & [$dfy1] \\ [$dgx1] & [$dgy1]-\lambda \end{vmatrix}= ([$dfx1]-\lambda)([$dgy1]-\lambda)-([$dfy1])([$dgx1])=[$polynom].```]
+[$odpoved]
+
+END_PGML_SOLUTION
 
 ENDDOCUMENT();
 

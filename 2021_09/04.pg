@@ -30,7 +30,7 @@ $fun_obj = new Fun($hermite_obj->rf_f,$graph);
 
 
 BEGIN_PGML
-## Stabilita autonomní diferenciální rovnice
+## Stabilita autonomní diferenciální rovnice graficky
 
 [@ image( insertGraph($graph) ,width=>400,height=>400,tex_size=>600) @]*
 

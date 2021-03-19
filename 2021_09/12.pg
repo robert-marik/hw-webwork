@@ -12,6 +12,7 @@ $showPartialCorrectAnswers = 1;
 $showHint = 1;
 
 Context("Vector")->variables->are(x=>'Real',y=>'Real', lambda=>"Real");
+Context()->variables->set(lambda => {TeX => '{\lambda}'});
 
 do
 {
@@ -45,13 +46,39 @@ $polynom=Formula("lambda^2-($stopa)*lambda+($determinant)")->reduce();
 until (($determinant != 0) && ( ($stopa)*($stopa) - 4*($determinant) != 0) && ($stopa != 0) );
 
 
-if ( $determinant < 0 ) { $reseni = 4; }
-elsif ( ($stopa)*($stopa) - 4*($determinant) < 0 ) { $reseni = 1; }
-else { $reseni = 0; }
+# if ( $determinant < 0 ) { $reseni = 4; }
+# elsif ( ($stopa)*($stopa) - 4*($determinant) < 0 ) { $reseni = 1; }
+# else { $reseni = 0; }
 
-if ( $stopa > 0 ) {$reseni = $reseni + 2;}
+# if ( $stopa > 0 ) {$reseni = $reseni + 2;}
 
-if ( $determinant < 0 ) { $reseni = 4; }
+# if ( $determinant < 0 ) { $reseni = 4; }
+
+
+if ( $determinant < 0 ) {
+  $reseni = 4;
+  $odpoved="Kořeny charakteristického polynomu jsou reálné s opačným znaménkem. Jedná se tedy o sedlo.";
+  }
+elsif ( ($stopa)*($stopa) - 4*($determinant) < 0 )
+  {
+     $reseni = 1;
+     $odpoved="Kořeny charakteristického polynomu jsou komplexně sdružená čísla se zápornou reálnou částí. Jedná se tedy o stabilní ohnisko.";
+     if ( $stopa > 0 ) {
+     	$reseni = $reseni + 2;
+        $odpoved="Kořeny charakteristického polynomu jsou komplexně sdružená čísla s kladnou reálnou částí. Jedná se tedy o nestabilní ohnisko.";
+     }
+  }
+else
+  {
+     $reseni = 0;
+     $odpoved="Kořeny charakteristického polynomu jsou záporná  reálná čísla. Jedná se tedy o stabilní uzel.";
+     if ( $stopa > 0 ) {
+     	$reseni = $reseni + 2;
+        $odpoved="Kořeny charakteristického polynomu jsou kladná reálná čísla. Jedná se tedy o nestabilní uzel.";
+  }
+  }
+
+
 
 $radio=RadioButtons(["Stabilní uzel","Stabilní ohnisko","Nestabilní uzel","Nestabilní ohnisko","Sedlo","Jiná odpověď"],$reseni);
 
@@ -62,6 +89,11 @@ $radio=RadioButtons(["Stabilní uzel","Stabilní ohnisko","Nestabilní uzel","Ne
 BEGIN_PGML
 
 # Stacionární bod nelineárního autonomního systému
+
+Tato úloha je mírným rozšířením úlohy předchozí. Rozdíl je v tom, že studovaná soustava je nelineární. Kromě všech kroků, které jsme prováděli v předchozí úloze tedy budeme muset ještě derivováním najít Jacobiho matici, kterou použijeme pro linearizaci. 
+
+------------------
+
 
 Budeme studovat autonomní systém
 [```
@@ -112,5 +144,30 @@ Určete vlastní čísla (kořeny charakteristické rovnice) a na jejich základ
 [_]{$radio}
 
 END_PGML
+
+BEGIN_PGML_HINT
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Derivace počítáme jako derivace polynomu.
+
+[``` \frac{\partial }{\partial x}([$f])=[$dfx]```]
+[``` \frac{\partial }{\partial y}([$f])=[$dfy]```]
+[``` \frac{\partial }{\partial x}([$g])=[$dgx]```]
+[``` \frac{\partial }{\partial y}([$g])=[$dgy]```]
+
+Jacobiho matice sestavená z těchto derivací je  [``` J(x,y)=[$matice].```]
+
+Jacobiho matice v bodě [``(1,1)``] je  [``` J(1,1)=[$matice11].```]
+
+Platí
+[``` \begin{vmatrix} [$dfx1]-\lambda & [$dfy1] \\ [$dgx1] & [$dgy1]-\lambda \end{vmatrix}= ([$dfx1]-\lambda)([$dgy1]-\lambda)-([$dfy1])([$dgx1])=[$polynom].```]
+
+[$odpoved]
+
+END_PGML_SOLUTION
+
 
 ENDDOCUMENT();

@@ -1,22 +1,77 @@
-DOCUMENT();
+DOCUMENT(); 
 loadMacros(
-  "PGstandard.pl",
-  "PGML.pl",
-  "MathObjects.pl",
-  "parserRadioButtons.pl",
-  "answerHints.pl",
-  "PGcourse.pl",
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGessayLivePreviewAce.pl",
+"PGcourse.pl",
 );
 TEXT(beginproblem());
-$showPartialCorrectAnswers = 1;
-$showHint = 1;
+
+ADD_CSS_FILE("left.css");
 
 
 BEGIN_PGML
 
-# Bude doplněno
+## Regulace teploty termostatem ve vedlejší místnosti
+
+[@ image("negative-feedback-tworooms.svg", width=>400) @]*
+
+
+Tato úloha je modifikací [@ htmlLink("https://www.math.wisc.edu/~angenent/519.2016s/notes/negative-feedback-linear.html","úlohy nalezené na Internetu zde") @]*. Uvažujme dvě místnosti, obývací pokoj s teplotou [`T_1`] a ložnici s teplotou [`T_2`]. V ložnici je čidlo sledující teplotu. V obýváku topení a klimatizace, které se snaží udržovat teplotu na konstantní hodnotě. Jiné zdroje tepla neuvažujeme, neuvažujeme ani tepelnou výměnu s okolím, dokonce se ani nevětrá. Jednotku teploty zvolíme tak, že optimální teplota na které se snažíme oba pokoje udržovat je rovna nule. Pro nákres si otevřete uvedený odkaz. Situaci je možno modelovat soustavou (promyslete sami nebo následujte původní odkaz)
+[``` \begin{align*}
+\frac{\mathrm dT_1}{\mathrm dt} &= - k_{\textrm{fb}} T_2 + k_{\textrm{ex}} (T_2-T_1) \\
+\frac{\mathrm dT_2}{\mathrm dt} &= k_{\textrm{ex}} (T_1-T_2),
+\end{align*} ```]
+kde konstanty charakterizují intenzitu výměny tepla mezi místnostmi a intenzitu, s jakou je regulována teplota v obýváku jako reakce na teplotu v ložnici. Vhodnou volbou jednotky času je možné dosáhnout toho, že jedna z konstant je rovna jedné. Nechť je například [``k_{\textrm{ex}}=1``]. Druhou konstantu, [``k_{\textrm{fb}}``], si pro pohodlnější zápis označme [`a`]. Soustava má tedy tvar
+[``` \begin{align*}
+\frac{\mathrm dT_1}{\mathrm dt} &= - a T_2 + T_2-T_1 \\
+\frac{\mathrm dT_2}{\mathrm dt} &= T_1-T_2.
+\end{align*} ```]
+Zapište soustavu maticově, tedy ve tvaru 
+[``` \frac{\mathrm d}{\mathrm dt}\begin{pmatrix}T_1\\T_2\end{pmatrix}= \begin{pmatrix}???& ???\\??? & ???\end{pmatrix} \begin{pmatrix}T_1\\T_2\end{pmatrix},```]
+kde místo otazníků budou správné výrazy. Poté najděte charakteristický polynom matice a zdůvodněte, jak z tohoto charakteristického polynomu plyne, že stacionární bod nemůže být sedlo, že se může jednat o uzel nebo ohnisko a že musí být stabilní.
+
+Odpověď by měla obsahovat soustavu v maticovém tvaru, polynom a vysvětlení, jak z tvaru charakteristického polynomu plynou uvedené závěry. Mezivýpočty, jako úpravu determinatu na charakteristický polynom, nepište. 
+
+_Nápověda:_ Kvadratická rovnice [``` x^2+bx+c=0```] má následující vlastnosti.
+
+* Součin kořenů je [`c`]. Pokud je [`c`] kladné, nemůže být jeden kořen kladný a druhý záporný.
+* Součet kořenů je [`-b`]. Pokud jsou oba kořeny reálné a mají stejné znaménko, je toto znaménko opačné v porovnání se znaménkem koeficientu [`b`]. Jsou-li kořeny komplexně sdružené, platí totéž pro jejich reálné části.
+
+----
+
+Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
+
+Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
+
 
 END_PGML
 
-ENDDOCUMENT();
 
+BEGIN_TEXT
+\{essay_box(25,80)\}
+END_TEXT
+
+
+
+BEGIN_PGML
+
+* _Pro pohodlnou tvorbu textu můžete využít nástroj [@ htmlLink("http://user.mendelu.cz/marik/latexovatko","LaTeXovátko") @]*. Tam si také můžete do editoru nakliknout repertoár textů a ty upravovat a sledovat efekt jednotlivých úprav._
+* _Můžete využít [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "nápovědu") @]*  pro LaTeX s ukázkami kódů pro vykopírování. Odkaz otevřete pravým tlačítkem v novém panelu, aby Vám zůstala otevřená i stránka, kterou čtete._
+* _Další ukázky jsou všechny vzorce v programu WeBWorK a v přednáškách. Použijte pravé tlačítko a zobrazení kódu v programu TeX, tj. Show Math As a TeX commands._
+END_PGML
+
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+BEGIN_PGML_SOLUTION
+
+
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
