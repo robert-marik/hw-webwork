@@ -25,7 +25,7 @@ $sol=Formula("$acc - ($rdec)*y");
 $stac=Formula("$acc / ($rdec)");
 
 
-$radio=RadioButtons(["Všechna řešení konvergují nezávisle na počáteční podmínce ke stabilnímu stacionárnímu bodu.", "Řešení s malou počáteční podmínkou konvergují k nule (pokud je málo listí, tak  se rozpadne úplně), řešení od jisté hodnoty konvergují ke stacionárnímu bodu.","Řešení s dostatečně velkou počáteční podmínkou je nehoraničené (pokud je listí opravdu hodně, nestíhá se rozpadat a jeho množství roste), ostatní řešení konvergují ke stacionárnímu bodu. "],0);
+$radio=RadioButtons(["Všechna řešení konvergují nezávisle na počáteční podmínce ke stabilnímu stacionárnímu bodu.", "Řešení s malou počáteční podmínkou konvergují k nule (pokud je málo listí, tak  se rozpadne úplně), řešení od jisté hodnoty konvergují ke stacionárnímu bodu.","Řešení s dostatečně velkou počáteční podmínkou jsou neohraničená (pokud je listí opravdu hodně, nestíhá se rozpadat a jeho množství roste), ostatní řešení konvergují ke stacionárnímu bodu. "],0);
 
 Context()->texStrings;
 
@@ -44,7 +44,7 @@ Napište diferenciální rovnici pro vývoj množství [`y`] listů na zemi (v g
    
 ### Počáteční podmínka
 
-Předpokldádejte, že na začátku nejsou na zemi žádné listy. Jakou počáteční podmínkou vyjádříte tuto skutečnost?
+Předpokládejte, že na začátku nejsou na zemi žádné listy. Jakou počáteční podmínkou vyjádříte tuto skutečnost?
 
 >> [``Q(0) = {}``][___________________]{Formula("0")} <<
 
