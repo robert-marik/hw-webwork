@@ -18,7 +18,7 @@ BEGIN_PGML
 Uvažujme autonomní rovnici [``` \frac{\mathrm dx}{\mathrm dt}=f(x). ```]
 V této úloze si ukážeme, že v naprosté většině případů umíme rozhodnout o stabilitě stacionárního bodu z minimálního množství informace: z funkční hodnoty a hodnoty derivace pravé strany rovnice, funkce [`f`]. Nemusíme znát řešení zadané diferenciální rovnice, nemusíme dokonce znát ani analytický předpis pravé strany. Stačí hodnoty [`f(x_0)`] a [` f'(x_0)`]. Z těchto hodnot umíme určit, zda je bod [`x_0`] stacionárním bodem a zda odpovídá stabilnímu stavu, či nestabilnímu.
 
-* Pokud je [`f(x_0)=0`], je bod [`x_0`] stacionárním bodem a tento bod je stabilní pokud platí [`f'(x_0)<0`] a nestabilní pokud platí [`f'(x_0)<0`].
+* Pokud je [`f(x_0)=0`], je bod [`x_0`] stacionárním bodem a tento bod je stabilní pokud platí [`f'(x_0)<0`] a nestabilní pokud platí [`f'(x_0)>0`].
 * Pokud je [`f(x_0)=f'(x_0)=0,`] jedná se o stacioární bod, ale o jeho stabilitě není možno rozhodnout jenom z těchto informací.
 * Pokud je [`f(x_0)\neq 0,`] nejedná se o stacionární bod a o stabilitě nemá smysl hovořit.
 
