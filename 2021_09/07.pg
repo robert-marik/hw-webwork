@@ -25,7 +25,7 @@ $sol=Formula("$acc - ($rdec)*y");
 $stac=Formula("$acc / ($rdec)");
 
 
-$radio=RadioButtons(["Všechna řešení konvergují nezávisle na počáteční podmínce ke stabilnímu stacionárnímu bodu.", "Řešení s malou počáteční podmínkou konvergují k nule (pokud je málo listí, tak  se rozpadne úplně), řešení od jisté hodnoty konvergují ke stacionárnímu bodu.","Řešení s dostatečně velkou počáteční podmínkou jsou neohraničená (pokud je listí opravdu hodně, nestíhá se rozpadat a jeho množství roste), ostatní řešení konvergují ke stacionárnímu bodu. "],0);
+$radio=RadioButtons(["Všechna řešení konvergují nezávisle na počáteční podmínce ke stabilnímu stacionárnímu bodu.", "Řešení s malou počáteční podmínkou konvergují k nule (pokud je málo listí, tak  se rozpadne úplně), řešení od jisté hodnoty konvergují ke stacionárnímu bodu (nastolí se rovnováha).","Řešení s dostatečně velkou počáteční podmínkou jsou neohraničená (pokud je listí opravdu hodně, nestíhá se rozpadat a jeho množství roste), ostatní řešení konvergují ke stacionárnímu bodu (nastolí se rovnováha)."],0);
 
 Context()->texStrings;
 
@@ -38,7 +38,7 @@ gramů na centimetr čtverečení za rok. Současně se tyto listy rozpadají. Z
 
 ### Model
 
-Napište diferenciální rovnici pro vývoj množství [`y`] listů na zemi (v gramech na centimetr čtvereční) v čase [`t`].
+Napište diferenciální rovnici pro vývoj množství [`y`] listů na zemi (v gramech na centimetr čtvereční) v čase [`t`]. Jednotka času je rok.
 
 >> [``\frac{\mathrm dy}{\mathrm dt} = {} ``][______________________]{$sol} <<
    
