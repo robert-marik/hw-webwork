@@ -11,35 +11,24 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-Context("Vector")->variables->are(x=>'Real',y=>'Real', lambda=>"Real");
+Context()->variables->are(x=>'Real',y=>'Real', lambda=>"Real");
 Context()->variables->set(lambda => {TeX => '{\lambda}'});
 
 do
 {
-$x0 = random(-1,2);
-$y0 = random(-1,2);
-$a = non_zero_random(1,4);
-$b = non_zero_random(-4,4);
-$d = non_zero_random(-4,4);
-$e = non_zero_random(1,4);
-$c = ($x0)*($a) + ($y0)*($b);
-$l = ($x0)*($d) + ($y0)*($e);
+$dfx1=random(-5,5);
+$dgx1=random(-5,5);
+$dfy1=random(-5,5);
+$dgy1=random(-5,5);;
 
-$f=Formula("$a*x+($b)*y-($c)")->reduce();
-$g=Formula("$d*x+($e)*y-($l)")->reduce();
+$matice11=Matrix([[$dfx1,$dfy1],[$dgx1,$dgy1]]);
 
-$dfx=Formula("$a")->reduce();
-$dgx=Formula("$d")->reduce();
-$dfy=Formula("$b")->reduce();
-$dgy=Formula("$e")->reduce();
-
-$matice=Matrix([[$dfx,$dfy],[$dgx,$dgy]]);
-
-$stopa=$dfx+($dgy);
-$determinant=$dfx*($dgy)-($dfy)*($dgx);
+$stopa=$dfx1+($dgy1);
+$determinant=$dfx1*($dgy1)-($dfy1)*($dgx1);
 $polynom=Formula("lambda^2-($stopa)*lambda+($determinant)")->reduce();
 }
 until (($determinant != 0) && ( ($stopa)*($stopa) - 4*($determinant) != 0) && ($stopa != 0) );
+
 
 if ( $determinant < 0 ) {
   $reseni = 4;
@@ -66,59 +55,68 @@ else
 
 
 
+
+$diskriminant = ($stopa)*($stopa) - 4*($determinant);
+if ($diskriminant<0)
+{
+$realorcomplex="komplexně sdružené";
+$real=-(-$stopa)/2;
+$imag=sqrt(-$diskriminant)/2;
+$lambda1="$real + $imag i";
+$lambda2="$real - $imag i";
+
+}
+else
+{
+$realorcomplex="reálné";
+$lambda1=(-$stopa-sqrt($diskriminant))/(2);
+$lambda2=(-$stopa+sqrt($diskriminant))/(2);
+}
+
+
+if ( $determinant < 0 ) { $reseni = 4; }
+
+
 $radio=RadioButtons(["Stabilní uzel","Stabilní ohnisko","Nestabilní uzel","Nestabilní ohnisko","Sedlo","Jiná odpověď"],$reseni);
+
 
 BEGIN_PGML
 
-# Stacionární bod lineárního autonomního systému
+# Charakteristický polynom a vlastní čísla Jacobiho matice
 
-V této úloze si projdeme celou cestu, od lineárního autonomního systému, přes chrakteristický polynom až po klasifikaci stacionárního bodu na základě vlastních čísel. 
+Nelineární autonomní systémy umíme v okolí stacionárního bodu nahradit systémem lineárním, u kterého je zaručeno stejné chování (ve smyslu stejného chování trajektorií v okolí těchto bodů). Tento systém je dán Jacobiho maticí. O chování řešení v okolí tohoto stacionárního bodu rozhodují vlastní čísla. Podle nich poznáme, za je stacionární bod stabilní či nestabilní. U stabilních bodů poznáme, zda rovnováha je dosažena monotonně, nebo pomocí postupně mizejících oscilací.
 
-------------------
+Analýzu si vyzkoušíme na následujícím příkladě. Budeme mít systém již linearizovaný, tj. budeme mít vypočtenu Jacobiho matici. Její vlastní čísla se hledají jako kořeny charakteristického polynomu. Projdeme si výpočetně méně obtěžující kroky, jako je sestavení charakteristického polynomu a posouzení typu stacionárního bodu podle kořenů. Vlastní řešení kvadratické rovnice dané charakteristickým polynomem provádět nemusíte, je to látka již dobře známá ze střední školy.
 
-Budeme studovat autonomní systém
-[```
-\begin{aligned}
-\frac{\mathrm dx}{\mathrm dt}&= [$f] \\
-\frac{\mathrm dy}{\mathrm dt}&= [$g]
-\end{aligned}```]
-v jeho stacionárním bodě [`([$x0],[$y0])`].
+------
 
-------------------
-
-Napište systém v maticovém, tvaru, tj. identifikujte matici [``A=
-\begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}``] po přepsání systému do maticového tvaru [```\frac{\mathrm d}{\mathrm dt}\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}\begin{bmatrix}x-1\\y\end{bmatrix}```]
-
->> [`` A={}``][___________]*{$matice} <<
-
-_Poznámka: Lineární systém je sám svojí lineární aproximací. Odpověď je tedy možné najít buď přímo použitím maticového násobení, nebo obecným postupem pomocí Jacobiho matice._
+Uvažujme autonomní systém
+[``` \begin{aligned}\frac{\mathrm dx}{\mathrm dt}&=f(x,y)\\\frac{\mathrm dy}{\mathrm dt}&=g(x,y)\end{aligned}```]
+a jeho stacionární bod [`(x_0,y_0)`], tj. platí [`f(x_0,y_0)=0`] a [`g(x_0,y_0)=0`].
 
 
----------------------
+Předpokládejme, že Jacobiho matice v bodě  [`(x_0,y_0)`] je [``J(x_0,y_0)=[$matice11]``] a systém je tedy možno linearizovat do tvaru [``` \frac{\mathrm d}{\mathrm dt}\begin{bmatrix}x\\y\end{bmatrix}=[$matice11] \begin{bmatrix}x-x_0\\y-y_0\end{bmatrix}.```]
 
-Bod [`([$x0],[$y0])`] je stacionárním bodem systému. Matice systému je identifikována v předchozím kroku. Nyní najděte její charakteristický polynom [`P(\lambda)`] Jacobiho matice z předešlého kroku. Napište jej v proměnné lambda. Například *2\lambda^2-7lambda+2*.
+Charakteristický polynom zadané Jacobiho matice je determinant
+[``` \begin{vmatrix} [$dfx1]-\lambda & [$dfy1] \\ [$dgx1] & [$dgy1]-\lambda \end{vmatrix}.```]
+
+Rozepište tento determinant křížovým pravidlem a najděte charakteristický polynom [`P(\lambda)`] Jacobiho matice v proměnné lambda. Pište například *2\*lambda^2-7\*lambda+2*.
 
 >> [``P(\lambda)={} ``][________________________________]{$polynom} <<
 
 
--------------------------------
-
-Určete vlastní čísla (kořeny charakteristické rovnice) a na jejich základě rozhodněte o typu stacionárního bodu.
+Pokud jste postupovali správně, kořeny charakteristického polynomu jsou [$realorcomplex] a rovnají se [`\lambda_1=[$lambda1]`] a [`\lambda_2=[$lambda2]`]. Určete typ stacionárního bodu.
 
 [_]{$radio}
 
 END_PGML
 
-
-
 BEGIN_PGML_SOLUTION
-Matice [`A`] je matice obsahující koeficinety u neznámých, tj. [``` A=[$matice].```]
-
 Platí
-[``` \begin{vmatrix} [$dfx]-\lambda & [$dfy] \\ [$dgx] & [$dgy]-\lambda \end{vmatrix}= ([$dfx]-\lambda)([$dgy]-\lambda)-([$dfy])([$dgx])=[$polynom].```]
+[``` \begin{vmatrix} [$dfx1]-\lambda & [$dfy1] \\ [$dgx1] & [$dgy1]-\lambda \end{vmatrix}= ([$dfx1]-\lambda)([$dgy1]-\lambda)-([$dfy1])([$dgx1])=[$polynom].```]
 [$odpoved]
 
 END_PGML_SOLUTION
 
-
 ENDDOCUMENT();
+

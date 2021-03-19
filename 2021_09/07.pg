@@ -1,62 +1,69 @@
-DOCUMENT(); 
+DOCUMENT();
 loadMacros(
-"PGstandard.pl",
-"PGML.pl",
-"MathObjects.pl",
-"answerHints.pl",
-"PGcourse.pl",
+  "PGstandard.pl",
+  "PGML.pl",
+  "parserRadioButtons.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
 );
-TEXT(beginproblem());
+ 
+Context("Numeric");
 
+TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-Context("Numeric")->variables->are('x'=>'Real', 'y'=>'Real');
+Context("Numeric")->variables->are('t'=>['Real',limits=>[1,10]],'y'=>'Real');
 
-$r1=Formula("0.3 * x- 0.0075*x*y");
-$r2=Formula("-0.2 * y + 0.0025*x*y");
 
+$acc = random(2,5,1);
+$dec = random(50,85,5);
+$rdec = $dec/100;
+
+$sol=Formula("$acc - ($rdec)*y");
+
+$stac=Formula("$acc / ($rdec)");
+
+
+$radio=RadioButtons(["Všechna řešení konvergují nezávisle na počáteční podmínce ke stabilnímu stacionárnímu bodu.", "Řešení s malou počáteční podmínkou konvergují k nule (pokud je málo listí, tak  se rozpadne úplně), řešení od jisté hodnoty konvergují ke stacionárnímu bodu.","Řešení s dostatečně velkou počáteční podmínkou je nehoraničené (pokud je listí opravdu hodně, nestíhá se rozpadat a jeho množství roste), ostatní řešení konvergují ke stacionárnímu bodu. "],0);
+
+Context()->texStrings;
 
 BEGIN_PGML
 
-## Plejtvák obrovský
+[@ image("autumn.jpg", width=>400) @]*
 
-[@ image("plejtvak.jpg", width=>400) @]*
+Listy v lese padají na zem. Předpokládejme rychlost s jakou padají je [`[$acc]`]
+gramů na centimetr čtverečení za rok. Současně se tyto listy rozpadají. Za rok se rozpadne [`[$dec]`] procent listí.  
 
-Oblíbenou potravou plejtváka obrovského je kril. Tito drobní korýši žijí ve velkém množství v mořské vodě. Nechť [`x`] je velikost populace krilu a [`y`] velikost populace plejtváka. Velikost populace plejtváka můžeme měřit v počtu jedinců, velikost populace krilu v hmotnosti biomasy v oceánech.
+### Model
 
-Předpokládejme následující.
+Napište diferenciální rovnici pro vývoj množství [`y`] listů na zemi (v gramech an centimetr čtvereční) v čase [`t`].
 
-* Kril se rozmnožuje rychlostí 30 procent za jednotku času.
-* Každý plejtvák uloví 0.0075 jednotek biomasy krilu za jednotku času.
-* Bez potravy je úmrtnost v populaci plejtváka 20 procent za jednotku času.
-* Celkový vliv snížení úmrtnosti a posílení porodnosti plejtváka (pozitivně působící člen v rovnici pro populaci plejtváka) je úměrný velikosti plejtváka a krilu. Konstanta úměrnosti je 0.0025.
+>> [``\frac{\mathrm dy}{\mathrm dt} = {} ``][______________________]{$sol} <<
+   
+### Počáteční podmínka
 
-Napište matematický model popisující danou situaci.
+Předpokldádejte, že na začátku nejsou na zemi žádné listy. Jakou počáteční podmínkou vyjádříte tuto skutečnost?
 
->> [``\frac{\mathrm dx}{\mathrm dt}=``][_______________________]{$r1}<<
+>> [``Q(0) = {}``][___________________]{Formula("0")} <<
 
->> [``\frac{\mathrm dy}{\mathrm dt}=``][_______________________]{$r2}<<
+### Stacionární bod
+
+Rovnice má jeden stacionární bod. Najděte jej. 
+
+>> Stacionární bod je [``x_0={}``][______________]{$stac}. <<
+
+### Kvalitativní popis chování řešení
+
+Vyberete správné tvrzení, týkající se daného modelu. 
+
+[_]{$radio}
+
+
+_Obrázek: pixabay.com, autor Pexels_
 
 END_PGML
 
-BEGIN_PGML_HINT
-Situace je v podstatě stejná jako situace s puštíkem ve cvičení.
-
-END_PGML_HINT
-
-
-BEGIN_PGML_SOLUTION
-
-[```\frac{\mathrm dx}{\mathrm dt}= [$r1] ```]
-[```\frac{\mathrm dy}{\mathrm dt}= [$r2] ```]
-
-
-END_PGML_SOLUTION
-
-COMMENT('Používá PGML.');
-
 
 ENDDOCUMENT();
-
-
