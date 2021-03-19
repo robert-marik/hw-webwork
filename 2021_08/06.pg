@@ -25,9 +25,9 @@ BEGIN_PGML
 [@ image("chata.jpg", width=>400) @]*
 
 
-Dřevo tvořící stěny dřevěné chaty je v prostředí s konstantní teplotou [`[$T0]{}^\circ\mathrm{C}`] vystaveno slunečnímu záření. Díky tomu teplota roste konstantní rychlostí [`r`]. Kromě toho teplota klesá díky předávání tepla do okolí. Tento proces předávání tepla do okolí probíhá rychlostí úměrnou velikosti rozdílu teploty dřeva a teploty okolí (o teplotě [`[$T0]{}^\circ\mathrm{C}`]).
+Dřevo tvořící stěny dřevěné chaty je v prostředí s konstantní teplotou [`[$T0]{}^\circ\mathrm{C}`] vystaveno slunečnímu záření. Díky tomu teplota [`T`] v chatě roste konstantní rychlostí [`r`]. Kromě toho teplota klesá díky předávání tepla do okolí. Tento proces předávání tepla do okolí probíhá rychlostí úměrnou velikosti rozdílu teploty dřeva a teploty okolí (o teplotě [`[$T0]{}^\circ\mathrm{C}`]).
 
-Napište matematický model popisující danou situaci. Konstantu úměrnosti označte [`k`], teplotu označte [`T`]. Model formulujte tak, aby konstanta úměrnosti byla kladná.
+Napište matematický model popisující danou situaci. Konstantu úměrnosti označte [`k`]. Model formulujte tak, aby konstanta úměrnosti byla kladná.
 >> [``\frac{\mathrm dT}{\mathrm dt}=``][__________]{$r1->cmp()->withPostFilter(AnswerHints(
 Formula("r+k*(T-[$T0])") => "Jste na dobré cestě. Buď máte přehozené členy v rozdílu, nebo neuvažujete, že se chata ochlazuje.",
 Formula("r*k*(T-[$T0])") => "Jste na dobré cestě. Jenom musíte zohlednit, že rychlost není úměrná současně oběma efektům, ale jejich součtu, resp. rozdílu.",
