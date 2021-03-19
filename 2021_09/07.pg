@@ -38,7 +38,7 @@ gramů na centimetr čtverečení za rok. Současně se tyto listy rozpadají. Z
 
 ### Model
 
-Napište diferenciální rovnici pro vývoj množství [`y`] listů na zemi (v gramech an centimetr čtvereční) v čase [`t`].
+Napište diferenciální rovnici pro vývoj množství [`y`] listů na zemi (v gramech na centimetr čtvereční) v čase [`t`].
 
 >> [``\frac{\mathrm dy}{\mathrm dt} = {} ``][______________________]{$sol} <<
    
@@ -46,7 +46,7 @@ Napište diferenciální rovnici pro vývoj množství [`y`] listů na zemi (v g
 
 Předpokládejte, že na začátku nejsou na zemi žádné listy. Jakou počáteční podmínkou vyjádříte tuto skutečnost?
 
->> [``Q(0) = {}``][___________________]{Formula("0")} <<
+>> [``y(0) = {}``][___________________]{Formula("0")} <<
 
 ### Stacionární bod
 
