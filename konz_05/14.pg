@@ -13,20 +13,26 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
-
 $data =
 [
 {
-    obrazek=>"horici_spalek",
-    nadpis=>"Rovnice vedení tepla",
-    otazka=>"Vedení tepla je spojeno s nerovnoměrným rozložením teploty v přímce, rovině nebo prostoru a proto předpokládá existenci zdrojů tepla, které takovou nerovnoměrnost vytvoří. Proč tedy nejsou v rovnici zastoupeny zdroje tepla?",
-    odpoved=>"Protože při vedení tepla nás zajímá co se děje uvnitř materiálu a tam se žádné teplo netvoří. Jak vniklo teplo, které do materiálu prostupuje, je pro popis chování tepla uvnitř materiálu irelevantní.",    
-    moznosti=>[
-"Protože by rovnici jinak nebylo možné sestavit. Jedná se o aproximaci pro zdroje malé vydatnosti.",
-"Protože by rovnici jinak nebylo možné vyřešit. Jedná se o aproximaci pro malá toky tepla.",
-"Protože aby se něco mohlo ohřát, musí se něco jiného ochladit a výsledný součet je vždy nulový podle zákona zachování energie.",
-],
-zdroj=>"Obrázek: pixabay.com, autor Wendy-Baars"
+nadpis=>"Postačující podmínka pro integrovatelnost",
+otazka=>"Jaká podmínka je postačující podmínkou pro existenci neurčitého integrálu funkce \(f\) na intervalu \(I\).",
+odpoved=>"Spojitost. Každá spojitá funkce je integrovatelná.",
+moznosti=>[
+"Nenulovost. Každá funkce, která nemá nulové body, je integrovatelná.",
+"Monotonie. Každá rostoucí nebo klesající funkce je integrovatelná.",
+]
+},
+{
+nadpis=>"Integrály, které nejsou elementárními funkcemi.",
+otazka=>"Některé integrály nejsou elementárními funkcemi. Jak byste zapsali primitivní funkci k funkci \[\frac{e^x}{x^2+1}?\]",
+odpoved=>"použitím integrálu jako funkce horní meze, tj. \(\displaystyle \int _0^x \frac {e^t}{t^2+1}\,\mathrm dt\)",
+moznosti=>[
+"nijak, primitivní funkce neexistuje, protože funkce má bod nespojitosti \(x=0\)",
+"nijak, primitivní funkce neexistuje, protože funkce má body nespojitosti \(x=\pm 1\)",
+"použitím inverzní operace, tj. \(\displaystyle \frac{\mathrm d}{\mathrm dx} \frac {e^x}{x^2+1}\)",
+]
 }
 ];
 
@@ -34,6 +40,7 @@ zdroj=>"Obrázek: pixabay.com, autor Wendy-Baars"
 $pocet=@$data;
 $posledni=$pocet-1;  # indexujeme od nuly
 
+$DEBUG=1;
 # Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
 if ($DEBUG) {@pole = (0..$posledni);}
    else {@pole=(random(0,$posledni));}
@@ -58,8 +65,6 @@ $radio    =  RadioButtons([[$od,@moznosti]],0);
 BEGIN_PGML
 
 ## [$na]
-
-[@ image("$obrazek.jpg", width=>400) @]*
 
 [$ot]
 
