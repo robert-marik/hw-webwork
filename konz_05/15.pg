@@ -17,8 +17,11 @@ BEGIN_PGML
 
 
 
-## Zadání bude zveřejněno během pondělí.
+## Střední hodnota rychlosti nárůstu koncentrace radonu.
 
+V rozpadové řadě uranu je nebezpečím zejména radoaktivní radon. Psali jsme o něm v úloze minulý týden. 
+
+Nechť [`r(t)`] je rychlost s jakou roste koncentrace radonu v přízemí nevětrané budovy. Začneme měřit v čase [`t=0`]. Napište integrální střední hodnotu za časový interval délky $T$ z rychlosti, s jakou radon přibývá. 
 
 Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
 
@@ -49,6 +52,7 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
+Střední hodnota rychlosti na intervalu [`[0,T]`] je [``` \frac 1{T}\int _0^T r(t)\,\mathrm dt.```]
 
 
 END_PGML_SOLUTION
