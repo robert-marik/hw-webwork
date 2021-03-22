@@ -21,7 +21,7 @@ $r3 = random (65,80)/10000;
 $r4 = random (20,30)/10000;
 
 $rce1=Formula("($r2) * x- ($r3)*x*y");
-$rce2=Formula("-($r) * y + ($r4)*x*y");
+$rce2=Formula("-($r1) * y + ($r4)*x*y");
 
 
 BEGIN_PGML
@@ -34,9 +34,9 @@ Oblíbenou potravou plejtváka obrovského je kril. Tito drobní korýši žijí
 
 Předpokládejme následující.
 
-* Kril se rozmnožuje rychlostí [$r2] procent za jednotku času.
+* Kril se rozmnožuje rychlostí [$r2p] procent za jednotku času.
 * Každý plejtvák uloví [$r3] jednotek biomasy krilu za jednotku času.
-* Bez potravy je úmrtnost v populaci plejtváka [$r] procent za jednotku času.
+* Bez potravy je úmrtnost v populaci plejtváka [$r1p] procent za jednotku času.
 * Celkový vliv snížení úmrtnosti a posílení porodnosti plejtváka (pozitivně působící člen v rovnici pro populaci plejtváka) je úměrný velikosti plejtváka a krilu. Konstanta úměrnosti je [$r4].
 
 Napište matematický model popisující danou situaci.
