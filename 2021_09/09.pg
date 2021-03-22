@@ -13,8 +13,10 @@ $showHint = 1;
 
 Context("Numeric")->variables->are('x'=>'Real', 'y'=>'Real');
 
-$r = random (18,30)/100;
-$r2 = random (20,35)/100;
+$r1p = random (18,30)
+$r1 = $r1p/100;
+$r2p = random (20,35);
+$r2 = $r2p/100;
 $r3 = random (65,80)/10000;
 $r4 = random (20,30)/10000;
 
