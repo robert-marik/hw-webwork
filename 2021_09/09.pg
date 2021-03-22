@@ -18,8 +18,8 @@ $r2 = random (20,35)/100;
 $r3 = random (65,80)/10000;
 $r4 = random (20,30)/10000;
 
-$r1=Formula("($r2) * x- [$r3]*x*y");
-$r2=Formula("-($r) * y + [$r4]*x*y");
+$rce1=Formula("($r2) * x- [$r3]*x*y");
+$rce2=Formula("-($r) * y + [$r4]*x*y");
 
 
 BEGIN_PGML
@@ -39,9 +39,9 @@ Předpokládejme následující.
 
 Napište matematický model popisující danou situaci.
 
->> [``\frac{\mathrm dx}{\mathrm dt}=``][_______________________]{$r1}<<
+>> [``\frac{\mathrm dx}{\mathrm dt}=``][_______________________]{$rce1}<<
 
->> [``\frac{\mathrm dy}{\mathrm dt}=``][_______________________]{$r2}<<
+>> [``\frac{\mathrm dy}{\mathrm dt}=``][_______________________]{$rce2}<<
 
 END_PGML
 
@@ -53,8 +53,8 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 
-[```\frac{\mathrm dx}{\mathrm dt}&= [$r1] \\
-\frac{\mathrm dy}{\mathrm dt}&= [$r2] ```]
+[```\frac{\mathrm dx}{\mathrm dt}&= [$rce1] \\
+\frac{\mathrm dy}{\mathrm dt}&= [$rce2] ```]
 
 
 END_PGML_SOLUTION
