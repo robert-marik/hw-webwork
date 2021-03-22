@@ -13,8 +13,13 @@ $showHint = 1;
 
 Context("Numeric")->variables->are('x'=>'Real', 'y'=>'Real');
 
-$r1=Formula("0.3 * x- 0.0075*x*y");
-$r2=Formula("-0.2 * y + 0.0025*x*y");
+$r = random (18,30)/100;
+$r2 = random (20,35)/100;
+$r3 = random (65,80)/10000;
+$r4 = random (20,30)/10000;
+
+$r1=Formula("($r2) * x- [$r3]*x*y");
+$r2=Formula("-($r) * y + [$r4]*x*y");
 
 
 BEGIN_PGML
@@ -48,8 +53,8 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 
-[```\frac{\mathrm dx}{\mathrm dt}= [$r1] ```]
-[```\frac{\mathrm dy}{\mathrm dt}= [$r2] ```]
+[```\frac{\mathrm dx}{\mathrm dt}&= [$r1] \\
+\frac{\mathrm dy}{\mathrm dt}&= [$r2] ```]
 
 
 END_PGML_SOLUTION
