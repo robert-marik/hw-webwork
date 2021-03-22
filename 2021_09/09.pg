@@ -32,10 +32,10 @@ Oblíbenou potravou plejtváka obrovského je kril. Tito drobní korýši žijí
 
 Předpokládejme následující.
 
-* Kril se rozmnožuje rychlostí 30 procent za jednotku času.
-* Každý plejtvák uloví 0.0075 jednotek biomasy krilu za jednotku času.
-* Bez potravy je úmrtnost v populaci plejtváka 20 procent za jednotku času.
-* Celkový vliv snížení úmrtnosti a posílení porodnosti plejtváka (pozitivně působící člen v rovnici pro populaci plejtváka) je úměrný velikosti plejtváka a krilu. Konstanta úměrnosti je 0.0025.
+* Kril se rozmnožuje rychlostí [$r2] procent za jednotku času.
+* Každý plejtvák uloví [$r3] jednotek biomasy krilu za jednotku času.
+* Bez potravy je úmrtnost v populaci plejtváka [$r] procent za jednotku času.
+* Celkový vliv snížení úmrtnosti a posílení porodnosti plejtváka (pozitivně působící člen v rovnici pro populaci plejtváka) je úměrný velikosti plejtváka a krilu. Konstanta úměrnosti je [$r4].
 
 Napište matematický model popisující danou situaci.
 
