@@ -55,8 +55,8 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 
-[```\frac{\mathrm dx}{\mathrm dt}&= [$rce1] \\
-\frac{\mathrm dy}{\mathrm dt}&= [$rce2] ```]
+[```\begin{aligned}\frac{\mathrm dx}{\mathrm dt}&= [$rce1] \\
+\frac{\mathrm dy}{\mathrm dt}&= [$rce2] \end{aligned}```]
 
 
 END_PGML_SOLUTION
