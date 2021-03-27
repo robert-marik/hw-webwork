@@ -13,26 +13,38 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
-
 $data =
 [
 {
-    obrazek=>"horici_spalek",
-    nadpis=>"Rovnice vedení tepla",
-    otazka=>"Vedení tepla je spojeno s nerovnoměrným rozložením teploty v přímce, rovině nebo prostoru a proto předpokládá existenci zdrojů tepla, které takovou nerovnoměrnost vytvoří. Proč tedy nejsou v rovnici zastoupeny zdroje tepla?",
-    odpoved=>"Protože při vedení tepla nás zajímá co se děje uvnitř materiálu a tam se žádné teplo netvoří. Jak vniklo teplo, které do materiálu prostupuje, je pro popis chování tepla uvnitř materiálu irelevantní.",    
-    moznosti=>[
-"Protože by rovnici jinak nebylo možné sestavit. Jedná se o aproximaci pro zdroje malé vydatnosti.",
-"Protože by rovnici jinak nebylo možné vyřešit. Jedná se o aproximaci pro malá toky tepla.",
-"Protože aby se něco mohlo ohřát, musí se něco jiného ochladit a výsledný součet je vždy nulový podle zákona zachování energie.",
-],
-zdroj=>"Obrázek: pixabay.com, autor Wendy-Baars"
+nadpis=>"Stabilita stacionárního bodu",
+otazka=>"Vysvětlete, jak prakticky vnímáme stabilitu stacionárního bodu rovnice \[\frac{\mathrm dx}{\mathrm dt}=f(x).\] Co reprezentuje stabilní stacionární bod?",
+odpoved=>"Reprezentuje rovnovážný stav systému, který se obnoví po malých poruchách řešení.",
+moznosti=>[
+"Reprezentuje rovnovážný stav systému, který se obnoví po libovolně velkých poruchách řešení.",
+"Reprezentuje rovnovážný stav systému, který je pouze teoretický a v reálné situaci nedosažitelný vlivem vnějších perturbací.",
+"Reprezentuje rovnovážný stav systému, který se neobnoví ani po malých poruchách řešení a neodpovídá tedy prakticky dosažitelnému stavu systému.",
+]
+},
+{
+nadpis=>"Stabilita stacionárního bodu II",
+otazka=>"Předpokládejme, že \(x_0\) je stacionárním bodem systému \[\frac{\mathrm dx}{\mathrm dt}=f(x).\] Jaká podmínka dokáže zaručit nestabilitu tohoto stacionárního bodu a co to znamená prakticky?",
+odpoved=>"\(f'(x_0)>0\), takový bod neodpovídá stavu, ve kterém se systém může dlouhodobě nacházet",
+moznosti=>[
+"\(f'(0)<0\), takový bod neodpovídá stavu, ve kterém se systém může dlouhodobě nacházet",
+"\(f'(0)>0\), takový bod neodpovídá stavu, ve kterém se systém může dlouhodobě nacházet",
+"\(f'(0)>0\), takový bod zaručuje, že systém nikdy nemůže přejít do ustáleného stavu",
+"\(f'(x_0)<0\), takový bod zaručuje, že systém nikdy nemůže přejít do ustáleného stavu",
+]
 }
 ];
+
+
 
 # Pocet otazek
 $pocet=@$data;
 $posledni=$pocet-1;  # indexujeme od nuly
+
+$DEBUG=1;
 
 # Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
 if ($DEBUG) {@pole = (0..$posledni);}
@@ -58,8 +70,6 @@ $radio    =  RadioButtons([[$od,@moznosti]],0);
 BEGIN_PGML
 
 ## [$na]
-
-[@ image("$obrazek.jpg", width=>400) @]*
 
 [$ot]
 

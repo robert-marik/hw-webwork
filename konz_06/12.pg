@@ -13,29 +13,36 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
-
 $data =
 [
 {
-    obrazek=>"vedeni_tepla",
-    nadpis=>"Rovnice vedení tepla",
-    otazka=>"Rovnice vedení tepla v jednorozměrném materiálu má tvar \[ \rho c\frac{\partial T}{\partial t}=-\frac{\partial}{\partial x}\left(-k\frac{\partial T}{\partial x}\right). \] Co vyjadřuje člen \[ -k\frac{\partial T}{\partial x} \] nacházející se uvnitř závorky na pravé straně?",
-    odpoved=>"Tok tepla.",    
-    moznosti=>[
-"Spád teploty",
-"Rychlost růstu toku tepla v ose \(x\)",
-"Rychlost růstu toku tepla ve směru opačném k ose \(x\)",
-"Rychlost změny teploty v čase",
-"Rychlost změny teploty v ose \(x\)",
-"Rychlost poklesu teploty v ose \(x\)",
-],
-zdroj=>"Obrázek: pixabay.com, autor ptdh"
+nadpis=>"Autonomní diferenciální rovnice",
+otazka=>"V přednáškách jsme si představili autonomní diferenciální rovnici jako rovnici ve tvaru \[\frac{\mathrm dy}{\mathrm dx}=f(y).\] Jak to dopadne v jiných proměnných? Která z následujících rovnic je autonomní? Funkce \(f\) je funkce jedné nebo dvou proměnných, podle kontextu, ve kterém je použita. ",
+odpoved=>"\(\displaystyle \frac{\mathrm dr}{\mathrm dt}=f(r)\)",
+moznosti=>[
+"\(\displaystyle \frac{\mathrm ds}{\mathrm dt}=f(t)\)",
+"\(\displaystyle \frac{\mathrm du}{\mathrm dt}=f(u)g(t)\)",
+"\(\displaystyle \frac{\mathrm dv}{\mathrm dt}=f(v,t)\)",
+]
+},
+{
+nadpis=>"Stacionární bod autonomní rovnice",
+otazka=>"Co rozumíme stacionárním bodem autonomní diferenciální rovnice?",
+odpoved=>"Konstantní řešení rovnice.",
+moznosti=>[
+"Kladné řešení rovnice.",
+"Řešení popisující všechny realizovatelné stavy systému popsaného danou rovnicí.",
+"Řešení procházející počátkem.",
+]
 }
 ];
+
 
 # Pocet otazek
 $pocet=@$data;
 $posledni=$pocet-1;  # indexujeme od nuly
+
+$DEBUG=1;
 
 # Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
 if ($DEBUG) {@pole = (0..$posledni);}
@@ -62,8 +69,6 @@ BEGIN_PGML
 
 ## [$na]
 
-[@ image("$obrazek.jpg", width=>400) @]*
-
 [$ot]
 
 [_]{$radio}
@@ -74,7 +79,7 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 
-[``` [$od] ```]
+[$od]
 
 END_PGML_SOLUTION
 

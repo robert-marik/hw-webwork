@@ -16,24 +16,25 @@ ADD_CSS_FILE("left.css");
 BEGIN_PGML
 
 
+## Model růstu ledové krusty 
 
-## Slovní interpretace parciální derivace
 
-[@ image("dinosaurus.jpg", width=>400) @]*
+[@ image("medved.jpg", width=>400) @]*
 
-Rychlost jakou dosahovali dvounozí dinosauři se dá odhadnout ze vzdálenosti jejich stop a z délky stehenní kosti. První takový odhad představil v roce 1976 bristký zoolog [@ htmlLink("https://en.wikipedia.org/wiki/Robert_McNeill_Alexander","Robert McNeill Alexander")@]* ve tvaru
-[``` v=0.25 \sqrt g l^{1.67} h^{-1.17},```]
-tj. (ve tvaru s explicitně zapsanými znaménky pro součin)
-[``` v=0.25 \cdot \sqrt g \cdot  l^{1.67} \cdot h^{-1.17},```]
-kde [`v`] je rychlost dinosaura v metrech za sekundu, [`h`] je (zjednodušeně řečeno) délka stehenní kosti v metrech, [`l`] je délka kroku v metrech a [`g`] je tíhové zrychlení v metrech za sekundu na druhou.
+Takzvaný Stefanův zákon (J. Stefan, \"Uber die Theorie der Eisbildung, insbesondere \"uber die Eisbildung im Polarmeere, 1891) vyjadřuje že tloušťka ledu na hladině moře roste ve
+stabilních podmínkách rychlostí nepřímo úměrnou této tloušťce. Zapište
+tento fakt pomocí vhodného matematického modelu a najděte řešení
+vzniklé diferenciální rovnice. Vysvětlete všechny proměnné a zapište slovní interpretaci konstanty úměrnosti.
 
-Vypočtěte parciální derivaci rychlosti podle délky kroku a najděte její fyzikální jednotku a slovní interpretaci.
+Při slovní interpretaci  konstanty úměrnosti se inspirujte příkladem číslo 10 v této sadě úloh.
+
+--------------
 
 Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
 
 Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
 
-_Obrázek: pixabay.com, DariuszSankowski_
+_Obrázek: https://www.inspiralia.com/iot-connection-prevent-lung-cancer/_
 
 END_PGML
 
@@ -58,20 +59,88 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-Pro funkci
-[``` v=0.25\cdot  \sqrt g \cdot l^{1.67}\cdot  h^{-1.17},```]
-platí
-[``` \frac{\partial v}{\partial l}=0.25\cdot  \sqrt g \cdot 1.67\cdot l^{0.67} \cdot h^{-1.17}.```]
-Tato paricální derivace má jednotku metr za sekundu na metr. Udává o kolik kilometrů v hodině je vyšší rychlost při kroku o metr delším.
 
-----
+**Následující je jedna z možných formulací.**
 
-Pozn: Po zkrácení je jednotkou derivace převrácená hodnota sekundy, tj. Hertz. Je však logičtější jednotku nechat v metrech za sekundu na metr kvůli snazší interpretaci.
-
-Pozn: Psát znaménka pro násobení se obecně nedoporučuje, ale tady bych se k tomu i klonil vzhledem k tomu, že se mi nechtělo násobit desetinná čísla.
-
+Rovnice růstu tloušťky ledu podle uvedeného zákona je [``` \frac{\mathrm dh}{\mathrm dt} = \frac kh,```]
+kde `h`, `k` a `t` jsou po řadě tloušťka ledu, konstanta úměrnosti a čas. Konstanta úměrnosti `k` vyjadřuje rychlost s jakou roste tloušťka ledu v okamžiku, kdy je tato tloušťka rovna jedné.
 
 
 END_PGML_SOLUTION
+
+ENDDOCUMENT();
+
+
+
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+ADD_CSS_FILE("left.css");
+
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+$a=non_zero_random(-4,4,1);
+do { $b=non_zero_random(-8,8,1) } until ( abs($b) > 1 );
+$c=non_zero_random(-10,10);
+
+Context("Numeric")->variables->are($var=>'Real');
+
+$answer=Formula("$a+$b*($var-$c)")->reduce();   # funkce
+
+
+BEGIN_PGML
+
+Toto není ani tak matematický úkol, jako formulační. Pokud si nejste jisti matematickou formulací modelu, podívejte se do cvičení k diferenciálním rovnicím. 
+
+### Pravidla
+
+* Výsledné tvrzení musí být řešením úkolu.
+* Musí se jednat o českou nebo slovenskou větu s podmětem a přísudkem, gramaticky správně utvořenou a věcně snadno pochopitelnou.
+* Odpověď musí být jednoznačná a pokud možno stručná.
+* Všechny matematické objekty (proměnné, rovnice) musí být zapsány jako matematické objekty pomocí příslušného značkovacího jazyka. Pro zápis matematických výrazů použijte LaTeX nebo ASCIIMath.
+
+Doporučení k sazbě matematiky a příklady, jak zrealizovat tato doporučení jsou v úlohách k přednášce o diferenciálních rovnicích (přednáška číslo 6, [@htmlLink("http://um.mendelu.cz/webwork2/MT-Marik/Prednaska_06/2","druhý příklad")@]*). Zopakujte si tato doporučení a použijte je pro zápis své odpovědi.  Odpověď bude ohodnocena na
+100%, pokud bude správně věčně a bude zapsána podle pravidel českého
+pravopisu a podle doporučení pro sazbu matematických výrazů. (Zde je
+hlavně důležité dodržet označení proměnných jako matematických
+výrazů.) Výhodou je stručná a výstižná odpověď. Rovnice (matematický model) musí být na samostatném řádku, tj. pro její zápis použijeme buď dvojitý zpětný apostrof (v případě AsciiMath) nebo zpětné lomítko a hranaté závorky.
+
+**Podobně jako analogický úkol u přednášky: bodů za tuto činnost je málo, ale pokud se to nenaučíte, tak nebudete schopni zapsat odpovědi na některé otázky v písemce, pokud bude písemka distanční formou.**
+
+*TIP:* Na webové stránce pluginu [@ htmlLink("https://www.mathjax.org/#demo","MathJax")@]* si můžete pohodlně text připravit v LaTeXu i v AsciiMath. Uvidíte živý náhled vkládaného textu, nebudete muset klikat opakovaně na tlačítko s náhledem jako zde. Výsledný *zdrojový text* jenom vykopírujte do WeBWorKu.
+
+*TIP2:* Použijte pro psaní matematických znaků anglickou klávesnici (povolte si ji v operačním systému, pokud jste to neudělali dříve). Pokud nemáte na tlačítkách anglické znaky, najděte si je na [@ htmlLink("https://en.wikipedia.org/wiki/British_and_American_keyboards","webu")@]*. V případě problémů pište na Teams.
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box()\}
+END_TEXT
+
+
+BEGIN_PGML
+_[@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "Nápověda pro LaTeX, ukázky kódů pro vykopírování") @]* (odkaz otevřete pravým tlačítem v novém panelu, aby Vám zůstala otevřená i stránka, kterou čtete). Další ukázky jsou všechny vzorce v programu WeBWorK a v přednáškách. Použijte pravé tlačítko a zobrazení kódu v programu TeX._
+END_PGML
+
+
+BEGIN_PGML_SOLUTION
+
+END_PGML_SOLUTION
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+ENDDOCUMENT(); 
+
+
 
 ENDDOCUMENT();
