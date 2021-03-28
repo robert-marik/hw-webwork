@@ -16,7 +16,7 @@ BEGIN_PGML
 
 ## Dvojný integrál a mechanická stabilita
 
-Dvojný integrál je důležitý pro posouzení mechanické stability. Prostřednictvím jedné veličiny souvisí například s tuhostí nosníků a vystupuje v rovnici pro deformaci noníků, například i v [@ htmlLink("https://cs.wikipedia.org/wiki/Ohyb","článku na Wikipedii")@]*. Identifikujte tuto veličinu, napište její definiční vztah a vysvětlete stručně symboly figurující v této definici.
+Dvojný integrál je důležitý pro posouzení mechanické stability. Prostřednictvím jedné veličiny souvisí například s tuhostí nosníků a vystupuje v rovnici pro deformaci noníků. Například je zmíněna i v [@ htmlLink("https://cs.wikipedia.org/wiki/Ohyb","článku na Wikipedii")@]*. Identifikujte tuto veličinu, napište její definiční vztah a vysvětlete stručně symboly figurující v této definici.
 
 ----
 
