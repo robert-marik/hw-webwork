@@ -1,1 +1,74 @@
- ## Bude doplneno 
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl",
+"otazky.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+$kterou_otazku=1;
+
+
+# Pocet otazek
+$pocet=@$otazky;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+$DEBUG=0;
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=($kterou_otazku);}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $otazky->[$kterou_otazku]->{uloha};
+$od       =  $otazky->[$kterou_otazku]->{odpoved};
+@moznosti =  @{$odpovedi};
+$spravnavolba = $otazky->[$kterou_otazku]->{nastroj};
+$radio    =  RadioButtons([@moznosti],$spravnavolba);
+$variantaslovne  = ${$odpovedi}[$spravnavolba];
+
+
+BEGIN_PGML
+
+
+## Který nástroj použít? [$kterou_otazku]/14
+
+[$ot]
+
+[_]{$radio}
+
+_[$zdroj]_
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$od]
+
+Správnou volbou je volba "[$variantaslovne]".
+
+END_PGML_SOLUTION
+
+};
+# konec cyklu
+
+
+ENDDOCUMENT();
+
+
+
+
