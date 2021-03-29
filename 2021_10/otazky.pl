@@ -1,7 +1,7 @@
 
 $odpovedi=[
 "parciální derivace",  #0
-"diferenciální rovnice",          #1
+"jedna diferenciální rovnice prvního řádu",          #1
 "autonomní systém diferenciálních rovnic",  #2
 "křivkový integrál",              #3
 "dvojný integrál",                #4
@@ -17,23 +17,28 @@ $otazky=
    #################### parcialni derivace
 {
 uloha=>"Máme vzorec pro výpočet veličiny, která nás zajímá. Máme naměřené veličiny vstupující do tohoto vzorce. Chceme odhadnout, jak se chyby v naměřených datech projeví na chybě takto vypočtené veličiny.",
-odpoved=>"Zákon šíření chyb. Tento zákon se opírá o derivace a je přesně stvořen pro popsaný úkol.",
+odpoved=>"Popsanou úlohu umožňují vyřešit zákon šíření chyb. Tento zákon se opírá o derivace a je přesně stvořen pro popsaný úkol.",
 nastroj=>0
 },
 {
-uloha=>"Máme veličinu závislou na více vstupních datech. Chceme zjistit, která vstupní data mají malý vliv a která velký vliv na změny této veličiny.",
+uloha=>"Máme veličinu \(X\) závislou na více vstupních datech, tj. na více jiných veličinách. Chceme zjistit, která veličina má malý vliv a která velký vliv na změnu veličiny \(X\).",
 odpoved=>"Parciální derivace udává změnu závislé veličiny způsobené jednotkovou změnou nezávislé veličiny.",
 nastroj=>0,
 },
-   #################### diferenciální rovnice
 {
-uloha=>"Máme vzorec pro pocitovou teplotu a potřebujeme vědět, jak se změny vstupních dat projevují na změnách této teploty. Tedy potřebujeme znát odhad změny pocitové teploty při rychlosti větru o jednotku vyšší (a stejném obsahu) nebo naopak.",
-odpoved=>"Popsané informace jsou přímo interpretacemi parciální derivace funkce více proměnných.",
+uloha=>"Máme vzorec pro pocitovou teplotu a potřebujeme vědět, jak se změny vstupních dat (změna okolní teploty a rychlosti větru) projevuje na změnách této teploty. Tedy potřebujeme znát odhad změny pocitové teploty při rychlosti větru o jednotku vyšší (a stejné teplotě) nebo naopak.",
+odpoved=>"Popsané informace jsou přímo interpretacemi parciální derivace funkce více proměnných. Odpovědí je tedy pojem parciální derivace.",
+nastroj=>1
+},
+ #################### diferenciální rovnice
+{
+uloha=>"Sledujete veličinu měnící se v čase. Tato rychlost souvisí s numerickou hodnotou sledované veličiny a rádi bychom získali časový průběh veličiny. Obyčejné násobení nestačí, protože rychlost není konstantní. Obyčejná integrace rychlosti také nestačí, protože uvažovaná rychlost změny veličiny souvisí i s hodnotou této veličiny, tj. s funkcí, kterou teprve hledáme.",
+odpoved=>"Rychlost je derivace podle času a souvislost mezi touto rychlostí a hodnotou veličiny představuje diferenciální rovnici. Úlohu budeme řešit pomocí diferenciálních rovnic.",
 nastroj=>1
 },
 {
-uloha=>"Sledujete veličinu měnící proměnnou rychlostí. Tato rychlost souvisí s numerickou hodnotou sledované veličiny a rádi bychom získali časový průběh. Obyčejná integrace rychlosti nestačí, protože rychlost souvisí i s hodnotou veličiny, tj. s funkcí, kterou teprve hledáme.",
-odpoved=>"Rychlost je derivace podle času a souvislost mezi touto rychlostí a hodnotou veličiny představuje diferenciální rovnici.",
+uloha=>"Máme vstupní data pro veličinu, která nás zajímá a model, který popisuje časový vývoj veličiny pomocí toho, že v každém okamžiku je dána rychlost změny. Chceme zjistit, za jak dlouho dosáhne veličina stacionárního neměnného stavu.",
+odpoved=>"Rychlost je derivace podle času a zadána je tedy diferenciální rovnice (model popisující časový vývoj) a počáteční podmínka (výchozí stav). Jistě tedy využijeme aparát diferenciálních rovnic.",
 nastroj=>1
 },
    ################## autonomní systém
@@ -42,21 +47,30 @@ uloha=>"Sledujete koncentrace proteinů v řetězci chemických reakcí. Rychlos
 odpoved=>"Rychlosti jsou derivace, souvislosti koncentrací s rychlostí reakcí (a tím i s rychlostí změny koncentrací) jsou matematicky vyjádřeny jako diferenciální rovnice. Protože je proteinů více, nestačí jedna rovnice, ale je nutné použít soustavu.",
 nastroj=>2
 },
+{
+uloha=>"Sledujete navzájem interagující populace. Jsou definovány vztahy mezi těmito populacemi a tyto vztahy udávají, jak silně jedna populace podporuje či brzdí vývoj druhé populace. Zajímá nás, zda je realistická koexistence, nebo zda dojde ke konkurenčnímu vyloučení některé populace. Dále nás zajímá, jaký bude časový vývoj, tj. například jak rychlé bude vymírání konkurenčně méně úspěšného druhu.",
+odpoved=>"Rychlosti jsou derivace a sledujeme derivace každé z populací podle času. Interakce mezi populacemi vyjádříme jako diferenciální rovnice a protože jich je několik, dostaneme autonomní systém.",
+nastroj=>2
+},
    ########## křivkový integrál
 {
 uloha=>"Je dáno vektorové pole popisující difuzní tok v plošném materiálu. V tomto materiálu je definována množina, která nás zajímá. Snažíme se určit, jestli díky toku množství veličiny narůstá či ubývá a jakou rychlostí.",
 odpoved=>"Jinými slovy, potřebujeme určit tok vektorového pole křivkou tvořící hranici množiny. Tento tok počítáme křivkovým integrálem druhého druhu.",
 nastroj=>3
 },
+{
+uloha=>"Je dáno vektorové pole popisující silové působení a křivka definující počáteční a koncovou polohu objektu a také polohy objektu v průběhu pohybu. Chceme určit, jak velkou práci vykonalo silové pole při tomto přemístění objektu z počáteční polohy do polohy koncové.",
+nastroj=>3
+},
    ########## dvojný integrál
 {
-uloha=>"Máme dán nosník určitého průřezu a potřebujeme zjistit, jak se bude chovat při deformaci. Který nástroj využijeme při vyhodnocení toho, který průřez je vhodnější z hlediska dosažení nosníku, který lépe odolává deformaci?",
+uloha=>"Máme dán nosník určitého průřezu a potřebujeme zjistit, jak se bude chovat při deformaci. Který nástroj využijeme při vyhodnocení toho, který průřez je vhodnější z hlediska dosažení nosníku? Podle čeho poznáme, který průřez lépe odolává deformaci?",
 odpoved=>"Popsaný úkol přesně sedí na kvadratický modul průřezu nosníku. To je veličina definovaná dvojným integrálem.",
 nastroj=>4
 },
 {
-uloha=>"V každém bodě plošného materiálu známe výkon zdrojů produkujících teplo (tj. energie dodaná za jednotku času na jednotku plochy). Tento výkon není konstantní a proto není možné celkový výkon vyjádřit pmocí součinu výkonu na jednotku obsahu s obsahem. Jak tedy vypočteme celkový výkon v tomto případě?",
-odpoved=>"Popsaný úkol je přesně důvodem, proč zadádíme dvojný integrál. Umožňuje nám posčítat příspěvky rozložené ve dvourozměrné množině.",
+uloha=>"V každém bodě plošného materiálu známe výkon zdrojů produkujících teplo (tj. energie dodaná za jednotku času na jednotku plochy). Tento výkon není konstantní a proto není možné celkový výkon vyjádřit pomocí součinu výkonu na jednotku obsahu s obsahem. Jak tedy vypočteme celkový výkon v tomto případě?",
+odpoved=>"Popsaný úkol je přesně důvodem, proč zavádíme dvojný integrál. Umožňuje nám posčítat příspěvky rozložené ve dvourozměrné množině.",
 nastroj=>4
 },
    #### difuzní rovnice    
