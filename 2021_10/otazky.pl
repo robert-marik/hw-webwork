@@ -123,8 +123,8 @@ odpoved=>"Popsaná závislost je závislost toku na záporně vzatém gradientu 
 nastroj=>8
 },
 {
-uloha=>"Máme termosnímek materiálu a známe materiálové vlastnosti. Zajímá nás tok tepla, tj. jakým směrem a jakou intenzitou je v materiálu transportována energie.",
-odpoved=>"Popsaná závislost je závislost toku na záporně vzatém gradientu teploty. Tato závislost je vyjádřena konstitutivním zákonem. (Fourierův zákon.)",
+uloha=>"Máme koncentraci vody ve dřevěném materiálu (množství vody v libovolném bodě) a známe materiálové vlastnosti. Zajímá nás, jak rychle a jakým směrem se množství vody přesunuje z místa, kde je vlhkost vysoká, do místa, kde je vlhkost nižší.",
+odpoved=>"Popsaná závislost je závislost difuzního toku ve dřevě na záporně vzatém gradientu koncentrace. Tato závislost je vyjádřena konstitutivním zákonem. (Fickův zákon.)",
 nastroj=>8
 },
         ## Greenova veta
