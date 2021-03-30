@@ -17,18 +17,18 @@ $otazky=
    #################### parcialni derivace
 {
 uloha=>"Máme vzorec pro výpočet veličiny, která nás zajímá. Máme naměřené veličiny vstupující do tohoto vzorce. Chceme odhadnout, jak se chyby v naměřených datech projeví na chybě takto vypočtené veličiny.",
-odpoved=>"Popsanou úlohu umožňují vyřešit zákon šíření chyb. Tento zákon se opírá o derivace a je přesně stvořen pro popsaný úkol.",
+odpoved=>"Popsanou úlohu umožňují vyřešit parciální derivace a pomocí nich formulovaný zákon šíření chyb. Tento zákon je přesně stvořen pro popsaný úkol.",
 nastroj=>0
 },
 {
-uloha=>"Máme veličinu \(X\) závislou na více vstupních datech, tj. na více jiných veličinách. Chceme zjistit, která veličina má malý vliv a která velký vliv na změnu veličiny \(X\).",
-odpoved=>"Parciální derivace udává změnu závislé veličiny způsobené jednotkovou změnou nezávislé veličiny.",
-nastroj=>0,
+uloha=>"Máme veličinu \(X\) závislou na více vstupních datech, tj. na více jiných veličinách. Chceme udělat citlivostní analýzu, tj. zjistit, která veličina má zanedbatelný vliv a která podstatný vliv na změnu veličiny \(X\).",
+odpoved=>"Parciální derivace udává změnu závislé veličiny způsobené jednotkovou změnou nezávislé veličiny. Zanedbatelný vliv mají veličiny s numericky malou derivací (přesně, ji s derivací blízkou k nule) a podstatný vliv veličiny s numericky velkou derivací (hodně kladnou nebo hodně zápornou).",
+nastroj=>0
 },
 {
-uloha=>"Máme vzorec pro pocitovou teplotu a potřebujeme vědět, jak se změny vstupních dat (změna okolní teploty a rychlosti větru) projevuje na změnách této teploty. Tedy potřebujeme znát odhad změny pocitové teploty při rychlosti větru o jednotku vyšší (a stejné teplotě) nebo naopak.",
+uloha=>"Máme vzorec pro pocitovou teplotu a potřebujeme vědět, jak se změny vstupních dat (změna okolní teploty a rychlosti větru) projevuje na změnách této teploty. Tedy potřebujeme znát odhad změny pocitové teploty při rychlosti větru o jednotku vyšší (a stejné teplotě). Nebo naopak, odhad změny pocitové teploty při stejné rychlosti větru a teplotě o jednotku vyšší.",
 odpoved=>"Popsané informace jsou přímo interpretacemi parciální derivace funkce více proměnných. Odpovědí je tedy pojem parciální derivace.",
-nastroj=>1
+nastroj=>0
 },
  #################### diferenciální rovnice
 {
@@ -37,8 +37,8 @@ odpoved=>"Rychlost je derivace podle času a souvislost mezi touto rychlostí a 
 nastroj=>1
 },
 {
-uloha=>"Máme vstupní data pro veličinu, která nás zajímá a model, který popisuje časový vývoj veličiny pomocí toho, že v každém okamžiku je dána rychlost změny. Chceme zjistit, za jak dlouho dosáhne veličina stacionárního neměnného stavu.",
-odpoved=>"Rychlost je derivace podle času a zadána je tedy diferenciální rovnice (model popisující časový vývoj) a počáteční podmínka (výchozí stav). Jistě tedy využijeme aparát diferenciálních rovnic.",
+uloha=>"Máme počáteční data pro veličinu, která nás zajímá a model, který popisuje časový vývoj veličiny. Tento model používá fakt, že v každém okamžiku je dána rychlost změny. Chceme zjistit, za jak dlouho dosáhne veličina stacionárního neměnného stavu.",
+odpoved=>"Rychlost je derivace podle času a zadána je tedy diferenciální rovnice (model popisující časový vývoj) a počáteční podmínka (výchozí stav, počáteční data). Jistě tedy využijeme aparát diferenciálních rovnic.",
 nastroj=>1
 },
    ################## autonomní systém
@@ -69,7 +69,7 @@ odpoved=>"Popsaný úkol přesně sedí na kvadratický modul průřezu nosníku
 nastroj=>4
 },
 {
-uloha=>"V každém bodě plošného materiálu známe výkon zdrojů produkujících teplo (tj. energie dodaná za jednotku času na jednotku plochy). Tento výkon není konstantní a proto není možné celkový výkon vyjádřit pomocí součinu výkonu na jednotku obsahu s obsahem. Jak tedy vypočteme celkový výkon v tomto případě?",
+uloha=>"V každém bodě plošného materiálu známe výkon zdrojů produkujících teplo (tj. energie dodaná za jednotku času na jednotku plochy). Tento výkon není konstantní a proto není možné celkový výkon vyjádřit pomocí součinu obsahu a výkonu na jednotku obsahu. Jak tedy vypočteme celkový výkon v tomto případě?",
 odpoved=>"Popsaný úkol je přesně důvodem, proč zavádíme dvojný integrál. Umožňuje nám posčítat příspěvky rozložené ve dvourozměrné množině.",
 nastroj=>4
 },
@@ -89,20 +89,30 @@ uloha=>"Na okrajích sledované oblasti je konstantní hladina chemické látky.
 odpoved=>"Transportní jevy jsou popsány difuzní rovnicí. Správnou odpovědí je tedy difuzní rovnice. V tomto případě víme i něco navíc: rovnice bude obsahovat zdroje charakterizující degradaci a bude nám stačit stacionární rovnice. ",
 nastroj=>5
 },
-    ## rotace
 {
-uloha=>"Máme v prostoru definováno vektorové pole a chceme zjistit, jestli je možné přejít ke skalárním popisu tohoto vektorového pole. Tedy jestli je možno definovat pro toto vektorové pole skalární potenciál. Jak posoudíme, je-li taková úloha řešitelná? Jak posoudíme, zda skalární potenciál existuje?",
+uloha=>"Máme termosnímek materiálu a z něj odvozený tok tepla. Chceme vědět, v kterých  místech (a zda vůbec) se materiál ohřívá, ve kterých se ochlazuje a jak rychle. Víme, že v materiálu nejsou dodatečné zdroje tepla.",
+odpoved=>"Popsaná úloha je přesně úloha kvantitativně vyjádřena rovnicí vedení tepla. Rovnice vedení tepla je speciální případ difuzní rovnice.",
+nastroj=>5
+},
+ ## rotace
+{
+uloha=>"Máme v prostoru definováno vektorové pole a chceme zjistit, jestli je možné přejít ke skalárním popisu tohoto vektorového pole. Tedy jestli je možno definovat pro toto vektorové pole skalární potenciál. To bude znamenat, že křivkový integrál v takovém poli nebude záviset na integrační cestě. Jak posoudíme, zda skalární potenciál existuje? Vyberte možnost, která nevyžaduje výpočet křivkového integrálu.",
 odpoved=>"Vektorové pole má skalární potenciál právě tehdy, když má nulovou rotaci.",
-nastroj=>6
+nastroj=>6,
 },
 {
-uloha=>"Máme v prostoru definováno vektorové pole, které uvažujeme jako pole rychlosti.  Chceme zjistit, jestli pole má tendenci unášené objekty roztáčet okolo své osy. Jaký nástroj použijeme?",
+uloha=>"Máme v prostoru definováno vektorové pole, které uvažujeme jako pole rychlosti. Chceme zjistit, jestli pole má tendenci unášené objekty roztáčet okolo své osy. Jaký nástroj použijeme?",
 odpoved=>"Jinými slovy, zajímá nás rotace vektorového pole.",
 nastroj=>6
 },
     ## divergence
 {
-uloha=>"Máme v prostoru definováno vektorové pole, které uvažujeme jako pole popisující tok tepla.  Chceme zjistit, jestli tento tok v daném místě zesiluje, zeslabuje, nebo se zachovává. Jaký nástroj použijeme?",
+uloha=>"Máme v prostoru definováno vektorové pole, které uvažujeme jako pole popisující tok tepla. Chceme zjistit, jestli tento tok v daném místě zesiluje, zeslabuje, nebo se zachovává. Jaký nástroj použijeme?",
+odpoved=>"Zesilování či zeslabování toku v daném místě je dáno divergencí toku, zajímá nás tedy divergence vektorového pole.",
+nastroj=>7
+},
+{
+uloha=>"Máme v prostoru definováno vektorové pole, které uvažujeme jako pole popisující difuzní tok vody ve dřevě. Chceme zjistit, jestli tento tok v daném místě zesiluje, zeslabuje, nebo se zachovává. Jaký nástroj použijeme?",
 odpoved=>"Zesilování či zeslabování toku v daném místě je dáno divergencí toku, zajímá nás tedy divergence vektorového pole.",
 nastroj=>7
 },
@@ -115,11 +125,6 @@ nastroj=>8
 {
 uloha=>"Máme termosnímek materiálu a známe materiálové vlastnosti. Zajímá nás tok tepla, tj. jakým směrem a jakou intenzitou je v materiálu transportována energie.",
 odpoved=>"Popsaná závislost je závislost toku na záporně vzatém gradientu teploty. Tato závislost je vyjádřena konstitutivním zákonem. (Fourierův zákon.)",
-nastroj=>8
-},
-{
-uloha=>"Máme termosnímek materiálu a z něj odvozený tok tepla. Chceme vědět, v kterých  místech se materiál ohřívá, ve kterých se ochlazuje a jak rychle. Případně, zda je úloha stacionární či nestacionární.",
-odpoved=>"Popsaná úloha je přesně úloha kvantitativně vyjádřena rovnicí vedení tepla. Rovnice vedení tepla je speciální případ difuzní rovnice.",
 nastroj=>8
 },
         ## Greenova veta
