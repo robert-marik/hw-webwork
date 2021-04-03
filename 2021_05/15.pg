@@ -16,7 +16,7 @@ BEGIN_PGML
 
 ## Křivkový integrál
 
-Je dáno vektorové pole [`` \vec F=(M,N) ``] a jednotkový kruh [`` \Omega ``]. Kladně orientovanou křivku tvořící hranici tohoto kruhu označme [`` \partial \Omega``]. Napište, jak můžeme pomocí křivkového inetrgálu druhého druhu vypočítat tok vektorového pole přes hranici tohoto kruhu.
+Je dáno vektorové pole [`` \vec F=(M,N) ``] a jednotkový kruh [`` \Omega ``]. Kladně orientovanou křivku tvořící hranici tohoto kruhu označme [`` \partial \Omega``]. Napište, jak můžeme pomocí křivkového inetgrálu druhého druhu vypočítat tok vektorového pole přes hranici tohoto kruhu.
 
 Níže jsou poznámky, které máte zohlednit v odpovědi na tuto otázku. Pod nimi jsou univerzální požadavky, které jsou platné pro úlohy pro celý semestr. Pod nimi odpověďní pole. 
 

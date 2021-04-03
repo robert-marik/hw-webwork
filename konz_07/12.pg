@@ -13,29 +13,36 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
-
 $data =
 [
 {
-    obrazek=>"vedeni_tepla",
-    nadpis=>"Rovnice vedení tepla",
-    otazka=>"Rovnice vedení tepla v jednorozměrném materiálu má tvar \[ \rho c\frac{\partial T}{\partial t}=-\frac{\partial}{\partial x}\left(-k\frac{\partial T}{\partial x}\right). \] Co vyjadřuje člen \[ -k\frac{\partial T}{\partial x} \] nacházející se uvnitř závorky na pravé straně?",
-    odpoved=>"Tok tepla.",    
-    moznosti=>[
-"Spád teploty",
-"Rychlost růstu toku tepla v ose \(x\)",
-"Rychlost růstu toku tepla ve směru opačném k ose \(x\)",
-"Rychlost změny teploty v čase",
-"Rychlost změny teploty v ose \(x\)",
-"Rychlost poklesu teploty v ose \(x\)",
-],
-zdroj=>"Obrázek: pixabay.com, autor ptdh"
+nadpis=>"Součin matic",
+otazka=>"Součin matic nemá jednu z vlastností, na kterou jsme zvyklí ze součinu reálných čísel. Jakou?",
+odpoved=>"Komutativitu",
+moznosti=>[
+"Asociativitu",
+"Distributivitu vzhledem ke sčítání",
+"Existenci neutrálního prvku",
+]
+},
+{
+nadpis=>"Neutrální prvek",
+otazka=>"Jaký je neutrální prvek maticového součinu?",
+odpoved=>"Čtvercová matice s jedničkami v hlavní diagonále a nulami jinde.",
+moznosti=>[
+"Čtvercová matice s jedničkami v prvním řádku a nulami jinde.",
+"Čtvercová matice ze samých jedniček.",
+"Čtvercová matice ze samých nul.",
+"Neexistuje, operace nemá neutrální prvek."
+]
 }
 ];
 
 # Pocet otazek
 $pocet=@$data;
 $posledni=$pocet-1;  # indexujeme od nuly
+
+$DEBUG=1;
 
 # Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
 if ($DEBUG) {@pole = (0..$posledni);}
@@ -62,8 +69,6 @@ BEGIN_PGML
 
 ## [$na]
 
-[@ image("$obrazek.jpg", width=>400) @]*
-
 [$ot]
 
 [_]{$radio}
@@ -74,7 +79,7 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 
-[``` [$od] ```]
+[$od]
 
 END_PGML_SOLUTION
 

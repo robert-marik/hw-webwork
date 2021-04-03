@@ -13,26 +13,36 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
-
 $data =
 [
 {
-    obrazek=>"horici_spalek",
-    nadpis=>"Rovnice vedení tepla",
-    otazka=>"Vedení tepla je spojeno s nerovnoměrným rozložením teploty v přímce, rovině nebo prostoru a proto předpokládá existenci zdrojů tepla, které takovou nerovnoměrnost vytvoří. Proč tedy nejsou v rovnici zastoupeny zdroje tepla?",
-    odpoved=>"Protože při vedení tepla nás zajímá co se děje uvnitř materiálu a tam se žádné teplo netvoří. Jak vniklo teplo, které do materiálu prostupuje, je pro popis chování tepla uvnitř materiálu irelevantní.",    
-    moznosti=>[
-"Protože by rovnici jinak nebylo možné sestavit. Jedná se o aproximaci pro zdroje malé vydatnosti.",
-"Protože by rovnici jinak nebylo možné vyřešit. Jedná se o aproximaci pro malá toky tepla.",
-"Protože aby se něco mohlo ohřát, musí se něco jiného ochladit a výsledný součet je vždy nulový podle zákona zachování energie.",
-],
-zdroj=>"Obrázek: pixabay.com, autor Wendy-Baars"
+nadpis=>"Vlastní vektory matice",
+otazka=>"Jaká vlastnost charakterizuje vlastní vektory matice (vlastní směry matice)?",
+odpoved=>"Obraz je násobkem vektoru, má tedy stejný nebo opačný směr.",
+moznosti=>[
+"Obraz je kladným násobkem vektoru, má tedy stejný směr.",
+"Obraz je nulovým násobkem vektoru, má nulovou velikost.",
+"Obraz je záporným vektoru, má tedy opačný směr.",
+"Obraz je kolmý na vzor a jejich skalární součin je nulový."
+]
+},
+{
+nadpis=>"Matice s vlastními směry ve směru souřadných os.",
+otazka=>"Jak vypadá nejobecnější možná matice, která má vlastní vektory ve směru jednotlivých os?",
+odpoved=>"Je diagonální",
+moznosti=>[
+"Je nulová",
+"Je kladná",
+"Je jednotková",
+]
 }
 ];
 
 # Pocet otazek
 $pocet=@$data;
 $posledni=$pocet-1;  # indexujeme od nuly
+
+$DEBUG=1;
 
 # Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
 if ($DEBUG) {@pole = (0..$posledni);}
@@ -58,8 +68,6 @@ $radio    =  RadioButtons([[$od,@moznosti]],0);
 BEGIN_PGML
 
 ## [$na]
-
-[@ image("$obrazek.jpg", width=>400) @]*
 
 [$ot]
 
