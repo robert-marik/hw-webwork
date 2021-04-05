@@ -10,6 +10,8 @@ loadMacros(
 );
 
 
+TEXT(beginproblem());
+
 @moznosti=(
 "Celkové množství energie v části materiálu odpovídající množině \(M\). Jednotkou je joule.",
 "Rychlost s jakou se mění celkové množství energie v části materiálu odpovídající množině \(M\). Jednotkou je joule za sekundu, tj. watt.",

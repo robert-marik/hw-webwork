@@ -10,6 +10,8 @@ loadMacros(
 );
 
 
+TEXT(beginproblem());
+
 @moznosti=(
 "Celkové množství vody v části materiálu odpovídající množině \(M\). Jednotkou je gram.",
 "Rychlost s jakou se mění celkové množství vody v části materiálu odpovídající množině \(M\). Jednotkou je gram za hodinu.",
