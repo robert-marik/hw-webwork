@@ -10,6 +10,9 @@ loadMacros(
 );
 
 
+TEXT(beginproblem());
+
+
 @moznosti=(
 "Celkové množství stavové veličiny v množině \(M\).",
 "Rychlost s jakou se mění celkové množství stavové veličiny v množině \(M\).",
