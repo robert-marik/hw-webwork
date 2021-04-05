@@ -1,6 +1,3 @@
-
-
-
 DOCUMENT();
 
 loadMacros(
@@ -11,6 +8,7 @@ loadMacros(
 "PGML.pl"
 );
 
+TEXT(beginproblem());
 
 $data =
 [
