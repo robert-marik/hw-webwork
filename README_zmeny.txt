@@ -6,3 +6,13 @@ Do kazde sady dat nco s desetinnym cislem
 
 * Prozkoumat nutnost commitu ve skriptu, ktery meni data uzivatelu
 * Randomizovat příklad s plejtvákem
+
+
+
+Pred upgradem je asi potreba doinstalovat knihovnu libjson-maybexs-perl a libarchive-zip-perl
+
+For multiple reasons stemming from many improvements, you need to install
+npm on the server if it is not already there. Then go to the htdocs/ folder
+and run:
+npm install
+

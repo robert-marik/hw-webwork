@@ -65,7 +65,7 @@ jako dvojnásobný integrál přes množinu [`M`].
 
 >> [``  \oint_{\partial M} \Bigl([$P]\Bigr)\,\mathrm dx+\Bigl([$Q]\Bigr)\,\mathrm dy=\iint_M``][___________________]    [``\,\mathrm dx\mathrm dy``] <<
 
-*Poznámka.* Mezivýpočty jsou méně honorovány (za každou parciální derivaci pouze 10 procent celkového hodnocení za příklad) a po odeslání vidíte, jestli je  máte správně. Výsledek za zbylých 60 procent bodů a cca dva nebo tři pokusy pro zodpovězení, podle složitosti otázky a počtu polí v otázce.
+*Poznámka.* Mezivýpočty jsou méně honorovány (za každou parciální derivaci pouze 10 procent celkového hodnocení za příklad) a po odeslání vidíte, jestli je  máte správně.
 
 
 END_PGML
@@ -94,9 +94,7 @@ Musíme ve vzorci
 ```]
 identifikovat, jaké parciální derivace potřebujeme, a poté tyto parciální derivace ve správném pořadí odečíst.
 
-
 END_PGML_SOLUTION
-
 
 WEIGHTED_ANS( ($dPx)->cmp(), 10 );
 WEIGHTED_ANS( ($dPy)->cmp(), 10 );
