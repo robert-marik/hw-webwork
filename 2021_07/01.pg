@@ -9,6 +9,9 @@ loadMacros(
 );
 
 
+TEXT(beginproblem());
+
+
 $data =
 [
 {
@@ -44,6 +47,7 @@ $na       =  $data->[$i]->{nadpis};
 $od       =  $data->[$i]->{odpoved};
 @moznosti =@{$data->[$i]->{moznosti}};
 $radio    =  RadioButtons([[$od,@moznosti]],0);
+
 
 
 BEGIN_PGML
