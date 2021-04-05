@@ -60,6 +60,9 @@ Najděte hodnotu následujícího integrálu. (Výsledek stačí zapsat ve form�
 
 >> [`` \int_{[$pt0]}^{[$pt1]}\vec F \,\mathrm d\vec r = {} ``][____________________]{$int}<<
 
+
+*Návod:* Nakreslete si počáteční a koncové body tří křivek, po nichž jsou integrály zadány. Na integrační cestě nezáleží, můžete si mezi nimi namalovat například orientovanou úsečku z počátečního do koncového bodu. Poté najděte počáteční a koncový bod integrálu a integrační cestu sestavte z integračních cest zadaných integrálů. Nezapomeňte, že na orientaci křivky záleží. Pokud byste potřebovali křivku otočit, integrál změní znaménko.
+
 END_PGML
 Context()->normalStrings;
 
