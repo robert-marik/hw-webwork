@@ -70,7 +70,7 @@ Například křivkový integrál [``` \int_C \sin(y)\,\mathrm dx + x\cos(y)\,\ma
 \frac{\partial P}{\partial y}&=\frac{\partial }{\partial y}\sin(y)=\cos(y)\\
 \frac{\partial Q}{\partial x}&=\frac{\partial }{\partial x}(x\cos(y))=\cos(y)
 \end{aligned}```]
-a obě derivace jsou shodné. V takovém případě můžeme vypočítat křivkový interál pomocí kmenové funkce. Tuto funkci jsme se učili hledat v kapitole a proto se omezíme na tvrzení, že v našem případě je kmenovou funkcí vektorového pole [``` \vec F=\sin(y)\vec i+x\cos(y)\vec j ```] funkce
+a obě derivace jsou shodné. V takovém případě můžeme vypočítat křivkový interál pomocí kmenové funkce. Tuto funkci jsme se učili hledat v sadě úloh 4 a proto se omezíme na tvrzení, že v našem případě je kmenovou funkcí vektorového pole [``` \vec F=\sin(y)\vec i+x\cos(y)\vec j ```] funkce
 [``` \varphi(x,y)=x\sin(y).```]
 
 V tomto případě můžeme vypočítat integrál po křivce [`C`] z počátku soustavy souřadnic do bodu [` \left(1,\frac {\pi}{3}\right) `] vztahem

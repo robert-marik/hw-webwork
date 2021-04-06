@@ -7761,3 +7761,6 @@ msgstr "Vyberte si sadu úloh, ve které chcete vylepšit hodnocení."
 
 msgid "Opens any homework set for 4 hours."
 msgstr "Tato odměna otevře jednu z už uzavřených úloh na další 4 hodiny. Zadání budou změněna, ale hodnocení zůstanou. Vyřešením nového zadání je možné si opravit úlohy které chcete. Počet neúspěšných pokusů se nemění."
+
+msgid "%1 remaining"
+msgstr "počet možných použití: %1"
