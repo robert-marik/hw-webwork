@@ -47,6 +47,10 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
+Greenova věta pro tok vektorového pole $(P,Q)$ hranicí množiny $\Omaga$ má tvar 
+$$  {\oint_{\partial \Omega}-Q\mathrm{d}x +P\mathrm{d}y }=   \iint_{\Omega}{\left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}\right)}\mathrm{d}x \mathrm{d}y,$$
+kde výraz $${\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}}$$ je divergence vektorového pole $(P,Q)$.
+
 END_PGML_SOLUTION
 
 
