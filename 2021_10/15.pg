@@ -18,7 +18,7 @@ BEGIN_PGML
 
 V [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/11/#fourierova-metoda-separace-prom%C4%9Bnn%C3%BDch","poslední přednášce") @]* je ukázáno, že pokud předpokládáme řešení rovnice vedení tepla
 [```\frac{\partial u}{\partial t}=\frac{\partial^2 u}{\partial x^2} ```]
-we tvaru součinu funkce proměnné [`x`] a funkce proměnné [`t`], rozpadne se rovnice na dvě obyčejné diferenciální rovnice. Rovnici prvního řádu 
+ve tvaru součinu funkce proměnné [`x`] a funkce proměnné [`t`], rozpadne se rovnice na dvě obyčejné diferenciální rovnice. Rovnici prvního řádu 
 [``` \psi'=-\lambda^2\psi ```] 
  pro funkci [`\psi(t)`] a rovnici druhého řádu 
 [```\varphi''+\lambda^2\varphi=0 ```]
@@ -27,7 +27,7 @@ Jak se situace změní po přidání zdrojů? Uvažujte případ konstantních z
 [```\frac{\partial u}{\partial t}=k+\frac{\partial^2 u}{\partial x^2} ```]
 a
 [```\frac{\partial u}{\partial t}=ku+\frac{\partial^2 u}{\partial x^2}, ```]
-kde [`k`] je konstanta. Je možné zde použít stejný trik? Zkuste to, napište u které rovnice postup funguje a u které nefunguje. Pokud funguje, napište, jaké diferenciální rovnice tímto postupem vzniknou. 
+kde [`k`] je konstanta. Je možné i zde použít stejný trik? Zkuste to, napište u které rovnice postup funguje a u které nefunguje. Pokud funguje, napište, jaké diferenciální rovnice tímto postupem vzniknou. 
 
 
 ----
