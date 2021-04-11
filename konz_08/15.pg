@@ -17,8 +17,9 @@ BEGIN_PGML
 
 
 
-## Bude doplněno 12.4.2021
+## Inverzní matice a řešení soustavy lineárních rovnic
 
+Vyvětlete vlemi stručně, jak je možno použít inverzní matici k řešení soustavy lineárních rovnic. Dále vysvětlete, jaký závěr (pokud nějaký) je možné udělat o řešitelnosti soustavy pokud inverzní matice existuje a jaký závěr pokud inverzní matice nexistuje.
 
 -----------------
 
