@@ -13,26 +13,25 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
-
 $data =
 [
 {
-    obrazek=>"horici_spalek",
-    nadpis=>"Rovnice vedení tepla",
-    otazka=>"Vedení tepla je spojeno s nerovnoměrným rozložením teploty v přímce, rovině nebo prostoru a proto předpokládá existenci zdrojů tepla, které takovou nerovnoměrnost vytvoří. Proč tedy nejsou v rovnici zastoupeny zdroje tepla?",
-    odpoved=>"Protože při vedení tepla nás zajímá co se děje uvnitř materiálu a tam se žádné teplo netvoří. Jak vniklo teplo, které do materiálu prostupuje, je pro popis chování tepla uvnitř materiálu irelevantní.",    
-    moznosti=>[
-"Protože by rovnici jinak nebylo možné sestavit. Jedná se o aproximaci pro zdroje malé vydatnosti.",
-"Protože by rovnici jinak nebylo možné vyřešit. Jedná se o aproximaci pro malá toky tepla.",
-"Protože aby se něco mohlo ohřát, musí se něco jiného ochladit a výsledný součet je vždy nulový podle zákona zachování energie.",
-],
-zdroj=>"Obrázek: pixabay.com, autor Wendy-Baars"
+nadpis=>"Charakteristická rovnice matice",
+otazka=>"K čemu slouží charakteristická rovnice matice?",
+odpoved=>"Její kořeny (řešení) jsou vlastní čísla matice.",
+moznosti=>[
+"Její koeficienty jsou vlastní čísla matice.",
+"Její funkční hodnoty udávají determinant matice.",
+"Její stupeň souvisí s počtem navzájem různých vlastních čísel.",
+]
 }
 ];
 
 # Pocet otazek
 $pocet=@$data;
 $posledni=$pocet-1;  # indexujeme od nuly
+
+$DEBUG=1;
 
 # Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
 if ($DEBUG) {@pole = (0..$posledni);}
@@ -58,8 +57,6 @@ $radio    =  RadioButtons([[$od,@moznosti]],0);
 BEGIN_PGML
 
 ## [$na]
-
-[@ image("$obrazek.jpg", width=>400) @]*
 
 [$ot]
 
