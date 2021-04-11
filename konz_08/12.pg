@@ -16,7 +16,7 @@ $showHint = 1;
 $data =
 [
 {
-nazývají"Ortogonální matice",
+nadpis=>"Ortogonální matice",
 otazka=>"Jaké matice se nazývají ortogonální?",
 odpoved=>"Ortogonální matice mají stejnou inverzní a transponovanou matici.",
 moznosti=>[
