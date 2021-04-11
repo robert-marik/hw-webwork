@@ -10,7 +10,7 @@ Do kazde sady dat nco s desetinnym cislem
 
 
 Pred upgradem na 2.16 je asi potreba doinstalovat knihovny:
-libjson-maybexs-perl libarchive-zip-perl libhttp-async-perl libxml-simple-perl
+libjson-maybexs-perl libarchive-zip-perl libhttp-async-perl libxml-simple-perl npm
 
 
 For multiple reasons stemming from many improvements, you need to install
