@@ -24,4 +24,5 @@ Po upgradu na verzi 2.16:
 * local.overrides.dist na local.overrides a zohlednit zmeny
 * doinstaloval xml:simple.pm
 * nezapomenout sudo patch -p1 -d / < /opt/webwork/webwork2/docker-config/xmlrpc-lite-utf8-fix.patch
- 
+* $permissionLevels{modify_tags} = "nobody";   do localOverriges aby
+neotravovaly hlasky o taxnomny, viz https://webwork.maa.org/moodle/mod/forum/discuss.php?d=4819 

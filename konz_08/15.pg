@@ -19,7 +19,7 @@ BEGIN_PGML
 
 ## Inverzní matice a řešení soustavy lineárních rovnic
 
-Vyvětlete vlemi stručně, jak je možno použít inverzní matici k řešení soustavy lineárních rovnic. Dále vysvětlete, jaký závěr (pokud nějaký) je možné udělat o řešitelnosti soustavy pokud inverzní matice existuje a jaký závěr pokud inverzní matice nexistuje.
+Vyvětlete velmi stručně, jak je možno použít inverzní matici k řešení soustavy lineárních rovnic. Dále vysvětlete, jaký závěr (pokud nějaký) je možné udělat o řešitelnosti soustavy pokud inverzní matice existuje a jaký závěr pokud inverzní matice nexistuje.
 
 -----------------
 
@@ -50,7 +50,7 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-
+Řešení soustavy [```AX=B ```] je [``` X=A^{-1}B,```] pokud inverzní matice existuje. Pokud inverzní matice neexistuje, potom soustava nemá řešení, nebo má řešení nekonečně mnoho.
 
 END_PGML_SOLUTION
 
