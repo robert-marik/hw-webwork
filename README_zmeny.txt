@@ -26,3 +26,41 @@ Po upgradu na verzi 2.16:
 * nezapomenout sudo patch -p1 -d / < /opt/webwork/webwork2/docker-config/xmlrpc-lite-utf8-fix.patch
 * $permissionLevels{modify_tags} = "nobody";   do localOverriges aby
 neotravovaly hlasky o taxnomny, viz https://webwork.maa.org/moodle/mod/forum/discuss.php?d=4819 
+
+
+
+
+Achievementy
+============
+
+do preamble.at dat otazky opravovane rucne
+my %essayProblems = (
+ '1' => {      # set id
+ '1' => 1,    # problem number
+ '15' => 1, 
+},
+ '2' => {      # set id
+ '1' => 1,    # problem number
+ '15' => 1, 
+}
+);
+
+a pote do testu na ukonceni sady pridat napriklad toto
+
+# return 0 if this is not first correct submission of the current problem
+return 0 if $problem->status != 1 && $problem->num_correct != 1;
+
+# return 0 if a problem is this set is not solved
+# the essay problems are not threated here
+foreach my $problemRecord (@setProblems) {
+  if ($problemRecord->status != 1) {
+    return 0 
+    unless $essayProblems{$problemRecord->set_id} && $essayProblems{$problemRecord->set_id}{$problemRecord->problem_id} ;
+  }
+}
+
+return 1;
+
+
+
+### speed_mather.at a super_speed_math.at nefunguji, cas se nastavi pokazde kdyz se prepnu do teto sady . 
