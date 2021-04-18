@@ -7,9 +7,10 @@ loadMacros(
   "PGcourse.pl"
 );
  
-Context("Numeric");
 
 TEXT(beginproblem());
+
+Context("Numeric");
 $showPartialCorrectAnswers = 1;
 $showHint = 1;
 

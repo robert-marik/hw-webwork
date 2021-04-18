@@ -33,33 +33,51 @@ neotravovaly hlasky o taxnomny, viz https://webwork.maa.org/moodle/mod/forum/dis
 Achievementy
 ============
 
-do preamble.at dat otazky opravovane rucne
+udelat achievement s cislem malym a obsahem, ktery vymaze eseje z pole @problemSets.
+
+----------------
+## List of problems which will be excluded from the @setProblems
 my %essayProblems = (
- '1' => {      # set id
- '1' => 1,    # problem number
+ '01_Derivace' => {      # set id
+ '15' => 1,    # problem number
+},
+ '02_...' => {      # set id
+ '2' => 1,    # problem number
  '15' => 1, 
 },
  '2' => {      # set id
- '1' => 1,    # problem number
+ '2' => 1,    # problem number
+ '15' => 1, 
+},
+ '3' => {      # set id
+ '3' => 1,    # problem number
+ '15' => 1, 
+},
+ '4' => {      # set id
+ '4' => 1,    # problem number
  '15' => 1, 
 }
 );
 
-a pote do testu na ukonceni sady pridat napriklad toto
 
-# return 0 if this is not first correct submission of the current problem
-return 0 if $problem->status != 1 && $problem->num_correct != 1;
-
-# return 0 if a problem is this set is not solved
-# the essay problems are not threated here
-foreach my $problemRecord (@setProblems) {
-  if ($problemRecord->status != 1) {
-    return 0 
-    unless $essayProblems{$problemRecord->set_id} && $essayProblems{$problemRecord->set_id}{$problemRecord->problem_id} ;
-  }
+my $index_preamble=0;
+my @idxsToRemove_preamble=();
+foreach (@setProblems)
+{
+    unshift @idxsToRemove_preamble, $index_preamble if $essayProblems{$_->set_id} && $essayProblems{$_->set_id}{$_->problem_id} ; 
+    $index_preamble++;
 }
 
-return 1;
+splice @setProblems, $_, 1 for @idxsToRemove_preamble;
+
+return 0;
+---------------
+
+
+# * pridat last_attempt_solves.at  a ctyrlistek. Kontrolovat max_attempts
+# * finished set on friday between the lunch and the evening
+# * finished set on sunday between the lunch and the evening
+# * problem solved on Monday morning
 
 
 
