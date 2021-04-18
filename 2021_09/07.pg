@@ -32,6 +32,8 @@ Context()->texStrings;
 
 BEGIN_PGML
 
+## Listy v lese
+
 [@ image("autumn.jpg", width=>400) @]*
 
 Listy v lese padají na zem. Předpokládejme rychlost s jakou padají je [`[$acc]`]
