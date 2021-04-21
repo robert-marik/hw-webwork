@@ -2,7 +2,7 @@ Bazální metabolismus a růst hmotnosti jedince
 * pridat otazku na dW/dM
 * zduraznit, ze u dW/dt se chce dosazeni
 
-Do kazde sady dat nco s desetinnym cislem
+Do kazde sady dat neco s desetinnym cislem
 
 * Prozkoumat nutnost commitu ve skriptu, ktery meni data uzivatelu
 * Randomizovat příklad s plejtvákem
@@ -20,9 +20,10 @@ npm install
 
 
 Po upgradu na verzi 2.16:
+------------------------
 * site.conf.dist na site.conf, nastavit URL serveru, Mariadb zmenit na mysql
 * local.overrides.dist na local.overrides a zohlednit zmeny
-* doinstaloval xml:simple.pm
+* doinstaloval XML::Simple Perl knihovnu
 * nezapomenout sudo patch -p1 -d / < /opt/webwork/webwork2/docker-config/xmlrpc-lite-utf8-fix.patch
 * $permissionLevels{modify_tags} = "nobody";   do localOverriges aby
 neotravovaly hlasky o taxnomny, viz https://webwork.maa.org/moodle/mod/forum/discuss.php?d=4819 
@@ -82,3 +83,6 @@ return 0;
 
 
 ### speed_mather.at a super_speed_math.at nefunguji, cas se nastavi pokazde kdyz se prepnu do teto sady . 
+
+
+# problemy s locale v datumu resi https://github.com/openwebwork/webwork2/pull/1333
