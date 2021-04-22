@@ -4,12 +4,12 @@ loadMacros(
 "PGML.pl",
 "MathObjects.pl",
 "PGessaymacros.pl",
-"PGessayLivePreviewAce.pl",
+"PGessayLivePreviewAce3.pl",
 "PGcourse.pl",
 );
 TEXT(beginproblem());
 
-ADD_CSS_FILE("left.css");
+ADD_CSS_FILE("css/left.css");
 
 
 
