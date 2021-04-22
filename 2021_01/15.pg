@@ -4,7 +4,7 @@ loadMacros(
 "PGML.pl",
 "MathObjects.pl",
 "PGessaymacros.pl",
-"PGessayLivePreviewAce3.pl",
+"PGessayLivePreviewAce.pl",
 "PGcourse.pl",
 );
 TEXT(beginproblem());
