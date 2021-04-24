@@ -12,28 +12,104 @@ TEXT(beginproblem());
 ADD_CSS_FILE("left.css");
 
 
+$co="";
+$i=random(1,3);
+if ($i==1)
+{
+  $co="jednorozměrný případ,";
+  $dimenze="Jednorozměrná";
+}
+elsif ($i==2)
+{
+  $co="dvourozměrný případ,";
+  $dimenze="Dvourozměrná";
+}
+else
+{
+  $co="trojrozměrný případ,";
+  $dimenze="Trojrozměrná";
+}
+
+$i=random(1,2);
+if ($i==1)
+{
+ $stacionarnost=" stacionární";
+ $co=$co." stacionární děj,";
+}
+else
+{
+ $stacionarnost=" nestacionární";
+ $co=$co." nestacionární děj,";
+}
+
+$i=random(1,2);
+if ($i==1)
+{
+ $zdroje=" bez zdrojů";
+ $co=$co." rovnici bez přítomnosti zdrojů,";
+}
+else
+{
+ $zdroje=" se zdroji";
+}
+
+$i=random(1,2);
+if ($i==1)
+{
+ $izotropie=" izotropním";
+ $co=$co." izotropní";
+}
+else
+{
+ $izotropie=" ortotropním";
+ $co=$co." ortotropní";
+}
+
+
+$i=random(1,2);
+if ($i==1)
+{
+ $homogenita=" homogenní";
+ $co=$co." homogenní materiál";
+}
+else
+{
+ $homogenita=" nehomogenní";
+ $co=$co." nehomogenní materiál";
+}
+
+
+$i=random(1,2);
+if ($i==1)
+{
+ $linearita=" nelineární";
+ $co=$co." s nelineární materiálovou odezvou";
+}
+else
+{
+ $linearita=" lineární";
+ $co=$co." s lineární materiálovou odezvou";
+}
+
+
+
 
 BEGIN_PGML
 
+## Difuzní rovnice
 
 
-## Slovní interpretace parciální derivace
+Difuzní rovnice v trojrozměrném materiálu, má při volbě souřadných os ve vlastních směrech difuzní matice v nejobecnějším případě tvar [``` \frac{\partial u}{\partial t}=\sigma + \frac{\partial }{\partial x}\left(D_x \frac{\partial u}{\partial x}\right)+ \frac{\partial }{\partial y}\left(D_y \frac{\partial u}{\partial y}\right)+ \frac{\partial }{\partial z}\left(D_z \frac{\partial u}{\partial z}\right). ```]
 
-[@ image("dinosaurus.jpg", width=>400) @]*
+Napište tvar, do jakého se rovnice zjednoduší, pokud budeme uvažovat [$co].
 
-Rychlost jakou dosahovali dvounozí dinosauři se dá odhadnout ze vzdálenosti jejich stop a z délky stehenní kosti. První takový odhad představil v roce 1976 bristký zoolog [@ htmlLink("https://en.wikipedia.org/wiki/Robert_McNeill_Alexander","Robert McNeill Alexander")@]* ve tvaru
-[``` v=0.25 \sqrt g l^{1.67} h^{-1.17},```]
-tj. (ve tvaru s explicitně zapsanými znaménky pro součin)
-[``` v=0.25 \cdot \sqrt g \cdot  l^{1.67} \cdot h^{-1.17},```]
-kde [`v`] je rychlost dinosaura v metrech za sekundu, [`h`] je (zjednodušeně řečeno) délka stehenní kosti v metrech, [`l`] je délka kroku v metrech a [`g`] je tíhové zrychlení v metrech za sekundu na druhou.
+*Pravidla:* Otázka je randomizovaná a každý má své vlastní zadání. Z odpovědi proto musí být jasné, jaké je zadání a jaká odpověď. Můžete použít následující formulaci ve které je už zahrnuto Vaše osobní zadání: *[$dimenze] [$stacionarnost] rovnice [$zdroje] v [$izotropie] materiálu, který je [$homogenita] s [$linearita] materiálovou odezvou, má tvar ...*. Plnou rovnici si můžete vykopírovat v úvodu tohoto zadání (pravé tlačítko, Show Math As, TeX Commands) a upravit podle potřeby. Vložte ji jako rovnici na samostatný řádek (tj. v LaTeXu pomocí zpětného lomítka a hranaté závorky).
 
-Vypočtěte parciální derivaci rychlosti podle délky kroku a najděte její fyzikální jednotku a slovní interpretaci.
-
-Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
+Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérum si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
 
 Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
 
-_Obrázek: pixabay.com, DariuszSankowski_
+_Obrázek: pixabay.com_
 
 END_PGML
 
@@ -58,20 +134,9 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-Pro funkci
-[``` v=0.25\cdot  \sqrt g \cdot l^{1.67}\cdot  h^{-1.17},```]
-platí
-[``` \frac{\partial v}{\partial l}=0.25\cdot  \sqrt g \cdot 1.67\cdot l^{0.67} \cdot h^{-1.17}.```]
-Tato paricální derivace má jednotku metr za sekundu na metr. Udává o kolik kilometrů v hodině je vyšší rychlost při kroku o metr delším.
-
-----
-
-Pozn: Po zkrácení je jednotkou derivace převrácená hodnota sekundy, tj. Hertz. Je však logičtější jednotku nechat v metrech za sekundu na metr kvůli snazší interpretaci.
-
-Pozn: Psát znaménka pro násobení se obecně nedoporučuje, ale tady bych se k tomu i klonil vzhledem k tomu, že se mi nechtělo násobit desetinná čísla.
-
-
+Řešení není k dispozici, protože každý má vlastní zadání. Souvislost vlastností materiálu a členů difuzní rovnice je popsána v cheatsheetu a můžete si procvičit v úlohách číslo 11 a 12. Verze těchto úloh bez nutnosti přihlášení je nalinkována z přednášek a cvičení.
 
 END_PGML_SOLUTION
+
 
 ENDDOCUMENT();

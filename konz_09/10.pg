@@ -70,7 +70,7 @@ moznosti=>["0=\sigma+$dx","$t=$Dxa","0=\sigma+$Dx"],
 }
 ];
 
-@pole=(0);
+@pole=(1);
 ## Pocet otazek
 #$pocet=@$data;
 #$posledni=$pocet-1;  # indexujeme od nuly
@@ -78,6 +78,7 @@ moznosti=>["0=\sigma+$dx","$t=$Dxa","0=\sigma+$Dx"],
 ## Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
 #if ($DEBUG) {@pole = (0..$posledni);}
 #   else {@pole=(random(0,$posledni));}
+
 
 # Cyklus pres otazky (jednu nebo vsechny)
 foreach $i (@pole)
