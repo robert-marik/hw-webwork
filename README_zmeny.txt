@@ -24,8 +24,8 @@ npm install
 
 Po upgradu na verzi 2.16:
 ------------------------
-* nainstalovat patch z produkcni vetve
-* site.conf.dist na site.conf, nastavit URL serveru, Mariadb zmenit na mysql,
+* nainstalovat patch z produkcni vetve pro webwork2 a pg
+* site.conf.dist na site.conf, nastavit URL serveru, Mariadb mozna (!) zmenit na mysql,
 * site.conf pridat 
    $mail{tls_allowed} = 'starttls';
    $mail{saslUsername} = ' .....  ..... ..... ';
@@ -46,13 +46,15 @@ Po upgradu na verzi 2.16:
     aby neotravovaly hlasky o taxnomny, viz
     https://webwork.maa.org/moodle/mod/forum/discuss.php?d=4819
 * doinstaloval XML::Simple Perl knihovnu
-* nezapomenout sudo patch -p1 -d / < /opt/webwork/webwork2/docker-config/xmlrpc-lite-utf8-fix.patch
+* nezapomenout zaplatu
+   sudo patch -p1 -d / < /opt/webwork/webwork2/docker-config/xmlrpc-lite-utf8-fix.patch
 * Achievementy podle vetve personal levels_in_preamble a přemigrovat
-  do češtiny.  Upravit odměny za achivementy
+  do češtiny. Upravit odměny za achivementy v preamble.at
 * Problemy s locale v datumu resi
   https://github.com/openwebwork/webwork2/pull/1333
 * Problemy s casovymi zonami na NightOwl&friends resi
   https://github.com/openwebwork/webwork2/pull/1331
+  
 
 
 Zmeny v site.conf ve verzi 2.15

@@ -16,7 +16,7 @@ $showPartialCorrectAnswers = 0;
 $I1 = random(0,1);
 $S1 = random(0,1);
 $H1 = random(0,1);
-$Z1 = random(0,1);
+$Z1 = 1;
 $A=$I1.",".$S1.",".$H1.",".$Z1;
 
 do
@@ -24,7 +24,7 @@ do
 $I2 = random(0,1);
 $S2 = random(0,1);
 $H2 = random(0,1);
-$Z2 = random(0,1);
+$Z2 = 1;
 $B=$I2.",".$S2.",".$H2.",".$Z2;
 } until (  $A ne $B);
 
@@ -70,7 +70,7 @@ pokud je rovnice napsána v soustavě souřadnic, ve které je difuzní matice d
 
 Tuto rovnici je možné dále zjednodušit vynecháním některých členů, podle specifiky úlohy. Například úloha může být stacionární, bez přítomnosti zdrojů, s izotropním, homogenním či lineárním materiálem a každý z těchto předpokladů se na rovnici podepíše jistým způsobem, ať už sám o sobě, nebo v kombinaci s dalšími předpoklady. 
 
-*Rychlý přehled:* (též [@ htmlLink("https://raw.githubusercontent.com/robert-marik/apl-slidy/master/cheatsheet/cheatsheet-AM.pdf","cheatcheet") @]*)
+*Rychlý přehled:* 
 
 * Je v rovnici derivace podle času? Pokud ano, je rovnice nestacionární a dokáže popsat časový vývoj, nestacionární děj. Pokud ne, je to stacionární rovnice a popisuje stacionární děj. Například jak to bude vypadat po nastolení rovnováhy.
 * Je v rovnici člen bez derivace? Pokud ano, jedná se o člen udávající zdroje. Rovnice je schopna zachytit popis děje, kdy stavová veličina může kromě pohybu i vznikat či zanikat. Pokud tam tento člen není, je rovnice bezzdrojová.
