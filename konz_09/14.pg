@@ -17,17 +17,15 @@ $showHint = 1;
 $data =
 [
 {
-    obrazek=>"horici_spalek",
-    nadpis=>"Rovnice vedení tepla",
-    otazka=>"Vedení tepla je spojeno s nerovnoměrným rozložením teploty v přímce, rovině nebo prostoru a proto předpokládá existenci zdrojů tepla, které takovou nerovnoměrnost vytvoří. Proč tedy nejsou v rovnici zastoupeny zdroje tepla?",
-    odpoved=>"Protože při vedení tepla nás zajímá co se děje uvnitř materiálu a tam se žádné teplo netvoří. Jak vniklo teplo, které do materiálu prostupuje, je pro popis chování tepla uvnitř materiálu irelevantní.",    
-    moznosti=>[
-"Protože by rovnici jinak nebylo možné sestavit. Jedná se o aproximaci pro zdroje malé vydatnosti.",
-"Protože by rovnici jinak nebylo možné vyřešit. Jedná se o aproximaci pro malá toky tepla.",
-"Protože aby se něco mohlo ohřát, musí se něco jiného ochladit a výsledný součet je vždy nulový podle zákona zachování energie.",
-],
-zdroj=>"Obrázek: pixabay.com, autor Wendy-Baars"
-}
+nadpis=>"Gradient",
+otazka=>"Která formulace vyjadřuje slovně pojem gradientu funkce \(f(x,y)\), tj. \(\nabla f\)?",
+odpoved=>"Gradient udává směr a intenzitu maximálního růstu veličiny \(f\).",
+moznosti=>[
+"Gradient je rychlost růstu veličiny \(f\), tj. změna funkce \(f\) na intervalech \([x,x+h]\) a \([y,y+h]\).",
+"Gradient je rychlost růstu veličiny \(f\), tj. změna funkce \(f\) za jednotku času.",
+"Gradient je rychlost růstu veličiny \(f\), tj. změna funkce \(f\) způsobená jednotkovou změnou veličiny \(x\).",
+"Gradient je změna veličiny za zadaný časový interval.",
+]}
 ];
 
 # Pocet otazek

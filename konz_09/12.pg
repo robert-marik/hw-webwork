@@ -17,20 +17,15 @@ $showHint = 1;
 $data =
 [
 {
-    obrazek=>"vedeni_tepla",
-    nadpis=>"Rovnice vedení tepla",
-    otazka=>"Rovnice vedení tepla v jednorozměrném materiálu má tvar \[ \rho c\frac{\partial T}{\partial t}=-\frac{\partial}{\partial x}\left(-k\frac{\partial T}{\partial x}\right). \] Co vyjadřuje člen \[ -k\frac{\partial T}{\partial x} \] nacházející se uvnitř závorky na pravé straně?",
-    odpoved=>"Tok tepla.",    
-    moznosti=>[
-"Spád teploty",
-"Rychlost růstu toku tepla v ose \(x\)",
-"Rychlost růstu toku tepla ve směru opačném k ose \(x\)",
-"Rychlost změny teploty v čase",
-"Rychlost změny teploty v ose \(x\)",
-"Rychlost poklesu teploty v ose \(x\)",
-],
-zdroj=>"Obrázek: pixabay.com, autor ptdh"
-}
+nadpis=>"Konstitutivní vztah",
+otazka=>"Při studiu transportních jevů, při odvození difuzní rovnice, hraje významnou roli konstitutivní vztah. Jak byste jeho význam charakterizovali slovně?",
+odpoved=>"Konstitutivní vztah převádí nerovnoměrnosti v prostorovém rozložení stavové veličiny na tok, který se snaží tyto nerovnoměrnosti vyhladit.",
+moznosti=>[
+"Konstitutivní vztah přepočítává tok stavové veličiny na její akumulaci v daném bodě.",
+"Konstitutivní vztah vyjadřuje bilanci celkového množství stavové veličiny.",
+"Konstitutivní vztah vyjadřuje, jak se přítomnost zdrojů projeví na toku přenášejícím stavovou veličinu.",
+"Konstitutivní vztah vyjadřuje, že akumulaci stavové veličiny je možno chápat jako součet vydatnosti zdrojů v daném místě a intenzity, s jakou v daném místě klesá tok stavové veličiny.",
+]}
 ];
 
 # Pocet otazek
@@ -74,7 +69,7 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 
-[``` [$od] ```]
+[$od]
 
 END_PGML_SOLUTION
 
