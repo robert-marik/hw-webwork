@@ -197,3 +197,12 @@ return 0;
 ### speed_mather.at a super_speed_math.at nefunguji, cas se nastavi pokazde kdyz se prepnu do teto sady . 
 
 # problemy s locale v datumu resi https://github.com/openwebwork/webwork2/pull/1333
+
+
+Poznamky
+
+* Gateways kvizy nemaji definovanou promennou $problem. Proto je potreba testovat stylem
+( defined($problem) && defined($problem->set_id) && $introproblems{$problem->set_id} &&
+    ($introproblems{$problem->set_id}{$problem->problem_id} ))
+
+

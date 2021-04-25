@@ -57,8 +57,6 @@ BEGIN_PGML
 
 ## [$na]
 
-[@ image("$obrazek.jpg", width=>400) @]*
-
 [$ot]
 
 [_]{$radio}
