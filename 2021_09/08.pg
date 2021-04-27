@@ -68,7 +68,42 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 
->> [``\frac{\mathrm dX}{\mathrm dt}=[$matice]X``]<<
+Soustavu je možno zapsat ve tvaru
+[```
+\begin{pmatrix}
+\frac{\mathrm dx}{\mathrm dt}\\
+\frac{\mathrm dy}{\mathrm dt}
+\end{pmatrix}
+=
+\begin{pmatrix}
+[$dfx] \\ [$dgx] 
+\end{pmatrix}
+x
++
+\begin{pmatrix}
+[$dfy] \\ [$dgy] 
+\end{pmatrix}
+y
+```]
+a to v maticové formě dává
+[```
+\begin{pmatrix}
+\frac{\mathrm dx}{\mathrm dt}\\
+\frac{\mathrm dy}{\mathrm dt}
+\end{pmatrix}
+=
+\begin{pmatrix}
+[$dfx] & [$dfy]\\ [$dgx] & [$dgy]
+\end{pmatrix}
+\begin{pmatrix}
+x\\y
+\end{pmatrix}.
+```]
+Po přeznačení [`` X= \begin{pmatrix}
+x\\y
+\end{pmatrix}``]
+dostáváme
+[```\frac{\mathrm dX}{\mathrm dt}=[$matice]X.```]
 
 
 
