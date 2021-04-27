@@ -16,7 +16,7 @@ BEGIN_PGML
 
 ## Regulace teploty termostatem ve vedlejší místnosti
 
-[@ image("negative-feedback-tworooms.svg", width=>400) @]*
+[@ image("negative-feedback-tworooms.png", width=>400) @]*
 
 
 Tato úloha je modifikací [@ htmlLink("https://www.math.wisc.edu/~angenent/519.2016s/notes/negative-feedback-linear.html","úlohy nalezené na Internetu zde") @]*. Uvažujme dvě místnosti, obývací pokoj s teplotou [`T_1`] a ložnici s teplotou [`T_2`]. V ložnici je čidlo sledující teplotu. V obýváku topení a klimatizace, které se snaží udržovat teplotu na konstantní hodnotě. Jiné zdroje tepla neuvažujeme, neuvažujeme ani tepelnou výměnu s okolím, dokonce se ani nevětrá. Jednotku teploty zvolíme tak, že optimální teplota na které se snažíme oba pokoje udržovat je rovna nule. Situaci je možno modelovat soustavou (promyslete sami nebo následujte původní odkaz)
