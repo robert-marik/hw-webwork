@@ -72,7 +72,7 @@ BEGIN_PGML_SOLUTION
 Maticový tvar autonomního systému popisujícího regulaci teploty je
 [``` \frac{\mathrm d}{\mathrm dt}\begin{pmatrix}T_1\\T_2\end{pmatrix}= \begin{pmatrix}-1& 1-a\\1 & -1\end{pmatrix} \begin{pmatrix}T_1\\T_2\end{pmatrix}. ```]
 Charakteristický polynom je
-[``` \lambda^2 +2\lambda +a```] a protože ze vztahů pro kořeny kvadratické rovnice plyne [``` \lambda_1\lambda_2=a>0,```] nemůže být jeden z kořenůl kladný a jeden záporný. Systém tedy nemůže mít stacionární bod typu sedlo.
+[``` \lambda^2 +2\lambda +a```] a protože ze vztahů pro kořeny kvadratické rovnice plyne pro součin kořenů vztah [``` \lambda_1\lambda_2=a>0,```] nemůže být jeden z kořenů kladný a jeden záporný. Systém tedy nemůže mít stacionární bod typu sedlo.
 Ze vztahů pro kořeny kvadratické rovnice dále plyne [```\lambda_1+\lambda_2=-2<0```] a proto jsou vlastní hodnoty záporné (jsou-li reálné) nebo mají záporné reálné části (jsou-li komplexně sdružené). Jedná se tedy o stabilní uzel nebo stabilní ohnisko.
 
 END_PGML_SOLUTION
