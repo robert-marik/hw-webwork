@@ -68,5 +68,16 @@ _Obrázek: pixabay.com, autor Pexels_
 
 END_PGML
 
+BEGIN_PGML_SOLUTION
+
+Modelem je diferenciální rovnice 
+[``` \frac{\mathrm dy}{\mathrm dt} = [$sol], ```]
+která má stacionární bod
+[``` x_0=[$stac]. ```]
+(Tento bod získáme jako nulový bod pravé strany.)
+K tomuto stacionárnímu bodu konvergují všechna řešení. Nezávisle na počáteční podmínce se nastolí rovnováha, kdy listí přibývá stejnou rychlostí jako se rozkládá.
+
+END_PGML_SOLUTION
+
 
 ENDDOCUMENT();
