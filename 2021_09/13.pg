@@ -35,8 +35,8 @@ $dgy=Formula("$e")->reduce();
 
 $matice=Matrix([[$dfx,$dfy],[$dgx,$dgy]]);
 
-xmx0=Formula("x-$x0")->reduce;
-ymy0=Formula("y-$y0")->reduce;
+$xmx0=Formula("x-$x0")->reduce;
+$ymy0=Formula("y-$y0")->reduce;
 
 $stopa=$dfx+($dgy);
 $determinant=$dfx*($dgy)-($dfy)*($dgx);
