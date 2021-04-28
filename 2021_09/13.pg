@@ -35,6 +35,9 @@ $dgy=Formula("$e")->reduce();
 
 $matice=Matrix([[$dfx,$dfy],[$dgx,$dgy]]);
 
+xmx0=Formula("x-$x0")->reduce;
+ymy0=Formula("y-$y0")->reduce;
+
 $stopa=$dfx+($dgy);
 $determinant=$dfx*($dgy)-($dfy)*($dgx);
 $polynom=Formula("lambda^2-($stopa)*lambda+($determinant)")->reduce();
@@ -87,7 +90,7 @@ v jeho stacionárním bodě [`([$x0],[$y0])`].
 ------------------
 
 Napište systém v maticovém, tvaru, tj. identifikujte matici [``A=
-\begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}``] po přepsání systému do maticového tvaru [```\frac{\mathrm d}{\mathrm dt}\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}\begin{bmatrix}x-1\\y\end{bmatrix}```]
+\begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}``] po přepsání systému do maticového tvaru [```\frac{\mathrm d}{\mathrm dt}\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}\begin{bmatrix}[$xmx0]\\[$ymy0]\end{bmatrix}```]
 
 >> [`` A={}``][___________]*{$matice} <<
 
