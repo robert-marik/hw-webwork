@@ -12,28 +12,18 @@ TEXT(beginproblem());
 ADD_CSS_FILE("left.css");
 
 
-
 BEGIN_PGML
 
+## Rovnice vedení tepla ve stěně
 
+Vedení tepla stěnou je v podstatě jednodimenzionální úloha. Napište rovnici vedení tepla pro stacionární jednorozměrný případ. Uvažujte homogenní lineární prostředí. Vysvětlete, jaká funkce bude řešením této rovnice a jak bude vypadat rozložení teploty ve stěně.
 
-## Slovní interpretace parciální derivace
-
-[@ image("dinosaurus.jpg", width=>400) @]*
-
-Rychlost jakou dosahovali dvounozí dinosauři se dá odhadnout ze vzdálenosti jejich stop a z délky stehenní kosti. První takový odhad představil v roce 1976 bristký zoolog [@ htmlLink("https://en.wikipedia.org/wiki/Robert_McNeill_Alexander","Robert McNeill Alexander")@]* ve tvaru
-[``` v=0.25 \sqrt g l^{1.67} h^{-1.17},```]
-tj. (ve tvaru s explicitně zapsanými znaménky pro součin)
-[``` v=0.25 \cdot \sqrt g \cdot  l^{1.67} \cdot h^{-1.17},```]
-kde [`v`] je rychlost dinosaura v metrech za sekundu, [`h`] je (zjednodušeně řečeno) délka stehenní kosti v metrech, [`l`] je délka kroku v metrech a [`g`] je tíhové zrychlení v metrech za sekundu na druhou.
-
-Vypočtěte parciální derivaci rychlosti podle délky kroku a najděte její fyzikální jednotku a slovní interpretaci.
+----
 
 Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
 
 Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
 
-_Obrázek: pixabay.com, DariuszSankowski_
 
 END_PGML
 
@@ -55,23 +45,12 @@ END_PGML
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 
-
 BEGIN_PGML_SOLUTION
-
-Pro funkci
-[``` v=0.25\cdot  \sqrt g \cdot l^{1.67}\cdot  h^{-1.17},```]
-platí
-[``` \frac{\partial v}{\partial l}=0.25\cdot  \sqrt g \cdot 1.67\cdot l^{0.67} \cdot h^{-1.17}.```]
-Tato paricální derivace má jednotku metr za sekundu na metr. Udává o kolik kilometrů v hodině je vyšší rychlost při kroku o metr delším.
-
-----
-
-Pozn: Po zkrácení je jednotkou derivace převrácená hodnota sekundy, tj. Hertz. Je však logičtější jednotku nechat v metrech za sekundu na metr kvůli snazší interpretaci.
-
-Pozn: Psát znaménka pro násobení se obecně nedoporučuje, ale tady bych se k tomu i klonil vzhledem k tomu, že se mi nechtělo násobit desetinná čísla.
 
 
 
 END_PGML_SOLUTION
 
+
 ENDDOCUMENT();
+

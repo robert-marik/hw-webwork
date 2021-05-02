@@ -10,36 +10,60 @@ loadMacros(
 
 
 TEXT(beginproblem());
-$showPartialCorrectAnswers = 0;
-$showHint = 1;
-
 
 $data =
 [
 {
-    obrazek=>"vedeni_tepla",
-    nadpis=>"Rovnice vedení tepla",
-    otazka=>"Rovnice vedení tepla v jednorozměrném materiálu má tvar \[ \rho c\frac{\partial T}{\partial t}=-\frac{\partial}{\partial x}\left(-k\frac{\partial T}{\partial x}\right). \] Co vyjadřuje člen \[ -k\frac{\partial T}{\partial x} \] nacházející se uvnitř závorky na pravé straně?",
-    odpoved=>"Tok tepla.",    
-    moznosti=>[
-"Spád teploty",
-"Rychlost růstu toku tepla v ose \(x\)",
-"Rychlost růstu toku tepla ve směru opačném k ose \(x\)",
-"Rychlost změny teploty v čase",
-"Rychlost změny teploty v ose \(x\)",
-"Rychlost poklesu teploty v ose \(x\)",
-],
-zdroj=>"Obrázek: pixabay.com, autor ptdh"
+nadpis=>"Korfova růstová funkce I",
+ otazka=>"Vyberte vhodné slovní vyjádření pro rovnici definující Korfovu funkci  pomocí rychlosti růstu.",
+odpoved=>"rychlost růstu je úměrná velikosti a nepřímo úměrná mocnině stáří",
+moznosti=>[
+"rychlost růstu je úměrná mocnině stáří a nepřímo úměrná velikosti",
+"rychlost růstu je nepřímo úměrná velikosti",
+"rychlost růstu je nepřímo úměrná mocnině stáří",
+"rychlost růstu je úměrná velikosti",
+]
 }
+,
+{
+nadpis=>"Korfova růstová funkce II",
+ otazka=>"Vyberte vhodné slovní vyjádření pro rovnici definující Korfovu funkci  pomocí relativní rychlosti růstu.",
+odpoved=>"relativní rychlost růstu je nepřímo úměrná mocnině stáří",
+moznosti=>[
+"relativní rychlost růstu je úměrná velikosti a nepřímo úměrná mocnině stáří",
+"relativní rychlost růstu je úměrná mocnině stáří a nepřímo úměrná velikosti",
+"relativní rychlost růstu je nepřímo úměrná velikosti",
+"relativní rychlost růstu je úměrná velikosti",
+]
+}
+,
 ];
 
 # Pocet otazek
 $pocet=@$data;
 $posledni=$pocet-1;  # indexujeme od nuly
 
+$DEBUG=1;
+
 # Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
 if ($DEBUG) {@pole = (0..$posledni);}
    else {@pole=(random(0,$posledni));}
+
+
+BEGIN_PGML
+## Korfova růstová funkce
+
+[@ image("trees.jpg", width=>400) @]*
+
+
+Základním nástrojem v modelování růstu lesních porostů z hlediska přírůstku jsou růstové funkce. Tyto růstové funkce jsou důležité pro oceňování lesa určitého stáří a mohou lišit podle místních podmínek, například podle podnebí. V Česku růst lesa dobře modeluje Korfova funkce, definovaná vztahem
+[``` \frac{\mathrm dx}{\mathrm dt}=\frac{k x}{t^n},```]
+kde [`x`] je velikost, [`t`] stáří a [`k`] a [`n`] jsou konstanty. Jak byste tuto rovnici interpretovali slovně? Níže se nabízí dvě varianty, jedna pro rychlost růstu [``\frac{\mathrm dx}{\mathrm dt}``] a druhá pro relativní rychlost růstu
+[``\frac{\frac{\mathrm dx}{\mathrm dt}}{x}``], která je podílem rychlosti růstu a velikosti.
+
+_Obrázek: pixabay.com, autor pixel2013_
+
+END_PGML
 
 # Cyklus pres otazky (jednu nebo vsechny)
 foreach $i (@pole)
@@ -51,30 +75,27 @@ foreach $i (@pole)
 # s interpretaci hranatych zavorek
 $ot       =  $data->[$i]->{otazka};
 $na       =  $data->[$i]->{nadpis};
-$obrazek  =  $data->[$i]->{obrazek};
 $od       =  $data->[$i]->{odpoved};
-$zdroj    =  $data->[$i]->{zdroj};
 @moznosti =@{$data->[$i]->{moznosti}};
 $radio    =  RadioButtons([[$od,@moznosti]],0);
 
 
 BEGIN_PGML
 
+
 ## [$na]
 
-[@ image("$obrazek.jpg", width=>400) @]*
 
-[$ot]
+[@ $ot @]*
 
 [_]{$radio}
 
-_[$zdroj]_
 
 END_PGML
 
 BEGIN_PGML_SOLUTION
 
-[``` [$od] ```]
+[$od]
 
 END_PGML_SOLUTION
 
@@ -83,4 +104,5 @@ END_PGML_SOLUTION
 
 
 ENDDOCUMENT();
+
 

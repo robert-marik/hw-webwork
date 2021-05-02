@@ -1,126 +1,52 @@
-###########################
-#  Initialization
-
-DOCUMENT();  
-
+DOCUMENT(); 
 loadMacros(
-  "PGstandard.pl",
-  "MathObjects.pl",
-  "PGchoicemacros.pl",
-  "PGgraders.pl",
-  "unionTables.pl",
-  "PGML.pl",
-  "PGcourse.pl"
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"answerHints.pl",
+"PGcourse.pl",
 );
-
 TEXT(beginproblem());
 
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
 
-###########################
-#  Setup
+Context("Numeric")->variables->are('k'=>'Real', 'r'=>'Real', 'l'=>'Real', 'T'=>'Real','t'=>'Real');
 
-#
-#  Create a matching list and use popups
-#
-$ml = new_match_list();
-$ml->rf_print_q(~~&pop_up_list_print_q);
-$ml->ra_pop_up_list([
-"No answer" => "?",
-"A" => "A", "B" => "B", "C" => "C", 
-"D" => "D"
-]);
+$T0=random(8,15,1);
 
-#
-#  Add correct questions and answers
-#
-$ml->qa(
-"\(\displaystyle\frac{\partial T}{\partial t}\)", "Časová změna teploty, tj. rychlost s jakou v daném místě roste teplota jako funkce času.",
-"\(\displaystyle-\frac{\partial T}{\partial t}\)", "Záporně vzatá časová změna teploty, tj. rychlost s jakou v daném místě klesá teplota podle času.",
-"\(\displaystyle\frac{\partial T}{\partial x}\)", "Rychlost s jakou v daném okamžiku roste teplota ve směru osy \(x\).",
-"\(\displaystyle-\frac{\partial T}{\partial x}\)", "Rychlost s jakou v daném okamžiku klesá teplota ve směru osy \(x\).",
-"\(\displaystyle-\lambda\frac{\partial T}{\partial x}\)", "Tok tepla.",
-"\(\displaystyle\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", "Rychlost s jakou roste tok tepla ve směru osy \(x\).",
-"\(\displaystyle-\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", "Rychlost s jakou klesá tok tepla ve směru osy \(x\)."
-);
+$r1=Formula("-k*(T-[$T0])");
 
-
-$ml->choose(4);
-
-#
-#  Add extra incorrect answers
-#
-#$ml->extra(
-#"Extra answer 1", 
-#"Extra answer 2",
-#);
-#$ml->choose_extra(2);
-  
-#$ml->makeLast("None of the above");
-
-
-
-###########################
-#  Main text
 
 BEGIN_PGML
 
-## Fyzikální interpretace členů z jednorozměrné rovnice vedení tepla
+## Speedcubing
 
+[@ image("rubik.jpg", width=>400) @]*
 
-Rovnice vedení tepla v jedné dimenzi má tvar
-[``` \rho  c \frac{\partial T}{\partial t}=\frac{\partial}{\partial x}
-\left(\lambda \frac{\partial T}{\partial x}\right).```]
+Umíte složit Rubikovu kostku? Odborník odhaduje na základě stáří, obecné zručnosti a fyziologických možností konkrétního člověka, že jeho limit je skládat kostku za [``[$T0]``] sekund. Tréninkem je možno se k této metě přibližovat. Konstantním tréninkem klesá doba [`T`] nutná ke složení kostky rychlostí úměrnou času, o kolik skládáme pomaleji než je hranice možností, v tomto případě [`[$T0]`] sekund.
 
-Abychom v ní zřetelně viděli tok, můžeme v ní také nechat záporná znaménka, tj. psát
-[``` \rho  c\frac{\partial T}{\partial t}=-\frac{\partial}{\partial x}
-\left(-\lambda \frac{\partial T}{\partial x}\right).```]
-
-Pro jednotlivé složky této rovnice podejte jejich slovní interpretaci.
+Napište matematický model popisující danou situaci. Konstantu úměrnosti označte [`k`]. Model formulujte tak, aby konstanta úměrnosti byla kladná.
+>> [``\frac{\mathrm dT}{\mathrm dt}=``][__________]{$r1->cmp()->withPostFilter(AnswerHints(
+Formula("k*(T-[$T0])") => "Jste na dobré cestě. Až na znaménko.",
+))}<<
 
 END_PGML
 
-BEGIN_TEXT
+BEGIN_PGML_HINT
+Rozdíl doby [`T`] za kolik skládá člověk z modelu kostku a hranice jeho schopností je  [`(T-[$T0])`]. Tomuto rozdílu je úměrná rychlost, s níž klesá doba [`T`] nutná ke složení kostky.
+END_PGML_HINT
 
-\{ $ml->print_q() \}
-$BR
-\{ $ml->print_a() \}
-
-END_TEXT
-
-
-
-
-############################
-#  Answer evaluation
-
-$showPartialCorrectAnswers = 0;
-
-#
-#  Incremental grader
-#
-install_problem_grader(~~&custom_problem_grader_fluid);
-$ENV{'grader_numright'} = [2,3,4];
-$ENV{'grader_scores'} = [0.3,0.6,1];
-$ENV{'grader_message'} = "Můžete mít částečné hodnocení za částečně správnou odpověď.";
-
-#
-#  All or nothing grader
-#  
-# install_problem_grader(~~&std_problem_grader);
-
-ANS( str_cmp( $ml->ra_correct_ans ) );
-
-
-############################
-#  Solution
-
-@correct = @{$ml->ra_correct_ans()};
-$answerstring = join(", ", @correct);
 
 BEGIN_PGML_SOLUTION
-The correct answers are [$answerstring].
+Rozdíl doby [`T`] za kolik skládá člověk z modelu kostku a hranice jeho schopností je  [`(T-[$T0])`]. Tomuto rozdílu je úměrná rychlost, s níž klesá doba [`T`] nutná ke složení kostky.
+Tedy
+[``` \frac{\mathrm dT}{\mathrm dt}=[$r1].```]
 END_PGML_SOLUTION
 
-COMMENT('MathObject version. Uses PGML.');
+COMMENT('Používá PGML.');
+
 
 ENDDOCUMENT();
+
+
