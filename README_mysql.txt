@@ -66,3 +66,63 @@ from ( SELECT achievement_id, count(earned) as pocet
 left join `AM-2021-Marik_achievement` as y
 on x.achievement_id=y.achievement_id
 order by round(y.number/100) desc, y.number
+
+
+## Vypise kombinovane studenty a data uloh 
+
+select * from `AM-2021-Marik_set_user`
+where user_id in
+(select user_id from `AM-2021-Marik_user`
+     where section = "komb" and user_id!="kombi")
+
+
+## Nakopirovani deadlinu uzivatele kombi vsem uzivatelum sekce komb v kurzu AM-2021-Marik
+
+UPDATE 
+`AM-2021-Marik_set_user` as t1
+join
+(select * from `AM-2021-Marik_set_user` where user_id="kombi") as t2
+on t1.set_id=t2.set_id
+SET t1.open_date = t2.open_date,
+    t1.due_date = t2.due_date,
+    t1.answer_date = t2.answer_date
+where t1.user_id in (select user_id from `AM-2021-Marik_user` 
+    where section = "komb" and user_id!="kombi")
+    
+## Bodovy zisk
+
+Vypíše bodový zisk
+
+SELECT x.user_id, sum(x.status*ifnull(x.value, y.value)) as score
+FROM `AM-2021-Marik_problem_user` as x
+left join `AM-2021-Marik_problem` as y
+on x.set_id = y.set_id and x.problem_id = y.problem_id
+where user_id like "x%"
+group by user_id
+order by score desc
+
+
+
+select x.user_id, sum(x.status*ifnull(x.value, y.value)) as score
+from `AM-2021-Marik_problem_user` as x
+left join `AM-2021-Marik_problem` as y
+on x.set_id = y.set_id and x.problem_id = y.problem_id
+left join `AM-2021-Marik_set` as z on z.set_id = x.set_id
+where user_id like "x%" and assignment_type = "default" and x.set_id like "00%"
+group by user_id
+order by score desc
+
+
+## Bodovy zisk ze zkoušky
+
+
+SELECT x.user_id, x.set_id, sum(x.status*ifnull(x.value, y.value)) as score
+#assignment_type as typ
+FROM `MT-Marik_problem_user` as x
+left join `MT-Marik_problem` as y
+on x.set_id = y.set_id and x.problem_id = y.problem_id
+left join `MT-Marik_set` as z on z.set_id = x.set_id
+where user_id like "x%" and assignment_type = "default" and x.set_id like "Z%"
+group by user_id, set_id
+order by score desc
+

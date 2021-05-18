@@ -59,7 +59,29 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
+Pro funkci [`` u(x,u)=\psi(t)\varphi(x)``] platí
+[``` \frac{\partial u}{\partial t}=\psi'(t)\varphi(x) ```]
+a
+[``` \frac{\partial^2 u}{\partial x^2}=\psi(t)\varphi''(x). ```]
+Po dosazení do rovnice
+[```\frac{\partial u}{\partial t}=k+\frac{\partial^2 u}{\partial x^2} ```]
+máme
+[```\psi'(t)\varphi(x)=k+\psi (t)\varphi''(x) ```] a vidíme, že vydělení součinem [`` \psi(t)\varphi(x) ``] vede na rovnici
+[```\frac{\psi'(t)}{\psi(t)}=\frac{k}{\psi(t)\varphi(x)}+\frac{\varphi''(x)}{\varphi(x)}, ```]
+kde se nepodařilo zajistit odseparování proměnných. Na pravé straně stále figurují obě proměnné. 
 
+Po dosazení do rovnice
+[```\frac{\partial u}{\partial t}=ku+\frac{\partial^2 u}{\partial x^2} ```]
+máme
+[```\psi'(t)\varphi(x)=k\psi(t)\varphi(x)+\psi (t)\varphi''(x) ```] a vidíme, že vydělení součinem [`` \psi(t)\varphi(x) ``] vede na rovnici
+[```\frac{\psi'(t)}{\psi(t)}=k+\frac{\varphi''(x)}{\varphi(x)}. ```]
+Protože levá strana závisí jenom na proměnné [`t`] a pravá jenom na proměnné [`x`], musí být levá i pravá strana rovny společné konstantně. Označíme-li tuto konstantu [`\lambda`], rozpadne se parciální diferenciální rovnice na dvě obyčejné diferenciální rovnice [``` \frac{\psi'(t)}{\psi(t)} = \lambda```]
+a
+[``` k+\frac{\varphi''(x)}{\varphi(x)} = \lambda.```]
+Úloha se redukuje na 
+[``` \psi'(t) = \lambda {\psi(t)}```]
+a
+[``` {\varphi''(x)} = (\lambda-k){\varphi(x)}.```]
 
 END_PGML_SOLUTION
 
