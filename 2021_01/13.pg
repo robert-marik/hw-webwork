@@ -68,7 +68,7 @@ BEGIN_PGML
 ## Okrajové podmínky pro rovnici vedení tepla
 
 Rovnice vedení tepla v jedné dimenzi je rovnice
-[```m \varrho \frac{\partial T}{\partial t}=\frac{\partial}{\partial x}
+[```c \varrho \frac{\partial T}{\partial t}=\frac{\partial}{\partial x}
 \left(\lambda \frac{\partial T}{\partial x}\right).```] Zde [`T`] je teplota v daném místě a čase, derivace podle času [``\frac{\partial T}{\partial t}``] označuje rychlost s jakou se mění (roste) teplota a [``\frac{\partial T}{\partial x}``] je jednorozměrný gradient teploty (prostorová změna teploty). Tento gradient úzce souvisí s tokem podle Fourierova zákona a proto můžeme tok přepočítávat na derivaci teploty podle \(x\) a naopak.
 
 Uvedená rovnice může modelovat teplotní pole ve stěně, ve které zanedbáváme efekty spojené s chováním teplotního pole v rozích. Proto je nutné tuto rovnici doplnit ještě dalšími informacemi charakterizujícími podmínky, ve kterých se tato stěna nachází.

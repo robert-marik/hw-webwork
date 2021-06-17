@@ -272,6 +272,7 @@ $gr[5]->stamps( closed_circle($x5,$y5,'red') );
 
 
 @perm = shuffle(6);
+
 @choices = ("?","Kladný","Záporný","Nulový");
 
 foreach my $i (0..5) {
@@ -292,16 +293,6 @@ if ($s[3]>0) {$sign3='záporný' ; $dir3='opačným'} else
 if ($s[5]>0) {$sign5='kladný' ; $dir5='stejným'} else
 {$sign5='záporný'; $dir5= 'opačným'};
 
-@explanation=("Vektorové pole a křivka směřují přibližně $dir0 směrem. Proto je integrál $sign0.",
-"Vektorové pole a křivka směřují $dir1 směrem. Proto je integrál $sign1.",
-"Vektorové pole je v každém bodě křivky kolmé na tuto křivku a proto je křivkový intergál nulový.",
-"Vektorové pole a křivka směřují přibližně $dir3 směrem. Proto je integrál $sign3.",
-"Vektorové pole je v každém bodě křivky kolmé na tuto křivku a proto je křivkový intergál nulový.",
-"Vektorové pole a křivka směřují přibližně $dir5 směrem. Proto je integrál $sign5.",
-);
-
-
-
 BEGIN_PGML
 ## Tok vektorového pole orientovanou křivkou
 
@@ -312,8 +303,6 @@ Pro následující vektorová pole a křivky určete, zda je tok křivkou kladn�
 END_PGML
 
 BEGIN_TEXT
-Určete, který křivkový integrál je kladný, který záporný a který je roven nule.
-$BR
 $BR
 $BCENTER
 \{
