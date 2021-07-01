@@ -4,111 +4,29 @@ HEADER_TEXT(<<EOF);
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
 
 <script>
-var Preview = {
-  delay: 150,        // delay after keystroke before updating
-
-  preview: null,     // filled in by Init below
-  buffer: null,      // filled in by Init below
-
-  timeout: null,     // store setTimout id
-  mjRunning: false,  // true when MathJax is processing
-  mjPending: false,  // true when a typeset has been queued
-  oldText: null,     // used to check if an update is needed
-
-  //
-  //  Get the preview and buffer DIV's
-  //
-  Init: function () {
-    this.preview = document.getElementById("MathPreview");
-    this.buffer = document.getElementById("MathBuffer");
-  },
-
-  //
-  //  Switch the buffer and preview, and display the right one.
-  //  (We use visibility:hidden rather than display:none since
-  //  the results of running MathJax are more accurate that way.)
-  //
-  SwapBuffers: function () {
-    var buffer = this.preview, preview = this.buffer;
-    this.buffer = buffer; this.preview = preview;
-    buffer.style.visibility = "hidden"; buffer.style.position = "absolute";
-    preview.style.position = ""; preview.style.visibility = "";
-    buffer.style.display = "none"; preview.style.display = "inline-block";
-  },
-
-  //
-  //  This gets called when a key is pressed in the textarea.
-  //  We check if there is already a pending update and clear it if so.
-  //  Then set up an update to occur after a small delay (so if more keys
-  //    are pressed, the update won't occur until after there has been 
-  //    a pause in the typing).
-  //  The callback function is set up below, after the Preview object is set up.
-  //
-  Update: function () {
-    if (this.timeout) {clearTimeout(this.timeout)}
-    this.timeout = setTimeout(this.callback,this.delay);
-  },
-
-  //
-  //  Creates the preview and runs MathJax on it.
-  //  If MathJax is already trying to render the code, return
-  //  If the text hasn't changed, return
-  //  Otherwise, indicate that MathJax is running, and start the
-  //    typesetting.  After it is done, call PreviewDone.
-  //  
-  CreatePreview: function () {
-    Preview.timeout = null;
-    if (this.mjPending) return;
-    var text = document.getElementById("AnSwEr0001").value;
-    text = text.replace(/\\n *\\n/g, "<p>"); 
-    text = "<span style='color:red;font-weight:bold'>Náhled:</span><br>"+text;
-    if (text === this.oldtext) return;
-    if (this.mjRunning) {
-      this.mjPending = true;
-      MathJax.Hub.Queue(["CreatePreview",this]);
-    } else {
-      this.buffer.innerHTML = this.oldtext = text;
-      this.mjRunning = true;
-      MathJax.Hub.Queue(
-	["Typeset",MathJax.Hub,this.buffer],
-	["PreviewDone",this]
-      );
-    }
-  },
-
-  //
-  //  Indicate that MathJax is no longer running,
-  //  and swap the buffers to show the results.
-  //
-  PreviewDone: function () {
-    this.mjRunning = this.mjPending = false;
-    this.SwapBuffers();
-  }
-
-};
 
 //
 //  Cache a callback to the CreatePreview action
 //
-Preview.callback = MathJax.Callback(["CreatePreview",Preview]);
-Preview.callback.autoReset = true;  // make sure it can run more than once
+
 
 function Viditelnost()
 {
-Preview.Init();
-jQuery("#AnSwEr0001").css("box-sizing","border-box");
-jQuery("#AnSwEr0001").css("height","200px");
-//jQuery("#AnSwEr0001").css("display","inline-block");
-Preview.Update();
-jQuery("#obalkaPreview").toggle();
-jQuery("#obalkaPreview").css("display","inline-block");
-jQuery("#AnSwEr0001").css({'height':("200"+'px')});
-jQuery("#AnSwEr0001").keyup(function() {Preview.Update();});
+answerField.css("box-sizing","border-box");
+answerField.css("height","200px");
+jQuery("#envelopePreview").toggle();
+jQuery("#envelopePreview").css("display","inline-block");
+answerField.css({'height':("200"+'px')});
+answerField.keyup(function() {Preview.Update();});
 }
 
 
+jQuery(document).ready(function(){
+
+answerField=jQuery("#AnSwEr0001");
+
 jQuery( function() {
-jQuery("#AnSwEr0001").after("<div class=tlacitka><a onclick=\\"doplnit('\\\\\\\\\\\\[','\\\\\\\\\\\\]');\\" title=\'Doplní matematické prostředí umístěné na samostatném řádku buď okolo vybraného úseku textu nebo na místo kurzoru. Ve druhém případě předvyplní textem se třemi X. Ve druhém případě předvyplní textem se třemi X. \'>\\\\&ZeroWidthSpace;[XXX\\\\&ZeroWidthSpace;]</a>"+
+answerField.after("<div class=AeditorButtons><a onclick=\\"doplnit('\\\\\\\\\\\\[','\\\\\\\\\\\\]');\\" title=\'Doplní matematické prostředí umístěné na samostatném řádku buď okolo vybraného úseku textu nebo na místo kurzoru. Ve druhém případě předvyplní textem se třemi X. Ve druhém případě předvyplní textem se třemi X. \'>\\\\&ZeroWidthSpace;[XXX\\\\&ZeroWidthSpace;]</a>"+
 "<a onclick=\\"doplnit('\\\\\\\\\\\\(','\\\\\\\\\\\\)');\\" title=\'Funguje stejně jako vedlejší tlačítko, ale matematický výraz zůstává na řádku s textem.\'>\\\\&ZeroWidthSpace;(XXX\\\\&ZeroWidthSpace;)</a>"+
 "<a onclick=\\"doplnit(\'^{\',\'}\');\\" title=\'Okolo vybraného textu doplní příkazy, které text přesunou do horního indexu. Pokud není vybraný žádný text, vloži na dané místo značku pro horní index se třemi X. Pozor, každý objekt může mít jenom jeden dolní a jeden horní index.\'>^{XXX}</a>"+
 "<a onclick=\\"doplnit(\'_{\',\'}\');\\" title=\'Okolo vybraného textu doplní příkazy, které text přesunou do dolního indexu. Pokud není vybraný žádný text, vloži na dané místo značku pro dolní index se třemi X. Pozor, každý objekt může mít jenom jeden dolní a jeden horní index.\'>_{XXX}</a>"+
@@ -120,9 +38,9 @@ jQuery("#AnSwEr0001").after("<div class=tlacitka><a onclick=\\"doplnit('\\\\\\\\
 "<a onclick=doplnitPred('\\\\\\\\int');>\\\\int </a>"+
 "<a onclick=ace.edit('Aeditor').undo();>Undo</a>"+
 "<a onclick=ace.edit('Aeditor').redo();>Redo</a>"+
-"</div><div id=Aeditor></div><div id=obalkaPreview><div id=MathPreview></div><div id=MathBuffer></div></div>");
+"</div><div id=Aeditor></div><div id=envelopePreview><div id=MathPreview></div></div>");
 Viditelnost();
-jQuery("#Aeditor").text(jQuery("#AnSwEr0001").val()); 
+jQuery("#Aeditor").text(answerField.val()); 
 var editor = ace.edit('Aeditor');
 editor.renderer.setShowGutter(false); 
 editor.setTheme("ace/theme/textmate");
@@ -131,12 +49,21 @@ editor.setFontSize(15);
 editor.setOptions({maxLines: 200, minLines:10});
 editor.setOption("wrap", true);
 editor.setOption("indentedSoftWrap", false);
-var textarea = jQuery('textarea[name="AnSwEr0001"]');
+var textarea = answerField;
 editor.getSession().on("change", function () {
     textarea.val(CheckForAscii(editor.getSession().getValue()));
-    //textarea.val(editor.getSession().getValue());
-    Preview.Update();
+    input = answerField.val().trim().replace(/\\n *\\n/g, "<p>");
+    output = document.getElementById('MathPreview');
+    output.innerHTML = input;
+    MathJax.typeset();
 });
+textarea.val(CheckForAscii(editor.getSession().getValue()));
+var input = answerField.val().trim().replace(/\\n *\\n/g, "<p>");
+output = document.getElementById('MathPreview');
+output.innerHTML = input;
+MathJax.typeset();
+});
+
 });
 
 function CheckForAscii(string){
@@ -183,13 +110,13 @@ function doplnitZlomek(mujtext1,mujtext2)
 }
 
 jQuery(document).ready(function(){
-  jQuery('.tlacitka a').tooltip();   
+  jQuery('.AeditorButtons a').tooltip();   
 });
 
 </script>
 
 <style>
-#MathPreview, #MathBuffer  
+#MathPreview
 {
 background-color: #ffd633;
 padding:10px;
@@ -200,11 +127,11 @@ display: inline-block;
 }
 
 
-#obalkaPreview{display:none; width:50%;}
+#envelopePreview{display:none; width:50%;}
 
-#AnSwEr0001, #obalkaPreview, #Aeditor {vertical-align: top; }
+#AnSwEr0001, #envelopePreview, #Aeditor {vertical-align: top; }
 
-#AnSwEr0001, #obalkaPreview, #Aeditor
+#AnSwEr0001, #envelopePreview, #Aeditor
 {
 width: 50%;
 max-width:100%;
@@ -219,12 +146,12 @@ display:inline-block;
 .ace_active-line {background:#888;}
 
 \@media only screen  and (max-width: 1000px) {
-  #AnSwEr0001, #obalkaPreview, #Aeditor {width:100%;}
+  #AnSwEr0001, #envelopePreview, #Aeditor {width:100%;}
 }
 
 #AnSwEr0001 {visibility:hidden; display:none;}
 
-.tlacitka a {
+.AeditorButtons a {
 -webkit-appearance: button;
 color: #ffffff;
 background-color: #990000;
@@ -234,9 +161,9 @@ border-radius: 4px;
 display:inline-block;
 }
 
-.tlacitka {margin-bottom:5px; border-top: solid; border-top-width: 5px;border-top-color: #AAA; background: #AAA; }
+.AeditorButtons {margin-bottom:5px; border-top: solid; border-top-width: 5px;border-top-color: #AAA; background: #AAA; }
 
-.tlacitka a {box-shadow: 3px 3px 1px grey;}
+.AeditorButtons a {box-shadow: 3px 3px 1px grey;}
 
 
 .tooltip-inner {
@@ -254,6 +181,7 @@ display:inline-block;
   border-width: 5px 5px 0;
   border-top-color: #FFF;
 }
+
 
 </style>
 
