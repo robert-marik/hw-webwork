@@ -9,7 +9,7 @@ loadMacros(
 );
 TEXT(beginproblem());
 
-ADD_CSS_FILE("left.css");
+ADD_CSS_FILE("css/left.css");
 
 BEGIN_PGML
 
