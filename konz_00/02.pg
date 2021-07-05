@@ -40,7 +40,7 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 
-Prvnní výsledek je [`\sqrt{2}`], zapíšeme jej jako *sqrt(2)*.
+První výsledek je [`\sqrt{2}`], zapíšeme jej jako *sqrt(2)*.
 
 Druhý výsledek zapíšeme jako *sqrt(2),-sqrt(2)*.
 
