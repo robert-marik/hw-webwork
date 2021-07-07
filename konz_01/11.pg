@@ -18,7 +18,7 @@ $data =
 [
 {
     nadpis=>"Role limity v definici derivace",
-    otazka=>"Proč je v definici derivace \[ \lim_{h\to 0}\frac{f(x+h)-f(x)}{h} \] použita limita?",
+    otazka=>"Proč je v definici derivace \[\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}\] použita limita?",
     odpoved=>"Umožní převést průměrnou rychlost na rychlost okamžitou, protože stáhne délku intervalu přes který počítáme průměr na nulu.",
     moznosti=>[
 "Zajistí, že výsledná funkce prochází počátkem (nulou) a má díky tomu reálné fyzikální využití.",
