@@ -87,7 +87,7 @@ BEGIN_PGML
 
 [@ image("$obrazek.jpg", width=>400) @]*
 
-[$ot]
+[$ot]*
 
 [_]{$radio}
 
