@@ -26,19 +26,19 @@ jQuery(document).ready(function(){
 answerField=jQuery("#AnSwEr0001");
 
 jQuery( function() {
-answerField.after("<div class=AeditorButtons><a onclick=\\"doplnit('\\\\\\\\\\\\[','\\\\\\\\\\\\]');\\" title=\'Doplní matematické prostředí umístěné na samostatném řádku buď okolo vybraného úseku textu nebo na místo kurzoru. Ve druhém případě předvyplní textem se třemi X. Ve druhém případě předvyplní textem se třemi X. \'>\\\\&ZeroWidthSpace;[XXX\\\\&ZeroWidthSpace;]</a>"+
-"<a onclick=\\"doplnit('\\\\\\\\\\\\(','\\\\\\\\\\\\)');\\" title=\'Funguje stejně jako vedlejší tlačítko, ale matematický výraz zůstává na řádku s textem.\'>\\\\&ZeroWidthSpace;(XXX\\\\&ZeroWidthSpace;)</a>"+
-"<a onclick=\\"doplnit(\'^{\',\'}\');\\" title=\'Okolo vybraného textu doplní příkazy, které text přesunou do horního indexu. Pokud není vybraný žádný text, vloži na dané místo značku pro horní index se třemi X. Pozor, každý objekt může mít jenom jeden dolní a jeden horní index.\'>^{XXX}</a>"+
-"<a onclick=\\"doplnit(\'_{\',\'}\');\\" title=\'Okolo vybraného textu doplní příkazy, které text přesunou do dolního indexu. Pokud není vybraný žádný text, vloži na dané místo značku pro dolní index se třemi X. Pozor, každý objekt může mít jenom jeden dolní a jeden horní index.\'>_{XXX}</a>"+
-"<a onclick=\\"doplnitZlomek();\\" title=\'Vloží zlomek s předepsaným čitatelem a jmenovatelem na místo kurzoru. Pokud je vybrán nějaký text obsahující lomítko, použije se do čitatele výraz před prvním lomítkem a do jmenovatele výraz za tímto lomítkem. Pokud lomítko ve vybraném textu není, umístí se celý text do čitatele.\'>\\\\frac{XXX}{YYY}</a>"+
-"<a onclick=\\"doplnit('\\\\\\\\left(','\\\\\\\\right)');\\" title=\'Přidá natahovací závorky okolo vybraného textu. Pokud žádný text není vybrán, vloží se konstrukce na místo kurzoru a dovnitř se vloží tři X.\'>\\\\left(XXX\\\\right)</a>"+
-"<a onclick=\\"doplnit('{','}');\\" title=\'Přidá složené závorky okolo vybraného textu. Používá se pro rozšíření obsahu působnosti příkazů (do složených závorek se píšou víceznakové indexy, čitatel, jmenovatel, argument odmocniny a další). Pokud žádný text není vybrán, vloží se konstrukce na místo kurzoru a dovnitř se vloží tři X.\'>{XXX}</a>"+
-"<a onclick=doplnitPred('\\\\\\\\mathrm');>\\\\mathrm </a>"+
-"<a onclick=doplnitPred('\\\\\\\\partial');>\\\\partial </a>"+
-"<a onclick=doplnitPred('\\\\\\\\int');>\\\\int </a>"+
-"<a onclick=ace.edit('Aeditor').undo();>Undo</a>"+
-"<a onclick=ace.edit('Aeditor').redo();>Redo</a>"+
-"</div><div id=Aeditor></div><div id=envelopePreview><div id=MathPreview></div></div>");
+answerField.after("<div class='AAeditor alert  alert-secondary'><div class=AeditorButtons><a class='nav_button btn btn-primary' onclick=\\"doplnit('\\\\\\\\\\\\[','\\\\\\\\\\\\]');\\" title=\'Doplní matematické prostředí umístěné na samostatném řádku buď okolo vybraného úseku textu nebo na místo kurzoru. Ve druhém případě předvyplní textem se třemi X. Ve druhém případě předvyplní textem se třemi X. \'>\\\\&ZeroWidthSpace;[XXX\\\\&ZeroWidthSpace;]</a> "+
+"<a class='nav_button btn btn-primary' onclick=\\"doplnit('\\\\\\\\\\\\(','\\\\\\\\\\\\)');\\" title=\'Funguje stejně jako vedlejší tlačítko, ale matematický výraz zůstává na řádku s textem.\'>\\\\&ZeroWidthSpace;(XXX\\\\&ZeroWidthSpace;)</a> "+
+"<a class='nav_button btn btn-primary' onclick=\\"doplnit(\'^{\',\'}\');\\" title=\'Okolo vybraného textu doplní příkazy, které text přesunou do horního indexu. Pokud není vybraný žádný text, vloži na dané místo značku pro horní index se třemi X. Pozor, každý objekt může mít jenom jeden dolní a jeden horní index.\'>^{XXX}</a> "+
+"<a class='nav_button btn btn-primary' onclick=\\"doplnit(\'_{\',\'}\');\\" title=\'Okolo vybraného textu doplní příkazy, které text přesunou do dolního indexu. Pokud není vybraný žádný text, vloži na dané místo značku pro dolní index se třemi X. Pozor, každý objekt může mít jenom jeden dolní a jeden horní index.\'>_{XXX}</a> "+
+"<a class='nav_button btn btn-primary' onclick=\\"doplnitZlomek();\\" title=\'Vloží zlomek s předepsaným čitatelem a jmenovatelem na místo kurzoru. Pokud je vybrán nějaký text obsahující lomítko, použije se do čitatele výraz před prvním lomítkem a do jmenovatele výraz za tímto lomítkem. Pokud lomítko ve vybraném textu není, umístí se celý text do čitatele.\'>\\\\frac{XXX}{YYY}</a> "+
+"<a class='nav_button btn btn-primary' onclick=\\"doplnit('\\\\\\\\left(','\\\\\\\\right)');\\" title=\'Přidá natahovací závorky okolo vybraného textu. Pokud žádný text není vybrán, vloží se konstrukce na místo kurzoru a dovnitř se vloží tři X.\'>\\\\left(XXX\\\\right)</a> "+
+"<a class='nav_button btn btn-primary' onclick=\\"doplnit('{','}');\\" title=\'Přidá složené závorky okolo vybraného textu. Používá se pro rozšíření obsahu působnosti příkazů (do složených závorek se píšou víceznakové indexy, čitatel, jmenovatel, argument odmocniny a další). Pokud žádný text není vybrán, vloží se konstrukce na místo kurzoru a dovnitř se vloží tři X.\'>{XXX}</a> "+
+"<a class='nav_button btn btn-primary' onclick=doplnitPred('\\\\\\\\mathrm');>\\\\mathrm </a> "+
+"<a class='nav_button btn btn-primary' onclick=doplnitPred('\\\\\\\\partial');>\\\\partial </a> "+
+"<a class='nav_button btn btn-primary' onclick=doplnitPred('\\\\\\\\int');>\\\\int </a><br> "+
+"<a class='nav_button btn btn-primary' onclick=ace.edit('Aeditor').undo();>Undo</a> "+
+"<a class='nav_button btn btn-primary' onclick=ace.edit('Aeditor').redo();>Redo</a> "+
+"</div><div id=Aeditor></div><div id=envelopePreview><div id=MathPreview></div></div></div>");
 Viditelnost();
 jQuery("#Aeditor").text(answerField.val()); 
 var editor = ace.edit('Aeditor');
@@ -116,9 +116,18 @@ jQuery(document).ready(function(){
 </script>
 
 <style>
+
+.Aeditor {
+    padding: 10px;
+    background-color: white;
+    border-color: black;
+    border-style: solid;
+    border-width: thin;
+}
+
 #MathPreview
 {
-background-color: #ffd633;
+/* background-color: #ffd633; */
 padding:10px;
 width:100%;
 height:100%;
@@ -152,6 +161,11 @@ display:inline-block;
 #AnSwEr0001 {visibility:hidden; display:none;}
 
 .AeditorButtons a {
+color: white !important;
+}
+
+/* 
+.AeditorButtons a {
 -webkit-appearance: button;
 color: #ffffff;
 background-color: #990000;
@@ -164,7 +178,7 @@ display:inline-block;
 .AeditorButtons {margin-bottom:5px; border-top: solid; border-top-width: 5px;border-top-color: #AAA; background: #AAA; }
 
 .AeditorButtons a {box-shadow: 3px 3px 1px grey;}
-
+*/
 
 .tooltip-inner {
   max-width: 200px;
