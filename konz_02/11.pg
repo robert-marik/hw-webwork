@@ -66,7 +66,7 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 
-[$od]
+[$od]*
 
 END_PGML_SOLUTION
 
