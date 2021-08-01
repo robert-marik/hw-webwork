@@ -13,7 +13,7 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
-$DEBUG=1;
+$DEBUG=0;
 
 $data =
 [
