@@ -24,6 +24,9 @@ Skryti toho co je prazdne.
 $("td:contains('There are no answers for this student.')").parent().css("display","none");
 
 
+$("td:contains('There are no answers for this student.')").next('td').next('td').children().children().attr('checked',true);
+
+
 Obarveni nevyplnene reakce.
 
 $("textarea[name$='comment']:empty").css("background-color","#FAA");

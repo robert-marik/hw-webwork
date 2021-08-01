@@ -32,7 +32,7 @@ users = ["admin", "kombi", "pres"]
 for koho in users: # cykus pres uzivatele
 
     # zjisteni hodnoty seed pro prvni ulohu
-    sql1 = "SELECT problem_seed FROM `"+tablename+"` WHERE `user_id` = '"+koho+"' AND (`problem_id` = '01') AND (`set_id` = '10_Shrnuti') "
+    sql1 = "SELECT problem_seed FROM `"+tablename+"` WHERE `user_id` = '"+koho+"' AND (`problem_id` = '01') AND (`set_id` = '"+sada_uloh+"') "
     cursor.execute(sql1)
     results = cursor.fetchall()
     seed = int(results[0][0])
