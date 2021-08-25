@@ -66,7 +66,7 @@ BEGIN_PGML
 
 ## [$na]
 
-[$ot]
+[$ot]*
 
 [_]{$radio}
 

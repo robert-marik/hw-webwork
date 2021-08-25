@@ -53,9 +53,9 @@ $radio    =  RadioButtons([[$od,@moznosti]],0);
 
 BEGIN_PGML
 
-## [$na]
+## [$na]*
 
-[$ot]
+[$ot]*
 
 [_]{$radio}
 
@@ -65,7 +65,7 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 
-[$od]
+[$od]*
 
 END_PGML_SOLUTION
 

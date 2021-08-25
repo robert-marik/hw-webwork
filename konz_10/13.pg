@@ -59,7 +59,7 @@ BEGIN_PGML
 ## [$na]
 
 
-[$ot]
+[$ot]*
 
 [_]{$radio}
 
@@ -68,7 +68,7 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 
-[$od]
+[$od]*
 
 END_PGML_SOLUTION
 

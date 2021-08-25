@@ -16,7 +16,7 @@ BEGIN_PGML
 
 ## Označení derivace podílem diferenciálů
 
-V předchozím příkladu jsme vzpočítali derivaci, ale někdy derivaci potřebujeme zadat jako oodpověď, nebo součást odpovědi. To je zejmnéna všude tam, kde se praccuje s rychlostí změny veličiny.
+V předchozím příkladu jsme vypočítali derivaci, ale někdy derivaci potřebujeme zadat jako odpověď, nebo součást odpovědi. To je zejmnéna všude tam, kde se praccuje s rychlostí změny veličiny.
 
 Derivace zapisujeme (viz. přednáška) pomocí čárky, nebo jako podíl diferenciálů. Například derivaci funkce [``f(x)``] označujeme výrazem [``\frac{\mathrm df}{\mathrm dx}``]. Toto bychom na počítači zapsali jako *df/dx*.
 
