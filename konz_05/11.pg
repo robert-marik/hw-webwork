@@ -3,7 +3,7 @@ DOCUMENT();
 loadMacros(
 "PGstandard.pl",
 "MathObjects.pl",
-"parserRadioButtons.pl",
+"niceTables.pl",      
 "PGcourse.pl",
 "PGML.pl"
 );
@@ -13,65 +13,99 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
-$data =
-[
-{
-nadpis=>"Monotonie integrálu",
-otazka=>"Mějme funkce \(f\) a \(g\) definované na intervalu \([a,b]\) takové, že na tomto intervalu platí \[f(x)\geq g(x).\] Jaký je vztah mezi integrály těchto funkcí?",
-odpoved=>"\(\int _a^b f(x)\,\mathrm dx\geq \int _a^b g(x)\,\mathrm dx\)",
-moznosti=>[
-"\(\int _a^b g(x)\,\mathrm dx\geq \int _a^b f(x)\,\mathrm dx\)",
-"Není možné rozhodnout bez znalosti monotonie funkcí.",
-"Není možné rozhodnout bez znalosti analytických předpisů funkcí.",
-],
+
+$h=random(2,4,1);
+$zacatek=random(0,2,0.1);
+
+
+@x=();
+@fx=();
+
+foreach my $i (0..10) {
+  push(@x,$i*$h);
+  push(@fx,random(0,0.5,0.1)+$i);
+  
 }
-];
+$from=random(0,6,1);
+do {  $to=random(2,10,1); } until ($to-$from)>2;
 
-# Pocet otazek
-$pocet=@$data;
-$posledni=$pocet-1;  # indexujeme od nuly
+$vstupy=$x[$from..$to];
+$vystupy=$fx[$from..$to];
 
-# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
-if ($DEBUG) {@pole = (0..$posledni);}
-   else {@pole=(random(0,$posledni));}
+$a=$x[$from];
+$b=$x[$to];
 
-# Cyklus pres otazky (jednu nebo vsechny)
-foreach $i (@pole)
-{
+$hodnota=$fx[$from];
+$vypocet="$fx[$from]";
 
+foreach my $i ($from+1..$to-1) {
+$hodnota = $hodnota + 2* $fx[$i];
+$vypocet = $vypocet . "+2 \cdot  $fx[$i]";
+}
 
+$hodnota=$hodnota+$fx[$to];
+$vypocet=$vypocet."+$fx[$to]";
 
-# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
-# s interpretaci hranatych zavorek
-$ot       =  $data->[$i]->{otazka};
-$na       =  $data->[$i]->{nadpis};
-$obrazek  =  $data->[$i]->{obrazek};
-$od       =  $data->[$i]->{odpoved};
-$zdroj    =  $data->[$i]->{zdroj};
-@moznosti =@{$data->[$i]->{moznosti}};
-$radio    =  RadioButtons([[$od,@moznosti]],0);
+$integral=$h/2*$hodnota;
 
 
 BEGIN_PGML
 
-## [$na]
+## Lichoběžníkové pravidlo
 
-[$ot]
+Lichoběžníkové pravidlo je nejjednodušší způsob numerického odhadu integrálu. Geoemtricky se zakládá na tom, že při výpočtu integrálu [``` \int_a^b f(x)\,\mathrm{dx} ```] rozdělíme interval [`[a,b]`] na stejně dlouhé podintervaly, vypočteme funkční hodnoty v krajních bodech těchto podintervalů a aproximujeme funkci lomenou čarou, která v krajních bodech podintervalů nabývá stejných hodnot. Pro praktický výpočet používáme vzorec [``` \int_a^bf(x)\,\mathrm dx\approx \frac h2\Bigl(
+{y_0}+2y_1+2y_2+\cdots+2y_{n-1}+{y_n}\Bigr),```]
+kde [`h`] je délka podintervalu a [`y_i`] jsou funkční body v krajních bodech podintervalů.
 
-[_]{$radio}
+    [@ DataTable(
+           [
+            [["\\(\\boldsymbol{x}\\)", midrule => 1,headerrow=>1],-4,-3,-2,-1,0,1,2,3,4,5,6],
+            ["\\(\\boldsymbol{f(x)}\\)",4.2,2.4,1.7,1.3,1.4,1.6,3.1,3.4,3.8,3.9,3.6],
+           ], 
+           caption => 'Funkce daná tabulkou'
+     ); @]*
 
-_[$zdroj]_
+Například pro funkci danou tabulkou výše je [`h=1`] a platí
+[``` \int_1^5 f(x)\,\mathrm dx\approx\frac 12 (2.6+2\cdot 3.1+2\cdot 3.4 + 2\cdot 3.8 + 3.9) = 13.55.```]
+
+--------------
+
+Vypočtěte integrál [``` \int_{[$a]}^{[$b]} f(x)\mathrm dx```] funkce [`f`] dané následující tabulkou.
+
+    [@ DataTable(
+           [
+            [["\\(\\boldsymbol{x}\\)", midrule => 1,headerrow=>1],@x],
+            ["\\(\\boldsymbol{f(x)}\\)",@fx],
+           ], 
+           caption => 'Funkce daná tabulkou'
+     ); @]*
+
+[`` \int_{[$a]}^{[$b]} f(x)\,\mathrm dx\approx{}``][________________________]{$integral}
+
+
+Tip: Nemusíte výsledek psát jako jedno desetinné číslo. Stačí napsat, jak bude vypadat dosazení do vzorce a systém si výsledek pro ověření dopočítá automaticky.
+
 
 END_PGML
 
+
+BEGIN_PGML_HINT
+
+Musíte použít funkční hodnoty v bodech mezi [`x=[$a]`] a [`x=[$b]`]. Krajní hodnoty vezměte jednou, všechny ostatní vezměte dvakrát a sečtěte. Výsledek vynásobte vzdáleností mezi sousedními hodnotami [`x`] a vydělte dvěma.
+
+END_PGML_HINT
+
+
 BEGIN_PGML_SOLUTION
 
-[$od]
+Musíme použít funkční hodnoty v bodech mezi [`x=[$a]`] a [`x=[$b]`]. Krajní hodnoty vezmeme jednou, všechny ostatní vezmeme dvakrát a sečtěte. Tím dostaneme hodnotu součtu v závorce. Tuto vynásobíme vzdáleností mezi sousedními hodnotami [`x`], tj. číslem [`h=[$h]`] a vydělíme dvěma.
+
+
+[`` \int_{[$a]}^{[$b]} f(x)\,\mathrm dx\approx \frac {[$h]}{2} \Bigl([@$vypocet@]* \Bigr)=[$integral] ``]
+
 
 END_PGML_SOLUTION
 
-};
-# konec cyklu
 
 
 ENDDOCUMENT();

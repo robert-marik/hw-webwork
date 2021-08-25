@@ -16,8 +16,18 @@ $showHint = 1;
 $data =
 [
 {
+nadpis=>"Monotonie integrálu",
+otazka=>"Mějme funkce \(f\) a \(g\) definované na intervalu \([a,b]\) takové, že na tomto intervalu platí \[f(x)\geq g(x).\] Jaký je vztah mezi integrály těchto funkcí?",
+odpoved=>"\(\displaystyle\int _a^b f(x)\,\mathrm dx\geq \int _a^b g(x)\,\mathrm dx\)",
+moznosti=>[
+"\(\displaystyle\int _a^b g(x)\,\mathrm dx\geq \int _a^b f(x)\,\mathrm dx\)",
+"Není možné rozhodnout bez znalosti monotonie funkcí.",
+"Není možné rozhodnout bez znalosti analytických předpisů funkcí.",
+],
+},
+{
 nadpis=>"Znaménko integrálu",
-otazka=>"Jaké znaménko má integrál \(\int _0^1 \frac {e^{ax}}{x^2+1}\,\mathrm dx.\) Parametr \(a\) může nabývat libovolnou reálnou hodnotu",
+otazka=>"Jaké znaménko má integrál \(\displaystyle\int _0^1 \frac {e^{ax}}{x^2+1}\,\mathrm dx?\) Parametr \(a\) může nabývat libovolnou reálnou hodnotu",
 odpoved=>"Kladné, protože integrovaná funkce je kladná.",
 moznosti=>[
 "Kladné, protože integrovaná funkce je rostoucí.",
@@ -32,6 +42,7 @@ $pocet=@$data;
 $posledni=$pocet-1;  # indexujeme od nuly
 
 # Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+$DEBUG=1;
 if ($DEBUG) {@pole = (0..$posledni);}
    else {@pole=(random(0,$posledni));}
 
