@@ -692,7 +692,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:1441
 msgid "Amulet of Extension"
-msgstr ""
+msgstr "Prodlužovací kouzlo"
 
 #. ($archive_courseID)
 #. ($unarchive_courseID)
