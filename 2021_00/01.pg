@@ -60,7 +60,7 @@ BEGIN_PGML
 ## Základní informace
 
 
-Můžete začít rovnou pracovat, vše je intuitivní a syntaxe obvyklá (zejména pokud jste zvyklí na vzroce v programu Excel a podobně). Pokud se někdo bude ztrácet, vraťte se sem a prohlédněte si video se základy práce. Při práci se vám bude hodit [@ htmlLink("https://raw.githubusercontent.com/robert-marik/hw-webwork/master/cheatsheet/cheatsheet.pdf","cheatsheet") @]* s nápovědou, jak zapisovat matematické výrazy do počítače.
+Můžete začít rovnou pracovat, vše je intuitivní a syntaxe obvyklá (zejména pokud jste zvyklí na vzorce v programu Excel a podobně). Pokud se někdo bude ztrácet, vraťte se sem a prohlédněte si video se základy práce. Při práci se vám bude hodit [@ htmlLink("https://raw.githubusercontent.com/robert-marik/hw-webwork/master/cheatsheet/cheatsheet.pdf","cheatsheet") @]* s nápovědou, jak zapisovat matematické výrazy do počítače.
 
 
 [$video]*
