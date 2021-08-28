@@ -32,13 +32,7 @@ Pro konkrétního dinosaura můžeme mít například
 [``` v(l)=0.8 l^{1.67}```]
 a jak bývá někdy v takovýchto situacích zvykem, neuvažujeme ve vzorci jednotky, ale doplníme k němu informaci, že délku kroku určujeme v metrech a rychlost v metrech za sekundu.
 
-Vypočtěte derivaci této funkce a najděte její fyzikální jednotku a slovní interpretaci.
-
-Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
-
-Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
-
-_Obrázek: pixabay.com, DariuszSankowski_
+**Úḱol. Vypočtěte derivaci této funkce a najděte její fyzikální jednotku a slovní interpretaci.**
 
 END_PGML
 
@@ -49,11 +43,22 @@ END_TEXT
 
 
 
+
 BEGIN_PGML
+
+Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
+
+Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
+
+
 
 * _Pro pohodlnou tvorbu textu můžete využít nástroj [@ htmlLink("http://user.mendelu.cz/marik/latexovatko","LaTeXovátko") @]*. Tam si také můžete do editoru nakliknout repertoár textů a ty upravovat a sledovat efekt jednotlivých úprav._
 * _Můžete využít [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "nápovědu") @]*  pro LaTeX s ukázkami kódů pro vykopírování. Odkaz otevřete pravým tlačítkem v novém panelu, aby Vám zůstala otevřená i stránka, kterou čtete._
 * _Další ukázky jsou všechny vzorce v programu WeBWorK a v přednáškách. Použijte pravé tlačítko a zobrazení kódu v programu TeX, tj. Show Math As a TeX commands._
+
+_Obrázek: pixabay.com, DariuszSankowski_
+
+
 END_PGML
 
 
