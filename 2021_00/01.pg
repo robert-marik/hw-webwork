@@ -60,7 +60,7 @@ BEGIN_PGML
 ## Základní informace
 
 
-Nejprve video které Vám ukáže základy práce. Bude se hodit [@ htmlLink("https://raw.githubusercontent.com/robert-marik/hw-webwork/master/cheatsheet/cheatsheet.pdf","cheatsheet.") @]*
+Můžete začít rovnou pracovat, vše je intuitivní a syntaxe obvyklá (zejména pokud jste zvyklí na vzroce v programu Excel a podobně). Pokud se někdo bude ztrácet, vraťte se sem a prohlédněte si video se základy práce. Při práci se vám bude hodit [@ htmlLink("https://raw.githubusercontent.com/robert-marik/hw-webwork/master/cheatsheet/cheatsheet.pdf","cheatsheet") @]* s nápovědou, jak zapisovat matematické výrazy do počítače.
 
 
 [$video]*
@@ -78,14 +78,14 @@ $fakeans => "Jste na dobré cestě. Jenom se zdá, že jste namísto odečítán
 ))}<<
 
 * Zapište odpověď a odešlete.
-* Otázka je vygenerována tak, že od stovky se odečítá náhodné číslo mezi čísly 1 a 87. Každý student tedy má své vlastní zadání a musí zapsat svoji vlastní odpověď.
-* Zkuste napsat špatnou odpověď a odeslat. Všimněte si, že jakmile jednou odpovíte na otázku správně, už se započítává plný počet bodů, i když později zkusíte špatnou odpověď.
-* Vložená odpověď se posuzuje numericky na shodu s přednastavenou správnou odpovědí. Proto nemusí být odpovědí jedno číslo, ale může být i výraz. V tomto případě můžete dokonce opsat zadání a WeBWorK sám příklad dopočítá a vyhodnotí jako správně odpovězený.
-* Odpověď se posuzuje numericky s jistou přesností, zpravidla desetiny procenta. Zkuste správnou odpověď modifikovat přičtením čísla cca 0.000000001. Měla by se posuzovat i tak jako správná. To je trošku omezení, které by nám nemělo nijak znepříjemňovat život. Pokud byste však pojali podezření, že vyhodnocování správnosti odpovědi nefunguje, můžete poslat email učiteli použitím tlačítka "Email WeBWorK TA". Teď to ale nezkoušejte. (Je denní limit na počet takto odeslaných mailů.)
+* Vyzkoušejte si chování systému.
+    1. Zkuste napsat špatnou odpověď a odeslat. Nemusíte se bát o body. Jakmile jednou odpovíte správně, už máte přidělen za otázku plný počet bodů.
+    1. Vložená odpověď se posuzuje numericky na shodu s přednastavenou správnou odpovědí. Vložené operace mezi čísly se provedou automaticky. Zkuste opdpověď zadat jako součet. Například systém nerozlišuje mezi `84` a `80+4` nebo `4*21`. Tato vlastnost vám dokáže šetřit práci, nemusíte se věnovat kupeckým počtům.
+    1. Pro některé chybné odpovědi jsou připraveny speciální chybové hlášky. Zkuste například vložit jako odpověď součet namísto rozdílu, tj. v tomto případě číslo [$fakeans].
+    1. Odpověď se posuzuje numericky s jistou přesností, zpravidla desetiny procenta. Zkuste správnou odpověď modifikovat přičtením čísla cca 0.000000001. Měla by se posuzovat i tak jako správná. To je trošku omezení, které by nám nemělo nijak znepříjemňovat život. Pokud byste však pojali podezření, že vyhodnocování správnosti odpovědi nefunguje, můžete poslat email učiteli použitím tlačítka "Email Instructor". Teď to ale nezkoušejte. (Je denní limit na počet takto odeslaných mailů.)
 * Po několika nesprávných odpovědích je u většiny otázek nápověda. Objeví se jako odkaz po cca třech pokusech o odpověď. Můžete si to teď vyzkoušet. Zadejte a odešlete několik špatných odpovědí, dokud se nezobrazí rozbalovací link pro nápovědu.
 * Po několika nesprávných odpovědích se u většiny otázek objeví aktivní tlačítko "Show Me Another/Ukázat podobnou otázku". Tímto tlačítkem si můžete vygenerovat cvičné zadání stejného typu s jinými čísly. V tomto cvičném zadání se Vám nepočítají pokusy a je k dispozici i řešení. Tlačítko můžete použít opakovaně do limitu nastaveného učitelem. Tato vlastnost nefunguje, pokud jste v systému v roli hosta.
-* Před odesláním si můžete odpověď prohlédnout v náhledu. V tomto případě, kdy je odpovědí číslo, to nemá moc smysl. V případě, kdy je odpovědí matematický výraz, to je naopak velice užitečná volba. Zkuste napsat například *pi/(x^2+1)* a po vyvolání náhledu by se mělo objevit [```\frac{\pi}{x^2+1}```] (což jistě není správná odpověď).
-* Pro některé chybné odpovědi jsou připraveny speciální chybové hlášky. Zkuste například vložit jako odpověď součet namísto rozdílu, tj. v tomto případě číslo [$fakeans].
+* Před odesláním si můžete odpověď prohlédnout v náhledu. V tomto případě, kdy je odpovědí číslo, to nemá moc smysl. V případě, kdy je odpovědí matematický výraz, to je naopak velice užitečná volba, která vás uchrání od toho, že byste si vyplýtvali pokusy na odpověď. Zkuste napsat například *pi/(x^2+1)* a po vyvolání náhledu by se mělo objevit [```\frac{\pi}{x^2+1}```] (což jistě není správná odpověď).
 
 END_PGML
 
