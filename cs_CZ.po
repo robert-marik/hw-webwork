@@ -7768,3 +7768,6 @@ msgstr "Tato odměna otevře jednu z už uzavřených úloh na další 4 hodiny.
 
 msgid "%1 remaining"
 msgstr "počet možných použití: %1"
+
+msgid "There is a written solution available."
+msgstr "Je k dispozici i řešení."
