@@ -32,7 +32,7 @@ Pro konkrétního dinosaura můžeme mít například
 [``` v(l)=0.8 l^{1.67}```]
 a jak bývá někdy v takovýchto situacích zvykem, neuvažujeme ve vzorci jednotky, ale doplníme k němu informaci, že délku kroku určujeme v metrech a rychlost v metrech za sekundu.
 
-**Úḱol. Vypočtěte derivaci této funkce a najděte její fyzikální jednotku a slovní interpretaci.**
+**Úkol. Vypočtěte derivaci této funkce a najděte její fyzikální jednotku a slovní interpretaci.**
 
 END_PGML
 
