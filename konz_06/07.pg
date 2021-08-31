@@ -1,292 +1,78 @@
-DOCUMENT();
+DOCUMENT() ;        # This should be the first executable line in the problem.
 
 loadMacros(
   "PGstandard.pl",
-  "MathObjects.pl",
   "PGchoicemacros.pl",
   "PGgraphmacros.pl",
-  "niceTables.pl",
   "PGML.pl",
   "PGcourse.pl"
 );
 
-Context("Numeric");
-$showPartialCorrectAnswers = 0;
+TEXT(beginproblem()) ;
+$showPartialCorrectAnswers = 0 ;
 $showHint = 1;
 
+do
+{
+$a = non_zero_random(-5,5);
+$b = non_zero_random(-5,5);
+$x = non_zero_random(-2,2);
+$k = non_zero_random(2,4);
+$km1=$k-1;
+$c=-((($a)*($x**($k)))+(($b)*($x)));
+$sign = ($k)*($a)*($x)**($km1)+$b;
+} until ($sign != 0);
 
-## we graph five different behaviors, and then select a description
-##    for each.
-@graphs = ();
-@descrs = ();
-## the reasons this is correct
-@reasons = ();
-## the alternate text for each graph
-@alt = ();
-
-## (0): logistic
-$graphs[0] = init_graph(0,0,1.5,10.5,axes=>[0,0],size=>[150,150]);
-$graphs[0]->lb('reset');
-add_functions($graphs[0], "-8/(1+(1/7)*e^(8x)) + 10 for x in <0,1.5> " .
-	      "using color:blue and weight:2");
-$alt[0] = "Rostoucí funkce, která roste k vodorovné asymptotě.";
-$graphs[0]->moveTo(0,10);
-for ( my $x = 0; $x <= 1.5; $x += .1125 ) {
-     $graphs[0]->lineTo($x + 0.0375, 10);
-     $graphs[0]->moveTo($x + .1125, 10);
+if ($sign>0)
+{
+$znamenko='kladná';
+$monotonie='roste';
+$stabilita='nestabilní';
 }
-$descrs[0] =
-  [ "Populace nového invazního druhu zavlečená na tropický ostrov.",
-    "Velikost populace v prostředí s omezenou nosnou kapacitou.",
-  ];
-$reasons[0] =
-  [ "ostrov má omezenou nosnou kapacitu a populace bude růst podle logistické rovnice pouze do určité hodnoty, dané nosnou kapacitou prostředí.",
-    "populace bude růst podle logistické rovnice pouze do určité hodnoty, dané nosnou kapacitou prostředí",
-  ];
-
-## (1): exponential growth, then decay
-$graphs[1] = init_graph(0,0,5,4.5,axes=>[0,0],size=>[150,150]);
-$graphs[1]->lb('reset');
-add_functions($graphs[1],
-	      "-x^2+4*x for x in <0,2> using color:blue and weight:2",
-	      "4*e^(-x+2) for x in <2,5> using color:blue and weight:2");
-$alt[1] = "Funkce, která exponenciálně roste a poté exponenciálně klesá.";
-@descrs[1] =
-  [ "Teplota kovové součástky umístěné do pece a poté vytažené z pece.",
-    "Vertikální rychlost parašutisty, který vyskočí z letadla a po nějaké době otevře padák.",
-  ];
-@reasons[1] =
-  [ "teplota se bude zvyšovat, dokud je kovová součástka v peci a poté snižovat. Oba procesy budou probíhat exponenciálně, jak plyne z Newtonova zákona tepelné výměny.",
-    "parašutistova rychlost se bude narůstat na rychlost odpovídající rovnováze gravitační a odporové síly a po otevření padáku tato rychlost začne klesat.",
-  ];
-
-## (2): constant, then linear drop
-$graphs[2] = init_graph(0,0,4,4.1,axes=>[0,0],size=>[150,150]);
-$graphs[2]->lb('reset');
-add_functions($graphs[2],
-	      "4 for x in <0,2> using color:blue and weight:2",
-	      "6 - x for x in <2,4> using color:blue and weight:2");
-$alt[2] = "Funkce, která je konstantní a poté klesá lineárně.";
-@descrs[2] =
-  [ "Rychlost auta, které jede konstantní rychlostí a po nějaké době začne rovnoměrně brzdit.",
-    "Vzdálenost běžce od cílové linie během čekání na start a následného běhu konstantní rychlostí.",
-  ];
-@reasons[2] =
-  [ "rychlost auta je nejprve konstantní a při brzdění se začne rovnoměrně snižovat.",
-    "při čekání na startu je vzdálenost od cíle konstantní a během závodu se díky pohybu konstantní rychlostí tato vzdálenost rovnoměrně zmenšuje.",
-  ];
-
-## (3): slow exponential decay
-$graphs[3] = init_graph(0,0,100,100,axes=>[0,0],size=>[150,150]);
-$graphs[3]->lb('reset');
-add_functions($graphs[3],"100*e^(-0.01*x) for x in <0,100> using " .
-	      "color:blue and weight:2");
-$alt[3] = "Klesající funkce, která exponenciálně klesá na celém svém definičním oboru.";
-@descrs[3] =
-  [ "Hmotnost izotopu uhlíku 14C v historickém nálezu pro uhlíkové datování.",
-    "Teplota v domě na severní polokouli, kde v lednu došlo k výpadku topení.",
-  ];
-@reasons[3] =
-  [ "množství radioaktivního izotopu exponenciálně klesá.",
-    "teplota v domě klesá rychlostí úměrnou rozdílu teplot, tj., exponenciálně (zpočátku rychle, když už jsou teploty srovnatelné tak pomalu).",
-  ];
-
-## (4): sinusoidal
-$graphs[4] = init_graph(0,0,6.28,3.25,axes=>[0,0],size=>[150,150]);
-$graphs[4]->lb('reset');
-add_functions($graphs[4],"cos(x)+2 for x in <0,6.28> using color:blue " .
-	      "and weight:2");
-$alt[4] = "Periodická funkce, která se vrací na původní hodnotu.";
-@descrs[4] =
-  [ "Koncentrace pylu ze stromů v ovzduší.",
-    "Výška vody v zálivu mezi dvěma přílivy.",
-  ];
-@reasons[4] =
-  [ "koncentrace pylu je sezonní záležitost a hodnoty oscilují.",
-    "příliv a odliv jsou periodické děje.",
-  ];
-
-## and one bonus one: (5): exponential growth
-$graphs[5] = init_graph(0,0,100,100,axes=>[0,0],size=>[150,150]);
-$graphs[5]->lb('reset');
-add_functions($graphs[5],"10*e^(0.02*x) for x in <0,100> using " .
-	      "color:blue and weight:2");
-$alt[5] = "Rostoucí funkce, která roste exponenciálně.";
-@descrs[5] =
-  [ "Velikost populace s růstem úměrným množství, tj. s neomezenou nosnou kapacitou prostředí.",
-  ];
-@reasons[5] =
-  [ "populace, jejíž růst nebrzdí nosná kapacita prostředí roste exponenciálně.",
-  ];
-
-## then pick five of the six graphs to show, and one of the descriptions
-##    for each, and assemble a matching problem.
-
-$match = new_match_list();
-$match->rf_print_q(~~&pop_up_list_print_q);
-$match->ra_pop_up_list([
-"No answer" => "?",
-"A" => "A", "B" => "B", "C" => "C", 
-"D" => "D", "E" => "E"
-]);
-
-@matchQA = ();
-## we also keep track of which description we're using for each
-@descrIndex = ();
-for ( my $i=0; $i<6; $i++ ) {
-    $j = random(0,scalar(@{$descrs[$i]})-1,1);
-    push( @matchQA, $descrs[$i]->[$j],
-	  image(insertGraph($graphs[$i]), tex_size=>200, height=>200,
-		width=>200, extra_html_tags=>'alt="' . $alt[$i] . '"') );
-    push(@descrIndex, $j);
-}
-$match->qa( @matchQA );
-$match->choose(5);
-
-## try to format the answers nicely
-sub ansPrint {
-    my ( $self, @ans ) = @_;
-#    my $outputStr = begintable(3);
-#    my $num = @ans;          ## number of answers
-#    my $col1 = $num; ## number to put in column 1
-#    my @col1labels = @ALPHABET[ 0..($col1-1) ];
-#    my $i=1;
-#    $outputStr .= row( $BBOLD . $col1labels[0] . ". " . $EBOLD,
-#			       $ans[0], $SPACE,
-#                       $BBOLD . $col1labels[1] . ". " . $EBOLD,
-#			       $ans[1]);
-#    $outputStr .= row( $BBOLD . $col1labels[2] . ". " . $EBOLD,
-#			       $ans[2], $SPACE,
-#                       $BBOLD . $col1labels[3] . ". " . $EBOLD,
-#			       $ans[3]);
-#    $outputStr .= row( $BBOLD . $col1labels[4] . ". " . $EBOLD,
-#			       $ans[4]);
-#    $outputStr .= endtable();
-     my $outputStr = DataTable(
-  [
-    [['Volba', headerrow => 1],'Graf','Volba','Graf'],
-    ['A', $ans[0], 'B', $ans[1]],
-    ['C', $ans[2], 'D', $ans[3]],
-    ['E', $ans[4], '', ''],
-  ], 
-);
-    return $outputStr;
+else
+{
+$znamenko='záporná';
+$monotonie='klesá';
+$stabilita='stabilní';
 }
 
-$match->rf_print_a( ~~&ansPrint );
+$funkce=Compute("$a*x**($k)+$b*x+$c")->reduce;
+$derivace=Compute("$k*$a*x**($km1)+$b")->reduce;
 
-TEXT(beginproblem());
-Context()->texStrings;
 BEGIN_PGML
+## Stablita autonomní diferenciální rovnice podle derivace pravé strany
 
-Spárujte graf a popis procesu, který by tento graf modeloval. Takové
-grafy často dostáváme jako výstupy z řešení diferenciálních rovnic. Na
-vlastní řešení tohoto příkladu však diferenciální rovnice
-nepotřebujete a ani nemáte za úkol formulovat nebo řešit. Všímejte si,
-jak se chovají křivky na obrázcích a jaké byste očekávali chování u
-křivky modelující daný proces.
+V této úloze se budeme zabývat rovnicí [``` \frac{\mathrm dx}{\mathrm dt}=[$funkce],```]
+kde pro jednoduchost pro pravou stranu zavedeme označení [``` f(x)=[$funkce]. ```]
+Vidíme, že rovnice je autonomní, protože pravá strana nezávisí na čase [`t`].
 
-Ve všech případech se uvažuje závislost popisované veličiny na
-čase. Pět obrázků, každý patří k jednomu slovnímu popisu, tj. žádná
-odpověď se neopakuje a žádná není vynechána.
+Tato rovnice má stacionární bod [`` x=[$x]``], protože platí [```f([$x])=0.```] Pro posouzení stability musíme určit charakter monotonie ve stacionárním bodě.
 
-Tiše předpokládejme, že jednotka času je vždy rozumně zvolena vzhledem k úloze, tj. v případě pádu parašutisty sekundy, v případě tepelných ztrát domu hodiny, v případě datování pomocí nestabilního izotopu uhlíku staletí.
+1. Derivace pravé strany je
+    >>[`` \frac{\mathrm df}{\mathrm dx}={}``][________]{$derivace} <<
+1. Derivace pravé strany v bodě [`` x=[$x]``] je
+    >>[`` \frac{\mathrm df}{\mathrm dx}([$x])={}``][________]{$sign} <<
+1. Stacionární bod [`x=[$x]`] je [@ pop_up_list(''=>'','stabilni'=>'stabilni', 'nestabilni'=>'nestabilni') @]*.
 
 END_PGML
 
-BEGIN_TEXT
+$ans1 = ($sign > 0) ? 'nestabilni': 'stabilni';
 
-
-\{ $match->print_q() \}
-$BR
-\{ $match->print_a() \}
-
-
-
-END_TEXT
-Context()->normalStrings;
-
-# \{ $match->pop_up_list_print_q() \}
-# \{ $match->radio_print_a() \}
-
-ANS(str_cmp( $match->ra_correct_ans ) );
-
-@correctAns = @{$match->ra_correct_ans};
-
-## it's then sort of tricky to back calculate the answers for
-##   these from what we have.  the questions that were put up were
-@selectedQ = @{$match->selected_q};
-## back calculate the indices in @descrs from these:
-@questionIndices = ();
-foreach $q ( @selectedQ ) {
-    my $k = 0;
-    my $done = 0;
-    foreach $d ( @descrs ) {
-	foreach $subD ( @{$d} ) {
-	    if ( $subD eq $q ) {
-		push( @questionIndices, $k );
-		$done = 1;
-		last;
-	    }
-	}
-	last if ( $done );
-	$k++;
-    }
-}
-
-$a0=$alt[$questionIndices[0]];
-$a1=$alt[$questionIndices[1]];
-$a2=$alt[$questionIndices[2]];
-$a3=$alt[$questionIndices[3]];
-$a4=$alt[$questionIndices[4]];
-
-Context()->texStrings;
+ANS(str_cmp($ans1));
 
 BEGIN_PGML_HINT
-Ještě jednou si prohlédněte funkce a popis modelovaných dějů. V nabídce je pět typů chování.
-
-1. [@ $a0 @]*
-1. [@ $a1 @]*
-1. [@ $a2 @]*
-1. [@ $a3 @]*
-1. [@ $a4 @]*
-
+Musíte vypočítat derivaci pravé strany rovnice. Poté dosaďte stacionární bod a zjistíte, zda je derivace kladná nebo záporná. Podle toho určíte monotonii pravé strany a poznáte stabilitu. 
 END_PGML_HINT
 
+BEGIN_PGML_SOLUTION
+
+Derivace pravé strany je [`` [$derivace].``]
+
+Po dosazení bodu [`x=[$x]`] vidíme, že ve stacionárním bodě je derivace [$znamenko]. Funkce proto ve stacionárním bodě [$monotonie] a stacionární bod je [$stabilita].
+
+END_PGML_SOLUTION
 
 
-SOLUTION(EV3(<<'END_SOLUTION'));
-$PAR SOLUTION $PAR
+ENDDOCUMENT() ;        # This should be the last executable line in the problem.
 
-${BBOLD}1.$EBOLD
-Odpověď je  $correctAns[0], protože
-$reasons[$questionIndices[0]]->[$descrIndex[$questionIndices[0]]]
-$PAR
-
-${BBOLD}2.$EBOLD
-Odpověď je  $correctAns[1], protože
-$reasons[$questionIndices[1]]->[$descrIndex[$questionIndices[1]]]
-$PAR
-
-${BBOLD}3.$EBOLD
-Odpověď je  $correctAns[2], protože
-$reasons[$questionIndices[2]]->[$descrIndex[$questionIndices[2]]]
-$PAR
-
-${BBOLD}4.$EBOLD
-Odpověď je  $correctAns[3], protože
-$reasons[$questionIndices[3]]->[$descrIndex[$questionIndices[3]]]
-$PAR
-
-${BBOLD}5.$EBOLD
-Odpověď je  $correctAns[4], protože
-$reasons[$questionIndices[4]]->[$descrIndex[$questionIndices[4]]]
-$PAR
-
-END_SOLUTION
-Context()->normalStrings;
-
-
-;
-ENDDOCUMENT();
 

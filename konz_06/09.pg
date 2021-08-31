@@ -48,7 +48,7 @@ BEGIN_PGML
 
 ## Separace u separovatelné diferenciální rovnice
 
-Nyní si vyzkoušíme zobecnění předchozího příkladu. Rovnice již není autonomní (vpravo jsou obě proměnné), ale proměnné se dají odseparovat.
+Separovatelné rovnice jsou rovnice, kde dokonce umíme určit obecné řešení. Zopakujte si postup řešení těchto rovnic podle přednášky a cvičení. Formálně derivaci chápeme jako podíl diferenciálů a násobením a dělením vhodnými veličinami se snažíme oddělit proměnné tak, aby jedna z proměnných byla vlevo a druhá vpravo. 
 
 Například  rovnici
 [``` \frac{\mathrm dy}{\mathrm dx}= e^y(3x^7-6)```]

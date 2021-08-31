@@ -1,82 +1,83 @@
-##################################################
-
-DOCUMENT(); 
+DOCUMENT();
 loadMacros(
-"PGstandard.pl",
-"PGML.pl",
-"MathObjects.pl",
-"answerHints.pl",
-"PGcourse.pl",
+  "PGstandard.pl",
+  "PGML.pl",
+  "parserRadioButtons.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
 );
+ 
+
 TEXT(beginproblem());
 
+Context("Numeric");
 $showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]], 'dx'=>'Real', 't'=>'Real', 'x'=>'Real');
-Context()->variables->set(dx => {TeX => '{\mathrm dx}'});
+Context("Numeric")->variables->are('t'=>['Real',limits=>[1,10]],'y'=>'Real');
 
 
-$a=1;
-$b=non_zero_random(1,5);
-do { $c=non_zero_random(-7,7,2); } until ($c!=$a);
-$d=non_zero_random(-6,10,2);
+$acc = random(2,5,1);
+$dec = random(50,85,5);
+$rdec = $dec/100;
 
-$n=random(0,1);
+$sol=Formula("$acc - ($rdec)*y");
 
-if ($n==1)
-{
-$rovnice=Formula("$c*x^($b)+$d")->reduce();
-$uprava=Formula("dx/($c*x^($b)+$d)")->reduce();
-$akce="vydělení";
-$co=$rovnice;
-}
-else
-{
-$rovnice=Formula("1/($c*x^($b)+$d)")->reduce();
-$uprava=Formula("($c*x^($b)+$d)*dx")->reduce();
-$akce="vynásobení";
-$co=Formula("($c*x^($b)+$d)")->reduce();
-}
+$stac=Formula("$acc / ($rdec)");
 
 
+$radio=RadioButtons(["Všechna řešení konvergují nezávisle na počáteční podmínce ke stabilnímu stacionárnímu bodu.", "Řešení s malou počáteční podmínkou konvergují k nule (pokud je málo listí, tak  se rozpadne úplně), řešení od jisté hodnoty konvergují ke stacionárnímu bodu (nastolí se rovnováha).","Řešení s dostatečně velkou počáteční podmínkou jsou neohraničená (pokud je listí opravdu hodně, nestíhá se rozpadat a jeho množství roste), ostatní řešení konvergují ke stacionárnímu bodu (nastolí se rovnováha)."],0);
+
+Context()->texStrings;
 
 BEGIN_PGML
 
-## Separace u autonomní diferenciální rovnice
+## Listy v lese
 
-Autonomní diferenciální jsou automaticky rovnicemi se separovanými proměnnými. Zopakujte si postup řešení těchto rovnic podle přednášky a cvičení. Formálně derivaci chápeme jako podíl diferenciálů a násobením a dělením vhodnými veličinami se snažíme oddělit proměnné tak, aby jedna z proměnných byla vlevo a druhá vpravo. Například rovnici
-[``` \frac{\mathrm dx}{\mathrm dt}= 5(3x^7-6)```]
-můžeme po vydělení faktorem [``(3x^7-6)``] a vynásobení faktorem [`` \mathrm dt``] přepsat do tvaru
-[```\frac1{3x^7-6}\mathrm dx= 5\mathrm dt.```]
-Levou stranu můžeme v programu WeBWork zapsat například jako *1/(3x^7-6) \* dx*.
+[@ image("autumn.jpg", width=>400) @]*
 
-V následujícím příkladě zkusíme podobnou úlohu, pouze s jinými čísly. Podle výrazu na pravé straně poznáte, jakým výrazem rovnici násobíme nebo dělíme a co zůstane na straně levé.
+Listy v lese padají na zem. Předpokládejme rychlost s jakou padají je [`[$acc]`]
+gramů na centimetr čtverečení za rok. Současně se tyto listy rozpadají. Za rok se rozpadne [`[$dec]`] procent listí.  
 
---------------------
+### Model
 
-Odseparujte proměnné v následující rovnici. [```  \frac{\mathrm dx}{\mathrm dt}=[$rovnice] ```]
+Napište diferenciální rovnici pro vývoj množství [`y`] listů na zemi (v gramech na centimetr čtvereční) v čase [`t`]. Jednotka času je rok.
 
->> [_______________]{$uprava}[``{}=\mathrm dt``]<<
+>> [``\frac{\mathrm dy}{\mathrm dt} = {} ``][______________________]{$sol} <<
+   
+### Počáteční podmínka
+
+Předpokládejte, že na začátku nejsou na zemi žádné listy. Jakou počáteční podmínkou vyjádříte tuto skutečnost?
+
+>> [``y(0) = {}``][___________________]{Formula("0")} <<
+
+### Stacionární bod
+
+Rovnice má jeden stacionární bod. Najděte jej. 
+
+>> Stacionární bod je [``y_0={}``][______________]{$stac}. <<
+
+### Kvalitativní popis chování řešení
+
+Vyberete správné tvrzení, týkající se daného modelu. 
+
+[_]{$radio}
+
+
+_Obrázek: pixabay.com, autor Pexels_
 
 END_PGML
 
-BEGIN_PGML_HINT
-Proměnné odseparujeme po vynásobení rovnice
-[```  \frac{\mathrm dx}{\mathrm dt}=[$rovnice] ```]
-výrazem [``\mathrm dt ``] a [$akce] výrazem [`` [$co]``].
-END_PGML_HINT
-
-
 BEGIN_PGML_SOLUTION
-Po vynásobení rovnice
-[```  \frac{\mathrm dx}{\mathrm dt}=[$rovnice] ```]
-výrazem [``\mathrm dt ``] a [$akce] výrazem [`` [$co]``] dostáváme [``` [$uprava]=\mathrm dt.```]
-END_PGML_SOLUTION
 
-COMMENT('Uses PGML.');
+Modelem je diferenciální rovnice 
+[``` \frac{\mathrm dy}{\mathrm dt} = [$sol], ```]
+která má stacionární bod
+[``` x_0=[$stac]. ```]
+(Tento bod získáme jako nulový bod pravé strany.)
+K tomuto stacionárnímu bodu konvergují všechna řešení. Nezávisle na počáteční podmínce se nastolí rovnováha, kdy listí přibývá stejnou rychlostí jako se rozkládá.
+
+END_PGML_SOLUTION
 
 
 ENDDOCUMENT();
-
-
