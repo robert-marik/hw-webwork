@@ -10,8 +10,7 @@ loadMacros(
 TEXT(beginproblem());
 
 ADD_CSS_FILE("css/left.css");
-
-
+ADD_CSS_FILE("css/kod.css");
 
 BEGIN_PGML
 
@@ -32,7 +31,9 @@ Pro konkrétního dinosaura můžeme mít například
 [``` v(l)=0.8 l^{1.67}```]
 a jak bývá někdy v takovýchto situacích zvykem, neuvažujeme ve vzorci jednotky, ale doplníme k němu informaci, že délku kroku určujeme v metrech a rychlost v metrech za sekundu.
 
-**Úkol. Vypočtěte derivaci této funkce a najděte její fyzikální jednotku a slovní interpretaci.**
+**Úkol. Vypočtěte derivaci této funkce a najděte její fyzikální jednotku a slovní interpretaci. Formální náležitosti jsou popsány pod editačním polem.**
+
+
 
 END_PGML
 
@@ -46,7 +47,20 @@ END_TEXT
 
 BEGIN_PGML
 
-Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
+Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček, které dávají smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
+
+* Pro první úkol tohoto typu je k dispozici šablona.
+    [@ MODES( HTML => '<div class="alert alert-success" role="alert">', TeX => "", );@]*
+    _Derivace rychlosti [`v`] dinosaura podle délky kroku [`l`] je
+      [``` \frac{\mathrm dv}{\mathrm dt}=\cdots(\mathrm{dopsat}) .```] Tato derivace je v jednotkách ...(dopsat) a udává ... (dopsat slovní interpretaci derivace pro tento konkrétní případ)._
+    [@ MODES( HTML => '</div>', TeX => "", );@]*
+* Následující kód si můžete překopírovat do editačního pole a upravit.
+    ```
+Derivace rychlosti \(v\) dinosaura podle délky kroku \(l\) je
+\[ \frac{\mathrm dv}{\mathrm dt}=\cdots(\mathrm{dopsat}) .\]
+Tato derivace je v jednotkách ...(dopsat) a
+udává ... (dopsat slovní interpretaci derivace pro tento konkrétní případ).
+    ```
 
 Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
 
