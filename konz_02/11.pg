@@ -21,7 +21,6 @@ $data =
     otazka=>"Konstitutivní vztahy mezi skalárními veličinami, jako Fourierův zákon, Darcyho zákon, Fickův zákon, Hookův zákon, mají tvar přímé úměrnosti. Zaškrtněte správné vysvětlení tohoto fenoménu.",
     odpoved=>"Jedná se o lineární aproximace obecných zákonitostí. V aproximaci figuruje z podstaty věci funkce, procházející počátkem a proto jeden člen z lineární aproximace vypadne a zůstane přímá úměrnost.",
     moznosti=>[
-"Jedná se o lineární aproximace obecných zákonitostí. V aproximaci figuruje z podstaty věci funkce, procházející počátkem a proto jeden člen z lineární aproximace vypadne a zůstane přímá úměrnost.",
 "Je to důsledek známého jevu, že příroda je ze své podstaty lineární a všechny fyzikální zákonitosti mají tvar přímé úměrnosti.",
 "Je to důsledek spojitosti obou veličin. Závislosti mezi fyzikálními veličinami jsou z principu spojité.",
 "Není rozumné vysvětlení uvedeného fenoménu. Jevy popsané těmito zákony (vedení tepla, proudění podzemní vody, difuze, elastická deformace) mají všechny zcela jinou podstatu a proto neexistuje jednotné vysvětlení.",
