@@ -3,7 +3,7 @@
 # 1. Stáhnout z UIS Seznamy studentů, Všichni, csv, sestava s Id emaily loginy a identifikaci, prijmeni a jmeno; ulozit jako seznam_cp1250.csv
 # 2. Stáhnout bodovací arch csv, uložit jako bodovaci_arch.csv
 # 3. Spustit:
-#       iconv -f CP1250 -t UTF-8 seznam_cp1250.csv -o seznam_utf8.csv
+#       iconv -f CP1250 -t UTF-8 seznam_cp1250.csv > seznam_utf8.csv
 # 4. Smazat uvodni radky souboru bodovaci_arch.csv a seznam_utf8.csv
 # 5. Spustit:
 #       perl zpracuj_soubor_webwork.pl seznam_utf8.csv bodovaci_arch.csv
@@ -71,8 +71,13 @@ while (my $line = <$data>) {
 	$zakodovane_heslo=crypt($heslo,join"",(".","/",0..9,"A".."Z","a".."z")[rand 64,rand 64]);
 	my @detail = split / /, $data[6];
 	$comment = $detail[1];
-	$section = $detail[2];
+	$section = $detail[1];
 	$recitation = $detail[2];
+	if ( $recitation eq "komb" )
+	{
+	    $comment=$comment."_KOMB";
+	    $section=$section."_KOMB";
+	}
 	$txt_kod=$txt_kod.$data[3].",".$data[1].",".$data[2].",C,".$comment.",".$section.",".$recitation.",".$data[4].",".$data[5].",".$zakodovane_heslo.",\n";
 	$mydata{"\"".$data[5]."\""}="login: ".$data[5]."; heslo: ".$heslo;
 	print "login: ".$data[5].", heslo: ".$heslo;
