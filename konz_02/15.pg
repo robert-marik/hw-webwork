@@ -69,7 +69,7 @@ model do tvaru \[ \frac{\mathrm dy}{\mathrm dt}= \dots .\]
     Množství [`y`] enzymu produkovaného podle prvního modelu rychlostí úměrnou množství chybějícímu do maximální koncentrace [`M`] a spotřebovávaného konstatní rychlostí [`k`] je
     možno modelovat rovnicí
     [``` \frac{\mathrm dy}{\mathrm dt}= \dots ,```]
-    kde [`r`] je konstanta přímé úměrnosti.
+    kde [`r`] je konstanta přímé úměrnosti a [`q`] je konstantní spotřeba jinými chemickými procesy.
 
     Pokud je syntéza podle druhého modelu nepřímo úměrná množství enzymu, modifikuje se model do tvaru   [``` \frac{\mathrm dy}{\mathrm dt}= \dots,```]
     kde [`m`] je konstanta nepřímé úměrnosti.
