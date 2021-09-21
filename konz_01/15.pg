@@ -52,12 +52,12 @@ Odpovědí musí být ucelený smysluplný text, matematicky správně a celou v
 * Pro první úkol tohoto typu je k dispozici šablona.
     [@ MODES( HTML => '<div class="alert alert-success" role="alert">', TeX => "", );@]*
     _Derivace rychlosti [`v`] dinosaura podle délky kroku [`l`] je
-      [``` \frac{\mathrm dv}{\mathrm dt}=\cdots(\mathrm{dopsat}) .```] Tato derivace je v jednotkách ...(dopsat) a udává ... (dopsat slovní interpretaci derivace pro tento konkrétní případ)._
+      [``` \frac{\mathrm dv}{\mathrm dl}=\cdots(\mathrm{dopsat}) .```] Tato derivace je v jednotkách ...(dopsat) a udává ... (dopsat slovní interpretaci derivace pro tento konkrétní případ)._
     [@ MODES( HTML => '</div>', TeX => "", );@]*
 * Následující kód si můžete překopírovat do editačního pole a upravit.
     ```
 Derivace rychlosti \(v\) dinosaura podle délky kroku \(l\) je
-\[ \frac{\mathrm dv}{\mathrm dt}=\cdots(\mathrm{dopsat}) .\]
+\[ \frac{\mathrm dv}{\mathrm dl}=\cdots(\mathrm{dopsat}) .\]
 Tato derivace je v jednotkách ...(dopsat) a
 udává ... (dopsat slovní interpretaci derivace pro tento konkrétní případ).
     ```
