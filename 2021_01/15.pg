@@ -43,7 +43,7 @@ BEGIN_PGML
 
 ------
 
-O technickém psaní (například že jednotky se nepíšou do hranatých závorek) například [@ htmlLink("http://people.fsv.cvut.cz/www/vydra/files/Typograficka_Pravidla.pdf","zde") @]*. Pokud nechcete řešit zápis jednotek (měly by být textovým fontem a ne matematickou v kurzívou), můžete použít trik z přednášky (vypsat slovně).
+O technickém psaní (například že jednotky se nepíšou do hranatých závorek) například [@ htmlLink("http://people.fsv.cvut.cz/www/vydra/files/Typograficka_Pravidla.pdf","zde") @]*. Pokud nechcete řešit zápis jednotek (měly by být textovým fontem a ne matematickou v kurzívou), můžete je vypsat slovně. Pokud vám d ělá češtinářsky problém spojení slov "rychlost s jakou se mění rychlost", můžete použít obraty "změna rychlosti způsobená jednotkovou změnou ..."
 
 -----
 
@@ -75,11 +75,15 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-Pro funkci
-[``` v=0.25\cdot  \sqrt g \cdot l^{1.67}\cdot  h^{-1.17},```]
-platí
+Derivace rychlosti [`v`] dinosaura podle délky kroku [`l`] je
 [``` \frac{\partial v}{\partial l}=0.25\cdot  \sqrt g \cdot 1.67\cdot l^{0.67} \cdot h^{-1.17}.```]
 Tato paricální derivace má jednotku metr za sekundu na metr. Udává o kolik metrů za sekundu je vyšší rychlost při kroku o metr delším.
+
+Další formulace:
+
+* udává jak rychle se mění rychlost dinosaura se změnou délky kroku,
+* udává jak rychle se mění rychlost dinosaura s délkou kroku,
+* udává jak rychle se mění rychlost dinosaura jako funkce délky kroku.
 
 ----
 
