@@ -55,7 +55,7 @@ Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostateč
 * Následující kód si můžete překopírovat do editačního pole a upravit.
     ```
 Derivace rychlosti \(v\) dinosaura podle délky kroku \(l\) je
-\[ \frac{\partial v}{\partial dl}=\cdots(\mathrm{dopsat}) .\]
+\[ \frac{\partial v}{\partial l}=\cdots(\mathrm{dopsat}) .\]
 Tato derivace je v jednotkách ...(dopsat) a
 udává ... (dopsat slovní interpretaci derivace pro tento konkrétní případ).
     ```
