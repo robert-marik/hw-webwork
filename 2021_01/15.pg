@@ -83,7 +83,9 @@ Další formulace:
 
 * udává jak rychle se mění rychlost dinosaura se změnou délky kroku,
 * udává jak rychle se mění rychlost dinosaura s délkou kroku,
-* udává jak rychle se mění rychlost dinosaura jako funkce délky kroku.
+* udává jak rychle se mění rychlost dinosaura jako funkce délky kroku,
+* udává změnu rychlosti dinosaura při změně délky kroku o jednotku,
+* udává změnu rychlosti dinosaura způsobenou jednotkovou změnou délky kroku.
 
 ----
 
