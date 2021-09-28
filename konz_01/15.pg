@@ -82,19 +82,16 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-Pro funkci
-[``` v=0.8 l^{1.67}```]
-platí podle pravidla pro derivaci mocninné funkce
-[``` \frac{\mathrm dv}{\mathrm d l}=0.8 \cdot 1.67\cdot l^{0.67}.```]
-Tato derivace má jednotku metr za sekundu na metr. Udává o kolik metrů za sekundu je vyšší rychlost při kroku o metr delším.
+Derivace rychlosti \(v\) dinosaura podle délky kroku \(l\) je
+\[ \frac{\mathrm dv}{\mathrm dl}=0.8 \cdot 1.67\cdot l^{0.67}.\]
+Tato derivace má jednotku metr za sekundu na metr.
+Udává o kolik metrů za sekundu je vyšší rychlost dinosaura při kroku o metr delším.
 
 ----
 
 Pozn: Po zkrácení je jednotkou derivace převrácená hodnota sekundy, tj. Hertz. Je však logičtější jednotku nechat v metrech za sekundu na metr kvůli snazší interpretaci.
 
 Pozn: Psát znaménka pro násobení se obecně nedoporučuje, ale tady bych se k tomu i klonil vzhledem k tomu, že se mi nechtělo násobit desetinná čísla.
-
-
 
 END_PGML_SOLUTION
 

@@ -43,7 +43,7 @@ BEGIN_PGML
 
 ------
 
-O technickém psaní (například že jednotky se nepíšou do hranatých závorek) například [@ htmlLink("http://people.fsv.cvut.cz/www/vydra/files/Typograficka_Pravidla.pdf","zde") @]*. Pokud nechcete řešit zápis jednotek (měly by být textovým fontem a ne matematickou v kurzívou), můžete je vypsat slovně. Pokud vám d ělá češtinářsky problém spojení slov "rychlost s jakou se mění rychlost", můžete použít obraty "změna rychlosti způsobená jednotkovou změnou ..."
+O technickém psaní (například že jednotky se nepíšou do hranatých závorek) například [@ htmlLink("http://people.fsv.cvut.cz/www/vydra/files/Typograficka_Pravidla.pdf","zde") @]*. Pokud nechcete řešit zápis jednotek (měly by být textovým fontem a ne matematickou v kurzívou), můžete je vypsat slovně. Pokud vám dělá češtinářsky problém spojení slov "rychlost s jakou se mění rychlost", můžete použít obraty "změna rychlosti způsobená jednotkovou změnou ..."
 
 -----
 
