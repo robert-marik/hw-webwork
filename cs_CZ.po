@@ -425,7 +425,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Achievements.pm:266 /opt/webwork/webwork2/lib/WeBWorK/URLPath.pm:286
 msgid "Achievements"
-msgstr "Odznáčky"
+msgstr "Odznáčky a odměny"
 
 #: /opt/webwork/webwork2/lib/WeBWorK/ContentGenerator/Instructor/Index.pm:408
 msgid "Act as"
