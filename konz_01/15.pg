@@ -61,18 +61,21 @@ Derivace rychlosti \(v\) dinosaura podle délky kroku \(l\) je
 Tato derivace je v jednotkách ...(dopsat) a
 udává ... (dopsat slovní interpretaci derivace pro tento konkrétní případ).
     ```
-* Pokud bych se o něco podobného snažil například v příkladě s [@ htmlLink("https://user.mendelu.cz/marik/mtk/mat-slidy/cviceni/cviceni01.md.html#r%C5%AFst-ryby","růstem ryby ze cvičení") @], psal bych třeba následující
-    [@ MODES( HTML => '<div class="alert alert-success" role="alert">', TeX => "", );@]*
-    Derivace délky [`l`] ryby podle času [`t`] je
-      [``` \frac{\mathrm dl}{\mathrm dt}= 0.11811 t^2 -1.89 t + 10.033.```] Tato derivace je v jednotkách centimetr za rok a udává rychlost, s jako roste délka ryby jako funkce času.
 
 ---
 
-    Tato varianta umožní vyhnout se konkrétním jednotkám a pojmu rychlost: 
-    Derivace délky [`l`] ryby podle času [`t`] je
-      [``` \frac{\mathrm dl}{\mathrm dt}= 0.11811 t^2 -1.89 t + 10.033.```] Tato derivace je v jednotkách délky za jednotku času. Udává změnu délky ryby po uplynutí jednotky času.
+Pokud bych se o něco podobného snažil například v příkladě s [@ htmlLink("https://user.mendelu.cz/marik/mtk/mat-slidy/cviceni/cviceni01.md.html#r%C5%AFst-ryby","růstem ryby ze cvičení") @]*, psal bych třeba následující
+[@ MODES( HTML => '<div class="alert alert-success" role="alert">', TeX => "", );@]*
+Derivace délky [`l`] ryby podle času [`t`] je
+[``` \frac{\mathrm dl}{\mathrm dt}= 0.11811 t^2 -1.89 t + 10.033.```] Tato derivace je v jednotkách centimetr za rok a udává rychlost, s jako roste délka ryby jako funkce času.
 
-    [@ MODES( HTML => '</div>', TeX => "", );@]*
+---
+
+Tato varianta umožní vyhnout se konkrétním jednotkám a pojmu rychlost: 
+Derivace délky [`l`] ryby podle času [`t`] je
+[``` \frac{\mathrm dl}{\mathrm dt}= 0.11811 t^2 -1.89 t + 10.033.```] Tato derivace je v jednotkách délky za jednotku času. Udává změnu délky ryby po uplynutí jednotky času.
+
+[@ MODES( HTML => '</div>', TeX => "", );@]*
 
 
 Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
