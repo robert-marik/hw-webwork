@@ -112,8 +112,8 @@ Výše uvedená formulace jde cestou nejmenšího odporu. Jednotka se zapisuje s
 
 
 Kdo derivoval původní Alexandrovu funkci 
-[``` v=0.25 \cdot \sqrt g \cdot l^{1.67} \cdot h^{-1.17},```]
-a chápe ji jako funkci proměnné [`l`] s paraemtry [`g`] a [`h`], dostává
+[``` v=0.25 \cdot \sqrt g \cdot l^{1.67} \cdot h^{-1.17}```]
+a chápe ji jako funkci proměnné [`l`] s parametry [`g`] a [`h`], dostává
 [``` \frac{\mathrm dv}{\mathrm dl}=0.25 \cdot \sqrt g \cdot 1.67 \cdot l^{0.67} \cdot h^{-1.17}.```]
 
 
