@@ -103,12 +103,12 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-Derivace rychlosti [`v`] dinosaura podle délky kroku [`l`] je
+**Derivace rychlosti [`v`] dinosaura podle délky kroku [`l`] je
 [``` \frac{\mathrm dv}{\mathrm dl}=1.336 l^{0.67}.```]
 Tato derivace má jednotku metr za sekundu na metr.
-Udává o kolik metrů za sekundu je vyšší rychlost dinosaura při kroku o metr delším.
+Udává o kolik metrů za sekundu je vyšší rychlost dinosaura při kroku o metr delším.**
 
-Výše uvedená formulace jde cestou nejmenšího odporu. Jednotka se zapisuje slovy a slovní interpretace se neopírá o to, že derivace je rychlost změny, protože bychom skončili u trošku krkolomného obratu "rychlost s jakou se mění rychlost". Proto jsem využil formulaci, že derivace je změna funkce na výstupu při jednotkové změně vstupních dat. Ale není to nutné. Jiná odpověď může vypadat například tako: Tato derivace má jednotku [`\mathrm s^{-1}`] a udává rychlost s jakou roste rychlost dinosaura jako funkce délky kroku.
+Výše uvedená formulace jde cestou nejmenšího odporu. Jednotka se zapisuje slovy a slovní interpretace se neopírá o to, že derivace je rychlost změny, protože bychom skončili u trošku krkolomného obratu "rychlost s jakou se mění rychlost". Proto jsem využil formulaci, že derivace je změna funkce na výstupu při jednotkové změně vstupních dat. Ale není to nutné. Jiná odpověď může vypadat například tako: **Tato derivace má jednotku [`\mathrm s^{-1}`] a udává rychlost s jakou roste rychlost dinosaura jako funkce délky kroku.**
 
 
 Kdo derivoval původní Alexandrovu funkci 
