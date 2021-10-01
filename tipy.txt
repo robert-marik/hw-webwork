@@ -72,4 +72,9 @@ $("td:contains('There are no answers for this student.')").parent().css("display
 $("textarea[name$='comment']:empty").css("background-color","#FAA");
 
 
+# Skryje nevyplnene reakce a reakce, ktere v sobe nemaji text OK. Slouzi ke
+# kontrole, ze vsichni co maji v komentari OK maji 100 procent.
+
+$("textarea[name$='comment']:not(:contains('OK'))").parent().parent().css("display","none");
+$("td:contains('There are no answers for this student.')").parent().css("display","none");
 
