@@ -18,7 +18,7 @@ do { $b=non_zero_random(2,8) } until ( $b != $a );
 $c=non_zero_random(1,10);
 do {$d=non_zero_random(-10,10); } until ( $c != $d );
 
-Context("Numeric")->variables->are($var=>['Real',limits=>[2,5]],$par=>['Real',limits=>[2,5]]);
+Context("Numeric")->variables->are($var=>['Real',limits=>[1,2]],$par=>['Real',limits=>[1,2]]);
 
 $f=Formula("$par*[$var]^$a+$d*[$var]^$b+$c")->reduce();   # funkce
 $vzorec1=Formula("$a*($var)^($a-1)")->reduce();
