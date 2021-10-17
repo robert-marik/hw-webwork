@@ -45,7 +45,7 @@ Nyní zkusíme něco podobného s jinými hodnotami.
 
 Vypočtěte následující neurčitý a určitý integrál.
 
->>[``\int [$funkce]\,\mathrm dt ={}``][_________________________]{$prim->cmp(upToConstant=>1)} <<
+>>[``\int [$funkce]\,\mathrm dt ={}``][_________________________]{$prim->cmp(upToConstant=>1)}[``+C``] <<
 
 >>[``\int_{0}^{[$a]} [$funkce]\,\mathrm dt ={}``][_________________________]{$int} <<
 
