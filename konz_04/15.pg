@@ -54,7 +54,10 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
+Je-li [`r(t)`] rychlost růstu koncentrace radonu, vyjadřuje integrál
+[``` \int_0^T r(t)\mathrm dt```] nárůst koncentrace radonu za časový interval délky [`T`] od počátku měření času.
 
+Poznámka: Protože uvažujeme zpravidla pořád stejnou místnost, je koncentrace vlastně vyjádřením množství (jsou si přímo úměrné a pro vhodnou volbu jednotek numericky rovny) a proto je možné říci i že integrál vyjadřuje nárůst množství radonu. Pokud by byla jistota, že na začátku není žádný radon, bylo by možno psát místo "nárůst koncentrace" nebo "nárůst množstí" i "koncentrace po uplynutí času [`T`]."
 
 END_PGML_SOLUTION
 
