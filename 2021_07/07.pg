@@ -64,7 +64,7 @@ Ukažte, že integrál nezávisí na integrační cestě a určete skalární po
 
 >>[``\varphi(x,y)={}``][_________________]{$potencial->cmp(upToConstant=>1)}<<
 
-Určete počáteční a koncový bod křivky. Hodnoty zadávejte ve tvaru uspořádané dvojice v hranaté nebo kulaté závorce, například *( -2, 3 )* nebo *\[ 12, 7-sin(pi/6) \]*
+Určete počáteční a koncový bod křivky. Hodnoty zadávejte ve tvaru uspořádané dvojice v kulaté závorce, například *( -2, 3 )* nebo *( 12, 7-sin(pi/6) )*
 
 >>Počátek: [____________]{$start}<<
 
