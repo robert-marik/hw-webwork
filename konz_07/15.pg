@@ -52,7 +52,7 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-Vlastní směry jsou směry souřadných os a vlastní čísla jsou čísla v hlavní diagonále.
+Vlastní směry diagonální matice jsou směry souřadných os. Vlastní čísla jsou čísla v hlavní diagonále.
 
 
 END_PGML_SOLUTION
