@@ -73,7 +73,7 @@ BEGIN_PGML_SOLUTION
 Modelem je diferenciální rovnice 
 [``` \frac{\mathrm dy}{\mathrm dt} = [$sol], ```]
 která má stacionární bod
-[``` x_0=[$stac]. ```]
+[``` y_0=[$stac]. ```]
 (Tento bod získáme jako nulový bod pravé strany.)
 K tomuto stacionárnímu bodu konvergují všechna řešení. Nezávisle na počáteční podmínce se nastolí rovnováha. V rovnováze listí přibývá stejnou rychlostí jako se rozkládá.
 
