@@ -77,7 +77,7 @@ která má stacionární bod
 (Tento bod získáme jako nulový bod pravé strany.)
 K tomuto stacionárnímu bodu konvergují všechna řešení. Nezávisle na počáteční podmínce se nastolí rovnováha. V rovnováze listí přibývá stejnou rychlostí jako se rozkládá.
 
-Stavu, kdy nejsou na počátku žádné listy odpovídá podmínka [`y(0)=0`].
+Stavu, kdy nejsou na počátku žádné listy, odpovídá podmínka [`y(0)=0`].
 
 END_PGML_SOLUTION
 
