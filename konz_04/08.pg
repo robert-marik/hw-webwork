@@ -79,7 +79,7 @@ END_PGML_HINT
 BEGIN_PGML_SOLUTION
 Musíte sečíst současnou velikost populace a nárůst za nejbližší tři roky. Současná velikost populace je zadána v textu. Změna je vyjádřena určitým integrálem rychlosti v příslušných mezích.
 Celková hodnota po uplynutí daného času je tedy
-[```5000 + \int_0^3 (50+10\sqrt t)\,\mathrm dt.```]
+[```5000 + \int_0^{36} (50+10\sqrt t)\,\mathrm dt.```]
 END_PGML_SOLUTION
 
 ENDDOCUMENT();
