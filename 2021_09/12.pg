@@ -23,8 +23,13 @@ Uvažujme autonomní systém
 \frac{\mathrm dy}{\mathrm dt}&= g(x,y)
 \end{aligned}```]
 v rovině a jeho stacionární bod [``(x_0,y_0)``].
-V tomto bodě máme určenu Jacobiho matici a její vlsatní čísla. V každém z následujících případů rozhodněte, jaký stacionární bod odpovídá zadaným vlastním číslům.
+V tomto bodě máme určenu Jacobiho matici a její vlastní čísla. V každém z následujících případů rozhodněte, jaký stacionární bod odpovídá zadaným vlastním číslům.
 
+**Praktický postup**
+
+* Jsou vlastní čísla reálná nebo komplexní? Pokud reálná, řešení dospějí k stacionárnímu bodu z určitého směru nebo vychází určitým směrem. Pokud jsou komplexně sdružená, dochází k oscilacím a bod je ohnisko. Toto kriterium odliší ohniska od zbytku.
+* Každé kladné reálné číslo nebo komplexní s kladnou reálnou částí znamená, že nějaké řešení vychází ze stacionárního bodu. Každé záporné reálné číslo nebo komplexní se zápornou reálnou částí znamená, že nějaké řešení míří do stacionárního bodu. Toto kriterium odliší sedlo od zbytku, sedlo je jediný stacionární bod, kde je kladné i záporné vlastní číslo. U ostatních případů to rozliší stabilitu.
+* Pokud tedy pomineme sedlo, máme buď ohnisko nebo uzel a to stabilní nebo nestabilní. Mezi ohniskem a uzlem se rozhodneme podle toho, zda jsou vlastní čísla reálná nebo komplexní. Pokud toto rozlišení provedeme, rozhodneme o stabilitě podle toho, zda jsou vlastní čísla kladná (nebo jestli mají kladné reálné části v případě ohniska) nebo záporná.
 
 END_PGML
 

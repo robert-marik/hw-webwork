@@ -1202,7 +1202,7 @@ msgstr ""
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:1104 /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:126 /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:903
 msgid "Choose the set which you would like to resurrect."
-msgstr "Vyberte sadu úloh, kterou chcete znovu otevřít."
+msgstr "Vyberte sadu úloh, kterou chcete použít pro vybranou odměnu."
 
 #: /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:216 /opt/webwork/webwork2/lib/WeBWorK/AchievementItems.pm:299
 msgid "Choose the set whose close date you would like to extend."
