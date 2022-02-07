@@ -47,6 +47,9 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
+Rovnice se ve stacionárním stavu, v jedné dimenzi a bez zdrojů redukuje na
+[``` 0 = k\frac {\mathrm d^2 T}{\mathrm dx^2}.```]
+To znamená, že druhá derivace je nulová a dvojím integrováním dostaneme, že teplota je lineární funkcí polohy. Teplota ve stěně klesá lineárně (konstantní rychlostí).
 
 
 END_PGML_SOLUTION
