@@ -45,8 +45,8 @@ BEGIN_PGML
 
 Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
 
-* Videoshrnutí nejčastějších chyb je například [@ htmlLink("https://youtu.be/yR57IHcZNyo",zde) @].
-* Ukázka chyb, kterých se dopouštěli vaši předchůdci (při řešení jiného příkladu) je [@ htmlLink("https://user.mendelu.cz/marik/am/slidy/latex/index.html#komentovan%C3%A9-uk%C3%A1zky-chybn%C3%BDch-z%C3%A1pis%C5%AF",zde) @].
+* Videoshrnutí nejčastějších chyb je například [@ htmlLink("https://youtu.be/yR57IHcZNyo",zde) @]*.
+* Ukázka chyb, kterých se dopouštěli vaši předchůdci (při řešení jiného příkladu) je [@ htmlLink("https://user.mendelu.cz/marik/am/slidy/latex/index.html#komentovan%C3%A9-uk%C3%A1zky-chybn%C3%BDch-z%C3%A1pis%C5%AF",zde) @]*.
 * O technickém psaní obecně (například že jednotky se nepíšou do hranatých závorek) například [@ htmlLink("http://people.fsv.cvut.cz/www/vydra/files/Typograficka_Pravidla.pdf","zde") @]*. 
 * Pokud nechcete řešit zápis jednotek (měly by být textovým fontem a ne matematickou v kurzívou), můžete je vypsat slovně. 
 * Pokud vám dělá češtinářsky problém spojení slov "rychlost s jakou se mění rychlost", můžete použít obraty "změna rychlosti způsobená jednotkovou změnou ..."
