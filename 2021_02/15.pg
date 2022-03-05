@@ -60,12 +60,10 @@ BEGIN_PGML_SOLUTION
 
 Například:
 
-* Difuzní tok [``\vec j``] souvisí s koncentrací [`c`] vztahem [``` \vec j=D\nabla c,```] kde [`D`] je tenzorový difuzní koeficient.
-* Difuzní tok [``\vec j``] souvisí s gradientem koncentrace [` \nabla c`] vztahem [``` \vec j=D\nabla c,```] kde [`D`] je matice difuzních koeficientů.
-* Difuzní tok [``\vec j``] je dán vztahem [``` \vec j=D\nabla c,```] kde [`D`] je matice difuzních koeficientů a  [` \nabla c`] gradient koncentrace.
+* Difuzní tok [``\vec j``] souvisí s koncentrací [`c`] vztahem [``` \vec j=-D\nabla c,```] kde [`D`] je tenzorový difuzní koeficient.
+* Difuzní tok [``\vec j``] souvisí s gradientem koncentrace [` \nabla c`] vztahem [``` \vec j=-D\nabla c,```] kde [`D`] je matice difuzních koeficientů.
+* Difuzní tok [``\vec j``] je dán vztahem [``` \vec j=-D\nabla c,```] kde [`D`] je matice difuzních koeficientů a  [` \nabla c`] gradient koncentrace.
 * ... Aby byla splněna podmínka tenzorového tvaru, musí na obou stranách rovnice figurovat vektory a "konstanta úměrnosti" musí být matice. 
-
-Poznámka: Často se objevující formulace "Fourierův zákon říká, že vektor hustoty tepelného toku [`q`] je úměrný gradientu teploty [`{\displaystyle \nabla t}`] a má opačný směr." nesplňuje zadání. Jedná se o skalární zjednodušenou závislost. V zadání byla požadována tenzorová formulace a v tomto případě nemusí mít vektory opačný směr.
 
 END_PGML_SOLUTION
 
