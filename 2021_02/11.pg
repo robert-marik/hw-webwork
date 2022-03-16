@@ -47,7 +47,7 @@ Uvažujme dvourozměrný homogenní a ortotropní  materiál, kde jsou osy zvole
 
 Konkrétně pro rozložení teploty dané funkcí [``` T(x,y)=x^2+xy```]  a koeficient tepelné vodivosti [`\lambda=\begin{pmatrix}0.3&0\\0&0.5\end{pmatrix}`] je gradientem teploty vektor [`\nabla T=\begin{pmatrix} 2x+y\\x\end{pmatrix}`] a tok tepla je dán vztahem
 [```\vec q=-\lambda \nabla T=-\begin{pmatrix}0.3&0\\0&0.5\end{pmatrix} \begin{pmatrix} 2x+y\\x\end{pmatrix}
-=\begin{pmatrix} -0.6x-0.3y\\0.5x\end{pmatrix}.```]
+=\begin{pmatrix} -0.6x-0.3y\\-0.5x\end{pmatrix}.```]
 Připomeňme, že při násobení diagonální matice a sloupcového vektoru se maticový součin redukuje na to, že násobíme jednotlivé řádky (komponenty) vektoru odpovídajícími čísly z diagonály matice. 
 
 Následující příklad je analogický, jenom s jinými čísly, jinými funkcemi. Z důvodů vynucených programem jsou matice ohraničeny hranatými závorkami namísto kulatých.
