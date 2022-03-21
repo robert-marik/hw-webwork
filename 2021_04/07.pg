@@ -38,12 +38,12 @@ $showHint = 1;
 Context("Vector");
 
 Context()->variables->are(x=>"Real",y=>"Real");
-Context()->flags->set(ijk=>1 );
-Context()->constants->set(
-  i => {TeX => "\,\mathit{\vec i}"},
-  j => {TeX => "\,\mathit{\vec j}"},
-  k => {TeX => "\,\mathit{\vec k}"},
-);
+#Context()->flags->set(ijk=>1 );
+#Context()->constants->set(
+#  i => {TeX => "\,\mathit{\vec i}"},
+#  j => {TeX => "\,\mathit{\vec j}"},
+#  k => {TeX => "\,\mathit{\vec k}"},
+#);
 
 @f=();
 @v=();

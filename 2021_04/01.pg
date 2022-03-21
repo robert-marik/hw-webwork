@@ -24,13 +24,13 @@ $v3=random(-2,2,1);
 } until ($v2 != 0);
 
 Context("Vector");
-Context()->flags->set(ijk=>1 );
+#Context()->flags->set(ijk=>1 );
 Context()->flags->set( reduceConstants => 0,reduceConstantFunctions => 0);
-Context()->constants->set(
-  i => {TeX => "\,\mathit{\vec i}"},
-  j => {TeX => "\,\mathit{\vec j}"},
-  k => {TeX => "\,\mathit{\vec k}"},
-);
+#Context()->constants->set(
+#  i => {TeX => "\,\mathit{\vec i}"},
+#  j => {TeX => "\,\mathit{\vec j}"},
+#  k => {TeX => "\,\mathit{\vec k}"},
+#);
 	
 $u=Vector("<$u1,$u2,$u3>");
 $v=Vector("<$v1,$v2,$v3>");

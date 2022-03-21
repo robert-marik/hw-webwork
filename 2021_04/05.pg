@@ -15,12 +15,12 @@ Context("Vector");
 $par = list_random('a','b','n','m','c','r');
 
 Context()->variables->are(x=>"Real",y=>"Real",$par=>"Real");
-Context()->flags->set(ijk=>1 );
-Context()->constants->set(
-  i => {TeX => "\,\mathit{\vec i}"},
-  j => {TeX => "\,\mathit{\vec j}"},
-  k => {TeX => "\,\mathit{\vec k}"},
-);
+#Context()->flags->set(ijk=>1 );
+#Context()->constants->set(
+#  i => {TeX => "\,\mathit{\vec i}"},
+#  j => {TeX => "\,\mathit{\vec j}"},
+#  k => {TeX => "\,\mathit{\vec k}"},
+#);
 
 $u1="\frac{\partial }{\partial x}";
 $u2="\frac{\partial }{\partial y}";
