@@ -14,12 +14,12 @@ $showHint = 1;
 Context("Vector2D");
 
 Context()->variables->are(t=>"Real",x=>"Real",y=>"Real");
-Context()->flags->set(ijk=>1 );
-Context()->constants->set(
-  i => {TeX => "\,\mathit{\vec i}"},
-  j => {TeX => "\,\mathit{\vec j}"},
-  k => {TeX => "\,\mathit{\vec k}"},
-);
+#Context()->flags->set(ijk=>1 );
+#Context()->constants->set(
+#  i => {TeX => "\,\mathit{\vec i}"},
+#  j => {TeX => "\,\mathit{\vec j}"},
+#  k => {TeX => "\,\mathit{\vec k}"},
+#);
 
 $a=non_zero_random(-2,2,1);
 $b=non_zero_random(-4,4,1);
