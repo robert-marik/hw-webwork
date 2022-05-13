@@ -23,7 +23,7 @@ $e = non_zero_random(-4,4);
 $c = -($a) - ($b);
 $l = $e - ($d);
 
-$f=Formula("$a*x*y^2+($b)*x*y-($c)")->reduce();
+$f=Formula("$a*x*y^2+($b)*x*y+($c)")->reduce();
 $g=Formula("$d*x^2*y-($e)*y^2+($l)")->reduce();
 
 $dfx=Formula("$a*y^2+($b)*y")->reduce();
