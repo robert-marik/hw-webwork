@@ -205,5 +205,5 @@ Poznamky
 ( defined($problem) && defined($problem->set_id) && $introproblems{$problem->set_id} &&
     ($introproblems{$problem->set_id}{$problem->problem_id} ))
 
-* Zkontrolovat odmeny, Box of transmogrification neudelovat.
+* Zkontrolovat odmeny, Box of transmogrification neudelovat (DuplicateProb, level 5).
 
