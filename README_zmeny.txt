@@ -10,6 +10,8 @@ Do kazde sady dat neco s desetinnym cislem
 * Prozkoumat nutnost commitu ve skriptu, ktery meni data uzivatelu
 * Randomizovat příklad s plejtvákem (aplikovana)
 
+Pridat neco jako: voda v sudu za 30 minut vzroste z 100mm na 120mm. Odhadnete derivaci vysky vody podle casu.
+
 
 
 Pred upgradem na 2.16 je asi potreba doinstalovat knihovny:
