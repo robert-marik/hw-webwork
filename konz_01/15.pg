@@ -1,0 +1,54 @@
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("css/left.css");
+
+
+
+BEGIN_PGML
+
+
+## Pøímá a nepøímá úmìrnost
+
+* Mezi velièinami [`x`] a [`y`] je vztah pøímé úmìrnosti, pokud existuje reálná konstanta [`k`] taková, ¾e platí [```y=kx.```] 
+* Mezi velièinami [`x`] a [`y`] je vztah nepøímé úmìrnosti, pokud existuje reálná konstanta [`k`] taková, ¾e platí [```y=\frac kx.```] 
+
+Nejpøesnìj¹ím vyjadøovacím nástrojem matematiky je symbolika vyu¾ívající smluvených znaèek pro matematické operace a matematické promìnné. Nìkdy je v¹ak vhodné umìt vyjádøit my¹lenky jenom prostøednictvím bì¾ného jazyka. 
+
+**Úkol pro tento týden: Zkuste øíci, co je pøímá a nepøímá úmìrnost co nejjednodu¹¹í formou jenom pøirozeným jazykem. Tak, aby formulace byla co nejpochopitelnìj¹í, tedy napøíklad bez obratù typu "ypsilon je rovno ká krát iks".**
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box(25,80)\}
+END_TEXT
+
+
+
+BEGIN_PGML
+
+Hodnocení bude mírné, 100 procent za jakýkoliv srozumitelný komentáø. Hlavní v této úloze není sbìr bodù, ale proèíst si reakci na Va¹i odpovìï (bude-li mezi vybranými) a pouèit se z reakcí na odpovìdi kolegù.
+
+END_PGML
+
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+BEGIN_PGML_SOLUTION
+
+...
+
+END_PGML_SOLUTION
+
+
+
+ENDDOCUMENT();
