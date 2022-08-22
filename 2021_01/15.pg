@@ -4,7 +4,6 @@ loadMacros(
 "PGML.pl",
 "MathObjects.pl",
 "PGessaymacros.pl",
-"PGessayLivePreviewAce.pl",
 "PGcourse.pl",
 );
 TEXT(beginproblem());
@@ -16,18 +15,14 @@ ADD_CSS_FILE("css/left.css");
 BEGIN_PGML
 
 
+## P��m� a nep��m� �m�rnost
 
-## Slovní interpretace parciální derivace
+* Mezi veli�inami [`x`] a [`y`] je vztah p��m� �m�rnosti, pokud existuje re�ln� konstanta [`k`] takov�, �e plat� [```y=kx.```] 
+* Mezi veli�inami [`x`] a [`y`] je vztah nep��m� �m�rnosti, pokud existuje re�ln� konstanta [`k`] takov�, �e plat� [```y=\frac kx.```] 
 
-[@ image("dinosaurus.jpg", width=>400) @]*
+Nejp�esn�j��m vyjad�ovac�m n�strojem matematiky je symbolika vyu��vaj�c� smluven�ch zna�ek pro matematick� operace a matematick� prom�nn�. N�kdy je v�ak vhodn� um�t vyj�d�it my�lenky jenom prost�ednictv�m b�n�ho jazyka. 
 
-Rychlost jakou dosahovali dvounozí dinosauři se dá odhadnout ze vzdálenosti jejich stop a z délky stehenní kosti. První takový odhad představil v roce 1976 bristký zoolog [@ htmlLink("https://en.wikipedia.org/wiki/Robert_McNeill_Alexander","Robert McNeill Alexander")@]* ve tvaru
-[``` v=0.25 \sqrt g l^{1.67} h^{-1.17},```]
-tj. (ve tvaru s explicitně zapsanými znaménky pro součin)
-[``` v=0.25 \cdot \sqrt g \cdot  l^{1.67} \cdot h^{-1.17},```]
-kde [`v`] je rychlost dinosaura v metrech za sekundu, [`h`] je (zjednodušeně řečeno) délka stehenní kosti v metrech, [`l`] je délka kroku v metrech a [`g`] je tíhové zrychlení v metrech za sekundu na druhou.
-
-**ÚKOL: Vypočtěte parciální derivaci rychlosti podle délky kroku a najděte její fyzikální jednotku a slovní interpretaci. Vytvořte text, který je matematicky správně a neobsahuje typografické prohřešky (viz instrukce pod editačním polem).**
+**�kol pro tento t�den: Zkuste ��ci, co je p��m� a nep��m� �m�rnost co nejjednodu��� formou jenom p�irozen�m jazykem. Tak, aby formulace byla co nejpochopiteln�j��, tedy nap��klad bez obrat� typu "ypsilon je rovno k� kr�t iks".**
 
 END_PGML
 
@@ -40,35 +35,7 @@ END_TEXT
 
 BEGIN_PGML
 
-
-------
-
-Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
-
-* Videoshrnutí nejčastějších chyb je například [@ htmlLink("https://youtu.be/yR57IHcZNyo",zde) @]*.
-* Ukázka chyb, kterých se dopouštěli vaši předchůdci (při řešení jiného příkladu) je [@ htmlLink("https://user.mendelu.cz/marik/am/slidy/latex/index.html#komentovan%C3%A9-uk%C3%A1zky-chybn%C3%BDch-z%C3%A1pis%C5%AF",zde) @]*.
-* O technickém psaní obecně (například že jednotky se nepíšou do hranatých závorek) například [@ htmlLink("http://people.fsv.cvut.cz/www/vydra/files/Typograficka_Pravidla.pdf","zde") @]*. 
-* Pokud nechcete řešit zápis jednotek (měly by být textovým fontem a ne matematickou v kurzívou), můžete je vypsat slovně. 
-* Pokud vám dělá češtinářsky problém spojení slov "rychlost s jakou se mění rychlost", můžete použít obraty "změna rychlosti způsobená jednotkovou změnou ..."
-
------
-
-Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
-
-
-* Následující kód si můžete překopírovat do editačního pole a upravit.
-    ```
-Derivace rychlosti \(v\) dinosaura podle délky kroku \(l\) je
-\[ \frac{\partial v}{\partial l}=\cdots(\mathrm{dopsat}) .\]
-Tato derivace je v jednotkách ...(dopsat) a
-udává ... (dopsat slovní interpretaci derivace pro tento konkrétní případ).
-    ```
-* _Pro pohodlnou tvorbu textu můžete využít nástroj [@ htmlLink("http://user.mendelu.cz/marik/latexovatko","LaTeXovátko") @]*. Tam si také můžete do editoru nakliknout repertoár textů a ty upravovat a sledovat efekt jednotlivých úprav._
-* _Můžete využít [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "nápovědu") @]*  pro LaTeX s ukázkami kódů pro vykopírování. Odkaz otevřete pravým tlačítkem v novém panelu, aby Vám zůstala otevřená i stránka, kterou čtete._
-* _Další ukázky jsou všechny vzorce v programu WeBWorK a v přednáškách. Použijte pravé tlačítko a zobrazení kódu v programu TeX, tj. Show Math As a TeX commands._
-
-
-_Obrázek: pixabay.com, DariuszSankowski_
+Hodnocen� bude m�rn�, 100 procent za jak�koliv srozumiteln� koment��. Hlavn� v t�to �loze nen� sb�r bod�, ale pro��st si reakci na Va�i odpov�� (bude-li mezi vybran�mi) a pou�it se z reakc� na odpov�di koleg�.
 
 END_PGML
 
@@ -76,29 +43,12 @@ END_PGML
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 
-
 BEGIN_PGML_SOLUTION
 
-Derivace rychlosti [`v`] dinosaura podle délky kroku [`l`] je
-[``` \frac{\partial v}{\partial l}=0.25\cdot  \sqrt g \cdot 1.67\cdot l^{0.67} \cdot h^{-1.17}.```]
-Tato paricální derivace má jednotku metr za sekundu na metr. Udává o kolik metrů za sekundu je vyšší rychlost při kroku o metr delším.
-
-Další formulace:
-
-* udává jak rychle se mění rychlost dinosaura se změnou délky kroku,
-* udává jak rychle se mění rychlost dinosaura s délkou kroku,
-* udává jak rychle se mění rychlost dinosaura jako funkce délky kroku,
-* udává změnu rychlosti dinosaura při změně délky kroku o jednotku,
-* udává změnu rychlosti dinosaura způsobenou jednotkovou změnou délky kroku.
-
-----
-
-Pozn: Po zkrácení je jednotkou derivace převrácená hodnota sekundy, tj. Hertz. Je však logičtější jednotku nechat v metrech za sekundu na metr kvůli snazší interpretaci.
-
-Pozn: Psát znaménka pro násobení se obecně nedoporučuje, ale tady bych se k tomu i klonil vzhledem k tomu, že se mi nechtělo násobit desetinná čísla.
-
-
+...
 
 END_PGML_SOLUTION
+
+
 
 ENDDOCUMENT();
