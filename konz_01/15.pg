@@ -1,4 +1,5 @@
 DOCUMENT(); 
+
 loadMacros(
 "PGstandard.pl",
 "PGML.pl",
@@ -10,32 +11,35 @@ TEXT(beginproblem());
 
 ADD_CSS_FILE("css/left.css");
 
+TEXT(MODES(
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
+));
 
 
 BEGIN_PGML
 
 
-## Pøímá a nepøímá úmìrnost
+## PÅ™Ã­mÃ¡ a nepÅ™Ã­mÃ¡ ÃºmÄ›rnost
 
-* Mezi velièinami [`x`] a [`y`] je vztah pøímé úmìrnosti, pokud existuje reálná konstanta [`k`] taková, ¾e platí [```y=kx.```] 
-* Mezi velièinami [`x`] a [`y`] je vztah nepøímé úmìrnosti, pokud existuje reálná konstanta [`k`] taková, ¾e platí [```y=\frac kx.```] 
+* Mezi veliÄinami [`x`] a [`y`] je vztah pÅ™Ã­mÃ© ÃºmÄ›rnosti, pokud existuje reÃ¡lnÃ¡ konstanta [`k`] takovÃ¡, Å¾e platÃ­ [```y=kx.```] 
+* Mezi veliÄinami [`x`] a [`y`] je vztah nepÅ™Ã­mÃ© ÃºmÄ›rnosti, pokud existuje reÃ¡lnÃ¡ konstanta [`k`] takovÃ¡, Å¾e platÃ­ [```y=\frac kx.```] 
 
-Nejpøesnìj¹ím vyjadøovacím nástrojem matematiky je symbolika vyu¾ívající smluvenıch znaèek pro matematické operace a matematické promìnné. Nìkdy je v¹ak vhodné umìt vyjádøit my¹lenky jenom prostøednictvím bì¾ného jazyka. 
+NejpÅ™esnÄ›jÅ¡Ã­m vyjadÅ™ovacÃ­m nÃ¡strojem matematiky je symbolika vyuÅ¾Ã­vajÃ­cÃ­ smluvenÃ½ch znaÄek pro matematickÃ© operace a matematickÃ© promÄ›nnÃ©. Jako v pÅ™edchozÃ­ch odrÃ¡Å¾kÃ¡ch. To Äasto vede i k nejkratÅ¡Ã­m vyjÃ¡dÅ™enÃ­m, protoÅ¾e nenÃ­ nutnÃ© sÃ¡hodlouze opisovat vÄ›c, pro kterou mÃ¡me matematickÃ½ symbol. NÄ›kdy je vÅ¡ak vhodnÃ© umÄ›t vyjÃ¡dÅ™it myÅ¡lenky jenom prostÅ™ednictvÃ­m bÄ›Å¾nÃ©ho jazyka. 
 
-**Úkol pro tento tıden: Zkuste øíci, co je pøímá a nepøímá úmìrnost co nejjednodu¹¹í formou jenom pøirozenım jazykem. Tak, aby formulace byla co nejpochopitelnìj¹í, tedy napøíklad bez obratù typu "ypsilon je rovno ká krát iks".**
+**Ãškol pro tento tÃ½den: Zkuste Å™Ã­ci, co je pÅ™Ã­mÃ¡ a nepÅ™Ã­mÃ¡ ÃºmÄ›rnost mezi dvÄ›ma veliÄinami. Co nejjednoduÅ¡Å¡Ã­ formou a jenom pÅ™irozenÃ½m jazykem, tedy napÅ™Ã­klad bez obratÅ¯ typu "ypsilon je rovno kÃ¡ krÃ¡t iks". Tak, aby formulace byla co nejpochopitelnÄ›jÅ¡Ã­. SrozumitelnÃ½ text je pokud moÅ¾no krÃ¡tkÃ½ a pokud to povaha sdÄ›lenÃ­ umoÅ¾Åˆuje, snaÅ¾Ã­me se do nÄ›j nevklÃ¡dat komplikovanÃ¡ slova a komplikovanÃ© myÅ¡lenkovÃ© pochody.**
 
 END_PGML
 
 
 BEGIN_TEXT
-\{essay_box(25,80)\}
+\{essay_box(10,80)\}
 END_TEXT
 
 
 
 BEGIN_PGML
 
-Hodnocení bude mírné, 100 procent za jakıkoliv srozumitelnı komentáø. Hlavní v této úloze není sbìr bodù, ale proèíst si reakci na Va¹i odpovìï (bude-li mezi vybranımi) a pouèit se z reakcí na odpovìdi kolegù.
+HodnocenÃ­ bude mÃ­rnÃ©, 100 procent za jakÃ½koliv srozumitelnÃ½ komentÃ¡Å™. HlavnÃ­ v tÃ©to Ãºloze nenÃ­ sbÄ›r bodÅ¯, ale proÄÃ­st si reakci na VaÅ¡i odpovÄ›Ä (bude-li mezi vybranÃ½mi) a pouÄit se z reakcÃ­ na odpovÄ›di kolegÅ¯.
 
 END_PGML
 

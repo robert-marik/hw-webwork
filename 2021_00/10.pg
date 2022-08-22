@@ -10,7 +10,9 @@ TEXT(beginproblem());
 
 ADD_CSS_FILE("css/left.css");
 
-
+TEXT(MODES(
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
+));
 
 BEGIN_PGML
 
@@ -25,14 +27,14 @@ END_PGML
 
 
 BEGIN_TEXT
-\{essay_box(25,80)\}
+\{essay_box(10,80)\}
 END_TEXT
 
 
 
 BEGIN_PGML
 
-Hodnocení bude mírné, 100 procent za jakýkoliv srozumitelný komentář. Hlavní v této úloze není sběr bodů, ale pročíst si reakci na Vaši odpověď (bude-li mezi vybranými) a poučit se z reakcí na odpovědi kolegů.
+Hodnocení bude mírné, 100 procent za jakýkoliv srozumitelný výstup. Hlavní v této úloze není sběr bodů, ale vyzkoušet si odpovědět, pročíst si reakci na Vaši odpověď (bude-li mezi vybranými) a poučit se z reakcí na odpovědi kolegů.
 
 END_PGML
 
