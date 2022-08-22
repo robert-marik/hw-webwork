@@ -39,7 +39,7 @@ END_TEXT
 
 BEGIN_PGML
 
-Hodnocení bude mírné, 100 procent za jakýkoliv srozumitelný komentář. Hlavní v této úloze není sběr bodů, ale pročíst si reakci na Vaši odpověď (bude-li mezi vybranými) a poučit se z reakcí na odpovědi kolegů.
+Hodnocení bude mírné, 100 procent za jakýkoliv srozumitelný výstup. Hlavní v této úloze není sběr bodů, ale vyzkoušet si odpovědět, pročíst si reakci na Vaši odpověď (bude-li mezi vybranými) a poučit se z reakcí na odpovědi kolegů.
 
 END_PGML
 
