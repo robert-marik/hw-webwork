@@ -4,53 +4,31 @@ loadMacros(
 "PGML.pl",
 "MathObjects.pl",
 "PGessaymacros.pl",
-"PGessayLivePreviewAce.pl",
 "PGcourse.pl",
 );
 TEXT(beginproblem());
 
 ADD_CSS_FILE("css/left.css");
 
-
+TEXT(MODES(
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
+));
 
 BEGIN_PGML
 
 
-## Model růstu ledové krusty 
+## Diferenciální rovnice
 
+Diferenciální rovnice jsou rovnice, obsahující derivace. Řeší se integrováním. Proto se ve všech kurzech matematiky probírají až po derivacích a integrálech. Historie však šla v určitém smyslu naopak a derivace i integrály byly vlastně vymyšleny proto, aby bylo možné pracovat s diferenciálními rovnicemi a řešit je. 
 
-[@ image("medved.jpg", width=>400) @]*
-
-Takzvaný Stefanův zákon (J. Stefan, \"Uber die Theorie der Eisbildung, insbesondere \"uber die Eisbildung im Polarmeere, 1891) vyjadřuje že tloušťka ledu na hladině moře roste ve
-stabilních podmínkách rychlostí nepřímo úměrnou této tloušťce. Zapište
-tento fakt pomocí vhodného matematického modelu a najděte řešení
-vzniklé diferenciální rovnice. Vysvětlete všechny proměnné a zapište slovní interpretaci konstanty úměrnosti.
-
-Při slovní interpretaci  konstanty úměrnosti se inspirujte příkladem číslo 10 v této sadě úloh.
-
---------------
-
-Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
-
-Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
-
-_Obrázek: pixabay.com_
+**Úkol pro tento týden: Zkuste krátce vysvětlit, proč mají diferenciální rovnice takové důležité postavení v popisu přídorních dějů a jevů. Vyhněte se opsání první věty z Wikipedie, ale snažte se sestavit vlastní formulaci. Opět je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
 
 END_PGML
 
 
 BEGIN_TEXT
-\{essay_box(25,80)\}
+\{essay_box(10,80)\}
 END_TEXT
-
-
-
-BEGIN_PGML
-
-* _Pro pohodlnou tvorbu textu můžete využít nástroj [@ htmlLink("http://user.mendelu.cz/marik/latexovatko","LaTeXovátko") @]*. Tam si také můžete do editoru nakliknout repertoár textů a ty upravovat a sledovat efekt jednotlivých úprav._
-* _Můžete využít [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "nápovědu") @]*  pro LaTeX s ukázkami kódů pro vykopírování. Odkaz otevřete pravým tlačítkem v novém panelu, aby Vám zůstala otevřená i stránka, kterou čtete._
-* _Další ukázky jsou všechny vzorce v programu WeBWorK a v přednáškách. Použijte pravé tlačítko a zobrazení kódu v programu TeX, tj. Show Math As a TeX commands._
-END_PGML
 
 
 #Essay Boxs use the essay_cmp evaluator.
@@ -59,14 +37,8 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-
-**Následující je jedna z možných formulací.**
-
-Rovnice růstu tloušťky ledu podle uvedeného zákona je [``` \frac{\mathrm dh}{\mathrm dt} = \frac kh,```]
-kde `h`, `k` a `t` jsou po řadě tloušťka ledu, konstanta úměrnosti a čas. Konstanta úměrnosti `k` vyjadřuje rychlost s jakou roste tloušťka ledu v okamžiku, kdy je tato tloušťka rovna jedné.
-
+...
 
 END_PGML_SOLUTION
 
 ENDDOCUMENT();
-

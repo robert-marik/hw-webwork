@@ -4,48 +4,31 @@ loadMacros(
 "PGML.pl",
 "MathObjects.pl",
 "PGessaymacros.pl",
-"PGessayLivePreviewAce.pl",
 "PGcourse.pl",
 );
 TEXT(beginproblem());
 
 ADD_CSS_FILE("css/left.css");
 
-
+TEXT(MODES(
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
+));
 
 BEGIN_PGML
 
 
+## Integrál
 
-## Slovní interpretace integrálu
+Derivace a integrál jsou základní pojmy diferenciálního počtu. U derivace snad již víme proč.
 
-[@ image("radon.png", width=>400) @]*
-
-V rozpadové řadě uranu je nebezpečím zejména radoaktivní radon. To je totiž plynný prvek o velké hustotě. Tento plyn se v oblastech s aktivním radonem kumuluje ve sklepech nebo přízemích budov. Obyvatelům může dlouhodobé působení radonu způsobovat rakovinu plic. Před účinky radonu se chráníme izolací nebo větráním.
-
-Nechť [`r(t)`] je rychlost s jakou roste koncentrace radonu v přízemí nevětrané budovy. Určete slovní interpretaci integrálu [``` \int_0^T r(t)\,\mathrm dt. ```] Co tento integrál vyjadřuje?
-
-Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
-
-Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
-
-_Obrázek: https://www.inspiralia.com/iot-connection-prevent-lung-cancer/_
+**Úkol pro tento týden: Zkuste krátce vysvětlit, k čemu je užitečný integrál. Vyhněte se tvrzení, že je to operace opačná k derivování a namísto toho uveďte nějaký důvod, proč je zavedení integrálu důležité. Snažte se najít kompromis mezi výstižnou a přesnou, ale současně krátkou a nekomplikovanou formulací.**
 
 END_PGML
 
 
 BEGIN_TEXT
-\{essay_box(25,80)\}
+\{essay_box(10,80)\}
 END_TEXT
-
-
-
-BEGIN_PGML
-
-* _Pro pohodlnou tvorbu textu můžete využít nástroj [@ htmlLink("http://user.mendelu.cz/marik/latexovatko","LaTeXovátko") @]*. Tam si také můžete do editoru nakliknout repertoár textů a ty upravovat a sledovat efekt jednotlivých úprav._
-* _Můžete využít [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "nápovědu") @]*  pro LaTeX s ukázkami kódů pro vykopírování. Odkaz otevřete pravým tlačítkem v novém panelu, aby Vám zůstala otevřená i stránka, kterou čtete._
-* _Další ukázky jsou všechny vzorce v programu WeBWorK a v přednáškách. Použijte pravé tlačítko a zobrazení kódu v programu TeX, tj. Show Math As a TeX commands._
-END_PGML
 
 
 #Essay Boxs use the essay_cmp evaluator.
@@ -54,10 +37,7 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-Je-li [`r(t)`] rychlost růstu koncentrace radonu, vyjadřuje integrál
-[``` \int_0^T r(t)\mathrm dt```] nárůst koncentrace radonu za časový interval délky [`T`] od počátku měření času.
-
-Poznámka: Protože uvažujeme zpravidla pořád stejnou místnost, je koncentrace vlastně vyjádřením množství (jsou si přímo úměrné a pro vhodnou volbu jednotek numericky rovny) a proto je možné říci i že integrál vyjadřuje nárůst množství radonu. Pokud by byla jistota, že na začátku není žádný radon, bylo by možno psát místo "nárůst koncentrace" nebo "nárůst množství" i "koncentrace po uplynutí času [`T`]."
+...
 
 END_PGML_SOLUTION
 

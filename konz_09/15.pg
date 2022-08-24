@@ -4,128 +4,31 @@ loadMacros(
 "PGML.pl",
 "MathObjects.pl",
 "PGessaymacros.pl",
-"PGessayLivePreviewAce.pl",
 "PGcourse.pl",
 );
 TEXT(beginproblem());
 
 ADD_CSS_FILE("css/left.css");
 
-
-$co="";
-$i=random(1,3);
-if ($i==1)
-{
-  $co="jednorozměrný případ,";
-  $dimenze="Jednorozměrná";
-}
-elsif ($i==2)
-{
-  $co="dvourozměrný případ,";
-  $dimenze="Dvourozměrná";
-}
-else
-{
-  $co="trojrozměrný případ,";
-  $dimenze="Trojrozměrná";
-}
-
-$i=random(1,2);
-if ($i==1)
-{
- $stacionarnost=" stacionární";
- $co=$co." stacionární děj,";
-}
-else
-{
- $stacionarnost=" nestacionární";
- $co=$co." nestacionární děj,";
-}
-
-$i=random(1,2);
-if ($i==1)
-{
- $zdroje=" bez zdrojů";
- $co=$co." rovnici bez přítomnosti zdrojů,";
-}
-else
-{
- $zdroje=" se zdroji";
-}
-
-$i=random(1,2);
-if ($i==1)
-{
- $izotropie=" izotropním";
- $co=$co." izotropní";
-}
-else
-{
- $izotropie=" ortotropním";
- $co=$co." ortotropní";
-}
-
-
-$i=random(1,2);
-if ($i==1)
-{
- $homogenita=" homogenní";
- $co=$co." homogenní materiál";
-}
-else
-{
- $homogenita=" nehomogenní";
- $co=$co." nehomogenní materiál";
-}
-
-
-$i=random(1,2);
-if ($i==1)
-{
- $linearita=" nelineární";
- $co=$co." s nelineární materiálovou odezvou";
-}
-else
-{
- $linearita=" lineární";
- $co=$co." s lineární materiálovou odezvou";
-}
-
-
-
+TEXT(MODES(
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
+));
 
 BEGIN_PGML
 
-## Difuzní rovnice
 
+## Rovnice kontinuity
 
-Difuzní rovnice v trojrozměrném materiálu, má při volbě souřadných os ve vlastních směrech difuzní matice v nejobecnějším případě tvar [``` \frac{\partial u}{\partial t}=\sigma + \frac{\partial }{\partial x}\left(D_x \frac{\partial u}{\partial x}\right)+ \frac{\partial }{\partial y}\left(D_y \frac{\partial u}{\partial y}\right)+ \frac{\partial }{\partial z}\left(D_z \frac{\partial u}{\partial z}\right). ```]
+Rovnice kontinuity [``` \frac{\partial u}{\partial t}=\sigma - \mathop{\mathrm{div}}\vec j```] je základním nástojem pro popis transportu látky či energie v přírodě, v látce, v životním prostředí. 
 
-Napište tvar, do jakého se rovnice zjednoduší, pokud budeme uvažovat [$co].
-
-*Pravidla:* Otázka je randomizovaná a každý má své vlastní zadání. Z odpovědi proto musí být jasné, jaké je zadání a jaká odpověď. Můžete použít následující formulaci ve které je už zahrnuto Vaše osobní zadání: *[$dimenze] [$stacionarnost] rovnice [$zdroje] v [$izotropie] materiálu, který je [$homogenita] s [$linearita] materiálovou odezvou, má tvar ...*. Plnou rovnici si můžete vykopírovat v úvodu tohoto zadání (pravé tlačítko, Show Math As, TeX Commands) a upravit podle potřeby. Vložte ji jako rovnici na samostatný řádek (tj. v LaTeXu pomocí zpětného lomítka a hranaté závorky).
-
-Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérum si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
-
-Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
-
-_Obrázek: pixabay.com_
+**Úkol pro tento týden: Rovnice kontinuity je vlastně bilance vyjádřená v daném místě látky či prostředí. Podle toho, jaké členy do této bilance započítáme, dokážeme odhalit, jaké procesy je možné modelovat. Jaké tři věci nebo efekty se skrývají pod třemi členy v mateamtické formulaci rovnice kontinuity? Jaké děje jsou v této rovnici pomocí uvedených členů započítány? Jako obvykle je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
 
 END_PGML
 
 
 BEGIN_TEXT
-\{essay_box(25,80)\}
+\{essay_box(10,80)\}
 END_TEXT
-
-
-
-BEGIN_PGML
-
-* _Pro pohodlnou tvorbu textu můžete využít nástroj [@ htmlLink("http://user.mendelu.cz/marik/latexovatko","LaTeXovátko") @]*. Tam si také můžete do editoru nakliknout repertoár textů a ty upravovat a sledovat efekt jednotlivých úprav._
-* _Můžete využít [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "nápovědu") @]*  pro LaTeX s ukázkami kódů pro vykopírování. Odkaz otevřete pravým tlačítkem v novém panelu, aby Vám zůstala otevřená i stránka, kterou čtete._
-* _Další ukázky jsou všechny vzorce v programu WeBWorK a v přednáškách. Použijte pravé tlačítko a zobrazení kódu v programu TeX, tj. Show Math As a TeX commands._
-END_PGML
 
 
 #Essay Boxs use the essay_cmp evaluator.
@@ -134,9 +37,8 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-Řešení není k dispozici, protože každý má vlastní zadání. Souvislost vlastností materiálu a členů difuzní rovnice je popsána v cheatsheetu a můžete si procvičit v úlohách číslo 11 a 12. Verze těchto úloh bez nutnosti přihlášení je nalinkována z přednášek a cvičení.
+...
 
 END_PGML_SOLUTION
-
 
 ENDDOCUMENT();

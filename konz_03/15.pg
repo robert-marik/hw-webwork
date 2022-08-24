@@ -4,14 +4,15 @@ loadMacros(
 "PGML.pl",
 "MathObjects.pl",
 "PGessaymacros.pl",
-"PGessayLivePreviewAce.pl",
 "PGcourse.pl",
 );
 TEXT(beginproblem());
 
 ADD_CSS_FILE("css/left.css");
 
-
+TEXT(MODES(
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
+));
 
 BEGIN_PGML
 
@@ -20,59 +21,47 @@ BEGIN_PGML
 
 [@ image("kopec_soli.jpg", width=>400) @]*
 
-Následující úloha sice nepracuje s derivacemi, ale jedná se o problematikou řešenou v úlohách spjatých s diferenciálním počtem.
+Následující úloha sice nepracuje s derivacemi, ale jedná se o problematikou řešenou v úlohách spjatých s diferenciálním počtem. Pro numerické simulace je nutné mít schopnost vyjádřit souvislosti mezi veličinami matematickým předpisem. Pro rozumnou komunikaci s okolím je dobré mít schopnost matematické vzorce popsat slovně, pokud možno co nejjednodušším jazykem. 
 
+Ve cvičení jsme v příkladě 1.7 pracovali s kopcem soli, kde je díky struktuře soli dán úhel u vrcholu. V důsledku toho (s použitím středoškolské matematiky a trigonometrie, nebo s použitím Buckinghamova [`\Pi`] teorému a bez počítání) víme, že existuje konstanta [`k`] taková, že mezi objemem [`V`] kopce soli a výškou [`h`] kopce soli platí [``` V=kh^3.```] V konstantě [`k`] je jakýmsi způsobem "schován" vrcholový úhel, my však budeme hledat jednodušší interpretaci této konstanty.
 
-Ve cvičení jsme v příkladě 1.7 pracovali s kopcem soli, kde je díky struktuře soli dán úhel u vrcholu. V důsledku toho (s použitím středoškolské matematiky a trigonometrie, nebo s použitím Buckinghamova [`\Pi`] teorému a bez počítání) víme, že existuje konstanta [`k`] taková, že mezi objemem [`V`] kopce soli a výškou [`h`] kopce soli platí [``` V=kh^3.```] V konstantě [`k`] je jakýmsi způsobem "schován" vrcholový úhel, my však budeme hledat jednodušší interpretaci této konstanty. Pokuste se stručně slovně naformulovat slovně význam konstanty [`k`]. Napište odstavec tak, aby se jednalo o ucelený text. Odpověď tedy musí obsahovat vzorec včetně  vysvětlení jaké situace se vzorec týká a co značí proměnné a slovní interpretaci konstanty úměrnosti. Vhodné vzory jsou uvedeny pod příkladem dole na této stránce..
+**Úkol pro tento týden: Pokuste se stručně slovně naformulovat slovně význam konstanty [`k`] z výše uvedeného vzorce udávajícího souvislost objemu kužele o daném vrcholovém úhlu s výškou. Můžete se inspirovat přednáškou, cvičením, nebo příklady uvedenými níže.**
 
 
 END_PGML
 
 BEGIN_TEXT
-\{essay_box(25,80)\}
+\{essay_box(10,80)\}
 END_TEXT
-
 
 
 BEGIN_PGML
 
-* _Pro pohodlnou tvorbu textu můžete využít nástroj [@ htmlLink("http://user.mendelu.cz/marik/latexovatko","LaTeXovátko") @]*. Tam si také můžete do editoru nakliknout repertoár textů a ty upravovat a sledovat efekt jednotlivých úprav._
-* _Můžete využít [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "nápovědu") @]*  pro LaTeX s ukázkami kódů pro vykopírování. Odkaz otevřete pravým tlačítkem v novém panelu, aby Vám zůstala otevřená i stránka, kterou čtete._
-* _Další ukázky jsou všechny vzorce v programu WeBWorK a v přednáškách. Použijte pravé tlačítko a zobrazení kódu v programu TeX, tj. Show Math As a TeX commands._
-
-
-
-------------------
 
 ### Příklady a ukázky vhodných formulací
 
 
 Při snaze podat slovní vyjádření významu konstanty úměrnosti zpravidla postupujeme tak, že hodnotám, které figurují u konstanty úměrnosti přidělíme takovou číselnou hodnotu, aby na jedné straně rovnice zůstala jenom konstanta úměrnosti. To znamená například, že tato pokud tato konstanta je něčím násobena, musí být násobena jedničkou. Výsledná veličina je poté rovna konstantě úměrnosti. Například v rovnici [``` y=kx^2```] volíme [``x=1``] a konstantu [`k`] tedy interpretujeme tak, že je číselně rovna hodnotě veličiny [`y`] pro jednotkovou veličinu [`x`]. Několik příkladů následuje.
 
-* U dráhy rovnoměrného pohybu je dráha [`s`] úměrná času [`t`]. Matematicky vyjádřeno platí [``` s=kt,```] kde [`k`] je konstanta úměrnosti. Pro [`t=1`] dostáváme [`s=k`] a _konstanta [`k`] tedy udává dráhu tělesa za jednotku času._ 
-* U [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/derivace_I/#z%C3%A1kon-ochlazov%C3%A1n%C3%AD","Newtonova modelu ochlazování") @]* z přednášky je rychlost s jakou klesá teplota, tj. veličina [`` -\frac{\mathrm dT}{\mathrm dt} ``], úměrná rozdílu teploty tělesa a okolí, tj. rozdílu [`(T-T_0).`] Matematicky vyjádřeno platí [``` \frac{\mathrm dT}{\mathrm dt}=-k(T-T_0),```] kde [`k`] je konstanta úměrnosti. Pro [`T-T_0=1`] dostáváme [```\frac{\mathrm dT}{\mathrm dt}=-k.```] _Konstanta [`k`] tedy udává rychlost ochlazování tělesa s teplotou o jednotku vyšší než je teplota okolí._
+* U dráhy rovnoměrného pohybu je dráha [`s`] pohyvujícího se tělesa úměrná času [`t`]. Matematicky vyjádřeno platí [``` s=kt,```] kde [`k`] je konstanta úměrnosti. Pro [`t=1`] (doba pohybu rovna jednotce času) dostáváme [`s=k`]. _Konstanta [`k`] udává dráhu tělesa za jednotku času._ (Vy fyzice se konstanta úměrnosti nazývá rychlost a naše slovní formulace odpovídá představě, že rychlost auta 60 kilometrů za hodinu je rychlost potřebná k tomu, aby auto za hodinu urazilo 60 kilometrů.) 
+* U [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/derivace_I/#z%C3%A1kon-ochlazov%C3%A1n%C3%AD","Newtonova modelu ochlazování") @]* z přednášky je rychlost s jakou klesá teplota, tj. veličina [`` -\frac{\mathrm dT}{\mathrm dt} ``], úměrná rozdílu teploty tělesa a okolí, tj. rozdílu [`(T-T_0).`] Matematicky vyjádřeno platí [``` \frac{\mathrm dT}{\mathrm dt}=-k(T-T_0),```] kde [`k`] je konstanta úměrnosti. Pro [`T-T_0=1`] dostáváme [```\frac{\mathrm dT}{\mathrm dt}=-k.```] _Konstanta [`k`] udává rychlost ochlazování tělesa s teplotou o jednotku vyšší než je teplota okolí._
 * Ve cvičení jsme v příkladě 1.3 pracovali s Kleiberovým zákonem, který udává, že bazální metabolismus [`M`]  souvisí
 s hmotností [`W`] vztahem [``` M = A W^n,```] kde [`n`] je pro mnoho živočišných druhů blízké číslu [`0.75`] a [`A`] je konstanta. Pro [`W=1`] dostáváme [`M=A`]. _Konstanta [`A`] vyjadřuje bazální metabolismus jedince o jednotkové hmotnosti._
-* Z [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/derivace_III/#buckingham%C5%AFv-pi-teor%C3%A9m","přednášky") @]* víme, že z Buckinghamova [`\Pi`] teorému vyplývá vztah mezi objemem [`V`] a povrchem [`S`] koule ve tvaru [``` V=kS^{\frac 32}.```] Bez jakéhokoliv počítání a bez znalosti vzorců pro objem nebo povrch koule. Pro [`S=1`] dostáváme [`V=k`] a _konstanta úměrnosti [`k`] tedy udává  objem koule, která má jednotkový povrch._
+* Z [@ htmlLink("http://user.mendelu.cz/marik/mtk/mat-slidy/derivace_III/#buckingham%C5%AFv-pi-teor%C3%A9m","přednášky") @]* víme, že z Buckinghamova [`\Pi`] teorému vyplývá vztah mezi objemem [`V`] a povrchem [`S`] koule ve tvaru [``` V=kS^{\frac 32}.```] Bez jakéhokoliv počítání a bez znalosti vzorců pro objem nebo povrch koule. Pro [`S=1`] dostáváme [`V=k`] a _konstanta úměrnosti [`k`] tedy udává objem koule, která má jednotkový povrch._
 
 Všimněte si ještě, že se vyhýbáme použití konkrétních jednotek. Mluvíme o dráze a ne o počtu metrů. Mluvíme o jednotkovém rozdílu teploty a ne o teplotním rozdílu jeden stupeň Celsia. Mluvíme o jednotkové hmotnosti a ne o hmotnosti jeden gram nebo kilogram. To je výhoda, která dělá naše tvrzení univerzální pro libovolnou soustavu jednotek. Tvrzení bude platit i při použití jednotek SI, i při použití britských imperiálních jednotek, i při použití jednotek ad hoc použitých pro řešení jednoho konkrétního problému. Bude se měnit například číselná hodnota konstanty a její jednotky, její slovní interpretace však zůstane stále stejná.
-
 
 
 END_PGML
 
 
 
-
-
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 
-
 BEGIN_PGML_SOLUTION
 
-Objem [`V`] kopce soli o výšce [`h`] je dán vztahem [``` V=k h^3, ```]
-kde konstanta [`k`] udává objem kopce jednotkové výšky.
+...
 
 END_PGML_SOLUTION
 

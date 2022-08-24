@@ -4,46 +4,31 @@ loadMacros(
 "PGML.pl",
 "MathObjects.pl",
 "PGessaymacros.pl",
-"PGessayLivePreviewAce.pl",
 "PGcourse.pl",
 );
 TEXT(beginproblem());
 
 ADD_CSS_FILE("css/left.css");
 
-
+TEXT(MODES(
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
+));
 
 BEGIN_PGML
 
 
+## Tenzorové veličiny
 
-## Vlastní vektory a vlastní čísla diagonální matice
+Při popisu fyzikálních dějů se fyzika střední školy obejde s běžnými skalárními nebo vektorovými veličinami. V lineární algebře zavádíme nový pojem, matice, které ve fyzice odpovídají tenzorům (přesněji tenzorům druhého řádu). Máme na paměti, že vždy se snažíme o co nejsnazší popis přírody a o co nejjednodušší model reálného stavu. To znamená, že bez matic (tenzorů) by to v některých případech asi nešlo. 
 
-Pro diagonální matice není nutné provádět hledání vlastních vektorů a čísel obecnou metodou, ale můžeme využít speciální vlastnosti diagonální matice. Vlastně poznáme obojí velice snadno. Jak? 
-Napište, jak nalezneme vlastní čísla a vlastní směry diagonální matice.
-
----------------------------
-
-Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
-
-Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
-
+**Úkol pro tento týden: Zkuste krátce vysvětlit, v jakých případech a proč je nezbytné využití maticových (tenzorových) veličin. Jako obvykle je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
 
 END_PGML
 
 
 BEGIN_TEXT
-\{essay_box(25,80)\}
+\{essay_box(10,80)\}
 END_TEXT
-
-
-
-BEGIN_PGML
-
-* _Pro pohodlnou tvorbu textu můžete využít nástroj [@ htmlLink("http://user.mendelu.cz/marik/latexovatko","LaTeXovátko") @]*. Tam si také můžete do editoru nakliknout repertoár textů a ty upravovat a sledovat efekt jednotlivých úprav._
-* _Můžete využít [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "nápovědu") @]*  pro LaTeX s ukázkami kódů pro vykopírování. Odkaz otevřete pravým tlačítkem v novém panelu, aby Vám zůstala otevřená i stránka, kterou čtete._
-* _Další ukázky jsou všechny vzorce v programu WeBWorK a v přednáškách. Použijte pravé tlačítko a zobrazení kódu v programu TeX, tj. Show Math As a TeX commands._
-END_PGML
 
 
 #Essay Boxs use the essay_cmp evaluator.
@@ -52,8 +37,7 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-Vlastní směry diagonální matice jsou směry souřadných os. Vlastní čísla jsou čísla v hlavní diagonále.
-
+...
 
 END_PGML_SOLUTION
 
