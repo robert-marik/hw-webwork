@@ -4,68 +4,50 @@ loadMacros(
 "PGML.pl",
 "MathObjects.pl",
 "PGessaymacros.pl",
-"PGessayLivePreviewAce.pl",
 "PGcourse.pl",
 );
 TEXT(beginproblem());
 
 ADD_CSS_FILE("css/left.css");
 
+TEXT(MODES(
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
+));
+
 BEGIN_PGML
 
-## Slovní interpretace gradientu
 
+## Gradient
 
-Naformulujte některý z konstitutivních zákonů (Fourierův, Fickův, Darcyho, Ohmův, ...). Použijte **tenzorovou formulaci** popisující vztah mezi podnětem a odezvou v daném místě materiálu. Odpověď naformulujte jako **ucelenou větu nebo jako ucelený text** skládající se z vět a vysvětlete i použité veličiny. Jako vzor můžete použít například následující formulaci Newtonova zákona ochlazování.
+Gradient je pojem, který může mít mnoho tváří. Někdo rozumí pod gradientem podíl dvou veličin, někdo derivaci podle prostorové proměnné, někdo dokonce vektor sestavený z derivací. Pokusíme se ověřit, že ve vztazích mezi těmito různými chápáními jednoho pojmu nemáme nejasnosti.
 
------
-
-_Rychlost [``\frac{\mathrm dT}{\mathrm dt} ``] s jakou se mění teplota tělesa [`T`] při tepelné výměně v prostředí se stálou teplotou [`T_0`] je dána vztahem
-[``` \frac{\mathrm  dT}{\mathrm  dt}=k(T_0-T),```]
-kde [`k`] je skalární konstanta úměrnosti._
-
-----
-
-Vektor se zapisuje příkazem [|\vec|] a gradient příkazem [|\nabla|]. Předpokládejte, že čtenář je obeznámen s pojmy jako teplota, koncentrace, tok tepla, difuzní tok atd, takže tyto pojmy nemusíte vysvětlovat, pouze napíšete, které písmenko ve vašem označení odpovídá jakému pojmu. Tedy podobně jako ve výše uvedeném vzoru.
-
-Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
-
-Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
-
-_Obrázek: pixabay.com_
+**Úkol pro tento týden: Vysvětlete, jaké chápání pojmu gradient je nejobecnější a v jakém případě je možné tento obecný přístup zredukovat na podíl. Odpověď naformulujte slovně bez použití matematických značek, stručně, výstižně, jednoduše ale bez zbytečných nepřesností.**
 
 END_PGML
 
 
 BEGIN_TEXT
-\{essay_box(25,80)\}
+\{essay_box(10,80)\}
 END_TEXT
 
 
 
 BEGIN_PGML
 
-* _Pro pohodlnou tvorbu textu můžete využít nástroj [@ htmlLink("http://user.mendelu.cz/marik/latexovatko","LaTeXovátko") @]*. Tam si také můžete do editoru nakliknout repertoár textů a ty upravovat a sledovat efekt jednotlivých úprav._
-* _Můžete využít [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "nápovědu") @]*  pro LaTeX s ukázkami kódů pro vykopírování. Odkaz otevřete pravým tlačítkem v novém panelu, aby Vám zůstala otevřená i stránka, kterou čtete._
-* _Další ukázky jsou všechny vzorce v programu WeBWorK a v přednáškách. Použijte pravé tlačítko a zobrazení kódu v programu TeX, tj. Show Math As a TeX commands._
+Hodnocení bude mírné, 100 procent za jakýkoliv srozumitelný komentář. Hlavní v této úloze není sběr bodů, ale pročíst si reakci na Vaši odpověď (bude-li mezi vybranými) a poučit se z reakcí na odpovědi kolegů.
+
 END_PGML
 
 
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 
-
-
 BEGIN_PGML_SOLUTION
 
-Například:
-
-* Difuzní tok [``\vec j``] souvisí s koncentrací [`c`] vztahem [``` \vec j=-D\nabla c,```] kde [`D`] je tenzorový difuzní koeficient.
-* Difuzní tok [``\vec j``] souvisí s gradientem koncentrace [` \nabla c`] vztahem [``` \vec j=-D\nabla c,```] kde [`D`] je matice difuzních koeficientů.
-* Difuzní tok [``\vec j``] je dán vztahem [``` \vec j=-D\nabla c,```] kde [`D`] je matice difuzních koeficientů a  [` \nabla c`] gradient koncentrace.
-* ... Aby byla splněna podmínka tenzorového tvaru, musí na obou stranách rovnice figurovat vektory a "konstanta úměrnosti" musí být matice. 
+...
 
 END_PGML_SOLUTION
+
 
 
 ENDDOCUMENT();

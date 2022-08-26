@@ -19,9 +19,11 @@ BEGIN_PGML
 
 ## Odpovědí je text
 
-Poslední otázkou bude otázka, která bude hodnocena ručně. Cílem bude napsat stručně a výstižně odpověď na otázku. V sekci řešení se poté objeví vybrané reprenzentativní odpovědi s komentářem, co je na té které odpovědi správně či nepsrávně. Budete tak mít zpětnou vazbu, jestli odpovídáte výstižně a srozumitelně, nebo zda je možné něco vylepšit. Vše bude pochopitelně anonymní.
+Poslední otázkou bude otázka, která bude hodnocena ručně. Cílem bude napsat stručně a výstižně odpověď na otázku. V sekci řešení se poté objeví vybrané reprezentativní odpovědi s komentářem, co je na té které odpovědi správně či nesprávně. Budete tak mít zpětnou vazbu, jestli odpovídáte výstižně a srozumitelně, nebo zda je možné něco vylepšit. Vše bude pochopitelně anonymní.
 
-**Otázka pro tento týden: Na úvodní přednášce se seznámíme s pojmem derivace. K čemu nám tento nástroj je? Odpovědi pište stručně a výstižně. Stačí aspoň jeden důvod, proč by se měl tento pojem objevit v pondělní přednášce na LDF MENDELU.**
+Odpovědi na otázky tohoto typu často nebudou mít jedinou správnou odpověď, ale odpovědí je celá škála v závislosti na tom, jakou míru podrobnosti odpovídající zvolí.
+
+**Otázka pro tento týden: Na úvodní přednášce se seznámíme (resp. zopakujeme na oborech, které už základní matematiku absolvovaly) s pojmem derivace. K čemu nám tento nástroj je? Odpovědi pište stručně a výstižně. Stačí aspoň jeden důvod, proč by se měl tento pojem objevit v úvodní přednášce na LDF MENDELU.**
 
 END_PGML
 

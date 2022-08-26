@@ -4,87 +4,41 @@ loadMacros(
 "PGML.pl",
 "MathObjects.pl",
 "PGessaymacros.pl",
-"PGessayLivePreviewAce.pl",
 "PGcourse.pl",
 );
 TEXT(beginproblem());
 
 ADD_CSS_FILE("css/left.css");
 
+TEXT(MODES(
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
+));
 
 BEGIN_PGML
 
-## Rovnice vedení tepla
 
-V [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/11/#fourierova-metoda-separace-prom%C4%9Bnn%C3%BDch","poslední přednášce") @]* je ukázáno, že pokud předpokládáme řešení rovnice vedení tepla
-[```\frac{\partial u}{\partial t}=\frac{\partial^2 u}{\partial x^2} ```]
-ve tvaru součinu funkce proměnné [`x`] a funkce proměnné [`t`], rozpadne se rovnice na dvě obyčejné diferenciální rovnice. Rovnici prvního řádu 
-[``` \psi'=-\lambda^2\psi ```] 
- pro funkci [`\psi(t)`] a rovnici druhého řádu 
-[```\varphi''+\lambda^2\varphi=0 ```]
-pro funkci [`\varphi(x)`].
-Jak se situace změní po přidání zdrojů? Uvažujte případ konstantních zdrojů a případ zdrojů úměrných teplotě. Tj. uvažujte rovnice
-[```\frac{\partial u}{\partial t}=k+\frac{\partial^2 u}{\partial x^2} ```]
-a
-[```\frac{\partial u}{\partial t}=ku+\frac{\partial^2 u}{\partial x^2}, ```]
-kde [`k`] je konstanta. Je možné i zde použít stejný trik? Zkuste to, napište u které rovnice postup funguje a u které nefunguje. Pokud funguje, napište, jaké diferenciální rovnice tímto postupem vzniknou. 
+## Shrnutí
 
+...
 
-----
-
-Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
-
-Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
-
+**Úkol pro tento týden: ... Jako obvykle je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
 
 END_PGML
 
 
 BEGIN_TEXT
-\{essay_box(25,80)\}
+\{essay_box(10,80)\}
 END_TEXT
-
-
-
-BEGIN_PGML
-
-* _Pro pohodlnou tvorbu textu můžete využít nástroj [@ htmlLink("http://user.mendelu.cz/marik/latexovatko","LaTeXovátko") @]*. Tam si také můžete do editoru nakliknout repertoár textů a ty upravovat a sledovat efekt jednotlivých úprav._
-* _Můžete využít [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "nápovědu") @]*  pro LaTeX s ukázkami kódů pro vykopírování. Odkaz otevřete pravým tlačítkem v novém panelu, aby Vám zůstala otevřená i stránka, kterou čtete._
-* _Další ukázky jsou všechny vzorce v programu WeBWorK a v přednáškách. Použijte pravé tlačítko a zobrazení kódu v programu TeX, tj. Show Math As a TeX commands._
-END_PGML
 
 
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 
+
 BEGIN_PGML_SOLUTION
 
-Pro funkci [`` u(x,u)=\psi(t)\varphi(x)``] platí
-[``` \frac{\partial u}{\partial t}=\psi'(t)\varphi(x) ```]
-a
-[``` \frac{\partial^2 u}{\partial x^2}=\psi(t)\varphi''(x). ```]
-Po dosazení do rovnice
-[```\frac{\partial u}{\partial t}=k+\frac{\partial^2 u}{\partial x^2} ```]
-máme
-[```\psi'(t)\varphi(x)=k+\psi (t)\varphi''(x) ```] a vidíme, že vydělení součinem [`` \psi(t)\varphi(x) ``] vede na rovnici
-[```\frac{\psi'(t)}{\psi(t)}=\frac{k}{\psi(t)\varphi(x)}+\frac{\varphi''(x)}{\varphi(x)}, ```]
-kde se nepodařilo zajistit odseparování proměnných. Na pravé straně stále figurují obě proměnné. 
-
-Po dosazení do rovnice
-[```\frac{\partial u}{\partial t}=ku+\frac{\partial^2 u}{\partial x^2} ```]
-máme
-[```\psi'(t)\varphi(x)=k\psi(t)\varphi(x)+\psi (t)\varphi''(x) ```] a vidíme, že vydělení součinem [`` \psi(t)\varphi(x) ``] vede na rovnici
-[```\frac{\psi'(t)}{\psi(t)}=k+\frac{\varphi''(x)}{\varphi(x)}. ```]
-Protože levá strana závisí jenom na proměnné [`t`] a pravá jenom na proměnné [`x`], musí být levá i pravá strana rovny společné konstantně. Označíme-li tuto konstantu [`\lambda`], rozpadne se parciální diferenciální rovnice na dvě obyčejné diferenciální rovnice [``` \frac{\psi'(t)}{\psi(t)} = \lambda```]
-a
-[``` k+\frac{\varphi''(x)}{\varphi(x)} = \lambda.```]
-Úloha se redukuje na 
-[``` \psi'(t) = \lambda {\psi(t)}```]
-a
-[``` {\varphi''(x)} = (\lambda-k){\varphi(x)}.```]
+...
 
 END_PGML_SOLUTION
 
-
 ENDDOCUMENT();
-

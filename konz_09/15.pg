@@ -19,9 +19,9 @@ BEGIN_PGML
 
 ## Rovnice kontinuity
 
-Rovnice kontinuity [``` \frac{\partial u}{\partial t}=\sigma - \mathop{\mathrm{div}}\vec j```] je základním nástojem pro popis transportu látky či energie v přírodě, v látce, v životním prostředí. 
+Rovnice kontinuity [``` \frac{\partial u}{\partial t}=\sigma - \mathop{\mathrm{div}}\vec j```] je základním nástrojem pro popis transportu látky či energie v přírodě, v látce, v životním prostředí. 
 
-**Úkol pro tento týden: Rovnice kontinuity je vlastně bilance vyjádřená v daném místě látky či prostředí. Podle toho, jaké členy do této bilance započítáme, dokážeme odhalit, jaké procesy je možné modelovat. Jaké tři věci nebo efekty se skrývají pod třemi členy v mateamtické formulaci rovnice kontinuity? Jaké děje jsou v této rovnici pomocí uvedených členů započítány? Jako obvykle je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
+**Úkol pro tento týden: Rovnice kontinuity je vlastně bilance vyjádřená v daném místě látky či prostředí. Podle toho, jaké členy do této bilance započítáme, dokážeme odhalit, jaké procesy je možné modelovat. Jaké tři věci nebo efekty se skrývají pod třemi členy v matematické formulaci rovnice kontinuity? Jaké děje jsou v této rovnici pomocí uvedených členů započítány? Jako obvykle je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
 
 END_PGML
 

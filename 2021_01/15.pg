@@ -10,24 +10,24 @@ TEXT(beginproblem());
 
 ADD_CSS_FILE("css/left.css");
 
+TEXT(MODES(
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
+));
 
 BEGIN_PGML
 
 
-## Přímá a nepřímá úměrnost
+## Parciální versus (obyčejná) derivace
 
-* Mezi veličinami [`x`] a [`y`] je vztah přímé úměrnosti, pokud existuje reálná konstanta [`k`] taková, že platí [```y=kx.```] 
-* Mezi veličinami [`x`] a [`y`] je vztah nepřímé úměrnosti, pokud existuje reálná konstanta [`k`] taková, že platí [```y=\frac kx.```] 
+V tomto předmětu zavádíme vedle již známého pojmu derivace i další pojem, parciální derivace. Vzhledem k podobnému názvu se bude pravděpodobně jednat o objekt, který má s původní derivací něco společného. Vzhledem k přívlastku "parciální" se budou oba objekty v něčem lišit. 
 
-Nejpřesnějším vyjadřovacím nástrojem matematiky je symbolika využívající smluvených značek pro matematické operace a matematické proměnné. Někdy je však vhodné umět vyjádřit myšlenky jenom prostřednictvím běžného jazyka. 
-
-**Úkol pro tento týden: Zkuste říci, co je přímá a nepřímá úměrnost co nejjednodušší formou jenom přirozeným jazykem. Tak, aby formulace byla co nejpochopitelnější, tedy například bez obratů typu "ypsilon je rovno ká krát iks".**
+**Úkol pro tento týden: Vysvětlete, co mají společného a v čem se liší derivace a parciální derivace. Odpověď naformulujte slovně bez použití matematických značek, stručně, výstižně, jednoduše ale bez zbytečných nepřesností.**
 
 END_PGML
 
 
 BEGIN_TEXT
-\{essay_box(25,80)\}
+\{essay_box(10,80)\}
 END_TEXT
 
 

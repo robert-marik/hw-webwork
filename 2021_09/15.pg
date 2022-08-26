@@ -4,78 +4,41 @@ loadMacros(
 "PGML.pl",
 "MathObjects.pl",
 "PGessaymacros.pl",
-"PGessayLivePreviewAce.pl",
 "PGcourse.pl",
 );
 TEXT(beginproblem());
 
 ADD_CSS_FILE("css/left.css");
 
+TEXT(MODES(
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
+));
 
 BEGIN_PGML
 
-## Regulace teploty termostatem ve vedlejší místnosti
 
-[@ image("negative-feedback-tworooms.png", width=>400) @]*
+## Autonomní systémy
 
+U autonomních systémů v rovině analyzujeme fázový portrét v okolí stacionárních bodů pomocí linearizace. 
 
-Tato úloha je modifikací [@ htmlLink("https://www.math.wisc.edu/~angenent/519.2016s/notes/negative-feedback-linear.html","úlohy nalezené na Internetu zde") @]*. Uvažujme dvě místnosti, obývací pokoj s teplotou [`T_1`] a ložnici s teplotou [`T_2`]. V ložnici je čidlo sledující teplotu. V obýváku je topení a klimatizace, které se snaží udržovat teplotu na konstantní hodnotě. Jiné zdroje tepla neuvažujeme, neuvažujeme ani tepelnou výměnu s okolím, dokonce se ani nevětrá. Jednotku teploty zvolíme tak, že optimální teplota na které se snažíme oba pokoje udržovat je rovna nule. Situaci je možno modelovat soustavou (promyslete sami nebo následujte původní odkaz)
-[``` \begin{align*}
-\frac{\mathrm dT_1}{\mathrm dt} &= - k_{\textrm{fb}} T_2 + k_{\textrm{ex}} (T_2-T_1) \\
-\frac{\mathrm dT_2}{\mathrm dt} &= k_{\textrm{ex}} (T_1-T_2),
-\end{align*} ```]
-kde konstanty charakterizují intenzitu výměny tepla mezi místnostmi a intenzitu, s jakou je regulována teplota v obýváku jako reakce na teplotu v ložnici. Vhodnou volbou jednotky času je možné dosáhnout toho, že jedna z konstant je rovna jedné. Nechť je například [``k_{\textrm{ex}}=1``]. Druhou konstantu, [``k_{\textrm{fb}}``], si pro pohodlnější zápis označme [`a`]. Soustava má tedy tvar
-[``` \begin{align*}
-\frac{\mathrm dT_1}{\mathrm dt} &= - a T_2 + T_2-T_1 \\
-\frac{\mathrm dT_2}{\mathrm dt} &= T_1-T_2.
-\end{align*} ```]
-Zapište soustavu maticově, tedy ve tvaru 
-[``` \frac{\mathrm d}{\mathrm dt}\begin{pmatrix}T_1\\T_2\end{pmatrix}= \begin{pmatrix}???& ???\\??? & ???\end{pmatrix} \begin{pmatrix}T_1\\T_2\end{pmatrix},```]
-kde místo otazníků budou správné výrazy. Poté najděte charakteristický polynom matice a zdůvodněte, jak z tohoto charakteristického polynomu plyne, že stacionární bod nemůže být sedlo a pokud se tedy jedná o uzel nebo ohnisko, že musí být stabilní. 
-
-Odpověď by měla obsahovat soustavu v maticovém tvaru, polynom a vysvětlení, jak z tvaru charakteristického polynomu plynou uvedené závěry. Mezivýpočty, jako úpravu determinatu na charakteristický polynom, nepište. 
-
-_Nápověda:_ Kvadratická rovnice [``` x^2+bx+c=0```] má následující vlastnosti.
-
-* Součin kořenů je [`c`]. Pokud je [`c`] kladné, nemůže být jeden kořen kladný a druhý záporný.
-* Součet kořenů je [`-b`]. Pokud jsou oba kořeny reálné a mají stejné znaménko, je toto znaménko opačné v porovnání se znaménkem koeficientu [`b`]. Jsou-li kořeny komplexně sdružené, platí totéž pro jejich reálné části.
-
-----
-
-Odpovědí musí být ucelený smysluplný text, matematicky správně a celou větou nebo celým odstavcem rozděleným do vět a s respektováním pravidel pravopisu a větné skladby. Měla by to být větička nebo několik větiček dávající smysl samy o sobě. Kritérium si například nastavte tak, aby výsledek byl publikovatelný jako doplňující informace, jaká se většinou v novinových článcích nebo v učebnicích píše do rámečku k hlavnímu textu.
-
-Tuto otázku boduje ručně vyučující. Pokud odpověď napíšete s dostatečným předstihem, může se zde objevit komentář s návrhy, co je vhodné vylepšit nebo opravit před uzavřením úkolu. Po uzavření úkolu bude úloha obodována a objeví se u ní komentář.
-
+**Úkol pro tento týden: Vysvětlete, jak u stacionárního bodu typu ohnisko rozlišíme, mezi spirálou, která se vzdaluje od stacionárního bodu a spirálou, která se na stacionární bod navíjí. Stačí k posouzení znalost vlastních čísel? Jako obvykle je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
 
 END_PGML
 
 
 BEGIN_TEXT
-\{essay_box(25,80)\}
+\{essay_box(10,80)\}
 END_TEXT
-
-
-
-BEGIN_PGML
-
-* _Pro pohodlnou tvorbu textu můžete využít nástroj [@ htmlLink("http://user.mendelu.cz/marik/latexovatko","LaTeXovátko") @]*. Tam si také můžete do editoru nakliknout repertoár textů a ty upravovat a sledovat efekt jednotlivých úprav._
-* _Můžete využít [@ htmlLink("http://user.mendelu.cz/marik/am/slidy/latex/index_h.html", "nápovědu") @]*  pro LaTeX s ukázkami kódů pro vykopírování. Odkaz otevřete pravým tlačítkem v novém panelu, aby Vám zůstala otevřená i stránka, kterou čtete._
-* _Další ukázky jsou všechny vzorce v programu WeBWorK a v přednáškách. Použijte pravé tlačítko a zobrazení kódu v programu TeX, tj. Show Math As a TeX commands._
-END_PGML
 
 
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 
+
 BEGIN_PGML_SOLUTION
 
-Maticový tvar autonomního systému popisujícího regulaci teploty je
-[``` \frac{\mathrm d}{\mathrm dt}\begin{pmatrix}T_1\\T_2\end{pmatrix}= \begin{pmatrix}-1& 1-a\\1 & -1\end{pmatrix} \begin{pmatrix}T_1\\T_2\end{pmatrix}. ```]
-Charakteristický polynom je
-[``` \lambda^2 +2\lambda +a```] a protože ze vztahů pro kořeny kvadratické rovnice plyne pro součin kořenů vztah [``` \lambda_1\lambda_2=a>0,```] nemůže být jeden z kořenů kladný a jeden záporný. Systém tedy nemůže mít stacionární bod typu sedlo.
-Ze vztahů pro kořeny kvadratické rovnice dále plyne [```\lambda_1+\lambda_2=-2<0```] a proto jsou vlastní hodnoty záporné (jsou-li reálné) nebo mají záporné reálné části (jsou-li komplexně sdružené). Jedná se tedy o stabilní uzel nebo stabilní ohnisko.
+...
 
 END_PGML_SOLUTION
-
 
 ENDDOCUMENT();
