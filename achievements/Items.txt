@@ -1,0 +1,12 @@
+ResurrectHW   uzavrene ulohy, otevre na 24 hodin
+ExtendDueDate  otevrene ulohy, posune uzavreni o 24 hodin
+SuperExtendDueDate  otevrene ulohy, posune uzavreni o 48 hodin
+DoubleSet vybrana sada se pocita dvojnasobne
+ResetIncorrectAttempts  vynuluje pocet pokusu, u otevrene sady
+
+HalfCreditProb vybrana uloha z otevrene sady se pocita o polovinu vice,
+               maximalne vsak 100%
+DoubleProb  vybrana uloha z otevrene sady se pocita dvojnasobne
+FullCreditProb vybrana uloha z otevrene sady se pocita jako splnena na 100 %
+FullCreditSet vybrana sada se nastavi jako splnena na 100%, plati pro
+              otevrene i uzavrene 
