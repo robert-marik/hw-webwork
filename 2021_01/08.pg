@@ -107,6 +107,8 @@ Při aproximaci derivací pomocí centrálních diferencí postupujeme podle vzo
 a
 [```\frac{\partial f}{\partial y}\approx \frac{f(x,y+h)-f(x,y-h)}{2h}.```]
 
+V naší tabulce s rovnoměrnými kroky v obou nezávislých proměnných to znamená vlastně výpočet průměrné rychlosti změny veličiny [`c`] jako funkce proměnných [`v`] nebo [`m`] pro sousední hodnoty k hodnotě, odpovídající rychlosti [`v=[$spd[$sInd1]]`] pro derivaci podle rychlosti a [`m=[$wgt[$wInd1]]`] pro derivaci podle hmotnosti.
+
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
@@ -117,6 +119,8 @@ a
 [```\frac{\partial f}{\partial y}\approx \frac{f(x,y+h)-f(x,y-h)}{2h}.```]
 Stačí tedy vzorce adaptovat na na naše proměnné, najít požadované hodnoty v tabulce a tyto hodnoty použít.
 Zjednodušeně: rozdíl dvou hodnot, které jsou okolo hodnoty, v níž počítáme parciální derivace, dělíme odpovídající změnou rychlosti nebo hmotnosti.
+
+V naší tabulce s rovnoměrnými kroky v obou nezávislých proměnných to znamená vlastně výpočet průměrné rychlosti změny veličiny [`c`] jako funkce proměnných [`v`] nebo [`m`] pro sousední hodnoty k hodnotě, odpovídající rychlosti [`v=[$spd[$sInd1]]`] pro derivaci podle rychlosti a [`m=[$wgt[$wInd1]]`] pro derivaci podle hmotnosti.
 
 Hodnota v tabulce odpovídající [`v=[$spd[$sInd1]]`] a [`m=[$wgt[$wInd1]]`] je [`[$cal[$wInd1]->[$sInd1]]`]. Pod ní a nad ní jsou hodnoty pro stejnou rychlost a hmotnost o [`20`] liber větší a [`20`] liber menší. Proto rozdíl budeme dělit [`40`] librami a získáme změnu připadající na jednu libru. Tím dostaneme derivaci podle hmotnosti v kaloriích za minutu na libru.
 
