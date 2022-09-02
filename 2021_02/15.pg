@@ -19,9 +19,16 @@ BEGIN_PGML
 
 ## Gradient
 
-Gradient je pojem, který může mít mnoho tváří. Někdo rozumí pod gradientem podíl dvou veličin, někdo derivaci podle prostorové proměnné, někdo dokonce vektor sestavený z derivací. Pokusíme se ověřit, že ve vztazích mezi těmito různými chápáními jednoho pojmu nemáme nejasnosti.
+Gradient je pojem, který může mít mnoho tváří. Příklady zahrnují následující.
 
-**Úkol pro tento týden: Vysvětlete, jaké chápání pojmu gradient je nejobecnější a v jakém případě je možné tento obecný přístup zredukovat na podíl. Odpověď naformulujte slovně bez použití matematických značek, stručně, výstižně, jednoduše ale bez zbytečných nepřesností.**
+* Gradient je podíl změny veličiny a délky, na které takto změna nastala.
+* Gradient je derivace podle prostorové proměnné.
+* Gradient je vektor sestavený z parciálních derivací.
+* Gradient je ... (možná ještě něco dalšího).
+
+Pokusíme se ověřit, že ve vztazích mezi těmito různými chápáními jednoho pojmu nemáme nejasnosti.
+
+**Úkol pro tento týden: Vysvětlete, jaké chápání pojmu gradient je nejobecnější a v jakém případě je možné tento obecný přístup zredukovat na dva méně obecné. Odpověď naformulujte slovně bez použití matematických značek, stručně, výstižně, jednoduše ale bez zbytečných nepřesností.**
 
 END_PGML
 
