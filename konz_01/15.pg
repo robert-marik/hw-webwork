@@ -26,7 +26,7 @@ BEGIN_PGML
 
 Nejpřesnějším vyjadřovacím nástrojem matematiky je symbolika využívající smluvených značek pro matematické operace a matematické proměnné. Jako v předchozích odrážkách. To často vede i k nejkratším vyjádřením, protože není nutné sáhodlouze opisovat věc, pro kterou máme matematický symbol. Někdy je však vhodné umět vyjádřit myšlenky jenom prostřednictvím běžného jazyka. 
 
-**Úkol pro tento týden: Zkuste říci, co je přímá a nepřímá úměrnost mezi dvěma veličinami. Co nejjednodušší formou a jenom přirozeným jazykem, tedy například bez obratů typu "ypsilon je rovno ká krát iks". Tak, aby formulace byla co nejpochopitelnější. Srozumitelný text je pokud možno krátký a pokud to povaha sdělení umožňuje, snažíme se do něj nevkládat komplikovaná slova a komplikované myšlenkové pochody.**
+**Úkol pro tento týden: Zkuste do textového pole pro odpověď napsat, co je přímá a nepřímá úměrnost mezi dvěma veličinami. Co nejjednodušší formou a jenom přirozeným jazykem, tedy například bez obratů typu "ypsilon je rovno ká krát iks pro vhodné ká". Tak, aby formulace byla co nejpochopitelnější. Srozumitelný text je pokud možno krátký a pokud to povaha sdělení umožňuje, snažíme se do něj nevkládat komplikovaná slova a komplikované myšlenkové pochody.**
 
 END_PGML
 
