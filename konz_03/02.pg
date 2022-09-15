@@ -75,7 +75,7 @@ Určete pomocí centrální diference odhad derivace v čase [`t=[$x[$index]]\, 
 [_________________________________]{($fx[$index+1]-$fx[$index-1])/(2*$step)}
 <<
 
-Přesnost vyhodnocování je pro tuto úlohu nastavena na tři desetinná místa. Abyste se vyhnuli použití kalkulaček, nemusíte derivaci zadávat jedním desetinným číslem, ale můžete napsat, jak bude vypadat dosazení do vzorce. Desetinné číslo reprezentující odpověď uvidíte po stisknutí "Preview My Answers". Můžete však odpověď nechat v původním neupraveném tvaru a odeslat ke kontrole správnosti.
+Přesnost vyhodnocování je pro tuto úlohu nastavena na tři desetinná místa. Abyste se vyhnuli použití kalkulaček, nemusíte derivaci zadávat jedním desetinným číslem, ale můžete napsat, jak bude vypadat dosazení do vzorce. Desetinné číslo reprezentující odpověď uvidíte po stisknutí tlačítka pro náhled. Můžete však odpověď nechat v původním neupraveném tvaru a odeslat ke kontrole správnosti.
 
 ---
 
