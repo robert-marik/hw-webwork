@@ -13,21 +13,17 @@ $showPartialCorrectAnswers = 1;
 Context("Matrix");
 
 
-$f=Matrix([[-2,1,0,0],[1,-2,1,0],[0,1,-2,1],[0,0,1,-2]]);   # funkce
+$f=Matrix([[-2,1,0],[1,-2,1],[0,1,-2]]);   # funkce
 
 BEGIN_PGML
 
 ## Otázka s odpovědí ve tvaru matice
 
-Matice jsou objekty obsahující čísla nebo funkce sestavené do obdélníkového schematu. Následující matice je důležitá při numerickém řešení úloh spojených s difuzí (například vody ve dřevě) nebo vedením tepla (například ve stěně stavby) metodou konečných diferencí. Obsahuje v hlavní diagonále (z levého horního rohu do pravého dolního rohu) číslice [`-2`], podél hlavní diagonály nahoře i dole číslice [`1`] a jinak nuly. Je v MATLABu nebo v Octave výstupem následujícího příkazu.
-
-:   toeplitz(\[-2,1,0,0\])
+Matice jsou objekty obsahující čísla nebo funkce sestavené do obdélníkového schematu. Matice [```[$f]```] je důležitá při numerickém řešení úloh spojených s difuzí (například vody ve dřevě) nebo vedením tepla (například ve stěně stavby) metodou konečných diferencí. Obsahuje v hlavní diagonále (z levého horního rohu do pravého dolního rohu) číslice [`-2`], podél hlavní diagonály nahoře i dole číslice [`1`] a jinak nuly. 
 
 >>[______]*{$f}<<
 
-Matice se posuzuje jako celek. Stačí jeden prvek nezadaný nebo špatně a odpověď je vyhodnocena jako nesprávná. Nedozvíte se, který prvek je v pořádku a který ne.
-
-[@ htmlLink("https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwj-3sqb5qzuAhV_AxAIHbgdA0QQFjACegQICBAC&url=https%3A%2F%2Fcs.wikipedia.org%2Fwiki%2FMATLAB&usg=AOvVaw1CSIkbDa5enCglGmLBDV3-","MATLAB") @]* máte k dispozici díky celouniverzitní licenci MENDELU, ale v tuto chvíli raději použijte jeho opensource alternativu [@ htmlLink("https://cs.wikipedia.org/wiki/GNU_Octave","Octave") @]*, protože s programem Octave je možno pracovat i online bez instalace nebo přihlášení. Například na [@ htmlLink("https://sagecell.sagemath.org/?z=eJwDAAAAAAE=&lang=octave&interacts=eJyLjgUAARUAuQ==","této adrese") @]* (vpravo dole musíte mít vybráno "Language: Octave").
+Matice se posuzuje jako celek. Stačí jeden prvek nezadaný nebo špatně a odpověď je vyhodnocena jako nesprávná. Nedozvíte se, který prvek je v pořádku a který ne. (Vyzkoušejte si to.)
 
 END_PGML
 
