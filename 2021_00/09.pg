@@ -25,6 +25,7 @@ $f1=Formula("($a)/(x^2+$b)")->reduce;
 $f2=Formula("$a ($b x^($n)+$c)/(x^2+$d x - $f)")->reduce;
 $f3=Formula("$a * e^(-$b*t/7)")->reduce;
 $f4=Formula("$b * sqrt( ($n)*x + ($c)*t)")->reduce;
+$f4->{limits} = [4,6];
 $f5=Formula("9/( pi + ($c)*t)^($n)")->reduce;
 
 
