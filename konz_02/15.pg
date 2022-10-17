@@ -15,6 +15,10 @@ TEXT(MODES(
 ));
 
 
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;} </style>",
+));
+
 BEGIN_PGML
 
 
@@ -49,7 +53,23 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-...
+Kdo odpověděl má v červeném políčku nad příkladem hodnocení známkou a komentář. Případně bude komentář doplněn v následujících dnech.
+
+Několik možností jak napsat odpověď:
+
+* Jednotka veličiny získané derivací je podílem jednotky veličiny, která je derivována, a jednotky veličiny, podle které se derivuje.
+* Jednotka derivace je stejná, jako bychom místo derivování jedné veličiny podle druhé tyto veličiny dělili.
+* Jednotka derivace je podílem jednotek derivované a derivující veličiny v tomto pořadí.
+
+Příkladem může být derivace teploty podle času, kde derivace vychází v jednotkách teploty za jednotku času, například stupeň Celsia za minutu. Pro správnost je nutné napsat odpověď obecně, nikoliv na konkrétním příkladě. Ten může sloužit pro ilustraci.
+
+K hodnocení:
+
+* Dotaz se neptal na derivaci fyzikální jednotky. To by ani nedávalo smysl. 
+* Odpověď, že po derivaci jednotka veličiny souvisí s jednotkami původních veličin, je samozřejmost a neodpovídá na otázku. Podobné odpovědi jsou zde obodovány za snahu ale hodnocení správnosti je pochopitelně F.
+* Odpověď, že derivace znamená rychlost změny jedné veličiny v závislosti na druhé je sice pravdivé tvrzení, ale nedopovídá na položenou otázku o jednotkách. Proto bohužel i taková odpověď zasluhuje hodnocení F.
+
+Až budou zveřejněny odpovědi, poučte se, jaké chyby se objevovaly a jaké na ně jsou reakce. To je cílem tohoto příkladu. Proto prozatím všichni, kdo napsali něco smysluplného, či se o to alespoň pokusili, budou mít hodnocení 100%.
 
 END_PGML_SOLUTION
 

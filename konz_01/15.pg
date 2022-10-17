@@ -15,6 +15,10 @@ TEXT(MODES(
     HTML => "<style>.problem-content textarea {width:100%;}</style>",
 ));
 
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
+));
+
 
 BEGIN_PGML
 
@@ -51,7 +55,17 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-...
+* **Přímá úměrnost je závislost mezi dvěma veličinami, kdy se obě veličiny mění se stejným násobkem. Tedy kolikrát se změní jedna, tolikrát se změní druhá.**
+* Matematicky to znamená, že mezi veličinami [`x`] a [`y`] je vztah přímé úměrnosti, pokud existuje konstanta [`k`] s vlastností [```y=kx.```]
+* Pro kladnou hodnotu [`k`] to znamená, že *kolikrát* se zvětší jedna veličina, *tolikrát* se zvětší druhá veličina.
+* Formulovat předchozí tvrzení obratem "pokud se mění jedna veličina, druhá veličina se mění úměrně" je definice kruhem, protože se odkazujeme na definovaný pojem. Podobně obrat "pokud se mění jedna veličina, druhá veličina se mění stejným poměrem" (leda by autor definoval, co znamená "stejným poměrem").
+* Ekvivalentní vyjádření definičního vztahu je, že mezi veličinami je vztah přímé úměrnosti, pokud je podíl těchto veličin konstantní. Tedy existuje konstanta [`k`] s vlastností [```k=\frac yx.```]
+* Obrat "kolikrát se změní jedna veličina, tolikrát se změní druhá veličina" není možné nahradit obratem "čím je větší jedna veličina, tím je větší druhá veličina". V definici úměrnosti je důležité to, že se obě veličiny mění *stejným násobkem.* Tím se definice liší od definice rostoucí funkce, kde růst může být libovolný.
+* Nepřímou úměrnost je nejsnazší zavést tak, že **mezi dvěma veličinami je vztah nepřímé úměrnosti, pokud mezi jednou z veličin a převrácenou hodnotou druhé je vztah přímé úměrnosti.** Využíváme tak triviální identity
+[``` \frac kx= k \frac 1x.```] Případně je možné podat definici analogickou výše uvedené definici přímé úměrnosti.
+
+Máte pocit, že ze základní školy to znáte jinak? Že sjte si říkali, že čím je větší jedna veličina, tím je větší druhá veličina? Na základní škole se děti učí pojmy zjednodušeně. Tam (možná) formulace "čím-tím" může projít. To proto, že nároky musí odpovídat věku žáků. Na vysokou školu už ale děti nechodí, proto se můžeme snažit o přesné vymezení pojmů. Wikipedie není stoprocentní zdroj informací, ale v tomto případě nás na zcestí nezavede. Článek o [@ htmlLink("https://cs.wikipedia.org/wiki/%C3%9Am%C4%9Brnost","úměrnosti") @]* zde na Wikipedii správně. V článku není ani jednou slovo "čím" nebo "tím".
+
 
 END_PGML_SOLUTION
 

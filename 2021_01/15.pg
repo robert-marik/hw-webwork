@@ -46,7 +46,12 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-...
+Není jednoznačně jediná správná odpověď. Toto je ukázka, jak by odpověděl autor otázky.
+
+*Varianta 1:* Parciální i obyčejná derivace sledují, jak se mění funkční hodnoty funkce při změně nezávislé proměnné. Narozdíl od obyčejné derivace definované pro funkce jedné proměnné, paricální derivace uvažujeme pro funkce více proměnných. V takovém případě jsou proměnné, podle kterých nederivujeme, považovány za konstantní.
+
+*Minimalistická varianta:* Obě derivace vyjadřují rychlost změny, obyčejná derivace je pro funkce jedné proměnné a parciální derivace pro funkce více proměnných. 
+
 
 END_PGML_SOLUTION
 

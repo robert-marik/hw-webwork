@@ -14,6 +14,12 @@ TEXT(MODES(
     HTML => "<style>.problem-content textarea {width:100%;}</style>",
 ));
 
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;} </style>",
+));
+
+
+
 BEGIN_PGML
 
 
@@ -43,7 +49,14 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-...
+Vlevo v rovnici stojí člen udávající akumulaci stavové veličiny. První člen
+napravo souvisí s produkcí stavové veličiny ve zdrojích (a spotřebou ve
+spotřebičích) a druhý člen napravo souvisí se změnami toku, který uvažovnaou
+stavovou veličinu přenáší. Všechny členy jsou vztaženy na jednotku času a
+jendotku objemu. 
+
+Pomocí rovnice můžeme modelovat transportní děj v prostředí, do kterého
+dokážeme započítat akumulaci a produkci stavové veličiny. 
 
 END_PGML_SOLUTION
 

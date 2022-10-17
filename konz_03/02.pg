@@ -39,7 +39,7 @@ Context()->flags->set(tolerance => 0.001, tolType => "absolute");
 $mc1 = RadioButtons(
     [[ "Rychlost s jakou roste teplota v čase, ve stupních Celsia za minutu.", 
       "Čas nutný ke zvýšení teploty o jeden stupeň Celsia, v minutách na stupeň Celsia.",
-      "Intenzitu zdroje tepla nutnou pro zvýšení teploty o jedne stupeň Celsia, ve wattech na stupeň Celsia",
+      "Intenzitu zdroje tepla nutnou pro zvýšení teploty o jeden stupeň Celsia, ve wattech na stupeň Celsia",
       "Práce vykonaná zdrojem tepla při zvýšení teploty vzorku o jeden stupeň Celsia za minutu, v kilowathodinách na minutu a stupeň Celsia. ",
       "Rychlost s jakou je nutno dodávat energii, aby se uržela vždy aktuální teplota dřeva, v joulech za minutu na stupeň Celsia"
 ]],
@@ -79,7 +79,7 @@ Přesnost vyhodnocování je pro tuto úlohu nastavena na tři desetinná místa
 
 ---
 
-Vyberte správnou slovní interpretaci a jednotku pro práve vypočtenou derivaci.
+Vyberte správnou slovní interpretaci a jednotku pro právě vypočtenou derivaci.
 
 [_]{$mc1}
 

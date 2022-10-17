@@ -22,11 +22,27 @@ potom mozna https://stackoverflow.com/questions/16905425/find-duplicate-values-i
 Skryti toho co je prazdne.
 
 $("td:contains('There are no answers for this student.')").parent().css("display","none");
+	
+
+
 
 
 $("td:not(:contains('There are no answers for this student.'))").next('td').next('td').children().children().attr('checked',true);
 
 
+
 Obarveni nevyplnene reakce.
 
 $("textarea[name$='comment']:empty").css("background-color","#FAA");
+
+
+
+Skryti toho co je prazdne a co ma hodnoceni 100 procent:
+
+$("td:contains('There are no answers for this student.')").parent().css("display","none");
+$("hr").parent().parent().css("display","none");        
+$("select option[selected=\"selected\"][value=100]").parent().parent().parent().css("display","none")
+
+
+
+

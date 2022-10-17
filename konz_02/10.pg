@@ -50,6 +50,7 @@ Přímým přepisem slovního zadání do kvantitativních pojmů dostáváme pr
 [``` \frac{\mathrm dx}{\mathrm dt}= kx-p```]
 a
 [``` \frac{\mathrm dc}{\mathrm dt}= p-kc.```]
+Vždy se kladně promítne proces, který působí nárůst a záporně proces, který způsobí pokles sledovaníé veličiny. Pokud je rychlost konstantní, je příslušný člen přímo roven příslušné konstantě. Pokud je úměrný sledované veličině, je nutno použít předepsanou konstantu úměrnosti. 
 
 END_PGML_SOLUTION
 

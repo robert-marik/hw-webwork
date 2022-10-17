@@ -28,7 +28,10 @@ Gradient je pojem, který může mít mnoho tváří. Příklady zahrnují násl
 
 Pokusíme se ověřit, že ve vztazích mezi těmito různými chápáními jednoho pojmu nemáme nejasnosti.
 
-**Úkol pro tento týden: Vysvětlete, jaké chápání pojmu gradient je nejobecnější a v jakém případě je možné tento obecný přístup zredukovat na dva méně obecné. Odpověď naformulujte slovně bez použití matematických značek, stručně, výstižně, jednoduše ale bez zbytečných nepřesností.**
+**Úkol pro tento týden: Vysvětlete, jaké chápání pojmu gradient je
+nejobecnější a v jakém případě je možné tento obecný přístup zredukovat na
+dva méně obecné.  Odpověď naformulujte slovně bez použití matematických
+značek, stručně, výstižně, jednoduše ale bez zbytečných nepřesností.**
 
 END_PGML
 
@@ -53,7 +56,22 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-...
+Gradient je vektor sestavený z parciálních derivací. Ve speciálním případě,
+pokud funkce závisí jenom na jedné proměnné, se gradient redukuje na
+derivaci podle této proměnné.  V ještě speciálnějším případě, kdy je funkce
+vystupující v gradientu dokonce lineární a procházející počátkem, se dokonce
+derivace redukuje na dělení. Proto je v nejjednodušším možném případě a v
+nejhrubším přiblížení realistické používat pro výpočet gradientu podíl. 
+Pokud tento přístup nedává dobré výsledky, je nutné uvažovat o obecnějším
+přístupu, tj.  použití derivace nebo parciální derivace.
+
+Poznámka: redukci gradientu na podíl změny veličiny a délky na kterém tato
+změna nastala, používáme někdy i když je průběh veličiny nelineární a
+rozhodneme se tuto nelinearitu ignorovat. To může vést k nepřesnostem ve
+výsledném modelu, ale je možné používat mnohem jednodušší matematický aparát.
+V tomto případě je akceptování způsobených nepřesností daní za
+jednoduchost.
+
 
 END_PGML_SOLUTION
 
