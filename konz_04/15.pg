@@ -14,6 +14,11 @@ TEXT(MODES(
     HTML => "<style>.problem-content textarea {width:100%;}</style>",
 ));
 
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;} </style>",
+));
+
+
 BEGIN_PGML
 
 
@@ -42,7 +47,44 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-...
+Tři návrhy na odpověď:
+
+* Integrál umožňuje najít změnu veličiny z informace o rychlosti, s
+jakou se tato veličina mění. Tedy přepočítává rychlost změny na změnu, tj.
+na velikost změny. Najde uplatnění v případě, že rychlost není kosntantní,
+protože pro konstantní rychlosti se redukuje na násobení.
+* Integrál slouží k řešení diferenicálních rovnic. To je důležité, protože
+diferenciální rovnice jsou základním nástrojem pro modelování celé řady dějů
+a jevů v přírodě.
+* Integrál slouží k určení střední hodnoty funkce, která se spojitě mění na
+jistém intervalu. Tím je možné jej chápat jako zobecnění aritmetického
+průměru.
+
+
+Častá odpověď, že integrál slouží k výpočtu obsahů množin, objemů těles a
+délek křivek není to pravé. Jednak nás v praxi tato informace zajímá mnohem méně
+často, než změna veličiny vypočítaná z rychlosti změny, nebo než řešení modelu
+představovaného diferenciální rovnicí a jednak například u délky křivky je
+možnost využití integrálu spíše teoretická. V praxi totiž vychází komplikovaný integrál s
+odmocninou z dvojčlenu a ten je obtížný už pro tak jednoduchou křivku, jako
+je parabola.
+
+Riemannův integrál se používá k výpočtu aditivních veličin a je založen na
+tom, že umožňuje sečíst nekonečně mnoho nekonečně malých příspěvků. Toto by
+se však obtížně fomrulovalo do stručného text, proto je asi lepší sem toto
+využití integrálu nepsat.
+
+Kde se dala hledat odpověď?
+
+* V přednáškách je u obou druhů integrálu (neurčitý, určitý) v rámečku
+  napsáno, jak souvisí veličina nebo změna veličiny s integrálem a rychlostí změny. 
+* Ve cvičeních se dělala spousta příkladů, kdy byla zadána rychlost změny a
+počítala se měnící se veličina. Z toho je jasná společná vlastnost, že z
+rychosti změny veličiny určujeme změnu této veličiny nebo časový průběh.
+* Na wikipedii a v učebnících je bohužel mezi aplikacemi hojně uváděno
+zejména nebo pouze to relativně málo využitelné, a to
+geometrické aplikace. Ty jsou však v porovnání s jinými aplikacemi naprosto
+marginální.
 
 END_PGML_SOLUTION
 

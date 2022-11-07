@@ -56,19 +56,19 @@ derivujeme.
 
 * Derivace je rychlost změny funkce a zajímá nás, protože schopnost pracovat s
 rychlostí změny umožní sestavovat matematické modely dějů probíhajících v
-přírodě.
+přírodě. Příkladem je modelování růstu populace živých organismů.
 * Derivace je změna funkce za jednotku času. Používá se v matematickém vyjádření fyzikálních zákonů. Příkladem je zákon radioaktivního rozpadu udávající souvislost mezi množstvím radioaktivního materiálu a rychlostí jeho rozpadu. (Využívá se například při ochraně před radioaktivním radonem ve starých budovách nebo k datování archeologických nálezů.)
-* Derivace funkce je okamžitá rychlost změny funkčních hodnot vyvolaná jednotkovou změnou nezávislé proměnné. Využívá se ke stanovení rychlosti růstu v matematických modelech dějů probíhajících proměnnou rychlostí. Například ochlazování kávy v hrníčku, což je proces jehož intenzita souvisí s teplotním rozdílem mezi tepltou kávy a teplotou okolí.
+* Derivace funkce je okamžitá rychlost změny funkčních hodnot vyvolaná jednotkovou změnou nezávislé proměnné. Využívá se ke stanovení rychlosti růstu v matematických modelech dějů probíhajících proměnnou rychlostí. Napříkald při tepelné výměně, kdy není nutné uvažovat vedení tepla. Klasickým a jednoduchým případem z učebnic je ochlazování kávy v hrníčku, ale tento proces probíhá i v přírodě. 
 
+POZNÁMKY
 
-Často derviujeme podle času. Rychlost je potom změna veličiny za jednotku času,
+* Často derivujeme podle času. Rychlost je potom změna veličiny za jednotku času,
 proto se někdy říká, že derivace ze změna veličiny za jednotku času.
 Obecnější formulace (nemusíme derivovat jenom podle času)je, že derivace je
 změna funkce odpovídající jednotkové změně nezávislé proměnné, resp.
 jednotkové změně vstupních dat. 
-
-Někdy je důležité zdůraznit, že rychlost z definice derivace je okamžitá
-rychlost.
+* Někdy je důležité zdůraznit, že rychlost z definice derivace je okamžitá
+rychlost. Někdy se toto nezmiňuje a úředpokládá se to automaticky, ale v případě potřeby musí být autor schopen dovysvětlit detaily.
 
 Odpověď může být zformulována různými slovy a postupně se schází mnoho
 pohledů. Nejužitečnější bude si přečíst komentáře k jednotlivým odpovědím,

@@ -43,7 +43,7 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-...
+Riemannův integrál se používá pro integraci na intervalu (na části přímky), křivkový integrál se používá pro integraci po křivce. Pokud má vektorové pole konstantní velikost a svírá s křivkou konstantní úhel, redukuje se křivkový integrál druhého druhu na součin délky křivky a průmětu vektorového pole do směru křivky. 
 
 END_PGML_SOLUTION
 

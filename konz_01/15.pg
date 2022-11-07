@@ -64,7 +64,7 @@ BEGIN_PGML_SOLUTION
 * Nepřímou úměrnost je nejsnazší zavést tak, že **mezi dvěma veličinami je vztah nepřímé úměrnosti, pokud mezi jednou z veličin a převrácenou hodnotou druhé je vztah přímé úměrnosti.** Využíváme tak triviální identity
 [``` \frac kx= k \frac 1x.```] Případně je možné podat definici analogickou výše uvedené definici přímé úměrnosti.
 
-Máte pocit, že ze základní školy to znáte jinak? Že sjte si říkali, že čím je větší jedna veličina, tím je větší druhá veličina? Na základní škole se děti učí pojmy zjednodušeně. Tam (možná) formulace "čím-tím" může projít. To proto, že nároky musí odpovídat věku žáků. Na vysokou školu už ale děti nechodí, proto se můžeme snažit o přesné vymezení pojmů. Wikipedie není stoprocentní zdroj informací, ale v tomto případě nás na zcestí nezavede. Článek o [@ htmlLink("https://cs.wikipedia.org/wiki/%C3%9Am%C4%9Brnost","úměrnosti") @]* zde na Wikipedii správně. V článku není ani jednou slovo "čím" nebo "tím".
+Máte pocit, že ze základní školy to znáte jinak? Že jste si říkali, že čím je větší jedna veličina, tím je větší druhá veličina? Na základní škole se děti učí pojmy zjednodušeně. Tam (možná) formulace "čím-tím" může projít. To proto, že nároky musí odpovídat věku žáků. Na vysokou školu už ale děti nechodí, proto se můžeme snažit o přesné vymezení pojmů. Wikipedie není stoprocentní zdroj informací, ale v tomto případě nás na zcestí nezavede. Článek o [@ htmlLink("https://cs.wikipedia.org/wiki/%C3%9Am%C4%9Brnost","úměrnosti") @]* je na Wikipedii správně. V článku není ani jednou slovo "čím" nebo "tím".
 
 
 END_PGML_SOLUTION

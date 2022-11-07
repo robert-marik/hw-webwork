@@ -85,6 +85,8 @@ Vypočtěte integrál [``` \int_{[$a]}^{[$b]} f(x)\mathrm dx```] funkce [`f`] da
 
 Tip: Nemusíte výsledek psát jako jedno desetinné číslo. Stačí napsat, jak bude vypadat dosazení do vzorce a systém si výsledek pro ověření dopočítá automaticky.
 
+Upozornění: Jako obvykle, oddělovačem desetinných míst je tečka. Použití čárky vyvolá chybovou hlášku, protože odpověď nemůže být seznam hodnot (angl. list).
+
 
 END_PGML
 
