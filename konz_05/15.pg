@@ -40,7 +40,8 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 
-...
+Integrál vyjadřuje nárůst koncentrace radonu za čas uvedený v mezích
+určitého integrálu.
 
 END_PGML_SOLUTION
 
