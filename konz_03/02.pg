@@ -39,7 +39,7 @@ Context()->flags->set(tolerance => 0.001, tolType => "absolute");
 $mc1 = RadioButtons(
     [[ "Rychlost s jakou roste teplota v čase, ve stupních Celsia za minutu.", 
       "Čas nutný ke zvýšení teploty o jeden stupeň Celsia, v minutách na stupeň Celsia.",
-      "Intenzitu zdroje tepla nutnou pro zvýšení teploty o jedne stupeň Celsia, ve wattech na stupeň Celsia",
+      "Intenzitu zdroje tepla nutnou pro zvýšení teploty o jeden stupeň Celsia, ve wattech na stupeň Celsia",
       "Práce vykonaná zdrojem tepla při zvýšení teploty vzorku o jeden stupeň Celsia za minutu, v kilowathodinách na minutu a stupeň Celsia. ",
       "Rychlost s jakou je nutno dodávat energii, aby se uržela vždy aktuální teplota dřeva, v joulech za minutu na stupeň Celsia"
 ]],
@@ -75,11 +75,11 @@ Určete pomocí centrální diference odhad derivace v čase [`t=[$x[$index]]\, 
 [_________________________________]{($fx[$index+1]-$fx[$index-1])/(2*$step)}
 <<
 
-Přesnost vyhodnocování je pro tuto úlohu nastavena na tři desetinná místa. Abyste se vyhnuli použití kalkulaček, nemusíte derivaci zadávat jedním desetinným číslem, ale můžete napsat, jak bude vypadat dosazení do vzorce. Desetinné číslo reprezentující odpověď uvidíte po stisknutí "Preview My Answers". Můžete však odpověď nechat v původním neupraveném tvaru a odeslat ke kontrole správnosti.
+Přesnost vyhodnocování je pro tuto úlohu nastavena na tři desetinná místa. Abyste se vyhnuli použití kalkulaček, nemusíte derivaci zadávat jedním desetinným číslem, ale můžete napsat, jak bude vypadat dosazení do vzorce. Desetinné číslo reprezentující odpověď uvidíte po stisknutí tlačítka pro náhled. Můžete však odpověď nechat v původním neupraveném tvaru a odeslat ke kontrole správnosti.
 
 ---
 
-Vyberte správnou slovní interpretaci a jednotku pro práve vypočtenou derivaci.
+Vyberte správnou slovní interpretaci a jednotku pro právě vypočtenou derivaci.
 
 [_]{$mc1}
 

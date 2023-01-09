@@ -14,6 +14,10 @@ TEXT(MODES(
     HTML => "<style>.problem-content textarea {width:100%;}</style>",
 ));
 
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
+));
+
 BEGIN_PGML
 
 
@@ -46,7 +50,31 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-...
+Odpověď je možné vyjádřit různým způsobem. Zde je několik návrhů, liší se
+podle toho, jak na derivovanou veličinu nahlížíme a podle jaké veličiny
+derivujeme.
+
+* Derivace je rychlost změny funkce a zajímá nás, protože schopnost pracovat s
+rychlostí změny umožní sestavovat matematické modely dějů probíhajících v
+přírodě. Příkladem je modelování růstu populace živých organismů.
+* Derivace je změna funkce za jednotku času. Používá se v matematickém vyjádření fyzikálních zákonů. Příkladem je zákon radioaktivního rozpadu udávající souvislost mezi množstvím radioaktivního materiálu a rychlostí jeho rozpadu. (Využívá se například při ochraně před radioaktivním radonem ve starých budovách nebo k datování archeologických nálezů.)
+* Derivace funkce je okamžitá rychlost změny funkčních hodnot vyvolaná jednotkovou změnou nezávislé proměnné. Využívá se ke stanovení rychlosti růstu v matematických modelech dějů probíhajících proměnnou rychlostí. Napříkald při tepelné výměně, kdy není nutné uvažovat vedení tepla. Klasickým a jednoduchým případem z učebnic je ochlazování kávy v hrníčku, ale tento proces probíhá i v přírodě. 
+
+POZNÁMKY
+
+* Často derivujeme podle času. Rychlost je potom změna veličiny za jednotku času,
+proto se někdy říká, že derivace ze změna veličiny za jednotku času.
+Obecnější formulace (nemusíme derivovat jenom podle času)je, že derivace je
+změna funkce odpovídající jednotkové změně nezávislé proměnné, resp.
+jednotkové změně vstupních dat. 
+* Někdy je důležité zdůraznit, že rychlost z definice derivace je okamžitá
+rychlost. Někdy se toto nezmiňuje a úředpokládá se to automaticky, ale v případě potřeby musí být autor schopen dovysvětlit detaily.
+
+Odpověď může být zformulována různými slovy a postupně se schází mnoho
+pohledů. Nejužitečnější bude si přečíst komentáře k jednotlivým odpovědím,
+co je jim vytýkáno. Proto budou anonymizované a okomentované odpovědi
+shromážděny na volně dostupné stránce, která bude odkazována odsud. Uzávěrka
+je 16.10. (odevzdávání pro kombinované studium), poté bude zmiňovaný materiál k dispozici během týdne či dvou.
 
 END_PGML_SOLUTION
 

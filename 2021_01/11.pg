@@ -35,7 +35,6 @@ $ml->ra_pop_up_list([
 #
 $ml->qa(
 "\(\displaystyle\frac{\partial T}{\partial t}\)", "Časová změna teploty, tj. rychlost s jakou v daném místě roste teplota jako funkce času.",
-"\(\displaystyle-\frac{\partial T}{\partial t}\)", "Záporně vzatá časová změna teploty, tj. rychlost s jakou v daném místě klesá teplota podle času.",
 "\(\displaystyle\frac{\partial T}{\partial x}\)", "Rychlost s jakou v daném okamžiku roste teplota ve směru osy \(x\).",
 "\(\displaystyle-\frac{\partial T}{\partial x}\)", "Rychlost s jakou v daném okamžiku klesá teplota ve směru osy \(x\).",
 "\(\displaystyle-\lambda\frac{\partial T}{\partial x}\)", "Tok tepla.",

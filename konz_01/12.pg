@@ -36,9 +36,9 @@ $ml->ra_pop_up_list([
 #  Add correct questions and answers
 #
 $ml->qa(
-"\(f(t+\Delta t)-f(t)\)", "Změna  veličiny \(f\) za časový interval mezi okamžiky \(t\) a \(t+\Delta t\).",
-"\(\displaystyle\frac{f(t+\Delta t)-f(t)}{\Delta t}\)", "Průměrná rychlost změny  veličiny \(f\) za časový interval mezi okamžiky \(t\) a \(t+\Delta t\).",
-"\(\displaystyle\lim_{\Delta t\to 0}\frac{f(t+\Delta t)-f(t)}{\Delta t}\)", "Okamžitá rychlost změny  veličiny \(f\) v okamžiku \(t\)."
+"\(f(t+h)-f(t)\)", "Změna  veličiny \(f\) za časový interval mezi okamžiky \(t\) a \(t+h\).",
+"\(\displaystyle\frac{f(t+h)-f(t)}{h}\)", "Průměrná rychlost změny  veličiny \(f\) za časový interval mezi okamžiky \(t\) a \(t+h\).",
+"\(\displaystyle\lim_{h\to 0}\frac{f(t+h)-f(t)}{h}\)", "Okamžitá rychlost změny  veličiny \(f\) v okamžiku \(t\)."
 );
 
 
@@ -49,7 +49,7 @@ $ml->choose(3);
 #
 $ml->extra(
 "Průměrná rychlost změny  veličiny \(f\) v okamžiku \(t\).", 
-"Okamžitá rychlost změny  veličiny \(f\) za časový interval mezi okamžiky \(t\) a \(t+\Delta t\)."
+"Okamžitá rychlost změny  veličiny \(f\) za časový interval mezi okamžiky \(t\) a \(t+h\)."
 );
 $ml->choose_extra(2);
   
@@ -65,7 +65,7 @@ BEGIN_PGML
 ## Definice derivace funkce jedné proměnné
 
 Derivace funkce [``f``] proměnné [``x``] je definována vztahem 
-[```\lim_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}.```] Pro správné pochopení toho, co derivace vyjadřuje, je nutno rozumět jednotlivým částem tohoto definičního vztahu.
+[```\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}.```] Pro správné pochopení toho, co derivace vyjadřuje, je nutno rozumět jednotlivým částem tohoto definičního vztahu.
 
 Podáme slovní jednotlivých celků, ze kterých se skládá definice derivace. Uvažujme veličinu [``f``], která se mění v čase, tj. je funkcí proměnné [``t``]. Přepište jednotlivé části definice derivace do proměnné [``t``] a podejte jejich slovní interpretaci.
 

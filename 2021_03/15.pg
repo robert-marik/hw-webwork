@@ -14,6 +14,12 @@ TEXT(MODES(
     HTML => "<style>.problem-content textarea {width:100%;}</style>",
 ));
 
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;} </style>",
+));
+
+
+
 BEGIN_PGML
 
 
@@ -31,13 +37,26 @@ BEGIN_TEXT
 END_TEXT
 
 
+BEGIN_PGML
+
+Samozřejmostí je ucelený text, celá věta nebo celý odstavec s dodržením interpunkce a stavby věty (podmět, sloveso, další větné členy). Cílem je vyzkoušet si, zda umíte dát srozumitelnou a jasně formulovanou odpověď.
+
+END_PGML
+
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 
 
 BEGIN_PGML_SOLUTION
 
-...
+Vlevo v rovnici stojí člen udávající akumulaci stavové veličiny. První člen
+napravo souvisí s produkcí stavové veličiny ve zdrojích (a spotřebou ve
+spotřebičích) a druhý člen napravo souvisí se změnami toku, který uvažovnaou
+stavovou veličinu přenáší. Všechny členy jsou vztaženy na jednotku času a
+jendotku objemu. 
+
+Pomocí rovnice můžeme modelovat transportní děj v prostředí, do kterého
+dokážeme započítat akumulaci a produkci stavové veličiny. 
 
 END_PGML_SOLUTION
 

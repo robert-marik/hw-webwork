@@ -70,14 +70,11 @@ BEGIN_PGML
 
 ### Instrukce
 
-Následující příklad je poněkud komplexnější, než příklady, se kterými jste se setkávali dosud. Ukazuje, jak mohou vypadat příklady u zkoušky. Je nutné použít i jakési menší početní dovednosti (výpočty jsou snadné, ale je jich několik) a zkombinovat je se znalostí toho, co se má počítat a jak se to má počítat. Abychom předešli frustraci a rozčarování z neúspěchu, můžete si příklad vyzkoušet nanečisto [@  htmlLink("https://um.mendelu.cz/webwork2/html2xml?&answersSubmitted=0&sourceFilePath=problems/difuzni_rce/vedeni_tepla_vypocet.pg&problemSeed=123&displayMode=MathJax&courseID=daemon&userID=demon&course_password=demonek&outputformat=simpleM&language=cs_CZ","zde"); @]* a prohlédnout video s řešením pro jiné hodnoty [@ htmlLink("https://youtu.be/rMYvafCY0Js?t=3539","zde pro příklad ze cvičení");  @]* a [@  htmlLink("https://youtu.be/rMYvafCY0Js?t=3917","zde pro příklad z WeBWorKu"); @]*
-
-V domácích úlohách máte za každou úlohu jeden bod, i za tuto dlouhou. V písemce, ať už bude v učebně na papír nebo přes Internet ve WeBWorKu bude pochopitelně těžší příklad jako je tento více hodnocen než lehký.
+Následující příklad je poněkud komplexnější, než příklady, se kterými jste se setkávali dosud. Je nutné použít i jakési menší početní dovednosti (výpočty jsou snadné, ale je jich několik) a zkombinovat je se znalostí toho, co se má počítat a jak se to má počítat. Abychom předešli frustraci a rozčarování z neúspěchu, můžete si příklad vyzkoušet nanečisto [@  htmlLink("https://um.mendelu.cz/webwork2/html2xml?&answersSubmitted=0&sourceFilePath=problems/difuzni_rce/vedeni_tepla_vypocet.pg&problemSeed=123&displayMode=MathJax&courseID=daemon&userID=demon&course_password=demonek&outputformat=simpleM&language=cs_CZ","zde"); @]* a prohlédnout video s řešením pro jiné hodnoty [@ htmlLink("https://youtu.be/rMYvafCY0Js?t=3539","zde pro příklad ze cvičení");  @]* a [@  htmlLink("https://youtu.be/rMYvafCY0Js?t=3917","zde pro příklad z WeBWorKu"); @]*
 
 [@ image("teplo.jpg", width=>400) @]*
 
 Prozkoumáme cestu od rozložení teploty k rovnici vedení tepla. Úkolů je příliš mnoho na to, aby bylo možné sem dát vypočítaný vzor podle kterého můžete postupovat. Odkazy na analogické výpočty však máte v odstavci výše a analogický příklad se počítal ve cvičení. 
-
 
 
 ## Gradient teploty, tok, zesilování versus zeslabování toku

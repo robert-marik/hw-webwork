@@ -342,7 +342,7 @@ BEGIN_PGML
      ); @]*
 
 
-Určete teplotu a parciální derivace (a tím vlastně i gradient) teploty v bodě [`(x_0,y_0)=([$x[$x0]],[$y[$y0]])`]. Hodnoty teplot v potřebných bodech odečtete v tabulce. Hodnoty [`x`] jsou v záhlaví sloupců a hodnoty [`y`] v záhlaví řádků. 
+Určete teplotu a parciální derivace (a tím vlastně i gradient) teploty v bodě [`(x_0,y_0)=([$x[$x0]],[$y[$y0]])`]. Hodnoty teplot v potřebných bodech odečtete v tabulce. Hodnoty [`x`] jsou v záhlaví sloupců a hodnoty [`y`] v záhlaví řádků. Pro výpočet derivace použijte centrální diferenci.
 
 Graf k ničemu nepotřebujete, ale můžete ho využít pro zběžnou kontrolu. V grafu nejsou hodnoty [`y`] shora dolů jako v tabulce, ale zdola nahoru, jak jsme zvyklí pro kartézské souřadnice.
 

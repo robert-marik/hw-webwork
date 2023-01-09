@@ -19,9 +19,19 @@ BEGIN_PGML
 
 ## Gradient
 
-Gradient je pojem, který může mít mnoho tváří. Někdo rozumí pod gradientem podíl dvou veličin, někdo derivaci podle prostorové proměnné, někdo dokonce vektor sestavený z derivací. Pokusíme se ověřit, že ve vztazích mezi těmito různými chápáními jednoho pojmu nemáme nejasnosti.
+Gradient je pojem, který může mít mnoho tváří. Příklady zahrnují následující.
 
-**Úkol pro tento týden: Vysvětlete, jaké chápání pojmu gradient je nejobecnější a v jakém případě je možné tento obecný přístup zredukovat na podíl. Odpověď naformulujte slovně bez použití matematických značek, stručně, výstižně, jednoduše ale bez zbytečných nepřesností.**
+* Gradient je podíl změny veličiny a délky, na které takto změna nastala.
+* Gradient je derivace podle prostorové proměnné.
+* Gradient je vektor sestavený z parciálních derivací.
+* Gradient je ... (možná ještě něco dalšího).
+
+Pokusíme se ověřit, že ve vztazích mezi těmito různými chápáními jednoho pojmu nemáme nejasnosti.
+
+**Úkol pro tento týden: Vysvětlete, jaké chápání pojmu gradient je
+nejobecnější a v jakém případě je možné tento obecný přístup zredukovat na
+dva méně obecné.  Odpověď naformulujte slovně bez použití matematických
+značek, stručně, výstižně, jednoduše ale bez zbytečných nepřesností.**
 
 END_PGML
 
@@ -34,6 +44,8 @@ END_TEXT
 
 BEGIN_PGML
 
+Samozřejmostí je ucelený text, celá věta nebo celý odstavec s dodržením interpunkce a stavby věty (podmět, sloveso, další větné členy). Cílem je vyzkoušet si, zda umíte dát srozumitelnou a jasně formulovanou odpověď.
+
 Hodnocení bude mírné, 100 procent za jakýkoliv srozumitelný komentář. Hlavní v této úloze není sběr bodů, ale pročíst si reakci na Vaši odpověď (bude-li mezi vybranými) a poučit se z reakcí na odpovědi kolegů.
 
 END_PGML
@@ -44,7 +56,22 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-...
+Gradient je vektor sestavený z parciálních derivací. Ve speciálním případě,
+pokud funkce závisí jenom na jedné proměnné, se gradient redukuje na
+derivaci podle této proměnné.  V ještě speciálnějším případě, kdy je funkce
+vystupující v gradientu dokonce lineární a procházející počátkem, se dokonce
+derivace redukuje na dělení. Proto je v nejjednodušším možném případě a v
+nejhrubším přiblížení realistické používat pro výpočet gradientu podíl. 
+Pokud tento přístup nedává dobré výsledky, je nutné uvažovat o obecnějším
+přístupu, tj.  použití derivace nebo parciální derivace.
+
+Poznámka: redukci gradientu na podíl změny veličiny a délky na kterém tato
+změna nastala, používáme někdy i když je průběh veličiny nelineární a
+rozhodneme se tuto nelinearitu ignorovat. To může vést k nepřesnostem ve
+výsledném modelu, ale je možné používat mnohem jednodušší matematický aparát.
+V tomto případě je akceptování způsobených nepřesností daní za
+jednoduchost.
+
 
 END_PGML_SOLUTION
 

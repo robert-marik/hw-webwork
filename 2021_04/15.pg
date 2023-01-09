@@ -47,6 +47,10 @@ TEXT(MODES(
 ));
 
 
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;} </style>",
+));
+
 
 BEGIN_PGML
 
@@ -80,12 +84,22 @@ BEGIN_TEXT
 \{essay_box(10,80)\}
 END_TEXT
 
+BEGIN_PGML
+
+Samozřejmostí je ucelený text, celá věta nebo celý odstavec s dodržením interpunkce a stavby věty (podmět, sloveso, další větné členy). Cílem je vyzkoušet si, zda umíte dát srozumitelnou a jasně formulovanou odpověď.
+
+END_PGML
+
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-...
+Rotace bude nulová, pokud bude v celé šířce koryta stejná rychlost. To se dá odhadnout z chování objektů unášených proudem (nesmí na žádné straně unášeného objektu proudit rychleji) nebo výpočtem rotace funkce [`u(x)\vec j`]. Opravdu
+[``` \begin{vmatrix}\vec i&\vec j&\vec k \cr
+\frac{\partial }{\partial x} &\frac{\partial }{\partial y} &\frac{\partial }{\partial z} \cr
+0&u(x)&0\cr \end{vmatrix}=\frac{\partial u(x)}{\partial x}\vec k```]
+a tato hodnota je nulová pokud má funkce [`u(x)`] nulovou derivaci, tj. pokud je tato funkce konstantní a nezávislá na [`x`].
 
 END_PGML_SOLUTION
 

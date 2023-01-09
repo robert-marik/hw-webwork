@@ -23,7 +23,7 @@ Funkce \(T(t)\) udává teplotu vody v čase \(t\). Najděte slovní interpretac
 "Rychlost, s jakou se předává teplo z topné spirály do vody.",
 "Celkový čas nutný pro přivedení vody k bodu varu.",
 "Teplota vody po uplynutí jedné sekundy.",
-"Teplota vody po uplynutí jedné sekundy."
+"Teplota vody po uplynutí jedné minuty."
 ],
 zdroj=>"Obrázek: pixabay.com, autor ptdh"
 }

@@ -65,6 +65,11 @@ a délka jeho obrazu, vektoru [`u'`], je
 [``` ||u'||=\sqrt{u'^Tu'}=\sqrt{([$v1])^2+([$v2])^2}=[$normav].```]
 Poměr těchto délek je [`[$pomer]`] a toto číslo je opravdu mezi menší a větší vlastní hodnotou.
 
+-------- 
+
+Na [@
+htmlLink("https://gist.github.com/robert-marik/3ba16edadaaa8ccd593638617118da36","tomto odkaze") @]* je výpočet pro konkrétní matici a 500 náhodných vektorů.
+Níže v úkolu ručně ověříme vztah pro jednu matici a jeden vektor.
 
 --------
 

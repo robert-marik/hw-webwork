@@ -25,6 +25,7 @@ $f1=Formula("($a)/(x^2+$b)")->reduce;
 $f2=Formula("$a ($b x^($n)+$c)/(x^2+$d x - $f)")->reduce;
 $f3=Formula("$a * e^(-$b*t/7)")->reduce;
 $f4=Formula("$b * sqrt( ($n)*x + ($c)*t)")->reduce;
+$f4->{limits} = [[4,6],[4,6]];
 $f5=Formula("9/( pi + ($c)*t)^($n)")->reduce;
 
 
@@ -55,7 +56,7 @@ Zkuste tři metody práce.
 
 >>[``[$f5]={}``][_______________________________]{$f5}<<
 
-Až zdoláte tento příklad, jste opět o kus dál v matematické gramotnosti - umíte zadávat matematické výrazy do počítače tak, aby je počítač uměl dále zpracovávat. V posledním úkolu se podíváme na další druh matematické gramotnosti a to na psaní textů obsahujících matematiku.
+Až zdoláte tento příklad, jste opět o kus dál v matematické gramotnosti - umíte zadávat matematické výrazy do počítače tak, aby je počítač uměl dále zpracovávat. V posledním úkolu se podíváme na další druh matematické gramotnosti a to na psaní textů komentujících matematiku přirozeným jazykem.
 
 END_PGML
 

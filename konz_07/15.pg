@@ -25,11 +25,16 @@ Při popisu fyzikálních dějů se fyzika střední školy obejde s běžnými 
 
 END_PGML
 
-
 BEGIN_TEXT
 \{essay_box(10,80)\}
 END_TEXT
 
+
+BEGIN_PGML
+ 
+Samozřejmostí je ucelený text, celá věta nebo celý odstavec s dodržením interpunkce a stavby věty (podmět, sloveso, další větné členy). Cílem je vyzkoušet si, zda umíte dát srozumitelnou a jasně formulovanou odpověď.
+ 
+END_PGML
 
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
