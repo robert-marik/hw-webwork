@@ -1,5 +1,5 @@
 mv ~/Downloads/export.csv .
 mv ~/Downloads/seznam.csv .
-iconv -f CP1250 -t UTF-8 seznam.csv -o seznam_utf8.csv
+iconv -f CP1250 -t UTF-8 seznam.csv > seznam_utf8.csv
 sed -i '1,2d' seznam_utf8.csv
 perl zpracuj_soubor_webwork.pl seznam_utf8.csv  export.csv 

@@ -30,3 +30,8 @@ $("td:not(:contains('There are no answers for this student.'))").next('td').next
 Obarveni nevyplnene reakce.
 
 $("textarea[name$='comment']:empty").css("background-color","#FAA");
+
+
+Skryti hodnoceni 100%
+
+$('select option:selected[value="100"]').parent().parent().parent().css("display","none"); 
