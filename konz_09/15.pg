@@ -14,6 +14,10 @@ TEXT(MODES(
     HTML => "<style>.problem-content textarea {width:100%;}</style>",
 ));
 
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;} </style>",
+));
+
 BEGIN_PGML
 
 

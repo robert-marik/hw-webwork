@@ -14,6 +14,11 @@ TEXT(MODES(
     HTML => "<style>.problem-content textarea {width:100%;}</style>",
 ));
 
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;} </style>",
+));
+
+
 BEGIN_PGML
 
 ## Slovní interpretace integrálu
@@ -41,7 +46,17 @@ END_PGML
 BEGIN_PGML_SOLUTION
 
 Integrál vyjadřuje nárůst koncentrace radonu za čas uvedený v mezích
-určitého integrálu.
+určitého integrálu. 
+
+Poznámky: 
+
+* Odpověď, že integrál vyjadřuje rychlost růstu není správně, protože
+  rychlost je zadaná funkce a její integrál bude vyjadřovat něco jiného. 
+* Odpověď, že integrál vyjadřuje průměrnou rychlost není správně, to by se
+  musela hodnota integrálu ještě dělit délkou časového intervalu.
+* Odpověď, že integrál vyjadřuje koncentraci radonu není správně, protože
+vyjadřuje jenom změnu koncentrace. V čase nula však koncentrace nemusí být
+nulová. 
 
 END_PGML_SOLUTION
 

@@ -44,7 +44,13 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-...
+Pro nalezení nestacionárního řešení je nutné integrovat, stacionární řešení
+najdeme i bez integrace.
+
+Stabilní stacionární řešení představují stavy, do nichž systém konverguje. Po
+dostatečně dlouhém čase bude libovolné ohraničené řešení konvergovat do
+stabilního stacionárního bodu. Nestacionární řešení oddělují oblasti, ze
+kterých řešení konvergují k různým stacionárním bodům.
 
 END_PGML_SOLUTION
 

@@ -15,6 +15,10 @@ TEXT(MODES(
 	#output_problem_body a {color:#00F;}</style>",
 ));
 
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;} </style>",
+));
+
 BEGIN_PGML
 
 
@@ -43,7 +47,10 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-...
+Oba tvary se zabývají bilancí stavové veličiny a díky tomu mohou popsat
+transportní děje v materiálu.
+Diferenciální tvar vyjadřuje bilanci stavové veličiny v bodě, integrální
+tvar vyjadřuje bilanci v konečně velkém objemu tělesa.
 
 END_PGML_SOLUTION
 
