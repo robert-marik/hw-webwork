@@ -14,6 +14,10 @@ TEXT(MODES(
     HTML => "<style>.problem-content textarea {width:100%;}</style>",
 ));
 
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;} </style>",
+));
+
 BEGIN_PGML
 
 
@@ -21,7 +25,11 @@ BEGIN_PGML
 
 Integrál se za určitých okolností redukuje na součin. To platí pro Riemannův integrál stejně jako pro křivkový, dvojný nebo jakýkoliv jiný integrál. 
 
-**Úkol pro tento týden: Vysvětlete rozdíl mezi Riemannovým a dvojným integrálem a napište, za jakých okolností se dvojný integrál redukuje na součin výrazů neobsahujících žádný integrál a jaké jsou jednotlivé součinitele v tomto součinu. Jako obvykle je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
+**Úkol pro tento týden: Vysvětlete rozdíl mezi Riemannovým a dvojným
+integrálem a napište, za jakých okolností se dvojný integrál redukuje na
+součin výrazů neobsahujících žádný integrál a jaké jsou jednotlivé
+součinitele v tomto součinu.  Jako obvykle je vhodné najít určitý kompromis
+mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
 
 END_PGML
 
@@ -44,7 +52,11 @@ ANS(essay_cmp());
 
 BEGIN_PGML_SOLUTION
 
-...
+Riemannův integrál je pro integraci funkce jedné proměnné na intevalu,
+dvojný integrál je pro integraci funkce dvou proměnných definované na
+dvourozměnré množině. V případě, že funkce je konstantní, se dvojný integrál
+redukuje na součin hodnoty této funkce a obsahu množiny, přes kterou se
+integruje.
 
 END_PGML_SOLUTION
 
