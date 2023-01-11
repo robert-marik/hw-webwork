@@ -1,3 +1,4 @@
+
 DOCUMENT(); 
 loadMacros(
 "PGstandard.pl",
@@ -14,38 +15,36 @@ TEXT(MODES(
     HTML => "<style>.problem-content textarea {width:100%;}</style>",
 ));
 
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
+));
+
 BEGIN_PGML
 
 
-## Shrnutí
+## Jak se vám líbily tyto úlohy?
 
-...
 
-**Úkol pro tento týden: ... Jako obvykle je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
+Jakákoliv zpětná vazba k úlohám
+
+* Máte nějaké připomínky, které by bylo vhodné zaopracovat?
+* Máte odhad času, který jste práci na úlohách museli věnovat?
+* Úlohy měli zpravidla všichni stejné, jenom se lišila čísla. Podnítilo to týmovou spolupráci? Diskutovali jste o úlohách s kolegy?
+* Pomohly Vám úlohy k upevnění znalostí a ujasnění si látky?
+
 
 END_PGML
-
 
 
 BEGIN_TEXT
 \{essay_box(10,80)\}
 END_TEXT
 
-BEGIN_PGML
-
-Samozřejmostí je ucelený text, celá věta nebo celý odstavec s dodržením interpunkce a stavby věty (podmět, sloveso, další větné členy). Cílem je vyzkoušet si, zda umíte dát srozumitelnou a jasně formulovanou odpověď.
-
-END_PGML
 
 
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 
 
-BEGIN_PGML_SOLUTION
-
-...
-
-END_PGML_SOLUTION
 
 ENDDOCUMENT();

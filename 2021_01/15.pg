@@ -14,14 +14,17 @@ TEXT(MODES(
     HTML => "<style>.problem-content textarea {width:100%;}</style>",
 ));
 
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
+));
+
 BEGIN_PGML
 
 
-## Parciální versus (obyčejná) derivace
+## Parciální derivace 
 
-V tomto předmětu zavádíme vedle již známého pojmu derivace i další pojem, parciální derivace. Vzhledem k podobnému názvu se bude pravděpodobně jednat o objekt, který má s původní derivací něco společného. Vzhledem k přívlastku "parciální" se budou oba objekty v něčem lišit. 
 
-**Úkol pro tento týden: Vysvětlete, co mají společného a v čem se liší derivace a parciální derivace. Odpověď naformulujte slovně bez použití matematických značek, stručně, výstižně, jednoduše ale bez zbytečných nepřesností.**
+V úvodu předmětu se seznamujeme s pojmem pariciální derivace. V čem je lepší než obyčejná derivace? Jak byste rozdíl mezi derivacemi osvětlili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je vhodné kromě obyčejných derivací znát i derivace parciální? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si o parciální derivaci chtěl zjistit více.
 
 END_PGML
 
@@ -34,26 +37,13 @@ END_TEXT
 
 BEGIN_PGML
 
-Samozřejmostí je ucelený text, celá věta nebo celý odstavec s dodržením interpunkce a stavby věty (podmět, sloveso, další větné členy). Cílem je vyzkoušet si, zda umíte dát srozumitelnou a jasně formulovanou odpověď.
-
-Hodnocení bude mírné, 100 procent za jakýkoliv srozumitelný komentář. Hlavní v této úloze není sběr bodů, ale pročíst si reakci na Vaši odpověď (bude-li mezi vybranými) a poučit se z reakcí na odpovědi kolegů.
+Hodnocení není automatické. Úlohu boduje ručně vyučující. 
 
 END_PGML
 
 
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
-
-BEGIN_PGML_SOLUTION
-
-Není jednoznačně jediná správná odpověď. Toto je ukázka, jak by odpověděl autor otázky.
-
-*Varianta 1:* Parciální i obyčejná derivace sledují, jak se mění funkční hodnoty funkce při změně nezávislé proměnné. Narozdíl od obyčejné derivace definované pro funkce jedné proměnné, paricální derivace uvažujeme pro funkce více proměnných. V takovém případě jsou proměnné, podle kterých nederivujeme, považovány za konstantní.
-
-*Minimalistická varianta:* Obě derivace vyjadřují rychlost změny, obyčejná derivace je pro funkce jedné proměnné a parciální derivace pro funkce více proměnných. 
-
-
-END_PGML_SOLUTION
 
 
 

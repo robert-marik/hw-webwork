@@ -15,19 +15,16 @@ TEXT(MODES(
 ));
 
 TEXT(MODES(
-    HTML => "<style>th:nth-child(4) {width:300px;} </style>",
+    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
 ));
-
-
 
 BEGIN_PGML
 
 
-## Rovnice kontinuity
+## Divergence
 
-Rovnice kontinuity [``` \frac{\partial u}{\partial t}=\sigma - \mathop{\mathrm{div}}\vec j```] je základním nástrojem pro popis transportu látky či energie v přírodě, v látce, v životním prostředí. 
 
-**Úkol pro tento týden: Rovnice kontinuity je vlastně bilance vyjádřená v daném místě látky či prostředí. Podle toho, jaké členy do této bilance započítáme, dokážeme odhalit, jaké procesy je možné modelovat. Jaké tři věci nebo efekty se skrývají pod třemi členy v matematické formulaci rovnice kontinuity? Jaké děje jsou v této rovnici pomocí uvedených členů započítány? Jako obvykle je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
+Další z diferenciálních operátorů se kterými se seznamujeme je divergence. Jak byste tento pojem přiblížili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je divergence tak užitečná? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si o divergenci chtěl zjistit více.
 
 END_PGML
 
@@ -37,27 +34,17 @@ BEGIN_TEXT
 END_TEXT
 
 
+
 BEGIN_PGML
 
-Samozřejmostí je ucelený text, celá věta nebo celý odstavec s dodržením interpunkce a stavby věty (podmět, sloveso, další větné členy). Cílem je vyzkoušet si, zda umíte dát srozumitelnou a jasně formulovanou odpověď.
+Hodnocení není automatické. Úlohu boduje ručně vyučující. 
 
 END_PGML
+
 
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 
 
-BEGIN_PGML_SOLUTION
-
-Vlevo v rovnici stojí člen udávající akumulaci stavové veličiny. První člen
-napravo souvisí s produkcí stavové veličiny ve zdrojích (a spotřebou ve
-spotřebičích) a druhý člen napravo souvisí se změnami toku, který uvažovnaou
-stavovou veličinu přenáší. Všechny členy jsou vztaženy na jednotku času a
-jendotku objemu. 
-
-Pomocí rovnice můžeme modelovat transportní děj v prostředí, do kterého
-dokážeme započítat akumulaci a produkci stavové veličiny. 
-
-END_PGML_SOLUTION
 
 ENDDOCUMENT();

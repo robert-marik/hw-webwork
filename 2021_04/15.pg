@@ -10,98 +10,39 @@ TEXT(beginproblem());
 
 ADD_CSS_FILE("css/left.css");
 
-
-
-$video = MODES(
-HTML=> 
-'
-<style>
-.container {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-}
-
-/* Then style the iframe to fit in the container div with full height and width */
-.responsive-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-}
-</style>
- <div class="container">
-  <iframe class="responsive-iframe" src="https://www.youtube.com/embed/vvzTEbp9lrc"></iframe>
-</div> 
-', 
-TeX =>
-"An embedded YouTube video."
-);
-
 TEXT(MODES(
     HTML => "<style>.problem-content textarea {width:100%;}</style>",
 ));
 
-
 TEXT(MODES(
-    HTML => "<style>th:nth-child(4) {width:300px;} </style>",
+    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
 ));
-
 
 BEGIN_PGML
 
 ## Rotace
 
-Rotace nese dvě zdánlivě nesouvisející informace. Informuje nás, zda
-existuje kmenová funkce (tj. zda je možné například v silovém poli
-zavést potenciální energii) a zda mají objekty unášené rychlostním
-vektorovým polem tendenci rotovat kolem své vlastní osy. To druhé se
-těžko představuje, ale můžete se podívat na následující video. Je v
-angličtině (zapněte si případně titulky), tj. operátor rotace zde
-vystupuje jako *curl*. Není dlouhé, stojí za to si jej zkouknout
-celé. Mimo jiné je zde zmíněno, že pro přímou řeku bez překážek je
-rozdělení rychlosti přibližně kvadratické. Dále, pro kvadratickou
-funkci [`u(x)`] a vektorové pole [`\vec v(x,y)=u(x)\vec j`] (tj. tok ve
-směru osy [`y `] a rychlost závislou na vzdálenosti od břehu) je
-rotace mimo střed řeky nenulová. To naznačuje, že fakt, jestli řeka teče rovně nebo do zatáčky je pro velikost rotace nepodstatný (častá chyba začátečníků, kteří zaměňují lokální rotaci okolo bodu s globální rotací toku jako celku).
-
-[$video]*
-
-**Úkol pro tento týden: Viděli jste video? Zabývalo se rotací proudění v řece, která jako celek "teče rovně". Zamyslete se nad tím, jak musí vypadat takové proudění v přímce, které má nulovou rotaci. Jako obvykle je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením. Pokud dokážete nějak krátce odpověď zdůvodnit, připojte i toto zdůvodnění.**
-
-K odpovědi vede více cest.
-
-* Můžete uvažovat, jak by musela vypadat funkce [`u(x)`] taková, že rotace vektorového pole [```\vec v(x,y)=u(x)\vec j```] je nulový vektor.
-* Můžete si rozmyslet, jak musí vypadat proudění v přímce, které nenutí unášené objekty rotovat okolo   své osy. 
+Poslední z "velkých" a slavných diferenciálních operátorů se kterými se seznamujeme je rotace. Jak byste tento pojem přiblížili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je rotace tak užitečná? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si o rotaci chtěl zjistit více.
 
 END_PGML
+
 
 BEGIN_TEXT
 \{essay_box(10,80)\}
 END_TEXT
 
+
+
 BEGIN_PGML
 
-Samozřejmostí je ucelený text, celá věta nebo celý odstavec s dodržením interpunkce a stavby věty (podmět, sloveso, další větné členy). Cílem je vyzkoušet si, zda umíte dát srozumitelnou a jasně formulovanou odpověď.
+Hodnocení není automatické. Úlohu boduje ručně vyučující. 
 
 END_PGML
+
 
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 
-BEGIN_PGML_SOLUTION
-
-Rotace bude nulová, pokud bude v celé šířce koryta stejná rychlost. To se dá odhadnout z chování objektů unášených proudem (nesmí na žádné straně unášeného objektu proudit rychleji) nebo výpočtem rotace funkce [`u(x)\vec j`]. Opravdu
-[``` \begin{vmatrix}\vec i&\vec j&\vec k \cr
-\frac{\partial }{\partial x} &\frac{\partial }{\partial y} &\frac{\partial }{\partial z} \cr
-0&u(x)&0\cr \end{vmatrix}=\frac{\partial u(x)}{\partial x}\vec k```]
-a tato hodnota je nulová pokud má funkce [`u(x)`] nulovou derivaci, tj. pokud je tato funkce konstantní a nezávislá na [`x`].
-
-END_PGML_SOLUTION
 
 
 ENDDOCUMENT();

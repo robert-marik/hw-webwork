@@ -15,7 +15,7 @@ TEXT(MODES(
 ));
 
 TEXT(MODES(
-    HTML => "<style>th:nth-child(4) {width:300px;} </style>",
+    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
 ));
 
 BEGIN_PGML
@@ -23,13 +23,8 @@ BEGIN_PGML
 
 ## Dvojný integrál
 
-Integrál se za určitých okolností redukuje na součin. To platí pro Riemannův integrál stejně jako pro křivkový, dvojný nebo jakýkoliv jiný integrál. 
 
-**Úkol pro tento týden: Vysvětlete rozdíl mezi Riemannovým a dvojným
-integrálem a napište, za jakých okolností se dvojný integrál redukuje na
-součin výrazů neobsahujících žádný integrál a jaké jsou jednotlivé
-součinitele v tomto součinu.  Jako obvykle je vhodné najít určitý kompromis
-mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
+Jak byste tento pojem přiblížili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je pojem z nadpisu tak užitečný? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si chtěl zjistit více.
 
 END_PGML
 
@@ -39,9 +34,10 @@ BEGIN_TEXT
 END_TEXT
 
 
+
 BEGIN_PGML
 
-Samozřejmostí je ucelený text, celá věta nebo celý odstavec s dodržením interpunkce a stavby věty (podmět, sloveso, další větné členy). Cílem je vyzkoušet si, zda umíte dát srozumitelnou a jasně formulovanou odpověď.
+Hodnocení není automatické. Úlohu boduje ručně vyučující. 
 
 END_PGML
 
@@ -50,14 +46,5 @@ END_PGML
 ANS(essay_cmp());
 
 
-BEGIN_PGML_SOLUTION
-
-Riemannův integrál je pro integraci funkce jedné proměnné na intevalu,
-dvojný integrál je pro integraci funkce dvou proměnných definované na
-dvourozměnré množině. V případě, že funkce je konstantní, se dvojný integrál
-redukuje na součin hodnoty této funkce a obsahu množiny, přes kterou se
-integruje.
-
-END_PGML_SOLUTION
 
 ENDDOCUMENT();

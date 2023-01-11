@@ -14,14 +14,17 @@ TEXT(MODES(
     HTML => "<style>.problem-content textarea {width:100%;}</style>",
 ));
 
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
+));
+
 BEGIN_PGML
 
 
-## Diferenciální rovnice
+## Stacionární řešení autonomní diferenciální rovnice
 
-U autonomních diferenciálních rovnic [```\frac{\mathrm dx}{\mathrm dt}=f(x)```] nás často zajímají především stacionární stabilní řešení. 
 
-**Úkol pro tento týden: Vysvětlete, proč jsou stacionární řešení při analýze snáze uchopitelná než nestacionární a vysvětlete, jakou roli hrají stabilní a jakou nestabilní stacionární řešení. Jako obvykle je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
+Jak byste tento pojem přiblížili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je pojem z nadpisu tak užitečný? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si chtěl zjistit více.
 
 END_PGML
 
@@ -31,9 +34,10 @@ BEGIN_TEXT
 END_TEXT
 
 
+
 BEGIN_PGML
 
-Samozřejmostí je ucelený text, celá věta nebo celý odstavec s dodržením interpunkce a stavby věty (podmět, sloveso, další větné členy). Cílem je vyzkoušet si, zda umíte dát srozumitelnou a jasně formulovanou odpověď.
+Hodnocení není automatické. Úlohu boduje ručně vyučující. 
 
 END_PGML
 
@@ -42,16 +46,5 @@ END_PGML
 ANS(essay_cmp());
 
 
-BEGIN_PGML_SOLUTION
-
-Pro nalezení nestacionárního řešení je nutné integrovat, stacionární řešení
-najdeme i bez integrace.
-
-Stabilní stacionární řešení představují stavy, do nichž systém konverguje. Po
-dostatečně dlouhém čase bude libovolné ohraničené řešení konvergovat do
-stabilního stacionárního bodu. Nestacionární řešení oddělují oblasti, ze
-kterých řešení konvergují k různým stacionárním bodům.
-
-END_PGML_SOLUTION
 
 ENDDOCUMENT();

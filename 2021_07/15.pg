@@ -11,22 +11,20 @@ TEXT(beginproblem());
 ADD_CSS_FILE("css/left.css");
 
 TEXT(MODES(
-    HTML => "<style>.problem-content textarea {width:100%;}
-	#output_problem_body a {color:#00F;}</style>",
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
 ));
 
 TEXT(MODES(
-    HTML => "<style>th:nth-child(4) {width:300px;} </style>",
+    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
 ));
 
 BEGIN_PGML
 
 
-## Diferenciální a integrální tvar difuzní rovnice
+## Difuzní rovnice
 
-Difuzní rovnici stejně jako mnoho dalších fyzikálních zákonů formulujeme buď v diferenciálním nebo v integrálním tvaru. My jsme to viděli na difuzní rovnici, fyzikové se s tímto zase setkávají například u Maxwellových rovnic, viz [@ htmlLink("https://cs.wikipedia.org/wiki/Maxwellovy_rovnice","tento odkaz"); @]*.
 
-**Úkol pro tento týden: Vysvětlete podstatu vztahu mezi diferenciálním a integrálním tvarem difuzní rovnice. Co mají společné a v čem se liší. Jako obvykle je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým, srozumitelným a nekomplikovaným tvrzením.**
+Jak byste tento pojem přiblížili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je pojem z nadpisu tak užitečný? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si chtěl zjistit více.
 
 END_PGML
 
@@ -35,23 +33,18 @@ BEGIN_TEXT
 \{essay_box(10,80)\}
 END_TEXT
 
+
+
 BEGIN_PGML
 
-Samozřejmostí je ucelený text, celá věta nebo celý odstavec s dodržením interpunkce a stavby věty (podmět, sloveso, další větné členy). Cílem je vyzkoušet si, zda umíte dát srozumitelnou a jasně formulovanou odpověď.
+Hodnocení není automatické. Úlohu boduje ručně vyučující. 
 
 END_PGML
+
 
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 
 
-BEGIN_PGML_SOLUTION
-
-Oba tvary se zabývají bilancí stavové veličiny a díky tomu mohou popsat
-transportní děje v materiálu.
-Diferenciální tvar vyjadřuje bilanci stavové veličiny v bodě, integrální
-tvar vyjadřuje bilanci v konečně velkém objemu tělesa.
-
-END_PGML_SOLUTION
 
 ENDDOCUMENT();

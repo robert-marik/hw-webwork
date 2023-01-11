@@ -15,7 +15,7 @@ TEXT(MODES(
 ));
 
 TEXT(MODES(
-    HTML => "<style>th:nth-child(4) {width:300px;} </style>",
+    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
 ));
 
 BEGIN_PGML
@@ -23,9 +23,8 @@ BEGIN_PGML
 
 ## Křivkový integrál
 
-Integrál se za určitých okolností redukuje na součin. To platí pro Riemannův integrál stejně jako pro křivkový nebo jakýkoliv jiný integrál. 
 
-**Úkol pro tento týden: Vysvětlete rozdíl mezi Riemannovým a křivkovým integrálem a napište, za jakých okolností se křivkový integrál redukuje na součin a jaké jsou jednotlivé součinitele v tomto součinu. Pro konkrétnost uvažujte křivkový integrál druhého druhu. Jako obvykle je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
+Jak byste tento pojem přiblížili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je pojem z nadpisu tak užitečný? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si chtěl zjistit více.
 
 END_PGML
 
@@ -34,9 +33,11 @@ BEGIN_TEXT
 \{essay_box(10,80)\}
 END_TEXT
 
+
+
 BEGIN_PGML
 
-Samozřejmostí je ucelený text, celá věta nebo celý odstavec s dodržením interpunkce a stavby věty (podmět, sloveso, další větné členy). Cílem je vyzkoušet si, zda umíte dát srozumitelnou a jasně formulovanou odpověď.
+Hodnocení není automatické. Úlohu boduje ručně vyučující. 
 
 END_PGML
 
@@ -45,14 +46,5 @@ END_PGML
 ANS(essay_cmp());
 
 
-BEGIN_PGML_SOLUTION
-
-Riemannův integrál se používá pro integraci na intervalu (na části přímky),
-křivkový integrál se používá pro integraci po křivce.  Pokud má vektorové
-pole konstantní velikost a svírá s křivkou konstantní úhel, redukuje se
-křivkový integrál druhého druhu na součin délky křivky a průmětu vektorového
-pole do směru křivky.
-
-END_PGML_SOLUTION
 
 ENDDOCUMENT();
