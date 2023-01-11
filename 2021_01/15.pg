@@ -24,7 +24,7 @@ BEGIN_PGML
 ## Parciální derivace 
 
 
-V úvodu předmětu se seznamujeme s pojmem pariciální derivace. V čem je lepší než obyčejná derivace? Jak byste rozdíl mezi derivacemi osvětlili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je vhodné kromě obyčejných derivací znát i derivace parciální? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si o parciální derivaci chtěl zjistit více.
+V úvodu předmětu se seznamujeme s pojmem parciální derivace. V čem je lepší než obyčejná derivace? Jak byste rozdíl mezi derivacemi osvětlili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je vhodné kromě obyčejných derivací znát i derivace parciální? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si o parciální derivaci chtěl zjistit více.
 
 END_PGML
 

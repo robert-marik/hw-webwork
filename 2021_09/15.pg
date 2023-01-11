@@ -21,10 +21,12 @@ TEXT(MODES(
 BEGIN_PGML
 
 
-## Autonomní systémy
+## Stacionární řešení autonomní diferenciální rovnice
 
 
 Jak byste tento pojem přiblížili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je pojem z nadpisu tak užitečný? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si chtěl zjistit více.
+
+Uvažujte jednodimenzionální případ, tj. skalární rovnici [``` \frac{\mathrm dx}{\mathrm dt}=f(x). ```]
 
 END_PGML
 
