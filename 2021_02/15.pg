@@ -24,7 +24,7 @@ BEGIN_PGML
 ## Gradient
 
 
-První z diferenciálních operátorů se kterými se seznamujeme je gradient. Jak byste tento pojem přiblížili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je gradient tak užitečný v technické praxi? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si o gradientu chtěl zjistit více.
+První z diferenciálních operátorů, se kterými se seznamujeme, je gradient. Jak byste tento pojem přiblížili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je gradient tak užitečný v technické praxi? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si o gradientu chtěl zjistit více.
 
 END_PGML
 

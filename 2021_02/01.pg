@@ -12,16 +12,16 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-$b=random(2,10,1);
+$b=random(1,5,1);
 $c=non_zero_random(-4,7,1);
 $k=random(2,4,1);
-do  { $l=random(2,6,1); } until ($l != $k);
-#do  { $m=random(3,9,1); } until (($m != $k) and ($m != $k));
+do  { $l=random(2,5,1); } until ($l != $k);
 $m=non_zero_random(-9,9,1);
+$a=non_zero_random(-9,9,1); 
 
 Context("Vector");
 	
-$funkce=Formula("$b*x^$k*y^$l+$m*x+6")->reduce();
+$funkce=Formula("$b*x^$k*y^$l+$m*x+$a")->reduce();
 $dfx=$funkce->D("x");
 $dfy=$funkce->D("y");
 

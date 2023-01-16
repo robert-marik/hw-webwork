@@ -11,9 +11,9 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-$k=random(3,8,1);
-do  { $l=random(3,7,1); } until ($l != $k);
-$m=random(3,8,1);
+$k=random(2,8,1);
+do  { $l=random(2,7,1); } until ($l != $k);
+$m=non_zero_random(-4,4,1);
 
 Context("Numeric")->variables->add(y=>"Real");
 	
