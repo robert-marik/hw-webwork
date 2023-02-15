@@ -19,7 +19,9 @@ BEGIN_PGML
 
 ## Otázka s odpovědí ve tvaru matice
 
-Matice jsou objekty obsahující čísla nebo funkce sestavené do obdélníkového schematu. Matice [```[$f]```] je důležitá při numerickém řešení úloh spojených s difuzí (například vody ve dřevě) nebo vedením tepla (například ve stěně stavby) metodou konečných diferencí. Obsahuje v hlavní diagonále (z levého horního rohu do pravého dolního rohu) číslice [`-2`], podél hlavní diagonály nahoře i dole číslice [`1`] a jinak nuly. 
+Matice jsou objekty obsahující čísla nebo funkce sestavené do obdélníkového schematu. Matice [```[$f]```] je důležitá při numerickém řešení úloh spojených s difuzí (například vody ve dřevě) nebo vedením tepla (například ve stěně stavby) metodou konečných diferencí. Obsahuje v hlavní diagonále (z levého horního rohu do pravého dolního rohu) číslice [`-2`], podél hlavní diagonály nahoře i dole číslice [`1`] a jinak nuly.
+
+Přepište výše uvedenou matici do odpovědních políček.
 
 >>[______]*{$f}<<
 

@@ -60,10 +60,9 @@ BEGIN_PGML
 ## Základní informace
 
 
-Můžete začít rovnou pracovat, vše je intuitivní a syntaxe obvyklá (zejména pokud jste zvyklí na vzorce v programu Excel a podobně). Pokud se někdo bude ztrácet, vraťte se sem a prohlédněte si video se základy práce. Při práci se vám bude hodit [@ htmlLink("https://raw.githubusercontent.com/robert-marik/hw-webwork/master/cheatsheet/cheatsheet.pdf","cheatsheet") @]* s nápovědou, jak zapisovat matematické výrazy do počítače.
+Můžete začít rovnou pracovat, vše je intuitivní a syntaxe obvyklá (zejména pokud jste zvyklí na vzorce v programu Excel a podobně). Pokud se někdo bude ztrácet, může použít [@ htmlLink("https://raw.githubusercontent.com/robert-marik/hw-webwork/master/cheatsheet/cheatsheet.pdf","cheatsheet") @]* s nápovědou, jak zapisovat matematické výrazy do počítače.
 
-
-[$video]*
+Poznámka: Možná bude výhodnější pracovat s anglickou klávesnicí. Ujasněte si, že máte nainstalovanou anglickou klávesnici a umíte klávesnice přepínat. Postup je jednoduchý, je to na pár kliknutí, ale liší se v závislosti na Vašem operačním systému. Pokud pracujete na notebooku, hodí se přelepky, kde jsou obě rozložení. Anebo tahák a časem si těch pár kláves zapamatujete. 
 
 
 ## Otázka s odpovědí ve tvaru čísla
@@ -95,7 +94,7 @@ Toto je nápověda k příkladu na výpočet rozdílu [```100-[$a].```]
 * Nápověda může být povšechná a obecná s odkazem na literaturu. Například _Pročtěte si znovu zápisky z přednášek a ze cvičení z prvního stupně základní školy a v případě nouze použijte kalkulačku. Pokud v hardwarové kalkulačce nemáte baterky, použijte softwarovou kalkulačku v mobilním telefonu nebo ve vyhledávacím políčku Google._
 * Nápověda může být i cílená na konkrétní zadání. Například _Promyslete si, kolik je potřeba dodat k číslu [$a], aby součet byl 100._
 END_PGML_HINT
-
+	
 
 BEGIN_PGML_SOLUTION
 

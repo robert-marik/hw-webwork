@@ -23,7 +23,7 @@ BEGIN_PGML
 
 ## Odpovědí je text
 
-Poslední otázkou bude otázka, kde budete mít za úkol zapsat odpověď slovně a vyhodnocení neprobíhá automatmicky, ale ručně po uzavření úloh. Tyto otázky budou spíše míněny jako zpětná vazba od studentů. 
+Poslední otázkou bude otázka, kde budete mít za úkol zapsat odpověď slovně a vyhodnocení neprobíhá automaticky, ale ručně po uzavření úloh. Tyto otázky budou spíše míněny jako zpětná vazba od studentů. 
 
 **Otázka pro tento týden: V předmětu navazujeme na základní kurz matematiky, kde je ústředním pojmem pojem derivace. Jak byste tento tento pojem osvětlili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je dovednost práce s tímto pojmem tak důležitá? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si o derivaci chtěl zjistit více.**
 
