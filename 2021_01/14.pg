@@ -20,7 +20,7 @@ $data =
     obrazek=>"horici_spalek",
     nadpis=>"Rovnice vedení tepla",
     otazka=>"Vedení tepla je spojeno s nerovnoměrným rozložením teploty v přímce, rovině nebo prostoru a proto předpokládá existenci zdrojů tepla, které takovou nerovnoměrnost vytvoří. Proč tedy nejsou v rovnici zastoupeny zdroje tepla?",
-    odpoved=>"Protože při vedení tepla nás zajímá co se děje uvnitř materiálu a tam se žádné teplo netvoří. Jak vniklo teplo, které do materiálu prostupuje, je pro popis chování tepla uvnitř materiálu irelevantní.",    
+    odpoved=>"Protože při vedení tepla nás zajímá, co se děje uvnitř materiálu. Tam se žádné teplo netvoří. Jak vzniklo teplo, které do materiálu prostupuje, je pro popis chování tepla uvnitř materiálu irelevantní.",    
     moznosti=>[
 "Protože by rovnici jinak nebylo možné sestavit. Jedná se o aproximaci pro zdroje malé vydatnosti.",
 "Protože by rovnici jinak nebylo možné vyřešit. Jedná se o aproximaci pro malá toky tepla.",
