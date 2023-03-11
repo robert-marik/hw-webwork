@@ -45,7 +45,7 @@ a
 [``` \frac{\partial }{\partial y}(x+ay^2)=2ay```]
 a divergence je
 [``` \nabla \cdot \vec F (x,y)=2xy+2ay=2y(x+a).```]
-Tento výsledek je možno zapsat například jako *2x(y+a)* nebo opatrněji (s explicitně napsaným násobením) *2\*x\*(y+a)*.
+Tento výsledek je možno zapsat například jako *2y(x+a)* nebo opatrněji (s explicitně napsaným násobením) *2\*y\*(x+a)*.
 
 ---------------
 
