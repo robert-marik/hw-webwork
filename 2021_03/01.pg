@@ -49,7 +49,7 @@ a
 [``` \frac{\partial }{\partial y}(x+y^2)=2y```]
 a divergence je
 [``` \nabla \cdot \vec F (x,y)=2xy+2y=2y(x+1).```]
-Tento výsledek je možno zapsat například jako *2x(y+1)* nebo opatrněji (s explicitně napsaným násobením) *2\*x\*(y+1)*.
+Tento výsledek je možno zapsat například jako *2y(x+1)* nebo opatrněji (s explicitně napsaným násobením) *2\*y\*(x+1)*.
 
 ---------------
 
