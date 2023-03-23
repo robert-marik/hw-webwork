@@ -40,7 +40,7 @@ BEGIN_PGML
 
 [@ image("predator.jpg", width=>400) @]*
 
-V minulém příkladě jsme hledali Jacobiho matici pro zobrazení mezi vektory. V materiálovém inženýrství tato matice vystupuje s vypočtenými hodnotami parciálních derivací, aby v ní byly přímo koeficienty požadované linearizace funkce popisující materiální odezvu.
+V minulém příkladě jsme hledali Jacobiho matici pro zobrazení mezi vektory. V materiálovém inženýrství tato matice vystupuje s vypočtenými hodnotami parciálních derivací, aby v ní byly přímo koeficienty požadované linearizace funkce popisující materiálovou odezvu.
 
 V tomto příkladě se posuneme naznačeným směrem. Vypočteme matici stejně jako v příkladě předchozím a dosadíme do matice bod, který je počátkem a vyjadřuje nulový materiálový podnět (například nulový gradient teploty, nebo nulový gradient koncentrace). 
 

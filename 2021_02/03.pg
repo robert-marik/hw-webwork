@@ -32,7 +32,7 @@ BEGIN_PGML
 
 ## Gradient funkce tří proměnných
 
-Náš svět je trojrozměrný, ale přesto můžeme dimenzi úlohy často vhodně redukovat. Například problém vedení tepla zdí je jednorozměrný, pokud uvažujeme jenom prostup tepla mezi vnitřním a vnějším prostředím a efekty v rozích, u země a u stropu zanedbáváme. Pokud tyto efekty chceme započítat, stane se úloha trojrozměrnou. Dvourozměrné úlohy jsou například úlohy týkající se vlastností rovinných desek, kdy nás zajímá co se děje podél desky a ne uvnitř.
+Náš svět je trojrozměrný, ale přesto můžeme dimenzi úlohy často vhodně redukovat. Například problém vedení tepla zdí je jednorozměrný, pokud uvažujeme jenom prostup tepla mezi vnitřním a vnějším prostředím a efekty v rozích, u země a u stropu zanedbáváme. Pokud tyto efekty chceme započítat, stane se úloha trojrozměrnou. Dvourozměrné úlohy jsou například úlohy týkající se vlastností rovinných desek, kdy nás zajímá, co se děje podél desky, a ne uvnitř.
 
 V následujícím příkladě si zkusíme vypočítat gradient funkce tří proměnných. Postupuje se stejně jako v předchozích příkladech, pouze je vektor trojrozměrný.
 

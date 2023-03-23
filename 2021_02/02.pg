@@ -34,7 +34,7 @@ BEGIN_PGML
 
 [@ image("vitr2.jpg", width=>400) @]*
 
-Jak bylo zmíněno v předchozím příkladě, gradient je mimořádně důležitý diferenciální operátor v aplikacích. U stavových veličiny nerovnoměrně rozložených v prostoru udává, kterým směrem tyto stavové veličiny rostou a tento směr je opačný ke směru, kterým působí síla snažící se tyto nerovnoměrnosti "vyhladit". Například u nerovnoměrně rozloženého tlaku vzduchu můžeme určit, kterým směrem má tendenci foukat vítr. U tělesa s nerovnoměrně rozloženou teplotou můžeme určit, kterým směrem teče teplo a jaká je intenzita tepelného toku.
+Jak bylo zmíněno v předchozím příkladě, gradient je mimořádně důležitý diferenciální operátor v aplikacích. U stavových veličiny nerovnoměrně rozložených v prostoru udává, kterým směrem tyto stavové veličiny rostou. Tento směr je opačný ke směru, kterým působí síla snažící se tyto nerovnoměrnosti "vyhladit". Například u nerovnoměrně rozloženého tlaku vzduchu můžeme určit, kterým směrem má tendenci foukat vítr. U tělesa s nerovnoměrně rozloženou teplotou můžeme určit, kterým směrem teče teplo a jaká je intenzita tepelného toku.
 
 Funkce
 [``` f(x,y)=x^2y^m+x ```]

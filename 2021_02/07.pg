@@ -42,7 +42,7 @@ Pokud chceme aproximovat vektorové funkce, musíme lineární aproximaci funkc�
 Například pro vektorovou funkci [``` \vec F=x^3y\vec i + 5y^2\vec j ```] má Jacobiho matice tvar
 [``` J(x,y) = \begin{pmatrix}3x^2y & x^3 \\ 0 & 10y\end{pmatrix}.```]
 
-Jacobiho matice se používá například pro vyjádření materiálových vztahů mezi vektorovými veličinami. V těchto případech pracujeme typicky s funkcí, která je v počátku soustavy souřadnic nulová a lineární aproximace se redukuje na součin matice a podnětu. Podnětem je zpravidla záporně vzatý gradient nějaké fyzikální veličiny (teploty, vlhkosti, koncentrace) a matice je napoříklad tenzor tepelné vodivosti nebo tenzorový difuzní koeficient. Tento aparát využijeme například při modelování působení vlhkosti na dřevo u konstrukce jako na obrázku.
+Jacobiho matice se používá například pro vyjádření materiálových vztahů mezi vektorovými veličinami. V těchto případech pracujeme typicky s funkcí, která je v počátku soustavy souřadnic nulová a lineární aproximace se redukuje na součin matice a podnětu. Podnětem je zpravidla záporně vzatý gradient nějaké fyzikální veličiny (teploty, vlhkosti, koncentrace) a matice je například tenzor tepelné vodivosti nebo tenzorový difuzní koeficient. Tento aparát využijeme například při modelování působení vlhkosti na dřevo u konstrukce jako na obrázku.
 
 ---------------
 

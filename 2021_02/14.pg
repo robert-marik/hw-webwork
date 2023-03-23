@@ -17,7 +17,7 @@ $data =
 [
 {
     nadpis=>"Konstitutivní zákony",
-    otazka=>"Konstitutivní zákony jsou vztahy mezi veličinami charakterizující vliv působení vnějšího prostředí na materiál (podnět) na děje probíhající v maeriálu jako reakci na tento podnět (odazva). Pokud jsou tyto veličny (podnět a odezva) vyjádřeny vektorovými veličinami, mají všechny  konstitutivní zákony (Fickův, Darcyho, Fourierův, Ohmův, Hookův, ...) jednotnou formu. Z čeho tato forma vyplývá?",
+    otazka=>"Konstitutivní zákony jsou vztahy mezi veličinami, které charakterizují vliv působení vnějšího prostředí na materiál (podnět) na děje probíhající v materiálu jako reakci na tento podnět (odezva). Pokud jsou tyto veličny (podnět a odezva) vyjádřeny vektorovými veličinami, mají všechny  konstitutivní zákony (Fickův, Darcyho, Fourierův, Ohmův, Hookův, ...) jednotnou formu. Z čeho tato forma vyplývá?",
     odpoved=>"Jedná se vždy o lineární aproximaci případné obecnější závislosti v nule pomocí Jacobiho matice.",
     moznosti=>[
 "Jedná se vždy o problematiku lokálních extrémů funkce více proměnných.",
