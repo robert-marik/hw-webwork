@@ -31,7 +31,7 @@ a
 [``` \frac{\partial}{\partial x}\left(x^3\right)=3x^2.```]
 Protože jsou obě parciální derivace různé, vektorové pole [`\vec F`] nemá skalární potenciál a integrál [``` \oint_C x^2y\,\mathrm dx + x^3\,\mathrm dy```] po uzavřené křivce [`C`] může být nenulový. Pokud by naopak byly obě derivace stejné, znamenalo by to, že existuje skalární potenciál a integrál je nulový pro libovolnou uzavřenou křivku [`C`]. 
 
-Tato problematika úzce souvisí se zavedením veličiny, která funguje podobně jak jsme zvyklí na potenciální energii v gravitačním poli Země. 
+Tato problematika úzce souvisí se zavedením veličiny, která funguje podobně, jak jsme zvyklí na potenciální energii v gravitačním poli Země. 
 
 END_PGML
 

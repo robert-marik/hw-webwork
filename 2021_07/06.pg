@@ -49,7 +49,7 @@ $end=Compute("($endX,$endY)");
 
 BEGIN_PGML
 
-## Integrál po komplikované na integrační cestě
+## Integrál po komplikované integrační cestě
 
 Tento příklad je opět ideově stejný jako příklad úvodní, ale vektorové pole je s jistotou konzervativní (nezáleží na integrační cestě) a modifikace je v tom, že křivka po které máme integrovat je velmi nepříjemná. Díky nezávislosti na integrační cestě to však nijak nevadí a můžeme integrál vypočítat pomocí potenciálu. Jediný rozdíl mezi tímto a prvním příkladem tedy je, že si sami musíme najít souřadnice počátečního a koncového bodu křivky. 
 

@@ -49,9 +49,9 @@ $end=Compute("($endX,$endY)");
 
 BEGIN_PGML
 
-## Integrál po ještě komplikovanější na integrační cestě
+## Integrál po ještě komplikovanější integrační cestě
 
-Tento příklad je opět ideově stejný jako příklad předchozí. Rozdíl je zejména ve škaredější inetgrační cestě. Toto je zde proto, abychom si uvědomili, že libivolně složitá integrační cesta není v poli se skalárním potenciálem žádnou překážkou. Konkrétní tvar cesty nás nijak nezajímá, jenom se mírně zkomplikuje výpočet počátečního a koncového bodu. 
+Tento příklad je opět ideově stejný jako příklad předchozí. Rozdíl je zejména v komplikovanější integrační cestě. Toto je zde proto, abychom si uvědomili, že libovolně složitá integrační cesta není v poli se skalárním potenciálem žádnou překážkou. Konkrétní tvar cesty nás nijak nezajímá, jenom se mírně zkomplikuje výpočet počátečního a koncového bodu. 
 
 -----------------------------
 

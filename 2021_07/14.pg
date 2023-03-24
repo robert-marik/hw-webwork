@@ -21,7 +21,7 @@ TEXT(beginproblem());
 "Celkové množství stavové veličiny na jednotkové délce hranice materiálu odpovídající množině \(M\).",
 "Celkové množství stavové veličiny, které za jednotku času projde přes hranici množiny \(M\) směrem dovnitř.",
 "Celkové množství stavové veličiny, které cirkuluje podél hranice (cirkulace vektorového pole).",
-"Rychlost s jakou roste výkon zdrojů v množině \(M\)."
+"Rychlost, s jakou roste výkon zdrojů v množině \(M\)."
 );
 
 @perm=shuffle(7);
@@ -41,14 +41,14 @@ BEGIN_PGML
 
 [@ image("plaz.jpg", width=>400) @]*
 
-Uvažujme stavovou veličinu ve dvourozměrné oblasti [`M`], která  může mít zdroje a může se přenášet. To může být cokoliv vás napadne při pohledu kolem nebo při poohledu na obrázek. Například množství podzemní vody (souvisí s piezometrickou hladinou a je důležité pro vyhodnocení rizika znehodnocení zdrojů pitné vody zasolením),  množství energie  ve vzduchu, ve vodě nebo v půdě (souvisí s teplotou, s předpovědí počasí, s celkovou pohodou, atd.), množství vzduchu (tlak v daném místě, souvisí se směrem a intenzitou větru), koncentrace soli atd atd. Dva příklady jsme měli v minulé domácí úloze v příkladech 13 a 14, tady budeme mluvit obecněji.
+Uvažujme stavovou veličinu ve dvourozměrné oblasti [`M`], která  může mít zdroje a může se přenášet. To může být cokoliv vás napadne při pohledu kolem nebo při pohledu na obrázek. Například množství podzemní vody (souvisí s piezometrickou hladinou a je důležité pro vyhodnocení rizika znehodnocení zdrojů pitné vody zasolením),  množství energie  ve vzduchu, ve vodě nebo v půdě (souvisí s teplotou, s předpovědí počasí, s celkovou pohodou, atd.), množství vzduchu (tlak v daném místě, souvisí se směrem a intenzitou větru), koncentrace soli atd atd. Dva příklady jsme měli v minulé domácí úloze v příkladech 13 a 14, tady budeme mluvit obecněji.
 
 * Plošnou hustotu stavové veličiny označíme [`u(x,y)`].
 * Vydatnost zdrojů označíme [`\sigma(x,y)`]. 
 * Tok přenášející stavovou veličinu označíme pomocí komponent, tj. [`(P(x,y),Q(x,y))`].
 
 
-Najděte slovní interpretaci následujících veličin. Pro pohodlí jsou všechny návrhy stejné a jsou ve stejném pořadí. Vyberte vždy ten správný. Hranice [`\partial M`] množiny [`M`] je kladně orientována v souladu s Greenovou větou (při obíhání podél křivky [`M`] je oblast [`M`] vlevo).
+Najděte slovní interpretaci následujících veličin. Pro pohodlí jsou všechny návrhy stejné a jsou ve stejném pořadí. Vyberte vždy ten správný. Hranice [`\partial M`] množiny [`M`] je kladně orientována v souladu s Greenovou větou (při obíhání podél křivky [`¨\partial M`] je oblast [`M`] vlevo).
 
 ---
 
