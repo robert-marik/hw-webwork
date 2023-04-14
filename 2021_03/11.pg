@@ -68,7 +68,7 @@ Dvourozměrná obecná difuzní rovnice (popisující nestacionární děj, umo�
 ```]
 pokud je rovnice napsána v soustavě souřadnic, ve které je difuzní matice diagonální. Je v ní derivace podle času, je v ní člen bez derivací definující zdroje, jsou v ní difuzní členy v nejobecnější možné formě, tj. ve formě kvaziderivací a s odlišeným difuzním koeficientem.
 
-Tuto rovnici je možné dále zjednodušit vynecháním některých členů, podle specifiky úlohy. Například úloha může být stacionární, bez přítomnosti zdrojů, s izotropním, homogenním či lineárním materiálem a každý z těchto předpokladů se na rovnici podepíše jistým způsobem, ať už sám o sobě, nebo v kombinaci s dalšími předpoklady. 
+Tuto rovnici je možné dále zjednodušit vynecháním některých členů, podle specifikace úlohy. Například úloha může být stacionární, bez přítomnosti zdrojů, s izotropním, homogenním či lineárním materiálem a každý z těchto předpokladů se na rovnici podepíše jistým způsobem, ať už sám o sobě, nebo v kombinaci s dalšími předpoklady. 
 
 *Rychlý přehled:* (též [@ htmlLink("https://raw.githubusercontent.com/robert-marik/apl-slidy/master/cheatsheet/cheatsheet-AM.pdf","cheatcheet") @]*)
 
@@ -77,7 +77,7 @@ Tuto rovnici je možné dále zjednodušit vynecháním některých členů, pod
 * V difuzní rovnici jsou vždy členy s derivací podle polohy. Jsou ve formě druhých derivací, nebo kvaziderivací? V prvním případě (druhé derivace) je rovnice vhodná pro popis homogenního materiálu s lineární materiálovou charakteristikou. Opačný případ je vhodný pro použití v situacích, kdy je alespoň jedna z těchto podmínek porušena.
 * V difuzní rovnici jsou u členů s derivací podle polohy difuzní koeficienty. Jsou tyto koeficienty ve všech členech stejné, nebo jsou odlišeny, například indexem? Pokud jsou stejné, jedná se o rovnici pro izotropní materiál. Taková rovnice je jednodušší, ale nedokáže popsat materiál mající v různých směrech různé vlastnosti. To dokáže až rovnice, která používá v různých směrech různý difuzní koeficient.
 
-Jsou celkem čtyři kategorie na které se díváme a v každé máme dvě možnosti, čili celkem šestnáct variant (dvě na čtvrtou). Níže máte dvě z nich.
+Kontrolujeme tedy celkem čtyři skutečnosti. U každé z nich máme dvě možnosti, což dává celkem šestnáct variant (dvě na čtvrtou). Níže máte dvě z nich.
 Vyberte správnou odpověď.
 
 -------

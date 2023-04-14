@@ -20,7 +20,7 @@ $data =
     moznosti=>[
     "Zeslabení toku stavové veličiny v daném místě, přepočtený na jednotkové množství látky.",
     "Zeslabení toku stavové veličiny v daném místě, přepočtený na nekonečně malý objem látky.",
-    "Objem materiálu nutný pro zeslabení toku stavové veličiny o jednotku toku za jendotku času.",
+    "Objem materiálu nutný pro zeslabení toku stavové veličiny o jednotku toku za jednotku času.",
     "Objem materiálu nutný pro zesílení toku stavové veličiny o jednotku.",
     "Intenzita toku stavové veličiny v daném místě.",
 ],

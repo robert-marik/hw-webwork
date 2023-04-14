@@ -30,7 +30,7 @@ Context()->texStrings;
 BEGIN_PGML
 ## Odhad divergence vektorového pole podle toku přes hranici
 
-Divergence je tok z jednotkového množství látky. (Přesněji, orientovaný tok, abychom mohli rozlišovat kladný tok ven z objemu a záporný tok dovnitř.) Předpokládejme trojrozměrný případ kdy je známo, že orientovaný tok přes hranici krychle se středem v bodě 
+Divergence je tok z jednotkového množství látky. (Přesněji, orientovaný tok, abychom mohli rozlišovat kladný tok ven z objemu a záporný tok dovnitř.) Předpokládejme trojrozměrný případ, kdy je známo, že orientovaný tok přes hranici krychle se středem v bodě 
 [`([$P[0]],[$P[1]],[$P[2]])`] a o hraně délky [`[$s]`] je [`[$flux]`]. (Abychom se nemuseli soustředit na jednotky, předpokládejme, že vše je v kompatibilních jednotkách.)
 
 Divergenci vektorového pole ve středu krychle je možno odhadnout jako podíl toku přes hranici krychle a objemu krychle. Vypočtěte tento odhad.
