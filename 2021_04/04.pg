@@ -54,7 +54,7 @@ BEGIN_PGML
 
 ## Rotace vektorového pole s parametrem
 
-Málokdy počítáme úlohu s vektorovým polem vyjádřeným konkrétními čísly. Často zapojíme do role parametry, které později nafitujeme tak, aby model co nejvíce odpovídal reálitě. Pro praktické počítání: namísto některých konstant mohou ve výpočtu figurovat parametry. Ve vzorovém výpočtu je parametr [`h`], v příkladě, který máte řešit, je parametr [`[$par].`]
+Málokdy počítáme úlohu s vektorovým polem vyjádřeným konkrétními čísly. Často zapojíme do role parametry, které později nafitujeme tak, aby model co nejvíce odpovídal realitě. Pro praktické počítání: namísto některých konstant mohou ve výpočtu figurovat parametry. Ve vzorovém výpočtu je parametr [`h`], v příkladě, který máte řešit, je parametr [`[$par].`]
 
 --------------
 

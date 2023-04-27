@@ -16,7 +16,7 @@ BEGIN_PGML
 
 Vektorové pole [``` \vec F=P\vec i+Q\vec j```] (za předpokladu dostatečně hladkých složek) je gradientem nějaké skalární funkce [`f`], jestliže platí [``` \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}. ```] Toto je snadné si zapamatovat. Platí-li totiž
 [``` P=\frac {\partial f}{\partial x},\quad \text{a}\quad  Q=\frac{\partial f}{\partial y}```]
-jsou obě parciální derivace [`` \frac{\partial P}{\partial y}``] a [`` \frac{\partial Q}{\partial x}``] a rovny smíšené parciální derivaci funkce [``f``] a podle Schwarzovy věty jsou si rovny.
+jsou obě parciální derivace [`` \frac{\partial P}{\partial y}``] a [`` \frac{\partial Q}{\partial x}``] rovny smíšené parciální derivaci funkce [``f``] a podle Schwarzovy věty jsou si rovny.
 
 Například komponenty vektorového pole [``` \vec F= x^2y\vec i+ x^3\vec j```]
 jsou [``` P=x^2y\quad\text{a}\quad Q=x^3.```] Tyto komponenty 
@@ -28,7 +28,7 @@ Protože jsou obě parciální derivace různé, vektorové pole nemá skalárn�
 
 [@ image("kiting.jpg", width=>400) @]*
 
-Problematika rozhodnout zda existuje skalární potenciál tedy nesouvisí s hledáním tohoto potenciálu (to bychom použili opak derivace, tj. integrál), ale je založena na porovnání derivací komponent vektorového pole. Mít kladnou odpověď na otázku týkající se existence skalárního potenciálu znamená, mít k dispozici silný nástroj pro studium zadaného vektorového pole. Například gravitační silové pole má skalární potenciál (gravitační potenciál) a proto můžeme pro studium objektů pohybujících se v gravitačním poli využít potenciální energii a zákon zachování mechanické energie. To dobře známe i ze středoškolské fyziky. Tady máme charakteristiku silových polí, kde je možno postupovat obdobně.
+Problematika rozhodnout, zda existuje skalární potenciál, tedy nesouvisí s hledáním tohoto potenciálu (to bychom použili opak derivace, tj. integrál), ale je založena na porovnání derivací komponent vektorového pole. Mít kladnou odpověď na otázku týkající se existence skalárního potenciálu znamená mít k dispozici silný nástroj pro studium zadaného vektorového pole. Například gravitační silové pole má skalární potenciál (gravitační potenciál), a proto můžeme pro studium objektů pohybujících se v gravitačním poli využít potenciální energii a zákon zachování mechanické energie. To dobře známe i ze středoškolské fyziky. Tady máme charakteristiku silových polí, kde je možno postupovat obdobně.
 
 END_PGML
 

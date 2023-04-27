@@ -51,7 +51,7 @@ BEGIN_PGML
 
 ## Rotace vektorového pole v prostoru
 
-Rotace vektorového pole je vektorový součin nabla operátoru [`\nabla = \left(\frac{\partial }{\partial x},\frac{\partial }{\partial y},\frac{\partial }{\partial z}\right)^T`] a vektorového pole. "Součin" paricální derivace a funkce přitom chápeme jako výpočet příslušné derivace. 
+Rotace vektorového pole je vektorový součin nabla operátoru [`\nabla = \left(\frac{\partial }{\partial x},\frac{\partial }{\partial y},\frac{\partial }{\partial z}\right)^T`] a vektorového pole. "Součin" parciální derivace a funkce přitom chápeme jako výpočet příslušné derivace. 
 
 --------------
 

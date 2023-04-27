@@ -59,7 +59,7 @@ BEGIN_PGML
 ## Nalezení skalárního potenciálu
 
 
-Vektorové pole [``` \vec F=P\vec i+Q\vec j```] (za předpokladu dostatečně hladkých složek) je gradientem nějaké vektorové funkce [`f`], jestliže platí [``` \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}. ```] Toto jsme si vyzkoušeli v předchozí úloze. Funkci [`f`], skalární potenciál vektorového pole [`\vec F`], najdeme integrováním. Protože platí [``` P=\frac {\partial f}{\partial x},\quad \text{a}\quad  Q=\frac{\partial f}{\partial y},```]
+Vektorové pole [``` \vec F=P\vec i+Q\vec j```] (za předpokladu dostatečně hladkých složek) je gradientem nějaké skalární funkce [`f`], jestliže platí [``` \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}. ```] Toto jsme si vyzkoušeli v předchozí úloze. Funkci [`f`], skalární potenciál vektorového pole [`\vec F`], najdeme integrováním. Protože platí [``` P=\frac {\partial f}{\partial x},\quad \text{a}\quad  Q=\frac{\partial f}{\partial y},```]
 je (integrací podle [`x`], integrační konstanta může být funkcí proměnné [`y`])
 [``` f(x,y)=\int P(x,y) \,\mathrm dx +C_1(y)```]
 a (integrací podle [`y`], integrační konstanta může být funkcí proměnné [`x`])
@@ -71,7 +71,7 @@ dostáváme
 [``` f=\int P(x,y)\,\mathrm dx=\int xy^2\,\mathrm dx=\frac 12 x^2 y^2 + C_1(y)```]
 a
 [``` f=\int Q(x,y)\,\mathrm dy=\int x^2y + y^3\,\mathrm dy=\frac 12 x^2 y^2 + \frac 14 y^4 + C_2(x).```]
-Člen [`` \frac 12 x^2y^2``] obsahující obě proměnné se opakuje. To je dobré znamení, jinak by skalární potenciál neexistoval. Člen [``\frac 14 y^4``] figuruje jenom ve druhém vztahu. V prvním vztahu je zahrnut v integrační konstantě [`C_1(y)`]. Žádné další členy které je nutno spárovat s integračními konstantami nejsou a skalárním potenciálem je funkce
+Člen [`` \frac 12 x^2y^2``] obsahující obě proměnné se opakuje. To je dobré znamení, jinak by skalární potenciál neexistoval. Člen [``\frac 14 y^4``] figuruje jenom ve druhém vztahu. V prvním vztahu je zahrnut v integrační konstantě [`C_1(y)`]. Žádné další členy, které je nutno spárovat s integračními konstantami, nejsou a skalárním potenciálem je funkce
 [``` f(x,y)=\frac 12 x^2y^2 + \frac 14 y^4 +C,```]
 kde [`C`] je libovolná reálná konstanta. 
 

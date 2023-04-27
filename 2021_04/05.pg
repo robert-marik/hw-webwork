@@ -99,7 +99,7 @@ Rotace vektorového pole [`\vec F(x,y)= 2xy^3 \vec i+h x^2y^2\vec j`] s parametr
 \end{aligned}
 ```]
 
-Vidíme, že je-li [`h=3`], je rotace je nulová pro všechna [`x`] a [`y`] a vektorové pole je nevírové.
+Vidíme, že je-li [`h=3`], je rotace nulová pro všechna [`x`] a [`y`] a vektorové pole je nevírové.
 
 
 ---------------

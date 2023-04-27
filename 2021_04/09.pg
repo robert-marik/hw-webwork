@@ -62,7 +62,7 @@ BEGIN_PGML
 
 Toto je kombinace úloh "Parametr zaručující nevírovost" a "Nalezení skalárního potenciálu funkce".
 
-Vektorové pole [``` \vec F=P\vec i+Q\vec j```] (za předpokladu dostatečně hladkých složek) je gradientem nějaké vektorové funkce [`f`], jestliže platí [``` \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}. ```] Funkci [`f`], skalární potenciál vektorového pole [`\vec F`], najdeme integrováním. Protože platí [``` P=\frac {\partial f}{\partial x},\quad \text{a}\quad  Q=\frac{\partial f}{\partial y},```]
+Vektorové pole [``` \vec F=P\vec i+Q\vec j```] (za předpokladu dostatečně hladkých složek) je gradientem nějaké skalární funkce [`f`], jestliže platí [``` \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}. ```] Funkci [`f`], skalární potenciál vektorového pole [`\vec F`], najdeme integrováním. Protože platí [``` P=\frac {\partial f}{\partial x},\quad \text{a}\quad  Q=\frac{\partial f}{\partial y},```]
 je (integrací podle [`x`], integrační konstanta může být funkcí proměnné [`y`])
 [``` f(x,y)=\int P(x,y) \,\mathrm dx +C_1(y)```]
 a (integrací podle [`y`], integrační konstanta může být funkcí proměnné [`x`])

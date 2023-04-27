@@ -35,7 +35,7 @@ BEGIN_PGML
 
 Uvažujme vektorové pole v rovině, kde první komponenta závisí jenom na proměnné [`x`] a druhá komponenta jenom na proměnné [`y`]. Vektorové pole má tedy tvar
 [``` \vec F(x,y)= f(x)\vec i+g(y)\vec j + 0\vec k.```]
-O funkcích [`f(x)`] a [`g(y)`] předpokládejme, že mají dostatečnou hladkost pro výpočet rotace, tj. že mají derivace. Tyto derivace budeme označovat [`f'(x)`] a [`g'(x)`].
+O funkcích [`f(x)`] a [`g(y)`] předpokládejme, že mají dostatečnou hladkost pro výpočet rotace, tj. že mají derivace. Tyto derivace budeme označovat [`f'(x)`] a [`g'(y)`].
 
 Vypočtěte rotaci vektorového pole  [``\vec F(x,y),``] tj.
 
