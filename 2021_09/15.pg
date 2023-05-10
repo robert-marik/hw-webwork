@@ -44,6 +44,13 @@ Hodnocení není automatické. Úlohu boduje ručně vyučující.
 END_PGML
 
 
+BEGIN_PGML_SOLUTION
+
+Stacionární řešení jsou význačná tím, že se dají snadno nalézt a  přináší důležité informaci o chování všech řešení. Snadno najít se dají proto, že namísto diferenciální rovnice stačí řešit algebraickou rovnici. Jejich přínos je v tom, že všechna ohraničená řešení diferenciální rovnice konvergují ke stabilním stacionárním řešením a oblasti atraktivity těchto řešení jsou odděleny nestabilními stacionárními řešeními. 
+
+END_PGML_SOLUTION
+
+
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 

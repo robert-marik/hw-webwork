@@ -42,6 +42,14 @@ Hodnocení není automatické. Úlohu boduje ručně vyučující.
 END_PGML
 
 
+
+BEGIN_PGML_SOLUTION
+
+Všechny integrály umožňují provést sumaci pro veličinu, která se nesestává z konečně mnoha příspěvků, ale pro stavení této veličiny je nutné započítat nekonečně mnoho příspěvků spojitě rozložených v nějaké množině. Křivkový integrál používáme pro sečtení příspěvků spojitě rozložených podél křivky. Významnou aplikací je výpočet práce, což je možno využít k definování potenciální energie. 
+
+END_PGML_SOLUTION
+
+
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 

@@ -42,6 +42,14 @@ Hodnocení není automatické. Úlohu boduje ručně vyučující.
 END_PGML
 
 
+
+BEGIN_PGML_SOLUTION
+
+Všechny integrály umožňují provést sumaci pro veličinu, která se nesestává z konečně mnoha příspěvků, ale pro stavení této veličiny je nutné započítat nekonečně mnoho příspěvků spojitě rozložených v nějaké množině. Dvojný integrál používáme pro sečtení příspěvků spojitě rozložených ve dvourozměrné oblasti v rovině. 
+
+END_PGML_SOLUTION
+
+
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 

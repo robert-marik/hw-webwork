@@ -40,6 +40,13 @@ Hodnocení není automatické. Úlohu boduje ručně vyučující.
 END_PGML
 
 
+BEGIN_PGML_SOLUTION
+
+Diferenciální operátor rotace je je důležitý při stanovení, zda v daném vektortovém poli existuje kmenová funkce. Tím je totiž možno přecházet od vektorového popisu děje k popisu skalárnímu. Skalární popis je jednodušší a navíc se často dá dále zjednodušit pomocí zákona zachování. 
+
+END_PGML_SOLUTION
+
+
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 

@@ -42,6 +42,14 @@ Hodnocení není automatické. Úlohu boduje ručně vyučující.
 END_PGML
 
 
+
+BEGIN_PGML_SOLUTION
+
+Difuzní rovnice je matematický aparát umožňující jednotným způsobem zachytit libovolný transportní děj. Jsou schopny zachytit transport látky (například rovnice difuze) nebo energie (například rovnice vedení tepla). Z praktického hlediska se jedná o vyjádření celkové bilance hustoty stavové veličiny, kdy to této bilance je započítán tranpsort, akumulace a vznik veličiny. Kdykolivb jsme schopni takovou bilanci nafomrulovat, je difuzní rovnice nástrojem pro stavnovení předpovědi, jak rychle bude docházet k tranposrtu, jak rychle bude nastolena rovnováha, kterým směrem transport bude porbíhat a podobně.
+
+END_PGML_SOLUTION
+
+
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 
