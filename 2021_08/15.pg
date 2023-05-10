@@ -44,7 +44,12 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 
-Diferenciální rovnice jsou důležité tím, že umožňují zachytit vztah mezi měnící se veličinou a rychlostí změny této veličiny. To se uplatní při formulaci fyzikálních zákonitostí, protože v přírodě děje probíhají přirozeně tak, že se příroda snaží nastolit určitou rovnováhu a tento proces je tím intenzivnější, čím je systém vzdávětší od rovnovážného stavu. V důsledku tohoto jsou diferenicální rovnice nejběžnějším vyjadřovacím jazykem při popisu přírody. Bez diferenciální rovnic jsme schopni popsat pouze velmi speciální případy, jako například děje probíhající konstantními rychlostmi, jak to známe ze středoškolské fyziky. 
+Diferenciální rovnice jsou důležité tím, že umožňují zachytit vztah mezi měnící se veličinou a rychlostí změny této veličiny. Platí, že 
+
+* v přírodě děje probíhají přirozeně tak, že se příroda snaží nastolit určitou rovnováhu a
+* tento proces je tím intenzivnější, čím více je rovnováha narušena.
+
+Protože diferenciální rovnice jsou schopny zaychtit jak vzdálenost od rovnováhy (pomocí vhodné veličiny), tak rychlost konvergence k rovnováze (derivace veličiny podle času), jsou přirozeným matematickým vyjádřením naprosté většiny přirodních a fyzikálních dějů. V důsledku tohoto jsou diferenicální rovnice nejběžnějším vyjadřovacím jazykem při popisu přírody. Bez diferenciální rovnic jsme schopni popsat pouze velmi speciální případy, jako například děje probíhající konstantními rychlostmi, jak to známe ze středoškolské fyziky. S diferenciálními rovnicemi tato omezení na konstantní rychlosti odpadají. 
 
 END_PGML_SOLUTION
 
