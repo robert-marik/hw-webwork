@@ -30,9 +30,9 @@ $data =
     odpoved=>"\(f(x_0)\neq 0\)",
     moznosti=>[
 "\(g(0)\neq 0\)",
-"\(g'(0)\neq 0\)",
-"\(g'(0)\neq 0\)",
-"\(f'(x_0)\) je ohraničená",
+"\(g(x_0)\neq 0\)",
+"\(f(0)\neq 0\)",
+"\(f(0)\) je ohraničená",
 ],
 },
 ];

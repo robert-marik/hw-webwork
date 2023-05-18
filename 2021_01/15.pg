@@ -42,6 +42,14 @@ Hodnocení není automatické. Úlohu boduje ručně vyučující.
 END_PGML
 
 
+
+BEGIN_PGML_SOLUTION
+
+Obyčejná derivace dokáže zachytit změnu funkce jedné proměnné. Paricální derivace umožňuje pracovat s funkcemi více proměnných. Například při modelování prostupu tepla stěnou dokážeme zachytit. Zde spád teploty (derivace teploty podle prostorové souřadnice) řídí rychlost vedení tepla a tím i rychlost změny teploty (derivaci teploty podle času). A změna teploty zpětně ovlivňuje spád tepla. Matematický model tedy musí pracovat s rychlostí změny jak v čase tak v prostoru a bez parciálních derivací by se neobešel. 
+
+END_PGML_SOLUTION
+
+
 #Essay Boxs use the essay_cmp evaluator.
 ANS(essay_cmp());
 

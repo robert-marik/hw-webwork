@@ -22,7 +22,7 @@ BEGIN_PGML
 
 [@ image("molekula.jpg", width=>400) @]*
 
-V živé přírodě, u rostlin i u živočichů, je řada dějů řízena enzymy. Tyto enzymy se tvoří nebo odbourávají chemickými reakcemi za přítomnosti dalších enzymů nebo za přítomnosti katalyzátorů. Jedním z takových řídících procesů může být chemická reakce, kdy se spotřebovává enzym tak, že spolu za přítomnosti katalyzátoru reagují dvě molekuly tohoto enzymu. V důsledku toho rychlost s jakou se snižuje množství enzymu je úměrná druhé mocnině koncentrace a tedy i druhé mocnině množství tohoto enzymu. Napište diferenciální rovnici popisující tento děj.
+V živé přírodě, u rostlin i u živočichů, je řada dějů řízena enzymy. Tyto enzymy se tvoří nebo odbourávají chemickými reakcemi za přítomnosti dalších enzymů nebo za přítomnosti katalyzátorů. Jedním z takových řídících procesů může být chemická reakce, kdy se spotřebovává enzym tak, že spolu za přítomnosti katalyzátoru reagují dvě molekuly tohoto enzymu. V důsledku toho rychlost, s jakou se snižuje množství enzymu, je úměrná druhé mocnině koncentrace, a tedy i druhé mocnině množství tohoto enzymu. Napište diferenciální rovnici popisující tento děj.
 
 Množství enzymu označte [`x`], konstantu úměrnosti [`k`]. Model naformulujte tak, aby konstanta úměrnosti byla kladná. 
 >> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{$rovnice->cmp()->withPostFilter(AnswerHints(

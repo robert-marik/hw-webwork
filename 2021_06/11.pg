@@ -14,7 +14,7 @@ $data =
 [
 {
     nadpis=>"Dvojný integrál plošné hustoty",
-    otazka=>"Nechť \(\sigma(x,y)\) je plošná hustota dvourozměrné desky v kilogramech na metrech čtvereční v místě \((x,y)\) a \(\Omega\) je množina popisující tuto desku. Co vyjadřuje integrál \[\iint_{\Omega}\sigma(x,y)\,\mathrm dx\mathrm dy\] a jaké má jednotky?",
+    otazka=>"Nechť \(\sigma(x,y)\) je plošná hustota dvourozměrné desky v kilogramech na metr čtvereční v místě \((x,y)\) a \(\Omega\) je množina popisující tuto desku. Co vyjadřuje integrál \[\iint_{\Omega}\sigma(x,y)\,\mathrm dx\mathrm dy\] a jaké má jednotky?",
     odpoved=>"Celková hmotnost desky v kilogramech.",
     moznosti=>[
 "Střední plošná hustota desky v kilogramech na metr čtvereční.",

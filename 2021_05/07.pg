@@ -342,8 +342,8 @@ BEGIN_PGML
 Nyní rozšíříme předchozí příklad. Křivky jsou zpravidla z několika úseků. Na každém určíme, zda je křivkový integrál kladný, záporný nebo nulový a poté sečteme jednotlivé příspěvky. Opět platí, že
 
 * pole kolmo na křivku nepřispívá k celkové hodnotě,
-* pole ve směru křivky přispívá k celkové hodnotě kladně a to tím více, čím je větší délka vektorů tohoto pole, čím více je pole orientováno ve směru křivky a čím je křivka delší,
-* pole proti směru křivky přispívá k celkové hodnotě záporně a to tím více, čím je větší délka vektorů tohoto pole, čím více je pole orientováno proti směru křivky a čím je křivka delší,
+* pole ve směru křivky přispívá k celkové hodnotě kladně, a to tím více, čím je větší délka vektorů tohoto pole, čím více je pole orientováno ve směru křivky a čím je křivka delší,
+* pole proti směru křivky přispívá k celkové hodnotě záporně, a to tím více, čím je větší délka vektorů tohoto pole, čím více je pole orientováno proti směru křivky a čím je křivka delší,
 * stejné pole podél delší křivky přispívá numericky více (tj. více kladně, nebo více záporně, podle vzájemné orientace křivky a pole).
 
 Pokud se u obrázku sejde část křivky s kladným příspěvkem a záporným příspěvkem, musíme porovnat vzájemnou velikost.  Sledujeme případnou symetrii (kladný a záporný příspěvek se vyruší), délku vektorů, délku příslušné části křivky a podobně.

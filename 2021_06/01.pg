@@ -58,7 +58,7 @@ Speciálním případem Fubiniovy věty, kdy se integrál ze součinu dvou funkc
 [``` \iint_\Omega f(x)g(y)\,\mathrm dx\mathrm dy=\int_{a}^bf(x)\,\mathrm dx \int _c^dg(y)\,\mathrm dy,```]
 kde množina [``\Omega``] je dána nerovnostmi [`` a\leq x\leq b``] a [`` c\leq y\leq d``].
 
-U následujících integrálů rozhodněte, zde ja možné je vypočítat pomocí této metody. Množina [`A`] vznikne jako levá půlka obdélníka [`\Omega`] po **rozpůlení svislou osou souměrnosti**. Množina [`B`] vznikne jako dolní půlka obdélníka [`\Omega`] po **rozpůlení úhlopříčkou**.
+U následujících integrálů rozhodněte, zde je možné je vypočítat pomocí této metody. Množina [`A`] vznikne jako levá půlka obdélníka [`\Omega`] po **rozpůlení svislou osou souměrnosti**. Množina [`B`] vznikne jako dolní půlka obdélníka [`\Omega`] po **rozpůlení úhlopříčkou**.
 
 Tedy [``` A\colon\quad a\leq x\leq \frac{a+b}2, \quad c\leq y\leq d ```]
 a

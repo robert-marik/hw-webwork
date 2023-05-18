@@ -46,9 +46,9 @@ BEGIN_PGML
 
 ## Derivace parametrické rovinné křivky
 
-V dalším  si procvičíme hledání tečného vektoru ke křivce, vyjádření vektorového pole podél křivky, nalezení skalárního součinu tečného vektoru a vektorového pole podél křivky, přepis na Riemannův integrál a konečně výpočet křivkového integrálu jako až do konce. Nejprve ve dvourozměrném a poté v trojrozměrném případě.
+V dalším  si procvičíme hledání tečného vektoru ke křivce, vyjádření vektorového pole podél křivky, nalezení skalárního součinu tečného vektoru a vektorového pole podél křivky, přepis na Riemannův integrál a konečně výpočet křivkového integrálu. Nejprve ve dvourozměrném a poté v trojrozměrném případě.
 
-Pro křivkový integrál je zásadní průmět vektorového pole do směru křivky a proto je nutno znát v libovolném bodě směr křivky, tj. tečný vektor. Ten najdeme derivováním. Například tečný vektor ke křivce [``` \vec r(t)=t^3\vec i+(1+5t-t^2)\vec j```]
+Pro křivkový integrál je zásadní průmět vektorového pole do směru křivky, a proto je nutno znát v libovolném bodě směr křivky, tj. tečný vektor. Ten najdeme derivováním. Například tečný vektor ke křivce [``` \vec r(t)=t^3\vec i+(1+5t-t^2)\vec j```]
 je
 [``` \frac{\mathrm d}{\mathrm dt}\vec r(t)=3t^2\vec i+(5-2t)\vec j.```] Tento vektor můžeme zapsat v programu WeBWorK jako *3\*t^2\*i + (5-2\*t)\*j* nebo *<3\*t^2,5-2\*t>*. (Hvězdičky pro násobení se dají případně vynechat.) Zkráceně na tento vektor odkazujeme jako na derivaci křivky a tuto derivaci chápeme po složkách.
 

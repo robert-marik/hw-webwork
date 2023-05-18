@@ -39,13 +39,13 @@ BEGIN_PGML
 
 Uvažujme dvourozměrný materiál a v něm libovolnou podmnožinu [`M`] a její hranici [`\partial M`]. Materiál obsahuje vlhkost.
 
-* Plošnou hustotu [`c(x,y)`] s jakou je voda v materiálu v místě [`(x,y)`] budeme sledovat v gramech na centimetr čtvereční. Tato veličina udává množství vody, které je v centimetru čtverečním v okolí bodu o souřadnicích [`(x,y)`].
+* Plošnou hustotu [`c(x,y)`] vody v materiálu v místě [`(x,y)`] budeme sledovat v gramech na centimetr čtvereční. Tato veličina udává množství vody, které je v centimetru čtverečním v okolí bodu o souřadnicích [`(x,y)`].
 * Materiál je ve vlhkém prostředí a může se tedy další vlhkost do materiálu dostávat. Z hlediska dvourozměrného materiálu tedy existují zdroje vody a jejich výkonnost [`z(x,y)`] v bodě [`(x,y)`] budeme sledovat v gramech za hodinu na centimetr čtvereční. Tato veličina udává, kolik gramů vody zasákne v daném místě v plošce o velikosti centimetr čtvereční za hodinu. 
 * Nerovnoměrnost v rozložení vlhkosti spolu s materiálovými vlastnostmi a Fickovým zákonem determinuje pohyb vlhkosti. Tento pohyb budeme popisovat pomocí vektorového pole [`(P(x,y),Q(x,y))`] v gramech za hodinu na centimetr. Tato veličina udává, kolik vody proteče za hodinu myšleným "oknem" o šířce jednoho centimetru a výšce zahrnující celou tloušťku materiálu, které je umístěno kolmo na tok.
 
 Budeme hledat slovní interpretaci veličin obsahujících ve své definici dvojný integrál nebo křivkový integrál.  Při této slovní interpretaci pomůže často i jednotka. Připomeňme v rychlosti pravidla.
 
-* Pro konstantní rychlosti se derivace redukuje na podíl. Odsud se snadné najít jednotku derivace. Mnemotechnickou pomůckou je samotný zápis derivace, který velmi připomíná podíl.
+* Pro konstantní rychlosti se derivace redukuje na podíl. Odsud je snadné najít jednotku derivace. Mnemotechnickou pomůckou je samotný zápis derivace, který velmi připomíná podíl.
 * Pro konstantní funkce se integrál redukuje na součin. V případě dvojného integrálu součin funkce a plochy. Mnemotechnickou pomůckou je již samotný zápis integrálu. Zde zápis velice připomíná součin s [`\mathrm dx`] a [`\mathrm dy`], tj součin se dvěma délkami. 
 
 Najděte slovní interpretaci následujících veličin. Pro pohodlí jsou všechny návrhy stejné a jsou ve stejném pořadí. Vyberte vždy ten správný.

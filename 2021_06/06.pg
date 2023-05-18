@@ -157,7 +157,7 @@ BEGIN_PGML
 
 ## Integrál přes obdélník v polárních souřadnicích
 
-Integrál přes následující množinu má snadné vyjádření v polárních souřadnicích, protože v nich jsou meze pro jednotlivé proměnné konstantní a jedná se tedy o jakousi obodobu obrazce, který se v kartézských souřadnicích nazývá obdélník. To vysvětluje poněkud nelogický název této úlohy.
+Integrál přes následující množinu má snadné vyjádření v polárních souřadnicích, protože v nich jsou meze pro jednotlivé proměnné konstantní. Jedná se tedy o jakousi obdobu obrazce, který se v kartézských souřadnicích nazývá obdélník. To vysvětluje poněkud nelogický název této úlohy.
 
 END_PGML
 

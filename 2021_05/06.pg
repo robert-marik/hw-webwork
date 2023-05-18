@@ -304,11 +304,11 @@ foreach my $i (0..5) {
 BEGIN_PGML
 ## Odhad křivkového integrálu v nehomogenním poli
 
-Nyní rozšíříme předchozí příklady. Křivky nebudou vždy rovné a vektorové pole nění homogenní. Určete křivkové integrály jednotlivých polí podle orientovaných křivek v obrázku. Opět platí, že
+Nyní rozšíříme předchozí příklady. Křivky nebudou vždy rovné a vektorové pole není homogenní. Určete křivkové integrály jednotlivých polí podle orientovaných křivek v obrázku. Opět platí, že
 
 * pole kolmo na křivku nepřispívá k celkové hodnotě,
-* pole ve směru křivky přispívá k celkové hodnotě kladně a to tím více, čím je větší délka vektorů tohoto pole, čím více je pole orientováno ve směru křivky a čím je křivka delší,
-* pole proti směru křivky přispívá k celkové hodnotě záporně a to tím více, čím je větší délka vektorů tohoto pole, čím více je pole orientováno proti směru křivky a čím je křivka delší.
+* pole ve směru křivky přispívá k celkové hodnotě kladně, a to tím více, čím je větší délka vektorů tohoto pole, čím více je pole orientováno ve směru křivky a čím je křivka delší,
+* pole proti směru křivky přispívá k celkové hodnotě záporně, a to tím více, čím je větší délka vektorů tohoto pole, čím více je pole orientováno proti směru křivky a čím je křivka delší.
 
 END_PGML
 

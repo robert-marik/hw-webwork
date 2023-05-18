@@ -22,7 +22,7 @@ BEGIN_PGML
 
 [@ image("jezirko.jpg", width=>400) @]*
 
-Do chráněné lokality proudí znečišťující látky. Rychlost s jakou v dané lokalitě přibývají je [`[$k]`] jednotek za týden. Naštěstí je však látka nestabilní a rozkládá se. Za týden se samovolně rozloží [`[$p]`] procent látky. Napište výsledný matematický model pro vývoj množství znečišťující látky v dané lokalitě. Množství látky označte [`x`] a sledujte jej jako funkci času. Jednotku času volte pro maximální pohodlí jeden týden. (Nezapomeňte procenta převést na desetinné číslo nebo na setiny.)
+Do chráněné lokality proudí znečišťující látky. Rychlost, s jakou v dané lokalitě přibývají, je [`[$k]`] jednotek za týden. Naštěstí je však látka nestabilní a rozkládá se. Za týden se samovolně rozloží [`[$p]`] procent látky. Napište výsledný matematický model pro vývoj množství znečišťující látky v dané lokalitě. Množství látky označte [`x`] a sledujte jej jako funkci času. Jednotku času volte pro maximální pohodlí jeden týden. (Nezapomeňte procenta převést na desetinné číslo nebo na setiny.)
 >> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{Formula("[$k]-[$p]*x/100")}<<
 
 END_PGML

@@ -51,7 +51,7 @@ BEGIN_PGML
 
 ## Fubiniova věta na obdélníku pro funkci se separovanými proměnnými II
 
-Speciálním případem Fubiniovy věty, kdy se integrál ze součinu dvou funkcí jedné proměnné přes obdélník redukuje na součin integrálů je vzorec
+Speciálním případem Fubiniovy věty, kdy se integrál ze součinu dvou funkcí jedné proměnné přes obdélník redukuje na součin integrálů, je vzorec
 [``` \iint_\Omega f(x)g(y)\,\mathrm dx\mathrm dy=\int_{a}^bf(x)\,\mathrm dx \int _c^dg(y)\,\mathrm dy,```]
 kde množina [``\Omega``] je dána nerovnostmi [`` a\leq x\leq b``] a [`` c\leq y\leq d``].
 
@@ -63,7 +63,7 @@ jestliže [``\int_{[$a]}^{[$g]} [$ff](t) \,
 
 >> [`` \iint_{D} f(x)g(y) \,\mathrm dx\mathrm dy ={}``] [____________]{$answer} <<
 
-*Návod.* Na jménu proměnné pochopitelně nezáleží. Ujasněte si, například v proměnných [`x`] a [`y`] jaké integrály potřebujete, přepište je do proměnné [`t`] a porovnejte s tím, co máte k dispozici. Pokud nemáte správné informace pro vyřešení úlohy, napište *nelze* nebo zkráceně *N*.
+*Návod.* Na jménu proměnné pochopitelně nezáleží. Ujasněte si, například v proměnných [`x`] a [`y`], jaké integrály potřebujete, přepište je do proměnné [`t`] a porovnejte s tím, co máte k dispozici. Pokud nemáte správné informace pro vyřešení úlohy, napište *nelze* nebo zkráceně *N*.
 
 END_PGML
 
