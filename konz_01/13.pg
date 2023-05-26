@@ -30,7 +30,7 @@ $data =
 ,
 {
     obrazek=>"hvezdy",
-    otazka=>"Ve vědě zpravidla navazuje každý vědec na své předchůdce. Klasickou ukázkou je odvození gravitačního zákona. Na začátku byla podrobná pozorování pohybu planet, která vykonal Tycho Brahe. Z nich později Johanes Keppler vyvodil geniální zákony pro pohyb planet. Na tuto činnost navázal později Isaac Newton, který brilantní analýzou, v níž položil základy diferenciálního a integrálního počtu, prokázal, že Keplerovy zákony je možné odvodit matematickou cestou, pokud mezi gravitační silou \(F\) působící mezi dvěma objekty a jejich vzdáleností \(r\) je vztah tvaru \[F=\frac k{r^2}.\] Jak byste tento vztah mezi gravitační silou a vzdáleností vyjádřili slovně?",
+    otazka=>"Ve vědě zpravidla navazuje každý vědec na své předchůdce. Klasickou ukázkou je odvození gravitačního zákona. Na začátku byla podrobná pozorování pohybu planet, která vykonal Tycho Brahe. Z nich později Johanes Keppler vyvodil geniální zákony pro pohyb planet. Na tuto činnost navázal později Isaac Newton, který brilantní analýzou, v níž položil základy diferenciálního a integrálního počtu. Newton prokázal, že Keplerovy zákony je možné odvodit matematickou cestou, pokud mezi gravitační silou \(F\) působící mezi dvěma objekty a jejich vzdáleností \(r\) je vztah tvaru \[F=\frac k{r^2}.\] Jak byste tento vztah mezi gravitační silou a vzdáleností vyjádřili slovně?",
     odpoved=>"Gravitační síla je nepřímo úměrná druhé mocnině vzdálenosti.",
     moznosti=>["Gravitační síla je přímo úměrná druhé mocnině vzdálenosti.",
 	  "Gravitační síla je přímo úměrná druhé odmocnině vzdálenosti.",
