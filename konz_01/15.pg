@@ -3,45 +3,51 @@ loadMacros(
 "PGstandard.pl",
 "PGML.pl",
 "MathObjects.pl",
-"PGessaymacros.pl",
+"parserRadioButtons.pl",
 "PGcourse.pl",
 );
 TEXT(beginproblem());
 
 ADD_CSS_FILE("css/left.css");
 
-TEXT(MODES(
-    HTML => "<style>.problem-content textarea {width:100%;}</style>",
-));
 
-TEXT(MODES(
-    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
-));
-
-BEGIN_PGML
-
-## Derivace 
-
-V úvodu předmětu se seznamujeme s pojmem derivace. Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je vhodné tento aparát studovat a rozvíjet. Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si o derivaci chtěl zjistit více.
-
-END_PGML
-
-
-BEGIN_TEXT
-\{essay_box(10,80)\}
-END_TEXT
-
+$radio = RadioButtons([
+"Řešení je matematicky správné a vystihuje podstatu věci.",
+"Řešení je matematicky správné, má drobné mouchy.",
+"Řešení je matematicky špatně, nedefinuje přímou úměrnost a používá vlastní a nesrozumitelnou terminologii."
+],2);
 
 
 BEGIN_PGML
 
-Hodnocení není automatické. Úlohu boduje ručně vyučující. 
+
+## Chat GPT a přímá úměrnost
+
+V maximálně třech větách vysvětli, kdy se závislost dvou veličin nazývá přímá úměrnost.
+
+
+**Odpověď:** (červen 2023)
+
+Závislost dvou veličin se nazývá přímá úměrnost, pokud se zvyšováním hodnoty jedné veličiny zvyšuje i hodnota druhé veličiny a naopak, pokles jedné veličiny způsobuje pokles druhé veličiny, přičemž vztah mezi nimi je lineární a přímý.
+
+Jaký máte z odpovědi dojem?
+
+[_]{$radio}
+
 
 END_PGML
 
 
-#Essay Boxs use the essay_cmp evaluator.
-ANS(essay_cmp());
+BEGIN_PGML_SOLUTION
+
+To, že s rostoucí honotou jedné veličiny roste i hodnota druhé veličiny je definice rostoucí funkce. U přímé úměrnosti je důležité, že se obě veličiny mění stejným násobkem. Pokud je tento násobek záporný, potom dokonce růst jendé veličiny je spojen s poklesem druhé veličiny.
+
+Mezi veličinami potom je opravdu lineární vztah, ale navíc ještě musí příslušná lineární funkce procházet počátkem. Obrat, že "vztah je přímý" se v matematice nepoužívá, není nijak defionván a je matoucí.
+
+Mnohem kratší a jasnější je definice, že mezi veličinami je vztah přímé úměrnosti, pokud jedna veličina je násobkem druhé. Alternativně a pomocí matematickcýh symbolů, mezi veličinami [`x`] a [`y`] je vztah přímé úměrnosti, pokud [```y=kx```] pro nějakou konstantu [`k`].
+
+END_PGML_SOLUTION
+
 
 
 
