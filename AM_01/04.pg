@@ -1,0 +1,89 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$b=random(2,10,1);
+$c=non_zero_random(-4,7,1);
+$k=random(3,5,1);
+do  { $l=random(2,7,1); } until ($l != $k);
+$m=random(2,5,1); 
+
+Context("Numeric")->variables->add(y=>"Real", z=>"Real");
+	
+$funkce=Formula("$b*x^$k*y^$l*z^$l - 3*e^(-x+$m*z)")->reduce();
+
+$dfx=Formula("$b*$k*x^($k-1)*y^$l*z^$l + 3*e^(-x+$m*z)")->reduce();
+$dfy=Formula("$b*$l*x^$k*y^($l-1)*z^$l")->reduce();
+$dfz=Formula("$b*$l*x^$k*y^$l*z^($l-1) - 3*$m*e^(-x+$m*z)")->reduce();
+
+
+$n=random(1,3,1);
+if ($n==1)
+{
+    $x1="x";
+    $dx1=$dfx;
+    $x2="y";
+    $dx2=$dfy;
+}
+elsif ($n==2)
+{
+    $x1="x";
+    $dx1=$dfx;
+    $x2="z";
+    $dx2=$dfz;
+}
+else
+{
+    $x1="y";
+    $dx1=$dfy;
+    $x2="z";
+    $dx2=$dfz;
+}
+
+
+BEGIN_PGML
+
+## Parciální derivace funkce tří proměnných
+
+V tomto příkladě budeme pracovat s funkcí tří proměnných. Mají tedy smysl tři parciální derivace a v tomto příkladě vypočteme dvě z nich. Postup je analogický tomu, co jsme prováděli v předchozích příkladech, jenom je o proměnnou více. 
+
+---------------
+
+Vypočtěte následující dvě parciální derivace funkce [``` f(x,y,z)=[$funkce].```]
+
+>>[``\frac{\partial f}{\partial [$x1]}={}``][_________________________]{$dx1} <<
+
+>>[``\frac{\partial f}{\partial [$x2]}={}``][_________________________]{$dx2} <<
+
+END_PGML
+
+BEGIN_PGML_HINT
+
+Derivujte jako v předchozích příkladech: proměnné, podle kterých se nederivuje, se chovají jako konstanty.
+Pozor na derivování složené funkce! Například platí
+[``` \left(e^{2-3x}\right)'=-3 e^{2-3x},```]
+protože derivaci vnější složky násobíme derivací složky vnitřní.
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Pro úplnost uvedeme všechny tři parciální derivace. Počítat máte jenom dvě z nich.
+
+[``` \frac{\partial f}{\partial x}= [$dfx] ```]							   
+[``` \frac{\partial f}{\partial y}= [$dfy] ```]							   
+[``` \frac{\partial f}{\partial z}= [$dfz] ```]							   
+							   
+END_PGML_SOLUTION							   
+
+
+ENDDOCUMENT();

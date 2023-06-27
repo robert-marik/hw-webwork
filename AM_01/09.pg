@@ -1,0 +1,60 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGML.pl",
+"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+
+$radio = RadioButtons(
+["Kladná v každém bodě, protože v každém bodě se kostka ohřívá.","Záporná  v každém bodě, protože v každém bodě se kostka ohřívá.","Nulová, vzhledem k symetrii úlohy.","Vepředu kladná, vzadu záporná, protože stěny se ohřejí rychle a teplota od stěn směrem dovnitř klesá.","Vepředu záporná, vzadu kladná, protože stěny se ohřejí rychle a teplota od stěn dovnitř klesá."],
+0);  # První odpověď správná
+
+$radio2 = RadioButtons(
+["Kladná v každém bodě, protože v každém bodě se kostka ohřívá.","Záporná  v každém bodě, protože v každém bodě se kostka ohřívá.","Nulová, vzhledem k symetrii úlohy.","Vepředu kladná, vzadu záporná, protože stěny se ohřejí rychle a teplota od stěn směrem dovnitř klesá.","Vepředu záporná, vzadu kladná, protože stěny se ohřejí rychle a teplota od stěn dovnitř klesá."],
+3);  
+
+
+
+BEGIN_PGML
+
+## Dřevěná kostka v peci pro teplotní modifikaci
+
+Dřevěnou kostku o délce strany [``10\,\mathrm{cm}``] dáme do pece k teplotní modifikaci a pec zapneme. Pec se ohřeje rychle, od vzduchu v peci se rychle ohřejí stěny a ty potom předávají teplo dál do kostky. Co se bude dít s jednotlivými parciálními derivacemi teploty? Pro jednoznačnost orientujme souřadnicové osy podle obrázku. Přední stranou kostky rozumíme tu, která je na obrázku vidět. Veličina [`T`] je teplota kostky a tato se může měnit podle toho, jak běží čas a které místo kostky sledujeme. Je tedy funkcí čtyř proměnných [``` T=T(t,x,y,z).```]
+
+[@ image("drevena_kostka.png", width=>300) @]*
+
+*Část 1:* Jaké znaménko má derivace podle času, tj. [``\frac{\partial T}{\partial t}``]? Je tato derivace kladná nebo záporná? Nebo nulová? Vyberte správnou odpověď a správné zdůvodnění.
+
+[_]{$radio}
+
+-------
+
+*Část 2:* Jaké znaménko má derivace podle polohy? Pro konkrétnost uvažujme například derivaci ve směru osy [`x`], tj. [``\frac{\partial T}{\partial x}``].
+Je tato derivace kladná nebo záporná? Nebo nulová? Vyberte správnou odpověď a správné zdůvodnění.
+
+[_]{$radio2}
+
+END_PGML
+
+
+$showHint = 1;
+
+BEGIN_PGML_HINT
+Pro derivaci podle času přemýšlejte, jestli teplota s časem roste, či klesá a jak tato monotonie souvisí s derivací.
+
+Pro derivaci podle polohy uvažte, že stěny se ohřejí a předávají teplo dovnitř kostky. Můžete si nakreslit průběh teploty jako funkci polohy. Na začátku a na konci bude teplota vyšší než uprostřed a proto bude průběh mít tvar písmene "U". Z tohoto rozboru poznáte monotonii a znaménko derivace. Potom je již potřeba jen správně určit, který konec odpovídá přední a který zadní stěně.
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Pokud umístíme kostku do pece, její teplota v každém bodě poroste s časem a derivace podle času je kladná v každém bodě.
+
+O znaménku derivace podle polohy rozhoduje to, zda teplota ve směru osy roste či klesá. Nejprve se ohřejí stěny a od nich se ohřívá vnitřek. Teplota na zadní straně tedy ve směru osy [`x`] klesá (osa míří dovnitř kostky a od stěny dovnitř klesá teplota) a vepředu roste (osa míří ven z kostky a z vnitřku kostky na stěnu teplota roste). Proto je vzadu derivace záporná a vepředu kladná. 
+END_PGML_SOLUTION
+
+ENDDOCUMENT();

@@ -1,0 +1,76 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+
+$data =
+[
+{
+    nadpis=>"Dvojný integrál hloubky jezera",
+    otazka=>"Nechť \(h(x,y)\geq 0\) je v metrech hloubka jezera v místě o souřadnicích \((x,y)\). Nechť \(\Omega\) je množina popisující hladinu jezera. Co vyjadřuje integrál \[\iint_{\Omega}h(x,y)\,\mathrm dx\mathrm dy\] a jaké má jednotky?",
+    odpoved=>"Objem jezera v metrech krychlových.",
+    moznosti=>[
+"Střední hloubka jezera v metrech.",
+"Záporně vzatá střední hloubka jezera v metrech.",
+"Záporně vzatý objem jezera v metrech krychlových.",
+"Obsah plochy hladiny jezera v metrech čtverečních.",
+],
+}
+];
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$od       =  $data->[$i]->{odpoved};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
+
+BEGIN_PGML
+
+## [$na]
+
+
+[@ $ot @]*
+
+[_]{$radio}
+
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$od]
+
+END_PGML_SOLUTION
+
+};
+# konec cyklu
+
+
+ENDDOCUMENT();
+
+

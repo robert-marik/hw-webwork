@@ -1,0 +1,129 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "MathObjects.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$b=random(2,6,1);
+$c=non_zero_random(1,4,1);
+$l=random(2,4,1);
+$k=random(2,4,1);
+#do  { $m=random(3,9,1); } until (($m != $k) and ($m != $k));
+$m=non_zero_random(-9,9,1);
+
+Context("Vector")->variables->add(a=>"Real");
+
+$P=Formula("x^$b+$c*x-y")->reduce();
+$Q=Formula("-x+$l*y")->reduce();
+$dPx=$P->D("x");
+$dPy=$P->D("y");
+$dQx=$Q->D("x");
+$dQy=$Q->D("y");
+$dPx0=$c;
+$dPy0=-1;
+$dQx0=-1;
+$dQy0=$l;
+
+
+$maticeXY=Matrix([[$dPx,$dPy],[$dQx,$dQy]]);
+
+$matice=Matrix([[$dPx0,$dPy0],[$dQx0,$dQy0]]);
+
+
+BEGIN_PGML
+
+## Jacobiho matice autonomního systému
+
+Obecný autonomní systém je poměrně těžké vyřešit i v relativně jednoduchých případech. Proto při analýze těchto systémů využíváme aproximaci pomocí linearizace. Dá se totiž ukázat, že v okolí stacionárních bodů se původní systém chová stejně, jako linearizovaný systém. To je poměrně velké usnadnění, protože chování lineárního systému můžeme charakterizovat pomocí vlastních čísel. 
+
+------
+
+V sadě úloh věnovaných gradientu jsme se věnovali i Jacobiho matici. Vzpomínáte? Teď budeme potřebovat lineární aproximaci autonomního systému. 
+
+Například  autonomní systém [``` \begin{aligned}\frac{\mathrm dx}{\mathrm dt}&=x^3-x+4y\\\frac{\mathrm dy}{\mathrm dt}&=\sin (x)\end{aligned}```] má jistě stacionární bod [``(0,0),``] protože v tomto bodě jsou pravé strany obou rovnic nulové. Výpočte derivací pravých stran podle jendotlivých proměnných vidíme, že Jacobiho matice má tvar
+[``` J(x,y) = \begin{pmatrix}3x^2-1 & 4 \\ \cos (x) & 0\end{pmatrix}```] a Jacobiho matice v počátku je
+[``` J(0,0) = \begin{pmatrix}-1 & 4 \\ 1 & 0\end{pmatrix}.```]
+Proto se v okolí počátku systém chová stejně jako lineární systém
+[``` \begin{aligned}\frac{\mathrm dx}{\mathrm dt}&=-x+4y\\\frac{\mathrm dy}{\mathrm dt}&=x,\end{aligned}```]
+který umíme analyzovat pomocí vlastních čísel. 
+
+---------------
+
+
+Uvažujme autonomní systém [``` \begin{aligned}\frac{\mathrm dx}{\mathrm dt}&=[$P]\\\frac{\mathrm dx}{\mathrm dt}&=[$Q].\end{aligned}```]
+
+Vypočtěte derivace pravých stran.
+
+>> [`` \frac{\partial f}{\partial x}={} ``][_________________________]{$dPx} <<
+
+>> [`` \frac{\partial f}{\partial y}={} ``][_________________________]{$dPy} <<
+
+>> [`` \frac{\partial g}{\partial x}={} ``][_________________________]{$dQx} <<
+
+>> [`` \frac{\partial g}{\partial y}={} ``][_________________________]{$dQy} <<
+
+
+
+Sestavte z těchto derivací Jacobiho matici.
+
+>>[``J(x,y)={}``][_________]*{$maticeXY}<<
+
+
+Vypočtěte matici, která v bodě [`(0,0)`] tento systém linearizuje, tj. Jacobiho matici v bodě [`(0,0)`].
+
+>>[``J(0,0)={}``][_________]*{$matice}<<
+
+END_PGML
+
+
+BEGIN_PGML_HINT
+Pozorně počítejte derivace. Například derivace první komponenty
+[``` f=[$P]```]
+jsou
+[``` \frac{\partial f}{\partial x}=[$dPx] ```]
+a
+[``` \frac{\partial f}{\partial y}=[$dPy]. ```]
+Do těchto vztahů dosazujeme za obě proměnné nuly a dostaneme čísla do prvního řádku hledané matice.
+Podobně počítáme čísla ve druhém řádku.
+
+Pokud je jedna komponenta špatně, je celá úloha vyhodnocena jako nesprávně zodpovězená.
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu.
+
+Derivace první komponenty
+[``` f(x,y)=[$P]```]
+jsou
+[``` \frac{\partial f}{\partial x}=[$dPx] ```]
+a
+[``` \frac{\partial f}{\partial y}=[$dPy]. ```]
+
+Derivace druhé komponenty
+[``` g(x,y)=[$Q]```]
+jsou
+[``` \frac{\partial g}{\partial x}=[$dQx] ```]
+a
+[``` \frac{\partial g}{\partial y}=[$dQy]. ```]
+
+
+Jacobiho matici sestavíme z těchto derivací.
+[``` J(x,y)=\begin{pmatrix}[$dPx]&[$dPy]\\[$dQx]&[$dQy]\end{pmatrix}```]
+
+V bodě [`(0,0)`] potom
+[``` J(0,0)=\begin{pmatrix}[$dPx0]&[$dPy0]\\[$dQx0]&[$dQy0]\end{pmatrix}.```]
+
+END_PGML_SOLUTION
+
+
+
+ENDDOCUMENT();

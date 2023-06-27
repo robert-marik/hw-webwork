@@ -1,0 +1,128 @@
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "MathObjects.pl",
+  "parserRadioButtons.pl",
+  "answerHints.pl",
+  "PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context()->variables->are(x=>'Real',y=>'Real', lambda=>"Real");
+Context()->variables->set(lambda => {TeX => '{\lambda}'});
+
+do
+{
+$dfx1=random(-5,5);
+$dgx1=random(-5,5);
+$dfy1=random(-5,5);
+$dgy1=random(-5,5);;
+
+$matice11=Matrix([[$dfx1,$dfy1],[$dgx1,$dgy1]]);
+
+$stopa=$dfx1+($dgy1);
+$determinant=$dfx1*($dgy1)-($dfy1)*($dgx1);
+$polynom=Formula("lambda^2-($stopa)*lambda+($determinant)")->reduce();
+}
+until (($determinant != 0) && ( ($stopa)*($stopa) - 4*($determinant) != 0) && ($stopa != 0) );
+
+
+if ( $determinant < 0 ) {
+  $reseni = 4;
+  $odpoved="Kořeny charakteristického polynomu jsou reálné s opačným znaménkem. Jedná se tedy o sedlo.";
+  }
+elsif ( ($stopa)*($stopa) - 4*($determinant) < 0 )
+  {
+     $reseni = 1;
+     $odpoved="Kořeny charakteristického polynomu jsou komplexně sdružená čísla se zápornou reálnou částí. Jedná se tedy o stabilní ohnisko.";
+     if ( $stopa > 0 ) {
+     	$reseni = $reseni + 2;
+        $odpoved="Kořeny charakteristického polynomu jsou komplexně sdružená čísla s kladnou reálnou částí. Jedná se tedy o nestabilní ohnisko.";
+     }
+  }
+else
+  {
+     $reseni = 0;
+     $odpoved="Kořeny charakteristického polynomu jsou záporná  reálná čísla. Jedná se tedy o stabilní uzel.";
+     if ( $stopa > 0 ) {
+     	$reseni = $reseni + 2;
+        $odpoved="Kořeny charakteristického polynomu jsou kladná reálná čísla. Jedná se tedy o nestabilní uzel.";
+  }
+  }
+
+
+
+
+$diskriminant = ($stopa)*($stopa) - 4*($determinant);
+if ($diskriminant<0)
+{
+$realorcomplex="komplexně sdružené";
+$real=-(-$stopa)/2;
+$imag=sqrt(-$diskriminant)/2;
+$lambda1="$real + $imag i";
+$lambda2="$real - $imag i";
+
+}
+else
+{
+$realorcomplex="reálné";
+$lambda1=(-$stopa-sqrt($diskriminant))/(2);
+$lambda2=(-$stopa+sqrt($diskriminant))/(2);
+}
+
+
+if ( $determinant < 0 ) { $reseni = 4; }
+
+
+$radio=RadioButtons(["Stabilní uzel","Stabilní ohnisko","Nestabilní uzel","Nestabilní ohnisko","Sedlo","Jiná odpověď"],$reseni);
+
+
+BEGIN_PGML
+
+# Charakteristický polynom a vlastní čísla Jacobiho matice
+
+Nelineární autonomní systémy umíme v okolí stacionárního bodu nahradit systémem lineárním, u kterého je zaručeno stejné chování (ve smyslu stejného chování trajektorií v okolí těchto bodů). Tento systém je dán Jacobiho maticí. O chování řešení v okolí tohoto stacionárního bodu rozhodují vlastní čísla. Podle nich poznáme, za je stacionární bod stabilní či nestabilní. U stabilních bodů poznáme, zda rovnováha je dosažena monotonně, nebo pomocí postupně mizejících oscilací.
+
+**Praktický postup**
+
+* Jsou vlastní čísla reálná nebo komplexní? Pokud reálná, řešení dospějí k stacionárnímu bodu z určitého směru nebo vychází určitým směrem. Pokud jsou komplexně sdružená, dochází k oscilacím a bod je ohnisko. Toto kriterium odliší ohniska od zbytku.
+* Každé kladné reálné číslo nebo komplexní s kladnou reálnou částí znamená, že nějaké řešení vychází ze stacionárního bodu. Každé záporné reálné číslo nebo komplexní se zápornou reálnou částí znamená, že nějaké řešení míří do stacionárního bodu. Toto kriterium odliší sedlo od zbytku, sedlo je jediný stacionární bod, kde je kladné i záporné vlastní číslo. U ostatních případů to rozliší stabilitu.
+* Pokud tedy pomineme sedlo, máme buď ohnisko nebo uzel a to stabilní nebo nestabilní. Mezi ohniskem a uzlem se rozhodneme podle toho, zda jsou vlastní čísla reálná nebo komplexní. Pokud toto rozlišení provedeme, rozhodneme o stabilitě podle toho, zda jsou vlastní čísla kladná (nebo jestli mají kladné reálné části v případě ohniska) nebo záporná.
+
+Analýzu si vyzkoušíme na následujícím příkladě. Budeme mít systém již linearizovaný, tj. budeme mít vypočtenu Jacobiho matici. Její vlastní čísla se hledají jako kořeny charakteristického polynomu. Projdeme si výpočetně méně obtěžující kroky, jako je sestavení charakteristického polynomu a posouzení typu stacionárního bodu podle kořenů. Vlastní řešení kvadratické rovnice dané charakteristickým polynomem provádět nemusíte, je to látka již dobře známá ze střední školy.
+
+------
+
+Uvažujme autonomní systém
+[``` \begin{aligned}\frac{\mathrm dx}{\mathrm dt}&=f(x,y)\\\frac{\mathrm dy}{\mathrm dt}&=g(x,y)\end{aligned}```]
+a jeho stacionární bod [`(x_0,y_0)`], tj. platí [`f(x_0,y_0)=0`] a [`g(x_0,y_0)=0`].
+
+
+Předpokládejme, že Jacobiho matice v bodě  [`(x_0,y_0)`] je [``J(x_0,y_0)=[$matice11]``] a systém je tedy možno linearizovat do tvaru [``` \frac{\mathrm d}{\mathrm dt}\begin{bmatrix}x\\y\end{bmatrix}=[$matice11] \begin{bmatrix}x-x_0\\y-y_0\end{bmatrix}.```]
+
+Charakteristický polynom zadané Jacobiho matice je determinant
+[``` \begin{vmatrix} [$dfx1]-\lambda & [$dfy1] \\ [$dgx1] & [$dgy1]-\lambda \end{vmatrix}.```]
+
+Rozepište tento determinant křížovým pravidlem a najděte charakteristický polynom [`P(\lambda)`] Jacobiho matice v proměnné lambda. Pište například *2\*lambda^2-7\*lambda+2*.
+
+>> [``P(\lambda)={} ``][________________________________]{$polynom} <<
+
+
+Pokud jste postupovali správně, kořeny charakteristického polynomu jsou [$realorcomplex] a rovnají se [`\lambda_1=[$lambda1]`] a [`\lambda_2=[$lambda2]`]. Určete typ stacionárního bodu.
+
+[_]{$radio}
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+Platí
+[``` \begin{vmatrix} [$dfx1]-\lambda & [$dfy1] \\ [$dgx1] & [$dgy1]-\lambda \end{vmatrix}= ([$dfx1]-\lambda)([$dgy1]-\lambda)-([$dfy1])([$dgx1])=[$polynom].```]
+[$odpoved]
+
+END_PGML_SOLUTION
+
+ENDDOCUMENT();
+

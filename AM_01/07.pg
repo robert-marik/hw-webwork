@@ -1,0 +1,67 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$k=non_zero_random(-2,3,1);
+$m=random(2,5,1);
+ do { $n=random(2,5,1); } until ($m != $n);
+$a=random(1,5,1);
+do { $b=random(1,5,1); } until ($a != $b);
+
+Context("Numeric")->variables->add(y=>"Real");
+	
+$funkce=Formula("($a)*x^($m)*y^($n)-($k)x^2+($b)*x^($n)*y^($m)")->reduce();
+$dfx=Formula("($a)*($m)*x^($m-1)*y^($n)-2*($k)*x+($b)*($n)*x^($n-1)*y^($m)")->reduce();
+$ddfxy=Formula("($a)*($m)*($n)*x^($m-1)*y^($n-1)+($b)*($n)*($m)*x^($n-1)*y^($m-1)")->reduce();
+
+
+
+
+BEGIN_PGML
+
+## Smíšené parciální derivace druhého řádu
+
+Parciální derivace můžeme aplikovat i opakovaně a nemusíme přitom derivovat vždy podle stejné proměnné. Například pro funkci [```f(x,y)=2x^3y^4-xy^2+x^4```] dostáváme při derivování podle [`x`] první derivaci ve tvaru
+[``` \frac{\partial f}{\partial x}=6 x^2 y^4 - y^2 + 4x^3```] a pokud tento výsledek derivujeme podle [`y`], dostaneme smíšenou derivaci
+[``` \frac{\partial^2 f}{\partial x\partial y}=24 x^2 y^3 -2y.```]
+Stejný výsledek bychom obdrželi, kdybychom derivovali nejprve podle [`y`] na vztah
+[``` \frac{\partial f}{\partial y}=8 x^3 y^3 - 2xy```] a poté podle [`x`]. Schwarzova věta totiž zaručuje, že za jistých (zpravidla splněných) předpokladů jsou obě smíšené derivace druhého řádu stejné. Vyzkoušíme si to na následujícím příkladě.
+
+---------------
+
+Vypočtěte parciální derivace [`` \frac{\partial f}{\partial x} ``] a  [`` \frac{\partial^2 f}{\partial x \partial y} ``] funkce [``` f(x,y)=[$funkce]```].
+
+>>[``\frac{\partial f}{\partial x } ={}``][_________________________________]{$dfx} <<
+
+>>[``\frac{\partial^2 f}{\partial x \partial y} ={}``][_________________________________]{$ddfxy} <<
+
+END_PGML
+
+BEGIN_PGML_HINT
+První derivace jse
+[```\frac{\partial f}{\partial x} =[$dfx].```]
+
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+
+První derivace je
+[```\frac{\partial f}{\partial x} =[$dfx].```]
+
+Smíšená derivace je
+[```\frac{\partial^2 f}{\partial x \partial y} =[$ddfxy].```]
+
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

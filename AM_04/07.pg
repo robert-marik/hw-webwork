@@ -1,0 +1,141 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "MathObjects.pl",
+    "parserRadioButtons.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+BEGIN_PGML
+
+## Má zadané vektorové pole skalární potenciál?
+
+Vektorové pole [``` \vec F=P\vec i+Q\vec j```] (za předpokladu dostatečně hladkých složek) je gradientem nějaké skalární funkce [`f`], jestliže platí [``` \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}. ```] Toto je snadné si zapamatovat. Platí-li totiž
+[``` P=\frac {\partial f}{\partial x},\quad \text{a}\quad  Q=\frac{\partial f}{\partial y}```]
+jsou obě parciální derivace [`` \frac{\partial P}{\partial y}``] a [`` \frac{\partial Q}{\partial x}``] rovny smíšené parciální derivaci funkce [``f``] a podle Schwarzovy věty jsou si rovny.
+
+Například komponenty vektorového pole [``` \vec F= x^2y\vec i+ x^3\vec j```]
+jsou [``` P=x^2y\quad\text{a}\quad Q=x^3.```] Tyto komponenty 
+splňují
+[``` \frac{\partial P}{\partial y}=\frac{\partial}{\partial y}\left(x^2y\right)=x^2```]
+a
+[``` \frac{\partial Q}{\partial x} =\frac{\partial}{\partial x}\left(x^3\right)=3x^2.```]
+Protože jsou obě parciální derivace různé, vektorové pole nemá skalární potenciál.
+
+[@ image("kiting.jpg", width=>400) @]*
+
+Problematika rozhodnout, zda existuje skalární potenciál, tedy nesouvisí s hledáním tohoto potenciálu (to bychom použili opak derivace, tj. integrál), ale je založena na porovnání derivací komponent vektorového pole. Mít kladnou odpověď na otázku týkající se existence skalárního potenciálu znamená mít k dispozici silný nástroj pro studium zadaného vektorového pole. Například gravitační silové pole má skalární potenciál (gravitační potenciál), a proto můžeme pro studium objektů pohybujících se v gravitačním poli využít potenciální energii a zákon zachování mechanické energie. To dobře známe i ze středoškolské fyziky. Tady máme charakteristiku silových polí, kde je možno postupovat obdobně.
+
+END_PGML
+
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+Context("Vector");
+
+Context()->variables->are(x=>"Real",y=>"Real");
+#Context()->flags->set(ijk=>1 );
+#Context()->constants->set(
+#  i => {TeX => "\,\mathit{\vec i}"},
+#  j => {TeX => "\,\mathit{\vec j}"},
+#  k => {TeX => "\,\mathit{\vec k}"},
+#);
+
+@f=();
+@v=();
+@fx=();
+@fy=();
+@ans=();
+
+
+foreach $n (1..4) {
+
+    $nahoda=random(0,1);
+    $nasobek=random(1,3);
+    $n1=random(1,2);
+    $m1=random(1,2);
+    do
+    {
+	$n2=random(1,3);
+	$m2=random(1,3);
+    }
+    until ($n1!=$n2) or ($m1!=$m2);
+    $a=non_zero_random(-4,4);
+    $b=random(1,5);
+    $b=0;
+
+
+#    $f[$n]=Formula("$a*(x)^($n1)*(y)^($m1)+$b*(x)^($n2)*(y)^($m2)")->reduce();
+#    $g[$n]=Formula("($a+$nahoda)*(x)^($n1)*(y)^($m1)+$b*(x)^($n2)*(y)^($m2)")->reduce();
+#    $fx[$n]=$f[$n]->D('x')->reduce();
+#    $fy[$n]=$g[$n]->D('y')->reduce();
+
+# Podle toho jaka je $nahoda jsou nebo nejsou funkce f a g stejne. Z kazde se vypocitava jedna parcialni derivace. Pokud je nahoda nulova a f=g, potom spolecna hodnota je skalarni potencial.
+
+    $f=Formula("$a*(x)^($n1)*(y)^($m1)")->reduce();
+    $g=Formula("($a+$nahoda)*(x)^($n1)*(y)^($m1)")->reduce();
+    $nasobek1=$a*$n1;
+    $nasobek2=($a+$nahoda)*$m1;
+    $spolecny=gcd($nasobek1,$nasobek2);
+    $nasobek1=$nasobek1/$spolecny;
+    $nasobek2=$nasobek2/$spolecny;
+    $fx=Formula("$nasobek1*(x)^($n1-1)*(y)^($m1)")->reduce()->reduce();
+    $fy=Formula("$nasobek2*(x)^($n1)*(y)^($m1-1)")->reduce()->reduce();
+    $v=Vector($fx,$fy)->reduce();
+    if ($nahoda==0)
+    {
+       $ans=RadioButtons(["Ano, vektorové pole má skalární potenciál","Ne, vektorové pole nemá skalární potenciál"],0);
+       $jsou_nejsou="jsou";
+       $existuje_neexistuje="existuje";
+       }
+       else
+       {
+       $ans=RadioButtons(["Ano, vektorové pole má skalární potenciál","Ne, vektorové pole nemá skalární potenciál"],1);
+       $jsou_nejsou="nejsou";
+       $existuje_neexistuje="neexistuje";
+       }
+
+BEGIN_PGML
+
+----------------
+
+Má následující vektorové pole skalární potenciál?
+
+    [``` \vec F_{[$n]}=[$v]```]
+    [_]{$ans}
+
+
+END_PGML
+
+
+BEGIN_PGML_HINT
+
+Musíme vypočítat parciální derivace
+[``` \frac{\partial }{\partial x}\left([$fy]\right) ```]
+a
+[``` \frac{\partial }{\partial y}\left([$fx]\right) ```]
+a podle toho zda jsou nebo nejsou stejné správně usoudit na existenci nebo neexistenci skalárního potenciálu.
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Parciální derivace
+[``` \frac{\partial }{\partial x}\left([$fy]\right) ```]
+a
+[``` \frac{\partial }{\partial y}\left([$fx]\right) ```]
+[$jsou_nejsou]
+stejné a skalární potenciál k danému vektorovém poli [$existuje_neexistuje].
+
+END_PGML_SOLUTION
+
+}
+
+
+
+ENDDOCUMENT();

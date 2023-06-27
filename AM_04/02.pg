@@ -1,0 +1,129 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context("Vector");
+Context()->variables->are(x=>"Real",y=>"Real",z=>"Real");
+#Context()->flags->set(ijk=>1 );
+Context()->flags->set( reduceConstants => 0,reduceConstantFunctions => 0);
+#Context()->constants->set(
+#  i => {TeX => "\,\mathit{\vec i}"},
+#  j => {TeX => "\,\mathit{\vec j}"},
+#  k => {TeX => "\,\mathit{\vec k}"},
+#);
+
+$u1="\frac{\partial }{\partial x}";
+$u2="\frac{\partial }{\partial y}";
+$u3="\frac{\partial }{\partial z}";
+
+$a=non_zero_random(-2,2,1);
+$b=non_zero_random(-4,4,1);
+$c=non_zero_random(1,3,1);
+$n=random(2,4,1);
+
+$v1=Formula("$a*x^($n)+$b*y")->reduce();
+$v2=Formula("$b*x^2+z")->reduce();
+$v3=Formula("$c*z*y")->reduce();
+
+	
+$v=Vector("<$v1,$v2,$v3>");
+$F=$v;
+
+$ans1=($v3)->D('y')-($v2)->D('z');
+$ans2m=($v3)->D('x')-($v1)->D('z');
+$ans2=($v1)->D('z')-($v3)->D('x');
+$ans3=($v2)->D('x')-($v1)->D('y');
+
+Context()->flags->set( reduceConstants => 1,reduceConstantFunctions => 1);
+
+$answer=Vector("<$ans1,$ans2,$ans3>")->reduce();
+
+BEGIN_PGML
+
+## Rotace vektorového pole v prostoru
+
+Rotace vektorového pole je vektorový součin nabla operátoru [`\nabla = \left(\frac{\partial }{\partial x},\frac{\partial }{\partial y},\frac{\partial }{\partial z}\right)^T`] a vektorového pole. "Součin" parciální derivace a funkce přitom chápeme jako výpočet příslušné derivace. 
+
+--------------
+
+Rotace vektorového pole [`\vec F= xy^2 \vec i+xz\vec j+(x^2+y)\vec k`] je
+[``` \begin{aligned}\nabla \times \vec F &= \begin{vmatrix}\vec i& \vec j & \vec k\\
+\frac{\partial }{\partial x}&\frac{\partial }{\partial y}&\frac{\partial }{\partial z}\\
+xy^2& xz & x^2+y
+\end{vmatrix}\\&
+=\left( \frac{\partial }{\partial y} (x^2+y)
+- \frac{\partial }{\partial z} (xz)\right)\cdot \vec i
+\\&{}\ +
+\left( \frac{\partial }{\partial z} (xy^2)
+- 
+\frac{\partial }{\partial x} (x^2+y)
+\right)\cdot \vec j
+\\&{}\ +\left( \frac{\partial }{\partial x} (xz)
+- \frac{\partial }{\partial y} (xy^2)\right)\cdot \vec k
+\\&=(1-x)\cdot\vec i-2x\vec j+(z-2xy)\vec k.
+\end{aligned}
+```]
+
+Tento výsledek je možno zapsat jako *(1-x)i-2xj+(z-2xy)k* nebo *<1-x,-2x,z-2xy>*.
+
+---------------
+
+Vypočtěte rotaci vektorového pole [```\vec F=[$F].```]
+
+>>[``\nabla \times \vec F=\begin{vmatrix}\vec i&\vec j& \vec k \\ [$u1]&[$u2]&[$u3]\\
+[$v1]&[$v2]&[$v3]
+\end{vmatrix} ={} ``][_____________________________________]{$answer} <<
+
+END_PGML
+
+BEGIN_PGML_HINT
+
+Musíte vypočítat Sarussovým pravidlem uvedený determinant.  Inspirujte
+se postupem ve vzorovém příkladě. Dejte pozor na derivování a na
+znaménka. Stačí jeden překlep a celá odpověď je hodnocena jako
+nesprávná.
+
+Pokud se nedaří, zkuste další příklad s dvourozměrným vektorovým polem a poté se sem vraťte.
+
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+
+
+Musíme vypočítat Sarussovým pravidlem determinant
+[``` \nabla \times \vec F=\begin{vmatrix}\vec i&\vec j& \vec k \\ [$u1]&[$u2]&[$u3]\\
+[$v1]&[$v2]&[$v3]
+\end{vmatrix}.```]
+Platí
+[``` \nabla \times \vec F=
+\begin{vmatrix}\vec i&\vec j& \vec k \\ [$u1]&[$u2]&[$u3]\\
+[$v1]&[$v2]&[$v3]
+\end{vmatrix}
+=\left( \frac{\partial }{\partial y} ([$v3])
+- \frac{\partial }{\partial z} ([$v2])\right)\cdot \vec i
++
+\left(
+\frac{\partial }{\partial z} ([$v1])
+-
+\frac{\partial }{\partial x} ([$v3])
+\right)\cdot \vec j
++\left( \frac{\partial }{\partial x} ([$v2])
+- \frac{\partial }{\partial y} ([$v1])\right)\cdot \vec k.
+```]
+Po výpočtu parciálních derivací dostáváme
+[``` \nabla \times \vec F=
+[$answer] ```]
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

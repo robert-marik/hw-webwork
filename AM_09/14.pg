@@ -1,0 +1,173 @@
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "MathObjects.pl",
+  "parserRadioButtons.pl",
+  "answerHints.pl",
+  "PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context("Vector")->variables->are(x=>'Real',y=>'Real', lambda=>"Real");
+Context()->variables->set(lambda => {TeX => '{\lambda}'});
+
+do
+{
+$a = non_zero_random(-4,4);
+$b = non_zero_random(-4,4);
+$d = non_zero_random(-4,4);
+$e = non_zero_random(-4,4);
+$c = -($a) - ($b);
+$l = $e - ($d);
+
+$f=Formula("$a*x*y^2+($b)*x*y+($c)")->reduce();
+$g=Formula("$d*x^2*y-($e)*y^2+($l)")->reduce();
+
+$dfx=Formula("$a*y^2+($b)*y")->reduce();
+$dgx=Formula("$d*2*x*y")->reduce();
+$dfy=Formula("$a*x*2*y+($b)*x")->reduce();
+$dgy=Formula("$d*x^2-($e)*2*y")->reduce();
+
+$dfx1=Formula("$a+($b)")->reduce();
+$dgx1=Formula("$d*2")->reduce();
+$dfy1=Formula("$a*2+($b)")->reduce();
+$dgy1=Formula("$d-($e)*2")->reduce();
+
+$matice=Matrix([[$dfx,$dfy],[$dgx,$dgy]]);
+$matice11=Matrix([[$dfx1,$dfy1],[$dgx1,$dgy1]]);
+
+$stopa=$dfx1+($dgy1);
+$determinant=$dfx1*($dgy1)-($dfy1)*($dgx1);
+$polynom=Formula("lambda^2-($stopa)*lambda+($determinant)")->reduce();
+}
+until (($determinant != 0) && ( ($stopa)*($stopa) - 4*($determinant) != 0) && ($stopa != 0) );
+
+
+# if ( $determinant < 0 ) { $reseni = 4; }
+# elsif ( ($stopa)*($stopa) - 4*($determinant) < 0 ) { $reseni = 1; }
+# else { $reseni = 0; }
+
+# if ( $stopa > 0 ) {$reseni = $reseni + 2;}
+
+# if ( $determinant < 0 ) { $reseni = 4; }
+
+
+if ( $determinant < 0 ) {
+  $reseni = 4;
+  $odpoved="Kořeny charakteristického polynomu jsou reálné s opačným znaménkem. Jedná se tedy o sedlo.";
+  }
+elsif ( ($stopa)*($stopa) - 4*($determinant) < 0 )
+  {
+     $reseni = 1;
+     $odpoved="Kořeny charakteristického polynomu jsou komplexně sdružená čísla se zápornou reálnou částí. Jedná se tedy o stabilní ohnisko.";
+     if ( $stopa > 0 ) {
+     	$reseni = $reseni + 2;
+        $odpoved="Kořeny charakteristického polynomu jsou komplexně sdružená čísla s kladnou reálnou částí. Jedná se tedy o nestabilní ohnisko.";
+     }
+  }
+else
+  {
+     $reseni = 0;
+     $odpoved="Kořeny charakteristického polynomu jsou záporná  reálná čísla. Jedná se tedy o stabilní uzel.";
+     if ( $stopa > 0 ) {
+     	$reseni = $reseni + 2;
+        $odpoved="Kořeny charakteristického polynomu jsou kladná reálná čísla. Jedná se tedy o nestabilní uzel.";
+  }
+  }
+
+
+
+$radio=RadioButtons(["Stabilní uzel","Stabilní ohnisko","Nestabilní uzel","Nestabilní ohnisko","Sedlo","Jiná odpověď"],$reseni);
+
+
+#$Scaffold::isInstructor = 0;
+
+
+BEGIN_PGML
+
+# Stacionární bod nelineárního autonomního systému
+
+Tato úloha je mírným rozšířením úlohy předchozí. Rozdíl je v tom, že studovaná soustava je nelineární. Kromě všech kroků, které jsme prováděli v předchozí úloze tedy budeme muset ještě derivováním najít Jacobiho matici, kterou použijeme pro linearizaci. 
+
+------------------
+
+
+Budeme studovat autonomní systém
+[```
+\begin{aligned}
+\frac{\mathrm dx}{\mathrm dt}&= [$f] \\
+\frac{\mathrm dy}{\mathrm dt}&= [$g]
+\end{aligned}```]
+v jeho stacionárním bodě [`(1,1)`].
+
+------------------
+
+Určete parciální derivace pravých stran systému.
+
+>> [`` \frac{\partial }{\partial x}([$f])={}``][___________]*{$dfx} <<
+
+>> [`` \frac{\partial }{\partial y}([$f])={}``][___________]*{$dfy} <<
+
+>> [`` \frac{\partial }{\partial x}([$g])={}``][___________]*{$dgx} <<
+
+>> [`` \frac{\partial }{\partial y}([$g])={}``][___________]*{$dgy} <<
+
+---------------
+
+Určete Jacobiho matici systému.
+
+>> [`` J(x,y)={}``][___________]*{$matice} <<
+
+
+---------------------
+
+Bod [`(1,1)`] je stacionárním bodem systému. Jacobiho matice je vypočtena v předchozím kroku. 
+Najděte Jacobiho matici ve stacionárním bodě [`(1,1)`].
+
+>>[`` J(1,1)={}``][___________]*{$matice11}<<
+
+
+--------------------
+
+Nyní najděte její charakteristický polynom [`P(\lambda)`] Jacobiho matice z předešlého kroku. Napište jej v proměnné lambda. Například *2\lambda^2-7lambda+2*.
+
+>> [``P(\lambda)={} ``][________________________________]{$polynom} <<
+
+
+-------------------------------
+
+Určete vlastní čísla (kořeny charakteristické rovnice) a na jejich základě rozhodněte o typu stacionárního bodu.
+
+[_]{$radio}
+
+END_PGML
+
+BEGIN_PGML_HINT
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Derivace počítáme jako derivace polynomu.
+
+[``` \frac{\partial }{\partial x}([$f])=[$dfx]```]
+[``` \frac{\partial }{\partial y}([$f])=[$dfy]```]
+[``` \frac{\partial }{\partial x}([$g])=[$dgx]```]
+[``` \frac{\partial }{\partial y}([$g])=[$dgy]```]
+
+Jacobiho matice sestavená z těchto derivací je  [``` J(x,y)=[$matice].```]
+
+Jacobiho matice v bodě [``(1,1)``] je  [``` J(1,1)=[$matice11].```]
+
+Platí
+[``` \begin{vmatrix} [$dfx1]-\lambda & [$dfy1] \\ [$dgx1] & [$dgy1]-\lambda \end{vmatrix}= ([$dfx1]-\lambda)([$dgy1]-\lambda)-([$dfy1])([$dgx1])=[$polynom].```]
+
+[$odpoved]
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

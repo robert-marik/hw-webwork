@@ -1,0 +1,101 @@
+DOCUMENT();        
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+ ##############################################
+ #  Setup
+
+Context("Numeric")->variables->are(x=>"Real",y=>"Real");
+
+$a = random(1,50,1)/10;
+
+$f = Formula("$a * (x**(2) + y**(2))")->reduce;
+
+$answer1 = Real("$a * (2/3)") -> reduce;
+
+$answer2 = Real("$a * ((0.5)**(2) + (0.5)**(2))") -> reduce;
+
+
+ ##############################################
+ #  Main text
+
+Context()->texStrings;
+
+BEGIN_PGML
+
+## Výpočet obsahu vody v plošném materiálu
+
+V plošném materiálu, který je umístěn v rovině tak, že odpovídá jednotkovému čtverci [``` \begin{gathered}0\leq x\leq 1 \\ 0 \leq y \leq 1\end{gathered}```] je množství vody v bodě [`(x,y)`] dáno vztahem
+[``` \sigma (x,y)=[$f] \,\mathrm{g}/\mathrm{cm}^2.```]
+
+Koncentrace vody roste se vzdáleností od počátku. Proto je realistické předpokládat (nakreslete si obrázek), že průměrná koncentrace vody v desce bude vyšší než koncentrace v geometrickém středu. 
+
+Určete celkový obsah vody, koncentraci vody v geometrickém středu v bodě [``\left(\frac 12,\frac 12\right)``] a průměrnou koncentraci v celé desce.
+
+* Celkový obsah vody v desce je [_________________________________]{$answer1} gramů vody.
+
+* Koncentrace vody v geometrickém středu je [_________________________________]{$answer2} gramů vody na centimetr čtvereční desky.
+
+* Průměrná koncentrace vody v celé desce je [_________________________________]{$answer1} gramů vody na centimetr čtvereční desky.
+
+Průměrnou koncentrací se vzhledem k dvourozměrné formulaci úlohy rozumí střední hodnota koncentrace na uvažované desce. 
+Koncentrací v bodě se vzhledem k dvourozměrné formulaci úlohy rozumí plošná hustota obsahu vody v daném místě. 
+
+
+*Návod:* Budete potřebovat dvojný integrál koncentrace a obsah
+desky. Obsah desky určíte snadno pomocí vzorce pro obsah čtverce,
+případně vyčtete ze zadání (jednotkový čtverec). Pro integrál můžete
+využít linearitu a vztahy [``` \iint_{R} x^n\,\mathrm dx\,\mathrm dy =
+\iint_{R} y^n\,\mathrm dx\,\mathrm dy = \frac 1{n+1}.```] Jeden z
+těchto vztahů je odvozen ve cvičení, druhý plyne ze symetrie vůči
+záměně [`x`] a [`y`]. Množina [`R`] je jednotkový čtverec ze zadání.
+
+END_PGML
+Context()->normalStrings;
+
+
+BEGIN_PGML_HINT
+
+Vzhledem k tomu, že deska má jednotkový obsah, bude odpověď na první a třetí otázku stejná. Musíte ji najít dvojným integrálem, ale ten můžete určit pomocí nápovědy bez integrování.
+
+Odpověď na druhou otázku se určí prostým dosazením bodu, který nás zajímá, do zadané plošné hustoty [`\sigma`].
+
+END_PGML_HINT
+
+
+
+BEGIN_PGML_SOLUTION
+
+Vzhledem k tomu, že deska má jednotkový obsah, bude odpověď na první a třetí otázku stejná. Musíme ji najít dvojným integrálem, ale ten můžeme určit pomocí nápovědy bez integrování.
+[``` \iint_R \sigma (x,y) \,\mathrm dx\,\mathrm dy = [$a]\left(
+\iint_R x^2 \,\mathrm dx\,\mathrm dy
++
+\iint_R y^2 \,\mathrm dx\,\mathrm dy 
+\right)
+= [$a]\left(
+\frac 13
++
+\frac 13
+\right)
+=\frac 23 [$a]=\cdots.
+```]
+
+Odpověď na druhou otázku se určí prostým dosazením bodu, který nás zajímá, do zadané plošné hustoty [`\sigma`].
+[``` \sigma(\frac 12,\frac 12) = [$a]\left(\left(\frac 12\right)^2+\left(\frac 12\right)^2\right)=[$a]\frac 12=\cdots.```]
+
+Rychlým pohledem vidíme, že koncentrace vody uprostřed je opravdu menší než průměrná koncentrace vody v celé desce. 
+
+END_PGML_SOLUTION
+
+ENDDOCUMENT();

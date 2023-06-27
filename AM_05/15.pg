@@ -1,0 +1,58 @@
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("css/left.css");
+
+TEXT(MODES(
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
+));
+
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
+));
+
+BEGIN_PGML
+
+
+## Křivkový integrál
+
+
+Jak byste tento pojem přiblížili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je pojem z nadpisu tak užitečný? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si chtěl zjistit více.
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box(10,80)\}
+END_TEXT
+
+
+
+BEGIN_PGML
+
+Hodnocení není automatické. Úlohu boduje ručně vyučující. 
+
+END_PGML
+
+
+
+BEGIN_PGML_SOLUTION
+
+Všechny integrály umožňují provést sumaci pro veličinu, která se nesestává z konečně mnoha příspěvků, ale pro stavení této veličiny je nutné započítat nekonečně mnoho příspěvků spojitě rozložených v nějaké množině. Křivkový integrál používáme pro sečtení příspěvků spojitě rozložených podél křivky. Významnou aplikací je výpočet práce, což je možno využít k definování potenciální energie. 
+
+END_PGML_SOLUTION
+
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+
+
+ENDDOCUMENT();

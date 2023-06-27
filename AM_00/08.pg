@@ -1,0 +1,62 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"answerHints.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$var='x';
+$a=non_zero_random(6,900,1)/100;
+$b=non_zero_random(120,800,1)/1000;
+$ans=Formula("$a");
+
+Context("Numeric")->variables->are($var=>'Real');
+
+$f=Formula("(x+($b))^2")->reduce();   # funkce
+
+BEGIN_PGML
+
+## Desetinná čísla
+
+Ukážeme si, jak zapisovat desetinná čísla a také, jak se počítají body za otázky, které odpovíte jenom částečně správně. Naučíme se také pracovat s nejběžnějšími chybovými hláškami.
+
+Úkolem je přepsat výraz nalevo od rovnítka napravo. Postupujte podle odrážek pod příkladem.
+
+>>[``[$a]={}``][__________]{$ans}<<
+
+>>[``-[$a]={}``][__________]{-$ans}<<
+
+>>[``(x+[$b])^2={}``][_______________________________________]{$f}<<
+
+* Zapište odpověď na první dvě otázky a odešlete. Tedy vlastně jenom přepíšete číslo nebo výraz vlevo od rovnice. Ověřte, že máte dvě třetiny bodů za dvě otázky ze tří. Nezapomeňte použít desetinnou tečku, nikoliv čárku.
+* Zapište i odpověď na třetí otázku a odešlete. Měli byste mít správně odpovězeny všechny otázky a přiděleno plné hodnocení.
+* Poté se pohrejte s odpověďmi a sledujte odezvu systému. Například vyměňte desetinou tečku za čárku a sledujte, jaká je reakce systému. Čárka odděluje položky seznamu. Proto například `1,98` je intepretovno jako dvojice čísel `1` a `98`. Tedy něco jiného než `1.98`. Podobně, zadání `(x+0,615)^2` je interpretováno jako pokus zadat dvojici funkcí `(x+0` a `615)^2` a to je evidentně neplatný vstup. 
+
+END_PGML
+
+BEGIN_PGML_HINT
+
+* Nezapomeňte, že oddělovačem desetinných míst je tečka.
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Výsledek je samozřejmě
+[$a]
+a
+[$f].
+
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

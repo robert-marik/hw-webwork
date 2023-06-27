@@ -1,0 +1,96 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+
+
+$data =
+[
+{
+nadpis=>"Stabilita stacionárního bodu",
+otazka=>"Vysvětlete, jak prakticky vnímáme stabilitu stacionárního bodu rovnice \[\frac{\mathrm dx}{\mathrm dt}=f(x).\] Co reprezentuje stabilní stacionární bod?",
+odpoved=>"Reprezentuje rovnovážný stav systému, který se obnoví po malých poruchách řešení.",
+moznosti=>[
+"Reprezentuje rovnovážný stav systému, který se obnoví po libovolně velkých poruchách řešení.",
+"Reprezentuje rovnovážný stav systému, který se neobnoví ani po malých poruchách řešení a neodpovídá tedy prakticky dosažitelnému stavu systému.",
+]
+},
+{
+nadpis=>"Stabilita stacionárního bodu II",
+otazka=>"Předpokládejme, že \(x_0\) je stacionárním bodem systému \[\frac{\mathrm dx}{\mathrm dt}=f(x).\] Jaká podmínka dokáže zaručit nestabilitu tohoto stacionárního bodu a co to znamená prakticky?",
+odpoved=>"\(f'(x_0)>0\), takový bod neodpovídá stavu, ve kterém se systém může dlouhodobě nacházet",
+moznosti=>[
+"\(f'(0)<0\), takový bod neodpovídá stavu, ve kterém se systém může dlouhodobě nacházet",
+"\(f'(x_0)<0\), takový bod zaručuje, že systém nikdy nemůže přejít do ustáleného stavu",
+"\(f'(0)>0\), takový bod zaručuje, že systém nikdy nemůže přejít do ustáleného stavu",
+]
+},
+{
+nadpis=>"Oscilace okolo stacionárního bodu",
+otazka=>"Vysvětlete, jak poznáme, jestli řešení dvourozměrného autonomního systému oscilují okolo stacionárního bodu. (Nerozlišujeme cykly ani to, zda amplituda oscilací roste či klesá.)",
+odpoved=>"Vlastní čísla Jacobiho matice v tomto bodě mají nenulovou imaginární složku",
+moznosti=>[
+"Jacobiho matice má v tomto bodě záporný determinant.",
+"Obě pravé strany jsou v tomto bodě nulové.",
+"Obě pravé strany mají v tomto bodě opačný charakter monotonie (jedna roste a druhá klesá, nebo naopak).",
+]
+}
+];
+
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+$DEBUG=1;
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$od       =  $data->[$i]->{odpoved};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
+
+BEGIN_PGML
+
+## [$na]
+
+
+[@ $ot @]*
+
+[_]{$radio}
+
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$od]
+
+END_PGML_SOLUTION
+
+};
+# konec cyklu
+
+
+ENDDOCUMENT();

@@ -1,0 +1,91 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGchoicemacros.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+
+@moznosti=(
+"Celkové množství vody v části materiálu odpovídající množině \(M\). Jednotkou je gram.",
+"Rychlost s jakou se mění celkové množství vody v části materiálu odpovídající množině \(M\). Jednotkou je gram za hodinu.",
+"Celkový výkon zdrojů v části materiálu odpovídající množině \(M\). Tedy kolik zasákne na dané množině vody do materiálu za jednotku času. Jednotkou je gram za hodinu.",
+"Celkové množství vody, které za jednotku času projde přes hranici množiny \(M\). V závislosti na orientaci hranice tedy buď, kolik vody se dostane přes hranici množiny \(M\) dovnitř nebo ven, přičemž tok na opačnou stranu počítáme záporně. Jednotkou je gram za hodinu.",
+"Celkové množství vody na jednotkové délce hranice materiálu odpovídající množině \(M\). Jednotkou je gram na centimetr.",
+);
+
+@perm=shuffle(5);
+@inv = invert(@perm);
+
+@permMoznosti = @moznosti[@perm];
+
+$radio1 = RadioButtons([@permMoznosti],$inv[0]);
+$radio2 = RadioButtons([@permMoznosti],$inv[1]);
+$radio3 = RadioButtons([@permMoznosti],$inv[2]);
+$radio4 = RadioButtons([@permMoznosti],$inv[3]);
+
+
+BEGIN_PGML
+
+## Dvojný integrál a vlhkost v plošném materiálu
+
+[@ image("wood.jpg", width=>400) @]*
+
+Uvažujme dvourozměrný materiál a v něm libovolnou podmnožinu [`M`] a její hranici [`\partial M`]. Materiál obsahuje vlhkost.
+
+* Plošnou hustotu [`c(x,y)`] vody v materiálu v místě [`(x,y)`] budeme sledovat v gramech na centimetr čtvereční. Tato veličina udává množství vody, které je v centimetru čtverečním v okolí bodu o souřadnicích [`(x,y)`].
+* Materiál je ve vlhkém prostředí a může se tedy další vlhkost do materiálu dostávat. Z hlediska dvourozměrného materiálu tedy existují zdroje vody a jejich výkonnost [`z(x,y)`] v bodě [`(x,y)`] budeme sledovat v gramech za hodinu na centimetr čtvereční. Tato veličina udává, kolik gramů vody zasákne v daném místě v plošce o velikosti centimetr čtvereční za hodinu. 
+* Nerovnoměrnost v rozložení vlhkosti spolu s materiálovými vlastnostmi a Fickovým zákonem determinuje pohyb vlhkosti. Tento pohyb budeme popisovat pomocí vektorového pole [`(P(x,y),Q(x,y))`] v gramech za hodinu na centimetr. Tato veličina udává, kolik vody proteče za hodinu myšleným "oknem" o šířce jednoho centimetru a výšce zahrnující celou tloušťku materiálu, které je umístěno kolmo na tok.
+
+Budeme hledat slovní interpretaci veličin obsahujících ve své definici dvojný integrál nebo křivkový integrál.  Při této slovní interpretaci pomůže často i jednotka. Připomeňme v rychlosti pravidla.
+
+* Pro konstantní rychlosti se derivace redukuje na podíl. Odsud je snadné najít jednotku derivace. Mnemotechnickou pomůckou je samotný zápis derivace, který velmi připomíná podíl.
+* Pro konstantní funkce se integrál redukuje na součin. V případě dvojného integrálu součin funkce a plochy. Mnemotechnickou pomůckou je již samotný zápis integrálu. Zde zápis velice připomíná součin s [`\mathrm dx`] a [`\mathrm dy`], tj součin se dvěma délkami. 
+
+Najděte slovní interpretaci následujících veličin. Pro pohodlí jsou všechny návrhy stejné a jsou ve stejném pořadí. Vyberte vždy ten správný.
+
+---
+
+Co udává dvojný integrál funkce [`c(x,y)`], tj. [``` \iint_M c(x,y)\,\mathrm dx\,\mathrm dy,```] a jakou má jednotku?
+
+[_]{$radio1}
+
+
+---
+
+Co udává časová derivace dvojného integrálu funkce [`c(x,y)`], tj. [``` \frac{\mathrm d}{\mathrm dt} \iint_M c(x,y)\,\mathrm dx\,\mathrm dy,```] a jakou má jednotku?
+
+[_]{$radio2}
+
+
+---
+
+Co udává dvojný integrál funkce [`z(x,y)`], tj. [``` \iint_M z(x,y)\,\mathrm dx\,\mathrm dy,```] a jakou má jednotku?
+
+[_]{$radio3}
+
+---
+
+Co udává křivkový integrál [``` \oint_{\partial M} -Q\,\mathrm dx+P\,\mathrm dy,```] a jakou má jednotku?
+
+[_]{$radio4}
+
+
+_Obrázek: pixabay.com, SnapwireSnaps_
+
+END_PGML
+
+
+
+
+ENDDOCUMENT();
+
+
+
+

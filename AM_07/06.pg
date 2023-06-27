@@ -1,0 +1,111 @@
+DOCUMENT();		# This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+$showHint = 1;
+
+Context()->variables->are(x=>"Real",y=>"Real", t=>"Real");
+Context()->strings->add(nelze=>{},N=>{alias=>"nelze"});
+
+$showPartialCorrectAnswers = 1;
+
+$a = non_zero_random(1, 2, 1);
+$m = random(1, 2, 1);
+$n = random(1, 3, 1);
+$potencial=Compute("$a*x^($m)*y^($n)")->reduce();
+$dx=Compute("$a*$m*x^($m-1)*y^($n)")->reduce();
+$dy=Compute("$a*$n*x^($m)*y^($n-1)")->reduce();
+$ddxy=Compute("$a*$m*$n*x^($m-1)*y^($n-1)")->reduce();
+
+
+$ra = non_zero_random(-2, 2, 1);
+$rb = non_zero_random(-2, 2, 1);
+$rc = random(-2, 2, 1);
+
+$rx=Compute("t^2-$ra")->reduce;
+$ry=Compute("t^3+$rb*t^2")->reduce;
+
+
+$startX=$rx->eval(t=>0);
+$startY=$ry->eval(t=>0);
+$endX=$rx->eval(t=>1);
+$endY=$ry->eval(t=>1);
+
+$answer1=$potencial->eval(x=>$startX,y=>$startY);
+$answer2=$potencial->eval(x=>$endX,y=>$endY);
+$answer=Compute("$answer2-($answer1)");
+
+
+Context("Point");
+$start=Compute("($startX,$startY)");
+$end=Compute("($endX,$endY)");
+
+BEGIN_PGML
+
+## Integrál po komplikované integrační cestě
+
+Tento příklad je opět ideově stejný jako příklad úvodní, ale vektorové pole je s jistotou konzervativní (nezáleží na integrační cestě) a modifikace je v tom, že křivka po které máme integrovat je velmi nepříjemná. Díky nezávislosti na integrační cestě to však nijak nevadí a můžeme integrál vypočítat pomocí potenciálu. Jediný rozdíl mezi tímto a prvním příkladem tedy je, že si sami musíme najít souřadnice počátečního a koncového bodu křivky. 
+
+-----------------------------
+
+Uvažujte křivkový integrál
+[``` \int_C [$dx]\,\mathrm dx+[$dy] \mathrm dy```]
+po křivce
+[``` C: \vec r(t)=\Bigl([$rx]\Bigr)\vec i + \Bigl([$ry]\Bigr)\vec j\quad t\in(0,1).```]
+
+Ukažte, že integrál nezávisí na integrační cestě a určete skalární potenciál [`\varphi`] vektorového pole [`` \vec F=[$dx]\vec i + [$dy]\vec j,``] tj. funkci splňující [`` \nabla\varphi=\vec F.``] (Odpověď je dána až na aditivní konstantu. Volte ji libovolnou ale pevnou, tj. nepište na konci [`\cdots +C`], ale například volte konstantu nulovou. Pokud tento potenciál neexistuje, zapište slovo [|nelze|] nebo [|N|].)
+
+>>[``\varphi(x,y)={}``][_________________]{$potencial->cmp(upToConstant=>1)}<<
+
+Určete počáteční a koncový bod křivky. Hodnoty zadávejte ve tvaru uspořádané dvojice v kulaté závorce, například *( -2, 3 )* nebo *( 12, 7-sin(pi/6) )*
+
+>>Počátek: [____________]{$start}<<
+
+>>Konec:   [____________]{$end}<<
+
+A nakonec pomocí těchto informací určete hodnotu křivkového integrálu.
+
+>> [``  \int_C [$dx]\,\mathrm dx+[$dy] \mathrm dy={}``][________________________]{$answer} <<
+
+
+END_PGML
+
+BEGIN_PGML_HINT
+
+Zkontrolujte, že platí
+[``` \frac{\partial}{\partial x}\left([$dy]\right)=\frac{\partial}{\partial y}\left([$dx]\right).```]
+Poté  hledejte funkci
+[`` \varphi``] takovou, že
+[``` \begin{aligned}\frac{\partial \varphi}{\partial x}&=[$dx],\\\frac{\partial \varphi}{\partial y}&=[$dy]\end{aligned}```]
+a poté hodnotu
+[``` \varphi([$endX],[$endY])-\varphi([$startX],[$startY]).```]
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Kontrolujeme, zda platí
+[``` \frac{\partial}{\partial x}\left([$dy]\right)=\frac{\partial}{\partial y}\left([$dx]\right).```]
+Tato rovnost platí, oba výrazy jsou rovny společné hodnotě [``` [$ddxy]. ```] Proto existuje funkce 
+[`` \varphi``] taková, že
+[``` \begin{aligned}\frac{\partial \varphi}{\partial x}&=[$dx],\\\frac{\partial \varphi}{\partial y}&=[$dy].\end{aligned}```]
+Integrací podle jednotlivých proměnných dostáváme (až na aditivní konstantu, kterou můžeme položit rovnu nule)
+[``` \varphi(x,y)=[$potencial]```]
+a nárůst této funkce podél křivky je roven křivkovému integrálu. Tedy musíme nejprve určit počáteční a koncový bod dosazením hodnot [`t=0`] a [`t=1`] do rovnice křivky
+[``` \vec r(t)=\Bigl([$rx]\Bigr)\vec i + \Bigl([$ry]\Bigr)\vec j\quad t\in(0,1).```]
+a výsledek interpretovat jako bod v rovině. Dostáváme počáteční bod křivky [`([$startX],[$startY])`] a koncový bod  [`([$endX],[$endY])`]. Změna potenciálu podél křivky je rovna křivkovému integrálu. Odsud dostáváme
+[``` \int_C [$dx]\,\mathrm dx+[$dy] \mathrm dy=\varphi([$endX],[$endY])-\varphi([$startX],[$startY])=[$answer].```]
+
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

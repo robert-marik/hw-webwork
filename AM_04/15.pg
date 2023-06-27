@@ -1,0 +1,55 @@
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("css/left.css");
+
+TEXT(MODES(
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
+));
+
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
+));
+
+BEGIN_PGML
+
+## Rotace
+
+Poslední z "velkých" a slavných diferenciálních operátorů, se kterými se seznamujeme, je rotace. Jak byste tento pojem přiblížili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je rotace tak užitečná? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si o rotaci chtěl zjistit více.
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box(10,80)\}
+END_TEXT
+
+
+
+BEGIN_PGML
+
+Hodnocení není automatické. Úlohu boduje ručně vyučující. 
+
+END_PGML
+
+
+BEGIN_PGML_SOLUTION
+
+Diferenciální operátor rotace je je důležitý při stanovení, zda v daném vektortovém poli existuje kmenová funkce. Tím je totiž možno přecházet od vektorového popisu děje k popisu skalárnímu. Skalární popis je jednodušší a navíc se často dá dále zjednodušit pomocí zákona zachování. 
+
+END_PGML_SOLUTION
+
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+
+
+ENDDOCUMENT();

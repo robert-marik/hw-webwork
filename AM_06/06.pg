@@ -1,0 +1,232 @@
+DOCUMENT();        
+
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "MathObjects.pl",
+  "parserMultiAnswer.pl",
+  "PGgraphmacros.pl",
+  "unionTables.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+$showHint = 1;
+
+#$refreshCachedImages=1;
+
+##############################################
+#  Setup
+
+Context("Numeric")->variables->are(x=>"Real",y=>"Real");
+
+$select = random(0,3,1);
+
+$r = random(1,5,1);
+$R = random(1,5,1);
+while ($r == $R) {  $R = random(1,5,1); }
+
+$min = ($r, $R)[$r > $R];
+$max = ($r, $R)[$r < $R];
+
+$gr = init_graph(-5.5,-5.5,5.5,5.5,axes=>[0,0],size=>[400,400]);
+$gr->lb('reset');
+$gr->lb( new Label(5.2,0.2,'x','black','center','middle'));
+$gr->lb( new Label(0.2,5.2,'y','black','center','middle'));
+#$gr->new_color("lightblue",214,230,244);
+#$gr->new_color("darkblue", 100,100,255);
+$gr->new_color("lightred",  245,234,229); # light red-purple
+$gr->new_color("darkred",   159, 64, 16); # red-brown
+$gr->h_grid("gray",-5,-4,-3,-2,-1,1,2,3,4,5);
+$gr->v_grid("gray",-5,-4,-3,-2,-1,1,2,3,4,5);
+  foreach my $i (1..4) {
+    $gr->lb( new Label($i,-5.2,$i,  'black','center','middle'));
+    $gr->lb( new Label(-$i,-5.2,-$i,'black','center','middle'));
+    $gr->lb( new Label(-5.2,$i,$i,  'black','center','middle'));
+    $gr->lb( new Label(-5.2,-$i,-$i,'black','center','middle'));
+  }
+
+
+if ($select == 0) {
+
+$A = Formula("0");
+$B = Formula("pi");
+add_functions($gr,
+"sqrt($max^2-x^2) for x in <-$max,$max> using color:darkred and weight:2",
+"sqrt($min^2-x^2) for x in <-$min,$min> using color:darkred and weight:2",
+);
+$gr->moveTo(-$max,0);
+$gr->lineTo(-$min,0,"darkred",2);
+$gr->moveTo($min,0);
+$gr->lineTo($max,0,"darkred",2);
+$gr->fillRegion([($min+$max)/2,0.1,"lightred"]);
+
+} elsif ($select == 1) {
+
+$A = Formula("pi/2");
+$B = Formula("3*pi/2");
+add_functions($gr,
+"sqrt($max^2-x^2)  for x in <-$max,0> using color:darkred and weight:2",
+"sqrt($min^2-x^2)  for x in <-$min,0> using color:darkred and weight:2",
+"-sqrt($max^2-x^2) for x in <-$max,0> using color:darkred and weight:2",
+"-sqrt($min^2-x^2) for x in <-$min,0> using color:darkred and weight:2",
+);
+$gr->moveTo(0,$max);
+$gr->lineTo(0,$min,"darkred",2);
+$gr->moveTo(0,-$min);
+$gr->lineTo(0,-$max,"darkred",2);
+$gr->fillRegion([-($min+$max)/2,0.1,"lightred"]);
+
+} elsif ($select == 2) {
+
+$A = Formula("pi");
+$B = Formula("2*pi");
+add_functions($gr,
+"-sqrt($max^2-x^2) for x in <-$max,$max> using color:darkred and weight:2",
+"-sqrt($min^2-x^2) for x in <-$min,$min> using color:darkred and weight:2",
+);
+$gr->moveTo(-$max,0);
+$gr->lineTo(-$min,0,"darkred",2);
+$gr->moveTo($min,0);
+$gr->lineTo($max,0,"darkred",2);
+$gr->fillRegion([($min+$max)/2,-0.1,"lightred"]);
+
+
+} else {
+
+$A = Formula("-pi/2");
+$B = Formula("pi/2");
+add_functions($gr,
+"sqrt($max^2-x^2)  for x in <0,$max> using color:darkred and weight:2",
+"sqrt($min^2-x^2)  for x in <0,$min> using color:darkred and weight:2",
+"-sqrt($max^2-x^2) for x in <0,$max> using color:darkred and weight:2",
+"-sqrt($min^2-x^2) for x in <0,$min> using color:darkred and weight:2",
+);
+$gr->moveTo(0,$max);
+$gr->lineTo(0,$min,"darkred",2);
+$gr->moveTo(0,-$min);
+$gr->lineTo(0,-$max,"darkred",2);
+$gr->fillRegion([($min+$max)/2,0.1,"lightred"]);
+
+}
+
+$C = Formula("$min");
+$D = Formula("$max");
+
+
+
+$multians1 = MultiAnswer($A, $B)->with(
+  singleResult => 1, separator => ' až ', tex_separator => '\mbox{ až }',
+  checker => sub {
+      my ( $correct, $student, $self ) = @_;
+      my ( $Astu, $Bstu ) = @{$student};
+#     my ( $a, $b ) = @{$correct};
+      if ( (($Bstu - $Astu) == ($B - $A)) && 
+           (cos($Astu) == cos($A)) &&
+           (sin($Astu) == sin($A)) &&
+           (cos($Bstu) == cos($B)) &&
+           (sin($Bstu) == sin($B))
+         ) { return 1; } else { return 0; }
+  }
+);
+
+
+$multians2 = MultiAnswer($C, $D)->with(
+  singleResult => 1, separator => ' až ', tex_separator => '\mbox{ až }',
+  checker => sub {
+      my ( $correct, $student, $self ) = @_;
+      my ( $Cstu, $Dstu ) = @{$student};
+#     my ( $a, $b ) = @{$correct};
+      if ( ($Cstu  == $C) && ($Dstu == $D)
+         ) { return 1; } else { return 0; }
+  }
+);
+
+
+
+
+
+##############################################
+#  Main text
+
+Context()->texStrings;
+Context()->flags->set(reduceConstants=>0);
+
+BEGIN_PGML
+
+## Integrál přes obdélník v polárních souřadnicích
+
+Integrál přes následující množinu má snadné vyjádření v polárních souřadnicích, protože v nich jsou meze pro jednotlivé proměnné konstantní. Jedná se tedy o jakousi obdobu obrazce, který se v kartézských souřadnicích nazývá obdélník. To vysvětluje poněkud nelogický název této úlohy.
+
+END_PGML
+
+BEGIN_TEXT
+\{
+ColumnTable(
+"Nechť \(\Omega\) je oblast vyznačená na obrázku. Zapište následující dvojný integrál jako dvojnásobný pro naznačené pořadí integrace. ".
+$PAR.
+$BCENTER.
+"\( \displaystyle
+\iint\limits_\Omega f(x,y) \,\mathrm dx\mathrm dy
+=
+\int_A^B \int_C^D f(r\cos(\theta),r\sin(\theta)) \, r \, \mathrm dr \mathrm d\varphi
+\)".
+$ECENTER.
+$PAR.
+$BR.
+$BR.
+"\(A ={}\) ".$multians1->ans_rule(20).$BR.
+"\(B ={}\) ".$multians1->ans_rule(20).$BR.
+"\(C ={}\) ".$multians2->ans_rule(20).$BR.
+"\(D ={}\) ".$multians2->ans_rule(20).$BR,
+$BCENTER.
+image(insertGraph($gr),width=>300,height=>300,tex_size=>700).
+$BR.
+"(Pro zvětšení klikněte na obrázek)".
+$ECENTER,
+indent=>0, separation=>30, valign=>"TOP"
+)
+\}
+END_TEXT
+
+BEGIN_PGML
+
+*Poznámka:* Meze pro stejnou proměnnou se hodnotí jako celek. Například, pokud je špatně [`A`], je jako špatně označeno [`A`] i [`B`]. Podobně pro další meze.
+
+END_PGML
+
+Context()->normalStrings;
+
+
+BEGIN_PGML_HINT
+
+Množina je definována nerovnostmi [``` [$C]\leq r\leq [$D] ```] a [``` [$A]\leq\varphi\leq [$B]. ```]
+Použijte tuto informaci a přiřaďte hodnoty ke správným mezím.
+
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+
+Množina je definována nerovnostmi [``` [$C]\leq r\leq [$D] ```] a [``` [$A]\leq\varphi\leq [$B]. ```]
+Integrál má tvar
+[``` \iint\limits_\Omega f(x,y) \,\mathrm dx\mathrm dy
+=
+\int_{[$A]}^{[$B]} \int_{[$C]}^{[$D]} f(r\cos(\theta),r\sin(\theta)) \, r \, \mathrm dr \mathrm d\varphi.
+```]
+END_PGML_SOLUTION
+
+##################################################
+#  Answers
+
+#WEIGHTED_ANS($multians1->cmp(), 50);
+#WEIGHTED_ANS($multians2->cmp(), 50);
+
+ANS($multians1->cmp());
+ANS($multians2->cmp());
+
+$showPartialCorrectAnswers = 1;
+
+
+;
+ENDDOCUMENT();

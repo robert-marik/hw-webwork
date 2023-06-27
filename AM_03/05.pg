@@ -1,0 +1,88 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "MathObjects.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$b=random(2,5,1);
+$c=non_zero_random(-6,6,1);
+
+Context("Numeric")->variables->add(y=>"Real", a=>"Real");
+
+	
+$P=Formula("x^2*y^($b-1)")->reduce();
+$dP=Formula("2*x*y^($b-1)")->reduce();
+
+$Q=Formula("a*x*y^$b+$c")->reduce();
+$dQ=Formula("$b*a*x*y^($b-1)")->reduce();
+
+$ans=Formula("-2/$b")->reduce;
+$divergence = Formula("$dP+$dQ")->reduce;
+
+BEGIN_PGML
+
+## Nezřídlovost dvourozměrného vektorového pole s parametrem
+
+Někdy požadujeme nastavení hodnot parametrů tak, aby vektorové pole bylo nezřídlové, tj. aby divergence byla nulová. 
+
+Například pro vektorové pole
+[``` \vec F(x,y)=xy\vec i + (x+ay^2)\vec j ```]
+jsou parciální derivace 
+[``` \frac{\partial }{\partial x}(xy)=y```]
+a
+[``` \frac{\partial }{\partial y}(x+ay^2)=2ay```]
+a divergence je
+[``` \nabla \cdot \vec F (x,y)=y+2ay=y(1+2a).```]
+Pro [`a=-\frac 12`] platí
+[``` \nabla \cdot \vec F (x,y)=0```]
+a pro tuto hodnotu parametru je vektorové pole nezřídlové.
+
+---------------
+
+Určete, divergenci vektorového pole [``` \vec F(x,y)=[$P]\vec i +\left([$Q]\right)\vec j```] s parametrem [`a`] a poté určete, pro kterou hodnotu parametru je vektorového pole nezřídlové.
+
+>>[``\nabla \cdot \vec F (x,y)={}``][____________________________________]{$divergence}<<
+
+
+>>[``a={}``][____________________________________]{$ans}<<
+
+END_PGML
+
+BEGIN_PGML_HINT
+Pozorně počítejte derivace. Platí
+[``` \frac{\partial }{\partial y}([$P])=[$dP]. ```]
+a
+[``` \frac{\partial }{\partial y}([$Q])=[$dQ]. ```]
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu a přepis do elegantnějšího tvaru. 
+
+[``` P=[$P]\qquad Q=[$Q]```]
+
+[``` \frac{\partial P}{\partial x}=[$dP] ```]
+
+[``` \frac{\partial Q}{\partial y}=[$dQ] ```]
+
+Součet těchto parciálních derivací je divergence.
+
+[``` \nabla \cdot \vec F(x,y)=[$divergence]```]
+
+Divergence je nulová pro [```a=[$ans].```]
+
+END_PGML_SOLUTION
+
+
+
+
+ENDDOCUMENT();

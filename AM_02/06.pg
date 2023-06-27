@@ -1,0 +1,78 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "MathObjects.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context("Numeric")->variables->add(y=>"Real");
+Context()->noreduce('(-x)*y','x*(-y)','(-x)+y','(-x)-y','x+(-y)');
+
+$n=random(1,10,1);
+
+$funkce=Formula("x^2*y-3");
+$dfx=Formula("2*x*y");
+$dfy=Formula("x^2");
+$x0=random(1,5,1);
+if ($n>5) {$y0=random(1,4,1);} else {$y0=-random(1,4,1);}
+$A=Formula("2*$x0*$y0");
+$B=Formula("($x0)^2");
+$F=Formula("($x0)^2*$y0-3");
+
+$aproximace=Formula("$F+$A*(x-$x0)+$B*(y-$y0)")-> reduce();
+
+BEGIN_PGML
+
+## Lineární aproximace funkce dvou proměnných (pokr.)
+
+Tento příklad je analogický příkladu předchozímu, ale gradient i funkční hodnotu si musíte vypočítat sami. Nezapomeňte, že nás zajímá gradient v zadaném bodě.
+
+------------------
+
+Najděte lineární aproximaci funkce [``` f(x,y)=[$funkce]```] v okolí bodu [`([$x0],[$y0])`].
+
+>>[`` f(x,y)\approx{}``][____________________________________]{$aproximace} v okolí bodu [`([$x0],[$y0])`]<<
+
+END_PGML
+
+
+BEGIN_PGML_HINT
+
+Stačí vypočítat funkční hodnotu a obě derivace (tj. gradient) v bodě [`([$x0],[$y0])`] a postupovat jako v předchozím příkladě. Pro kontrolu:
+
+[``` f([$x0],[$y0])=[$F]```]
+[``` \nabla f(x,y)=\begin{pmatrix}[$dfx]\\[$dfy]\end{pmatrix}```]
+[``` \nabla f([$x0],[$y0])=\begin{pmatrix}[$A]\\[$B]\end{pmatrix}```]
+
+Tyto hodnoty použijte pro další výpočet.
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+
+Stačí vypočítat funkční hodnotu a obě derivace (tj. gradient) v bodě [`([$x0],[$y0])`] a postupovat jako v předchozím příkladě. 
+
+[``` f([$x0],[$y0])=[$F]```]
+[``` \nabla f(x,y)=\begin{pmatrix}[$dfx]\\[$dfy]\end{pmatrix}```]
+[``` \nabla f([$x0],[$y0])=\begin{pmatrix}[$A]\\[$B]\end{pmatrix}```]
+
+
+Přímým použitím těchto hodnot a vzorce dostáváme 
+[``` f(x,y)\approx [$aproximace]. ```]
+(Vzorec je automaticky vygenerovaný a je možné, že se dá zapsat v úspornějším a přehlednějším tvaru.)
+
+
+END_PGML_SOLUTION
+
+
+
+ENDDOCUMENT();

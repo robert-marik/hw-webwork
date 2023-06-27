@@ -1,0 +1,75 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGML.pl",
+"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+
+$radio = RadioButtons(
+["Záporná, protože lék se odbourává a jeho množství s časem klesá.",
+"Kladná, protože čas nemůže klesat",
+"Kladná, protože při větší dávce léku je v těle větší koncentrace léku.",
+"Pro malou dávku záporná, pro velkou dávku kladná, protože při použití derivace součinu dostaneme funkci měnící znaménko.",
+"Nulová, protože po podání počáteční dávky se další lék nepodává.",
+"Pro malou dávku kladná a pro velkou dávku záporná, protože od jisté koncentrace je lék již nebezpečný"],
+0);  # První odpověď správná
+
+$radio2 = RadioButtons(
+[
+"Záporná, protože lék se odbourává a jeho množství s časem klesá.",
+"Kladná, protože čas nemůže klesat",
+"Kladná, protože při větší dávce léku je v těle větší koncentrace léku.",
+"Pro malou dávku záporná, pro velkou dávku kladná, protože při použití derivace součinu dostaneme funkci měnící znaménko.",
+"Nulová, protože po podání počáteční dávky se další lék nepodává.",
+"Pro malou dávku kladná a pro velkou dávku záporná, protože od jisté koncentrace je lék již nebezpečný"],
+2);  
+
+BEGIN_PGML
+
+## Koncentrace léku v těle
+
+[@ image("lek.jpg", width=>300) @]*
+
+Pacientovi je jednorázově podán lék. Tento lék se v těle s časem odbourává podle farmakokinetických zákonů. Předpokládejme, že lék byl podán nitrožilně, což znamená, že koncentrace léku v krvi se prakticky okamžitě skokově zvýší a dále již je lék odbouráván fyziologickými procesy.
+
+Uvažujme koncentraci [`C(x,t)`] (v jednotce mg/litr) léku v těle pacienta jako funkci počáteční dávky [`x`] a času od aplikace [`t`].
+
+*Část 1:* Jaké znaménko má derivace podle času, tj. [``\frac{\partial C}{\partial t}``]? Je tato derivace kladná nebo záporná? Nebo není možné rozhodnout?
+
+[_]{$radio}
+
+-------
+
+*Část 2:* Jaké znaménko má derivace podle počáteční dávky, tj. [``\frac{\partial C}{\partial x}``]? Je tato derivace kladná nebo záporná? Nebo není možné rozhodnout?
+
+[_]{$radio2}
+
+END_PGML
+
+
+$showHint = 1;
+
+BEGIN_PGML_HINT
+Jednorázově byla navýšena koncentrace léku v těle, lék se postupně odobourává. Ani v jednom případě není nutné nic počítat, jenom rozmyslete jak lék funguje a jak se to projeví na derivacích.
+
+Pro derivaci podle času přemýšlejte, jestli při stejné počáteční dávce koncentrace léku roste či klesá s časem.
+
+Pro derivaci podle počáteční dávky uvažujte třeba dva pacienty, kteří obdrželi každý jinou počáteční dávku a rozmyslete, který z pacientů bude mít po uplynutí referenční doby jaký obsah léku v těle.
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Jednorázově byla navýšena koncentrace léku v těle, lék se postupně odobourává. Ani v jednom případě není nutné nic počítat, jenom rozmyslete jak lék funguje a jak se to projeví na derivacích.
+
+Pro derivaci podle času přemýšlíme, jestli při stejné počáteční dávce koncentrace léku roste či klesá s časem.
+Lék se odbourává a množství i koncentrace léku klesají. Derivace podle času je záporná. 
+
+Derivace podle počáteční dávky udává, jak se změní koncentrace léku, pokud je počáteční dávka vyšší. Evidentně vyšší dávka znamená i vyšší koncentraci. Nejenom v okamžiku podání léku, ale i po uplynutí nějakého pevného časového intervalu. Derivace podle počáteční dávky je kladná. 
+END_PGML_SOLUTION
+
+ENDDOCUMENT();

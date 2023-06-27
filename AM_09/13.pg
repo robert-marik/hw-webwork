@@ -1,0 +1,127 @@
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "MathObjects.pl",
+  "parserRadioButtons.pl",
+  "answerHints.pl",
+  "PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context("Vector")->variables->are(x=>'Real',y=>'Real', lambda=>"Real");
+Context()->variables->set(lambda => {TeX => '{\lambda}'});
+
+do
+{
+$x0 = random(-1,2);
+$y0 = random(-1,2);
+$a = non_zero_random(1,4);
+$b = non_zero_random(-4,4);
+$d = non_zero_random(-4,4);
+$e = non_zero_random(1,4);
+$c = ($x0)*($a) + ($y0)*($b);
+$l = ($x0)*($d) + ($y0)*($e);
+
+$f=Formula("$a*x+($b)*y-($c)")->reduce();
+$g=Formula("$d*x+($e)*y-($l)")->reduce();
+
+$dfx=Formula("$a")->reduce();
+$dgx=Formula("$d")->reduce();
+$dfy=Formula("$b")->reduce();
+$dgy=Formula("$e")->reduce();
+
+$matice=Matrix([[$dfx,$dfy],[$dgx,$dgy]]);
+
+$xmx0=Formula("x-$x0")->reduce;
+$ymy0=Formula("y-$y0")->reduce;
+
+$stopa=$dfx+($dgy);
+$determinant=$dfx*($dgy)-($dfy)*($dgx);
+$polynom=Formula("lambda^2-($stopa)*lambda+($determinant)")->reduce();
+}
+until (($determinant != 0) && ( ($stopa)*($stopa) - 4*($determinant) != 0) && ($stopa != 0) );
+
+if ( $determinant < 0 ) {
+  $reseni = 4;
+  $odpoved="Kořeny charakteristického polynomu jsou reálné s opačným znaménkem. Jedná se tedy o sedlo.";
+  }
+elsif ( ($stopa)*($stopa) - 4*($determinant) < 0 )
+  {
+     $reseni = 1;
+     $odpoved="Kořeny charakteristického polynomu jsou komplexně sdružená čísla se zápornou reálnou částí. Jedná se tedy o stabilní ohnisko.";
+     if ( $stopa > 0 ) {
+     	$reseni = $reseni + 2;
+        $odpoved="Kořeny charakteristického polynomu jsou komplexně sdružená čísla s kladnou reálnou částí. Jedná se tedy o nestabilní ohnisko.";
+     }
+  }
+else
+  {
+     $reseni = 0;
+     $odpoved="Kořeny charakteristického polynomu jsou záporná  reálná čísla. Jedná se tedy o stabilní uzel.";
+     if ( $stopa > 0 ) {
+     	$reseni = $reseni + 2;
+        $odpoved="Kořeny charakteristického polynomu jsou kladná reálná čísla. Jedná se tedy o nestabilní uzel.";
+  }
+  }
+
+
+
+$radio=RadioButtons(["Stabilní uzel","Stabilní ohnisko","Nestabilní uzel","Nestabilní ohnisko","Sedlo","Jiná odpověď"],$reseni);
+
+BEGIN_PGML
+
+# Stacionární bod lineárního autonomního systému
+
+V této úloze si projdeme celou cestu, od lineárního autonomního systému, přes chrakteristický polynom až po klasifikaci stacionárního bodu na základě vlastních čísel. 
+
+------------------
+
+Budeme studovat autonomní systém
+[```
+\begin{aligned}
+\frac{\mathrm dx}{\mathrm dt}&= [$f] \\
+\frac{\mathrm dy}{\mathrm dt}&= [$g]
+\end{aligned}```]
+v jeho stacionárním bodě [`([$x0],[$y0])`].
+
+------------------
+
+Napište systém v maticovém, tvaru, tj. identifikujte matici [``A=
+\begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}``] po přepsání systému do maticového tvaru [```\frac{\mathrm d}{\mathrm dt}\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}\begin{bmatrix}[$xmx0]\\[$ymy0]\end{bmatrix}```]
+
+>> [`` A={}``][___________]*{$matice} <<
+
+_Poznámka: Lineární systém je sám svojí lineární aproximací. Odpověď je tedy možné najít buď přímo použitím maticového násobení, nebo obecným postupem pomocí Jacobiho matice._
+
+
+---------------------
+
+Bod [`([$x0],[$y0])`] je stacionárním bodem systému. Matice systému je identifikována v předchozím kroku. Nyní najděte její charakteristický polynom [`P(\lambda)`] Jacobiho matice z předešlého kroku. Napište jej v proměnné lambda. Například *2\lambda^2-7lambda+2*.
+
+>> [``P(\lambda)={} ``][________________________________]{$polynom} <<
+
+
+-------------------------------
+
+Určete vlastní čísla (kořeny charakteristické rovnice) a na jejich základě rozhodněte o typu stacionárního bodu.
+
+[_]{$radio}
+
+END_PGML
+
+
+
+BEGIN_PGML_SOLUTION
+Matice [`A`] je matice obsahující koeficinety u neznámých, tj. [``` A=[$matice].```]
+
+Platí
+[``` \begin{vmatrix} [$dfx]-\lambda & [$dfy] \\ [$dgx] & [$dgy]-\lambda \end{vmatrix}= ([$dfx]-\lambda)([$dgy]-\lambda)-([$dfy])([$dgx])=[$polynom].```]
+[$odpoved]
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

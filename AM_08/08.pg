@@ -1,0 +1,43 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]],'dT'=>'Real', 'dx'=>'Real', 'dc'=>'Real', 'T'=>'Real', 't'=>'Real', 'k'=>'Real','p'=>'Real','c'=>'Real','x'=>'Real');
+
+$k=random(15,28,1);
+$p=random(25,58,1);
+
+BEGIN_PGML
+
+## Matematický model infuze
+
+[@ image("infuze.jpg", width=>400) @]*
+
+Nechť [`c`] označuje koncentraci léku v krvi pacienta. Z farmakokinetiky je známo, že díky odbourávání klesá koncentrace rychlostí úměrnou této koncentraci. Konstantu úměrnosti označme [`k`]. Předpokládejme dále, že pacient je napojený na infuzi, která mu zvyšuje koncentraci léku v krvi konstantní rychlostí.  Tuto rychlost označme [`p`]. Napište výsledný matematický model pro růst takové koncentrace.
+>> [``\frac{\mathrm dc}{\mathrm dt}=``][__________]{Formula("p-c*k")}<<
+
+
+END_PGML
+
+BEGIN_PGML_HINT
+Postupujte podle vzoru a podle příkladů ve cvičeních a na přednášce. 
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Přímým přepisem slovního zadání do kvantitativních pojmů dostáváme  rovnici
+[``` \frac{\mathrm dc}{\mathrm dt}= p-kc.```]
+
+END_PGML_SOLUTION
+
+
+
+ENDDOCUMENT();

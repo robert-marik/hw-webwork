@@ -1,0 +1,113 @@
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "MathObjects.pl",
+  "parserRadioButtons.pl",
+  "answerHints.pl",
+  "PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context("Vector")->variables->are(x=>'Real',y=>'Real', lambda=>"Real");
+Context()->variables->set(lambda => {TeX => '{\lambda}'});
+
+do
+{
+$x0 = random(-1,2);
+$y0 = random(-1,2);
+$a = non_zero_random(1,4);
+$b = non_zero_random(-4,4);
+$d = non_zero_random(-4,4);
+$e = non_zero_random(1,4);
+$c = ($x0)*($a) + ($y0)*($b);
+$l = ($x0)*($d) + ($y0)*($e);
+
+$f=Formula("$a*x+($b)*y")->reduce();
+$g=Formula("$d*x+($e)*y")->reduce();
+
+$dfx=Formula("$a")->reduce();
+$dgx=Formula("$d")->reduce();
+$dfy=Formula("$b")->reduce();
+$dgy=Formula("$e")->reduce();
+
+$matice=Matrix([[$dfx,$dfy],[$dgx,$dgy]]);
+
+$stopa=$dfx+($dgy);
+$determinant=$dfx*($dgy)-($dfy)*($dgx);
+$polynom=Formula("lambda^2-($stopa)*lambda+($determinant)")->reduce();
+}
+until (($determinant != 0) && ( ($stopa)*($stopa) - 4*($determinant) != 0) && ($stopa != 0) );
+
+BEGIN_PGML
+
+# Maticový tvar lineárního autonomního systému
+
+
+Napište systém 
+[```
+\begin{aligned}
+\frac{\mathrm dx}{\mathrm dt}&= [$f] \\
+\frac{\mathrm dy}{\mathrm dt}&= [$g]
+\end{aligned}```]
+v maticovém tvaru
+[``` \frac{\mathrm d X}{\mathrm dt} = AX.```]
+
+------
+
+Maticový tvar systému je 
+>> [``\frac{\mathrm dX}{\mathrm dt}={}``][___________]*{$matice} [``X,``]<<
+kde [`` X=\begin{bmatrix}x\\y\end{bmatrix}``]
+
+
+END_PGML
+
+
+
+BEGIN_PGML_SOLUTION
+
+Soustavu je možno zapsat ve tvaru
+[```
+\begin{pmatrix}
+\frac{\mathrm dx}{\mathrm dt}\\
+\frac{\mathrm dy}{\mathrm dt}
+\end{pmatrix}
+=
+\begin{pmatrix}
+[$dfx] \\ [$dgx] 
+\end{pmatrix}
+x
++
+\begin{pmatrix}
+[$dfy] \\ [$dgy] 
+\end{pmatrix}
+y
+```]
+a to v maticové formě dává
+[```
+\begin{pmatrix}
+\frac{\mathrm dx}{\mathrm dt}\\
+\frac{\mathrm dy}{\mathrm dt}
+\end{pmatrix}
+=
+\begin{pmatrix}
+[$dfx] & [$dfy]\\ [$dgx] & [$dgy]
+\end{pmatrix}
+\begin{pmatrix}
+x\\y
+\end{pmatrix}.
+```]
+Po přeznačení [`` X= \begin{pmatrix}
+x\\y
+\end{pmatrix}``]
+dostáváme
+[```\frac{\mathrm dX}{\mathrm dt}=[$matice]X.```]
+
+
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

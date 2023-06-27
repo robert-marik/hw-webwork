@@ -1,0 +1,59 @@
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("css/left.css");
+
+TEXT(MODES(
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
+));
+
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
+));
+
+BEGIN_PGML
+
+
+## Stacionární řešení autonomní diferenciální rovnice
+
+
+Jak byste tento pojem přiblížili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je pojem z nadpisu tak užitečný? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si chtěl zjistit více.
+
+Uvažujte jednodimenzionální případ, tj. skalární rovnici [``` \frac{\mathrm dx}{\mathrm dt}=f(x). ```]
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box(10,80)\}
+END_TEXT
+
+
+
+BEGIN_PGML
+
+Hodnocení není automatické. Úlohu boduje ručně vyučující. 
+
+END_PGML
+
+
+BEGIN_PGML_SOLUTION
+
+Stacionární řešení jsou význačná tím, že se dají snadno nalézt a  přináší důležité informaci o chování všech řešení. Snadno najít se dají proto, že namísto diferenciální rovnice stačí řešit algebraickou rovnici. Jejich přínos je v tom, že všechna ohraničená řešení diferenciální rovnice konvergují ke stabilním stacionárním řešením a oblasti atraktivity těchto řešení jsou odděleny nestabilními stacionárními řešeními. 
+
+END_PGML_SOLUTION
+
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+
+
+ENDDOCUMENT();

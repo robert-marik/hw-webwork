@@ -1,0 +1,107 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+$DEBUG=1;
+
+$data =
+[
+{
+    nadpis=>"Parametrické rovnice křivky",
+    otazka=>"Při výpočtu křivkového integrálu používáme parametrické rovnice křivky. Jak je to s korespondencí této křivky a jejích parametrických rovnic?",
+    odpoved=>"Jedna křivka může mít více parametrických vyjádření, ta mohou být poměrně odlišná.",
+    moznosti=>[
+"Každá křivka má právě jedno parametrické vyjádření.",
+"Každá křivka má více parametrických vyjádření, která jsou dány jednoznačně až na aditivní konstantu.",
+],
+},
+{
+    nadpis=>"Derivace křivky",
+    otazka=>"Uvažujme rovinnou křivku \(\vec r(t)\). Co vyjadřuje derivace \(\displaystyle \frac {\mathrm d\vec r}{\mathrm dt}\)?",
+    odpoved=>"Tečný vektor ke křivce.",
+    moznosti=>[
+"Délku křivky.",
+"Normálový vektor ke křivce.",
+"Obsah množiny obepnutý křivkou.",
+],
+},
+{
+    nadpis=>"Křivkový integrál druhého druhu a změna orientace křivky",
+    otazka=>"Jak se změní křivkový integrál druhého druhu, pokud změníme orientaci křivky?",
+    odpoved=>"Změní znaménko.",
+    moznosti=>[
+"Nezmění se.",
+"Vynuluje se.",
+"Zvětší se nebo zmenší o délku křivky v závislosti na znaménku.",
+],
+},
+];
+
+BEGIN_PGML
+
+Tato otázka má tři části. Každá má právě jednu správnou odpověď. V případě částečného úspěchu dostanete odpovídající částečný počet bodů, ale nebude zveřejněno, ve které části je odpověď správná. Po případné opravě se zobrazuje vždy nejlepší dosažené hodnocení.
+
+END_PGML
+
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
+
+BEGIN_PGML
+
+
+## [$na]
+
+[@ $ot @]*
+
+[_]{$radio}
+
+_[$zdroj]_
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$od]
+
+END_PGML_SOLUTION
+
+};
+# konec cyklu
+
+
+ENDDOCUMENT();
+

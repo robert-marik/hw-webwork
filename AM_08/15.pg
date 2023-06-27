@@ -1,0 +1,62 @@
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("css/left.css");
+
+TEXT(MODES(
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
+));
+
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
+));
+
+BEGIN_PGML
+
+
+## Diferenciální rovnice
+
+
+Jak byste tento pojem přiblížili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je pojem z nadpisu tak užitečný? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si chtěl zjistit více.
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box(10,80)\}
+END_TEXT
+
+
+
+BEGIN_PGML
+
+Hodnocení není automatické. Úlohu boduje ručně vyučující. 
+
+END_PGML
+
+
+BEGIN_PGML_SOLUTION
+
+Diferenciální rovnice jsou důležité tím, že umožňují zachytit vztah mezi měnící se veličinou a rychlostí změny této veličiny. Platí, že 
+
+* v přírodě děje probíhají přirozeně tak, že se příroda snaží nastolit určitou rovnováhu a
+* tento proces je tím intenzivnější, čím více je rovnováha narušena.
+
+Protože diferenciální rovnice jsou schopny zaychtit jak vzdálenost od rovnováhy (pomocí vhodné veličiny), tak rychlost konvergence k rovnováze (derivace veličiny podle času), jsou přirozeným matematickým vyjádřením naprosté většiny přirodních a fyzikálních dějů. V důsledku tohoto jsou diferenicální rovnice nejběžnějším vyjadřovacím jazykem při popisu přírody. Bez diferenciální rovnic jsme schopni popsat pouze velmi speciální případy, jako například děje probíhající konstantními rychlostmi, jak to známe ze středoškolské fyziky. S diferenciálními rovnicemi tato omezení na konstantní rychlosti odpadají. 
+
+END_PGML_SOLUTION
+
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+
+
+ENDDOCUMENT();

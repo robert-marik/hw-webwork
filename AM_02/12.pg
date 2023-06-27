@@ -1,0 +1,108 @@
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context("Numeric")->variables->are('x'=>'Real','y'=>'Real');
+
+Context('Matrix');
+
+
+
+$a=non_zero_random(0,9,1);
+$b=non_zero_random(-9,9,1);
+$n=non_zero_random(1,3,1);
+
+$T=Formula("$a*x^2y+$b*y^($n)")->reduce();
+
+$u1=$T->D('x')->reduce();
+$u2=$T->D('y')->reduce();
+$ans1 = Matrix([[$u1],[$u2]]);
+
+
+$lambda1 = non_zero_random(0.1,0.9,0.1);
+do {$lambda2 = non_zero_random(0.1,0.9,0.1); } until ($lambda2 != $lambda1);
+$lambda3 = non_zero_random(0.1,0.3,0.1); 
+
+$ans2 = Matrix([
+[Formula("-$lambda1*($u1)-$lambda3*($u2)")->reduce()],
+[Formula("-$lambda3*($u1)-$lambda2*($u2)")->reduce()]
+]);
+
+Context()->texStrings;
+BEGIN_PGML
+
+## Vedení tepla v homogenním anizotropním prostředí
+
+[@ image("termokamera.jpg", width=>400) @]*
+
+Informace o rozložení teploty získáme snadno termokamerou. V tomto příkladě si ukážeme, jak tuto informaci převést na informaci o toku tepla v tom nejobecnějším případě, kdy součinitel tepelné vodivosti je plnohodnotná matice, tj. neredukuje se ani na skalární veličinu, ani na diagonální matici, ale má nenulové komponenty i mimo hlavní diagonálu. 
+
+Uvažujme dvourozměrný materiál, kde nemáme zvoleny osy tak, aby koeficient tepelné vodivosti a difuzní koeficient byly diagonální. Tato situace s nediagonální maticí nás může potkat i u ortotropních materiálů v situaci, kdy nemůžeme nebo nechceme volit osy ve směru symetrie materiálu. Třeba by to nemuselo být výhodné vzhledem ke geometrii problému. To může nastat například u dřeva nařezaného našikmo. Často potřebujeme volit osy podle geometrie zkoumaného objektu a to u dřeva nařezaného našikmo nekoresponduje s volbou, která diagonalizuje materiálové vlastnosti.
+
+Konkrétně pro rozložení teploty dané funkcí [``` T(x,y)=x^2+xy```]  a koeficient tepelné vodivosti [`\lambda=\begin{pmatrix}0.3&0.1\\0.1&0.6\end{pmatrix}`] je gradientem teploty vektor [`\nabla T=\begin{pmatrix} 2x+y\\x\end{pmatrix}`] a tok tepla je dán vztahem
+[```\vec q=-\lambda \nabla T=-\begin{pmatrix}0.3&0.1\\0.1&0.6\end{pmatrix} \begin{pmatrix} 2x+y\\x\end{pmatrix}
+=-(2x+y)\begin{pmatrix} 0.3\\0.1\end{pmatrix}-x\begin{pmatrix} 0.1\\0.6\end{pmatrix}
+=\begin{pmatrix} -0.7x-0.3y\\-0.8x-0.1y\end{pmatrix}.```]
+
+Připomeňme, že při násobení matice a sloupcového vektoru počítáme lineární kombinace sloupců matice, kdy koeficienty v lineární kombinaci jsou komponenty sloupcového vektoru. Viz též [@ htmlLink("https://sagecell.sagemath.org/?z=eJyVkb1uwjAUhfdIeYcrMZBQGkErdaiUrVsZOkQdiqjkJpdikvhGxqGBd-gTdGJkQDwBLCbv1SQlpT9QqfZyZZ_P5xx5yqTVzGDWtOHEasANhhGTzEdIJMW7NyH0xh-ZRs-NmZI8s_r9jnPZ7jjdQbuYusV0NRjYFXtLOOQ-R6FAYYKRQJhSwKc0UdwB0zjl-tX_juYkryFi8VPAYIwwjvVSEAT5OsJ8y5VewjAVYRGQgcA4X-dbjAsZjiGhNN_qlSqj19xni6VpeG72eHGWtWZ_-D-wgAm9KAtEpJhplPtZsqCs5XpOPVp2qb7Xm4R2r6igPk_35Mw0FIXuea9V3xw8DlQh-QAqo8mIXizv1-c0wOOTEOYs0AuhV-2qXkhCSYrSb8r9E73_PbGn6pz2T-pItQoowttHbQ6t3gFvO7-t&lang=sage&interacts=eJyLjgUAARUAuQ==","SageCell")@]*.
+
+Následující příklad je analogický, jenom s jinými čísly, jinými funkcemi. Z důvodů vynucených programem jsou matice ohraničeny hranatými závorkami namísto kulatých.
+
+
+----------------
+
+
+Pro  homogenní izotropní materiál s koeficientem tepelné vodivosti [`\lambda=\begin{bmatrix}[$lambda1]&[$lambda3]\\[$lambda3]&[$lambda2]\end{bmatrix}`] je rozložení teploty určené analýzou snímku z termokamery dáno funkcí [``` T(x,y)=[$T]. ```]
+
+Určete gradient teploty a odpovídající tok tepla. 
+
+>> [``\nabla T ={}``][_________________]*{$ans1}<<
+
+
+>> [``\vec q=-\lambda \nabla T ={}``][_________________]*{$ans2}<<
+
+
+_Nezapomeňte, že pokud uděláte chybu v jedné komponentě, bude vektor vyhodnocený jako celek a červeně tedy budou označeny obě komponenty._
+
+_Poznámka: Ilustrační obrázek je převzat z  https://sublimeplumbing.com.au. Výstupem z termokamery samozřejmě není analytický předpis funkce, ale funkce daná funkčními hodnotami v konkrétních bodech. Proto derivaci v takovém případě musíme provádět numericky. To jsme se však již naučili v předchozích kapitolách. Princip je stejný a na analytickém popisu se můžeme více soustředit na podstatu výpočtu, než na manipulaci s rozsáhlými soubory čísel._
+
+END_PGML
+Context()->normalStrings;
+
+BEGIN_PGML_HINT
+Musíte vypočítat gradient a poté násobit matice stejně jako je v ukázce na začátku příkladu nebo jako jste se učili v úvodní "prvácké" mateamtice. Protože druhá matice je jenom jeden sloupec, budeme počítat lineární kombinace sloupců matice [`\lambda`], přičemž koeficienty jsou složky vektoru [`\nabla T`] a celek je násobený záporným znaménkem.
+
+
+V případě problémů použijte MATLAB, Octave nebo Sage a poznáte, zda máte chybu v úvaze a špatně násobíte matice, nebo zda se jedná jenom o numerickou chybu. Odkaz na Sage je přímo v zadání příkladu a jenom si musíte ve skriptu, který se otevře, opravit vstupní údaje.
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Gradient určíme přímm derivováním jako vektor
+[`` \nabla T =[$ans1->reduce()]``].
+
+Přímým násobením vidíme, že
+[```\begin{aligned}-\lambda \nabla T &=
+-\begin{bmatrix}[$lambda1]&[$lambda3]\\[$lambda3]&[$lambda2]\end{bmatrix}[$u]
+\\&=
+-([$u1])
+\begin{bmatrix}[$lambda1]\\[$lambda3]\end{bmatrix}
+-([$u2])
+\begin{bmatrix}[$lambda3]\\[$lambda2]\end{bmatrix}
+=[$ans2->reduce()].\end{aligned}```]
+
+V případě problémů použijte MATLAB, Octave nebo Sage a poznáte, zda máte chybu v úvaze a špatně násobíte matice, nebo zda se jedná jenom o numerickou chybu. Odkaz na Sage je přímo v zadání příkladu a jenom si musíte ve skriptu, který se otevře, opravit vstupní údaje.
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

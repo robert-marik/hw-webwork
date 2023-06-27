@@ -1,0 +1,110 @@
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "MathObjects.pl",
+  "parserRadioButtons.pl",
+  "answerHints.pl",
+  "PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+BEGIN_PGML
+
+# Stacionární bod autonomního systému podle vlastních čísel
+
+Jak se systém chová v dlouhodobém měřítku poznáme z vlastních čísel. Poznáme, zda sledované veličiny oscilují, či zda jsou monotinní. Poznáme, zda směřují ke stabilní hodnotě, či zda se od ní vzdalují. Poznáme, jestli stacionární bod reprezentuje prakticky dosažitelný stav systému, či nikoliv. V matematice tyto informace máme skryty v klasifikaci stacionárních bodů na uzel, ohnisko, bod rotace a sedlo.
+
+Uvažujme autonomní systém
+[``` \begin{aligned}
+\frac{\mathrm dx}{\mathrm dt}&= f(x,y) \\
+\frac{\mathrm dy}{\mathrm dt}&= g(x,y)
+\end{aligned}```]
+v rovině a jeho stacionární bod [``(x_0,y_0)``].
+V tomto bodě máme určenu Jacobiho matici a její vlastní čísla. V každém z následujících případů rozhodněte, jaký stacionární bod odpovídá zadaným vlastním číslům.
+
+**Praktický postup**
+
+* Jsou vlastní čísla reálná nebo komplexní? Pokud reálná, řešení dospějí k stacionárnímu bodu z určitého směru nebo vychází určitým směrem. Pokud jsou komplexně sdružená, dochází k oscilacím a bod je ohnisko. Toto kriterium odliší ohniska od zbytku.
+* Každé kladné reálné číslo nebo komplexní s kladnou reálnou částí znamená, že nějaké řešení vychází ze stacionárního bodu. Každé záporné reálné číslo nebo komplexní se zápornou reálnou částí znamená, že nějaké řešení míří do stacionárního bodu. Toto kriterium odliší sedlo od zbytku, sedlo je jediný stacionární bod, kde je kladné i záporné vlastní číslo. U ostatních případů to rozliší stabilitu.
+* Pokud tedy pomineme sedlo, máme buď ohnisko nebo uzel a to stabilní nebo nestabilní. Mezi ohniskem a uzlem se rozhodneme podle toho, zda jsou vlastní čísla reálná nebo komplexní. Pokud toto rozlišení provedeme, rozhodneme o stabilitě podle toho, zda jsou vlastní čísla kladná (nebo jestli mají kladné reálné části v případě ohniska) nebo záporná.
+
+END_PGML
+
+for (my $ii = 0; $ii < 5; $ii++) {
+
+$i = random(0,2);
+
+if ($i==2)
+{  
+    $j = random(1,2);
+    $re = random(100,6000)/1000;
+    $im = random(100,6000)/1000;
+    if ($j==1)
+    {
+        $lambda1 = "$re + $im i";
+        $lambda2 = "$re - $im i";
+        $reseni = 3;
+$answer = "Obě vlastní čísla jsou komplexně sdružená s kladnou reálnou částí, nestabilní ohnisko.";
+    }
+    else
+    {
+        $lambda1 = "-$re + $im i";
+        $lambda2 = "-$re - $im i";
+        $reseni = 1;
+$answer = "Obě vlastní čísla jsou komplexně sdružená se zápornou reálnou částí, stabilní ohnisko.";
+    }
+}
+else
+{
+    $lambda1 = random(100,6000)/1000;
+    $lambda2 = random(100,6000)/1000;
+    $j = random(0,2);
+if ($j==0)
+{
+$reseni=2;
+$answer = "Obě vlastní čísla jsou reálná kladná, nestabilní uzel.";
+}
+elsif ($j==1)
+{
+    $lambda1 = -$lambda1;
+    $reseni=4;
+$answer = "Vlastní čísla jsou reálná s opačnými znaménky, sedlo.";
+}
+else
+{
+    $lambda1 = -$lambda1;
+    $lambda2 = -$lambda2;
+    $reseni=0;
+$answer = "Obě vlastní čísla jsou reálná záporná, stabilní uzel.";
+}
+
+}
+
+$radio=RadioButtons(["Stabilní uzel","Stabilní ohnisko","Nestabilní uzel","Nestabilní ohnisko","Sedlo","Jiná odpověď"],$reseni);
+
+
+
+BEGIN_PGML
+
+-------------------------------
+
+Vlastní čísla jsou [``\lambda_1=[$lambda1]``] a [``\lambda_2=[$lambda2]``]. Jakého typu je takový stacionární bod?
+
+[_]{$radio}
+
+END_PGML
+
+
+BEGIN_PGML_SOLUTION
+
+[$answer]
+
+END_PGML_SOLUTION
+
+}
+
+ENDDOCUMENT();
+

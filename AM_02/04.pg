@@ -1,0 +1,71 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "MathObjects.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$b=random(2,10,1);
+$c=non_zero_random(-4,7,1);
+$k=random(2,4,1);
+do  { $l=random(2,6,1); } until ($l != $k);
+#do  { $m=random(3,9,1); } until (($m != $k) and ($m != $k));
+$m=non_zero_random(-9,9,1);
+
+Context("Vector")->variables->add(a=>"Real");
+	
+$funkce=Formula("a*x^$k*y^$l+a*z^$m-$l*y^2*z")->reduce();
+$dfx=$funkce->D("x");
+$dfy=$funkce->D("y");
+$dfz=$funkce->D("z");
+
+$gradient = Vector("<$dfx, $dfy, $dfz>");
+
+BEGIN_PGML
+
+## Gradient funkce tří proměnných s parametrem
+
+V následujícím příkladě si zkusíme vypočítat gradient funkce tří proměnných s parametrem. Postupuje se stejně jako v předchozím příkladě, pouze máme navíc parametr, stejně jako v příkladě číslo 2.
+
+
+---------------
+
+Vypočtěte gradient funkce [``` f(x,y,z)=[$funkce].```]
+
+>>[``\nabla f(x,y,z)={}``][____________________________________]{$gradient}<<
+
+END_PGML
+
+BEGIN_PGML_HINT
+Pozorně počítejte derivace. Například derivace podle [`x`] je [``` \frac{\partial f}{\partial x}=[$dfx]. ```]
+a toto je možné zapsat jako [$dfx] .
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Následující derivace jsou vygenerovány automaticky, je zde pravděpodobně prostor pro úpravu a přepis do elegantnějšího tvaru.
+
+[``` \frac{\partial f}{\partial x}=[$dfx] ```]
+
+[``` \frac{\partial f}{\partial y}=[$dfy] ```]
+
+[``` \frac{\partial f}{\partial z}=[$dfz] ```]
+
+Vektor sestavený z těchto parciálních derivací je gradient.
+
+[``` \nabla f=\begin{pmatrix}[$dfx]\\[$dfy]\\[$dfz]\end{pmatrix}```]
+
+END_PGML_SOLUTION
+
+
+
+
+ENDDOCUMENT();

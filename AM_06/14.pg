@@ -1,0 +1,93 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGchoicemacros.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+
+@moznosti=(
+"Celkové množství energie v části materiálu odpovídající množině \(M\). Jednotkou je joule.",
+"Rychlost s jakou se mění celkové množství energie v části materiálu odpovídající množině \(M\). Jednotkou je joule za sekundu, tj. watt.",
+"Celkový výkon zdrojů v části materiálu odpovídající množině \(M\). Tedy kolik energie se na části materiálu odpovídající množině \(M\) dostane dovnitř materiálu za jednotku času. Jednotkou joule za sekundu, tj. watt.",
+"Celkové množství energie, které za jednotku času projde přes hranici množiny \(M\). V závislosti na orientaci hranice tedy buď, kolik energie proteče přes hranici množiny \(M\) dovnitř nebo ven, přičemž tok na opačnou stranu počítáme záporně. Jednotkou je joule za sekundu, tj. watt.",
+"Celkové množství energie na jednotkové délce hranice materiálu odpovídající množině \(M\). Jednotkou je joule na centimetr.",
+);
+
+@perm=shuffle(5);
+@inv = invert(@perm);
+
+@permMoznosti = @moznosti[@perm];
+
+$radio1 = RadioButtons([@permMoznosti],$inv[0]);
+$radio2 = RadioButtons([@permMoznosti],$inv[1]);
+$radio3 = RadioButtons([@permMoznosti],$inv[2]);
+$radio4 = RadioButtons([@permMoznosti],$inv[3]);
+
+
+BEGIN_PGML
+
+## Dvojný integrál a energie v plošném materiálu
+
+[@ image("bench.jpg", width=>400) @]*
+
+Uvažujme dvourozměrný materiál a v něm libovolnou podmnožinu [`M`] a její hranici [`\partial M`]. Budeme sledovat vedení tepla v materiálu. Abychom nemuseli mluvit o vnitřní energii a proudícím teplu, použijeme zkratku užívanou běžně ve vědách o živé přírodě: budeme mluvit o transportu energie. Tím je myšleno předávání energie ve formě toku tepla a toto předávání energie se navenek projevuje změnou teploty.
+
+* Plošnou hustotu [`c(x,y)`] energie v materiálu v místě [`(x,y)`] budeme sledovat v joulech na centimetr čtvereční. Tato veličina udává množství energie, které je v centimetru čtverečním v okolí bodu o souřadnicích [`(x,y)`].
+* Materiál je vystaven slunečnímu záření, které do něj dodává energii. Můžeme to modelovat tak, že v dvourozměrném materiálu jsou zdroje energie. (Pokud bychom nechtěli uvažovat zdroje, museli bychom v modelu použít trojrozměrný materiál a modelovat tok přes vrchní hranici, což by zvýšilo náročnost modelu.) Výkonnost [`z(x,y)`] zdrojů v bodě [`(x,y)`] budeme sledovat v joulech za sekundu na centimetr čtvereční, neboli ve wattech na centimetr čtvereční. Tato veličina udává, kolik energie v daném místě do plošky o velikosti centimetr čtvereční dodá za jednotku času Slunce. 
+* Nerovnoměrnost v rozložení energie (a teploty) spolu s materiálovými vlastnostmi a Fourierovým zákonem determinuje tok energie (tepla). Tento tok budeme popisovat pomocí vektorového pole [`(P(x,y),Q(x,y))`] v joulech za sekundu na centimetr. Tato veličina udává, kolik energie projde za sekundu myšleným "oknem" o šířce jednoho centimetru a výšce zahrnující celou tloušťku materiálu, které je umístěno kolmo na tok.
+
+Budeme hledat slovní interpretaci veličin obsahujících ve své definici dvojný integrál nebo křivkový integrál.  Při této slovní interpretaci pomůže často i jednotka. Připomeňme v rychlosti pravidla.
+
+* Pro konstantní rychlosti se derivace redukuje na podíl. Odsud je snadné najít jednotku derivace. Mnemotechnickou pomůckou je samotný zápis derivace, který velmi připomíná podíl.
+* Pro konstantní funkce se integrál redukuje na součin. V případě dvojného integrálu součin funkce a plochy. Mnemotechnickou pomůckou je již samotný zápis integrálu. Zde zápis velice připomíná součin s [`\mathrm dx`] a [`\mathrm dy`], tj součin se dvěma délkami. V případě křivkového integrálu je situace podobná, ale násobí se délkou a nikoliv obsahem.
+
+Najděte slovní interpretaci následujících veličin. Pro pohodlí jsou všechny návrhy stejné a jsou ve stejném pořadí. Vyberte vždy ten správný.
+
+---
+
+Co udává dvojný integrál funkce [`c(x,y)`], tj. [``` \iint_M c(x,y)\,\mathrm dx\,\mathrm dy,```] a jakou má jednotku?
+
+[_]{$radio1}
+
+
+---
+
+Co udává časová derivace dvojného integrálu funkce [`c(x,y)`], tj. [``` \frac{\mathrm d}{\mathrm dt} \iint_M c(x,y)\,\mathrm dx\,\mathrm dy,```] a jakou má jednotku?
+
+[_]{$radio2}
+
+
+---
+
+Co udává dvojný integrál funkce [`z(x,y)`], tj. [``` \iint_M z(x,y)\,\mathrm dx\,\mathrm dy,```] a jakou má jednotku?
+
+[_]{$radio3}
+
+---
+
+Co udává křivkový integrál [``` \oint_{\partial M} -Q\,\mathrm dx+P\,\mathrm dy,```] a jakou má jednotku?
+
+[_]{$radio4}
+
+
+_Obrázek: pixabay.com, JayMantri_
+
+END_PGML
+
+
+
+
+
+ENDDOCUMENT();
+
+
+
+
+

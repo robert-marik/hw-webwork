@@ -1,0 +1,42 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]],'dT'=>'Real', 'dx'=>'Real', 'dc'=>'Real', 'T'=>'Real', 't'=>'Real', 'k'=>'Real','p'=>'Real','c'=>'Real','x'=>'Real');
+
+$k=random(15,28,1);
+$p=random(25,58,1);
+
+BEGIN_PGML
+
+## Znečištění látkou podléhající samovolnému rozkladu
+
+[@ image("jezirko.jpg", width=>400) @]*
+
+Do chráněné lokality proudí znečišťující látky. Rychlost, s jakou v dané lokalitě přibývají, je [`[$k]`] jednotek za týden. Naštěstí je však látka nestabilní a rozkládá se. Za týden se samovolně rozloží [`[$p]`] procent látky. Napište výsledný matematický model pro vývoj množství znečišťující látky v dané lokalitě. Množství látky označte [`x`] a sledujte jej jako funkci času. Jednotku času volte pro maximální pohodlí jeden týden. (Nezapomeňte procenta převést na desetinné číslo nebo na setiny.)
+>> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{Formula("[$k]-[$p]*x/100")}<<
+
+END_PGML
+
+BEGIN_PGML_HINT
+Postupujte podle vzoru a podle příkladů ve cvičeních a na přednášce. 
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Přímým přepisem slovního zadání do kvantitativních pojmů dostáváme rovnici
+[``` \frac{\mathrm dx}{\mathrm dt}= [$k]-[$p/100] x,```]
+
+END_PGML_SOLUTION
+
+
+
+ENDDOCUMENT();

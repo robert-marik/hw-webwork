@@ -1,0 +1,50 @@
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("css/left.css");
+
+TEXT(MODES(
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
+));
+
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
+));
+
+BEGIN_PGML
+
+
+## Jak se vám líbily tyto úlohy?
+
+
+Jakákoliv zpětná vazba k úlohám
+
+* Máte nějaké připomínky, které by bylo vhodné zapracovat?
+* Máte odhad času, který jste práci na úlohách museli věnovat?
+* Úlohy měli zpravidla všichni stejné, jenom se lišila čísla. Podnítilo to týmovou spolupráci? Diskutovali jste o úlohách s kolegy?
+* Pomohly Vám úlohy k upevnění znalostí a ujasnění si látky?
+
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box(10,80)\}
+END_TEXT
+
+
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+
+
+ENDDOCUMENT();

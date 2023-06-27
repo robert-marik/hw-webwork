@@ -1,0 +1,353 @@
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGunion.pl",
+  "MathObjects.pl",
+  "VectorField2D.pl",
+  "PGgraphmacros.pl",
+  "PGgraders.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+#$refreshCachedImages=1;
+
+#####################################
+#  Setup
+
+$size = [250,250];   # the size of the images
+$tsize = 250;        # tex size of the images
+
+
+Context("Numeric")->variables->are(x=>"Real",y=>"Real");
+
+foreach my $i (0..5) {
+  $gr[$i] = init_graph(-4,-4,4,4,grid=>[8,8],axes=>[0,0],pixels=>[400,400]);
+  $gr[$i]->lb('reset');
+#  foreach my $j (1..3) {
+#    $gr[$i]->lb( new Label(-3.7,  $j, $j,'black','center','middle'));
+#    $gr[$i]->lb( new Label(-3.7, -$j,-$j,'black','center','middle'));
+#    $gr[$i]->lb( new Label(  $j,-3.7, $j,'black','center','middle'));
+#    $gr[$i]->lb( new Label( -$j,-3.7,-$j,'black','center','middle'));
+#  }
+  $gr[$i]->lb( new Label(3.7,0.2,'x','black','center','middle'));
+  $gr[$i]->lb( new Label(0.2,3.7,'y','black','center','middle'));
+  $gr[$i]->new_color("lightblue", 214,230,244); # RGB
+  $gr[$i]->new_color("darkblue",  100,100,255);
+  $gr[$i]->new_color("lightgreen",156,215,151); 
+  $gr[$i]->new_color("darkgreen",   0, 86, 34);
+  $gr[$i]->new_color("lightred",245,234,229); # light red-purple
+  $gr[$i]->new_color("darkred", 159, 64, 16); # red-brown
+  $gr[$i]->new_color("nicegreen",0,110,0);
+}
+
+
+############################
+$s[0] = random(-1,1,2);
+$orientace = random(-1,1,2);
+if ($orientace*$s[0] == 1) { 
+  $answer[0] = "záporný"; 
+} else { 
+  $answer[0] = "kladný"; 
+}
+VectorField2D(
+graphobject => $gr[0],
+Fx => Formula("$s[0] * (y+4)"),
+Fy => Formula("0"),
+xvar => "x",
+yvar => "y",
+xmin => -4,
+xmax =>  4,
+ymin => -4,
+ymax =>  4,
+xsamples => 8,
+ysamples => 8,
+vectorcolor => "blue",
+vectorscale => 0.15,
+vectorthickness => 2,
+);
+add_functions($gr[0],
+"sqrt(4-x^2) for x in <0,2> using color:red and weight:2",
+);
+$gr[0]->moveTo(1.41,1.41);
+$gr[0]->arrowTo(1.41+($orientace*0.1),1.41-($orientace*0.1),"red",3);
+$gr[0]->stamps( closed_circle(0,2,'red') );
+$gr[0]->stamps( closed_circle(2,0,'red') );
+
+
+
+#######################
+$s[1] = random(-1,1,2);
+if ($s[1]= -($s[0])) { $s[1]=-($s[1]); }
+$orientace = random(-1,1,2);
+$answer[1] = "nulový"; 
+VectorField2D(
+graphobject => $gr[1],
+Fx => Formula("$s[1]*y"),
+Fy => Formula("-($s[1])*x"),
+xvar => "x",
+yvar => "y",
+xmin => -4,
+xmax =>  4,
+ymin => -4,
+ymax =>  4,
+xsamples => 8,
+ysamples => 8,
+vectorcolor => "blue",
+vectorscale => 0.2,
+vectorthickness => 2,
+xavoid=>0,
+yavoid=>0,
+);
+foreach my $r (3) {
+  my $fn = new Fun( sub { my $t=shift(); return $r * cos($t); }, sub { my $t=shift(); return $r * sin($t);}, $gr[1] );
+  $fn->domain(0,1.5708);
+  $fn->color("red");
+}
+#
+$gr[1]->moveTo(3/sqrt(2),3/sqrt(2));
+$gr[1]->arrowTo(3/sqrt(2)-($orientace*0.1),3/sqrt(2)+($orientace*0.1),"red",3);
+$gr[1]->stamps( closed_circle(3,0,'red') );
+$gr[1]->stamps( closed_circle(0,3,'red') );
+
+
+
+
+############################
+$s[2] = random(-1,1,2);
+$orientace = random(-1,1,2);
+if ($orientace*$s[2]==1) {
+  $answer[2] = "kladný";
+} else {
+  $answer[2] = "záporný";
+}
+VectorField2D(
+graphobject => $gr[2],
+Fx => Formula("$s[2]*x"),
+Fy => Formula("$s[2]*y"),
+xvar => "x",
+yvar => "y",
+xmin => -4,
+xmax =>  4,
+ymin => -4,
+ymax =>  4,
+xsamples => 8,
+ysamples => 8,
+vectorcolor => "blue",
+vectorscale => 0.2,
+vectorthickness => 2,
+xavoid=>0,
+yavoid=>0,
+);
+foreach my $r (2) {
+  my $fn = new Fun( sub { my $t=shift(); return $r * cos($t); }, sub { my $t=shift(); return $r * sin($t);}, $gr[2] );
+  $fn->domain(1.5708,3.1415*3/2);
+  $fn->color("red");
+}
+#
+$gr[2]->moveTo(-2,0);
+$gr[2]->arrowTo(-2,-0.1*($orientace),"red",3);
+$gr[2]->stamps( closed_circle(0,2,'red') );
+$gr[2]->stamps( closed_circle(0,-2,'red') );
+
+
+
+
+################################
+$s[3] = random(-1,1,2);
+$orientace = random(-1,1,2);
+if ($orientace*($s[3])==1) {
+  $answer[3] = "kladný";
+} else {
+  $answer[3] = "záporný";
+}
+VectorField2D(
+graphobject => $gr[3],
+Fx => Formula("$s[3]*x"),
+Fy => Formula("($s[3])*y"),
+xvar => "x",
+yvar => "y",
+xmin => -4,
+xmax =>  4,
+ymin => -4,
+ymax =>  4,
+xsamples => 8,
+ysamples => 8,
+vectorcolor => "blue",
+vectorscale => 0.2,
+vectorthickness => 2,
+xavoid=>0,
+yavoid=>0,
+);
+$gr[3]->moveTo(3,0);
+$gr[3]->lineTo(0,3,"red",2);
+#
+$gr[3]->moveTo(1.5,1.5);
+$gr[3]->arrowTo(1.5-0.1*($orientace),1.5+($orientace*0.1),"red",3);
+$gr[3]->stamps( closed_circle(3,0,'red') );
+$gr[3]->stamps( closed_circle(0,3,'red') );
+
+
+
+
+################################
+$s[4] = random(-1,1,2);
+$orientace = random(-1,1,2);
+$znam[4] = random(-1,1,2);
+if ($orientace*$s[4]==1) {
+  $answer[4] = "záporný";
+} else {
+  $answer[4] = "kladný";
+}
+VectorField2D(
+graphobject => $gr[4],
+Fx => Formula("$s[4]*y"),
+Fy => Formula("-($s[4])*x"),
+xvar => "x",
+yvar => "y",
+xmin => -4,
+xmax =>  4,
+ymin => -4,
+ymax =>  4,
+xsamples => 8,
+ysamples => 8,
+vectorcolor => "blue",
+vectorscale => 0.2,
+vectorthickness => 2,
+xavoid=>0,
+yavoid=>0,
+);
+$gr[4]->moveTo(-2,$znam[4]*1);
+$gr[4]->lineTo(0,0,"red",2);
+#
+$gr[4]->moveTo(-1,$znam[4]*0.5);
+$gr[4]->arrowTo(-1+($orientace)*0.1,$znam[4]*(0.5-0.5*($orientace)*0.1),"red",3);
+$gr[4]->stamps( closed_circle(0,0,'red') );
+$gr[4]->stamps( closed_circle(-2,$znam[4]*1,'red') );
+
+
+
+
+################################
+$s[5] = random(-1,1,2);
+$x5=random(-1,1);
+if ($x5==0) {$y5=random(-1,1,2);} else {$y5=0;}
+$x5=3*$x5;
+$y5=3*$y5;
+$answer[5] = "nulový"; 
+VectorField2D(
+graphobject => $gr[5],
+Fx => Formula("$s[5]*x"),
+Fy => Formula("$s[5]*y"),
+xvar => "x",
+yvar => "y",
+xmin => -4,
+xmax =>  4,
+ymin => -4,
+ymax =>  4,
+xsamples => 8,
+ysamples => 8,
+vectorcolor => "blue",
+vectorscale => 0.2,
+vectorthickness => 2,
+xavoid=>0,
+yavoid=>0,
+);
+$gr[5]->moveTo(0,0);
+$gr[5]->lineTo($x5,$y5,"red",3);
+#
+$gr[5]->moveTo(0.5*$x5,0.5*$y5);
+if ($y5==0)
+{ $gr[5]->arrowTo(0.5*($x5)+0.1,0.5*($y5),"red",3); }
+else
+{ $gr[5]->arrowTo(0.5*($x5),0.5*($y5)+0.5,"red",3); }
+#
+$gr[5]->stamps( closed_circle(0,0,'red') );
+$gr[5]->stamps( closed_circle($x5,$y5,'red') );
+
+
+
+@perm = shuffle(6);
+
+@choices = ("?","Kladný","Záporný","Nulový");
+
+foreach my $i (0..5) {
+  $fig[$i] = image(insertGraph($gr[$i]),width=>200,height=>200,tex_size=>310);
+}
+
+
+########################################
+#  Main text
+
+
+if ($s[0]>0) {$sign0='kladný' ; $dir0='stejným'} else
+{$sign0='záporný'; $dir0= 'opačným'};
+if ($s[1]>0) {$sign1='záporný' ; $dir1='opačným'} else
+{$sign1='kladný'; $dir1= 'stejným'};
+if ($s[3]>0) {$sign3='záporný' ; $dir3='opačným'} else
+{$sign3='kladný'; $dir3= 'stejným'};
+if ($s[5]>0) {$sign5='kladný' ; $dir5='stejným'} else
+{$sign5='záporný'; $dir5= 'opačným'};
+
+BEGIN_PGML
+## Tok vektorového pole orientovanou křivkou
+
+Při zkoumání toku vektorového pole orientovanou křivkou si můžeme představit křivku jako otevřené okno, skrz které fouká vítr a rychlost je v každém bodě dána vektorovým polem. Pokud okno není přesně po větru (vektory nejsou tečné ke křivce), je tok křivkou nenulový. Znaménko je dáno následující úmluvou: postavme se myšleně na křivku (do okna) a dívejme se ve směru křivky. Pokud tok "fouká" z naší levé strany na pravou, je kladný.
+
+Pro následující vektorová pole a křivky určete, zda je tok křivkou kladný, záporný, či nulový. 
+
+END_PGML
+
+BEGIN_TEXT
+$BR
+$BCENTER
+\{
+BeginTable().
+  AlignedRow([$fig[$perm[0]],$fig[$perm[1]],$fig[$perm[2]]]).
+  TableSpace(5,0).
+  AlignedRow(["1. ".pop_up_list([@choices]),"2. ".pop_up_list([@choices]),"3. ".pop_up_list([@choices])]).
+  TableSpace(25,6).
+  AlignedRow([$fig[$perm[3]],$fig[$perm[4]],$fig[$perm[5]]]).
+  TableSpace(5,0).
+  AlignedRow(["4. ".pop_up_list([@choices]),"5. ".pop_up_list([@choices]),"6. ".pop_up_list([@choices])]).
+EndTable().
+$BR."(Graf se otevře v samostatném okně po kliknutí.)"
+\}
+$ECENTER
+END_TEXT
+
+
+###############################################
+#  Answer evaluation
+
+install_problem_grader(~~&custom_problem_grader_fluid);
+$ENV{'grader_numright'} = [3,6];
+$ENV{'grader_scores'} = [0.5,1];
+$ENV{'grader_message'} = "Za 3 až pět správných odpovědí dostáváte hodnocení 50%.";
+
+$showPartialCorrectAnswers = 0;
+
+ANS(str_cmp([@answer[@perm]]));
+
+@answerp=@answer[@perm];
+
+BEGIN_SOLUTION
+$PAR
+Pokud je vektorové pole ve směru křivky, je tok nulový. V ostatních případech určíme tok podle pravidla uvedeného v zadání. 
+
+$PAR
+
+1. Tok je $answerp[0]. $BR $BR
+2. Tok je $answerp[1]. $BR $BR
+3. Tok je $answerp[2]. $BR $BR
+4. Tok je $answerp[3]. $BR $BR
+5. Tok je $answerp[4]. $BR $BR
+6. Tok je $answerp[5]. 
+END_SOLUTION
+
+ENDDOCUMENT();
+

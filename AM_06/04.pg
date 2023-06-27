@@ -1,0 +1,136 @@
+DOCUMENT();        
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "contextFraction.pl",
+  "PGgraphmacros.pl",
+  "unionTables.pl",
+  "alignedChoice.pl",
+  "PGcourse.pl"
+);
+
+
+TEXT(beginproblem());
+
+$showHint = 1;
+
+#$refreshCachedImages=1;
+
+##############################################
+#  Setup
+
+Context("Numeric")->variables->are(x=>"Real",y=>"Real");
+
+$xmin = random(-4,0,1);
+$xmax = random(1,4,1);
+$dx = $xmax - $xmin;
+
+$ymin = random(-4,-1,1);
+$ymid = $ymin;
+$ymax = random(0,4,1);
+$dy = $ymid - $ymin;
+
+Context()->texStrings;
+
+$al1 = new_aligned_list(ans_rule_len=>10, numbered=>0, tex_spacing=>"3pt", equals=>0);
+$al1->qa(
+"\(A={}\)",Compute("$xmin")->cmp,
+"\(B={}\)",Compute("$xmax")->cmp,
+"\(C={}\)",Compute("$ymin + ($dy / $dx) * (x - $xmin)")->reduce->cmp,
+"\(D={}\)",Compute("$ymax")->cmp,
+);
+
+Context()->normalStrings;
+
+################
+#  Graph
+#
+$gr = init_graph(-5,-5,5,5,grid=>[10,10],axes=>[0,0],pixels=>[400,400]);
+$gr->lb('reset');
+foreach my $i (1..4) {
+  $gr->lb( new Label(-4.7,$i,$i,'black','center','middle'));
+  $gr->lb( new Label(-4.7,-$i,-$i,'black','center','middle'));
+  $gr->lb( new Label($i,-4.7,$i,'black','center','middle'));
+  $gr->lb( new Label(-$i,-4.7,-$i,'black','center','middle'));
+}
+$gr->lb( new Label(4.7,0.2,'x','black','center','middle'));
+$gr->lb( new Label(0.2,4.7,'y','black','center','middle'));
+
+$gr->new_color("lightblue", 214,230,244);
+$gr->new_color("lightgreen",156,215,151);
+$gr->new_color("darkgreen",0,86,34);
+
+$gr->moveTo($xmin,$ymin);
+$gr->lineTo($xmax,$ymid,"darkgreen",2); # bottom edge
+$gr->lineTo($xmax,$ymax,"darkgreen",2); # right edge
+$gr->lineTo($xmin,$ymax,"darkgreen",2); # top edge
+$gr->lineTo($xmin,$ymin,"darkgreen",2); # left edge
+$gr->fillRegion([$xmin+0.1,$ymid+0.1,"lightgreen"]);
+
+
+##############################################
+#  Main text
+
+Context()->texStrings;
+
+BEGIN_PGML
+
+## Dvojný integrál přes obdélník
+
+END_PGML
+
+BEGIN_TEXT
+\{
+ColumnTable(
+"Nechť \(R\) je obdélník na obrázku a \( f(x,y) \) je funkce definovaná na  \( R \).  Převeďte dvojný integrál na dvojnásobný (s vnější integrací podle proměnné \(x\)) a určete meze.".
+$PAR.
+"\[ \displaystyle
+\iint\limits_R f(x,y) \, \mathrm dx\mathrm dy
+=
+\int_A^B  \int_C^D f(x,y) \, \mathrm dy \, \mathrm dx
+\]".
+$al1->print_q(),
+$BCENTER.
+image(insertGraph($gr),width=>400,height=>400,tex_size=>600).
+$ECENTER,
+indent => 0, separation => 30, valign => "TOP"
+)
+\}
+END_TEXT
+Context()->normalStrings;
+
+BEGIN_PGML
+
+*Poznámka:* Jednotlivé meze se hodnotí nezávisle na sobě. Test tedy vyhodnocuje čtyři odpovědi, každou samostatně.
+
+END_PGML
+
+
+##################################################
+#  Answers
+
+$showPartialCorrectAnswers = 1;
+ANS($al1->correct_ans );
+
+Context("Fraction");
+$m=Compute("$dy/$dx");
+Context()->texStrings;
+
+BEGIN_HINT
+Obdélník je definován nerovnostmi \($xmin \le x \le $xmax\) a
+\( $ymin \le y \le $ymax\). Použijte tuto informaci a správně tyto hodnoty přiřaďte k mezím.
+END_HINT
+
+
+BEGIN_SOLUTION
+$PAR Řešení $BR $BR
+Obdélník je definován nerovnostmi \($xmin \le x \le $xmax\) a
+\( $ymin \le y \le $ymax\)
+$BR
+Tedy \[ \iint_R  f(x,y) \,\mathrm dx\mathrm dy = \int_{$xmin}^{$xmax} \int_{$ymin}^{$ymax}
+f(x,y) \, \mathrm dy \mathrm dx. \]
+END_SOLUTION
+
+ENDDOCUMENT();

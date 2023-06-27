@@ -1,0 +1,143 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGchoicemacros.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+
+
+@moznosti=(
+"Celkové množství stavové veličiny v množině \(M\).",
+"Rychlost s jakou se mění celkové množství stavové veličiny v množině \(M\).",
+"Celkový výkon zdrojů v množině \(M\).",
+"Celkové množství stavové veličiny, které za jednotku času projde přes hranici množiny \(M\) směrem ven.",
+"Celkové množství stavové veličiny na jednotkové délce hranice materiálu odpovídající množině \(M\).",
+"Celkové množství stavové veličiny, které za jednotku času projde přes hranici množiny \(M\) směrem dovnitř.",
+"Celkové množství stavové veličiny, které cirkuluje podél hranice (cirkulace vektorového pole).",
+"Rychlost, s jakou roste výkon zdrojů v množině \(M\)."
+);
+
+@perm=shuffle(7);
+@inv = invert(@perm);
+
+@permMoznosti = @moznosti[@perm];
+
+$radio1 = RadioButtons([@permMoznosti],$inv[0]);
+$radio2 = RadioButtons([@permMoznosti],$inv[1]);
+$radio3 = RadioButtons([@permMoznosti],$inv[2]);
+$radio4 = RadioButtons([@permMoznosti],$inv[3]);
+
+
+BEGIN_PGML
+
+## Difuzní rovnice v integrálním tvaru
+
+[@ image("plaz.jpg", width=>400) @]*
+
+Uvažujme stavovou veličinu ve dvourozměrné oblasti [`M`], která  může mít zdroje a může se přenášet. To může být cokoliv vás napadne při pohledu kolem nebo při pohledu na obrázek. Například množství podzemní vody (souvisí s piezometrickou hladinou a je důležité pro vyhodnocení rizika znehodnocení zdrojů pitné vody zasolením),  množství energie  ve vzduchu, ve vodě nebo v půdě (souvisí s teplotou, s předpovědí počasí, s celkovou pohodou, atd.), množství vzduchu (tlak v daném místě, souvisí se směrem a intenzitou větru), koncentrace soli atd atd. Dva příklady jsme měli v minulé domácí úloze v příkladech 13 a 14, tady budeme mluvit obecněji.
+
+* Plošnou hustotu stavové veličiny označíme [`u(x,y)`].
+* Vydatnost zdrojů označíme [`\sigma(x,y)`]. 
+* Tok přenášející stavovou veličinu označíme pomocí komponent, tj. [`(P(x,y),Q(x,y))`].
+
+
+Najděte slovní interpretaci následujících veličin. Pro pohodlí jsou všechny návrhy stejné a jsou ve stejném pořadí. Vyberte vždy ten správný. Hranice [`\partial M`] množiny [`M`] je kladně orientována v souladu s Greenovou větou (při obíhání podél křivky [`¨\partial M`] je oblast [`M`] vlevo).
+
+---
+
+[``` \iint_M u(x,y)\,\mathrm dx\,\mathrm dy```]
+
+[_]{$radio1}
+
+END_PGML
+BEGIN_PGML_SOLUTION
+
+[$moznosti[0]]
+
+END_PGML_SOLUTION
+BEGIN_PGML
+
+---
+
+[``` \frac{\mathrm d}{\mathrm dt} \iint_M u(x,y)\,\mathrm dx\,\mathrm dy```]
+
+[_]{$radio2}
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$moznosti[1]]
+
+END_PGML_SOLUTION
+BEGIN_PGML
+
+
+---
+
+[``` \iint_M \sigma(x,y)\,\mathrm dx\,\mathrm dy```]
+
+[_]{$radio3}
+
+END_PGML
+BEGIN_PGML_SOLUTION
+
+[$moznosti[2]]
+
+END_PGML_SOLUTION
+BEGIN_PGML
+
+
+---
+
+[``` \oint_{\partial M} -Q\,\mathrm dx+P\,\mathrm dy```] 
+
+[_]{$radio4}
+
+END_PGML
+BEGIN_PGML_SOLUTION
+
+[$moznosti[3]]
+
+END_PGML_SOLUTION
+BEGIN_PGML
+
+---
+
+[``` \iint_{M} \frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}\,\mathrm dx\,\mathrm dy```] 
+
+[_]{$radio4}
+
+
+END_PGML
+BEGIN_PGML_SOLUTION
+
+[$moznosti[3]]
+
+END_PGML_SOLUTION
+BEGIN_PGML
+
+_Obrázek: pixabay.com, EvgeniT_
+
+END_PGML
+
+
+BEGIN_PGML_SOLUTION
+
+Rešení k jednotlivým otázkám si můžete rozkliknout. Odpověď na poslední dvě otázky je stejná vzhledem ke Greenově větě.
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
+
+
+
+

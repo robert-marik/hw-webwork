@@ -1,0 +1,131 @@
+DOCUMENT();		# This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+$showHint = 1;
+
+Context()->variables->are(x=>"Real",y=>"Real");
+Context()->strings->add(nelze=>{},N=>{alias=>"nelze"});
+
+$showPartialCorrectAnswers = 1;
+
+$a = non_zero_random(1, 3, 1);
+$aa = non_zero_random(1, 3, 1);
+$m = random(2, 6, 1);
+$n = random(2, 6, 1);
+
+do
+{
+$mm = random(1, 3, 1);
+$nn = random(1, 3, 1);
+}
+until ($m!=$mm) or ($n!=$nn);
+ 
+$potencial=Compute("$a*x^($m)*y^($n)+$aa*x^($mm)*y^($nn)")->reduce();
+$dx=Compute("$a*$m*x^($m-1)*y^($n)+$aa*$mm*x^($mm-1)*y^($nn)")->reduce();
+$dy=Compute("$a*$n*x^($m)*y^($n-1)+$aa*$nn*x^($mm)*y^($nn-1)")->reduce();
+$ddxy=Compute("$a*$m*$n*x^($m-1)*y^($n-1)+$aa*$mm*$nn*x^($mm-1)*y^($nn-1)")->reduce();
+
+$i = random(0, 6,1);
+$kolik=random(2,3);
+
+if ($i<2)
+{
+$bodX=1;
+$bodY=$kolik;
+}
+else
+{
+$bodX=$kolik;
+$bodY=1;
+}
+
+$answer=$potencial->eval(x=>$bodX,y=>$bodY);
+
+if ($i==0)
+{
+$sum=random(1,2);
+$dy=Compute("$a*$n*x^($m)*y^($n+$sum)+$aa*$nn*x^($mm)*y^($nn)")->reduce();
+$answer=Compute("nelze");
+$potencial=Compute("nelze");
+}
+elsif ($i==1)
+{
+$sum=random(1,2);
+$dy=Compute("$a*$m*x^($m+$sum)*y^($n)+$aa*$mm*x^($mm)*y^($nn)")->reduce();
+$answer=Compute("nelze");
+$potencial=Compute("nelze");
+}
+
+
+BEGIN_PGML
+
+## Nezávislost integrálu na integrační cestě, dvoučlenné vektorové pole podruhé
+
+Tento příklad je ideově stejný jako příklad předchozí, ale jenom s jinými funkcemi a křivkou. Jako ujištění, že problematika je zřejmá.
+
+----------------------
+
+Uvažujte křivkový integrál
+[``` \int_C ([$dx])\,\mathrm dx+ ([$dy]) \mathrm dy```]
+po křivce z bodu [`(0,0)`] do bodu [`([$bodX],[$bodY])`].  Ověřte  závislost či nezávislost na integrační cestě. 
+
+V případě, že integrál nezávisí na integrační cestě, určete skalární potenciál [`\varphi`] vektorového pole [``` \vec F=([$dx])\vec i + ([$dy])\vec j,```] tj. funkci splňující [`` \nabla\varphi=\vec F.``] (Odpověď je dána až na aditivní konstantu. Volte ji libovolnou ale pevnou, tj. nepište na konci [`\cdots +C`], ale například volte konstantu nulovou. Pokud tento potenciál neexistuje, zapište slovo [|nelze|] nebo [|N|].)
+
+>>[``\varphi(x,y)={}``][_________________________]{$potencial->cmp(upToConstant=>1)}<<
+
+V případě, že potenciál existuje, je možno křivkový integrál vypočítat. Vypočítejte jej. Pokud toto není možné, odpovězte opět slovem [|nelze|].
+
+>> [``  \int_C ([$dx])\,\mathrm dx+([$dy]) \mathrm dy={}``][___________]{$answer} <<
+
+
+
+END_PGML
+
+BEGIN_PGML_HINT
+
+Zkontrolujte, zda platí
+[``` \frac{\partial}{\partial x}\left([$dy]\right)=\frac{\partial}{\partial y}\left([$dx]\right).```]
+Pokud ano, hledejte funkci
+[`` \varphi``] takovou, že
+[``` \begin{aligned}\frac{\partial \varphi}{\partial x}&=[$dx],\\\frac{\partial \varphi}{\partial y}&=[$dy]\end{aligned}```]
+a poté hodnotu
+[``` \varphi([$bodX],[$bodY])-\varphi(0,0).```]
+
+END_PGML_HINT
+
+if ($i<2)
+{
+BEGIN_PGML_SOLUTION
+Kontrolujeme, zda platí
+[``` \frac{\partial}{\partial x}\left([$dy]\right)=\frac{\partial}{\partial y}\left([$dx]\right).```]
+Tato rovnost neplatí a proto je odpověď na obě otázky [|nelze|]. Není možné najít skalární potenciál (kmenovou funkci) a není ani možné vypočítat křivkový integrál.
+
+END_PGML_SOLUTION
+}
+else
+{
+BEGIN_PGML_SOLUTION
+
+Kontrolujeme, zda platí
+[``` \frac{\partial}{\partial x}\left([$dy]\right)=\frac{\partial}{\partial y}\left([$dx]\right).```]
+Tato rovnost platí, oba výrazy jsou rovny společné hodnotě [``` [$ddxy]. ```] Proto existuje funkce 
+[`` \varphi``] taková, že
+[``` \begin{aligned}\frac{\partial \varphi}{\partial x}&=[$dx],\\\frac{\partial \varphi}{\partial y}&=[$dy].\end{aligned}```]
+Integrací podle jednotlivých proměnných dostáváme (až na aditivní konstantu, kterou můžeme položit rovnu nule)
+[``` \varphi(x,y)=[$potencial]```]
+a nárůst této funkce podél křivky je roven křivkovému integrálu. Tedy
+[``` \int_C ([$dx])\,\mathrm dx+([$dy]) \mathrm dy=\varphi([$bodX],[$bodY])-\varphi(0,0)=[$a]\times ([$bodX])^{[$m]}\times ([$bodY])^{[$n]}-0=[$answer].```]
+
+
+END_PGML_SOLUTION
+}
+
+ENDDOCUMENT();

@@ -1,0 +1,65 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$k=random(2,8,1);
+do  { $l=random(2,7,1); } until ($l != $k);
+$m=non_zero_random(-4,4,1);
+
+Context("Numeric")->variables->add(y=>"Real");
+	
+$funkce=Formula("$m*x^$k*y^$l")->reduce();
+$dfx=$funkce->D("x");
+$dfy=$funkce->D("y");
+
+$dfx=Formula("$m*$k*x^($k-1)*y^$l")->reduce();
+$dfy=Formula("$m*$l*x^$k*y^($l-1)")->reduce();
+
+BEGIN_PGML
+
+## Parciální derivace jednočlenného polynomu dvou proměnných
+
+Parciální derivace počítáme stejně jako klasické derivace, jenom dáváme pozor na to, podle které proměnné se derivuje. Pro tuto proměnnou používáme příslušné vztahy z diferenciálního počtu funkcí jedné proměnné a zbylé proměnné jsou považovány za parametry. Například funkci [```f(x,y)=x^2 y^5```] derivujeme podle [`x`] jako kvadratickou funkci [`x^2`] opatřenou konstantním násobkem [`y^5`]. Proto platí [``` \frac{\partial f}{\partial x}=2xy^5.```] Při derivaci podle [`y`] tuto funkci chápeme jako mocninu pátého stupně [`y^5`] s konstantním násobkem [`x^2`], tj.  [``` \frac{\partial f}{\partial y}=x^2 \cdot 5y^4=5x^2y^4.```]
+
+---------------
+
+Vypočtěte obě parciální derivace funkce [``` f(x,y)=[$funkce].```]
+
+>>[``\frac{\partial f}{\partial x} ={}``][_________________________]{$dfx} <<
+
+>>[``\frac{\partial f}{\partial y} ={}``][_________________________]{$dfy} <<
+
+END_PGML
+
+BEGIN_PGML_HINT
+Při derivování podle [`x`] se funkce chová jako mocnina s exponentem [`[$k]`], vynásobená konstantou [`[$m] y^[$l]`].
+
+Při derivování podle [`y`] se funkce chová jako mocnina s exponentem [`[$l]`], vynásobená konstantou [`[$m] x^[$k]`].
+
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Při derivování podle [`x`] se funkce chová jako mocnina s exponentem [`[$k]`], vynásobená konstantou [`[$m] y^[$l]`].
+
+Při derivování podle [`y`] se funkce chová jako mocnina s exponentem [`[$l]`], vynásobená konstantou [`[$m] x^[$k]`].
+
+Derivace jsou vygenerované automatem a je možné, že se dají zapsat v ekvivalentním elegantnějším a kratším tvaru.
+
+[```\frac{\partial f}{\partial x} =[$dfx]```]
+
+[```\frac{\partial f}{\partial y} =[$dfy]```]
+
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
