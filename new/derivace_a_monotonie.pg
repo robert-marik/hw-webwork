@@ -1,0 +1,120 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGchoicemacros.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+
+$moznosti = [
+"Derivace je kladná a numericky velká (kladná hodnota a numericky velké číslo).",
+"Derivace je kladná a numericky malá (kladná hodnota a numericky malé číslo).",
+"Derivace je blízká k nule (kladná nebo záporná, ale numericky velmi blízká k nule).",
+"Derivace je záporná a numericky malá (záporná hodnota a numericky malé číslo).",
+"Derivace je záporná a numericky velká (záporná hodnota a numericky velké číslo, derivace je hodně záporná).",
+"Otázka nemá smysl. Uvedená situace nemůže nastat.",
+"Otázka se nedá na základě uvedených informací rozhodnout. Více variant může být správně.",
+"Ani jedna varianta není správně.",
+];
+
+
+
+$data =
+[
+{
+nadpis=>"Rychle se měnící funkce s malými funkčními hodnotami",
+otazka=>"Funkce roste rychle z malé a kladné funkční hodnoty.",
+spravne=>0},
+{
+nadpis=>"Rychle se měnící funkce s malými funkčními hodnotami",
+otazka=>"Funkce je kladná a klesá rychle z vysoké funkční hodnoty.",
+spravne=>4},
+{
+nadpis=>"Pomalu se měnící funkce s malými funkčními hodnotami",
+otazka=>"Funkce je kladná a klesá pomalu z vysoké funkční hodnoty.",
+spravne=>3},
+{
+nadpis=>"Rychle se měnící funkce s velkými funkčními hodnotami",
+otazka=>"Funkce roste rychle z velké a kladné funkční hodnoty.",
+spravne=>0},
+{
+nadpis=>"Pomalu se měnící funkce s velkými funkčními hodnotami",
+otazka=>"Funkce roste pomalu z velké a kladné funkční hodnoty.",
+spravne=>1},
+{
+nadpis=>"Pomalu se měnící funkce s malými funkčními hodnotami",
+otazka=>"Funkce roste pomalu z malé a záporné funkční hodnoty.",
+spravne=>1},
+{
+nadpis=>"Prakticky se neměnící funkce",
+otazka=>"Funkce se prakticky nemění, pouze mírně kolísá okolo rovnovážné polohy. Rovnovážná poloha je kladná a numericky velká.",
+spravne=>2},
+];
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+
+
+$DEBUG = 1;
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+#@pole = shuffle($pocet);
+#@pole = @pole[0..3];
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$sp       =  $data->[$i]->{spravne};
+$radio    =  RadioButtons($moznosti,$sp);
+$ok_odpoved = @$moznosti[$sp];
+
+BEGIN_PGML
+
+
+
+## [$i+1]: [$na] 
+
+Uvažujme následující scénář: _[$ot]*_
+
+Jak se popisované chování projeví na derivaci funkce?
+
+[_]{$radio}
+
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+Správná odpověď: [$ok_odpoved]
+
+
+END_PGML_SOLUTION
+
+};
+
+# konec cyklu
+
+
+ENDDOCUMENT();
+

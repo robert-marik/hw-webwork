@@ -1,6 +1,13 @@
 Uprava prikladu
 ==================
 
+
+Zmenit priklady cislo 15 na automaticky vhodnocovane
+
+* chatGPT a je to OK?
+* derivace je numericky tolik a tolik, co to znamena pro takovy a takovy priklad.
+
+
 Bazální metabolismus a růst hmotnosti jedince
 * pridat otazku na dW/dM
 * zduraznit, ze u dW/dt se chce dosazeni

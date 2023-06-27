@@ -8,7 +8,7 @@ loadMacros(
 );
 TEXT(beginproblem());
 
-ADD_CSS_FILE("css/left.css");
+ADD_CSS_FILE("css/gpt.css");
 
 
 $radio = RadioButtons([
@@ -26,6 +26,10 @@ BEGIN_PGML
 
 Velkým pomocníkem při studiu čehokoliv je umělá inteligence. Vyzkoušel jsem AI následovně. Zadání bylo vyřešit kvadratickou rovnici
 [```x^2 - x - 6 = 0.```]
+
+END_PGML
+TEXT(MODES(HTML => "<div class='GPT'>")); 
+BEGIN_PGML
 
 **Odpověď:**
 
@@ -60,6 +64,11 @@ To nám dává dvě možnosti:
 [```x_2 = \frac{{1 - 5}}{2} = -2```]
 
 Takže řešením rovnice [```x^2 - x - 6 = 0```] jsou [`x = 3`] a [`x = -2`].
+
+
+END_PGML
+TEXT(MODES(HTML => "</div>")); 
+BEGIN_PGML
 
 
 Jaký máte z řešení dojem?
