@@ -3,48 +3,90 @@ loadMacros(
 "PGstandard.pl",
 "PGML.pl",
 "MathObjects.pl",
-"PGessaymacros.pl",
+"parserRadioButtons.pl",
 "PGcourse.pl",
 );
 TEXT(beginproblem());
 
-ADD_CSS_FILE("css/left.css");
-
-TEXT(MODES(
-    HTML => "<style>.problem-content textarea {width:100%;}</style>",
-));
-
-TEXT(MODES(
-    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
-));
-
-BEGIN_PGML
+ADD_CSS_FILE("css/gpt.css");
 
 
-## Odpovědí je text
-
-Poslední otázkou bude otázka, kde budete mít za úkol zapsat odpověď slovně a vyhodnocení neprobíhá automaticky, ale ručně po uzavření úloh. Tyto otázky budou spíše míněny jako zpětná vazba od studentů. 
-
-**Otázka pro tento týden: V předmětu navazujeme na základní kurz matematiky, kde je ústředním pojmem pojem derivace. Jak byste tento tento pojem osvětlili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je dovednost práce s tímto pojmem tak důležitá? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si o derivaci chtěl zjistit více.**
-
-END_PGML
-
-
-BEGIN_TEXT
-\{essay_box(10,80)\}
-END_TEXT
-
+$radio = RadioButtons([
+"Řešení je matematicky správné a je podrobně okomentované a plně srozumitelné.",
+"Řešení je matematicky správné, ale je hůře srozumitelné, protože používá neobvyklé slovní obraty.",
+"Řešení je matematicky špatně."
+],1);
 
 
 BEGIN_PGML
 
-Hodnocení není automatické. Úlohu boduje ručně vyučující. 
+
+## Chat GPT nebo jiná AI
+
+
+Velkým pomocníkem při studiu čehokoliv je umělá inteligence. Vyzkoušel jsem AI následovně. Zadání bylo vyřešit kvadratickou rovnici
+[```x^2 - x - 6 = 0.```]
+
+END_PGML
+TEXT(MODES(HTML => "<div class='GPT'>")); 
+BEGIN_PGML
+
+**Odpověď:**
+
+Rovnice [```x^2 - x - 6 = 0```] můžeme vyřešit pomocí kvadratického vzorce:
+
+[```x = \frac{{-b \pm \sqrt{{b^2 - 4ac}}}}{{2a}}```]
+
+Ve vzorci se používají následující hodnoty:
+
+[``a = 1``],
+
+[``b = -1``],
+
+[``c = -6``].
+
+Dosazením těchto hodnot dostaneme:
+
+[```x = \frac{{-(-1) \pm \sqrt{{(-1)^2 - 4 \cdot 1 \cdot (-6)}}}}{{2 \cdot 1}}```]
+
+Simplifikací a výpočtem získáme:
+
+[```x = \frac{{1 \pm \sqrt{{1 + 24}}}}{2}```]
+
+[```x = \frac{{1 \pm \sqrt{25}}}{2}```]
+
+[```x = \frac{{1 \pm 5}}{2}```]
+
+To nám dává dvě možnosti:
+
+[```x_1 = \frac{{1 + 5}}{2} = 3```]
+
+[```x_2 = \frac{{1 - 5}}{2} = -2```]
+
+Takže řešením rovnice [```x^2 - x - 6 = 0```] jsou [`x = 3`] a [`x = -2`].
+
+
+END_PGML
+TEXT(MODES(HTML => "</div>")); 
+BEGIN_PGML
+
+
+Jaký máte z řešení dojem?
+
+[_]{$radio}
+
 
 END_PGML
 
 
-#Essay Boxs use the essay_cmp evaluator.
-ANS(essay_cmp());
+BEGIN_PGML_SOLUTION
+
+Řešení je správně. Je trošku ukecané, ale to je vlastnost jazykového modelu.
+
+Je těžko srozumitelné, protože používá obraty "kvadratický vzorec" a "simplifikace". Jedná se o anglicismy. Vzorec pro řešení kvadratické rovnice se v angličtině nazývá ""quadratic formula" a proces úpravy matematických výrazů se nazývá "simplification". Doslovný překlad do češtiny však není možné používat, vede to k neobvyklým a nepoužívaným jazykovým tvrzením a zbytečnému zamlžení jinak správného postupu. 
+
+END_PGML_SOLUTION
+
 
 
 
