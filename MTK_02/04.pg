@@ -1,0 +1,106 @@
+DOCUMENT(); 
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGchoicemacros.pl",
+  "PGgraders.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+
+Context("Numeric");
+
+# Create and use pop up lists 
+$tf = new_select_list();
+$tf->rf_print_q(~~&pop_up_list_print_q);
+$tf->rf_print_a(~~&std_print_a);
+
+# Choices presented to students
+$tf->ra_pop_up_list( [ 
+"Vyberte odpověď" => "?", 
+"da/dt"  => "da/dt", 
+"db/dt"  => "db/dt", 
+"dL/dt"  => "dL/dt", 
+"dH/dt"  => "dH/dt", 
+"dz/dt"  => "dz/dt", 
+"dm/dt"  => "dm/dt", 
+]);
+
+# Questions and answers
+$tf -> qa ( 
+"Vyberte z rozbalovací nabídky veličinu vyjadřující rychlost chůze (pohybu) člověka směrem od kladky. (Bude nulová pokud člověk stojí na stále stejném místě.)","da/dt",
+"Vyberte z rozbalovací nabídky veličinu vyjadřující rychlost, s jakou stoupá zátěž.","dz/dt",
+"Vyberte z rozbalovací nabídky veličinu vyjadřující rychlost, s jakou se mění délka lana. (Tato derivace bude nulová pro neprotažitelné lano, které držíme stále ve stejném místě. Bude kladná buď pro elastické lano, které se prodlužuje, nebo pro lano které klouže mezi prsty. Bude záporná v případě, že člověk při vytahování lano přechytává a tím zkracuje část lana nesoucí zátěž.)","dL/dt",
+"Vyberte z rozbalovací nabídky veličinu vyjadřující rychlost, s jakou se mění výška ve které se nachází kladka. (Bude nulová pro pevně ukotvenou kladku, což je asi prakticky nejvíce využitelný případ.)","dH/dt",
+);
+
+# How many questions to use
+$tf->choose(4);
+
+
+BEGIN_PGML
+
+## Rychlost s jakou se pohybuje zátěž na kladce
+
+[@ image("kladka.png", width=>400) @]*
+
+Na obrázku je člověk, který tahá přes kladku na provaze délky [`L`] zátěž o hmotnosti [`m`]. Délku lana [`L`] uvažujeme mezi úchopem a zátěží. Přebývající konec lana za místem úchopu není důležitý. Taktika vytahování zátěže může spočívat buď v pohybu člověka vodorovným směrem od kladky, nebo ve zkracování lana přechytáváním nebo může být kombinací obojího.
+
+* Výška ve které je umístěna kladka je [`H`].
+* Výška ve které je zátěž je [`z`].
+* Výška ve které člověk drží lano je [`b`].
+
+Čas označíme [`t`] a v rozbalovacím menu jsou derivace podle času. Vyberte ke každé rychlosti změny správnou derivaci.
+
+
+[@ $tf -> print_q() @]*
+
+
+END_PGML
+
+
+$showHint = 1;
+BEGIN_PGML_HINT
+Pozorně čtěte, jakou rychlost sledujeme a v obrázku najděte označení pro příslušnou měnící se veličinu. Poté použijte derivaci této veličiny.
+END_PGML_HINT
+
+
+
+############################
+#  Answer evaluation
+
+$showPartialCorrectAnswers = 0;
+
+#
+#  Incremental grader
+#
+install_problem_grader(~~&custom_problem_grader_fluid);
+$ENV{'grader_numright'} = [1,2,4];
+$ENV{'grader_scores'} = [0.2,0.5,1];
+$ENV{'grader_message'} = "Za částečně správnou odpověď získáte částečný počet bodů";
+
+#
+#  All or nothing grader
+#  
+# install_problem_grader(~~&std_problem_grader);
+
+ANS( str_cmp( $tf->ra_correct_ans() ) );
+
+
+BEGIN_PGML_SOLUTION
+
+Rychlost s jakou roste každá veličina je derivace této veličiny podle času.
+
+[@ $tf -> print_a() @]*
+
+
+END_PGML_SOLUTION
+
+COMMENT("Uses PGML.");
+
+ENDDOCUMENT();
+

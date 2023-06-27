@@ -1,0 +1,49 @@
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("css/left.css");
+
+TEXT(MODES(
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
+));
+
+BEGIN_PGML
+
+
+## Derivace
+
+Na Wikipedii a ve středoškolských učebnicích se většinou derivace chápe v první řadě jako směrnice tečny. Pro nás a pro popis fyzikálních dějů a jevů v přírodě a v materiálu je podstatnější role derivace jako rychlosti změny. Někdy se však v aplikacích využívá i role derivace jako směrnice tečny. Je to zejména při lineární aproximaci funkce, se kterou jsme se seznámili v úvodu semestru. 
+
+**Úkol pro tento týden: Zkuste krátce vysvětlit, jaké jsou silné a slabé stránky lineární aproximace. Napište, k čemu je tato aproximace užitečná a na co je potřeba při jejím použití dávat pozor. Jako obvykle je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box(10,80)\}
+END_TEXT
+
+BEGIN_PGML
+ 
+Samozřejmostí je ucelený text, celá věta nebo celý odstavec s dodržením interpunkce a stavby věty (podmět, sloveso, další větné členy). Cílem je vyzkoušet si, zda umíte dát srozumitelnou a jasně formulovanou odpověď.
+ 
+END_PGML
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+
+BEGIN_PGML_SOLUTION
+
+...
+
+END_PGML_SOLUTION
+
+ENDDOCUMENT();

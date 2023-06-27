@@ -1,0 +1,62 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$b=random(2,10,1);
+$c=non_zero_random(-4,7,1);
+$k=random(3,5,1);
+do  { $l=random(3,7,1); } until ($l != $k);
+do  { $m=random(3,9,1); } until (($m != $k) and ($m != $k));
+
+Context("Numeric")->variables->add(y=>"Real");
+	
+$funkce=Formula("$b*x^$k*y^$l+$c*x^$m*y-y^($m+2)")->reduce();
+$dfx=$funkce->D("x");
+$dfy=$funkce->D("y");
+
+BEGIN_PGML
+
+## Parciální derivace polynomu dvou proměnných
+
+Parciální derivace počítáme stejně jako klasické derivace, jenom dáváme pozor na to, podle které proměnné se derivuje. Pro tuto proměnnou používáme příslušné vztahy z diferenciálního počtu funkcí jedné proměnné a zbylé proměnné jsou považovány za parametry. Například funkci [```f(x,y)=x^2 y^5+y^6```] derivujeme podle [`x`] jako kvadratickou funkci opatřenou konstantním násobkem [`y^5`] a aditivní konstantou [`y^6`]. Proto platí [``` \frac{\partial f}{\partial x}=2xy^5.```] Při derivaci podle [`y`] tuto funkci chápeme jako součet dvou mocnin: mocniny pátého stupně s konstantním násobkem [`x^2`] a mocniny šestého stupně, tj.  [``` \frac{\partial f}{\partial y}=x^2 \cdot 5y^4+6y^5=5x^2y^4+6y^5.```]
+
+---------------
+
+Vypočtěte obě parciální derivace funkce [``` f(x,y)=[$funkce].```]
+
+>>[``\frac{\partial f}{\partial x}={}``][_________________________]{$dfx} <<
+
+>>[``\frac{\partial f}{\partial y}={}``][_________________________]{$dfy} <<
+
+END_PGML
+
+
+
+BEGIN_PGML_HINT
+
+Derivujte každý sčítanec zvlášť (stejně jako v předchozím příkladě) a derivace jednotlivých sčítanců sečteme. Pokud v některém sčítanci některá proměnná, podle které se derivuje, chybí, chová se tento sčítanec jako konstanta a protože derivace konstanty je nula, tak se ve výsledku neuplatní.
+
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+
+Derivujeme každý sčítanec zvlášť a derivace jednotlivých sčítanců sečteme. Pokud v některém sčítanci některá proměnná, podle které se derivuje, chybí, chová se tento sčítanec jako konstanta a protože derivace konstanty je nula, tak se ve výsledku neuplatní.
+
+[```\frac{\partial f}{\partial x} =[$dfx]```]
+
+[```\frac{\partial f}{\partial y} =[$dfy]```]
+
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

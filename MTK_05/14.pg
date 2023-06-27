@@ -1,0 +1,88 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+$data =
+[
+{
+nadpis=>"Postačující podmínka pro integrovatelnost",
+otazka=>"Jaká podmínka je postačující podmínkou pro existenci neurčitého integrálu funkce \(f\) na intervalu \(I\).",
+odpoved=>"Spojitost. Každá spojitá funkce je integrovatelná.",
+moznosti=>[
+"Nenulovost. Každá funkce, která nemá nulové body, je integrovatelná.",
+"Monotonie. Každá rostoucí nebo klesající funkce je integrovatelná.",
+]
+},
+{
+nadpis=>"Integrály, které nejsou elementárními funkcemi.",
+otazka=>"Některé integrály nejsou elementárními funkcemi. Jak byste zapsali primitivní funkci k funkci \[\frac{e^x}{x^2+1}?\]",
+odpoved=>"použitím integrálu jako funkce horní meze, tj. \(\displaystyle \int _0^x \frac {e^t}{t^2+1}\,\mathrm dt\)",
+moznosti=>[
+"nijak, primitivní funkce neexistuje, protože funkce má bod nespojitosti \(x=0\)",
+"nijak, primitivní funkce neexistuje, protože funkce má body nespojitosti \(x=\pm 1\)",
+"použitím inverzní operace, tj. \(\displaystyle \frac{\mathrm d}{\mathrm dx} \frac {e^x}{x^2+1}\)",
+]
+}
+];
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+$DEBUG=1;
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
+
+BEGIN_PGML
+
+## [$na]
+
+[$ot]*
+
+[_]{$radio}
+
+_[$zdroj]_
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$od]*
+
+END_PGML_SOLUTION
+
+};
+# konec cyklu
+
+
+ENDDOCUMENT();
+

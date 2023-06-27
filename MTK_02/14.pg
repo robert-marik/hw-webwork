@@ -1,0 +1,94 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+$DEBUG=0;
+
+$data =
+[
+{
+    nadpis=>"Slovní interpretace vzorce pro lineární aproximaci",
+    otazka=>"Lineární aproximace je založena na vzorci \[f(x)\approx f(x_0)+f'(x_0)(x-x_0).\] Co v tomto kontextu vyjadřuje výraz \(f'(x_0)\)?",
+    odpoved=>"Odhad změny veličiny \(f\) na intervalu jednotkové délky, začínajícího v bodě \(x_0\).",
+    moznosti=>[
+"Odhad změny veličiny \(f\) na intervalu mezi \(x_0\) a \(x\).",
+"Odhad průměrné rychlosti růstu veličiny \(f\) na intervalu mezi \(x_0\) a \(x\).",
+"Odhad hodnoty veličiny \(f\) v bodě \(x\).",
+"Odhad hodnoty veličiny \(f\) v bodě \(x_0\).",
+],
+}
+,
+{
+    nadpis=>"Slovní interpretace vzorce pro lineární aproximaci",
+    otazka=>"Lineární aproximace je založena na vzorci \[f(x)\approx f(x_0)+f'(x_0)(x-x_0).\] Co v tomto kontextu vyjadřuje výraz \(f'(x_0)(x-x_0)\)?",
+    odpoved=>"Odhad změny veličiny \(f\) na intervalu mezi \(x_0\) a \(x\).",
+    moznosti=>[
+"Odhad změny veličiny \(f\) na intervalu jednotkové délky, začínajícího v bodě \(x_0\).",
+"Odhad okamžité rychlosti růstu veličiny \(f\) v bodě \(x_0\).",
+"Odhad průměrné rychlosti růstu veličiny \(f\) na intervalu mezi \(x_0\) a \(x\).",
+"Odhad hodnoty veličiny \(f\) v bodě \(x\).",
+"Odhad hodnoty veličiny \(f\) v bodě \(x_0\).",
+],
+}
+];
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
+
+BEGIN_PGML
+
+## [$na]
+
+[$ot]*
+
+[_]{$radio}
+
+_[$zdroj]_
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$od]*
+
+END_PGML_SOLUTION
+
+};
+# konec cyklu
+
+
+ENDDOCUMENT();
+

@@ -1,0 +1,68 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+$a=non_zero_random(2,8);
+$c=non_zero_random(-10,10);
+
+Context("Numeric")->variables->are($var=>'Real');
+
+$f=Formula("$c*x^$a")->reduce();   # funkce
+$vzorec=Formula("x^$a")->D()->reduce();   # vzorec
+$answer = $f->D();   # derivace
+
+BEGIN_PGML
+
+V této sadě úloh si procvičíte (nebo naučíte) derivování.
+
+## Derivace mocninné funkce
+
+Derivace mocninné funkce je dána vzorcem [```\left(x^n\right)'=\frac{\mathrm d}{\mathrm dx}\left(x^n\right)=n x^{n-1}.```]
+Slovy: _mocninnou funkci derivujeme tak, že exponent použijeme před funkcí jako konstantní násobek a zmenšíme jej o jedničku._
+
+Kromě toho víme, že derivace konstantního násobku je konstantní násobek derivace. Můžeme tedy psát (pomocí zkrácené Lagrangeovy notace)
+[```(3x^6)'=3(x^6)'=3\cdot 6 x^5=18x^5.```]
+Tento výsledek můžeme zapsat například ve tvaru *18\*x^5* nebo *3\*6x^5*.
+
+------------
+
+Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$f] .```] Příklad je analogický výše uvedenému vzoru.
+
+>>[`` f'([$var])=\frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$f]\Bigr) ={}``]
+[_____________________]{$answer}<<
+
+END_PGML
+
+$showHint = 1;
+BEGIN_PGML_HINT
+Ve vzorci
+[```\left(x^n\right)'=\frac{\mathrm d}{\mathrm dx}\left(x^n\right)=n x^{n-1}```]
+uvažujte [`n=[$a]`]. Kromě toho vezměte v úvahu, že máme násobek uvedeného vzorce.
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Ve vzorci
+[```\left(x^n\right)'=\frac{\mathrm d}{\mathrm dx}\left(x^n\right)=n x^{n-1}```]
+uvažujeme [`n=[$a]`].
+Tedy
+[```\left(x^{[$a]}\right)'=\frac{\mathrm d}{\mathrm dx}\left(x^{[$a]}\right)=[$vzorec].```]
+Kromě toho vezmeme v úvahu, že máme násobek uvedeného vzorce.
+
+[``` f'([$var])=[$answer->reduce();]```]
+
+(Automaticky vygenerované řešení, které je pravděpodobně možné dále upravit.)
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

@@ -1,0 +1,62 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "parserFormulaUpToConstant.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context()->flags->set(
+     reduceConstants => 0,
+     reduceConstantFunctions => 0,
+   );
+
+$n=random(3,11,1);
+$n1=$n+1;
+
+$funkce=Formula("x^($n)");
+$int=Formula("1/($n1)*x^($n1)")->with(limits =>[1,2]);
+
+
+BEGIN_PGML
+
+## Neurčitý integrál mocninné funkce
+
+Integrál mocninné funkce počítáme pomocí vzorce [``` \int x^n\,\mathrm dx=\frac1{n+1}x^{n+1}+C.```]
+Slovně: mocninnou funkci integrujeme tak, že exponent zvýšíme o jedničku a připíšeme i do jmenovatele.
+Například
+[``` \int x^{12}\,\mathrm dx=\frac 1{13}x^{13}+C,```]
+což je možné zapsat jako *1/13 \* x^(13)* (integrační konstantu do odpovědi nepište).
+
+
+Vypočtěte následující integrál.
+>>[``\int [$funkce]\,\mathrm dx ={}``][_________________________]{$int->cmp(upToConstant=>1)}[``{}+C``] <<
+
+Poznámka: U této ani u dalších otázek v této domácí úloze nezapisujte integrační konstantu "[`{}+C`]", která je už předepsána automaticky. 
+
+END_PGML
+
+BEGIN_PGML_HINT
+Použijte vzorec
+[``` \int x^n\,\mathrm dx=\frac1{n+1}x^{n+1}+C```]
+pro [`n=[$n]`]. Tedy v tomto případě máme [``` n+1=[$n1].```]
+
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Použijeme vzorec
+[``` \int x^n\,\mathrm dx=\frac1{n+1}x^{n+1}+C```]
+pro [`n=[$n]`]. Tedy v tomto případě máme [``` n+1=[$n1]```]
+a proto
+[``` \int [$funkce]\,\mathrm dx=[$int]+C.```]
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

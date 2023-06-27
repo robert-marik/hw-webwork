@@ -1,0 +1,108 @@
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context("Matrix");
+
+# create an invertible matrix with det either 1  or -1
+
+$a11 = random(-1,1,1);
+$a21 = random(-1,1,2);
+$a31 = random(-1,1,2);
+
+$b1 = random(-1,1,2);
+$a12 = $b1 * $a11;
+$m = random(-1,1,2);
+$a22 = $b1 * $a21 + $m;
+$a32 = $b1 * $a31;
+
+$c = random(-1,1,1);
+$d = random(-1,1,2);
+$n = random(-1,1,2);
+$a13 = $c * $a11 + $d * $a12 + $n;
+$a23 = $c * $a21 + $d * $a22;
+$a33 = $c * $a31 + $d * $a32;
+
+$a = Matrix([[$a11, $a12, $a13],[$a21, $a22, $a23],[$a31, $a32, $a33]]);
+
+$b = $a->inverse();
+
+# define eigenvalues
+
+    $e1 = Real(non_zero_random(-3,-2));
+    $e2 = Real(non_zero_random(-1,1));
+    $e3 = Real(non_zero_random(2,3));
+
+$e = Matrix([[$e1,0,0],[0,$e2,0],[0,0,$e3]]);
+
+$matrix = $a*$e*$b;
+
+# define eigenvectors
+
+$v1 = Matrix([[$a11],[$a21],[$a31]]);
+$v2 = Matrix([[$a12],[$a22],[$a32]]);
+$v3 = Matrix([[$a13],[$a23],[$a33]]);
+
+$Av1=$matrix*$v1;
+$Av2=$matrix*$v2;
+$Av3=$matrix*$v3;
+
+Context("Numeric"); 
+
+BEGIN_PGML
+
+## Vlastní hodnoty podle známých vlastních vektorů
+
+V této úloze pracujeme s analogií Cvičení 10.2, pouze máme matici vyššího řádu a vektory vyšší dimenze. Na druhou stranu se spolehlivě jedná o vlastní vektory a přislušný násobek je možno odhalit z jedné jediné nenulové komponenty. 
+
+
+Najděte vlastní hodnoty matice [``` A = [$matrix] ```]
+jsou-li zadány vlastní vektory [` v_1 = [$v1]`], [`v_2 = [$v2]`] a [`v_3 = [$v3]`].
+
+Vlastní hodnoty (vlastní čísla) jsou
+
+* [`\lambda_1 = {}`][____________]{$e1}
+* [`\lambda_2 = {}`][____________]{$e2}
+* [`\lambda_3 = {}`][____________]{$e3}
+
+(Vlastní čísla se mohou opakovat.)
+END_PGML
+
+
+
+BEGIN_PGML_HINT
+Stačí vynásobit matici a vektory a podívat se, na jaký násobek se vektor transformuje. Pokud je jistota, že vektory jsou vlastními vektory (pokud je zadání korektní), stačí se orientovat podle první nenulové souřadnice. Jestliže si nejste jisti správností maticového násobení, zkuste MATLAB, Sage nebo Octave.
+
+Například pro vektor [`\vec v_1=[$v1]`] dostáváme
+[``` A\vec v_1=[$matrix][$v1]=[$Av1]=[$e1][$v1].```] Odsud je patrná první vlastní hodnota. Další najdete analogicky.
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Stačí vynásobit matici a vektory a podívat se, na jaký násobek se vektor transformuje. Pokud je jistota, že vektory jsou vlastními vektory (pokud je zadání korektní), stačí se orientovat podle libovolné nenulové souřadnice.
+
+Pro vektor [`\vec v_1=[$v1]`] dostáváme
+[``` A\vec v_1=[$matrix][$v1]=[$Av1]=[$e1][$v1].```]
+
+Pro vektor [`\vec v_2=[$v2]`] dostáváme
+[``` A\vec v_2=[$matrix][$v2]=[$Av2]=[$e2][$v2].```]
+
+Pro vektor [`\vec v_3=[$v3]`] dostáváme
+[``` A\vec v_3=[$matrix][$v3]=[$Av3]=[$e3][$v3].```]
+
+Vlastní hodnoty jsou po řadě [`\lambda_1=[$e1]`], [`\lambda_2=[$e2]`], [`\lambda_3=[$e3]`].
+END_PGML_SOLUTION
+
+ENDDOCUMENT() ;

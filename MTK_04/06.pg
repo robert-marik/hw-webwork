@@ -1,0 +1,78 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "parserFormulaUpToConstant.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context()->flags->set(
+     reduceConstants => 0,
+     reduceConstantFunctions => 0,
+   );
+
+
+$N=random(4,9,1);
+$a=random(2,10,2);
+$b=random(-7,11,2);
+$c=random(2,10,2);
+$d=random(-9,11,2);
+
+$funkce1=Formula("($a*x+$b)^3")->reduce();
+$int1=Formula("(1/4)* (1/($a)) *($a*x+$b)^4")->with(limits =>[-1,1]);
+$funkce2=Formula("($c*x+$d)^($N)")->reduce();
+$N1=$N+1;
+$int2=Formula("1/($N1)*(1/$c)*($c*x+$d)^($N1)")->with(limits =>[-1,1]);
+
+BEGIN_PGML
+
+## Složená funkce s lineární vnitřní složkou
+
+Funkce tvaru [`f(ax+b)`] můžeme integrovat podle vztahu [``` \int f(ax+b)\,\mathrm dx=\frac 1a F(ax+b)+C,```]
+kde [`F`] je primitivní funkcí k [`f`], tj.
+[``` \int f(x)\,\mathrm dx=F(x)+C.```]
+
+Je-li například funkce [`f`] mocninná funkce, je funkce [`F`] mocninná funkce s exponentem navýšeným o jedničku a vynásobená faktorem obsahujícím tento navýšený exponent ve jmenovateli. Například pro třetí mocninu máme [```f(x)=x^3```] a [```F(x)=\frac 14 x^4.```] Odsud poté například (pro [`ax+b=7x-15`])
+[```\int(7x-15)^3\,\mathrm dx=\frac 1{7}\cdot \frac 14 \cdot (7x-15)^4+C, ```]
+což můžeme zapsat jako *1/(7\*4) \* (7x-15)^4*.
+
+-------------
+
+Vypočtěte následující integrály.
+>>[``\int [$funkce1]\,\mathrm dx ={}``][_________________________]{$int1->cmp(upToConstant=>1)}[``{}+C``] <<
+
+>>[``\int [$funkce2]\,\mathrm dx ={}``][_________________________]{$int2->cmp(upToConstant=>1)}[``{}+C``] <<
+
+END_PGML
+
+BEGIN_PGML_HINT
+Použijte vztah
+[``` \int x^n\,\mathrm dx=\frac1{n+1}x^{n+1}+C```]
+pro [`n=3`] a [`n=[$N]`].
+
+Slovně by bylo možno vyjádřit postup tak, že exponent se o jedničku zvýší, přídá se ještě i do jmenovatele a dále se do jmenovatele přidá koeficient, který uvnitř závorky násobí proměnnou [`x`], tj. v případě prvního integrálu [`[$a]`] a v případě druhého integrálu [`[$c]`].
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Použijeme vztah
+[``` \int x^n\,\mathrm dx=\frac1{n+1}x^{n+1}+C```]
+pro [`n=3`] a [`n=[$N]`].
+
+Slovně by bylo možno vyjádřit potup tak, že exponent se o jedničku zvýší, přídá se ještě i do jmenovatele a dále se do jmenovatele přidá koeficient, který uvnitř závorky násobí proměnnou [`x`], tj. v případě prvního integrálu [`[$a]`] a v případě druhého integrálu [`[$c]`].
+
+Dostáváme následující. 
+>>[``\int [$funkce1]\,\mathrm dx =\frac 1{4\cdot [$a]}([$a]x+[$b])^4+C``] <<
+
+>>[``\int [$funkce2]\,\mathrm dx =\frac 1{[$N1]\cdot [$c]}([$c]x+[$d])^{[$N1]}+C``] <<
+
+(Je možné, že počítač nahradí zlomek desetinným číslem a musíte zpětně "rozšifrovat", o jaký zlomek se jedná.)
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

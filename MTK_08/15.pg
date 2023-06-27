@@ -1,0 +1,87 @@
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("css/left.css");
+
+TEXT(MODES(
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
+));
+
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;} </style>",
+));
+
+BEGIN_PGML
+
+
+## Vlastní směry
+
+Při popisu fyzikálních dějů se v některých případech pracuje s maticovými (tenzorovými veličinami). Při práci s takovými veličinami jsou velmi oblíbené vlastní směry příslušných matic.
+
+**Úkol pro tento týden: Zkuste krátce vysvětlit, co jsou to vlastní směry matice a proč je máme při práci s maticovými veličinami tak v oblibě. Jako obvykle je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box(10,80)\}
+END_TEXT
+
+
+
+BEGIN_PGML
+ 
+Samozřejmostí je ucelený text, celá věta nebo celý odstavec s dodržením interpunkce a stavby věty (podmět, sloveso, další větné členy). Cílem je vyzkoušet si, zda umíte dát srozumitelnou a jasně formulovanou odpověď.
+ 
+END_PGML
+
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+
+
+BEGIN_PGML_SOLUTION
+
+*Příklad odpovědi:* Vlastní směry jsou směry, které se při zobrazení maticí zobrazují samy na
+sebe. Vektor mířící vlastním směrem se zobrazuje na svůj skalární násobek.
+Jejich znalost můžeme využít při volbě souřadné soustavy. Pokud jsou totiž
+osy souřadné soustavy vlastními směry matice, má matice diagonální tvar a je
+pro mnoho výpočtů jednodušší, než obecná nediagonální matice. 
+
+*Nesprávné odpovědi:*
+
+* Vlastní směr matice je vektor, který je zároveň obraz a tedy i násobek
+vektoru, který jsme používali k násobení matice.  Př.  <12,18> je vlastní
+vektor <2,3>.  Máme je v oblibě protože mají stejný determinant a to nám
+ulehčí práci při počítání.
+  (První věta se snaží vyjádřit definici, ale vektor není zároveň svůj
+obraz.  Druhá věta ani nemůže být v pořádku, protože nevíme, jaká je matice
+a jak spolu souvisí uvedené dva vektrory.  Asi bylo myšleno /ale ne
+napsáno/ že jeden vektor je obrazem druhého při maticovém zobrazení.  Třetí
+věta není v pořádku.  Vlastní směry nemají žádný determinant.) 
+* Vlastní směry neboli vektory, určují velikost i směr matice.  Můžeme to využít
+například při přepisu lineárních rovnic do maticového zápisu. (Není správně.
+Při přepisu lineárních rovnic do maticového zápisu vlastní
+směry nepotřebujeme. Matice nemá velikost a není jasné, co se myslí
+vlastností "směr matice". Pokud vlastní směr, jedná se o definici kruhem,
+pokud něco jiného, tak matice směry má jedině v případě, že degeneruje na
+vektor, tj. na matici s jedním sloupcem nebo jedním řádkem.)
+* Pokud matici transformujeme těmito vektory, nezmění se jejich délka ani
+  směr.  Umožňují rozložit matici do tvaru, který je snadněji zpracovatelný
+  a interpretovatelný.  Pokud máme matici, která popisuje rotaci nějakého
+  objektu, její vlastní směry budou odpovídat směrům, ve kterých se objekt
+  otáčí. (Netranaformuje se matice těmito vektory, ale vektory se
+  transformují pomocí matice. Matice rotace nemá vlastní vektory. Pouze
+  pokud by se jednalo o úhel odpovídající celočíselnému násobku 180 stupňů.)
+
+END_PGML_SOLUTION
+
+ENDDOCUMENT();

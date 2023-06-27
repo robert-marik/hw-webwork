@@ -1,0 +1,56 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$radio1 = RadioButtons(
+[[
+"\(\displaystyle \frac{\mathrm dS}{\mathrm dt}=2\pi r\frac{\mathrm dr}{\mathrm dt}=2\pi\cdot 230 \cdot 30\,\mathrm{km}^2/\mathrm{rok}\)$BR$BR$BR",
+"\(\displaystyle \frac{\mathrm dS}{\mathrm dt}=\pi r^2\frac{\mathrm dr}{\mathrm dt}=2\pi\cdot (230)^2 \cdot 30\,\mathrm{km}^2/\mathrm{rok}\)$BR$BR$BR",
+"\(\displaystyle \frac{\mathrm dS}{\mathrm dr}=\pi r^2\frac{\mathrm dr}{\mathrm dt}=\pi\cdot (230)^2 \cdot 30\,\mathrm{km}^2/\mathrm{rok}\)$BR$BR$BR",
+"\(\displaystyle \frac{\mathrm dS}{\mathrm dt}=\pi r^2\frac{\mathrm dr}{\mathrm dt}\implies \frac{\mathrm dr}{\mathrm dt}=\frac{\frac {\mathrm dS}{\mathrm dt}}{\pi r^2}=\frac{230}{\pi \cdot (30)^2}\,\mathrm{km}^2/\mathrm{rok}\)$BR$BR$BR",
+]],0);  # První odpověď správná
+
+
+BEGIN_PGML
+
+
+## Derivace a rychlost šíření výskytu ondatry
+
+[@ image("ondatra.jpg", width=>400) @]*
+
+V roce 1905 vysadil na svém panství hrabě Colloredo-Mansfeld několik
+párů ondatry, které dovezl z Ameriky. Ondatra se díky absenci
+přirozených nepřátel rychle rozšířila po celé Evropě. Předpokládejme,
+že oblast zasažená rozšířením ondatry má tvar kruhu o poloměru [``230\,
+\mathrm{km}``] a tento poloměr roste rychlostí [``30
+\,\mathrm{km}/\mathrm{rok}``]. Vyznačte výpočet který udává rychlost s jakou se šíří plocha území zasaženého ondatrou (tj. rychlost s jakou roste obsah kruhu).
+Vycházíme ze vzorce pro obsah kruhu [```S=\pi r^2.```]
+
+[_]{$radio1}
+       
+END_PGML
+
+$showHint = 1;
+BEGIN_PGML_HINT
+Úloha je analogická úloze na rozšiřování požáru z úvodního cvičení k předmětu Matematika.
+END_PGML_HINT
+
+
+
+BEGIN_PGML_SOLUTION
+Potřebujeme znát derivaci obsahu podle času. Protože známe obsah jako funkci poloměru, můžeme najít derivaci obsahu podle poloměru. K derivaci obsahu podle času se dostaneme použitím derivace složené funkce.
+[``` \frac{\mathrm dS}{\mathrm dt}=2\pi r\frac{\mathrm dr}{\mathrm dt}=2\pi\cdot 230 \cdot 30\,\mathrm{km}^2/\mathrm{rok}.```]
+END_PGML_SOLUTION
+
+ENDDOCUMENT();
+

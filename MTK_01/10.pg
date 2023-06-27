@@ -1,0 +1,71 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+$a=non_zero_random(2,8);
+$k=non_zero_random(2,4);
+$b=non_zero_random(-8,8);
+do { $b=non_zero_random(1,9) } until ( $b != $a );
+$c=non_zero_random(2,6);
+$d=non_zero_random(1,10);
+
+Context("Numeric")->variables->are($var=>'Real');
+
+$f=Formula("$d/($a*x^$k+$b)^$c")->reduce();   # funkce
+$answer = Formula("$d*(-$c)/($a*x^$k+$b)^($c+1)*$a*$k*x^($k-1)")->reduce();;   # derivace
+
+BEGIN_PGML
+
+## Derivace mocninné funkce s vnitřní složkou a záporným exponentem
+
+Slovní vyjádření derivace mocninné funkce z předchozího příkladu se
+vztahuje pochopitelně i na případ záporného exponentu
+
+Můžeme tedy psát
+[```\frac{\mathrm d}{\mathrm dx} \frac{9}{(5x^2+7)^6}=\frac{\mathrm d}{\mathrm dx} 9(5x^2+7)^{-6} =9\cdot (-6) (5x^2+7)^{-7} 10x =-\frac{540 x}{(5x^2+7)^7}```]
+Tento výsledek můžeme zapsat například ve tvaru *-540x/((5x^2+7)^7)* nebo (pokud se nám nechce násobit a psát dlouhou závorku do jmenovatele)
+*-9\*6\*10\*x\*(5x^2+7)^(-7)*
+
+----
+
+Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$f] .```]
+Příklad je analogický výše uvedenému vzoru.
+
+>>[`` f'([$var])=\frac{\mathrm d}{\mathrm d[$var]} [$f] ={}``]
+[_____________________]{$answer}<<
+
+END_PGML
+
+
+$showHint = 1;
+BEGIN_PGML_HINT
+Použijte 
+[``` \frac{\mathrm d}{\mathrm dx} \frac 1{(g(x))^[$c]}  = -[$c]\frac 1{(g(x))^{[$c+1]}} \frac{\mathrm dg}{\mathrm dx}.```]
+Postup je analogický jako v předchozím příkladě, ale mocnina je záporná.  Pozor na to, že mocnina se snižuje, tj. stává se více zápornou.
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Použijeme 
+[``` \frac{\mathrm d}{\mathrm dx} \frac 1{(g(x))^[$c]}  = -[$c]\frac 1{(g(x))^{[$c+1]}} \frac{\mathrm dg}{\mathrm dx}.```]
+Postup je analogický jako v předchozím příkladě, ale mocnina je záporná. 
+Výsledek je 
+[```  \frac{\mathrm df}{\mathrm d[$var]}=[$answer->reduce();].```]
+
+(Automaticky vygenerované řešení, které je pravděpodobně možné dále upravit.)
+
+END_PGML_SOLUTION
+
+
+
+ENDDOCUMENT();
+

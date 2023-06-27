@@ -1,0 +1,107 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+TEXT(beginproblem());
+
+$DEBUG=0;
+
+$data =
+[
+{
+    obrazek=>"sloup",
+    otazka=>"U nosníku namáhaného na vzpěr je nutné, aby zatížení nepřekročilo jistou mez. Maximální zatížení nosníku daného průřezu souvisí délkou nosníku. Fyzikální analýzou je možné ukázat, že maximální svislá síla \(F\) působící v ose nosníku je nepřímo úměrná druhé mocnině jeho délky \(l\). Vyjádřete tento vztah matematicky.",
+    odpoved=>"\(\displaystyle F=\frac k{l^2}\)",    
+    moznosti=>[
+	  "\(\displaystyle F= k{l^2}\)",
+	  "\(\displaystyle F= k{l}\)",
+	  "\(\displaystyle F= k\sqrt {l}\)",
+	  "\(\displaystyle F= \frac k{l}\)",
+	  "\(\displaystyle F= \frac {k}{\sqrt {l}}\)",
+],
+zdroj=>"Obrázek: pixabay.com, autor alsen"
+}
+,
+{
+    obrazek=>"kytara",
+    otazka=>"Princip hry na strunné hudební nástroje spočívá ve zkracování struny na hmatníku, čímž se mění frekvence jejích kmitů a tím i výška tónu, tj. frekvence kmitů. Je známo, že frekvence \(f\) kmitů struny je nepřímo úměrná délce \(l\) struny. Vyjádřete tento vztah matematicky.",
+    odpoved=>"\(\displaystyle f=\frac k{l}\)",    
+    moznosti=>[
+          "\(\displaystyle f= k{l^2}\)",
+	  "\(\displaystyle f= k{l}\)",
+	  "\(\displaystyle f= k\sqrt {l}\)",
+	  "\(\displaystyle f= \frac k{l^2}\)",
+	  "\(\displaystyle f= \frac k{\sqrt {l}}\)",
+	 ],
+    zdroj=>"Obrázek: pixabay.com, autor Couleur"
+}
+,
+{
+    obrazek=>"nakladaky",
+    otazka=>"Odolnost nosníků zajímá nejenom stavaře dřevěných konstrukcí, ale například i arboristy (strom je možno chápat jako vetknutý nosník) nebo stavitele mostů (most je možno chápat jako nosník podepřený na dvou koncích). Při zátěžovém testu se zatíží most pomocí nákladních aut a porovnává se naměřený průhyb a jeho teoretická hodnota. 
+
+Pro rovnoměrně zatížený nosník je jeho prohnutí \(\delta\) úměrné čtvrté mocnině délky \(l\). Jak byste tuto souvislost zapsali matematicky?",
+    odpoved=>"\(\displaystyle \delta=k{l^4}\)",
+    moznosti=>[
+	  "\(\displaystyle \delta= k{l^3}\)",
+	  "\(\displaystyle \delta= k{\sqrt {l}}\)",
+	  "\(\displaystyle \delta= \frac k{l}\)",
+	  "\(\displaystyle \delta= \frac k{l^3}\)",
+	  "\(\displaystyle \delta= \frac k{\sqrt[4]{l}}\)",
+	 ],
+    zdroj=>"",
+}
+];
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
+
+BEGIN_PGML
+
+## Matematické vyjádření souvislosti veličin
+
+[@ image("$obrazek.jpg", width=>400) @]*
+
+[$ot]*
+
+[_]{$radio}
+
+_[$zdroj]_
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$od]*
+
+END_PGML_SOLUTION
+
+};
+# konec cyklu
+
+ENDDOCUMENT();

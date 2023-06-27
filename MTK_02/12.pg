@@ -1,0 +1,82 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+
+
+
+$data =
+[
+{
+    nadpis=>"Aproximace derivace",
+    otazka=>"Označte výraz, který udává numerickou aproximaci derivace funkce pomocí centrální diference.",
+    odpoved=>"\(\displaystyle\frac{f(x+h)-f(x-h)}{2h}\)",
+    moznosti=>[
+"\(\displaystyle\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}\)",
+"\(\displaystyle\lim_{h\to 0}\frac{f(x+h)+f(x)}{2h}\)",
+"\(\displaystyle\frac{f(x+h)-f(x)}{h}\)",
+"\(\displaystyle\frac{f(x+h)-2f(x)+f(x-h)}{h^2}\)",
+],
+}
+];
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
+
+BEGIN_PGML
+
+## [$na]
+
+[$ot]
+
+[_]{$radio}
+
+_[$zdroj]_
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$od]*
+
+END_PGML_SOLUTION
+
+};
+# konec cyklu
+
+
+ENDDOCUMENT();
+

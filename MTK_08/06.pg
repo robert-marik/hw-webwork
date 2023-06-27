@@ -1,0 +1,66 @@
+DOCUMENT() ;        
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+$showPartialCorrectAnswers = 1 ;
+
+TEXT(beginproblem());
+
+Context("Numeric")->variables->add(lambda=>"Real");
+
+
+$a11=random(-5,5,1);
+$a12=random(-5,5,1);
+$a21=random(-5,5,1);
+$a22=random(-5,5,1);
+
+$Adet = Formula("lambda^2-($a11+$a22)*lambda+($a11*$a22-$a12*$a21)")->reduce();
+Context()->variables->set(lambda => {TeX => '{\lambda}'});
+
+Context()->texStrings;
+BEGIN_PGML
+## Charakteristický polynom
+
+[@ image("bobtnani.jpg", width=>400) @]*
+
+Charakteristický polynom matice [`A`] je determinant matice [`A-\lambda I`], kde [`I`] je jednotková matice. 
+Konkrétně například pro matici 
+[``` Z=\begin{pmatrix}1 &3\\-1&2\end{pmatrix}```]
+je charakteristickým polynomem determinant matice
+[``` Z-\lambda I=\begin{pmatrix}1-\lambda &3\\-1&2-\lambda\end{pmatrix},```]
+tj. polynom 
+[``` \det(Z-\lambda I)=(1-\lambda)(2-\lambda)-3\cdot (-1)=\lambda^2-3\lambda+5.```]
+Tento výsledek se dá zapsat jako *lambda^2-3lambda+5*.
+
+Charakteristický polynom je důležitý, protože jeho kořeny jsou vlastní čísla matice. Například u tenzoru bobtnání dřeva vlivem vlhkosti jsou vlastní čísla hodnoty udávající maximální a minimální bobtnání. Směry, ve kterých toto maximální nebo minimální bobtnání pozorujeme jsou vlastní směry tohoto tenzoru a u dřeva je známe, protože víme, jakým způsobem dřevo bobtná.
+
+Sestavení charakteristického polynomu se procvičíme v této úloze. Výpočtu vlastních čísel, výpočtu odpovídajících směrů a také porovnání délek obrazů vektorů při zobrazení maticí se budeme věnovat v úlohách následujících.
+
+---------------
+
+Vypočtěte charakteristický polynom matice [```A = \begin{pmatrix}[$a11]&[$a12]\\[$a21]&[$a22]\end{pmatrix}.```]
+
+>>[``\det(A-\lambda I)={}``][_____________]{$Adet}<<
+END_PGML
+
+$showHint = 1;
+BEGIN_PGML_HINT
+Musíme vypočítat determinant
+[```\det(A-\lambda I) = \begin{vmatrix}[$a11]-\lambda&[$a12]\\[$a21]&[$a22]-\lambda\end{vmatrix}.```]
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Přímým dosazením do vzorce pro determinant dostaneme
+[```\det(A-\lambda I)=
+\begin{vmatrix}[$a11]-\lambda&[$a12]\\[$a21]&[$a22]-\lambda\end{vmatrix} =
+([$a11]-\lambda)\cdot([$a22]-\lambda)-([$a12])\cdot([$a21])=[$Adet].```]
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
+

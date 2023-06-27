@@ -1,0 +1,68 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "parserFormulaUpToConstant.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$a=random(2,10,1);
+$b=random(2,10,1);
+$c=random(1,10,1)*random(-1,1,2);
+$d=random(0,1,1);
+
+if ($d==0)
+{
+    $funkce=Formula("$b+e^($c*x)");
+    $int=Formula("$b*x+e^($c*x)/($c)")->with(limits =>[-1,1]);
+}
+else
+{ 
+    $funkce=Formula("$b*e^($c*x)"); 
+    $int=Formula("$b*exp($c*x)/($c)")->with(limits =>[-1,1]);
+}
+
+$funkce=$funkce -> reduce();
+
+BEGIN_PGML
+
+## Integrál exponenciální funkce
+
+Integrál exponenciální funkce s lineární vnitřní složkou můžeme vypočítat pomocí vzorce [``\int e^{ax}\,\mathrm dx=\frac 1a e^{ax}+C``]. Například tedy platí
+[``` \int 5+3e^{7x}\,\mathrm dx= 5x + \frac 37 e^{7x}+C.```]
+Tento výsledek je možné zapsat jako *5x+3/7 \* exp(7x)* nebo *5x + 3/7 \* e^(7x)*.
+
+-----------------------------
+
+Postupem analogickým uvedenému vzoru vypočtěte následující integrál.
+>>[``\int [$funkce]\,\mathrm dx ={}``][_________________________]{$int->cmp(upToConstant=>1)}[``{}+C``] <<
+
+END_PGML
+
+Context()->texStrings;
+
+BEGIN_PGML_HINT
+V tomto případě se vzorec [```\int e^{ax}\,\mathrm dx=\frac 1a e^{ax}+C```] redukuje na
+[```\int e^{[$c]x}\,\mathrm dx=\frac 1{[$c]} e^{[$c]x}+C.```]
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+V tomto případě se vzorec [```\int e^{ax}\,\mathrm dx=\frac 1a e^{ax}+C```] redukuje na
+[```\int e^{[$c]x}\,\mathrm dx=\frac 1{[$c]} e^{[$c]x}+C.```]
+Odsud
+
+>>[```\int [$funkce]\,\mathrm dx = [$int] +C```]. <<
+
+(Tento výsledek je vygenerován automaticky a je možné, že existuje hezčí zápis.)
+
+END_PGML_SOLUTION
+
+
+
+ENDDOCUMENT();

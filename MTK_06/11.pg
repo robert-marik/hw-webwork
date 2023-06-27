@@ -1,0 +1,89 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+$data =
+[
+{
+nadpis=>"Počáteční podmínka",
+otazka=>"Co v diferenciální rovnici vyjadřuje počáteční podmínka?",
+odpoved=>"Doplňuje mechanismus vývoje o počáteční stav. Ze všech reálných průběhů modelovaného děje vybírá ten, který odpovídá modelované situaci.",
+moznosti=>[
+"Zaručuje řešitelnost už od provedení prvního kroku řešení. Ze všech matematicky platných řešení vybírá ta, která jsou realizovatelná a v souladu s přírodními zákony.",
+"Zaručuje jednoznačnost díky nastavení počátečních dat pro numerické simulace. Ze všech možných řešení vybera tak, která mají význam pro praktické modelování.",
+]
+}
+,
+{
+nadpis=>"Praktická interpretace řešení",
+otazka=>"Mějme rovnici modelující růst populace živočišného druhu v dané lokalitě a počáteční podmínku udávající velikost této populace v současnosti. Co bude vyjadřovat řešení této počáteční úlohy.",
+odpoved=>"Řešením bude funkce udávající závislost velikosti populace na čase. Po dosazení libovolného času do této funkce budeme mít okamžitě velikost populace v daném časovém okamžiku.",
+moznosti=>[
+"Řešením je funkce udávající, za jakých podmínek může být populace udržitelně lovena.",
+"Řešením je čas, za jak dlouho se populace rozroste na dvojnásobek. Jedná se o jakousi alternativu poločasu rozpadu známého z modelu radioaktivního rozpadu.",
+]
+}
+];
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+$DEBUG=1;
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
+
+BEGIN_PGML
+
+## [$na]
+
+[$ot]
+
+[_]{$radio}
+
+_[$zdroj]_
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$od]
+
+END_PGML_SOLUTION
+
+};
+# konec cyklu
+
+
+ENDDOCUMENT();
+

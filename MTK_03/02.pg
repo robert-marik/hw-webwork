@@ -1,0 +1,106 @@
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGnumericalmacros.pl",
+  "parserRadioButtons.pl",
+  "niceTables.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$ka = random(1,5,.001);
+$kb = random(1,5,.001);
+$K=random(5,10,.1);
+$index=random(1,7,1);
+$step=random(2,5,1);
+
+
+@xx=(0,1,2,3,4,5,6,7,8);
+
+@fx=();
+@x=();
+for (my $i = 0; $i < 9; $i++) {
+    push @x, 1.0*$step*$xx[$i];
+    push @fx, 15.02+int($K*exp($xx[$i]/10)*100)/100;
+}
+
+
+$answer=($fx[$index+1]-$fx[$index-1])/(2*$step);
+
+Context()->flags->set(tolerance => 0.001, tolType => "absolute");
+
+
+$mc1 = RadioButtons(
+    [[ "Rychlost s jakou roste teplota v čase, ve stupních Celsia za minutu.", 
+      "Čas nutný ke zvýšení teploty o jeden stupeň Celsia, v minutách na stupeň Celsia.",
+      "Intenzitu zdroje tepla nutnou pro zvýšení teploty o jeden stupeň Celsia, ve wattech na stupeň Celsia",
+      "Práce vykonaná zdrojem tepla při zvýšení teploty vzorku o jeden stupeň Celsia za minutu, v kilowathodinách na minutu a stupeň Celsia. ",
+      "Rychlost s jakou je nutno dodávat energii, aby se uržela vždy aktuální teplota dřeva, v joulech za minutu na stupeň Celsia"
+]],
+      0 );
+
+
+BEGIN_PGML
+
+## Aproximace derivace konečnými diferencemi
+
+[@ image("sauna.jpg", width=>400) @]*
+
+
+Definice derivace [```\frac{\mathrm df}{\mathrm dx}=\lim_{h\to 0}\frac{f(x+h)-f(x)}h```] nás může inspirovat k aproximaci derivace pomocí dopředné diference vztahem
+[```\frac{\mathrm df}{\mathrm dx}\approx \frac{f(x+h)-f(x)}h.```]
+Z analýzy pomocí Taylorova polynomu však víme o přesnější aproximaci, pomocí centrální diference vztahem
+[```\frac{\mathrm df}{\mathrm dx}\approx \frac{f(x+h)-f(x-h)}{2h}.```]
+
+Uvažujte následující funkci danou tabulkou. Udává závislost teploty [`T`] ve vzorku dřeva na čase [`t`] po vystavení tohoto vzorku dřeva zdroji tepla.
+
+[@ DataTable(
+  [
+    [["\\(t\\ (\\mathrm{min})\\)", midrule => 1,headerrow=>1],@x],["\\(T\\ ({}^\\circ\\mathrm{C})\\)",@fx]
+  ], 
+  caption => 'Funkce zadaná tabulkou'
+); @]*
+
+
+Určete pomocí centrální diference odhad derivace v čase [`t=[$x[$index]]\, \mathrm{min}`].
+
+>>
+[``\left.\frac{\mathrm dT}{\mathrm dt}\right|_{t=[$x[$index]]}\approx{}``]
+[_________________________________]{($fx[$index+1]-$fx[$index-1])/(2*$step)}
+<<
+
+Přesnost vyhodnocování je pro tuto úlohu nastavena na tři desetinná místa. Abyste se vyhnuli použití kalkulaček, nemusíte derivaci zadávat jedním desetinným číslem, ale můžete napsat, jak bude vypadat dosazení do vzorce. Desetinné číslo reprezentující odpověď uvidíte po stisknutí tlačítka pro náhled. Můžete však odpověď nechat v původním neupraveném tvaru a odeslat ke kontrole správnosti.
+
+---
+
+Vyberte správnou slovní interpretaci a jednotku pro právě vypočtenou derivaci.
+
+[_]{$mc1}
+
+
+END_PGML
+
+BEGIN_PGML_HINT
+Je nutné do vzorce pro centrální diferenci
+[```\frac{\mathrm df}{\mathrm dx}\approx \frac{f(x+h)-f(x-h)}{2h}```]
+dosadit dvě hodnoty dohledatelné v tabulce ([`[$fx[$index+1]]`] a [`[$fx[$index-1]]`]) a délku kroku [`[$step]`]. Než se do toho pustíte, prohlédněte si ještě jednou tabulku a polohu těchto hodnot vzhledem k místu, v němž počítáme derivaci.
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Je nutné do vzorce pro centrální diferenci
+[```\frac{\mathrm df}{\mathrm dx}\approx \frac{f(x+h)-f(x-h)}{2h}```]
+dosadit dvě hodnoty dohledatelné v tabulce ([`[$fx[$index+1]]`] a [`[$fx[$index-1]]`]) a délku kroku [`[$step]`]. 
+Dosazením dostáváme
+[```\left.\frac{\mathrm dT}{\mathrm dt}\right|_{t=[$x[$index]]}\approx \frac{[$fx[$index+1]]-[$fx[$index-1]]}{2 \cdot [$step]}=[$answer].```]
+
+Derivace vyjadřuje rychlost s jakou roste teplota v čase a udáváme ji ve stupních Celsia za minutu.
+END_PGML_SOLUTION
+
+ENDDOCUMENT();       # This should be the last executable line in the problem.

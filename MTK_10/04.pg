@@ -1,0 +1,47 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"parserRadioButtons.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$radio=RadioButtons([["Hodnota, o jakou musí být větší ostrov nebo rezervace, aby se na něm uživil jeden další živočišný druh.","Počet živočišných druhů, které se mohou usídlit na ostrově nebo v rezervaci navíc, pokud rozloha vzroste o jednotku.", "Rychlost s jakou roste počet druhů v čase", "Rychlost, s jakou je nutno zvětšovat ostrov nebo rezervaci, aby se na dané lokalitě uživilo o jeden druh více."]],1);
+
+BEGIN_PGML
+
+## Druhová pestrost
+
+
+[@ image("ostrov.jpg", width=>400) @]*
+
+Počet [`S`] živočišných druhů na ostrově nebo v izolované oblasti (například rezervace s vysokou úrovní ochrany) o velikosti [`A`] je dána vztahem [``` S=c A^z,```]
+kde [`c`] a [`z`] jsou konstanty. Co vyjadřuje derivace [``` \frac{\mathrm dS}{\mathrm dA},```] pokud ji vyjáříme slovně?
+
+
+[__]{$radio}
+
+_Podle Alan Garfinkel, Jane Shevtsov, Yina Guo: Modeling Life, The Mathematics of Biological Systems._
+
+END_PGML
+
+$showHint = 1;
+
+BEGIN_PGML_HINT
+Pozorně si všímejte, jakou veličinu derivujeme podle čeho.
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Jedná se rychlost změny velikosti ostrova vzhledem k měnící se pestrosti osazenstva. Tj. o kolik musí být ostrov větší, aby se na něm uživil ještě jeden další živočišný druh.
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

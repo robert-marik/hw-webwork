@@ -1,0 +1,92 @@
+
+DOCUMENT(); 
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGchoicemacros.pl",
+  "PGgraders.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+
+Context("Numeric");
+
+# Create and use pop up lists 
+$tf = new_select_list();
+$tf->rf_print_q(~~&pop_up_list_print_q);
+
+# Choices presented to students
+$tf->ra_pop_up_list( [ 
+"Vyberte odpověď" => "?", 
+"da/dt"  => "da/dt", 
+"db/dt"  => "db/dt", 
+"dc/dt"  => "dc/dt", 
+"dL/dt"  => "dL/dt", 
+"dh/dt"  => "dh/dt", 
+"d alpha/dt"  => "d alpha/dt", 
+]);
+
+# Questions and answers
+$tf -> qa ( 
+"Vyberte z rozbalovací nabídky veličinu vyjadřující rychlost chůze.","da/dt",
+"Vyberte z rozbalovací nabídky veličinu vyjadřující rychlost, s jakou roste délka stínu.","db/dt",
+"Vyberte z rozbalovací nabídky veličinu vyjadřující rychlost, s jakou se pohybuje stín hlavy.","dc/dt",
+);
+
+# How many questions to use
+$tf->choose(3);
+
+
+BEGIN_PGML
+
+## Rychlost s jakou se prodlužuje stín
+
+[@ image("clovek_lampa.png", width=>400) @]*
+
+Na obrázku je člověk, který v noci za chůze míjí svítící lampu. Jak se vzdaluje od lampy, jeho stín se prodlužuje. Chceme zjistit, jak souvisí rychlost chůze s rychlostí, s jakou se prodlužuje stín a s rychlostí pohybu stínu hlavy. Které veličiny nás zajímají? Použijme označení podle obrázku. Tedy [`L`] je výška lampy, [`h`] je výška člověka, [`a`] je vzdálenost člověka od paty lampy, [`b`] je délka stínu, [`c`] je vzdálenost stínu hlavy od lampy a [`\alpha`] je úhel v naznačeném trojúhelníku. Čas je [`t`] a v rozbalovacím menu jsou derivace podle času.
+
+
+[@ $tf -> print_q() @]*
+
+
+END_PGML
+
+
+############################
+#  Answer evaluation
+
+$showPartialCorrectAnswers = 0;
+
+#
+#  Incremental grader
+#
+install_problem_grader(~~&custom_problem_grader_fluid);
+$ENV{'grader_numright'} = [1,2,3];
+$ENV{'grader_scores'} = [0.2,0.5,1];
+$ENV{'grader_message'} = "Za částečně správnou odpověď získáte částečný počet bodů";
+
+#
+#  All or nothing grader
+#  
+# install_problem_grader(~~&std_problem_grader);
+
+ANS( str_cmp( $tf->ra_correct_ans() ) );
+
+$showHint = 1;
+BEGIN_PGML_HINT
+Pozorně čtěte, jakou rychlost sledujeme a v obrázku najděte příslušnou měnící se veličinu a její označení.
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Rychlost s jakou roste délka stínu je derivace délky stínu podle času, tj. [``\frac{\mathrm db}{\mathrm dt}``], protože délka stínu je [`b`].
+Rychlost chůze a rychlost s jakou se pohybuje stín hlavy jsou derivace vzdálenosti od libovolného nepohyblivého bodu, v tomto případě je možno použít patu lampy. Rychlost chůze je tedy  [``\frac{\mathrm da}{\mathrm dt}``] a rychlost s jakou se pohybuje stín hlavy je  [``\frac{\mathrm dc}{\mathrm dt}``].
+END_PGML_SOLUTION
+
+COMMENT("Uses PGML.");
+
+ENDDOCUMENT();
+

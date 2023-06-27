@@ -1,0 +1,99 @@
+##################
+#  Initialization
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+##################
+#  Setup
+
+Context("Matrix");
+Context()->flags->set(tolerance => 0.03, tolType => "absolute");
+
+$a=random(72,95,1)/100;
+$b=random(30,70,1)/100;
+
+$A = Matrix([
+[$a,$b],
+[1-$a,1-$b]
+]);
+
+
+$p=random(1,9)/10;
+$B = Matrix([
+[$p],
+[1-$p]
+]);
+
+$answer = $A * $B;
+
+
+##################
+#  Main text
+
+BEGIN_PGML
+
+## Předpověď počasí pomocí maticového násobení
+
+
+[@ image("woman.jpg", width=>400) @]*
+
+
+Předpověď počasí je komplikovaná a [@ htmlLink("https://www.meteopress.cz/jak-pocitame-pocasi/","vysoce sofistikovaná záležitost") @]*. Několikrát za den se na základě modelů (soustava rovnic, z nichž některé jsou difuzní rovnice, některé rovnice kontinuity a vyjadřují děje jako tok energie atmosférou nebo celkovou bilanci pro množství vzduchové masy či množství vody v atmosféře) a na základě dat z pozorovacích stanic počítá globální model pro planetární proudění a ten je následovně na lokální úrovni zpřesňován.
+
+Metod zpřesnění je celá řada a jedna z taktik může pro dané území být započítání pravděpodobnosti, s jakou dojde ke změně počasí pokud je pěkně a pravděpodobnosti, s jakou dojde ke změně počasí, pokud je škaredě. To je další ideální aplikace pro maticový počet a maticový součin.
+
+Počasí budeme charakterizovat tím, že rozdělíme situaci na několik stavů a pravděpodobnost, že dnes je počasí odpovídající danému stavu, bude příslušná komponenta vektoru. Pro jednoduchost mějme počasí do vektoru zakódováno tak, že první komponenta vektoru udává pravděpodobnost, s jakou je slunečno a druhá udává pravděpodobnost, s jakou je zataženo. (Pro jednoduchost budeme uvažovat pouze dva stavy, ale zřejmě je možné model formulovat podrobněji.) Například vektor
+[`` \begin{pmatrix}0.6\\0.4\end{pmatrix}``] znamená šedesátiprocentní pravděpodobnost, že bude slunečno. 
+
+Předpokládejme, že dnešní počasí je charakterizováno vektorem [``` B=[$B] ```] a matice, která pro danou lokalitu a roční období umí přepočítat toto počasí na počasí následující den je matice [``` A=[$A]. ```] Poté součin [``` AB ```] bude předpověď počasí na další den. Najděte tuto předpověď.
+
+>> [``AB={}``][______]*{$answer} <<
+
+
+END_PGML
+
+
+########################
+#  Solution
+
+BEGIN_PGML_HINT
+Výsledek je lineární kombinace sloupců matice [`A`] s koeficienty tvořenými komponentami vektoru [`B`].
+[``` [$B->element(1,1)]
+\begin{pmatrix}[$A->element(1,1)] \\ [$A->element(2,1)]\end{pmatrix}
++
+[$B->element(2,1)]
+\begin{pmatrix}[$A->element(1,2)] \\ [$A->element(2,2)]\end{pmatrix}
+=\cdots
+```]
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Výsledek je lineární kombinace sloupců matice [`A`] s koeficienty tvořenými komponentami vektoru [`B`].
+[``` [$B->element(1,1)]
+\begin{pmatrix}[$A->element(1,1)] \\ [$A->element(2,1)] \end{pmatrix}
++
+[$B->element(2,1)]
+\begin{pmatrix}[$A->element(1,2)] \\ [$A->element(2,2)] \end{pmatrix}
+=
+\begin{pmatrix}[$answer->element(1,1)] \\ [$answer->element(2,1)] \end{pmatrix}
+```]
+END_PGML_SOLUTION
+
+
+COMMENT('Uses PGML.');
+
+ENDDOCUMENT();
+

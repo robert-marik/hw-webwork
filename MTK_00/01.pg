@@ -1,0 +1,106 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"answerHints.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$var='x';
+$a=non_zero_random(1,87,1);
+$ans=Formula("100-$a");
+$fakeans=Formula("100+$a");
+
+Context("Numeric")->variables->are($var=>'Real');
+
+$f=Formula("10")->reduce();   # funkce
+
+
+
+
+$video = MODES(
+HTML=> 
+'
+<style>
+.container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+ <div class="container">
+  <iframe class="responsive-iframe" src="https://www.youtube.com/embed/XqRO2tC-SL4"></iframe>
+</div> 
+', 
+TeX =>
+"An embedded YouTube video."
+);
+
+
+BEGIN_PGML
+
+## Základní informace
+
+
+Můžete začít rovnou pracovat, vše je intuitivní a syntaxe obvyklá (zejména pokud jste zvyklí na vzorce v programu Excel a podobně). Pokud se někdo bude ztrácet, může použít [@ htmlLink("https://raw.githubusercontent.com/robert-marik/hw-webwork/master/cheatsheet/cheatsheet.pdf","cheatsheet") @]* s nápovědou, jak zapisovat matematické výrazy do počítače.
+
+Poznámka: Možná bude výhodnější pracovat s anglickou klávesnicí. Ujasněte si, že máte nainstalovanou anglickou klávesnici a umíte klávesnice přepínat. Postup je jednoduchý, je to na pár kliknutí, ale liší se v závislosti na Vašem operačním systému. Pokud pracujete na notebooku, hodí se přelepky, kde jsou obě rozložení. Anebo tahák a časem si těch pár kláves zapamatujete. 
+
+
+## Otázka s odpovědí ve tvaru čísla
+
+
+
+Na některou otázku v systému je odpovědí číslo. Například úloha vypočítat následující rozdíl.
+
+
+>>[``100-[$a]={}``][__________]{$ans->cmp()->withPostFilter(AnswerHints(
+$fakeans => "Jste na dobré cestě. Jenom se zdá, že jste namísto odečítání čísla sečetli."
+))}<<
+
+* Zapište odpověď a odešlete.
+* Vyzkoušejte si chování systému.
+    1. Zkuste napsat špatnou odpověď a odeslat. Nemusíte se bát o body. Jakmile jednou odpovíte správně, už máte přidělen za otázku plný počet bodů.
+    1. Vložená odpověď se posuzuje numericky na shodu s přednastavenou správnou odpovědí. Vložené operace mezi čísly se provedou automaticky. Zkuste opdpověď zadat jako součet. Například systém nerozlišuje mezi `84` a `80+4` nebo `4*21`. Tato vlastnost vám dokáže šetřit práci, nemusíte se věnovat kupeckým počtům.
+    1. Pro některé chybné odpovědi jsou připraveny speciální chybové hlášky. Zkuste například vložit jako odpověď součet namísto rozdílu, tj. v tomto případě číslo [$fakeans].
+    1. Odpověď se posuzuje numericky s jistou přesností, zpravidla desetiny procenta. Zkuste správnou odpověď modifikovat přičtením čísla cca 0.000000001. Měla by se posuzovat i tak jako správná. To je trošku omezení, které by nám nemělo nijak znepříjemňovat život. Pokud byste však pojali podezření, že vyhodnocování správnosti odpovědi nefunguje, můžete poslat email učiteli použitím tlačítka "Email Instructor". Teď to ale nezkoušejte. (Je denní limit na počet takto odeslaných mailů.)
+* Po několika nesprávných odpovědích je u většiny otázek nápověda. Objeví se jako odkaz po cca třech pokusech o odpověď. Můžete si to teď vyzkoušet. Zadejte a odešlete několik špatných odpovědí, dokud se nezobrazí rozbalovací link pro nápovědu.
+* Po několika nesprávných odpovědích se u většiny otázek objeví aktivní tlačítko "Show Me Another/Ukázat podobnou otázku". Tímto tlačítkem si můžete vygenerovat cvičné zadání stejného typu s jinými čísly. V tomto cvičném zadání se Vám nepočítají pokusy a je k dispozici i řešení. Tlačítko můžete použít opakovaně do limitu nastaveného učitelem. Tato vlastnost nefunguje, pokud jste v systému v roli hosta.
+* Před odesláním si můžete odpověď prohlédnout v náhledu. V tomto případě, kdy je odpovědí číslo, to nemá moc smysl. V případě, kdy je odpovědí matematický výraz, to je naopak velice užitečná volba, která vás uchrání od toho, že byste si vyplýtvali pokusy na odpověď. Zkuste napsat například *pi/(x^2+1)* a po vyvolání náhledu by se mělo objevit [```\frac{\pi}{x^2+1}```] (což jistě není správná odpověď).
+
+END_PGML
+
+BEGIN_PGML_HINT
+Toto je nápověda k příkladu na výpočet rozdílu [```100-[$a].```]
+
+* Nápověda může být povšechná a obecná s odkazem na literaturu. Například _Pročtěte si znovu zápisky z přednášek a ze cvičení z prvního stupně základní školy a v případě nouze použijte kalkulačku. Pokud v hardwarové kalkulačce nemáte baterky, použijte softwarovou kalkulačku v mobilním telefonu nebo ve vyhledávacím políčku Google._
+* Nápověda může být i cílená na konkrétní zadání. Například _Promyslete si, kolik je potřeba dodat k číslu [$a], aby součet byl 100._
+END_PGML_HINT
+	
+
+BEGIN_PGML_SOLUTION
+
+Výsledek je samozřejmě [```100-[$a]=[$ans].```]
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

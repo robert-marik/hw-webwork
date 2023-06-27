@@ -1,0 +1,80 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+
+$data =
+[
+{
+    nadpis=>"Role limity v definici derivace",
+    otazka=>"Proč je v definici derivace \[\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}\] použita limita?",
+    odpoved=>"Umožní převést průměrnou rychlost na rychlost okamžitou, protože stáhne délku intervalu přes který počítáme průměr na nulu.",
+    moznosti=>[
+"Zajistí, že výsledná funkce prochází počátkem (nulou) a má díky tomu reálné fyzikální využití.",
+"Limita zajistí, že derivace je spojitá a má proto smysluplnou intepretaci v reálných situacích.",
+"Bez této limity by nebylo možno odlišit nepřímou úměrnost (v nule nekonečná) od úměrnosti přímé (v nule nulová).",
+"Dokáže oddělit rostoucí a klesající funkce. Derivace těchto funkcí se liší znaménkem a nula je oddělovačem mezi kladnými a reálnými čísly.",
+],
+}
+];
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
+
+BEGIN_PGML
+
+## [$na]
+
+
+[$ot]*
+
+[_]{$radio}
+
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$od]
+
+END_PGML_SOLUTION
+
+};
+# konec cyklu
+
+
+ENDDOCUMENT();
+
