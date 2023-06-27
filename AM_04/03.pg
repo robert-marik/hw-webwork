@@ -1,0 +1,80 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "parserFormulaUpToConstant.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context()->flags->set(
+     reduceConstants => 0,
+     reduceConstantFunctions => 0,
+   );
+
+
+$k=random(3,6,1);
+$n=random(2,8,1);
+
+$k1=$k+1;
+$n1=$n-1;
+
+$int1=Compute("$k/($k1)x^(($k1)/($k))")->with(limits =>[1,3]);
+$int2=Compute("-1/(($n1) * x^($n1))")->reduce();
+$int3=Formula("ln(x)")->with(limits =>[1,5]);
+
+BEGIN_PGML
+
+## Mocninné funkce s neceločíselným nebo záporným exponentem
+
+Některé funkce nejsou formálně zapsány jako mocninné funkce, ale umíme je do tohoto tvaru přepsat. Jedná se zejména o odmocniny a zlomky s mocninou ve jmenovateli. Přitom používáme vzorce
+[``` \sqrt[k]{x}=x^{\frac 1k}```]
+a
+[``` \frac {1}{x^k}=x^{-k}.```]
+Po této úpravě jsme schopni počítat integrály pomocí vzorce pro integrál mocninné funkce
+ [``` \int x^n\,\mathrm dx=\frac1{n+1}x^{n+1}+C.```]
+ Například
+ [``` \int \sqrt[k]{x} \,\mathrm dx=\int x^{\frac 1k}\,\mathrm dx=\frac{1}{\frac 1k+1}x^{\frac 1k +1}.```]
+(Pozor na výjimku u [``\int \frac 1x\, \mathrm dx``], což je přímo vzorec.)
+
+Vypočtěte následující integrály.
+>>[``\int \sqrt[[$k]]{x}\,\mathrm dx ={}``][_________________________]{$int1->cmp(upToConstant=>1)}[``{}+C``] <<
+
+>>[``\int \frac 1{x^{[$n]}}\,\mathrm dx ={}``][_________________________]{$int2->cmp(upToConstant=>1)}[``{}+C``] <<
+
+>>[``\int \frac 1x \,\mathrm dx ={}``][_________________________]{$int3->cmp(upToConstant=>1)}[``{}+C``] <<
+
+Poznámka: porovnávání správné a vložené odpovědi je nastaveno na kladná čísla, nemusíte si dělat starosti se zápisem absolutní hodnoty apod.
+
+END_PGML
+
+BEGIN_PGML_HINT
+Použijte vztah
+[``` \int x^n\,\mathrm dx=\frac1{n+1}x^{n+1}+C```]
+pro [`n=\frac{1}{[$k]}`] a [`n=-[$n]`]. Poslední integrál je přímo vzorec. 
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Použijeme vztah
+[``` \int x^n\,\mathrm dx=\frac1{n+1}x^{n+1}+C```]
+pro [`n=\frac{1}{[$k]}`] a [`n=-[$n]`]. Poslední integrál je přímo vzorec.
+
+Dostáváme následující. 
+>>[``\int \sqrt[[$k]]{x}\,\mathrm dx =[$int1]+C``] <<
+
+>>[``\int \frac 1{x^{[$n]}}\,\mathrm dx =[$int2]+C``] <<
+
+>>[``\int \frac 1x \,\mathrm dx =\ln|x|+C``] <<
+
+
+(Je možné, že počítač nahradí zlomek desetinným číslem a musíte zpětně "rozšifrovat", o jaký zlomek se jedná.)
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

@@ -1,0 +1,99 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"niceTables.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+$n=random(1,5,2);
+$a=random(1,4,1);
+$b=non_zero_random(-6,6,1);
+$c=non_zero_random(-2,10,1);
+$m=random(0,1,1);
+$mm=1-$m;
+if ($mm==1) {$a=-$a;}
+
+
+Context("Numeric")->variables->are($var=>'Real','xn'=>'Real');
+Context()->variables->set(xn => {TeX => 'x_n'});
+#Context()->flags->set(
+#     reduceConstants => 0,
+#     reduceConstantFunctions => 0,
+#   );
+
+$f=Formula("$m*cos(x)+$mm*e^x")->reduce();   # funkce
+$g=Formula("$a*x^($n)+$b")->reduce();   # funkce
+$fxn=Formula("$m*cos(xn)+$mm*e^xn")->reduce();   # funkce
+$gxn=Formula("$a*xn^($n)+$b")->reduce();   # funkce
+
+$funkce=Formula("$m*cos(x)+$mm*e^x-$a*x^($n)-$b")->reduce();   # funkce
+$derivacefunkce=$funkce->D('x');
+$funkcexn=Formula("$m*cos(xn)+$mm*e^xn-$a*xn^($n)-$b")->reduce();   # funkce
+$derivacefunkcexn=$funkcexn->D('xn');
+
+$answer=Formula("xn-$funkcexn/$derivacefunkcexn")->reduce(); 
+
+BEGIN_PGML
+
+## Newtonova metoda
+
+Newtonova metoda je efektivní nástroj pro hledání nulových bodů funkce, tj. pro řešení rovnice [``` f(x)=0.```] Je založena na lineární aproximaci funkce [`f(x)`] v bodě [`x_n`] (počáteční odhad řešení), tj.  na rovnici [``` f(x)\approx f(x_n)+f'(x_n)(x-x_n).```]
+Pokud najdeme nulovou hodnotu pravé strany, bude tato hodnota novou aproximací přesného řešení rovnice. Označíme ji [`x_{n+1}`] a vztah [``` 0= f(x_n)+f'(x_n)(x_{n+1}-x_n)```] po vyřešení vzhledem k [`x_{n+1}`] vede na iterační vzorec [``` x_{n+1}=x_n-\frac{f(x_n)}{f'(x_{n})}.```]
+
+--------
+
+Například rovnici [``` x^2=\cos(x) ```] upravíme na [``` x^2-\cos(x)=0```] a pro [``` f(x)=x^2-\cos (x)```] dostáváme [``` f'(x)=2x+\sin(x).```] Iterační vzorec má tvar
+[``` x_{n+1}=x_n-\frac {x_n^2-\cos(x_n)}{2x_n+\sin(x_n)}.```] Podle toho, jakou zvolíme startovací hodnotu, vede tento vzorec ke [@ htmlLink("https://sagecell.sagemath.org/?z=eJwli8EKgCAQRO-C_7BHBSXtFIG_EkS2shcN9bCfn9acHjNvULEOfKz2Km2gFBFnEwlRTTKz4-ClwFKBgDLUM6cblHd6lwJGOGTFdtrL9zYQKVFvYXP6N55KucOYXrixHis=&lang=sage&interacts=eJyLjgUAARUAuQ==","kladnému") @]* nebo [@ htmlLink("https://sagecell.sagemath.org/?z=eJwli8EKgCAQRO-C_7BHBSXtFIG_EkS2shcN9bCfn9acHjNvULEOfKz2Km2gFBFnEwlRTTKz42C9FFgqEFCGeuZ0g_JO71LACIes2E59-e4GIiXqLWxO_8ZTKXcY0wvQph5Y&lang=sage&interacts=eJyLjgUAARUAuQ==","zápornému")@]* řešení uvažované rovnice. Konvergence je navíc velice rychlá, každým provedením se přibližně zdvojnásobí počet desetinných míst, která jsou přesně.
+
+Hodnotu [`x_n`] zapisujte jako *xn*. Například výše uvedený vzorec je možno zapsat jako *xn- (xn^2-cos(xn))/(2xn+sin(xn))*.
+
+----------------
+
+Podobně jako výše najděte iterační vztah pro řešení rovnice
+[``` [$f]=[$g]. ```]
+
+>>[`` x_{n+1}={}``]
+[_______________________________________________]{$answer}<<
+
+
+
+END_PGML
+
+$showHint = 1;
+BEGIN_PGML_HINT
+
+Rovnici upravte tak, že převedeme pravou stranu doleva (nebo naopak). Například 
+[``` [$funkce]=0.```]
+
+Uvažujte funkci 
+[```f(x)=[$funkce], ```] vypočtěte derivaci a sestavte iterační vzorec.
+
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Rovnici upravíme tak, že převedeme pravou stranu doleva (nebo naopak). Dostáváme
+[``` [$funkce]=0.```]
+
+Uvažujme funkci
+[```f(x)=[$funkce], ```]
+která má derivaci 
+[```f'(x)=[$derivacefunkce]. ```]
+
+Iterační vzorec má tvar
+[``` x_{n+1}=x_n-\frac{[$funkcexn]}{[$derivacefunkcexn]}=[$answer].```]
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();
+

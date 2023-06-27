@@ -1,0 +1,89 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+$data =
+[
+{
+nadpis=>"Monotonie integrálu",
+otazka=>"Mějme funkce \(f\) a \(g\) definované na intervalu \([a,b]\) takové, že na tomto intervalu platí \[f(x)\geq g(x).\] Jaký je vztah mezi integrály těchto funkcí?",
+odpoved=>"\(\displaystyle\int _a^b f(x)\,\mathrm dx\geq \int _a^b g(x)\,\mathrm dx\)",
+moznosti=>[
+"\(\displaystyle\int _a^b g(x)\,\mathrm dx\geq \int _a^b f(x)\,\mathrm dx\)",
+"Není možné rozhodnout bez znalosti monotonie funkcí.",
+"Není možné rozhodnout bez znalosti analytických předpisů funkcí.",
+],
+},
+{
+nadpis=>"Znaménko integrálu",
+otazka=>"Jaké znaménko má integrál \(\displaystyle\int _0^1 \frac {e^{ax}}{x^2+1}\,\mathrm dx?\) Parametr \(a\) může nabývat libovolnou reálnou hodnotu",
+odpoved=>"Kladné, protože integrovaná funkce je kladná.",
+moznosti=>[
+"Kladné, protože integrovaná funkce je rostoucí.",
+"Kladné pro \(a\geq 0\) (protože integrovaná funkce je pro tyto hodnoty parametru rostoucí) a záporné pro \(a<0\) (protože integrovaná funkce je klesající).",
+"Žádné, integrál neexistuje.",
+],
+}
+];
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+$DEBUG=1;
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
+
+BEGIN_PGML
+
+## [$na]
+
+[$ot]*
+
+[_]{$radio}
+
+_[$zdroj]_
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$od]
+
+END_PGML_SOLUTION
+
+};
+# konec cyklu
+
+
+ENDDOCUMENT();
+

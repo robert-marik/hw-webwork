@@ -1,0 +1,112 @@
+###########################
+#  Initialization
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGchoicemacros.pl",
+  "PGgraders.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+
+###########################
+#  Setup
+
+Context("Numeric");
+
+# Create and use pop up lists 
+$tf = new_select_list();
+$tf->rf_print_q(~~&pop_up_list_print_q);
+
+# Choices presented to students
+$tf->ra_pop_up_list( [ 
+"???" => "?", 
+"dV/dt"  => "dV/dt", 
+"dh/dt"  => "dh/dt", 
+"dV/dh"  => "dV/dh", 
+"dh/dV"  => "dh/dV", 
+]);
+
+# Questions and answers
+$tf -> qa ( 
+"Rychlost, s jakou se roste objem hromady v čase, tj. změna objemu za jednotku času.","dV/dt",
+"Rychlost, s jakou se roste výška hromady v čase, tj. změna výšky za jednotku času.","dh/dt",
+"Rychlost, s jakou se roste výška hromady jako funkce objemu, tj. změna výšky při změně objemu o jednotku.","dh/dV",
+"Rychlost, s jakou se roste objem hromady jako funkce výšky, tj. změna objemu při změně výšky o jednotku.","dV/dh",
+);
+
+# How many questions to use
+$tf->choose(4);
+
+
+###########################
+#  Main text
+
+BEGIN_PGML
+
+## Slovní interpretace derivace
+
+Derivace vyjadřuje rychlost s jakou se mění závislá veličina při změně nezávislé veličiny. Uvažujme například kapku vody v atmosféře. Předpokládejme, že kapka roste a její objem [`V`] i poloměr [`r`] se mění s časem. Potom je rychlost, s jakou se mění její objem v čase, vyjádřena derivací [``\frac{\mathrm dV}{\mathrm dt}``]. Podobně, rychlost, s jakou roste její poloměr v čase, je dána derivací [``\frac{\mathrm dr}{\mathrm dt}``]. Má smysl se ptát například i na rychlost s jakou roste objem jako funkce poloměru, tj. jaká je změna objemu ne za jednotku času, ale při změně poloměru o jednotku. Toto by bylo vyjádřeno derivací [``\frac{\mathrm dV}{\mathrm dr}``].
+
+V tomto příkladě se podobný postup pokusíme aplikovat ne na kouli, ale na kužel.
+
+-----
+
+[@ image("hromada.jpg", width=>400) @]*
+
+Na hromadu sypkého materiálu přisypáváme další a další materiál. Tvar hromady je dán geometrickými a fyzikálními vlastnostmi materiálu. To v praxi znamená, že hromada má tvar kužele se stálým poměrem poloměru podstavy a výšky. Objem [`V`] je tedy jednoznačně určen výškou [`h`] a naopak. Obě tyto veličiny se při přisypávání dalšího materiálu na hromadu mění v čase. Čas označíme [`t`].
+
+Určete, která derivace je spjata s jednotlivými slovními formulacemi. Správnou derivaci vyberte z rozbalovacího menu, kde je zapsána pomocí Leibnizovy notace.
+
+[@ $tf -> print_q() @]*
+
+
+_Obrázek: pixabay.com, Derks24_
+
+END_PGML
+
+$showHint = 1;
+BEGIN_PGML_HINT
+Pozorně čtěte, rychlost změny jaké veličiny sledujeme a co je nezávislou proměnnou. Poté najděte označení těchto veličin v zadání.
+END_PGML_HINT
+
+############################
+#  Answer evaluation
+
+$showPartialCorrectAnswers = 0;
+
+#
+#  Incremental grader
+#
+install_problem_grader(~~&custom_problem_grader_fluid);
+$ENV{'grader_numright'} = [1,2,3,4];
+$ENV{'grader_scores'} = [0.1,0.4,0.6,1];
+$ENV{'grader_message'} = "Za částečně správnou odpověď získáte částečný počet bodů";
+
+#
+#  All or nothing grader
+#  
+# install_problem_grader(~~&std_problem_grader);
+
+ANS( str_cmp( $tf->ra_correct_ans() ) );
+
+
+BEGIN_PGML_SOLUTION
+
+* Rychlost, s jakou se roste objem hromady v čase je derivace objemu podle času, tj. [`` \frac{\mathrm dV}{\mathrm dt}``].
+* Rychlost, s jakou se roste výška hromady v čase je derivace výšky podle  času,  tj. [`` \frac{\mathrm dh}{\mathrm dt}``].
+* Rychlost, s jakou se roste výška hromady jako funkce objemu je derivace výšky podle objemu, tj. [`` \frac{\mathrm dh}{\mathrm dV}``].
+* Rychlost, s jakou se roste objem hromady jako funkce výšky je derivace objemu podle výšky, tj. [`` \frac{\mathrm dV}{\mathrm dh}``].
+
+Řešení je [$tf->print_a]*.
+END_PGML_SOLUTION
+
+COMMENT("Uses PGML.");
+
+ENDDOCUMENT();

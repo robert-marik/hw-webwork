@@ -1,0 +1,93 @@
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("css/gpt.css");
+
+
+$radio = RadioButtons([
+"Řešení je matematicky správné a je podrobně okomentované a plně srozumitelné.",
+"Řešení je matematicky správné, ale je hůře srozumitelné, protože používá neobvyklé slovní obraty.",
+"Řešení je matematicky špatně."
+],1);
+
+
+BEGIN_PGML
+
+
+## Chat GPT nebo jiná AI
+
+
+Velkým pomocníkem při studiu čehokoliv je umělá inteligence. Vyzkoušel jsem AI následovně. Zadání bylo vyřešit kvadratickou rovnici
+[```x^2 - x - 6 = 0.```]
+
+END_PGML
+TEXT(MODES(HTML => "<div class='GPT'>")); 
+BEGIN_PGML
+
+**Odpověď:**
+
+Rovnice [```x^2 - x - 6 = 0```] můžeme vyřešit pomocí kvadratického vzorce:
+
+[```x = \frac{{-b \pm \sqrt{{b^2 - 4ac}}}}{{2a}}```]
+
+Ve vzorci se používají následující hodnoty:
+
+[``a = 1``],
+
+[``b = -1``],
+
+[``c = -6``].
+
+Dosazením těchto hodnot dostaneme:
+
+[```x = \frac{{-(-1) \pm \sqrt{{(-1)^2 - 4 \cdot 1 \cdot (-6)}}}}{{2 \cdot 1}}```]
+
+Simplifikací a výpočtem získáme:
+
+[```x = \frac{{1 \pm \sqrt{{1 + 24}}}}{2}```]
+
+[```x = \frac{{1 \pm \sqrt{25}}}{2}```]
+
+[```x = \frac{{1 \pm 5}}{2}```]
+
+To nám dává dvě možnosti:
+
+[```x_1 = \frac{{1 + 5}}{2} = 3```]
+
+[```x_2 = \frac{{1 - 5}}{2} = -2```]
+
+Takže řešením rovnice [```x^2 - x - 6 = 0```] jsou [`x = 3`] a [`x = -2`].
+
+
+END_PGML
+TEXT(MODES(HTML => "</div>")); 
+BEGIN_PGML
+
+
+Jaký máte z řešení dojem?
+
+[_]{$radio}
+
+
+END_PGML
+
+
+BEGIN_PGML_SOLUTION
+
+Řešení je správně. Je trošku ukecané, ale to je vlastnost jazykového modelu.
+
+Je těžko srozumitelné, protože používá obraty "kvadratický vzorec" a "simplifikace". Jedná se o anglicismy. Vzorec pro řešení kvadratické rovnice se v angličtině nazývá ""quadratic formula" a proces úpravy matematických výrazů se nazývá "simplification". Doslovný překlad do češtiny však není možné používat, vede to k neobvyklým a nepoužívaným jazykovým tvrzením a zbytečnému zamlžení jinak správného postupu. 
+
+END_PGML_SOLUTION
+
+
+
+
+ENDDOCUMENT();

@@ -1,0 +1,61 @@
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("css/left.css");
+
+TEXT(MODES(
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
+));
+
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;} </style>",
+));
+
+BEGIN_PGML
+
+
+## Vlastní směry
+
+Při popisu fyzikálních dějů se v některých případech pracuje s maticovými (tenzorovými veličinami). Při práci s takovými veličinami jsou velmi oblíbené vlastní směry příslušných matic.
+
+**Úkol pro tento týden: Zkuste krátce vysvětlit, co jsou to vlastní směry matice a proč je máme při práci s maticovými veličinami tak v oblibě. Jako obvykle je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box(10,80)\}
+END_TEXT
+
+
+
+BEGIN_PGML
+ 
+Samozřejmostí je ucelený text, celá věta nebo celý odstavec s dodržením interpunkce a stavby věty (podmět, sloveso, další větné členy). Cílem je vyzkoušet si, zda umíte dát srozumitelnou a jasně formulovanou odpověď.
+ 
+END_PGML
+
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+
+
+BEGIN_PGML_SOLUTION
+
+Vlastní směry jsou směry, které se při zobrazení maticí zobrazují samy na
+sebe. Vektor mířící vlastním směrem se zobrazuje na svůj skalární násobek.
+Jejich znalost můžeme využít při volbě souřadné soustavy. Pokud jsou totiž
+osy souřadné soustavy vlastními směry matice, má matice diagonální tvar a je
+pro mnoho výpočtů jednodušší, než obecná nediagonální matice. 
+
+END_PGML_SOLUTION
+
+ENDDOCUMENT();

@@ -1,0 +1,88 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+$data =
+[
+{
+nadpis=>"Součin matic, je-li matice diagonální.",
+otazka=>"Jak vypadá součin čtvercových matic \(AD\), je-li matice \(D\) diagonální?",
+odpoved=>"Výsledek je tvořen sloupci matice \(A\), každý sloupec je vynásoben odpovídajícím diagonálním prvkem matice \(D\)",
+moznosti=>[
+"Výsledek je tvořen řádky matice \(A\), každý řádek je vynásoben odpovídajícím diagonálním prvkem matice \(D\)",
+"Výsledkem je diagonální matice, kde násobíme odpovídající prvky v hlavní diagonále."
+]
+},
+{
+nadpis=>"Matice v materiálovém inženýrství",
+otazka=>"V materiálovém inženýrství pracujeme s maticemi, díky kterým můžeme formulovat zákony udávající odezvu na podnět. Jaké má tato operace vlastnosti?",
+odpoved=>"Můžeme díky ní měnit směr i velikost vektoru.",
+moznosti=>[
+"Můžeme měnit směr, ale zachovává se velikost vektoru.",
+"Můžeme měnit velikost vektoru při jistotě zachování směru vektoru."
+]
+}
+];
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+$DEBUG=1;
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
+
+BEGIN_PGML
+
+## [$na]
+
+[$ot]*
+
+[_]{$radio}
+
+_[$zdroj]_
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$od]
+
+END_PGML_SOLUTION
+
+};
+# konec cyklu
+
+
+ENDDOCUMENT();
+

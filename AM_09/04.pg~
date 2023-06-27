@@ -1,0 +1,222 @@
+DOCUMENT();
+
+loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "parserPopUp.pl",
+    "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+$a=non_zero_random(-3,3,1);
+$b=non_zero_random(-3,3,1);
+$c=non_zero_random(-3,3,1);
+$d=non_zero_random(-3,3,1);
+$e=non_zero_random(-3,3,1);
+
+$i=random(0,1);
+if ($i==1)
+{ $b=0; }
+else
+{ $c=0; }
+
+$lxx=random(2,4);
+do {$lyy=random(1,4);} until ($lxx != $lyy);
+do {$lxy=non_zero_random(-2,3);} until ($lxy != $lxx);
+
+Context("Numeric")->variables->add(y=>"Real");
+	
+$T=Formula("$a*x^3+$b*x^2+$c*y^2+$d*y+$e")->reduce();
+$dTx=Formula("3*$a*x^2+2*$b*x")->reduce();
+$dTy=Formula("2*$c*y+$d")->reduce();
+$mdTx=Formula("-3*$a*x^2-2*$b*x")->reduce();
+$mdTy=Formula("-2*$c*y-$d")->reduce();
+
+$lxx=Compute("$lxx");
+$lxy=Compute("$lxy");
+$lyy=Compute("$lyy");
+
+$tokx=Compute("-3*$a*$lxx*x^2 - 2*$b*$lxx*x - 2*$c*$lxy*y - $d*$lxy")->reduce;
+$toky=Compute("-3*$a*$lxy*x^2 - 2*$b*$lxy*x - 2*$c*$lyy*y - $d*$lyy")->reduce;
+
+$dtokx=Compute("(-6*$a*$lxx*x - 2*$b*$lxx)")->reduce;
+$dtoky=Compute("(-2*$c*$lyy)")->reduce;
+$d2=Compute("- 2*$b*$lxx-2*$c*$lyy")-> reduce;
+$divergence=Compute("-6*$a*$lxx*x +$d2")-> reduce;
+$divergenceX=Compute("-6*$a*$lxx*x - 2*$b*$lxx")-> reduce;
+$divergenceY=Compute("-2*$c*$lyy")-> reduce;
+
+$tokx11=$tokx->eval(x=>1, y=>1);
+$toky11=$toky->eval(x=>1, y=>1);
+$divergence11=$divergence->eval(x=>1, y=>1);
+
+$popup = PopUp(['Vyberte odpověď','Roste','Klesá','Je konstantní'],'Je konstantní');
+
+if ($divergence11<0)  {$popup = PopUp(['Vyberte odpověď','Roste','Klesá','Je konstantní'],'Roste');}
+elsif ($divergence11>0) {$popup = PopUp(['Vyberte odpověď','Roste','Klesá','Je konstantní'],'Klesá');}
+
+Context("Matrix");
+
+$gradient=Matrix("[[$dTx],[$dTy]]");
+
+$tok=Matrix([[$tokx],[$toky]]);
+$tok11=Matrix([[$tokx11],[$toky11]]);
+
+BEGIN_PGML
+
+### Instrukce
+
+Následující příklad je poněkud komplexnější, než příklady, se kterými jste se setkávali dosud. Je nutné použít i jakési menší početní dovednosti (výpočty jsou snadné, ale je jich několik) a zkombinovat je se znalostí toho, co se má počítat a jak se to má počítat. Abychom předešli frustraci a rozčarování z neúspěchu, můžete si příklad vyzkoušet nanečisto [@  htmlLink("https://um.mendelu.cz/webwork2/html2xml?&answersSubmitted=0&sourceFilePath=problems/difuzni_rce/vedeni_tepla_vypocet.pg&problemSeed=123&displayMode=MathJax&courseID=daemon&userID=demon&course_password=demonek&outputformat=simpleM&language=cs_CZ","zde"); @]* a prohlédnout video s řešením pro jiné hodnoty [@ htmlLink("https://youtu.be/rMYvafCY0Js?t=3539","zde pro příklad ze cvičení");  @]* a [@  htmlLink("https://youtu.be/rMYvafCY0Js?t=3917","zde pro příklad z WeBWorKu"); @]*
+
+V domácích úlohách máte za každou úlohu jeden bod, i za tuto dlouhou. V písemce, ať už bude v učebně na papír nebo přes Internet ve WeBWorKu bude pochopitelně těžší příklad jako je tento více hodnocen než lehký.
+
+[@ image("teplo.jpg", width=>400) @]*
+
+Prozkoumáme cestu od rozložení teploty k rovnici vedení tepla. Úkolů je příliš mnoho na to, aby bylo možné sem dát vypočítaný vzor podle kterého můžete postupovat. Odkazy na analogické výpočty však máte v odstavci výše a analogický příklad se počítal ve cvičení. 
+
+
+
+## Gradient teploty, tok, zesilování versus zeslabování toku
+
+
+Uvažujme teplotu desky ležící v množině [``` \begin{gathered} 0\leq x\leq 2 \\ 0\leq y\leq 2\end{gathered}```] V jednotlivých krocích najdete gradient, tok, divergenci toku. Abyste si byli jisti, že se počítání ubírá správným směrem, můžete po každé části odeslat a zkontrolovat správnost odpovědí.
+
+### 1. Gradient (hnací síla dávající do pohybu energii ve formě tepla)
+
+_Záporně vzatý gradient iniciuje tok tepla. V první části vypočteme obě parciální derivace teploty a z nich sestavíme gradient teploty._
+
+Vypočtěte obě parciální derivace a gradient [``\nabla T ``] teploty [```T(x,y)=[$T].```]
+
+>> [``\frac{\partial T}{\partial x}={}``][________________________]{$dTx}<<
+
+>> [``\frac{\partial T}{\partial y}={}``][________________________]{$dTy}<<
+
+>> [``\nabla T={}``][________________________]*{$gradient}<<
+
+
+### 2. Tok (pohyb energie)
+
+_Tok vyjadřuje odezvu na podnět. Udává, jak "poslušně" materiál reaguje na podnět, zda je odezva ve směru podnětu, či zda se stáčí do preferovaného směru._
+
+Uvažujme materiál s tenzorem tepelné vodivosti [``` \lambda=\begin{pmatrix} [$lxx] & [$lxy] \\ [$lxy] & [$lyy] \end{pmatrix}.```] Tok tepla je dán vztahem [``` \vec q = -\lambda \nabla T,```] kde předchozí součin chápeme v maticovém smyslu, tj. počítáme lineární kombinace sloupců matice [``\lambda``], kde koeficienty  v lineární kombinaci jsou záporné vzaté komponenty gradientu [``\nabla T``]. Najděte  tok tepla.
+
+>> [``\vec q={}``][__________________]*{$tok}<<
+
+Určete dále tok ve středu desky, tj. v bodě [`(1,1)`].
+
+>> [``\vec q(1,1)={}``][__________________]*{$tok11}<<
+
+
+### 3. Divergence toku (změny v toku energie)
+
+Divergence udává, zda v daném místě tok zesiluje či zeslabuje. Musíte vypočítat derivace komponent toku [`\vec q`] (první komponentu derivujeme podle první souřadnice, druhou podle druhé) a sečíst.
+
+
+>> [``\nabla \cdot \vec q = \nabla\cdot (-\lambda \nabla T)={}``][__________________]{$divergence}<<
+
+
+
+
+
+### 4. Změna teploty 
+
+
+Zkusme vypočítat divergenci v bodě [`(1,1)`].
+
+
+>> [``\nabla \cdot \vec q(1,1)=\nabla \cdot (-\lambda \nabla T)(1,1)={}``][__________________]{$divergence11}<<
+
+
+Podle divergence můžeme z rovnice vedení tepla
+[``` \rho c \frac {\partial T}{\partial t}=\nabla \cdot (\lambda \nabla T)=-\nabla \cdot \vec q```]
+určit, zda v bodě [`(1,1)`] teplota roste či klesá v čase.
+
+[_]{$popup}
+
+END_PGML
+
+
+
+BEGIN_PGML_HINT
+
+Úloha je poměrně komplexní, nápověda nestačí. V případě nouze si vygenerujte podobné zadání a zobrazte řešení.
+
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+
+
+### 1. Gradient (hnací síla dávající do pohybu energii ve formě tepla)
+
+_Záporně vzatý gradient iniciuje tok tepla. V první části vypočteme obě parciální derivace teploty a z nich sestavíme gradient teploty._
+
+Vypočteme obě parciální derivace a gradient [``\nabla T ``] teploty [```T(x,y)=[$T].```]
+Při derivování podle [`x`] uvažujeme proměnnou [`y`] jako parametr a naopak. Dostáváme derivace v následujícím tvaru.
+
+[```\begin{aligned}\frac{\partial T}{\partial x}&= [$dTx] \\
+\frac{\partial T}{\partial y}&=[$dTy]\end{aligned}```]
+
+ Vektor z těchto parciálních derivací je gradientem.
+
+[```\nabla T=\begin{pmatrix} [$dTx]\\[$dTy]\end{pmatrix}```]
+
+
+### 2. Tok (pohyb energie)
+
+_Tok vyjadřuje odezvu na podnět. Udává, jak "poslušně" materiál reaguje na podnět, zda je odezva ve směru podnětu, či zda se stáčí do preferovaného směru._
+
+Uvažujme materiál s tenzorem tepelné vodivosti [``` \lambda=\begin{pmatrix} [$lxx] & [$lxy] \\ [$lxy] & [$lyy] \end{pmatrix}.```] Tok tepla je dán vztahem [``` \vec q = -\lambda \nabla T,```] kde předchozí součin chápeme v maticovém smyslu, tj. počítáme lineární kombinace sloupců matice [``\lambda``], kde koeficienty v lineární kombinaci jsou komponenty záporné vzatého gradientu [``-\nabla T``], tj.
+[``` -\nabla T= \begin{pmatrix}[$mdTx]\\[$mdTy]\end{pmatrix}.```]
+V našem případě
+[```\vec q=
+([$mdTx])\begin{pmatrix} [$lxx] \\ [$lxy] \end{pmatrix}
++([$mdTy])\begin{pmatrix} [$lxy] \\ [$lyy] \end{pmatrix}
+=
+[$tok]```]
+
+Tok ve středu desky, tj. v bodě [`(1,1)`], určíme dosazením [`x=1`] a [`y=1`].
+
+[```\vec q(1,1)=[$tok11]```]
+
+
+### 3. Divergence toku (změny v toku energie)
+
+Divergence udává, zda v daném místě tok zesiluje či zeslabuje. Musíme vypočítat derivace komponent toku [`\vec q`] (první komponentu derivujeme podle první souřadnice, druhou podle druhé) a sečíst.
+
+[```\frac{\partial}{\partial x}\left([$tokx]\right) =[$divergenceX] ```]
+
+[```\frac{\partial}{\partial y}\left([$toky]\right) =[$divergenceY] ```]
+
+[```\nabla \cdot \vec q =
+\frac{\partial}{\partial x}\left([$tokx]\right)
++\frac{\partial}{\partial y}\left([$toky]\right)
+=[$divergence].
+```]
+
+
+### 4. Změna teploty 
+
+
+Zkusme vypočítat divergenci v bodě [`(1,1)`].
+
+
+[```\nabla \cdot \vec q(1,1)=\nabla \cdot (-\lambda \nabla T)(1,1)= [$divergence11]```]
+
+
+Podle divergence můžeme z rovnice vedení tepla
+[``` \rho c \frac {\partial T}{\partial t}=\nabla \cdot (\lambda \nabla T)```]
+určit, zda teplota v daném místě roste či klesá. Podle této rovnice mají divergence v bodě a derivace teploty podle času opačná znaménka, protože pomocí toku máme
+[``` \rho c \frac {\partial T}{\partial t}=-\nabla \cdot \vec q,```]
+tj.
+[``` \rho c \frac {\partial T}{\partial t}=-\nabla \cdot (-\lambda \nabla T).```]
+Je-li divergence v daném bodě kladná, teplota klesá. Je-li záporná, teplota roste. 
+
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

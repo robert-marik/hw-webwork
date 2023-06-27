@@ -1,0 +1,80 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+
+$data =
+[
+{
+nadpis=>"Konstitutivní vztah",
+otazka=>"Při studiu transportních jevů, při odvození difuzní rovnice, hraje významnou roli konstitutivní vztah. Jak byste jeho význam charakterizovali slovně?",
+odpoved=>"Konstitutivní vztah převádí nerovnoměrnosti v prostorovém rozložení stavové veličiny na tok, který se snaží tyto nerovnoměrnosti vyhladit.",
+moznosti=>[
+"Konstitutivní vztah přepočítává tok stavové veličiny na její akumulaci v daném bodě.",
+"Konstitutivní vztah vyjadřuje bilanci celkového množství stavové veličiny.",
+"Konstitutivní vztah vyjadřuje, jak se přítomnost zdrojů projeví na toku přenášejícím stavovou veličinu.",
+"Konstitutivní vztah vyjadřuje, že akumulaci stavové veličiny je možno chápat jako součet vydatnosti zdrojů v daném místě a intenzity, s jakou v daném místě klesá tok stavové veličiny.",
+]}
+];
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
+
+BEGIN_PGML
+
+## [$na]
+
+
+[$ot]
+
+[_]{$radio}
+
+_[$zdroj]_
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$od]
+
+END_PGML_SOLUTION
+
+};
+# konec cyklu
+
+
+ENDDOCUMENT();
+

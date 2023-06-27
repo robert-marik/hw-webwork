@@ -1,0 +1,92 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+$dx=0.1*random(3,8,1);
+$a=0.1;
+$b=2+0.01*random(200,600,1);
+$c=random(10,30,1);
+$w=random(30,40,0.1);
+$x0=$w;
+
+Context("Numeric")->variables->are($var=>'Real');
+Context()->flags->set(
+     reduceConstants => 0,
+     reduceConstantFunctions => 0,
+   );
+
+$funkce=Formula("$a*$var^2+$b*$var+$c")->reduce();   # funkce
+$derivacefunkce=Formula("2*$a*$var+$b")->reduce();   # derivace funkce
+
+
+$hodnota=$a*$x0*$x0+$b*$x0+$c;
+
+$hodnotaSol=Formula("$a*($x0)^2+$b*$x0+$c");
+
+$hodnotaDer=Formula("2*$a*$x0+$b");
+$hodnotaderivace=2*$a*$x0+$b;
+
+$answer=Formula("(2*$a*$x0+$b)*$dx");   # tecna
+
+
+BEGIN_PGML
+
+## Citlivostní analýza
+
+[@ image("raketoplan.jpg", width=>400) @]*
+
+Lineární aproximaci využíváme i k detekci toho, jak citlivě reagují funkční hodnoty na změny ve vstupních datech. Hodnotu derivace je možno chápat jako velikost zakolísání funkčních hodnot při jednotkové změně vstupních dat. Pokud je změna vstupních dat predikovatelná (například se jedná o známou chybu měření nebo známou toleranci se kterou dokážeme vyrobit nějakou součástku nebo se kterou dokážeme udržovat sledovanou veličinu na konstantní hodnotě), stačí hodnotu derivace vynásobit odchylkou, která může nastat ve vstupních datech. 
+
+Například výroba krystalů pro elektronická zařízení raketoplánů musí probíhat za přesně definované teploty. Předpokládejme v jednoduchém modelu, že teplota krystalu je v každém okamžiku dána jednoznačně příkonem zařízení (tj. teplota reaguje na změnu příkonu bez zpoždění a nezohledňuje historii) a funkce udávající teplotu jako funkci příkonu ohřívače je
+[``` T(x)=[$funkce].```]
+
+Uvažujme příkon [`x=[$w] \,\mathrm{W}`]. Předpokládejme, že jsme schopni tuto hodnotu udržovat s přesností [`\Delta x=[$dx] \,\mathrm{W}`].
+
+Vypočtěte teplotu za těchto podmínek a rozkolísání teploty způsobené změnou příkonu o [`\Delta x=[$dx] \,\mathrm{W}`].
+
+>> [``T([$w])={}``][_______________________]{$hodnotaSol} <<
+
+>> [``\frac{\mathrm dT}{\mathrm dx}([$w]) \Delta x={}``][_______________________]{$answer} <<
+
+
+
+(Zpracováno podle Stewart: Calculus.)
+
+END_PGML
+
+$showHint = 1;
+BEGIN_PGML_HINT
+
+Teplotu určíme přímým dosazením hodnoty [`x=[$w]`] do funkce [```T(x)=[$funkce].```]
+
+Po zderivování funkce, dosazení hodnoty [`x=[$w]`] do derivace a vynásobení hodnotou [`\Delta x=[$dx]`] určíte odpověď na druhou část otázky.
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Teplotu určíme přímým dosazením hodnoty [`x=[$w]`] do funkce [```T(x)=[$funkce].```] Vychází
+[``` T([$w])=[$hodnotaSol]```]
+
+Po zderivování funkce, dosazení hodnoty [`x=[$w]`] do derivace a vynásobení hodnotou [`\Delta x=[$dx]`] určíme odpověď na druhou část otázky.
+
+Po zderivování funkce dostáváme derivaci
+[``` \frac{\mathrm dT}{\mathrm dt}=[$derivacefunkce].```]
+Po dosazení hodnoty [`x=[$w]`] do této derivace dostáváme
+[``` \frac{\mathrm dT}{\mathrm dt}([$w])=[$hodnotaDer].```]
+Po vynásobení hodnotou [`\Delta x=[$dx]`] získáme finální rozkolísání teploty
+[``` \frac{\mathrm dT}{\mathrm dt}([$w]) \Delta x=[$answer].```]
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

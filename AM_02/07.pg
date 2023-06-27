@@ -1,0 +1,70 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Numeric")->variables->are('x'=>'Real', 'W'=>'Real', 'A'=>'Real', 'M'=>'Real');
+
+$W=random(8,20,1);
+$dW=random(1,8,1)/10;
+
+$answer=Compute("0.75*($W)^{-0.25}*$dW");
+
+BEGIN_PGML
+
+## Bazální metabolismus a růst hmotnosti jedince
+
+
+[@ image("tlusta_kocka.jpg", width=>400) @]*
+
+
+Bazální metabolismus [`M`] souvisí s hmotností [`W`] vztahem
+[```M = AW^n```] kde [`n`] je pro mnoho živočišných druhů blízké
+číslu [`0.75`] a [`A`] je konstanta, která je specifická
+pro daný druh a v rámci daného druhu klesá s věkem. Tento vztah je v literatuře znám jako Kleiberův zákon. Vysvětluje se pomocí něj rozdílná délka života různých živočišných druhů.
+
+Pro zadaný druh a věk jedince můžeme pro relativní porovnávání zvolit jednotky v nichž měříme bazální metabolismus tak, že konstanta [`A`] je rovna jedné. Vztah mezi metabolismem a hmotností se tím redukuje na [``` M=W^{0.75}.```]
+
+Uvažujme tento zjednodušený vztah a jedince o hmotnosti [``W=[$W]``], jehož hmotnost roste rychlostí [``\frac{\mathrm dW}{\mathrm dt}=[$dW].``] Určete jak rychle roste bazální metabolismus. (Veškeré údaje v jednotkách kompatibilních s řešenou úlohou a proto jednotky nemusíte uvažovat.)
+
+>>[``\frac{\mathrm dM}{\mathrm dt}=``][_______________________]{$answer}<<
+
+
+**Poznámka.** Nezapomeňte, že desetinná čísla zadáváme s desetinnou tečkou a ne s desetinnou čárkou. 
+
+
+>> _Podle Monteith, Unsworth: Principles of Environmental Physics._
+
+
+END_PGML
+
+$showHint = 1;
+BEGIN_PGML_HINT
+
+* Známe derivaci [``\frac{\mathrm dW}{\mathrm dt}=[$dW],``].
+* Ze vztahu [``` M=W^{0.75}```] umíme vypočítat [``\frac{\mathrm dM}{\mathrm dW}``].
+* Díky vzorci pro derivaci složené funkce víme, jak tyto výrazy zkombinovat, abychom dostali [``\frac{\mathrm dM}{\mathrm dt}.``]
+* Nezapomeňte dosadit zadané hodnoty. Výsledek je jenom číslo, ne funkce.
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+* Známe derivaci [``\frac{\mathrm dW}{\mathrm dt}=[$dW],``].
+* Ze vztahu [``` M=W^{0.75}```] umíme vypočítat [``\frac{\mathrm dM}{\mathrm dW}=0.75 W^{-0.25}``].
+* Díky vzorci pro derivaci složené funkce máme [```\frac{\mathrm dM}{\mathrm dt}= \frac{\mathrm dM}{\mathrm dW}\frac{\mathrm dW}{\mathrm dt}= 0.75 W^{-0.25}\frac{\mathrm dW}{\mathrm dt}.```]
+* Pro zadané hodnoty dostáváme po dosazení
+[```\frac{\mathrm dM}{\mathrm dt}=0.75 ([$W])^{-0.25}[$dW]=[$answer].```]
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

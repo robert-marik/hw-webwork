@@ -1,0 +1,85 @@
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "parserRadioButtons.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+ 
+
+TEXT(beginproblem());
+
+Context("Numeric");
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+Context("Numeric")->variables->are('t'=>['Real',limits=>[1,10]],'y'=>'Real');
+
+
+$acc = random(2,5,1);
+$dec = random(50,85,5);
+$rdec = $dec/100;
+
+$sol=Formula("$acc - ($rdec)*y");
+
+$stac=Formula("$acc / ($rdec)");
+
+
+$radio=RadioButtons(["Všechna řešení konvergují nezávisle na počáteční podmínce ke stabilnímu stacionárnímu bodu.", "Řešení s malou počáteční podmínkou konvergují k nule (pokud je málo listí, tak  se rozpadne úplně), řešení od jisté hodnoty konvergují ke stacionárnímu bodu (nastolí se rovnováha).","Řešení s dostatečně velkou počáteční podmínkou jsou neohraničená (pokud je listí opravdu hodně, nestíhá se rozpadat a jeho množství roste), ostatní řešení konvergují ke stacionárnímu bodu (nastolí se rovnováha)."],0);
+
+Context()->texStrings;
+
+BEGIN_PGML
+
+## Listy v lese
+
+[@ image("autumn.jpg", width=>400) @]*
+
+Listy v lese padají na zem. Předpokládejme rychlost s jakou padají je [`[$acc]`]
+gramů na centimetr čtverečení za rok. Současně se tyto listy rozpadají. Za rok se rozpadne [`[$dec]`] procent listí.  
+
+### Model
+
+Napište diferenciální rovnici pro vývoj množství [`y`] listů na zemi (v gramech na centimetr čtvereční) v čase [`t`]. Jednotka času je rok.
+
+>> [``\frac{\mathrm dy}{\mathrm dt} = {} ``][______________________]{$sol} <<
+   
+### Počáteční podmínka
+
+Předpokládejte, že na začátku nejsou na zemi žádné listy. Jakou počáteční podmínkou vyjádříte tuto skutečnost?
+
+>> [``y(0) = {}``][___________________]{Formula("0")} <<
+
+### Stacionární bod
+
+Rovnice má jeden stacionární bod. Najděte jej. 
+
+>> Stacionární bod je [``y_0={}``][______________]{$stac}. <<
+
+### Kvalitativní popis chování řešení
+
+Vyberete správné tvrzení, týkající se daného modelu. 
+
+[_]{$radio}
+
+
+_Obrázek: pixabay.com, autor Pexels_
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+Modelem je diferenciální rovnice 
+[``` \frac{\mathrm dy}{\mathrm dt} = [$sol], ```]
+která má stacionární bod
+[``` y_0=[$stac]. ```]
+(Tento bod získáme jako nulový bod pravé strany.)
+K tomuto stacionárnímu bodu konvergují všechna řešení. Nezávisle na počáteční podmínce se nastolí rovnováha. V rovnováze listí přibývá stejnou rychlostí jako se rozkládá.
+
+Stavu, kdy nejsou na počátku žádné listy, odpovídá podmínka [`y(0)=0`].
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

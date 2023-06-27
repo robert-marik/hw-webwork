@@ -1,0 +1,160 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+
+
+$I1 = random(0,1);
+$S1 = random(0,1);
+$H1 = random(0,1);
+$Z1 = 0;
+$A=$I1.",".$S1.",".$H1.",".$Z1;
+
+do
+{
+$I2 = random(0,1);
+$S2 = random(0,1);
+$H2 = random(0,1);
+$Z2 = 0;
+$B=$I2.",".$S2.",".$H2.",".$Z2;
+} until (  $A ne $B);
+
+
+$rI1=RadioButtons([ "Ano", "Ne", ],$I1);
+$rS1=RadioButtons([ "Ano", "Ne", ],$S1);
+$rH1=RadioButtons([ "Ano", "Ne", ],$H1);
+$rZ1=RadioButtons([ "Ano", "Ne", ],$Z1);
+
+$rI2=RadioButtons([ "Ano", "Ne", ],$I2);
+$rS2=RadioButtons([ "Ano", "Ne", ],$S2);
+$rH2=RadioButtons([ "Ano", "Ne", ],$H2);
+$rZ2=RadioButtons([ "Ano", "Ne", ],$Z2);
+
+
+# 0=Ano, 1=Ne
+if ( $I1 != 0) { $Dkx1="D_x"; $Dky1="D_y"; } else { $Dkx1="D"; $Dky1="D"; };
+if ( $S1 != 0) { $lhs1="\frac{\partial u}{\partial t}"; } else { $lhs1="0"; };
+if ( $Z1 == 0) { $zdroj1="\sigma + "; } else { $zdroj1=" "; } ;
+if ( $H1 == 0) { $D1=$Dkx1." \frac{\partial ^2 u}{\partial x^2} + ".$Dky1." \frac{\partial ^2 u}{\partial y^2} "; } 
+else { $D1="\frac{\partial }{\partial x}\left(".$Dkx1." \frac{\partial  u}{\partial x}\right) + \frac{\partial }{\partial y}\left(".$Dky1." \frac{\partial  u}{\partial y}\right) "; } ;
+
+if ( $I2 != 0) { $Dkx2="D_x"; $Dky2="D_y"; } else { $Dkx2="D"; $Dky2="D"; };
+if ( $S2 != 0) { $lhs2="\frac{\partial u}{\partial t}"; } else { $lhs2="0"; };
+if ( $Z2 == 0) { $zdroj2="\sigma + "; } else { $zdroj2=" "; } ;
+if ( $H2 == 0) { $D2=$Dkx2." \frac{\partial ^2 u}{\partial x^2} + ".$Dky2." \frac{\partial ^2 u}{\partial y^2} "; } 
+else { $D2="\frac{\partial }{\partial x}\left(".$Dkx2." \frac{\partial  u}{\partial x}\right) + \frac{\partial }{\partial y}\left(".$Dky2." \frac{\partial  u}{\partial y}\right) "; } ;
+
+
+BEGIN_PGML
+
+
+## Difuzní rovnice v materiálech speciálních vlastostí
+
+Dvourozměrná obecná difuzní rovnice (popisující nestacionární děj, umožňující započítání zdrojů a pracující s nejobecnějším materiálem) má tvar
+[``` \frac{\partial u}{\partial t}=
+\sigma +
+\frac{\partial }{\partial x}\left(D_x\frac {\partial u}{\partial x}\right)
++
+\frac{\partial }{\partial y}\left(D_y\frac {\partial u}{\partial y}\right),
+```]
+pokud je rovnice napsána v soustavě souřadnic, ve které je difuzní matice diagonální. Je v ní derivace podle času, je v ní člen bez derivací definující zdroje, jsou v ní difuzní členy v nejobecnější možné formě, tj. ve formě kvaziderivací a s odlišeným difuzním koeficientem.
+
+Tuto rovnici je možné dále zjednodušit vynecháním některých členů, podle specifiky úlohy. Například úloha může být stacionární, bez přítomnosti zdrojů, s izotropním, homogenním či lineárním materiálem a každý z těchto předpokladů se na rovnici podepíše jistým způsobem, ať už sám o sobě, nebo v kombinaci s dalšími předpoklady. 
+
+*Rychlý přehled:*
+
+* Je v rovnici derivace podle času? Pokud ano, je rovnice nestacionární a dokáže popsat časový vývoj, nestacionární děj. Pokud ne, je to stacionární rovnice a popisuje stacionární děj. Například jak to bude vypadat po nastolení rovnováhy.
+* Je v rovnici člen bez derivace? Pokud ano, jedná se o člen udávající zdroje. Rovnice je schopna zachytit popis děje, kdy stavová veličina může kromě pohybu i vznikat či zanikat. Pokud tam tento člen není, je rovnice bezzdrojová.
+* V difuzní rovnici jsou vždy členy s derivací podle polohy. Jsou ve formě druhých derivací, nebo kvaziderivací? V prvním případě (druhé derivace) je rovnice vhodná pro popis homogenního materiálu s lineární materiálovou charakteristikou. Opačný případ je vhodný pro použití v situacích, kdy je alespoň jedna z těchto podmínek porušena.
+* V difuzní rovnici jsou u členů s derivací podle polohy difuzní koeficienty. Jsou tyto koeficienty ve všech členech stejné, nebo jsou odlišeny, například indexem? Pokud jsou stejné, jedná se o rovnici pro izotropní materiál. Taková rovnice je jednodušší, ale nedokáže popsat materiál mající v různých směrech různé vlastnosti. To dokáže až rovnice, která používá v různých směrech různý difuzní koeficient.
+
+Jsou celkem čtyři kategorie na které se díváme a v každé máme dvě možnosti, čili celkem šestnáct variant (dvě na čtvrtou). Níže máte dvě z nich.
+Vyberte správnou odpověď.
+
+-------
+
+[``` [$lhs1] = [$zdroj1]  [$D1]  ```]
+
+Obsahuje rovnice zdroje?
+
+[___]{$rZ1}
+
+Jedná se o difuzní rovnici zjednodušenou pro izotropní materiál?
+
+[___]{$rI1}
+
+Jedná se o difuzní rovnici zjednodušenou pro homogenní materiál s lineárními materiálovými vlastnostmi?
+
+[___]{$rH1}
+
+Popisuje rovnice stacionární děj?
+
+[___]{$rS1}
+
+
+-------
+
+[``` [$lhs2] = [$zdroj2]  [$D2]  ```]
+
+Obsahuje rovnice zdroje?
+
+[___]{$rZ2}
+
+Jedná se o difuzní rovnici zjednodušenou pro izotropní materiál?
+
+[___]{$rI2}
+
+Jedná se o difuzní rovnici zjednodušenou pro homogenní materiál s lineárními materiálovými vlastnostmi?
+
+[___]{$rH2}
+
+Popisuje rovnice stacionární děj?
+
+[___]{$rS2}
+
+
+END_PGML
+
+$showHint = 1;
+BEGIN_PGML_HINT
+
+Pročtěte si pečlivě původ jednotlivých členů rovnice a zaměřte se na členy, které se liší od obecného tvaru. 
+
+* Který člen vyjadřuje časovou změnu? Pro stacionární rovnici bude nulový.
+* Který člen vyjadřuje vydatnost zdrojů? Bez zdrojů bude nulový.
+* Které koeficienty charakterizují materiálovou odezvu v jednotlivých směrech? Pro izotropní materiál budou stejné.
+* Je difuzní koeficient závislý na poloze nebo na stavové veličině? Pokud ne, tj. pro lineární a homogenní materiál, budou difuzní členy zjednodušeny do tvaru součinu difuzního koeficientu a druhé derivace.
+
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Pročtěte si pečlivě původ jednotlivých členů rovnice a zaměřte se na členy, které se liší od obecného tvaru. 
+
+* Který člen vyjadřuje časovou změnu? Pro stacionární rovnici bude nulový.
+* Který člen vyjadřuje vydatnost zdrojů? Bez zdrojů bude nulový.
+* Které koeficienty charakterizují materiálovou odezvu v jednotlivých směrech? Pro izotropní materiál budou stejné.
+* Je difuzní koeficient závislý na poloze nebo na stavové veličině? Pokud ne, tj. pro lineární a homogenní materiál, budou difuzní členy zjednodušeny do tvaru součinu difuzního koeficientu a druhé derivace.
+
+* Mezi stacionárností a nestacionárností rozhodujeme podle přítomnosti či nepřítomnosti členu [``\frac{\partial u}{\partial t}.``]
+* Mezi existencí a neexistencí zdrojů rozhodujeme podle přítomnosti či nepřítomnosti členu  bez derivací, například [``\sigma.``]
+* Mezi izotropií a anizotropíí rozhodujeme podle toho, jestli jsou difuzní koeficienty rovny společné konstnantě, například [`D`], nebo jestli jsou rozlišeny například indexy [`D_x`] a [`D_y`].
+* Mezi homogenitou a lineárními vlastnostmi, či mezi případem kdy alespoň jedna z těchto podmínek je porušena, rozhodujeme podle toho, zda difuzní členy jsou ve tvaru druhých derivací [`` D_x\frac{\partial ^2 u}{\partial x^2}``], nebo ve tvaru kvaziderivací [`` \frac{\partial }{\partial x}\left(D_x\frac{\partial u}{\partial x}\right)``].
+
+Jestli jste pozorovali správně poznáte porovnáním své odpovědi se správným řešením. (Tlačítko "Nechám se poddat", nebo zatrhnout checkbox nabízející zobrazení správného řešení a znovu odeslat odpověď.)
+
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

@@ -1,0 +1,95 @@
+##################
+#  Initialization
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$showHint = 1;
+
+##################
+#  Setup
+
+Context("Matrix");
+
+
+do {
+$u1=non_zero_random(-3,3);
+$u2=non_zero_random(-3,3);
+$v1=non_zero_random(-3,5);
+$v2=non_zero_random(-3,5);
+$l1=non_zero_random(-3,4);
+$l2=-1; #non_zero_random(-3,4);
+$k1=non_zero_random(-3,4);
+$k2=non_zero_random(-3,4);
+$k2=6;
+} until ($u1*$v2-$u2*$v1 != 0 and $l1*$k2-$l2*$k1 != 0 and 3*$k2+2*$k1 != 0 and 3*$l2+2*$l1 != 0 and abs($l1)!=1 and abs($k1)!=1 and abs($k2)!=1 );
+
+
+$ansl1 = $l1*$u1+$l2*$v1;
+$ansl2 = $l1*$u2+$l2*$v2;
+$ansk1 = $k1*$u1+$k2*$v1;
+$ansk2 = $k1*$u2+$k2*$v2;
+$ansl=Matrix([[$ansl1],[$ansl2]]);
+$ansk=Matrix([[$ansk1],[$ansk2]]);
+
+$a1 = 3*$u1-2*$v1;
+$a2 = 3*$u2-2*$v2;
+
+
+##################
+#  Main text
+
+BEGIN_PGML
+
+## Lineární kombinace vektorů
+
+[@ image("zip.jpg", width=>400) @]*
+
+_Lineární kombinace funguje trošku jako zip, Když je to vhodné, umí zkombinovat dva nebo i více vektorů do jednoho, stejně jako dvě půlky zipu se spojí do jediného celku. Někdy to chceme naopak a chceme rozdělit vektor do lineární kombinace zadaných vektorů. Podobně, jako když se rozepíná zip. První z těchto dovedností se využívá například u maticového násobení. Sloupce první matice jsou jakési složky zipu a sloupce druhé matice říkají, jak máme nechat jednotlivé složky do sebe zapadnout. V následujících úlohách se zaměříme právě na maticové násobení. Nejprve si v tomto příkladě natrénujeme výpočet lineární kombinace. V dalších příkladech v podstatě totéž, ale v kontextu maticového násobení matice a sloupcového vektoru. V dalších příkladech se poté budeme věnovat násobení matic a nakonec si ukážeme praktické využití při hledání vektoru udávajícího tok tepla z vektoru udávajícího gradient teploty a z materiálové charakteristiky prostředí._
+
+Uvažujme vektory [```\vec u=\begin{pmatrix}[$u1]\\[$u2]\end{pmatrix} \quad\text{ a }\quad
+\vec v=\begin{pmatrix}[$v1]\\[$v2]\end{pmatrix}.```]
+Například lineární kombinace s koeficienty [`3`] a [`-2`] dává
+[``` 3\vec u-2\vec v=3 \begin{pmatrix}[$u1]\\[$u2]\end{pmatrix} - 2 \begin{pmatrix}[$v1]\\[$v2]\end{pmatrix}= \begin{pmatrix}[$a1]\\[$a2]\end{pmatrix}.```]
+Najděte další dvě zadané lineární kombinace.
+
+
+>> [`` [$l1] \vec u - \vec v =  {}``][________]*{$ansl} <<
+
+>> [`` [$k1] \vec u + [$k2] \vec v =  {}``][________]*{$ansk} <<
+
+(Z důvodů implementace v počítači je vektor v zápise výše ohraničen hranatými závorkami namísto kulatých. Jedná se o formalitu, na počítání to nemá vliv.)
+
+END_PGML
+
+
+########################
+#  Solution
+
+BEGIN_PGML_HINT
+Naznačené operace provádějte pro jednotlivé komponenty. 
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+Přímým výpočtem dostáváme
+[``` [$l1] \vec u - \vec v = [$l1] \begin{pmatrix}[$u1]\\[$u2]\end{pmatrix}  - \begin{pmatrix}[$v1]\\[$v2]\end{pmatrix} = \begin{pmatrix}[$ansl1]\\[$ansl2]\end{pmatrix}```]
+a podobně
+[``` [$k1] \vec u + [$k2] \vec v =  \begin{pmatrix}[$ansk1]\\[$ansk2]\end{pmatrix}.```] 
+END_PGML_SOLUTION
+
+
+COMMENT('Uses PGML.');
+
+ENDDOCUMENT();
+

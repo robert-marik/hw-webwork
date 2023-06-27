@@ -1,0 +1,69 @@
+##################################################
+
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"contextFraction.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$var='x';
+$aa=non_zero_random(2,5);
+$aa=3;
+
+if ( $aa == 2) {$temp="";} else {$temp=$aa;}
+
+$b=non_zero_random(2,6,1);
+do {$c=non_zero_random(-10,10);} until (( abs($c) != $aa ) and ( abs($c) != 1));
+do {$d=non_zero_random(1,10); } until ( $c != $d );
+
+Context("Numeric")->variables->are($var=>['Real',limits=>[1,100]]);
+Context("Fraction");
+$a=Fraction(1,$aa);
+
+$f=Formula("$c*x^($a)+$d/x^$b")->reduce();   # funkce
+#$answer = $f->D();   # derivace
+$answer=Formula("$c*$a*x^($a-1)-$d*$b/x^($b+1)");   # funkce
+
+BEGIN_PGML
+
+## Derivace mocninných funkcí se záporným nebo racionálním exponentem
+
+Derivace mocninné funkce je dána vzorcem [```\left(x^n\right)'=\frac{\mathrm d}{\mathrm dx}\left(x^n\right)=n x^{n-1}```]
+a tento vzorec zahrnuje i záporné nebo racionální hodnoty mocniny [`n`]. Protože platí [```\sqrt[n]{x}=x^{\frac 1n}```] a
+[``` \frac{1}{x^n}=x^{-n},```] můžeme
+psát (pomocí zkrácené Lagrangeovy notace) například 
+[```\left(7\sqrt[4]{x}+\frac{8}{x^3}\right)'=7(x^{\frac 14})'+8(x^{-3})'=7\cdot \frac 14  x^{-\frac 34}+8\cdot (-3)x^{-4}=\frac 74 x^{-\frac 34}-\frac{24}{x^4}.```]
+Tento výsledek můžeme zapsat například ve tvaru *7/4 \*x^(-3/4) - 24/x^4*.
+
+------------
+
+
+Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$c]\sqrt[[$temp]]{x}+\frac{[$d]}{x^[$b]} .```] Příklad je analogický výše uvedenému vzoru.
+
+>>[`` f'([$var])=\frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$c]\sqrt[[$temp]]{x}+\frac{[$d]}{x^[$b]} \Bigr) ={}``]
+[_____________________]{$answer->cmp(limits=>[1,6])}<<
+
+END_PGML
+
+$showHint = 1;
+BEGIN_PGML_HINT
+Platí [```(\sqrt[[$temp]]{x})'=\left(x^{\frac {1}{[$aa]}}\right)'=\frac 1{[$aa]}\cdot x^{\frac {1}{[$aa]}-1}```] a
+[```\left(\frac 1{x^{[$b]}}\right)'=\left({x^{-[$b]}}\right)'=-[$b]\cdot x^{-[$b]-1}.```] Využijte tyto derivace a věty pro počítání s derivacemi, jako derivace součtu a derivace konstantního násobku.
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Platí [```(\sqrt[[$temp]]{x})'=\left(x^{\frac {1}{[$aa]}}\right)'=\frac 1{[$aa]}\cdot x^{\frac {1}{[$aa]}-1}```] a
+[```\left(\frac 1{x^{[$b]}}\right)'=\left({x^{-[$b]}}\right)'=-[$b]\cdot x^{-[$b]-1}.```] Využijeme tyto derivace a věty pro počítání s derivacemi, jako derivace součtu a derivace konstantního násobku.
+
+[``` f'([$var])=[$answer]```]
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

@@ -1,0 +1,46 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+TEXT(beginproblem());
+
+$showHint = 1;
+
+$radio = RadioButtons(
+[["Nárůst hmotnosti stromu v kilogramech mezi pátým a desátým rokem.",
+"Nárůst hmotnosti stromu v kilogramech za prvních pět let života.",
+"Průměrná rychlost růstu hmotnosti stromu v kilogramech za rok za prvních pět let života.",
+"Průměrná rychlost růstu hmotnosti stromu v kilogramech za rok mezi pátým a desátým rokem.",
+"Okamžitá rychlost růstu hmotnosti stromu v kilogramech za rok po pěti letech života.",
+"Okamžitá rychlost růstu hmotnosti stromu v kilogramech za pět let po pěti letech života.",
+]],
+0);  # První odpověď správná, odpovedi se permutuji
+
+BEGIN_PGML
+
+## Růst stromu a slovní interpretace integrálu
+
+[@ image("strom.jpg", width=>400) @]*
+
+Nechť [`w'(t)`] označuje rychlost růstu hmotnosti stromu v kilogramech za rok. Jak je možno interpretovat integrál [``` \int_{5}^{\,10} {w'(t)}\,\mathrm dt```] pro tento případ?
+
+[_]{$radio}
+
+END_PGML
+
+BEGIN_PGML_HINT
+Určitým integrálem rychlosti v příslušných mezích je vyjářena změna měnící se veličiny. Půjde tedy o nárůst hmotnosti stromu. Časový interval učují meze.
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Určitým integrálem rychlosti v příslušných mezích je vyjářena změna měnící se veličiny. Půjde tedy o nárůst hmotnosti stromu. Časový interval učují meze. Správná odpověď je: _Nárůst hmotnosti stromu v kilogramech mezi pátým a desátým rokem._
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

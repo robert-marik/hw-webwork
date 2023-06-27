@@ -1,0 +1,49 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+TEXT(beginproblem());
+
+
+$radio = RadioButtons(
+[["Velikost populace čmeláků po deseti týdnech.",
+"Velikost populace čmeláků po patnácti týdnech.",
+"Průměrná rychlost růstu populace čmeláků po patnácti týdnech.",
+"Průměrná rychlost růstu populace čmeláků během prvních deseti týdnů.",
+"Okamžitá rychlost růstu populace čmeláků po sedmi a půl týdnech",
+]],
+1);  # odpovedi se permutuji
+
+BEGIN_PGML
+
+## Čmeláčí hnízdo
+
+
+[@ image("cmelak.jpg", width=>400) @]*
+
+Čmeláčí hnízdo roste každé jaro od začátku. Předpokládejme, že první generace dělnic má velikost 10 a roste rychlostí  [`n'(t)`], kde [`t`] je čas v týdnech. Jak je možno interpretovat výraz [``` 10+\int_{0}^{\,15} {n'(t)}\,\mathrm dt```] pro tento případ?
+
+[_]{$radio}
+
+
+END_PGML
+
+$showHint = 1;
+BEGIN_PGML_HINT
+V zadání sčítáme změnu (vyjádřenou integrálem) s počáteční hodnotou. Výsledkem tedy bude celková velikost populace. Ještě je potřeba zjistit časový interval odpovídající uvažované změně. Ten poznáme z horní meze určitého integrálu. 
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+Určitým integrálem rychlosti v příslušných mezích je vyjádřena změna měnící se veličiny. V našem případě jde o nárůst populace za prvních patnáct týdnů. Tuto změnu sčítáme s původní hodnotou velikosti populace. Výsledkem je proto celková velikost. Výraz udává velikost populace po patnácti týdnech.
+END_PGML_SOLUTION
+
+
+
+ENDDOCUMENT();

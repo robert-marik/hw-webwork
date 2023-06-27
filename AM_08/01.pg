@@ -1,0 +1,155 @@
+DOCUMENT();        # This should be the first executable line in the problem.
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "PGcourse.pl"
+);
+ 
+TEXT(beginproblem());    
+# Do not show which answers are incorrect.
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+# FIRST MATRIX
+do{
+    $a=non_zero_random(-1,1,2);
+    $b=random(-3,3,1);
+    $c=random(-3,3,1);
+    $d=(random(-1,1,2)+($b)*($c)) * ($a);
+    $matice=Matrix([[$a,$b],[$c,$d]]);
+    $v1=Matrix([[non_zero_random(-1,1)],0]);
+    $invmatice=$matice->inverse;
+    $matice=$invmatice*Matrix([[2,0],[0,non_zero_random(-1,1)]])*$matice;
+    $ans=$invmatice*$v1;
+}
+until (max(abs($matice->element(1,1)),abs($matice->element(1,2)),abs($matice->element(2,1)),abs($matice->element(2,1)),abs($ans->element(1,1)),abs($ans->element(2,1)))<10);
+$matice1=$matice;
+$ans1=$ans;
+
+# SECOND MATRIX
+do{
+    $a=non_zero_random(-1,1,2);
+    $b=random(-3,3,1);
+    $c=random(-3,3,1);
+    $d=(random(-1,1,2)+($b)*($c)) * ($a);
+    $matice=Matrix([[$a,$b],[$c,$d]]);
+    $v1=Matrix([[non_zero_random(-1,1)],0]);
+    $invmatice=$matice->inverse;
+    $matice=$invmatice*Matrix([[2,0],[non_zero_random(-1,1),non_zero_random(-1,1)]])*$matice;
+    $ans=$invmatice*$v1;
+}
+until (max(abs($matice->element(1,1)),abs($matice->element(1,2)),abs($matice->element(2,1)),abs($matice->element(2,1)),abs($ans->element(1,1)),abs($ans->element(2,1)))<10);
+$matice2=$matice;
+$ans2=$ans;
+
+
+# THIRD MATRIX
+do{
+    $a=non_zero_random(-1,1,2);
+    $b=random(-3,3,1);
+    $c=random(-3,3,1);
+    $d=(random(-1,1,2)+($b)*($c)) * ($a);
+    $matice=Matrix([[$a,$b],[$c,$d]]);
+    $v1=Matrix([[non_zero_random(-1,1)],0]);
+    $invmatice=$matice->inverse;
+    $matice=$invmatice*Matrix([[2,0],[0,non_zero_random(-1,1)]])*$matice;
+    $ans=$invmatice*$v1;
+}
+until (max(abs($matice->element(1,1)),abs($matice->element(1,2)),abs($matice->element(2,1)),abs($matice->element(2,1)),abs($ans->element(1,1)),abs($ans->element(2,1)))<10);
+$matice3=$matice;
+$ans3=$ans;
+
+
+# FOURTH MATRIX
+do{
+    $a=non_zero_random(-1,1,2);
+    $b=random(-3,3,1);
+    $c=random(-3,3,1);
+    $d=(random(-1,1,2)+($b)*($c)) * ($a);
+    $matice=Matrix([[$a,$b],[$c,$d]]);
+    $v1=Matrix([[non_zero_random(-1,1)],0]);
+    $invmatice=$matice->inverse;
+    $matice=$invmatice*Matrix([[2,0],[non_zero_random(-1,1),non_zero_random(-1,1)]])*$matice;
+    $ans=$invmatice*$v1;
+}
+until (max(abs($matice->element(1,1)),abs($matice->element(1,2)),abs($matice->element(2,1)),abs($matice->element(2,1)),abs($ans->element(1,1)),abs($ans->element(2,1)))<10);
+$matice4=$matice;
+$ans4=$ans;
+
+
+# Make a new checkbox multiple choice
+$tf = new_pop_up_select_list();
+$tf->ra_pop_up_list(["?"=>"Vyberte odpověď", "Ano" => "Ano, je vlastním vektorem", "Ne" => "Ne, není vlastním vektorem"]);
+# $cmc now "contains" the checkbox multiple choice object.
+
+# Insert some  questions and matching answers in the q/a list
+
+Context()->texStrings;
+
+$tf -> qa ( 
+"\( A=$matice1 \) a \( \vec v=$ans1 \)", 
+"Ano",
+"\( A=$matice2 \) a \( \vec v=$ans2 \)", 
+"Ne",
+"\( A=$matice3 \) a \( \vec v=$ans3 \)", 
+"Ano",
+"\( A=$matice4 \) a \( \vec v=$ans4 \)", 
+"Ne",            
+);
+
+$tf->choose(3);
+
+# Insert some incorrect answers
+
+# Print the text using $mc->print_q for the questions and
+# $mc->print_a to print the answers.
+BEGIN_PGML
+
+## Rozhodni, zda je vektor vlastním vektorem
+
+V této úloze pracujeme s analogií Cvičení 10.1 a 10.2. 
+
+Vlastní vektory matice [`A`] jsou vektory, jejichž obraz při zobrazení maticí má stejný směr jako původní vektor. Jsou nesmírně důležité, protože při volbě soustavy souřadnic ve směru vlastních vektorů je matice [`A`] diagonální (viz cvičení 8.6) a s takovými maticemi se pracuje mnohem lépe, než s maticemi obecnými (viz cvičení 8.1 a násobení s maticí [`C`]). 
+
+Například vektor [```\vec{a}=\begin{pmatrix}-1\\2\end{pmatrix}```] a matice
+[```A=\begin{pmatrix} 3 & 0 \\ 2&4 \end{pmatrix}```] splňují
+[``` A\vec a=-\begin{pmatrix}3\\2\end{pmatrix}+2\begin{pmatrix}0\\4\end{pmatrix}=\begin{pmatrix}-3\\6\end{pmatrix},```]
+což znamená, že vektor [`\vec{a}`] se zobrazuje na svůj trojnásobek a jedná se o vlastní vektor příslušný vlastnímu číslu [`3`]. Naopak, pro vektor
+[```\vec{b}=\begin{pmatrix}1\\1\end{pmatrix}```] platí
+[``` A\vec{b}=\begin{pmatrix}3\\2\end{pmatrix}+\begin{pmatrix}0\\4\end{pmatrix}=\begin{pmatrix}3\\6\end{pmatrix},```]
+což znamená, že vektor [`\vec{b}`] není vlastním vektorem. Vskutku, druhá souřadnice se zobrazením změní na trojnásobek, ale první souřadnice se změní jiným násobkem (minus trojnásobkem). Vzor a obraz tedy nejsou rovnoběžné a vektor není vlastním vektorem. Aby byl vlastním vektorem, musely by všechny komponenty obrazu být stejným násobkem vzoru.
+
+---------------------
+
+Určete, zda je vektor [`\vec v`] vlastním vektorem matice [`A`].
+
+[@ $tf -> print_q @]*
+
+END_PGML
+
+Context()->normalStrings;
+
+
+BEGIN_PGML_HINT
+Násobíme matici s vektorem a díváme se, jestli je výsledek násobkem původního vektoru. Pokud ano, je tento vektor vlastním vektorem. Je nutné kontrolovat všechny komponenty. Alespoň jeden nabízený vektor je vlastním  vektorem a alespoň jeden nabízený vektor není vlastním vektorem.
+
+Pokud máte potíže s násobením a chcete si správnost zkontrolovat, použijte MATLAB, Octave nebo Sage.
+END_PGML_HINT
+
+@correct = @{$tf->ra_correct_ans()};
+$answerstring = join(", ", @correct);
+
+BEGIN_PGML_SOLUTION
+Násobíme matici s vektorem a díváme se, jestli je výsledek násobkem původního vektoru. Pokud ano, je tento vektor vlastním vektorem. Je nutné kontrolovat všechny komponenty. Alespoň jeden nabízený vektor je vlastním  vektorem a alespoň jeden nabízený vektor není vlastním vektorem.
+
+Řešení je [$answerstring].
+END_PGML_SOLUTION
+
+# Enter the correct answers to be checked against the answers to the students.
+ANS(str_cmp( $tf->ra_correct_ans )   ) ;
+
+COMMENT('Volba Ano/NE, Používá PGML');
+
+ENDDOCUMENT();

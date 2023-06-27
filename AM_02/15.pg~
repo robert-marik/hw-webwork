@@ -1,0 +1,76 @@
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("css/left.css");
+
+TEXT(MODES(
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
+));
+
+
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;} #answerComment {display:none;}</style>",
+));
+
+BEGIN_PGML
+
+
+
+## Jednotka derivace
+
+Při studiu nové veličiny je užitečnou pomůckou znalost jednotky této veličiny. Zejména, pokud veličina vznikne nějakou operací, na kterou si teprve zvykáme, jako například derivováním. 
+
+**Úkol pro tento týden: Napište slovně, výstižně a stručně, jak souvisí jednotka fyzikální veličiny získané derivováním s jednotkami veličiny kterou derivujeme, veličiny podle které se derivuje a případně dalšími potřebnými veličinami.**
+
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box(10,80)\}
+END_TEXT
+
+
+BEGIN_PGML
+
+Samozřejmostí je ucelený text, celá věta nebo celý odstavec s dodržením interpunkce a stavby věty (podmět, sloveso, další větné členy). Cílem je vyzkoušet si, zda umíte dát srozumitelnou a jasně formulovanou odpověď.
+
+Hodnocení bude mírné, 100 procent za jakýkoliv srozumitelný komentář. Hlavní v této úloze není sběr bodů, ale pročíst si reakci na Vaši odpověď (bude-li mezi vybranými) a poučit se z reakcí na odpovědi kolegů.
+
+END_PGML
+
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+
+BEGIN_PGML_SOLUTION
+
+Kdo odpověděl má v červeném políčku nad příkladem hodnocení známkou a komentář. Případně bude komentář doplněn v následujících dnech.
+
+Několik možností jak napsat odpověď:
+
+* Jednotka veličiny získané derivací je podílem jednotky veličiny, která je derivována, a jednotky veličiny, podle které se derivuje.
+* Jednotka derivace je stejná, jako bychom místo derivování jedné veličiny podle druhé tyto veličiny dělili.
+* Jednotka derivace je podílem jednotek derivované a derivující veličiny v tomto pořadí.
+
+Příkladem může být derivace teploty podle času, kde derivace vychází v jednotkách teploty za jednotku času, například stupeň Celsia za minutu. Pro správnost je nutné napsat odpověď obecně, nikoliv na konkrétním příkladě. Ten může sloužit pro ilustraci.
+
+K hodnocení:
+
+* Dotaz se neptal na derivaci fyzikální jednotky. To by ani nedávalo smysl. 
+* Odpověď, že po derivaci jednotka veličiny souvisí s jednotkami původních veličin, je samozřejmost a neodpovídá na otázku. Podobné odpovědi jsou zde obodovány za snahu ale hodnocení správnosti je pochopitelně F.
+* Odpověď, že derivace znamená rychlost změny jedné veličiny v závislosti na druhé je sice pravdivé tvrzení, ale nedopovídá na položenou otázku o jednotkách. Proto bohužel i taková odpověď zasluhuje hodnocení F.
+
+Až budou zveřejněny odpovědi, poučte se, jaké chyby se objevovaly a jaké na ně jsou reakce. To je cílem tohoto příkladu. Proto prozatím všichni, kdo napsali něco smysluplného, či se o to alespoň pokusili, budou mít hodnocení 100%.
+
+END_PGML_SOLUTION
+
+ENDDOCUMENT();

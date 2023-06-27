@@ -1,0 +1,91 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+$data =
+[
+{
+nadpis=>"Vlastní vektory matice",
+otazka=>"Jaká vlastnost charakterizuje vlastní vektory matice (vlastní směry matice)?",
+odpoved=>"Obraz je násobkem vektoru, má tedy stejný nebo opačný směr.",
+moznosti=>[
+"Obraz je kladným násobkem vektoru, má tedy stejný směr.",
+"Obraz je nulovým násobkem vektoru, má nulovou velikost.",
+"Obraz je záporným vektoru, má tedy opačný směr.",
+"Obraz je kolmý na vzor a jejich skalární součin je nulový."
+]
+},
+{
+nadpis=>"Matice s vlastními směry ve směru souřadných os.",
+otazka=>"Jak vypadá nejobecnější možná matice, která má vlastní vektory ve směru jednotlivých os?",
+odpoved=>"Je diagonální",
+moznosti=>[
+"Je nulová",
+"Je kladná",
+"Je jednotková",
+]
+}
+];
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+$DEBUG=1;
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
+
+BEGIN_PGML
+
+## [$na]
+
+[$ot]
+
+[_]{$radio}
+
+_[$zdroj]_
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$od]
+
+END_PGML_SOLUTION
+
+};
+# konec cyklu
+
+
+ENDDOCUMENT();
+

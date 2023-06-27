@@ -1,0 +1,55 @@
+DOCUMENT(); 
+loadMacros(
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGessaymacros.pl",
+"PGcourse.pl",
+);
+TEXT(beginproblem());
+
+ADD_CSS_FILE("css/left.css");
+
+TEXT(MODES(
+    HTML => "<style>.problem-content textarea {width:100%;}</style>",
+));
+
+TEXT(MODES(
+    HTML => "<style>th:nth-child(4) {width:300px;} </style>",
+));
+
+BEGIN_PGML
+
+
+## Diferenciální rovnice
+
+Diferenciální rovnice jsou rovnice, obsahující derivace. Řeší se integrováním. Proto se ve všech kurzech matematiky probírají až po derivacích a integrálech. Historie však šla v určitém smyslu naopak a derivace i integrály byly vlastně vymyšleny proto, aby bylo možné pracovat s diferenciálními rovnicemi a řešit je. 
+
+**Úkol pro tento týden: Zkuste krátce vysvětlit, proč mají diferenciální rovnice takové důležité postavení v popisu
+přírodních dějů a jevů. Vyhněte se opsání první věty z Wikipedie, ale snažte se sestavit vlastní formulaci. Opět je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
+
+END_PGML
+
+
+BEGIN_TEXT
+\{essay_box(10,80)\}
+END_TEXT
+
+
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+
+
+BEGIN_PGML
+ 
+Samozřejmostí je ucelený text, celá věta nebo celý odstavec s dodržením interpunkce a stavby věty (podmět, sloveso, další větné členy). Cílem je vyzkoušet si, zda umíte dát srozumitelnou a jasně formulovanou odpověď.
+ 
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+...
+
+END_PGML_SOLUTION
+
+ENDDOCUMENT();
