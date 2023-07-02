@@ -225,3 +225,17 @@ Některé materiálové vlastnosti se nedají popsat pouze pomocí skalárních 
 * Tenzorovost veličin je matematický trik k efektivnímu zápisu vícedimenzionálních úloh. Nemá odraz v reálných měřitelných materiálových vlastnostech. Podle důkladnosti popisu můžeme tenzorovost uvažovat, či nemusíme.
 
 Odpověď. Tenzory používáme tam, kde podnětem a odezvou jsou vektorové veličiny, které nemusí nutně mít stejný směr. Toto nastává v anizotropních materiálech. Homogenita a počet dimenzí jsou na tomto nezávislé. Nehomogenní a trojrozměnré materiály nemusíme popisovat pomocí tenzorů, pokud jsou izotropní.
+
+---
+
+Soustava lineárních rovnic $$AX=B$$ má regulární matici soustavy $A$ a sloupec pravých stran $B$. Jaké je řešení soustavy?
+
+* $X=A^{-1}B$
+* $X=\frac{B}{A}$
+* $X=BA^{-1}$
+* $X=B^{-1}A$
+* $X=\frac 1{|A|}B^{-1}$
+* $X=A^{-1}B A$
+
+---
+    
