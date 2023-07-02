@@ -238,4 +238,15 @@ Soustava lineárních rovnic $$AX=B$$ má regulární matici soustavy $A$ a slou
 * $X=A^{-1}B A$
 
 ---
-    
+
+Rovnice samočištění jezer má tvar 
+$$\frac{\mathrm dy}{\mathrm dt}=-ky,$$
+kde $y$ je množství nečistot a $k$ je konstanta spojená s vydatností průtuoku a odtoku a s objemem jezera. Pro praktické využití je vhodné, dát konstantě $k$ odpovídající praktický význam. Vyberte správnou variantu.
+
+* Konstanta $k$ udává rychlost úbytku nečistot v situaci, kdy nečistot v jezeře je jednotkové množství.
+* Konstanta $k$ udává rychlost úbytku nečistot na počátku procesu.
+* Konstanta $k$ je čas nutný k vyplavení poloviny nečistot.
+* Konstanta $k$ je čas nutný k vyplavení jednotkového množství nečistot.
+* Není možné odpovědět dokud nejsou specifikovány jednotky, ve kterých se měří množství nečistot.
+
+Odpověď: Vyjádření je zřejmé z toho, že pokud $y=1$, rovnice se redukuje na  $$\frac{\mathrm dy}{\mathrm dt}=-k,$$ tj. $k$ je rychlost úbytku nečistot. Správná odpověď je: **Konstanta $k$ udává rychlost úbytku nečistot v situaci, kdy nečistot v jezeře je jednotkové množství.**
