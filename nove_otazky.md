@@ -250,3 +250,13 @@ kde $y$ je množství nečistot a $k$ je konstanta spojená s vydatností průtu
 * Není možné odpovědět dokud nejsou specifikovány jednotky, ve kterých se měří množství nečistot.
 
 Odpověď: Vyjádření je zřejmé z toho, že pokud $y=1$, rovnice se redukuje na  $$\frac{\mathrm dy}{\mathrm dt}=-k,$$ tj. $k$ je rychlost úbytku nečistot. Správná odpověď je: **Konstanta $k$ udává rychlost úbytku nečistot v situaci, kdy nečistot v jezeře je jednotkové množství.**
+
+---
+
+Vyberte správné tvrzení o roli stabilních a nestabilních stacionárních bodů u autonomní diferenciální rovnice  $$\frac{\mathrm dy}{\mathrm dt}=f(y).$$
+
+* Každé nekonstantní ohraničené řešení konverguje k některému ze stabilních stacionárních bodů.  Nestabilní stacionární body oddělují oblasti přitažlivosti jednotlivých stacionárních bodů.
+* Každé nekonstantní ohraničené řešení konverguje buď k některému ze stabilních nebo k některému z nestabilních stacionárních bodů. Oblasti přitažlivosti těchto bodů jsou symetricky rozložené okolo každého z nich.
+* Každé nekonstantní řešení osciluje mezi jedním stabilním a jedním nestabilním stacionárním bodem.
+* Každé nekonstantní řešení osciluje mezi dvěma stabilními stacionárními body.
+* Každé nekonstantní řešení osciluje mezi konečně mnoha stabilními stacionárními body.
