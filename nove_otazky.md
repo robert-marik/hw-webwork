@@ -168,3 +168,49 @@ Zejména je dobré si uvědomit následující.
   * V derivaci je informace o změnách funkčních hodnot, o hodnotách samotných derivace informaci nenese. 
   * Rychlostí dvacet stupňů Celsia za minutu se může ohřívat studená i horká voda. 
   * Dokonce se touto rychlostí může ohřívat i voda těsně před varem, protože se jedná o rychlost okamžitou a celý proces nemusí trvat celou minutu.
+
+  -----
+  
+Co je výsledkem součinu matice $n\times n$ a $n$-rozměrného sloupcového vektoru (v tomto pořadí)?
+
+* Sloupcový vektor. Toto využíváme k tomu, že pomocí matic je možné zapisovat zobrazení vektorů na vektory.
+* Skalární číslo. Toto využíváme při výpočtu skalárního součinu vektorů a při určování jejich odchylky.
+* Řádkový vektor. Toho využíváme při transformacích tenzorových veličin do jiných souřadných soustav.
+* Soustava lineárních rovnic. Toho využíváme pro efektivní a krátký zápis soustav libovolné dimenze na jednom řádku.
+* Součin není definovaný.
+
+  -----
+  
+Co je výsledkem součinu matice $n\times n$ a $n$-rozměrného řádkového vektoru (v tomto pořadí)?
+
+* Součin není definovaný.
+* Sloupcový vektor. Toto využíváme k tomu, že pomocí matic je možné zapisovat zobrazení vektorů na vektory.
+* Skalární číslo. Toto využíváme při výpočtu skalárního součinu vektorů a při určování jejich odchylky.
+* Řádkový vektor. Toho využíváme při transformacích tenzorových veličin do jiných souřadných soustav.
+* Soustava lineárních rovnic. Toho využíváme pro efektivní a krátký zápis soustav libovolné dimenze na jednom řádku.
+
+---
+
+Která matice reprezentuje otočení o pravý úhel proti směru hodinových ručiček?
+
+* $\begin{pmatrix}0&-1\\1&0\end{pmatrix}$
+* $\begin{pmatrix}0&1\\-1&0\end{pmatrix}$
+* $\begin{pmatrix}1&0\\0&1\end{pmatrix}$
+* $\begin{pmatrix}-1&0\\0&1\end{pmatrix}$
+* $\begin{pmatrix}-1&0\\0&-1\end{pmatrix}$
+* jiná matice než jsou nabízené
+* uvedenou transformaci není možné zapsat pomocí maticového součinu
+
+
+---
+
+Čím se vyznačuje matice, která má vlastní směry ve směru souřadných os? Pokud je více tvrzení pravdivých, vyberte to, které nese nejvíce informací.
+
+* Matice je diagonální.
+* Matice je diagonální a v hlavní diagonále má odpovídající vlastní čísla.
+* Matice má v hlavní diagonále odpovídající vlastní čísla.
+* Matice má v hlavní diagonále odpovídající vlastní čísla, ostatní prvky matice jsou kladné.
+* Matice má v hlavní diagonále odpovídající vlastní čísla a determinant je roven největšímu z těchto čísel.
+* Matice má v hlavní diagonále odpovídající vlastní čísla a determinant je roven nejmenšímu z těchto čísel.
+
+Odpověď: **Matice je diagonální s diagnonálou tvořenou vlastními čísly.** Mimodiagonální prvky jsou tedy nulové. Determinant diagonální matice je roven součinu prvků v diagonále a tedy nemůže být roven největšímu nebo nejmenšímu z vlastních čísel (s výjimkou speciálního případu, kdy ostatní vlastní čísla jsou v absolutní hodnotě rovny jedné)
