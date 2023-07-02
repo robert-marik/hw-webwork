@@ -214,3 +214,14 @@ Která matice reprezentuje otočení o pravý úhel proti směru hodinových ru�
 * Matice má v hlavní diagonále odpovídající vlastní čísla a determinant je roven nejmenšímu z těchto čísel.
 
 Odpověď: **Matice je diagonální s diagnonálou tvořenou vlastními čísly.** Mimodiagonální prvky jsou tedy nulové. Determinant diagonální matice je roven součinu prvků v diagonále a tedy nemůže být roven největšímu nebo nejmenšímu z vlastních čísel (s výjimkou speciálního případu, kdy ostatní vlastní čísla jsou v absolutní hodnotě rovny jedné)
+
+----
+
+Některé materiálové vlastnosti se nedají popsat pouze pomocí skalárních čísel a vektorů, ale je nutné použít i matice (tenzory). Proč? V jakých případech stačí skalární materiálové konstanty a v jakých případech jsou nutné tenzorové (maticové) konstanty?
+
+* Tenzory používáme tam, kde podnětem a odezvou jsou vektorové veličiny, které nemusí nutně mít stejný směr. Tedy při popisu dějů v anizotropních materiálech.
+* Tenzory používáme tam, kde materiál nemá ve všech bodech stejné vlastnosti, ale je nehomogenní. V jednom místě může být odezva na stejný podnět jiná, než v místě o kousek vedle.
+* Tenzory používáme tam, kde se pracuje se dvou rozměrnými nebo trojrozměrnými veličinami. Pouze při popisu jednorozměrných úloh se obejdeme bez tenzorů.
+* Tenzorovost veličin je matematický trik k efektivnímu zápisu vícedimenzionálních úloh. Nemá odraz v reálných měřitelných materiálových vlastnostech. Podle důkladnosti popisu můžeme tenzorovost uvažovat, či nemusíme.
+
+Odpověď. Tenzory používáme tam, kde podnětem a odezvou jsou vektorové veličiny, které nemusí nutně mít stejný směr. Toto nastává v anizotropních materiálech. Homogenita a počet dimenzí jsou na tomto nezávislé. Nehomogenní a trojrozměnré materiály nemusíme popisovat pomocí tenzorů, pokud jsou izotropní.
