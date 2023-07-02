@@ -138,3 +138,33 @@ Tok je záporně vzatý gradient a pokud změní znaménko gradient, změní zna
 Divergence je derivace toku a stejně jako u gradientu, i zde derivace po otočení změní znaménko. Protože divergence je tedy (až na násobek difuzním koeficientem a záporným znaménkem) druhá derivace teploty, dojde k dvojí změně znaménka a divergence zůstane stejná. To plně koresponduje s tím, že divergence je operátor nezávisející na souřadnicích, ale udává, jak tok roste v daném místě, bez ohledu na orientaci os.
 
 ---
+
+Sledujeme změny teploty v homogenní stěně. Stěna o tloušťce 40cm odděluje dvě prostředí o teplotě 0 a 20 stupňů Celsa. Vlevo je studené a vpravo teplé prostředí, osa $x$ směřuje doprava. Teplota ve stěně se ustálila a s časem se nemění, teplota je tedy funkcí pouze polohy ve stěně. Jaká bude derivace teploty podle polohy, tj. jaká bude hodnota $\frac{\mathrm dT}{dx}?$ 
+
+* $0.5 ^\circ\mathrm C/\mathrm {cm}$ (podíl změny teploty a intervalu, na kterém tato změna nastala)
+* $2 \,\mathrm{cm}/^\circ\mathrm C$ (podíl tloušťky stěny a změny teploty)
+* $20 ^\circ\mathrm C$ (změna teploty)
+* $-0.5 ^\circ\mathrm C/\mathrm {cm}$ (podíl změny teploty a intervalu, na kterém tato změna nastala a se zohledněním znaménka vyjadřujícího směr poklesu)
+* $-20 ^\circ\mathrm C$ (změna teploty se započtením znaménka zohledňujícího směr poklesu)
+* $-2\, \mathrm{cm}/^\circ\mathrm C$ (podíl tloušťky stěny a změny teploty, druhé z toho ještě se započtením poklesu směrem od teplejšího prostředí)
+
+Odpověď: Při derivaci teploty podle $x$ se zajímáme o rychlost růstu teploty jako funkce proměnné $x$. Osa $x$ míří doprava, tedy směrem, kterým teplota roste. Nárůst je 20 stupňů Celsia a je na úseku 40 centimetrů. Pro rychlost růstu tento nárůst musíme přepočítat na jeden centimetr, což činí $$\frac {20\,{}^{\circ}\mathrm{C}}{40\,\mathrm{cm}}=0.5 ^\circ\mathrm {C}/\mathrm {cm}.$$ 
+
+---
+
+Veličina $T$ udává teplotu vody v závislosti na čase. Derivace je $\frac {\mathrm dT}{\mathrm dt} = 20\,{}^\circ\mathrm{C}/\mathrm{min}$. Co je možné z této informace vyčíst? Pokud je více možností, vyberte tu, která nese nejpodrobnější informace.
+
+* Teplota vody roste (okamžitou) rychlostí 20 stupňů Celsia za minutu. 
+* Teplota vody roste (okamžitou) rychlostí 20 stupňů Celsia za minutu. Za minutu bude teplota o 20 stupňů vyšší (pokud voda nedospěje k bodu varu). 
+* Teplota vody je menší než 80 stupňů Celsia a roste (okamžitou) rychlostí 20 stupňů Celsia za minutu.
+* Teplota vody je větší než 20 stupňů Celsia a roste (okamžitou) rychlostí 20 stupňů Celsia za minutu.
+* Teplota vody je 20 stupňů Celsia a do tohoto stavu se ohřívala přibližně minutu.
+
+Odpověď: **Derivace teploty vody podle času vyjadřuje okamžitou rychlost, jak rychle roste teplota vody. Tedy jaká je změna za jednotku času v daném okamžiku** Nic více. 
+
+Zejména je dobré si uvědomit následující.
+* Není možné říci, jaká bude teplota za minutu, protože není jisté, že během minuty se rychlost nezmění. 
+* Není možné ani říci, jaká teplota je, jestli nízká nebo vysoká. 
+  * V derivaci je informace o změnách funkčních hodnot, o hodnotách samotných derivace informaci nenese. 
+  * Rychlostí dvacet stupňů Celsia za minutu se může ohřívat studená i horká voda. 
+  * Dokonce se touto rychlostí může ohřívat i voda těsně před varem, protože se jedná o rychlost okamžitou a celý proces nemusí trvat celou minutu.
