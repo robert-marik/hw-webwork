@@ -260,3 +260,13 @@ Vyberte správné tvrzení o roli stabilních a nestabilních stacionárních bo
 * Každé nekonstantní řešení osciluje mezi jedním stabilním a jedním nestabilním stacionárním bodem.
 * Každé nekonstantní řešení osciluje mezi dvěma stabilními stacionárními body.
 * Každé nekonstantní řešení osciluje mezi konečně mnoha stabilními stacionárními body.
+
+
+----
+
+Veličina $T(x,y)$ udává teplotu v místě o souřadnicích $x$, $y$, kde počátek soustavy souřadnic je na křižovatce před budovou B na MENDELU, osa $x$ míří na východ a osa $y$ na sever. Teplotu měříme ve stupních Celsia, souřadnice v kilometrech. Gradient teploty v počátku je $\nabla T(0,0)=(-1,1) {}^\circ\mathrm{C}/\mathrm{km}$. Jak tuto skutečnost můžeme interpretovat pro uvedenou situaci?
+
+* Na křižovatce před budovou B teplota roste severozápadním směrem rychlostí přibližně $1.4$ stupně Celsia na kilometr.
+* Severozápdně od křižovatky před budovou B (kilometr na sever a kilometr na západ) je teplota maximální.
+* Situace není reálná, gradient značí nárůst veličiny a nemůže mít záporné znaménko.
+* Situace není reálná, teplota by současně musela růst (o jeden stupeň Celsia na kilometr) západním i severním směrem, což v praxi nemůže nastat. Jedna z komponent gradientu musí být nulová.
