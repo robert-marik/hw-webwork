@@ -270,3 +270,12 @@ Veličina $T(x,y)$ udává teplotu v místě o souřadnicích $x$, $y$, kde poč
 * Severozápdně od křižovatky před budovou B (kilometr na sever a kilometr na západ) je teplota maximální.
 * Situace není reálná, gradient značí nárůst veličiny a nemůže mít záporné znaménko.
 * Situace není reálná, teplota by současně musela růst (o jeden stupeň Celsia na kilometr) západním i severním směrem, což v praxi nemůže nastat. Jedna z komponent gradientu musí být nulová.
+
+---
+
+Veličina $T(x,t)$ udává teplotu v čase $t$ a v hloubce $x$ pod povrchem homogenní stěny, měřeno ze vnitřku budovy ven. (Uvnitř budovy je na povrchu stěny hodnota $x$ nulová a na vnějším povrchu budovy je rovna tloušťce stěny.) Obě paricální derivace $\frac{\partial T}{\partial t}$ a $\frac{\partial T}{\partial x}$ jsou nulové. V jaké situaci toto může nastat?
+
+* Paricální derivace jsou nulové, pokud se teplota nemění v čase ani v profilu stěny. Například pokud vnitřek i vnějšek budovy mají stejnou teplotu a teplota zdi se ustálila na této společné hodnotě.
+* Situace nemůže nastat, teplotní profil v homogenní stěně je lineární a paricální derivace podle polohy je vždy nenulová. 
+* Situace nemůže nastat, ve stěně neustále probíhá přenos energie mezi vnějším a vnitřním prostředím a derivace podle času nebude nikdy nulová.
+* Parciální derivace budou nulové, pokud bude mít teplota lokální extrém. Například v situaci, kdy horká stěna odděluje dvě studená prostředí.
