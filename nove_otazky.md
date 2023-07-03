@@ -279,3 +279,14 @@ Veličina $T(x,t)$ udává teplotu v čase $t$ a v hloubce $x$ pod povrchem homo
 * Situace nemůže nastat, teplotní profil v homogenní stěně je lineární a paricální derivace podle polohy je vždy nenulová. 
 * Situace nemůže nastat, ve stěně neustále probíhá přenos energie mezi vnějším a vnitřním prostředím a derivace podle času nebude nikdy nulová.
 * Parciální derivace budou nulové, pokud bude mít teplota lokální extrém. Například v situaci, kdy horká stěna odděluje dvě studená prostředí.
+
+---
+
+Vyberte tvrzení, které vhodně ilustruje větu o nezávislosti.
+
+Pro připomenutí, konzervativní vektorové pole je pole, kde integrál nezávisí na integrační cestě a skalární potenciál vektorového pole je taková skalární funkce, že její gradient je roven zadanému vektorovému poli.
+
+* Vektorové pole je konzervativní, jestliže je jeho rotace nulová. V takovém případě má pole skalární potenciál a křivkový integrál po libovolné křivce je možné vypočítat jako rozdíl skalárních potenciálů v koncovém a počátečním bodě křivky. 
+* Vektorové pole, které má skalární potenciál, umožňuje vypočítat rotaci tohoto vektorového pole prostřednictvím křivkového integrálu. 
+* Nenulová rotace vektorového pole indikuje, že pole má skalární potenciál. Takové vektorové pole není konzervativní a křivkový integrál se redukuje na Riemannův integrál skelárního potenciálu.
+* Je-li rotace skalárního potenciálu nulová, je vektorové pole konzervativní. Křivkový integrál podál libovolné křivky je poté možno určit jako Riemannův integrál skalárního potenciálu, případně jako křivkový integrál gradientu rotace.
