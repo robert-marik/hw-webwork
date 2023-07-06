@@ -28,8 +28,7 @@ Objem koule je dán vztahem [```V=\frac 43 \pi r^3```] a poloměr se zvětšuje 
 
 Pište *dr/dt* pro rychlost s jakou roste poloměr.
 
->>[``\frac{\mathrm dV}{\mathrm dt}={}``]
-[_____________________]{4*pi*r^2*dr/dt}<<
+>>[``\frac{\mathrm dV}{\mathrm dt}={}``][_____________________]{"4*pi*r^2*dr/dt"}<<
 
 
 END_PGML
