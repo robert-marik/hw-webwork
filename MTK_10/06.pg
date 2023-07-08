@@ -1,47 +1,45 @@
-
 DOCUMENT();
+
 
 loadMacros(
   "PGstandard.pl",
-  "MathObjects.pl",
-  "PGchoicemacros.pl",
-  "PGgraders.pl",
-  "PGML.pl",
+   "PGML.pl",
+  'draggableSubsets.pl', 
   "PGcourse.pl"
 );
 
-TEXT(beginproblem());
-
-
-Context("Numeric");
-
-# Create and use pop up lists 
-$tf = new_select_list();
-$tf->rf_print_q(~~&pop_up_list_print_q);
-
-# Choices presented to students
-$tf->ra_pop_up_list( [ 
-"???" => "?", 
-"dx/dt"  => "dx/dt", 
-"dy/dt"  => "dy/dt", 
-"a*x"  => "a*x", 
-"b*x*y"  => "b*x*y", 
-"c*y"  => "c*y", 
-"d*x*y"  => "d*x*y", 
-]);
-
 # Questions and answers
-$tf -> qa ( 
-"Rychlost s jakou roste populace kořisti.","dx/dt",
-"Rychlost s jakou roste populace dravce.","dy/dt",
-"Porodnost v populaci kořisti.","a*x",
-"Úbytek v populaci kořisti způsobený přítomností dravce.","b*x*y",
-"Úmrtnost v populaci dravce.","c*y",
-"Posílení reproduce dravce v případě, že má k dispozici kořist.","d*x*y",
+@a = ( 
+"Rychlost s jakou roste populace kořisti.","\[\frac{\mathrm dx}{\mathrm dt}\]",
+"Rychlost s jakou roste populace dravce.","\[\frac{\mathrm dy}{\mathrm dt}\]",
+"Porodnost v populaci kořisti.","\[ax\]",
+"Úbytek v populaci kořisti způsobený přítomností dravce.","\[bxy\]",
+"Úmrtnost v populaci dravce.","\[cy\]",
+"Posílení reproduce dravce v případě, že má k dispozici kořist.","\[dxy\]",
 );
 
-# How many questions to use
-$tf->choose(6);
+
+$draggable = DraggableSubsets(
+[ 
+$a[1],
+$a[3],
+$a[5],
+$a[7],
+$a[9],
+$a[11],
+],
+[[0],[2],[3],[1],[4],[5]],
+DefaultSubsets => [
+{label => $a[0], indices => [0..5]},
+{label => $a[4], indices => []},
+{label => $a[6], indices => []},
+{label => $a[2], indices => []},
+{label => $a[8], indices => []},
+{label => $a[10], indices => []},
+],
+AllowNewBuckets => 0,
+OrderedSubsets => 1
+);
 
 
 ###########################
@@ -62,7 +60,10 @@ Nejjednodušší model dravce a kořisti je [@ htmlLink("https://en.wikipedia.or
 \end{aligned}```]
 kde [`x`] je velikost populace kořisti a [`y`] je velikost populace dravce. Koeficienty [`a`], [`b`], [`c`] a [`d`] charakterizují vnitřní dynamiku populací (například dravec bez přístupu k potravě vymře) a jejich vzájemné působení (například v přítomnosti predátora se populace kořisti rozvíjí pomaleji než bez predátora). 
 
-[@ $tf -> print_q() @]*
+Přesuňte jednotlivé členy soustavy k jejich slovnímu vyjádření.
+
+[_]{$draggable}
+
 
 END_PGML
 
@@ -74,29 +75,16 @@ END_PGML_HINT
 ############################
 #  Answer evaluation
 
-$showPartialCorrectAnswers = 0;
-
-#
-#  Incremental grader
-#
-install_problem_grader(~~&custom_problem_grader_fluid);
-$ENV{'grader_numright'} = [  1,  2,  3,  4,  5,6];
-$ENV{'grader_scores'} =   [0.1,0.3,0.5,0.6,0.8,1];
-$ENV{'grader_message'} = "Za částečně správnou odpověď získáte částečný počet bodů";
-
-#
-#  All or nothing grader
-#  
-# install_problem_grader(~~&std_problem_grader);
-
-ANS( str_cmp( $tf->ra_correct_ans() ) );
-
 
 BEGIN_PGML_SOLUTION
 
-Řešení je [$tf->print_a]*.
-END_PGML_SOLUTION
 
-COMMENT("Uses PGML.");
+* Rychlost s jakou roste populace kořisti je [``\frac{\mathrm dx}{\mathrm dt}``], derivace velikosti populace kořisti podle času.
+* Porodnost v populaci kořisti je [`ax`]. Je to člen, který ovlivňuje růst populace kořisti pozitivně.
+* Úbytek v populaci kořisti způsobený přítomností dravce je [`bxy`]. Je to člen, který přispívá k růstu populace kořisti negativně.
+* Rychlost s jakou roste populace dravce je [``\frac{\mathrm dy}{\mathrm dt}``], derivace velikosti populace dravce podle času.
+* Úmrtnost v populaci dravce je [`cy`]". Je to člen, který ovlivňuje populaci dravce negativně.
+* Posílení reproduce dravce v případě, že má k dispozici kořist je [`dxy`]" a jedná se o člen, který ovlivňuje populaci kořisti kladně.
+END_PGML_SOLUTION
 
 ENDDOCUMENT();

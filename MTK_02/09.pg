@@ -42,16 +42,10 @@ pro studium tepelné výměny pro tělesa, u nichž nehraje podstatnou roli vede
 
 Zformulujte výše uvedený mechanismus matematicky pro případ studeného nápoje o teplotě [`T`] v místnosti o teplotě [`[$T0] ^\circ\mathrm C`]. 
 
-Nejprve zapište, jaký je rozdíl teplot místnosti a nápoje. Pořadí v rozdílu volte tak, aby rozdíl vyšel kladný.
-[__________]{Formula("[$T0]-T")->cmp()->withPostFilter(AnswerHints(Formula("-[$T0]+T") => "Velikost rozdílu je v pořádku, ale znaménko je opačné. Uvažte vzájemný vztah mezi teplotou nápoje a místnosti a od větší hodnoty odečtěte tu menší."))}
-
-Dále sestavte matematický model. 
-
-* Na levou stranu rovnice napište rychlost, s jakou roste teplota nápoje v čase.
-* Na pravou stranu napište výraz, který udává, že tato rychlost je úměrná  rozdílu teplot. 
-* Čas označte [`t`], derivaci teploty podle času [`` \frac{\mathrm dT}{\mathrm dt } ``] zapište jako *dT/dt*. Konstantu úměrnosti volte [`k`] a model naformulujte tak, aby tato konstanta byla kladná.
-
->>[_____________________]{"dT/dt"}[``{}={}``][_____________________]{Formula("k*([$T0]-T)")->cmp()->withPostFilter(AnswerHints(Formula("k*(-[$T0]+T)") => "Pravá strana je správně až na znaménko. Ověřte si, že máte správně podchyceno, že teplota studeného nápoje roste a konstanta úměrnosti je kladná.",Formula("([$T0]-T)") => "Chybí konstanta úměrnosti."))}<<
+* Nejprve zapište, jaký je rozdíl teplot místnosti a nápoje. Pořadí v rozdílu volte tak, aby rozdíl vyšel kladný.
+>>Rozdíl teplot je [__________]{Formula("[$T0]-T")->cmp()->withPostFilter(AnswerHints(Formula("-[$T0]+T") => "Velikost rozdílu je v pořádku, ale znaménko je opačné. Uvažte vzájemný vztah mezi teplotou nápoje a místnosti a od větší hodnoty odečtěte tu menší."))}.<<
+* Dále sestavte matematický model. Na levé straně rovnice je rychlost, s jakou roste teplota nápoje v čase. Na pravou stranu napište výraz, který udává, že tato rychlost je úměrná  rozdílu teplot. Konstantu úměrnosti označte [`k`] a model naformulujte tak, aby tato konstanta byla kladná.
+>>[``\frac{\mathrm dT}{\mathrm dt}={}``][_____________________]{Formula("k*([$T0]-T)")->cmp()->withPostFilter(AnswerHints(Formula("k*(-[$T0]+T)") => "Pravá strana je správně až na znaménko. Ověřte si, že máte správně podchyceno, že teplota studeného nápoje roste a konstanta úměrnosti je kladná.",Formula("([$T0]-T)") => "Chybí konstanta úměrnosti."))}<<
 
 
 END_PGML

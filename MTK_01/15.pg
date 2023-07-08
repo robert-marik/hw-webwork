@@ -33,7 +33,7 @@ Zvládne AI podat definici přímé úměrnosti, nebo zůstane na úrovni jenom 
 V maximálně třech větách vysvětli, kdy se závislost dvou veličin nazývá přímá úměrnost.
 
 END_PGML
-TEXT(MODES(HTML => "<div class='GPT'>")); 
+TEXT(MODES(HTML => "<div class='GPT'>", TeX => "\par")); 
 BEGIN_PGML
 
 **Odpověď:** (červen 2023)
@@ -41,7 +41,7 @@ BEGIN_PGML
 Závislost dvou veličin se nazývá přímá úměrnost, pokud se zvyšováním hodnoty jedné veličiny zvyšuje i hodnota druhé veličiny a naopak, pokles jedné veličiny způsobuje pokles druhé veličiny, přičemž vztah mezi nimi je lineární a přímý.
 
 END_PGML
-TEXT(MODES(HTML => "</div>")); 
+TEXT(MODES(HTML => "</div>", TeX => "\par")); 
 BEGIN_PGML
 
 Jaký máte z odpovědi dojem?

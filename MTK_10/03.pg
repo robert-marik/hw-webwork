@@ -58,7 +58,7 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 Derivaci vypočteme pomocí vzorce pro derivaci násobku a pro derivaci mocninné funkce.
-[``` \frac{\mathrm dv}{\mathrm dt}=12\frac 1{6} m^{\frac 16 -1}=2 m^{-5/6} ```]
+[``` \frac{\mathrm dv}{\mathrm dm}=12\frac 1{6} m^{\frac 16 -1}=2 m^{-5/6} ```]
 
 Pro lineární aproximaci použijeme vzorec
 [``` f(x)\approx f(x_0)+f'(x_0)(x-x_0), ```] tj. v našem označení
@@ -66,7 +66,11 @@ Pro lineární aproximaci použijeme vzorec
 [```  \begin{aligned}v(m_0)&=[$vm0],\\v'(m_0)&=[$answerm0],\\
 v(m)&\approx{}[$answer_lin].\end{aligned} ```]
 Abyste neměli problém s přesností vyhodnocování, nevypočítávejte mocniny. 
-Pro rozhodnutí zda aproximace podhodnocuje nebo nadhodnocuje použijeme druhou derivaci. Ta je záporná a lineární aproximace nadhodnocuje (lineární aproximace je nad grafem, funkční hodnoty jsou ve skutečnosti menší než je lineární aproximace).
+Pro rozhodnutí zda aproximace podhodnocuje nebo nadhodnocuje použijeme druhou derivaci. 
+
+[``` \frac{\mathrm d^2v}{\mathrm dm^2}=\frac{\mathrm d}{\mathrm dm}\left(2 m^{-5/6}\right)=-\frac 53 m^{-11/6} ```]
+
+Druhá derivace je záporná a lineární aproximace nadhodnocuje (lineární aproximace je nad grafem, funkční hodnoty jsou ve skutečnosti menší než je lineární aproximace).
 
 END_PGML_SOLUTION
 

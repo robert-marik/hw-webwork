@@ -16,7 +16,7 @@ $data =
 [
 {
     obrazek=>"sloup",
-    otazka=>"U nosníku namáhaného na vzpěr je nutné, aby zatížení nepřekročilo jistou mez. Maximální zatížení nosníku daného průřezu souvisí délkou nosníku. Fyzikální analýzou je možné ukázat, že maximální svislá síla \(F\) působící v ose nosníku je nepřímo úměrná druhé mocnině jeho délky \(l\). Vyjádřete tento vztah matematicky.",
+    otazka=>"U nosníku namáhaného na vzpěr je nutné, aby zatížení nepřekročilo jistou mez. Maximální zatížení nosníku daného průřezu souvisí délkou nosníku. <p> Fyzikální analýzou je možné ukázat, že maximální svislá síla \(F\) působící v ose nosníku je nepřímo úměrná druhé mocnině jeho délky \(l\). Vyjádřete tento vztah matematicky.",
     odpoved=>"\(\displaystyle F=\frac k{l^2}\)",    
     moznosti=>[
 	  "\(\displaystyle F= k{l^2}\)",
@@ -30,7 +30,7 @@ zdroj=>"Obrázek: pixabay.com, autor alsen"
 ,
 {
     obrazek=>"kytara",
-    otazka=>"Princip hry na strunné hudební nástroje spočívá ve zkracování struny na hmatníku, čímž se mění frekvence jejích kmitů a tím i výška tónu, tj. frekvence kmitů. Je známo, že frekvence \(f\) kmitů struny je nepřímo úměrná délce \(l\) struny. Vyjádřete tento vztah matematicky.",
+    otazka=>"Princip hry na strunné hudební nástroje spočívá ve zkracování struny na hmatníku, čímž se mění frekvence jejích kmitů a tím i výška tónu, tj. frekvence kmitů. <p> Je známo, že frekvence \(f\) kmitů struny je nepřímo úměrná délce \(l\) struny. Vyjádřete tento vztah matematicky.",
     odpoved=>"\(\displaystyle f=\frac k{l}\)",    
     moznosti=>[
           "\(\displaystyle f= k{l^2}\)",
@@ -45,7 +45,7 @@ zdroj=>"Obrázek: pixabay.com, autor alsen"
 {
     obrazek=>"nakladaky",
     otazka=>"Odolnost nosníků zajímá nejenom stavaře dřevěných konstrukcí, ale například i arboristy (strom je možno chápat jako vetknutý nosník) nebo stavitele mostů (most je možno chápat jako nosník podepřený na dvou koncích). Při zátěžovém testu se zatíží most pomocí nákladních aut a porovnává se naměřený průhyb a jeho teoretická hodnota. 
-
+<p>
 Pro rovnoměrně zatížený nosník je jeho prohnutí \(\delta\) úměrné čtvrté mocnině délky \(l\). Jak byste tuto souvislost zapsali matematicky?",
     odpoved=>"\(\displaystyle \delta=k{l^4}\)",
     moznosti=>[
