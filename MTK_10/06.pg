@@ -8,10 +8,12 @@ loadMacros(
   "PGcourse.pl"
 );
 
+ADD_CSS_FILE("css/more_buckets.css");
+
 # Questions and answers
 @a = ( 
-"Rychlost s jakou roste populace kořisti.","\[\frac{\mathrm dx}{\mathrm dt}\]",
-"Rychlost s jakou roste populace dravce.","\[\frac{\mathrm dy}{\mathrm dt}\]",
+"Rychlost růstu populace kořisti.","\[\frac{\mathrm dx}{\mathrm dt}\]",
+"Rychlost růstu populace dravce.","\[\frac{\mathrm dy}{\mathrm dt}\]",
 "Porodnost v populaci kořisti.","\[ax\]",
 "Úbytek v populaci kořisti způsobený přítomností dravce.","\[bxy\]",
 "Úmrtnost v populaci dravce.","\[cy\]",

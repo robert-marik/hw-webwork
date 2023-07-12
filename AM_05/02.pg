@@ -7,7 +7,7 @@ loadMacros(
   "MathObjects.pl",
   "VectorField2D.pl",
   "PGML.pl",
-  "unionTables.pl",
+  'draggableSubsets.pl', 
   "PGcourse.pl"
 );
 
@@ -152,78 +152,63 @@ foreach my $i (0..2) {
 }
 
 
+do
+{
 @perm = shuffle(3);
-@inv = invert(@perm);
-
+} until ( ($perm[0] != 0) ||  ($perm[1] != 1) || ($perm[2] != 2) );
 
 #############################################
 #  Main text
 
-TEXT(beginproblem());
-
+$draggable = DraggableSubsets(
+[ 
+$vf[0],
+$vf[1],
+$vf[2],
+],
+[
+[0],
+[1],
+[2],
+],
+DefaultSubsets => [
+{label => $contours[0], indices => [$perm[0]]},
+{label => $contours[1], indices => [$perm[1]]},
+{label => $contours[2], indices => [$perm[2]]},
+],
+AllowNewBuckets => 0,
+OrderedSubsets => 1
+);
 
 BEGIN_PGML
 ## Vektorové pole jako gradient
 
 Některá vektorová pole je možno obdržet jako gradienty skalárních funkcí, tj. tato pole mají skalární potenciál (nebo, vyjádřeno matematickým jazykem, mají kmenovou funkci). To je případ vektorových polí na obrázku. Spárujte vektorové pole s obrázkem udávajícím vrstevnice odpovídajícího skalárního potenciálu.
 Stačí se řídit vlastností, že gradient je kolmý k vrstevnicím.
+
+Vektorová pole jsou pohyblivá a je možné je přesouvat myší. Přesuňte je pod správné obrázky s vrstevnicemi.
+
+[_]{$draggable}
+
+
 END_PGML
 
+BEGIN_PGML_SOLUTION
+Představte si graf vrtevnic a vektorové pole položiné na sobě a dívejte se, zda vektory jsou kolmé k vrstevnicím.
 
-BEGIN_TEXT
-$BR
-$BCENTER
-\{
-BeginTable().
+[@ $vf[0] @]* [@ $contours[0] @]* 
 
-AlignedRow([$vf[0],$vf[1],$vf[2]]).
+---
 
-TableSpace(5,0).
+[@ $vf[1] @]* [@ $contours[1] @]*
 
-AlignedRow([ 
- "1. ".pop_up_list(["???","A","B","C"]),
- "2. ".pop_up_list(["???","A","B","C"]),
- "3. ".pop_up_list(["???","A","B","C"])
-]).
+---
 
-TableSpace(26,5).
+[@ $vf[2] @]* [@ $contours[2] @]* 
 
-AlignedRow([
-$contours[$perm[0]],
-$contours[$perm[1]],
-$contours[$perm[2]]
-]).
+---
 
-TableSpace(5,0).
+END_PGML_SOLUTION
 
-AlignedRow(["A","B","C"]).
-
-EndTable();
-\}
-$BR
-(Kliknutím na graf se graf zvětší v samostatném okně.)
-$ECENTER
-END_TEXT
-
-##########################################
-#  Answer evaluation
-
-install_problem_grader(~~&std_problem_grader);
-
-$showPartialCorrectAnswers = 0;
-
-ANS(str_cmp([@ALPHABET[@inv]]));
-
-
-@letters=@ALPHABET[@inv];
-
-BEGIN_SOLUTION
-$PAR Řešení $BR $BR
-Gradient je kolmý na vrstevnice. Řešení je tedy následující.
-$BR
-Pole 1. je gradientem funkce s vrstevnicemi na obrázku  $letters[0]. $BR
-Pole 2. je gradientem funkce s vrstevnicemi na obrázku  $letters[1]. $BR
-Pole 3. je gradientem funkce s vrstevnicemi na obrázku  $letters[2]. $BR
-END_SOLUTION
 
 ENDDOCUMENT();

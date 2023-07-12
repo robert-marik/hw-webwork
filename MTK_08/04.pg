@@ -166,6 +166,11 @@ $A = $P * $D * ($P->inverse); # matrix for the linear transformation T
 $a11 = $A->element(1,1); $a12 = $A->element(1,2);
 $a21 = $A->element(2,1); $a22 = $A->element(2,2);
 
+# Matice ma byt symetricka ale vlivem numerickcyh chyb neni
+# Oprava, symetricnost zajistime "natvrdo"
+$Around = Matrix([[int(1000*$a11+.5),int(1000*$a12+.5)],
+[int(1000*$a12+.5),int(1000*$a22+.5)]])/1000;
+
 @x2 = ();
 @y2 = ();
 @length2 = ();
@@ -209,7 +214,7 @@ BeginTable().
 EndTable().$PAR
 @]***
 
-Matice zobrazení je [`[$A]`]. Všimněte si symetrie této matice. (Mimodiagonální prvky se ve skutečnosti budou pravděpodobně mírně lišit vlivem zaokrouhlení.) Díky tomu jsou vlastní směry navzájem kolmé. 
+Matice zobrazení je [`[$Around]`]. Všimněte si symetrie této matice. Díky tomu jsou vlastní směry navzájem kolmé. 
     
 Z osmi vektorů na obrázku jsou čtyři vlastními vektory. Dva protilehlé přísluší větší a dva na ně kolmé menší vlastní hodnotě. Které vektory jsou vlastní vektory příslušné *[$vlastnost] vlastní hodnotě*? 
 

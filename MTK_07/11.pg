@@ -41,7 +41,7 @@ moznosti=>[
 $pocet=@$data;
 $posledni=$pocet-1;  # indexujeme od nuly
 
-$DEBUG=1;
+$DEBUG=0;
 
 # Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
 if ($DEBUG) {@pole = (0..$posledni);}

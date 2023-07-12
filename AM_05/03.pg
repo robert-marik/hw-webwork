@@ -2,18 +2,18 @@ DOCUMENT();
 
 loadMacros(
   "PGstandard.pl",
-  "PGunion.pl",
+   "PGchoicemacros.pl",
   "MathObjects.pl",
-  "imageChoice.pl",
   "PGgraphmacros.pl",
   "PGML.pl",
   "VectorField2D.pl",
+  'draggableSubsets.pl', 
   "PGcourse.pl"
 );
 
 #$refreshCachedImages=1;
 
-SRAND($psvn);
+#SRAND($psvn);
 
 ############################################
 #  Setup
@@ -109,34 +109,54 @@ yavoid=>0,
 #
 #  Array of functions and their associated GIFs or PNGs
 #
-@QA = (
+
+foreach my $i (0..2) {
+  $grI[$i] = image(insertGraph($gr[$i]),width=>200,height=>200,tex_size=>310); 
+}
+
+@a = (
 "\(\displaystyle \vec{F}(x,y) = x\vec{i} + y\vec{j} \)", 
-$gr[0], 
+"$grI[0]", 
 "\(\displaystyle \vec{G}(x,y) = -y\vec{i} + x\vec{j} \)",
-$gr[1],
+"$grI[1]", 
 "\( \vec{H}(x,y) = x\vec{i} - y\vec{j} \)",
-$gr[2],
+"$grI[2]", 
 );
 
-$ml = new_image_match_list(
-  link => 1,                #  do not link to separate image
-  size => $size,            #  image size in pixels
-  tex_size => $tsize,       #  tex size in precent times 10
-  columns => 3,             #  number of columns
+do
+{
+@perm = shuffle(3);
+} until ( ($perm[0] != 0) ||  ($perm[1] != 1) || ($perm[2] != 2) );
+
+
+
+@i = ($a[1],$a[3],$a[5]);
+@l = ($a[0],$a[2],$a[4]);
+
+$draggable = DraggableSubsets(
+[ 
+$i[0],
+$i[1],
+$i[2],
+],
+[
+[0],
+[1],
+[2],
+],
+DefaultSubsets => [
+{label => $l[0], indices => [$perm[0]]},
+{label => $l[1], indices => [$perm[1]]},
+{label => $l[2], indices => [$perm[2]]},
+],
+AllowNewBuckets => 0,
+OrderedSubsets => 1
 );
-$ml->{separation} = 3;      # separation for questions in the list
 
-$ml->rf_print_q(~~&pop_up_list_print_q); # use pop-up-lists
-$ml -> ra_pop_up_list([ No_answer=>"?", A=>"A", B=>"B", C=>"C" ] );
-
-$ml->qa(@QA);               #  set the questions and answers
-$ml->choose(3);             #  select 5 of them
-#$ml->choose_extra(1);       #  and show the other 1
 
 ###############################################
 #  Main text
 
-TEXT(beginproblem());
 
 BEGIN_PGML
 ## Graf vektorového pole
@@ -153,35 +173,13 @@ Příklad postupu:
     * Vektor mířící doprava dolů má první komponentu kladnou a druhou zápornou.
     * ... atd.
 
+[_]{$draggable}
+
 END_PGML
-
-BEGIN_TEXT
-
-$BR
-\{ $ml->print_q \}
-$PAR
-$BCENTER
-\{ $ml->print_a \}
-$BR
-(Kliknutím na graf se graf zvětší v samostatném okně.)
-$ECENTER
-END_TEXT
-
-###############################################
-# Answer evaluation
-
-
-install_problem_grader(~~&std_problem_grader);
-
-$showPartialCorrectAnswers = 0;
-
-ANS(str_cmp($ml->ra_correct_ans));
 
 BEGIN_PGML_SOLUTION
 
 Vektorové pole [` \vec F = x\vec i+y\vec j`] míří od středu. Vektorové pole [` \vec G = -y\vec i+x\vec j`] rotuje proti směru hodinových ručiček. Zbylé vektorové pole odpovídá třetí možnosti.
 END_PGML_SOLUTION
-
-
 
 ENDDOCUMENT();
