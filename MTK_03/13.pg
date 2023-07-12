@@ -13,17 +13,17 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
+
 $data =
 [
 {
-    nadpis=>"Bolzanova věta",
-    otazka=>"Co slovně vyjadřuje  Bolzanova věta?",
-    odpoved=>"Spojitá funkce, která mění znaménko, má mezi znaménkovými změnami nulový bod.",
+    nadpis=>"Sudost funkce",
+    otazka=>"K čemu je užitečná sudost funkce?",
+    odpoved=>"Symetrické úlohy mají symetrická řešení a ta jsou popsána sudými funkcemi.",
     moznosti=>[
-"Spojitá funkce, která mění znaménko, má mezi znaménkovými změnami maximum.",
-"Každá funkce, která má nulový bod, mění na intervalu obsahujícím tento bod znaménko.",
-"Každá funkce, která má nulový bod, je v tomto bodě spojitá.",
-"Nulový bod funkce můžeme najít pomocí Newtonovy iterační metody.",
+"Sudé funkce pomáhají aproximovat obecné funkce pomocí Taylorova polynomu.",
+"Řešení všech běžných fyzikálních úloh je popsáno právě sudými funkcemi.",
+"Rovnovážné polohy, nebo obecněji minima potenciálu, jsou popsány sudou funkcí.",
 ],
 }
 ];

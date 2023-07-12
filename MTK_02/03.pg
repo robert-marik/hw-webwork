@@ -1,66 +1,49 @@
 DOCUMENT(); 
-
 loadMacros(
-  "PGstandard.pl",
-   "PGML.pl",
-  'draggableSubsets.pl', 
-  "PGcourse.pl"
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
 );
+TEXT(beginproblem());
 
 
-$draggable = DraggableSubsets(
-[ 
-"\[\frac{\mathrm d\alpha}{\mathrm dt}\]",
-"\[\frac{\mathrm da}{\mathrm dt}\]",
-"\[\frac{\mathrm db}{\mathrm dt}\]",
-"\[\frac{\mathrm dc}{\mathrm dt}\]",
-"\[\frac{\mathrm dh}{\mathrm dt}\]",
-"\[\frac{\mathrm dL}{\mathrm dt}\]",
-],
-[[0,4,5],[1],[2],[3]],
-DefaultSubsets => [
-{label => "Zásobník s derivacemi", indices => [0..5]},
-{label => "Rychlost chůze", indices => []},
-{label => "Rychlost prodlužování stínu.", indices => []},
-{label => "Rychlost pohybu stínu hlavy po zemi.", indices => []},
-],
-AllowNewBuckets => 0,
-OrderedSubsets => 1
-);
+Context("Numeric")->variables->are("l"=>['Real',limits=>[1,5]]);
 
-
+$radio    =  RadioButtons([[
+"Změna teploty ve stupních Celsia na jednom centimetru tloušťky stěny.",
+"Rozdíl teplot v místnosti a vně domu.",
+"Délka odpovídající teplotnímu rozdílu jednoho centimetru.",
+"Růst teploty. Je nulový, protože podle předpokladu jsou všechny teploty ustálené."
+]],0);
 
 BEGIN_PGML
 
-## Rychlost s jakou se prodlužuje stín
-
-[@ image("clovek_lampa.png", width=>400) @]*
-
-Na obrázku je člověk, který v noci za chůze míjí svítící lampu. Jak se vzdaluje od lampy, jeho stín se prodlužuje. Chceme zjistit, jak souvisí rychlost chůze s rychlostí, s jakou se prodlužuje stín a s rychlostí pohybu stínu hlavy. Které veličiny nás zajímají? Použijme označení podle obrázku. Tedy [`L`] je výška lampy, [`h`] je výška člověka, [`a`] je vzdálenost člověka od paty lampy, [`b`] je délka stínu, [`c`] je vzdálenost stínu hlavy od lampy a [`\alpha`] je úhel v naznačeném trojúhelníku. Čas je [`t`] a v rozbalovacím menu jsou derivace podle času.
-
-Ve slouci derivace jsou sloupce s derivacemi všech veličin z obrázku. Vyberte tři derivace, které odpovídají nadpisům na dalších sloupcích a přesuňte tyto derivace do patřičných sloupců. Ostatní derivace ponechte v prvním sloupci.
 
 
-[_]{$draggable}
+## Slovní interpretace  derivace
+
+Derivaci zpravidla interpretujeme jako rychlost a rychlost zase máme nejčastěji spojenou s rychlostí změny v čase. 
+
+V aplikacích však rychlost posuzujeme i vzhledem k jiným veličinám, než je čas. 
+
+Uvažujme stěnu, která odděluje teplý interiér domu a chladné okolí. Předpokládejme stálé podmínky a předpokládejme, že systém je v rovnovážném stavu, kdy se nemění ani teplota v místnosti, ani teplota ve stěně, ani teplota okolí domu. 
+
+Uvažujme teplotu v různých místech stěny. Můžeme například z vnější strany domu vést osu [`x`] skrz stěnu dovnitř a podél této osy bude teplota určitě narůstat. Tedy funkce [`T(x)`] poroste a rychlost tohoto růstu bude vyjádřena derivací [``\frac{\mathrm dT}{\mathrm dx}``]. Který z následujících obratů nejlépe vystihuje derivaci bez použití obratu "rychlost růstu jako funkce polohy"? Pro jednoduchost předpokládejme, že teplotu měříme ve stupních Celsia a polohu v centimetrech od počátku osy, tj. od vnějšího okraje stěny.
+
+
+   [_]{$radio}
+
 
 
 END_PGML
 
 
-############################
-#  Answer evaluation
-
-$showHint = 1;
-BEGIN_PGML_HINT
-Pozorně čtěte, jakou rychlost sledujeme a v obrázku najděte příslušnou měnící se veličinu a její označení.
-END_PGML_HINT
-
 BEGIN_PGML_SOLUTION
-Rychlost s jakou roste délka stínu je derivace délky stínu podle času, tj. [``\frac{\mathrm db}{\mathrm dt}``], protože délka stínu je [`b`].
-Rychlost chůze a rychlost s jakou se pohybuje stín hlavy jsou derivace vzdálenosti od libovolného nepohyblivého bodu, v tomto případě je možno použít patu lampy. Rychlost chůze je tedy  [``\frac{\mathrm da}{\mathrm dt}``] a rychlost s jakou se pohybuje stín hlavy je  [``\frac{\mathrm dc}{\mathrm dt}``].
+
+Derivace [``\frac{\mathrm dT}{\mathrm dx}``]  je rychlost růstu [`T`] jako funkce [`x`] a tím je myšlena změna [`T`] vyvolaná změnou [`x`] o jednotku.
+
 END_PGML_SOLUTION
 
-COMMENT("Uses PGML.");
-
 ENDDOCUMENT();
-

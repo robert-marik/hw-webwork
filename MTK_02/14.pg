@@ -13,32 +13,18 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
-$DEBUG=0;
 
 $data =
 [
 {
-    nadpis=>"Slovní interpretace vzorce pro lineární aproximaci",
-    otazka=>"Lineární aproximace je založena na vzorci \[f(x)\approx f(x_0)+f'(x_0)(x-x_0).\] Co v tomto kontextu vyjadřuje výraz \(f'(x_0)\)?",
-    odpoved=>"Odhad změny veličiny \(f\) na intervalu jednotkové délky, začínajícího v bodě \(x_0\).",
+    nadpis=>"Aproximace druhé derivace",
+    otazka=>"Označte výraz, který udává numerickou aproximaci druhé derivace funkce.",
+    odpoved=>"\(\displaystyle\frac{f(x+h)-2f(x)+f(x-h)}{h^2}\)",
     moznosti=>[
-"Odhad změny veličiny \(f\) na intervalu mezi \(x_0\) a \(x\).",
-"Odhad průměrné rychlosti růstu veličiny \(f\) na intervalu mezi \(x_0\) a \(x\).",
-"Odhad hodnoty veličiny \(f\) v bodě \(x\).",
-"Odhad hodnoty veličiny \(f\) v bodě \(x_0\).",
-],
-}
-,
-{
-    nadpis=>"Slovní interpretace vzorce pro lineární aproximaci",
-    otazka=>"Lineární aproximace je založena na vzorci \[f(x)\approx f(x_0)+f'(x_0)(x-x_0).\] Co v tomto kontextu vyjadřuje výraz \(f'(x_0)(x-x_0)\)?",
-    odpoved=>"Odhad změny veličiny \(f\) na intervalu mezi \(x_0\) a \(x\).",
-    moznosti=>[
-"Odhad změny veličiny \(f\) na intervalu jednotkové délky, začínajícího v bodě \(x_0\).",
-"Odhad okamžité rychlosti růstu veličiny \(f\) v bodě \(x_0\).",
-"Odhad průměrné rychlosti růstu veličiny \(f\) na intervalu mezi \(x_0\) a \(x\).",
-"Odhad hodnoty veličiny \(f\) v bodě \(x\).",
-"Odhad hodnoty veličiny \(f\) v bodě \(x_0\).",
+"\(\displaystyle\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}\)",
+"\(\displaystyle\lim_{h\to 0}\frac{f(x+h)+f(x)}{2h}\)",
+"\(\displaystyle\frac{f(x+h)-f(x)}{h}\)",
+"\(\displaystyle\frac{f(x+h)-f(x-h)}{2h}\)",
 ],
 }
 ];
@@ -72,7 +58,7 @@ BEGIN_PGML
 
 ## [$na]
 
-[$ot]*
+[$ot]
 
 [_]{$radio}
 

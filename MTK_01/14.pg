@@ -1,107 +1,74 @@
-DOCUMENT();
+##################################################
 
+DOCUMENT(); 
 loadMacros(
 "PGstandard.pl",
+"PGML.pl",
 "MathObjects.pl",
-"parserRadioButtons.pl",
 "PGcourse.pl",
-"PGML.pl"
 );
-
 TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
 
-$DEBUG=0;
+$var='x';
+$a=non_zero_random(2,5);
+$k=non_zero_random(2,4);
+$b=non_zero_random(-8,8);
+do { $b=non_zero_random(1,9) } until ( $b != $a );
+$c=non_zero_random(3,5);
 
-$data =
-[
-{
-    obrazek=>"sloup",
-    otazka=>"U nosníku namáhaného na vzpěr je nutné, aby zatížení nepřekročilo jistou mez. Maximální zatížení nosníku daného průřezu souvisí délkou nosníku. <p> Fyzikální analýzou je možné ukázat, že maximální svislá síla \(F\) působící v ose nosníku je nepřímo úměrná druhé mocnině jeho délky \(l\). Vyjádřete tento vztah matematicky.",
-    odpoved=>"\(\displaystyle F=\frac k{l^2}\)",    
-    moznosti=>[
-	  "\(\displaystyle F= k{l^2}\)",
-	  "\(\displaystyle F= k{l}\)",
-	  "\(\displaystyle F= k\sqrt {l}\)",
-	  "\(\displaystyle F= \frac k{l}\)",
-	  "\(\displaystyle F= \frac {k}{\sqrt {l}}\)",
-],
-zdroj=>"Obrázek: pixabay.com, autor alsen"
-}
-,
-{
-    obrazek=>"kytara",
-    otazka=>"Princip hry na strunné hudební nástroje spočívá ve zkracování struny na hmatníku, čímž se mění frekvence jejích kmitů a tím i výška tónu, tj. frekvence kmitů. <p> Je známo, že frekvence \(f\) kmitů struny je nepřímo úměrná délce \(l\) struny. Vyjádřete tento vztah matematicky.",
-    odpoved=>"\(\displaystyle f=\frac k{l}\)",    
-    moznosti=>[
-          "\(\displaystyle f= k{l^2}\)",
-	  "\(\displaystyle f= k{l}\)",
-	  "\(\displaystyle f= k\sqrt {l}\)",
-	  "\(\displaystyle f= \frac k{l^2}\)",
-	  "\(\displaystyle f= \frac k{\sqrt {l}}\)",
-	 ],
-    zdroj=>"Obrázek: pixabay.com, autor Couleur"
-}
-,
-{
-    obrazek=>"nakladaky",
-    otazka=>"Odolnost nosníků zajímá nejenom stavaře dřevěných konstrukcí, ale například i arboristy (strom je možno chápat jako vetknutý nosník) nebo stavitele mostů (most je možno chápat jako nosník podepřený na dvou koncích). Při zátěžovém testu se zatíží most pomocí nákladních aut a porovnává se naměřený průhyb a jeho teoretická hodnota. 
-<p>
-Pro rovnoměrně zatížený nosník je jeho prohnutí \(\delta\) úměrné čtvrté mocnině délky \(l\). Jak byste tuto souvislost zapsali matematicky?",
-    odpoved=>"\(\displaystyle \delta=k{l^4}\)",
-    moznosti=>[
-	  "\(\displaystyle \delta= k{l^3}\)",
-	  "\(\displaystyle \delta= k{\sqrt {l}}\)",
-	  "\(\displaystyle \delta= \frac k{l}\)",
-	  "\(\displaystyle \delta= \frac k{l^3}\)",
-	  "\(\displaystyle \delta= \frac k{\sqrt[4]{l}}\)",
-	 ],
-    zdroj=>"",
-}
-];
+Context("Numeric")->variables->are($var=>'Real');
 
-# Pocet otazek
-$pocet=@$data;
-$posledni=$pocet-1;  # indexujeme od nuly
+$f=Formula("($a*x+$b)^$c")->reduce();   # funkce
+$fder=Formula("($a*$c)*($a*x+$b)^($c-1)")->reduce();   # derivace funkce
+$g=Formula("($a*x+$b)")->reduce();   # vnitrni funkce
+$gder=Formula("($a)")->reduce();   # derivace vnitrni funkce
 
-# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
-if ($DEBUG) {@pole = (0..$posledni);}
-   else {@pole=(random(0,$posledni));}
-
-# Cyklus pres otazky (jednu nebo vsechny)
-foreach $i (@pole)
-{
-
-# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
-# s interpretaci hranatych zavorek
-$ot       =  $data->[$i]->{otazka};
-$obrazek  =  $data->[$i]->{obrazek};
-$od       =  $data->[$i]->{odpoved};
-$zdroj    =  $data->[$i]->{zdroj};
-@moznosti =@{$data->[$i]->{moznosti}};
-$radio    =  RadioButtons([[$od,@moznosti]],0);
-
+$answer = $fder;   # derivace
 
 BEGIN_PGML
 
-## Matematické vyjádření souvislosti veličin
+## Derivace mocninné funkce s lineární vnitřní složkou
 
-[@ image("$obrazek.jpg", width=>400) @]*
+Derivace složené funkce je [``` (f(g(x)))' = f'(g(x)) g'(x).```]
+Zkusme si tento vzorec specifikovat na konkrétním příkladě funkce [`f`]. Například, pokud je vnější funkce mocninná funkce, 
+tj. pro [`f(x)=x^n`] a [`f'(x)=nx^{n-1}`], dostáváme
+[```  ((g(x))^n)'=n (g(x))^{n-1}g'(x)```] nebo (v Leibnizově notaci s menším počtem závorek)
+[``` \frac{\mathrm d}{\mathrm dx} (g(x))^n  = n(g(x))^{n-1} \frac{\mathrm dg}{\mathrm dx}.```]
 
-[$ot]*
+Ještě lépe je asi vyjádřit tento vzorec slovně. Tentokrát ve variantě zahrnující na rozdíl od prvního příkladu i derivaci složené funkce: _Mocninou funkci derivujeme tak, že exponent přidáme dopředu jako konstantní násobek a v mocnině exponent o jedničku snížíme. Pokud je základem mocniny přímo proměnná přes kterou derivujeme, jsme hotovi. V opačném případě ještě násobíme derivací vnitřní složky._
 
-[_]{$radio}
+Můžeme tedy psát
+[```\frac{\mathrm d}{\mathrm dx} (5x+7)^{13}=13(5x+7)^{12}\frac{\mathrm d}{\mathrm dx}(5x+7)=13(5x+7)^{12} (5 + 0) = 65 (5x+7)^{12}.```]
+Tento výsledek můžeme zapsat například ve tvaru *65\*(5\*x+7)^(12)* nebo (pokud se nám nechce násobit a přeskládávat součinitele)
+*13\*(5x+7)^(12)\*5*
 
-_[$zdroj]_
+-----
+
+Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$f] .```]
+Příklad je analogický výše uvedenému vzoru.
+
+>>[`` f'([$var])=\frac{\mathrm d}{\mathrm d[$var]} [$f] ={}``]
+[_____________________]{$answer}<<
 
 END_PGML
 
-BEGIN_PGML_SOLUTION
 
-[$od]*
+$showHint = 1;
+
+BEGIN_PGML_HINT
+Použijte 
+[``` \frac{\mathrm d}{\mathrm dx} (g(x))^[$c]  = [$c](g(x))^{[$c-1]} \frac{\mathrm dg}{\mathrm dx}```]
+pro [`` g(x)=[$g].``]
+END_PGML_HINT
+
+BEGIN_PGML_SOLUTION
+Použijeme vzorec pro derivaci složené funkce, kdy vnější funkcí je mocninná funkce, tj. 
+[``` \frac{\mathrm d}{\mathrm dx} (g(x))^[$c]  = [$c](g(x))^{[$c-1]} \frac{\mathrm dg}{\mathrm dx}.```]
+Vnitřní složka a její derivace jsou [`` g(x)=[$g], ``] a  [``` \frac{\mathrm dg}{\mathrm dx} = [$gder].```] Výsledek je 
+[```  \frac{\mathrm df}{\mathrm d[$var]}=[$answer->reduce();].```]
 
 END_PGML_SOLUTION
 
-};
-# konec cyklu
 
 ENDDOCUMENT();

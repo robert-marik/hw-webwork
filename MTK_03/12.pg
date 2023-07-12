@@ -8,23 +8,22 @@ loadMacros(
 "PGML.pl"
 );
 
-
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
-
 $data =
 [
 {
-    nadpis=>"Sudost funkce",
-    otazka=>"K čemu je užitečná sudost funkce?",
-    odpoved=>"Symetrické úlohy mají symetrická řešení a ta jsou popsána sudými funkcemi.",
+    nadpis=>"Graf sudé funkce",
+    otazka=>"Jaká vlastnost slouží k identifikaci sudé funkce?",
+    odpoved=>"Graf je osově symetrický podle osy \(y\).",
     moznosti=>[
-"Sudé funkce pomáhají aproximovat obecné funkce pomocí Taylorova polynomu.",
-"Řešení všech běžných fyzikálních úloh je popsáno právě sudými funkcemi.",
-"Rovnovážné polohy, nebo obecněji minima potenciálu, jsou popsány sudou funkcí.",
+    "Graf je osově symetrický podle osy \(x\).",
+"Graf je bodově symetrický podle počátku.",
+"Graf je rostoucí křivka."
 ],
+   last => "Žádná z nabízených možností.",
 }
 ];
 
@@ -49,8 +48,9 @@ $na       =  $data->[$i]->{nadpis};
 $obrazek  =  $data->[$i]->{obrazek};
 $od       =  $data->[$i]->{odpoved};
 $zdroj    =  $data->[$i]->{zdroj};
+$last    =  $data->[$i]->{last};
 @moznosti =@{$data->[$i]->{moznosti}};
-$radio    =  RadioButtons([[$od,@moznosti]],0);
+$radio    =  RadioButtons([[$od,@moznosti],$last],0);
 
 
 BEGIN_PGML

@@ -4,7 +4,6 @@ DOCUMENT();
 loadMacros(
 "PGstandard.pl",
 "PGML.pl",
-"niceTables.pl",
 "MathObjects.pl",
 "PGcourse.pl",
 );
@@ -12,88 +11,82 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
 $var='x';
-$n=random(1,5,2);
-$a=random(1,4,1);
-$b=non_zero_random(-6,6,1);
-$c=non_zero_random(-2,10,1);
-$m=random(0,1,1);
-$mm=1-$m;
-if ($mm==1) {$a=-$a;}
+$dx=0.1*random(3,8,1);
+$a=0.1;
+$b=2+0.01*random(200,600,1);
+$c=random(10,30,1);
+$w=random(30,40,0.1);
+$x0=$w;
+
+Context("Numeric")->variables->are($var=>'Real');
+Context()->flags->set(
+     reduceConstants => 0,
+     reduceConstantFunctions => 0,
+   );
+
+$funkce=Formula("$a*$var^2+$b*$var+$c")->reduce();   # funkce
+$derivacefunkce=Formula("2*$a*$var+$b")->reduce();   # derivace funkce
 
 
-Context("Numeric")->variables->are($var=>'Real','xn'=>'Real');
-Context()->variables->set(xn => {TeX => 'x_n'});
-#Context()->flags->set(
-#     reduceConstants => 0,
-#     reduceConstantFunctions => 0,
-#   );
+$hodnota=$a*$x0*$x0+$b*$x0+$c;
 
-$f=Formula("$m*cos(x)+$mm*e^x")->reduce();   # funkce
-$g=Formula("$a*x^($n)+$b")->reduce();   # funkce
-$fxn=Formula("$m*cos(xn)+$mm*e^xn")->reduce();   # funkce
-$gxn=Formula("$a*xn^($n)+$b")->reduce();   # funkce
+$hodnotaSol=Formula("$a*($x0)^2+$b*$x0+$c");
 
-$funkce=Formula("$m*cos(x)+$mm*e^x-$a*x^($n)-$b")->reduce();   # funkce
-$derivacefunkce=$funkce->D('x');
-$funkcexn=Formula("$m*cos(xn)+$mm*e^xn-$a*xn^($n)-$b")->reduce();   # funkce
-$derivacefunkcexn=$funkcexn->D('xn');
+$hodnotaDer=Formula("2*$a*$x0+$b");
+$hodnotaderivace=2*$a*$x0+$b;
 
-$answer=Formula("xn-$funkcexn/$derivacefunkcexn")->reduce(); 
+$answer=Formula("(2*$a*$x0+$b)*$dx");   # tecna
+
 
 BEGIN_PGML
 
-## Newtonova metoda
+## Citlivostní analýza
 
-Newtonova metoda je efektivní nástroj pro hledání nulových bodů funkce, tj. pro řešení rovnice [``` f(x)=0.```] Je založena na lineární aproximaci funkce [`f(x)`] v bodě [`x_n`] (počáteční odhad řešení), tj.  na rovnici [``` f(x)\approx f(x_n)+f'(x_n)(x-x_n).```]
-Pokud najdeme nulovou hodnotu pravé strany, bude tato hodnota novou aproximací přesného řešení rovnice. Označíme ji [`x_{n+1}`] a vztah [``` 0= f(x_n)+f'(x_n)(x_{n+1}-x_n)```] po vyřešení vzhledem k [`x_{n+1}`] vede na iterační vzorec [``` x_{n+1}=x_n-\frac{f(x_n)}{f'(x_{n})}.```]
+[@ image("raketoplan.jpg", width=>400) @]*
 
---------
+Lineární aproximaci využíváme i k detekci toho, jak citlivě reagují funkční hodnoty na změny ve vstupních datech. Hodnotu derivace je možno chápat jako velikost zakolísání funkčních hodnot při jednotkové změně vstupních dat. Pokud je změna vstupních dat predikovatelná (například se jedná o známou chybu měření nebo známou toleranci se kterou dokážeme vyrobit nějakou součástku nebo se kterou dokážeme udržovat sledovanou veličinu na konstantní hodnotě), stačí hodnotu derivace vynásobit odchylkou, která může nastat ve vstupních datech. 
 
-Například rovnici [``` x^2=\cos(x) ```] upravíme na [``` x^2-\cos(x)=0```] a pro [``` f(x)=x^2-\cos (x)```] dostáváme [``` f'(x)=2x+\sin(x).```] Iterační vzorec má tvar
-[``` x_{n+1}=x_n-\frac {x_n^2-\cos(x_n)}{2x_n+\sin(x_n)}.```] Podle toho, jakou zvolíme startovací hodnotu, vede tento vzorec ke [@ htmlLink("https://sagecell.sagemath.org/?z=eJwli8EKgCAQRO-C_7BHBSXtFIG_EkS2shcN9bCfn9acHjNvULEOfKz2Km2gFBFnEwlRTTKz4-ClwFKBgDLUM6cblHd6lwJGOGTFdtrL9zYQKVFvYXP6N55KucOYXrixHis=&lang=sage&interacts=eJyLjgUAARUAuQ==","kladnému") @]* nebo [@ htmlLink("https://sagecell.sagemath.org/?z=eJwli8EKgCAQRO-C_7BHBSXtFIG_EkS2shcN9bCfn9acHjNvULEOfKz2Km2gFBFnEwlRTTKz42C9FFgqEFCGeuZ0g_JO71LACIes2E59-e4GIiXqLWxO_8ZTKXcY0wvQph5Y&lang=sage&interacts=eJyLjgUAARUAuQ==","zápornému")@]* řešení uvažované rovnice. Konvergence je navíc velice rychlá, každým provedením se přibližně zdvojnásobí počet desetinných míst, která jsou přesně.
+Například výroba krystalů pro elektronická zařízení raketoplánů musí probíhat za přesně definované teploty. Předpokládejme v jednoduchém modelu, že teplota krystalu je v každém okamžiku dána jednoznačně příkonem zařízení (tj. teplota reaguje na změnu příkonu bez zpoždění a nezohledňuje historii) a funkce udávající teplotu jako funkci příkonu ohřívače je
+[``` T(x)=[$funkce].```]
 
-Hodnotu [`x_n`] zapisujte jako *xn*. Například výše uvedený vzorec je možno zapsat jako *xn- (xn^2-cos(xn))/(2xn+sin(xn))*.
+Uvažujme příkon [`x=[$w] \,\mathrm{W}`]. Předpokládejme, že jsme schopni tuto hodnotu udržovat s přesností [`\Delta x=[$dx] \,\mathrm{W}`].
 
-----------------
+Vypočtěte teplotu za těchto podmínek a rozkolísání teploty způsobené změnou příkonu o [`\Delta x=[$dx] \,\mathrm{W}`].
 
-Podobně jako výše najděte iterační vztah pro řešení rovnice
-[``` [$f]=[$g]. ```]
+>> [``T([$w])={}``][_______________________]{$hodnotaSol} <<
 
->>[`` x_{n+1}={}``]
-[_______________________________________________]{$answer}<<
+>> [``\frac{\mathrm dT}{\mathrm dx}([$w]) \Delta x={}``][_______________________]{$answer} <<
 
 
+
+(Zpracováno podle Stewart: Calculus.)
 
 END_PGML
 
 $showHint = 1;
 BEGIN_PGML_HINT
 
-Rovnici upravte tak, že převedeme pravou stranu doleva (nebo naopak). Například 
-[``` [$funkce]=0.```]
+Teplotu určíme přímým dosazením hodnoty [`x=[$w]`] do funkce [```T(x)=[$funkce].```]
 
-Uvažujte funkci 
-[```f(x)=[$funkce], ```] vypočtěte derivaci a sestavte iterační vzorec.
-
+Po zderivování funkce, dosazení hodnoty [`x=[$w]`] do derivace a vynásobení hodnotou [`\Delta x=[$dx]`] určíte odpověď na druhou část otázky.
 
 END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
 
-Rovnici upravíme tak, že převedeme pravou stranu doleva (nebo naopak). Dostáváme
-[``` [$funkce]=0.```]
+Teplotu určíme přímým dosazením hodnoty [`x=[$w]`] do funkce [```T(x)=[$funkce].```] Vychází
+[``` T([$w])=[$hodnotaSol]```]
 
-Uvažujme funkci
-[```f(x)=[$funkce], ```]
-která má derivaci 
-[```f'(x)=[$derivacefunkce]. ```]
+Po zderivování funkce, dosazení hodnoty [`x=[$w]`] do derivace a vynásobení hodnotou [`\Delta x=[$dx]`] určíme odpověď na druhou část otázky.
 
-Iterační vzorec má tvar
-[``` x_{n+1}=x_n-\frac{[$funkcexn]}{[$derivacefunkcexn]}=[$answer].```]
-
+Po zderivování funkce dostáváme derivaci
+[``` \frac{\mathrm dT}{\mathrm dt}=[$derivacefunkce].```]
+Po dosazení hodnoty [`x=[$w]`] do této derivace dostáváme
+[``` \frac{\mathrm dT}{\mathrm dt}([$w])=[$hodnotaDer].```]
+Po vynásobení hodnotou [`\Delta x=[$dx]`] získáme finální rozkolísání teploty
+[``` \frac{\mathrm dT}{\mathrm dt}([$w]) \Delta x=[$answer].```]
 END_PGML_SOLUTION
 
 
 ENDDOCUMENT();
-

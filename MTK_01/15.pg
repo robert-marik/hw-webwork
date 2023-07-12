@@ -1,72 +1,78 @@
+##################################################
+
 DOCUMENT(); 
 loadMacros(
 "PGstandard.pl",
 "PGML.pl",
 "MathObjects.pl",
-"parserRadioButtons.pl",
 "PGcourse.pl",
 );
 TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
 
-ADD_CSS_FILE("css/gpt.css");
+$var='x';
+$a=non_zero_random(2,5);
+$k=non_zero_random(2,4);
+$b=non_zero_random(-8,8);
+do { $b=non_zero_random(1,9) } until ( $b != $a );
+$c=non_zero_random(2,6);
 
+Context("Numeric")->variables->are($var=>'Real');
 
-$radio = RadioButtons([
-"Odpověď je matematicky správná a vystihuje podstatu věci.",
-"Odpověď je matematicky v zásadě správná. Má drobné mouchy v terminologii, což může být způsobeno překladem.",
-"Odpověď je matematicky špatně, nedefinuje přímou úměrnost a používá vlastní a nesrozumitelnou terminologii."
-],2);
+$f=Formula("($a*x^$k+$b)^$c")->reduce();   # funkce
+$g=Formula("($a*x^$k+$b)")->reduce();   # vnitrni funkce
+$fder=Formula("$c*($a*x^$k+$b)^($c-1)*($a*$k*x^($k-1))")->reduce();   # derivace funkce
+$gder=Formula("$a*$k*x^($k-1)")->reduce();   # derivace vnitrni funkce
 
+$answer = $f->D();   # derivace
 
 BEGIN_PGML
 
+## Derivace mocninné funkce s polynomiální vnitřní složkou
 
-## Chat GPT a přímá úměrnost
+Derivace složené funkce je [``` (f(g(x)))' = f'(g(x)) g'(x).```]
+Zkusme si tento vzorec specifikovat na konkrétním příkladě funkce [`f`]. Například, pokud je vnější funkce mocninná funkce, 
+tj. pro [`f(x)=x^n`] a [`f'(x)=nx^{n-1}`], dostáváme
+[```  ((g(x))^n)'=n (g(x))^{n-1}g'(x)```] nebo (v Leibnizově notaci s menším počtem závorek)
+[``` \frac{\mathrm d}{\mathrm dx} (g(x))^n  = n(g(x))^{n-1} \frac{\mathrm dg}{\mathrm dx}.```]
 
-Dotaz na přímou úměrnost může být past. Člověk se s tímto pojmem setká už na základní škole, ale tam je pojem přímá úměrnost nutně zjednodušený. Například proto, že si v aplikacích v této fázi vzdělávání žáci těžko představí práci s něčím jiným, než s kladnými čísly. V dalších fázích vzdělávání už nastupují zpřesnění a přednášce jsme se setkali s plně obecnou definicí přímé úměrnosti, jka se používá v aplikacích v přírodních a technických vědách.
+Lépe je asi vyjádřit tento vzorec slovně. Tentokrát ve variantě zahrnující na rozdíl od prvního příkladu i derivaci složené funkce: _Mocninou funkci derivujeme tak, že exponent přidáme dopředu jako konstantní násobek a v mocnině exponent o jedničku snížíme. Pokud je základem mocniny přímo proměnná přes kterou derivujeme, jsme hotovi. V opačném případě ještě násobíme derivací vnitřní složky._
 
-Zvládne AI podat definici přímé úměrnosti, nebo zůstane na úrovni jenom částečně správného chápání, na úrovni základní školy či ještě níže? 
+Můžeme tedy psát
+[```\frac{\mathrm d}{\mathrm dx} (5x^2+7)^{13}=13(5x^2+7)^{12}\frac{\mathrm d}{\mathrm dx}(5x^2+7)=13(5x^2+7)^{12} (5\cdot 2x + 0) = 130 x(5x^2+7)^{12}.```]
+Tento výsledek můžeme zapsat například ve tvaru *130\*x\*(5\*x^2+7)^(12)* nebo (pokud se nám nechce násobit a přeskládávat součinitele)
+*13\*(5x^2+7)^(12)\*5\*2x*
 
+-----
 
-**Otázka:** 
+Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$f] .```]
+Příklad je analogický výše uvedenému vzoru.
 
-V maximálně třech větách vysvětli, kdy se závislost dvou veličin nazývá přímá úměrnost.
-
-END_PGML
-TEXT(MODES(HTML => "<div class='GPT'>", TeX => "\par")); 
-BEGIN_PGML
-
-**Odpověď:** (červen 2023)
-
-Závislost dvou veličin se nazývá přímá úměrnost, pokud se zvyšováním hodnoty jedné veličiny zvyšuje i hodnota druhé veličiny a naopak, pokles jedné veličiny způsobuje pokles druhé veličiny, přičemž vztah mezi nimi je lineární a přímý.
-
-END_PGML
-TEXT(MODES(HTML => "</div>", TeX => "\par")); 
-BEGIN_PGML
-
-Jaký máte z odpovědi dojem?
-
-[_]{$radio}
-
+>>[`` f'([$var])=\frac{\mathrm d}{\mathrm d[$var]} [$f] ={}``]
+[_____________________]{$answer}<<
 
 END_PGML
+
+
+$showHint = 1;
+
+BEGIN_PGML_HINT
+Použijte vzorec pro derivaci složené funkce, kdy vnější funkcí je mocninná funkce, tj. 
+[``` \frac{\mathrm d}{\mathrm dx} (g(x))^[$c]  = [$c](g(x))^{[$c-1]} \frac{\mathrm dg}{\mathrm dx}```]
+pro [`` g(x)=[$g].``]
+
+END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
+Použijeme vzorec pro derivaci složené funkce, kdy vnější funkcí je mocninná funkce, tj. 
+[``` \frac{\mathrm d}{\mathrm dx} (g(x))^[$c]  = [$c](g(x))^{[$c-1]} \frac{\mathrm dg}{\mathrm dx}.```]
+Vnitřní složka a její derivace jsou [`` g(x)=[$g], ``] a  [``` \frac{\mathrm dg}{\mathrm dx} = [$gder].```] Výsledek je 
+[```  \frac{\mathrm df}{\mathrm d[$var]}=[$fder->reduce();]```]
 
-
-Odpověď není správně. To, že s rostoucí hodnotou jedné veličiny roste i hodnota druhé veličiny je definice rostoucí funkce. U přímé úměrnosti je důležité, že se obě veličiny mění stejným násobkem. V odpovědi je toto nahrazeno nesprávným a nejasným tvrzením, že vztah mezi veličinami je lineární a přímý. První část tohoto tvrzení není správně, protože napříkald lineární závislost [```y=2x+6```] není přímou úměrností. Druhá část tohoto tvrzení je nejasná, protože obrat, že "vztah je přímý" se v matematice nepoužívá, není nijak definován a je matoucí.
-
-Krátkou a jasnou definici můžeme nabádnout ve dvou variantách, vyjádřenou slovně a pomocí symbolů. Níže jsou obě možnosti:
-
-* Mezi veličinami je vztah přímé úměrnosti, pokud je jedna veličina je násobkem druhé.
-* Mezi veličinami [`x`] a [`y`] je vztah přímé úměrnosti, pokud [```y=kx```] pro nějakou konstantu [`k`].
-
-PS: Protože konstanta úměrnosti může být i záporná, nemusí být přímů úměrnost rostoucí,. ale může být i klesající. Například všechny konstitututivní zákony v tehcnických aplikacích tuto podmínku splňují. Proto ani tvrzení, že se "zvyšováním hodnoty jedné veličiny se zvyšuje i hodnota druhé veličiny" není pravdivé. 
-
+(Řešení je pravděpodobně možné dále upravit.)
 
 END_PGML_SOLUTION
-
 
 
 

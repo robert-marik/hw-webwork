@@ -13,16 +13,18 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
-
 $data =
 [
 {
-    nadpis=>"Buckinghamův \(\Pi\) teorém",
-    otazka=>"Jaký je význam Buckinghamova \(\Pi\) teorému? K čemu slouží bezrozměrné parametry?",
-    odpoved=>"Bezrozměrné parametry umožňují minimalizovat počet proměnných vystupujících ve fyzikálních zákonech",
+    nadpis=>"Bolzanova věta",
+    otazka=>"Co slovně vyjadřuje  Bolzanova věta?",
+    odpoved=>"Spojitá funkce, která mění znaménko, má mezi znaménkovými změnami nulový bod.",
     moznosti=>[
-"Bezrozměrné parametry zjednodušují úlohu díky absenci fyzikálních jednotek.",
-"Bezrozměrné parametry usnadňují výpočet derivací a s tím souvisejících rychlostí změn fyzikálních veličin",],
+"Spojitá funkce, která mění znaménko, má mezi znaménkovými změnami maximum.",
+"Každá funkce, která má nulový bod, mění na intervalu obsahujícím tento bod znaménko.",
+"Každá funkce, která má nulový bod, je v tomto bodě spojitá.",
+"Nulový bod funkce můžeme najít pomocí Newtonovy iterační metody.",
+],
 }
 ];
 
@@ -53,9 +55,9 @@ $radio    =  RadioButtons([[$od,@moznosti]],0);
 
 BEGIN_PGML
 
-## [$na]*
+## [$na]
 
-[$ot]*
+[$ot]
 
 [_]{$radio}
 
@@ -65,7 +67,7 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 
-[$od]*
+[$od]
 
 END_PGML_SOLUTION
 

@@ -1,80 +1,87 @@
-DOCUMENT();
+###########################
+#  Initialization
+
+DOCUMENT();  
 
 loadMacros(
-"PGstandard.pl",
-"MathObjects.pl",
-"parserRadioButtons.pl",
-"PGcourse.pl",
-"PGML.pl"
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "PGchoicemacros.pl",   
+  'draggableSubsets.pl', 
+  "PGcourse.pl"
 );
 
-TEXT(beginproblem());
 
-$data =
+$showHint = 1;
+
+do
+{
+@perm = shuffle(5);
+} until ( ($perm[0] != 0) ||  ($perm[1] != 1) || ($perm[2] != 2) || ($perm[3] != 3) || ($perm[4] != 4)  );
+
+
+###########################
+#  Setup
+
+$draggable = DraggableSubsets(
 [
-{
-    obrazek=>"konvice",
-    nadpis=>"Slovní interpretace derivace",
-    otazka=>"V rychlovarné konvici vaříte vodu na čaj z pokojové teploty 18 stupňů Celsia.
-Čas měřený ve sekundách od zapnutí konvice a označíme \(t\).
-Funkce \(T(t)\) udává teplotu vody v čase \(t\). Najděte slovní interpretaci derivace funkce \(T\), tj. najděte slovní interpretaci pro derivaci \[\frac{\mathrm dT}{\mathrm dt}.\]",
-    odpoved=>"Rychlost, s jakou roste teplota vody.",
-    moznosti=>[
-"Rychlost, s jakou se předává teplo z topné spirály do vody.",
-"Celkový čas nutný pro přivedení vody k bodu varu.",
-"Teplota vody po uplynutí jedné sekundy.",
-"Teplota vody po uplynutí jedné minuty."
+"Změna  veličiny \(f\) za časový interval mezi okamžiky \(t\) a \(t+h\).",
+"Průměrná rychlost změny  veličiny \(f\) v okamžiku \(t\).", 
+"Průměrná rychlost změny  veličiny \(f\) za časový interval mezi okamžiky \(t\) a \(t+h\).",
+"Okamžitá rychlost změny  veličiny \(f\) za časový interval mezi okamžiky \(t\) a \(t+h\).",
+"Okamžitá rychlost změny  veličiny \(f\) v okamžiku \(t\)."
 ],
-zdroj=>"Obrázek: pixabay.com, autor ptdh"
-}
-];
-
-# Pocet otazek
-$pocet=@$data;
-$posledni=$pocet-1;  # indexujeme od nuly
-
-# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
-if ($DEBUG) {@pole = (0..$posledni);}
-   else {@pole=(random(0,$posledni));}
-
-# Cyklus pres otazky (jednu nebo vsechny)
-foreach $i (@pole)
-{
-
-
-
-# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
-# s interpretaci hranatych zavorek
-$ot       =  $data->[$i]->{otazka};
-$na       =  $data->[$i]->{nadpis};
-$obrazek  =  $data->[$i]->{obrazek};
-$od       =  $data->[$i]->{odpoved};
-$zdroj    =  $data->[$i]->{zdroj};
-@moznosti =@{$data->[$i]->{moznosti}};
-$radio    =  RadioButtons([[$od,@moznosti]],0);
+[[1,3],[0],[2],[4]],
+DefaultSubsets => [
+{label => "<b>Možná slovní interpretace</b>", indices => [$perm[0],$perm[1],$perm[2],$perm[3],$perm[4]]},
+{label => "\(f(t+h)-f(t)\)", indices => []},
+{label => "\(\displaystyle\frac{f(t+h)-f(t)}{h}\)", indices => []},
+{label => "\(\displaystyle\lim_{h\to 0}\frac{f(t+h)-f(t)}{h}\)", indices => []},
+],
+    AllowNewBuckets => 0,
+    OrderedSubsets => 1
+);
 
 
 BEGIN_PGML
 
-## [$na]
+## Definice derivace funkce jedné proměnné
 
+Derivace funkce [``f``] proměnné [``x``] je definována vztahem 
+[```\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}.```] Pro správné pochopení toho, co derivace vyjadřuje, je nutno rozumět jednotlivým částem tohoto definičního vztahu.
 
-[$ot]*
+Podáme slovní interpretaci jednotlivých celků, ze kterých se skládá definice derivace. Uvažujme veličinu [``f``], která se mění v čase, tj. je funkcí proměnné [``t``]. 
 
-[_]{$radio}
+Tři části definice derivace v proměnné [``t``] jsou v nadpisech tří sloupečků. Pět možných slovních interpretací je v levém sloupci. Pouze tři z nich jsou relevantní. Přetáhněte je do správného sloupečku. Dvě nepoužité varianty ponechejte ve sloupečku původním.
 
+[_]{$draggable}
 
 END_PGML
 
-BEGIN_PGML_SOLUTION
 
-[$od]*
+
+############################
+
+
+
+BEGIN_PGML_HINT
+Dvě volby jsou zřejmě nesmyslné: "průměrná rychlost v okamžiku ..." a "okamžitá rychlost na intervalu ...". Ostatní tři páry již sestavíte pravděpodobně snadno. Soustřeďte se mimo jiné i na to, abyste si ještě jednou pečlivě přečetli odpovězené možnosti. Cílem je, abyste dokázali interpretovat význam jednotlivých částí definice samostatně a nejenom v otázce s výběrem možností.
+END_PGML_HINT
+
+
+############################
+#  Solution
+
+BEGIN_PGML_SOLUTION
+Derivace je okamžitá rychlost změny a je to limita průměrné rychlosti změny. Tato průměrná rychlost změny je podílem změny a času, za který nastala. Varianty "průměrná rychlost v okamžiku ..." a "okamžitá rychlost na intervalu ..." nedávají smysl, okamžitá rychlost se nemůže vztahovat k intervalu, naopak průměrná rychlost se k intervalu vztahovat musí.
+
+* Výraz [```f(t+h)-f(t)```] je změna veličiny za časový interval mezi okamžiky [`t`] a [`t+h`], protože se jedná o rozdíl funkčních hodnot v těchto okamžicích.
+* Pokud výraz z předchocího bodu vydělíme délkou intervalu [`h`], dostaneme průměrnou rychlost změny na tomto intervalu, tj. [```\frac{f(t+h)-f(t)}{h}.```]
+* Pokud ve výrazu z předchocího bodu navíc uvažujeme limitu pro [`h`] jdoucí k nule, průměrná rychlost se transformuje na rychlost okamžitou v bodě [`t`], tj. [```\lim_{h\to 0}\frac{f(t+h)-f(t)}{h}.```]
 
 END_PGML_SOLUTION
 
-};
-# konec cyklu
-
+COMMENT('MathObject version. Uses PGML.');
 
 ENDDOCUMENT();
-

@@ -4,11 +4,18 @@ DOCUMENT();
 loadMacros(
   "PGstandard.pl",
    "PGML.pl",
+   "PGchoicemacros.pl",   
   'draggableSubsets.pl', 
   "PGcourse.pl"
 );
 
 ADD_CSS_FILE("css/more_buckets.css");
+
+
+do
+{
+@perm = shuffle(6);
+} until ( ($perm[0] != 0) ||  ($perm[1] != 1) || ($perm[2] != 2) || ($perm[3] != 3) || ($perm[4] != 4) || ($perm[5] != 5) );
 
 # Questions and answers
 @a = ( 
@@ -32,12 +39,12 @@ $a[11],
 ],
 [[0],[2],[3],[1],[4],[5]],
 DefaultSubsets => [
-{label => $a[0], indices => [0..5]},
-{label => $a[4], indices => []},
-{label => $a[6], indices => []},
-{label => $a[2], indices => []},
-{label => $a[8], indices => []},
-{label => $a[10], indices => []},
+{label => $a[0], indices => [$perm[0]]},
+{label => $a[4], indices => [$perm[1]]},
+{label => $a[6], indices => [$perm[2]]},
+{label => $a[2], indices => [$perm[3]]},
+{label => $a[8], indices => [$perm[4]]},
+{label => $a[10], indices => [$perm[5]]},
 ],
 AllowNewBuckets => 0,
 OrderedSubsets => 1
@@ -62,7 +69,7 @@ Nejjednodušší model dravce a kořisti je [@ htmlLink("https://en.wikipedia.or
 \end{aligned}```]
 kde [`x`] je velikost populace kořisti a [`y`] je velikost populace dravce. Koeficienty [`a`], [`b`], [`c`] a [`d`] charakterizují vnitřní dynamiku populací (například dravec bez přístupu k potravě vymře) a jejich vzájemné působení (například v přítomnosti predátora se populace kořisti rozvíjí pomaleji než bez predátora). 
 
-Přesuňte jednotlivé členy soustavy k jejich slovnímu vyjádření.
+Přesuňte jednotlivé členy soustavy k jejich slovnímu vyjádření. Počáteční nastavení je náhodné a není správně.
 
 [_]{$draggable}
 

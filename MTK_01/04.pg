@@ -1,65 +1,80 @@
-##################################################
+DOCUMENT();
 
-DOCUMENT(); 
 loadMacros(
 "PGstandard.pl",
-"PGML.pl",
 "MathObjects.pl",
+"parserRadioButtons.pl",
 "PGcourse.pl",
+"PGML.pl"
 );
+
 TEXT(beginproblem());
-$showPartialCorrectAnswers = 1;
 
-$var = 'x';
-$par = 'a';
+$data =
+[
+{
+    obrazek=>"konvice",
+    nadpis=>"Slovní interpretace derivace",
+    otazka=>"V rychlovarné konvici vaříte vodu na čaj z pokojové teploty 18 stupňů Celsia.
+Čas měřený ve sekundách od zapnutí konvice a označíme \(t\).
+Funkce \(T(t)\) udává teplotu vody v čase \(t\). Najděte slovní interpretaci derivace funkce \(T\), tj. najděte slovní interpretaci pro derivaci \[\frac{\mathrm dT}{\mathrm dt}.\]",
+    odpoved=>"Rychlost, s jakou roste teplota vody.",
+    moznosti=>[
+"Rychlost, s jakou se předává teplo z topné spirály do vody.",
+"Celkový čas nutný pro přivedení vody k bodu varu.",
+"Teplota vody po uplynutí jedné sekundy.",
+"Teplota vody po uplynutí jedné minuty."
+],
+zdroj=>"Obrázek: pixabay.com, autor ptdh"
+}
+];
 
-$a=non_zero_random(2,4);
-do { $b=non_zero_random(2,8) } until ( $b != $a );
-$c=non_zero_random(1,10);
-do {$d=non_zero_random(-10,10); } until ( $c != $d );
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
 
-Context("Numeric")->variables->are($var=>['Real',limits=>[1,2]],$par=>['Real',limits=>[1,2]]);
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
 
-$f=Formula("$par*[$var]^$a+$d*[$var]^$b+$c")->reduce();   # funkce
-$vzorec1=Formula("$a*($var)^($a-1)")->reduce();
-$vzorec2=Formula("$b*($var)^($b-1)")->reduce();
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
 
-$answer = $f->D($var);   # derivace
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
 
 BEGIN_PGML
 
-## Derivace funkce s parametrem namísto koeficientu
+## [$na]
 
-Tento příklad je stejného typu jako příklady předchozí. Rozdíl je jenom v tom, že namísto jedné z konstant pracujeme s parametrem. Postup výpočtu derivace je (až na detail v zápise kdy místo konkrétního čísla pracujeme s parametrem) zcela totožný. Odpověď bude funkcí proměnné [`[$var]`] a bude obsahovat parametr [`[$par]`]. Jinými slovy: stejně jako v zadání funkce, i v odpovědi budou dvě písmenka.
 
-Pokud bychom se o něco podobného snažili například pro funkci [```f(x)=x^7+cx^3```] proměnné [`x`] s parametrem [`c`], měli bychom
-[``` \frac{\mathrm d}{\mathrm dx}\left(x^7+cx^3\right)=7x^6+3cx^2.```]
+[$ot]*
 
-------------
+[_]{$radio}
 
-Napište derivaci [`` \frac{\mathrm df}{\mathrm d[$var]} ``] funkce [``` f([$var])=[$f] ```]  proměnné [`[$var]`] závislé na parametru [`[$par]`].
-
->>[`` \frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$f]\Bigr) ={}``]
-[_____________________]{$answer}<<
 
 END_PGML
 
-$showHint = 1;
-BEGIN_PGML_HINT
-Platí [```\frac{\mathrm d}{\mathrm d[$var]}[$var]^{[$a]}=[$vzorec1],```] 
-[```\frac{\mathrm d}{\mathrm d[$var]}[$var]^{[$b]}=[$vzorec2]```] a [``` \frac{\mathrm d}{\mathrm d[$var]}[$c] =0.```] Využijte tyto derivace a věty pro počítání s derivacemi, jako derivace součtu a derivace konstantního násobku.
-END_PGML_HINT
-
-
 BEGIN_PGML_SOLUTION
-Platí [```\frac{\mathrm d}{\mathrm d[$var]}[$var]^{[$a]}=[$vzorec1],```] 
-[```\frac{\mathrm d}{\mathrm d[$var]}[$var]^{[$b]}=[$vzorec2]```] a [``` \frac{\mathrm d}{\mathrm d[$var]}[$c] =0.```] Využijeme tyto derivace a věty pro počítání s derivacemi, jako derivace součtu a derivace konstantního násobku.
-Výsledek je 
-[```  \frac{\mathrm df}{\mathrm d[$var]}=[$answer->reduce();].```]
 
-(Automaticky vygenerované řešení, které je pravděpodobně možné dále upravit.)
+[$od]*
 
 END_PGML_SOLUTION
 
+};
+# konec cyklu
+
 
 ENDDOCUMENT();
+
