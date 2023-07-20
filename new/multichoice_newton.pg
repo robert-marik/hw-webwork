@@ -1,0 +1,54 @@
+DOCUMENT();
+
+loadMacros('PGstandard.pl', 'PGML.pl', 
+'parserCheckboxList.pl', 'PGcourse.pl');
+
+@correct_answers =  (
+"Newtonova iterační metoda je odvozena z lineární aproximace funkce.",
+"Vzorec pro Newtonovu iterační metodu je \(\displaystyle x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}\).",
+"Pokud Newtonova metoda konverguje, konverguje velice rychle. S každým krokem se přibližně zdvojnásobí počet desetiných míst výsledku.",
+"Newtonova metoda slouží k hledání nulových bodů funkce a tím i k řešení nelineárních rovnic." ,
+"Newtonova metoda spočívá v tom, že výsledek se postupně zpřesňuje opakovanou aplikací iteračního vzorce."
+);
+
+@incorrect_answers = (
+"Newtonova iterační metoda je odvozena z derivace složené funkce aproximace funkce.",
+"Vzorec pro Newtonovu iterační metodu je \( f(x+h)\approx f(x)+f'(x)h\).",
+"Pokud Newtonova metoda konverguje, konverguje velice rychle. S každým krokem se délka intervalu, ve kterém je lokalizováno řešení, zmenší na polovinu.",
+"Newtonova metoda slouží k hledání lokálních extrémů funkce a tím i k optimalizaci." ,
+);    
+
+$li = MODES (HTML => "<li>", TeX => "\item");
+$ul = MODES (HTML => "<ul>", TeX => "\begin{itemize}");
+$end_ul = MODES (HTML => "</ul>", TeX => "\end{itemize}");
+$ans = "Správná tvrzení: $ul $li " . join( "$li ", @correct_answers ) . "$end_ul Nesprávná tvrzení:$ul $li " . join( "$li ", @incorrect_answers ) . "$end_ul";
+
+$n_correct = random(2, 4);
+$n_incorrect = 5 - $n_correct;
+
+@OK = random_subset($n_correct,@correct_answers);
+@not_OK = random_subset($n_incorrect,@incorrect_answers);
+@ans = (0..$n_correct-1);
+
+$checks = CheckboxList([[@OK,@not_OK]],[@ans]);
+
+BEGIN_PGML
+
+# Newtonova metoda
+
+Newtonova (též Newtonova—Raphsonova) metoda je jedna z nedůležitějších aplikací derivace. Ujasněme si, k čemu tato metoda slouží a jak se používá.
+
+Zatrhněte všechny pravdivé výroky.
+
+[_]{$checks}
+
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+[$checks->correct_ans]
+
+[@ $ans @]*
+END_PGML_SOLUTION
+
+ENDDOCUMENT();

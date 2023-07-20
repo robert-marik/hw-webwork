@@ -17,12 +17,13 @@ $showHint = 1;
 $data =
 [
 {
-nadpis=>"Lineární aproximace",
-otazka=>"Lineární aproximace pomocí derivace je nahrazení obecné funkce funkcí lineární. Výhodou je, že lineární funkce je jedna z nejjednodušších funkcí. Nevýhodou je, že aproximace je pouze lokální. Co toto znamená?",
-odpoved=>"Pro lineární aproximaci musí být zadána funkce a bod. Aproximace platí jenom v okolí tohoto bodu.",
+nadpis=>"Kdy se používá neurčitý integrál?",
+otazka=>"Uveďte, který bod nejlépe vystihuje situaci, kdy využíváme neurčitý integrál jako operaci inverzní k derivaci.",
+odpoved=>"Pokud známe okamžitou rychlost růstu, můžeme pomocí integrálu určit časový průběh veličiny. K určení integrační konstanty je nutné znát výchozí stav.",
 moznosti=>[
-"Pro lineární aproximaci musí být zadána funkce a její derivace. Aproximace platí pouze tehdy, je-li derivace lokalizována do kladných hodnot.",
-"Otázka je zavádějící. Lokálnost aproximace je jenom ustálený výraz pro linearitu funkce, pomocí které se aproximuje. Žádná omezení naznačená v ostatních variantách nejsou potřeba."
+"Pokud známe časový průběh nějaké veličiny (hodnoty veličiny jako funkci času), můžeme pomocí integrálu určit v každém okamžiku rychlost růstu této veličiny. Integrační konstantu stanovíme z počátečního a koncového stavu.",
+"Pokud známe časový průběh nějaké veličiny (hodnoty veličiny jako funkci času), můžeme pomocí integrálu určit na každém podintervalu průměrnou rychlost růstu této veličiny. Integrační konstanta je libovolná.",
+"Pokud známe rychlost růstu na každém podintervalu, můžeme pomocí integrálu určit časový průběh veličiny. Integrační konstantu určíme jako změnu na celém intervalu.",
 ]}
 ];
 

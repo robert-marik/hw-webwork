@@ -1,61 +1,62 @@
 ###########################
 #  Initialization
-
-DOCUMENT();  
+DOCUMENT();
 
 loadMacros(
   "PGstandard.pl",
-  "MathObjects.pl",
-  "PGchoicemacros.pl",
-  "PGgraders.pl",
-  "unionTables.pl",
-  "PGML.pl",
+   "PGchoicemacros.pl",
+   "PGML.pl",
+  'draggableSubsets.pl', 
   "PGcourse.pl"
 );
 
-TEXT(beginproblem());
-
-
-###########################
-#  Setup
-
-#
-#  Create a matching list and use popups
-#
-$ml = new_match_list();
-$ml->rf_print_q(~~&pop_up_list_print_q);
-$ml->ra_pop_up_list([
-"No answer" => "?",
-"A" => "A", "B" => "B", "C" => "C", 
-"D" => "D"
-]);
 
 #
 #  Add correct questions and answers
 #
-$ml->qa(
+@a = (
 "\(\displaystyle\frac{\partial T}{\partial t}\)", "Časová změna teploty, tj. rychlost s jakou v daném místě roste teplota jako funkce času.",
-"\(\displaystyle\frac{\partial T}{\partial x}\)", "Rychlost s jakou v daném okamžiku roste teplota ve směru osy \(x\).",
-"\(\displaystyle-\frac{\partial T}{\partial x}\)", "Rychlost s jakou v daném okamžiku klesá teplota ve směru osy \(x\).",
-"\(\displaystyle-\lambda\frac{\partial T}{\partial x}\)", "Tok tepla.",
-"\(\displaystyle\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", "Rychlost s jakou roste tok tepla ve směru osy \(x\).",
-"\(\displaystyle-\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", "Rychlost s jakou klesá tok tepla ve směru osy \(x\)."
+"\(\displaystyle\frac{\partial T}{\partial x}\)", "Rychlost s jakou v daném okamžiku roste teplota ve směru osy \(x\)",
+"\(\displaystyle-\frac{\partial T}{\partial x}\)", "Rychlost s jakou v daném okamžiku klesá teplota ve směru osy \(x\)",
+"\(\displaystyle-\lambda\frac{\partial T}{\partial x}\)", "Tok tepla",
+"\(\displaystyle\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", "Rychlost s jakou roste tok tepla ve směru osy \(x\)",
+"\(\displaystyle-\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", "Rychlost s jakou klesá tok tepla ve směru osy \(x\)"
 );
 
 
-$ml->choose(4);
+@perm = shuffle(6);
 
-#
-#  Add extra incorrect answers
-#
-#$ml->extra(
-#"Extra answer 1", 
-#"Extra answer 2",
-#);
-#$ml->choose_extra(2);
-  
-#$ml->makeLast("None of the above");
+@i = ($a[1],$a[3],$a[5],$a[7],$a[9],$a[11]);
+@l = ($a[0],$a[2],$a[4],$a[6],$a[8],$a[10]);
 
+$draggable = DraggableSubsets(
+[ 
+$i[0],
+$i[1],
+$i[2],
+$i[3],
+$i[4],
+$i[5],
+],
+[
+[0],
+[1],
+[2],
+[3],
+[4],
+[5],
+],
+DefaultSubsets => [
+{label => $l[0], indices => [$perm[0]]},
+{label => $l[1], indices => [$perm[1]]},
+{label => $l[2], indices => [$perm[2]]},
+{label => $l[3], indices => [$perm[3]]},
+{label => $l[4], indices => [$perm[4]]},
+{label => $l[5], indices => [$perm[5]]},
+],
+AllowNewBuckets => 0,
+OrderedSubsets => 1
+);
 
 
 ###########################
@@ -74,19 +75,11 @@ Abychom v ní zřetelně viděli tok, můžeme v ní také nechat záporná znam
 [``` \rho  c\frac{\partial T}{\partial t}=-\frac{\partial}{\partial x}
 \left(-\lambda \frac{\partial T}{\partial x}\right).```]
 
-Pro jednotlivé složky této rovnice podejte jejich slovní interpretaci.
+Pro jednotlivé složky této rovnice podejte jejich slovní interpretaci. Každá část rovnice má jednu z uvedených slovních interpretací, ale ty jsou přeházené. Přesuňte je myší na správná místa.
+
+[_]{$draggable}
 
 END_PGML
-
-BEGIN_TEXT
-
-\{ $ml->print_q() \}
-$BR
-\{ $ml->print_a() \}
-
-END_TEXT
-
-
 
 
 ############################
@@ -94,32 +87,17 @@ END_TEXT
 
 $showPartialCorrectAnswers = 0;
 
-#
-#  Incremental grader
-#
-install_problem_grader(~~&custom_problem_grader_fluid);
-$ENV{'grader_numright'} = [2,3,4];
-$ENV{'grader_scores'} = [0.3,0.6,1];
-$ENV{'grader_message'} = "Můžete mít částečné hodnocení za částečně správnou odpověď.";
-
-#
-#  All or nothing grader
-#  
-# install_problem_grader(~~&std_problem_grader);
-
-ANS( str_cmp( $ml->ra_correct_ans ) );
-
-
-############################
-#  Solution
-
-@correct = @{$ml->ra_correct_ans()};
-$answerstring = join(", ", @correct);
 
 BEGIN_PGML_SOLUTION
-The correct answers are [$answerstring].
-END_PGML_SOLUTION
 
-COMMENT('MathObject version. Uses PGML.');
+* [@ $a[1] @] je [@ $a[0] @].
+* [@ $a[3] @] je [@ $a[2] @].
+* [@ $a[5] @] je [@ $a[4] @].
+* [@ $a[7] @] je [@ $a[6] @].
+* [@ $a[9] @] je [@ $a[8] @].
+* [@ $a[11] @] je [@ $a[10] @].
+
+
+END_PGML_SOLUTION
 
 ENDDOCUMENT();

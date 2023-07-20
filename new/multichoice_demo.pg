@@ -1,0 +1,57 @@
+DOCUMENT();
+
+loadMacros('PGstandard.pl', 'PGML.pl', 
+'parserCheckboxList.pl', 'PGcourse.pl');
+
+@correct_answers =  (
+"Pes je savec.",
+"Kočka má čtyři nohy.",
+"Ryba žije ve vodě.",
+"Ptáci zpravidla umí létat." 
+);
+
+@incorrect_answers = (
+"Pes je hlodavec.",
+"Kočka štěká.",
+"Myš loví nejčastěji ryby.", 
+"Nosorožec je v českých lesích běžné zvíře." 
+);    
+
+$li = MODES (HTML => "<li>", TeX => "\item");
+$ul = MODES (HTML => "<ul>", TeX => "\begin{itemize}");
+$end_ul = MODES (HTML => "</ul>", TeX => "\end{itemize}");
+$ans = "Správná tvrzení: $ul $li " . join( "$li ", @correct_answers ) . "$end_ul Nesprávná tvrzení:$ul $li " . join( "$li ", @incorrect_answers ) . "$end_ul";
+
+$n_correct = random(2, 4);
+$n_incorrect = 5 - $n_correct;
+
+@OK = random_subset($n_correct,@correct_answers);
+@not_OK = random_subset($n_incorrect,@incorrect_answers);
+@ans = (0..$n_correct-1);
+
+$checks = CheckboxList([[@OK,@not_OK]],[@ans]);
+
+BEGIN_PGML
+
+# Výběr z možností
+
+Některé otázky budou obsahovat možnosti, z nichž některé jsou správné a některé ne. Máte zatrhnout tvrzení, která jsou pravdivá. Vyzkoušejte si na následující ukázce.
+
+Snažte se nejenom o správnou odpověď, ale zkuste zatrhnout i jiný počet než je počet správných odpovědí, nebo místo některé správné odpovědi zatrhnout nesprávnou. Prostudujte si hlášení, která někdy obdržíte ve výsledkové tabulce při těchto neúspěšných pokusech. (Jako všude v úvodní sadě se nemusíte bát, že vyčerpáte počet povolených pokusů. Hlášení jsou v angličtině, ale jedná se o jednoduché instrukce snadno srozumitelné i lidem s malou znalostí angličtiny. Případně můžete použít automatický překladač.)
+
+
+
+Zatrhněte všechny pravdivé výroky.
+
+[_]{$checks}
+
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+[$checks->correct_ans]
+
+[@ $ans @]*
+END_PGML_SOLUTION
+
+ENDDOCUMENT();

@@ -17,12 +17,13 @@ $showHint = 1;
 $data =
 [
 {
-nadpis=>"Lineární aproximace",
-otazka=>"Lineární aproximace pomocí derivace je nahrazení obecné funkce funkcí lineární. Výhodou je, že lineární funkce je jedna z nejjednodušších funkcí. Nevýhodou je, že aproximace je pouze lokální. Co toto znamená?",
-odpoved=>"Pro lineární aproximaci musí být zadána funkce a bod. Aproximace platí jenom v okolí tohoto bodu.",
+nadpis=>"Kompromis při použití lineární aproximace",
+otazka=>"Při lineární aproximaci se musíme chtě nechtě dopustit jistého kompromisu. Výsledkem je totiž „jenom“ aproximace. Evidentně bychom lineární aproximaci nepoužívali, kdybychom z jejího využití neměli nějaký benefit. O jaký benefit se jedná?",
+odpoved=>"Můžeme komplikovanou funkční závislost nahradit jednoduchou funkční závislostí a zjednodušit si tak následné výpočty.",
 moznosti=>[
-"Pro lineární aproximaci musí být zadána funkce a její derivace. Aproximace platí pouze tehdy, je-li derivace lokalizována do kladných hodnot.",
-"Otázka je zavádějící. Lokálnost aproximace je jenom ustálený výraz pro linearitu funkce, pomocí které se aproximuje. Žádná omezení naznačená v ostatních variantách nejsou potřeba."
+"Můžeme rozšířit definiční obor funkce do bodů, ve kterých nebyla definována.",
+"Můžeme v každém bodě v určitém okolí bodu, ve kterém píšeme aproximaci, určit derivaci funkce.",
+"Můžeme z chování funkce v daném bodě identifikovat rychlost růstu v okolních bodech, aniž bychom využívali derivaci."
 ]}
 ];
 

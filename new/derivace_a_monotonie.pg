@@ -72,8 +72,8 @@ $DEBUG = 1;
 if ($DEBUG) {@pole = (0..$posledni);}
    else {@pole=(random(0,$posledni));}
 
-#@pole = shuffle($pocet);
-#@pole = @pole[0..3];
+@pole = shuffle($pocet);
+@pole = @pole[0..1];
 
 # Cyklus pres otazky (jednu nebo vsechny)
 foreach $i (@pole)
@@ -93,7 +93,7 @@ BEGIN_PGML
 
 
 
-## [$i+1]: [$na] 
+## [$na] 
 
 Uvažujme následující scénář: _[$ot]*_
 
@@ -108,6 +108,7 @@ BEGIN_PGML_SOLUTION
 
 Správná odpověď: [$ok_odpoved]
 
+Při hledání správné odpovědi je nutné si uvědomit, že derivaci determinuje to, jak rychle nebo jak pomalu se funkce mění. Jestli jsou funkční hondoty kladné nebo záporné, jestli jsou numericky velké nebo malé, nemá na derivaci vliv. 
 
 END_PGML_SOLUTION
 

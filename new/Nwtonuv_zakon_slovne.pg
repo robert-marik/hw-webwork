@@ -1,0 +1,57 @@
+DOCUMENT();
+
+loadMacros('PGstandard.pl', 'PGML.pl', 
+'parserCheckboxList.pl', 'PGcourse.pl');
+
+@correct_answers =  (
+"Konstanta úměrnosti \(k\) má fyzikální jednotku rovnu převrácené hodnotě jednotky času, \(\mathrm{min}^{-1}\).",
+"Model vyjadřuje, že rychlost poklesu teploty je úměrná teplotnímu rozdílu tělesa a okolí.",
+"Konstanta úměrnosti \(k\) číselně vyjadřuje rychlost ochlazování v situaci, kdy je jednotkový rozdíl teploty tělesa a okolí.",
+"Pro kávu v plechovém hrnku s je konstanta \(k\) větší, než pro kávu v termohrnku.",
+);
+
+@incorrect_answers = (
+"Konstanta úměrnosti \(k\) má fyzikální jednotku rovnu jednotce času, \(\mathrm{min}\).",
+"Model vyjadřuje, že rychlost poklesu teploty je úměrná teplotě okolí.",
+"Konstanta úměrnosti \(k\) číselně vyjadřuje rychlost ochlazování na začátku pokusu.",
+"Konstanta úměrnosti \(k\) číselně vyjadřuje rychlost dobu nutnou pro ochlazení tělesa na poloviční teplotu.",
+"Konstanta úměrnosti \(k\) číselně vyjadřuje rychlost dobu nutnou pro ochlazení tělesa tak, aby teplotní rozdíl byl poloviční než na počátku.",
+"Pro kávu v plechovém hrnku s je konstanta \(k\) menší, než pro kávu v termohrnku."
+);    
+
+$li = MODES (HTML => "<li>", TeX => "\item");
+$ul = MODES (HTML => "<ul>", TeX => "\begin{itemize}");
+$end_ul = MODES (HTML => "</ul>", TeX => "\end{itemize}");
+$ans = "Správná tvrzení: $ul $li " . join( "$li ", @correct_answers ) . "$end_ul Nesprávná tvrzení:$ul $li " . join( "$li ", @incorrect_answers ) . "$end_ul";
+
+$n_correct = random(2, 4);
+$n_incorrect = 5 - $n_correct;
+
+@OK = random_subset($n_correct,@correct_answers);
+@not_OK = random_subset($n_incorrect,@incorrect_answers);
+@ans = (0..$n_correct-1);
+
+$checks = CheckboxList([[@OK,@not_OK]],[@ans]);
+
+BEGIN_PGML
+
+# Newtonův zákon ochlazování
+
+Newtonův zákon ochlazování je možno popsat rovnicí [``` \frac{\mathrm dT}{\mathrm dt}=-k(T-T_0),```] kde [`T`] je teplota horkého tělesa v prostředí o teplotě [`T_0`] a [`k`] je konstanta úměrnosti. (Název zákon ochlazování je pouze historický, model platí i pro tepelnou výměnu, kdy studené těleso je v teplém okolním prostředí a ohřívá se.)
+
+Teplotu měříme ve stupních Celsia, čas v minutách.
+
+Zatrhněte všechny pravdivé výroky.
+
+[_]{$checks}
+
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+[$checks->correct_ans]
+
+[@ $ans @]*
+END_PGML_SOLUTION
+
+ENDDOCUMENT();

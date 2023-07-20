@@ -42,7 +42,7 @@ BEGIN_PGML
 
 Newtonova metoda je efektivní nástroj pro hledání nulových bodů funkce, tj. pro řešení rovnice [``` f(x)=0.```] Je založena na lineární aproximaci funkce [`f(x)`] v bodě [`x_n`] (počáteční odhad řešení), tj.  na rovnici [``` f(x)\approx f(x_n)+f'(x_n)(x-x_n).```] Novou aproximaci [`x_n`] určujeme z podmínky
 [``` 0=f(x_n)+f'(x_n)(x_{n+1}-x_n).```]
-Odvození iteračního vzorce pro tuto metodu jsme si procvičili ve třetí sadě úloh v úloze 9.
+Odvození iteračního vzorce pro tuto metodu jsme si procvičili dříve.
 Teď se k této problematice vracíme.
 V [@ htmlLink("https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology","teorii šíření epidemií") @]* je nutno pracovat s rovnicemi, které nejsou řešitelné pomocí elementárních funkcí. Řešíme je buď pomocí speciálních funkcí ([@ htmlLink("https://en.wikipedia.org/wiki/Lambert_W_function","Lambertova W funkce") @]*), nebo numericky.
 Dospějeme například k rovnici 
@@ -71,7 +71,8 @@ Rovnici upravte tak, že převedeme pravou stranu doleva (nebo naopak). Napřík
 [``` [$funkce]=0.```]
 
 Uvažujte funkci 
-[```f(x)=[$funkce], ```] vypočtěte derivaci a sestavte iterační vzorec.
+[```f(x)=[$funkce], ```] vypočtěte derivaci a sestavte iterační vzorec
+[``` x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}.```]
 
 
 END_PGML_HINT
@@ -87,7 +88,9 @@ Uvažujme funkci
 která má derivaci 
 [```f'(x)=[$derivacefunkce]. ```]
 
-Iterační vzorec má tvar
+Iterační vzorec 
+[``` x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}```]
+má tvar
 [``` x_{n+1}=x_n-\frac{[$funkcexn]}{[$derivacefunkcexn]}=[$answer].```]
 
 END_PGML_SOLUTION

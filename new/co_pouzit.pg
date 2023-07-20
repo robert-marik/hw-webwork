@@ -1,0 +1,66 @@
+###########################
+#  Initialization
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+   "PGML.pl",
+  "PGchoicemacros.pl",   
+  'draggableSubsets.pl', 
+  "PGcourse.pl"
+);
+
+$showHint = 1;
+
+do
+{
+@perm = shuffle(6);
+} until ( ($perm[0] != 0) ||  ($perm[1] != 1) || ($perm[2] != 2) || ($perm[3] != 3) || ($perm[4] != 4)|| ($perm[5] != 5));
+
+$draggable = DraggableSubsets(
+[ 
+"Znám časový průběh \(y\) a zajímá mne změna \(y\) na zadaném intervalu.",
+"Znám časový průběh \(y\) a zajímá mne rychlost změny. Vím, že děj probíhá rovnoměrně (tj. konstantní rychlostí).",
+"Znám časový průběh \(y\) a zajímá mne rychlost změny. Vím, že děj nemusí probíhat rovnoměrně (tj. nemusí probíhat konstantní rychlostí).",
+"Znám rychlost změny a výchozí stav, zajímá mne časový průběh \(y\). Rychlost závisí pouze na čase.",
+"Znám rychlost změny a zajímá mne změna \(y\) na zadaném intervalu. Rychlost závisí pouze na čase.",
+"Znám rychlost změny a výchozí stav, zajímá mne časový průběh \(y\). Rychlost závisí na čase a na \(y\).",
+],
+[[0],[1],[2],[3],[4],[5]],
+DefaultSubsets => [
+{label => "Rozdíl", indices => [$perm[0]]},
+{label => "Podíl", indices => [$perm[1]]},
+{label => "Derivace", indices => [$perm[2]]},
+{label => "Neurčitý integrál", indices => [$perm[3]]},
+{label => "Určitý integrál", indices => [$perm[4]]},
+{label => "Diferenciální rovnice", indices => [$perm[5]]},
+],
+AllowNewBuckets => 0,
+OrderedSubsets => 1
+);
+
+
+
+###########################
+#  Main text
+
+BEGIN_PGML
+
+## Který nástroj použít na kterou úlohu?
+
+
+Uvažujme úlohu, kdy se veličina [`y`] mění v čase. Spárujte nástroj se specifikací nutných vstupních údajů a možností na výstupu. 
+
+[_]{$draggable}
+
+
+
+END_PGML
+
+
+BEGIN_PGML_SOLUTION
+
+END_PGML_SOLUTION
+
+ENDDOCUMENT();

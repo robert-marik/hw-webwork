@@ -1,0 +1,55 @@
+DOCUMENT();
+
+loadMacros('PGstandard.pl', 'PGML.pl', 
+'parserCheckboxList.pl', 'PGcourse.pl');
+
+@correct_answers =  (
+"Vzorec pro lineární aproximaci je \(f(x)\approx f(x_0)+f'(x_0)(x-x_0)\)",
+"Aby bylo možno lineární aproximaci použít, stačí znát funkční hodnotu a derivaci funkce v bodě \(x_0\).",
+"Aproximace je vždy lineární funkcí a proto s její pomocí získáme jednoduchý vzorec pro výpočet funkčních hodnot funkce \(f(x)\).",
+"Aproximace je spolehlivá jenom v okolí bodu \(x_0\). Na delším intervalu může dávat nespolehlivé výsledky." ,
+"Lineární aproximací funkce procházející počátkem je vždy přímá úměrnost."
+);
+
+@incorrect_answers = (
+"Vzorec pro lineární aproximaci je \(\displaystyle f(x)\approx x_0-\frac{f(x_0)}{f'(x_0)}\).",
+"Aproximace je spolehlivá na celém intervalu, kde je funkce \(f\) spojitá. Problémy mohou nastat v bodech nespojitosti.",
+"Aproximace snižuje stupeň polynomu o jedničku. Po dostatečném počtu kroků se každý polynom redukuje na lineární.", 
+"Lineární aproximace funkce procházející počátkem je funkce sinus."
+);    
+
+$li = MODES (HTML => "<li>", TeX => "\item");
+$ul = MODES (HTML => "<ul>", TeX => "\begin{itemize}");
+$end_ul = MODES (HTML => "</ul>", TeX => "\end{itemize}");
+$ans = "Správná tvrzení: $ul $li " . join( "$li ", @correct_answers ) . "$end_ul Nesprávná tvrzení:$ul $li " . join( "$li ", @incorrect_answers ) . "$end_ul";
+
+$n_correct = 3;
+$n_incorrect = 2;
+
+@OK = random_subset($n_correct,@correct_answers);
+@not_OK = random_subset($n_incorrect,@incorrect_answers);
+@ans = (0..$n_correct-1);
+
+$checks = CheckboxList([[@OK,@not_OK]],[@ans]);
+
+BEGIN_PGML
+
+# Lineární aproximace
+
+
+Zatrhněte všechny pravdivé výroky o lineární aproximaci funkce [`f(x)`] v bodě [`x_0`].
+
+[_]{$checks}
+
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+[$checks->correct_ans]
+
+[@ $ans @]*
+
+END_PGML_SOLUTION
+
+
+ENDDOCUMENT();

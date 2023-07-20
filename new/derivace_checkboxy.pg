@@ -1,0 +1,54 @@
+DOCUMENT();
+
+loadMacros('PGstandard.pl', 'PGML.pl', 'PGchoicemacros.pl',
+'parserCheckboxList.pl', 'PGcourse.pl');
+
+@correct_answers =  (
+"Jednotka derivace je stejná jako jednotka podílu \(\displaystyle\frac{x}{t}\).",
+"Pokud je derivace numericky blízká k nule, veličina \(x\) se s časem prakticky nemění.",
+"Pokud je \(x\) přímo úměrné \(t\), získáme derivací konstantu úměrnosti.",
+"Derivace vyjadřuje změnu veličiny \(x\) za jednotku času." 
+);
+
+@incorrect_answers = (
+"Jednotka derivace je stejná jako jednotka veličiny \(x\).",
+"Pokud je derivace nezávislá na čase, je veličina \(x\) také nezávislá na čase, tj. konstantní.",
+"Derivace vyjadřuje změnu veličiny \(x\) na zadaném časovém intervalu.", 
+"Derivace má stejné znaménko jako veličina \(x\)." 
+);    
+
+$n_correct = random(2, 3);
+$n_incorrect = 4 - $n_correct;
+
+
+@OK = @correct_answers[ NchooseK(scalar(@correct_answers),$n_correct) ];
+@not_OK = @incorrect_answers[ NchooseK(scalar(@incorrect_answers),$n_incorrect) ];
+@ans = (0..$n_correct-1);
+
+$checks = CheckboxList([[@OK,@not_OK]],[ @ans ]);
+
+$li = MODES (HTML => "<li>", TeX => "\item");
+$ul = MODES (HTML => "<ul>", TeX => "\begin{itemize}");
+$end_ul = MODES (HTML => "</ul>", TeX => "\end{itemize}");
+$ans = "Správná tvrzení: $ul $li " . join( "$li ", @correct_answers ) . "$end_ul Nesprávná tvrzení:$ul $li " . join( "$li ", @incorrect_answers ) . "$end_ul";
+
+BEGIN_PGML
+
+# Vše okolo derivace podle času
+
+Vyberte správná tvrzení o derivaci [``\frac{\mathrm dx}{\mathrm dt},``] kde [`t`] je čas.
+
+Zatrhněte všechny pravdivé výroky.
+
+[_]{$checks}
+
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+[$checks->correct_ans]
+
+[@ $ans @]*
+END_PGML_SOLUTION
+
+ENDDOCUMENT();

@@ -32,7 +32,7 @@ $str=Formula("($b*$a+$c/($n1)*($a)^($n1))/($a)");
 
 BEGIN_PGML
 
-## Výpočet změny ze známé rychlosti
+## Výpočet integrálů
 
 
 Vypočtěte následující neurčitý integrál, určitý integrál a střední hodnotu.

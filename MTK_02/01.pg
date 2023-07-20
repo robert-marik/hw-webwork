@@ -14,6 +14,7 @@ loadMacros(
 
 
 $showHint = 1;
+$showPartialCorrectAnswers = 1;
 
 do
 {

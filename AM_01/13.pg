@@ -1,41 +1,20 @@
 ###########################
 #  Initialization
-
-DOCUMENT();  
+DOCUMENT();
 
 loadMacros(
   "PGstandard.pl",
-  "MathObjects.pl",
-  "PGchoicemacros.pl",
-  "PGgraders.pl",
-  "unionTables.pl",
-  "PGML.pl",
+   "PGchoicemacros.pl",
+   "PGML.pl",
+  'draggableSubsets.pl', 
   "PGcourse.pl"
 );
-
-TEXT(beginproblem());
 
 
 ###########################
 #  Setup
 
-#
-#  Create a matching list and use popups
-#
-$ml = new_match_list();
-$ml->rf_print_q(~~&pop_up_list_print_q);
-$ml->ra_pop_up_list([
-"No answer" => "?",
-"A" => "A", "B" => "B", "C" => "C", 
-"D" => "D", "E" => "E"
-]);
-
-#
-#  Add correct questions and answers
-#
-
-
-$ml->qa(
+@a = (
 "Z venku dokonale izolovaná stěna. Na hranici \(x=L\) nedochází k toku tepla.", "Tok tepla pro \(x=L\) je roven nule.",
 "Vnitřní část stěny je udržovaná na konstantní teplotě.", "Je zadána konstantní hodnota teploty pro \(x=0\).",
 "Stěna je zvenku osvětlená a zahřívaná Sluncem. Na vnější hranici je konstantní tok tepla směrem do stěny.", "Je zadána nenulová konstantní hodnota toku pro \(x=L\).",
@@ -45,19 +24,37 @@ $ml->qa(
 
 
 
-$ml->choose(5);
 
-#
-#  Add extra incorrect answers
-#
-#$ml->extra(
-#"Extra answer 1", 
-#"Extra answer 2",
-#);
-#$ml->choose_extra(2);
-  
-#$ml->makeLast("None of the above");
+@perm = shuffle(5);
 
+@i = ($a[1],$a[3],$a[5],$a[7],$a[9]);
+@l = ($a[0],$a[2],$a[4],$a[6],$a[8]);
+
+$draggable = DraggableSubsets(
+[ 
+$i[0],
+$i[1],
+$i[2],
+$i[3],
+$i[4],
+],
+[
+[0],
+[1],
+[2],
+[3],
+[4],
+],
+DefaultSubsets => [
+{label => $l[0], indices => [$perm[0]]},
+{label => $l[1], indices => [$perm[1]]},
+{label => $l[2], indices => [$perm[2]]},
+{label => $l[3], indices => [$perm[3]]},
+{label => $l[4], indices => [$perm[4]]},
+],
+AllowNewBuckets => 0,
+OrderedSubsets => 1
+);
 
 
 ###########################
@@ -79,45 +76,15 @@ Stěna je na intervalu [`x\in[0,L]`], [`x=0`] je vnitřní okraj a [`x=L`] je vn
 
 Spárujte jednotlivé situace s podmínkami, kterým je stěna vystavena.
 
+[_]{$draggable}
+
 END_PGML
-
-BEGIN_TEXT
-
-\{ $ml->print_q() \}
-$BR
-\{ $ml->print_a() \}
-
-END_TEXT
-
-
 
 
 ############################
 #  Answer evaluation
 
 $showPartialCorrectAnswers = 0;
-
-#
-#  Incremental grader
-#
-install_problem_grader(~~&custom_problem_grader_fluid);
-$ENV{'grader_numright'} = [2,3,5];
-$ENV{'grader_scores'} = [0.3,0.6,1];
-$ENV{'grader_message'} = "Za částečně odpovězenou otázku je možné získat částečné hodnocení.";
-
-#
-#  All or nothing grader
-#  
-# install_problem_grader(~~&std_problem_grader);
-
-ANS( str_cmp( $ml->ra_correct_ans ) );
-
-
-############################
-#  Solution
-
-@correct = @{$ml->ra_correct_ans()};
-$answerstring = join(", ", @correct);
 
 $showHint = 1;
 
@@ -127,13 +94,20 @@ BEGIN_PGML_HINT
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
-Správné odpovědi jsou [$answerstring].
+
+
+* [@ $a[1] @]: [@ $a[0] @].
+* [@ $a[3] @]:  [@ $a[2] @].
+* [@ $a[5] @]:  [@ $a[4] @].
+* [@ $a[7] @]:  [@ $a[6] @].
+* [@ $a[9] @]:  [@ $a[8] @].
+
+---
 
 * Pokud se podmínka týká vnitřní strany stěny, formulujeme ji pro [`x=0`], pokud vnější, formulujeme podmínku pro [`x=L`], protože takto je úloha zadána.
 * Pokud je podmínkou zadána konstantní teplota, je ve formulaci podmínky hodnota [`T`] v příslušném bodě.
 * Pokud je předepsaný tok, ať již nulový, nebo konstantní, nebo úměrný rozdílu teplot, je podmínka formulována pro tok. Je-li zadán konstantní tok, i nulový, je předepsána hodnota tohoto toku. Je-li zadána souvilost mezi tokem a a teplotou, je obsahuje podmínka tok i teplotu.
 END_PGML_SOLUTION
 
-COMMENT('MathObject version. Uses PGML.');
 
 ENDDOCUMENT();
