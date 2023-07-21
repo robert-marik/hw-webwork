@@ -21,32 +21,6 @@ Co je výsledkem součinu matice $n\times n$ a $n$-rozměrného řádkového vek
 
 ---
 
-Která matice reprezentuje otočení o pravý úhel proti směru hodinových ručiček?
-
-* $\begin{pmatrix}0&-1\\1&0\end{pmatrix}$
-* $\begin{pmatrix}0&1\\-1&0\end{pmatrix}$
-* $\begin{pmatrix}1&0\\0&1\end{pmatrix}$
-* $\begin{pmatrix}-1&0\\0&1\end{pmatrix}$
-* $\begin{pmatrix}-1&0\\0&-1\end{pmatrix}$
-* jiná matice než jsou nabízené
-* uvedenou transformaci není možné zapsat pomocí maticového součinu
-
-
----
-
-Čím se vyznačuje matice, která má vlastní směry ve směru souřadných os? Pokud je více tvrzení pravdivých, vyberte to, které nese nejvíce informací.
-
-* Matice je diagonální.
-* Matice je diagonální a v hlavní diagonále má odpovídající vlastní čísla.
-* Matice má v hlavní diagonále odpovídající vlastní čísla.
-* Matice má v hlavní diagonále odpovídající vlastní čísla, ostatní prvky matice jsou kladné.
-* Matice má v hlavní diagonále odpovídající vlastní čísla a determinant je roven největšímu z těchto čísel.
-* Matice má v hlavní diagonále odpovídající vlastní čísla a determinant je roven nejmenšímu z těchto čísel.
-
-Odpověď: **Matice je diagonální s diagnonálou tvořenou vlastními čísly.** Mimodiagonální prvky jsou tedy nulové. Determinant diagonální matice je roven součinu prvků v diagonále a tedy nemůže být roven největšímu nebo nejmenšímu z vlastních čísel (s výjimkou speciálního případu, kdy ostatní vlastní čísla jsou v absolutní hodnotě rovny jedné)
-
-----
-
 Některé materiálové vlastnosti se nedají popsat pouze pomocí skalárních čísel a vektorů, ale je nutné použít i matice (tenzory). Proč? V jakých případech stačí skalární materiálové konstanty a v jakých případech jsou nutné tenzorové (maticové) konstanty?
 
 * Tenzory používáme tam, kde podnětem a odezvou jsou vektorové veličiny, které nemusí nutně mít stejný směr. Tedy při popisu dějů v anizotropních materiálech.
@@ -69,27 +43,9 @@ Soustava lineárních rovnic $$AX=B$$ má regulární matici soustavy $A$ a slou
 
 ---
 
-Rovnice samočištění jezer má tvar 
-$$\frac{\mathrm dy}{\mathrm dt}=-ky,$$
-kde $y$ je množství nečistot a $k$ je konstanta spojená s vydatností průtuoku a odtoku a s objemem jezera. Pro praktické využití je vhodné, dát konstantě $k$ odpovídající praktický význam. Vyberte správnou variantu.
-
-* Konstanta $k$ udává rychlost úbytku nečistot v situaci, kdy nečistot v jezeře je jednotkové množství.
-* Konstanta $k$ udává rychlost úbytku nečistot na počátku procesu.
-* Konstanta $k$ je čas nutný k vyplavení poloviny nečistot.
-* Konstanta $k$ je čas nutný k vyplavení jednotkového množství nečistot.
-* Není možné odpovědět dokud nejsou specifikovány jednotky, ve kterých se měří množství nečistot.
-
-Odpověď: Vyjádření je zřejmé z toho, že pokud $y=1$, rovnice se redukuje na  $$\frac{\mathrm dy}{\mathrm dt}=-k,$$ tj. $k$ je rychlost úbytku nečistot. Správná odpověď je: **Konstanta $k$ udává rychlost úbytku nečistot v situaci, kdy nečistot v jezeře je jednotkové množství.**
 
 ---
 
-Vyberte správné tvrzení o roli stabilních a nestabilních stacionárních bodů u autonomní diferenciální rovnice  $$\frac{\mathrm dy}{\mathrm dt}=f(y).$$
-
-* Každé nekonstantní ohraničené řešení konverguje k některému ze stabilních stacionárních bodů.  Nestabilní stacionární body oddělují oblasti přitažlivosti jednotlivých stacionárních bodů.
-* Každé nekonstantní ohraničené řešení konverguje buď k některému ze stabilních nebo k některému z nestabilních stacionárních bodů. Oblasti přitažlivosti těchto bodů jsou symetricky rozložené okolo každého z nich.
-* Každé nekonstantní řešení osciluje mezi jedním stabilním a jedním nestabilním stacionárním bodem.
-* Každé nekonstantní řešení osciluje mezi dvěma stabilními stacionárními body.
-* Každé nekonstantní řešení osciluje mezi konečně mnoha stabilními stacionárními body.
 
 
 ----
