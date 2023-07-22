@@ -1,51 +1,51 @@
-DOCUMENT(); 
+DOCUMENT();
+
 loadMacros(
 "PGstandard.pl",
-"PGML.pl",
 "MathObjects.pl",
 "parserRadioButtons.pl",
 "PGcourse.pl",
+"PGML.pl"
 );
+
+
 TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+ 
+
+$data =
+{
+otazka=>" Veličina \(N\) udává velikost populace a její derivace podle času má numericky nízkou hodnotu, tj. je blízká nule. Co to znamená pro vývoj populace? Vyberte nehvhodnější tvrzení.",
+nadpis=>"Derivace velikosti populace podle času",
+moznosti=>[
+"Velikost populace se prakticky nemění. Populace je blízko svého stacionárního stavu.",
+"Populace je malá, veličina \(N\) je hodně pod nosnou kapacitou prostředí. ",
+"Velikost populace je vysoká a mění se rychle (populace je přemnožená a rychle se dál množí).",
+"Velikost populace je vysoká a mění se rychle (populace je přemnožená a množí se dál již pomalu).",
+],
+vysvetleni=>"Derivace je rychlost růstu a podle zadání je tato rychlost blízká k nule. Tedy populace se mění malou rychlostí, prakticky se nemění v čase. Jestli se jedná o velkou populaci či malou populaci není možné z informace o derivaci usuzovat, obě varianty jsou příppustné. Proto tvrzení, která operují s velikostí populace v absolutních číslech (malá resp. velká populace) nemohou být správnou odpovědí."}
+;
 
 
-Context("Numeric")->variables->are("l"=>['Real',limits=>[1,5]]);
+$radio    =  RadioButtons([$data->{moznosti}],0);
 
-$radio    =  RadioButtons([[
-"Rychlost růstu teploty ve smyslu změny teploty ve stupních Celsia na jednom centimetru tloušťky stěny.",
-"Rozdíl teplot v místnosti a vně domu.",
-"Délka odpovídající teplotnímu rozdílu jednoho centimetru.",
-"Rychlost růstu teploty ve smyslu změny teploty za jednotku času. Tato rychlost je nulová, protože podle předpokladu jsou všechny teploty ustálené."
-]],0);
 
 BEGIN_PGML
 
+## [$data->{nadpis}]
 
+[$data->{otazka}]*
 
-## Slovní interpretace  derivace
-
-Derivaci zpravidla interpretujeme jako rychlost a rychlost zase máme nejčastěji spojenou s rychlostí změny v čase. 
-
-V aplikacích však rychlost posuzujeme i vzhledem k jiným veličinám, než je čas. 
-
-Uvažujme stěnu, která odděluje teplý interiér domu a chladné okolí. Předpokládejme stálé podmínky a předpokládejme, že systém je v rovnovážném stavu, kdy se nemění ani teplota v místnosti, ani teplota ve stěně, ani teplota okolí domu. 
-
-Uvažujme teplotu v různých místech stěny. Můžeme například z vnější strany domu vést osu [`x`] skrz stěnu dovnitř a podél této osy bude teplota určitě narůstat. Tedy funkce [`T(x)`] poroste a rychlost tohoto růstu bude vyjádřena derivací [``\frac{\mathrm dT}{\mathrm dx}``]. Který z následujících obratů nejlépe vystihuje derivaci bez použití obratu "rychlost růstu jako funkce polohy"? Pro jednoduchost předpokládejme, že teplotu měříme ve stupních Celsia a polohu v centimetrech od počátku osy, tj. od vnějšího okraje stěny.
-
-
-   [_]{$radio}
-
-
+[_]{$radio}
 
 END_PGML
 
-
 BEGIN_PGML_SOLUTION
 
-Rychlost růstu teploty ve smyslu změny teploty ve stupních Celsia na jednom centimetru tloušťky stěny.
-
-Derivace [``\frac{\mathrm dT}{\mathrm dx}``]  je rychlost růstu [`T`] jako funkce [`x`] a tím je myšlena změna [`T`] vyvolaná změnou [`x`] o jednotku.
+[$data->{vysvetleni}]*
 
 END_PGML_SOLUTION
 
 ENDDOCUMENT();
+

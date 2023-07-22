@@ -14,19 +14,17 @@ $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
 
-
-
 $data =
 [
 {
-    nadpis=>"Aproximace derivace",
-    otazka=>"Označte výraz, který udává numerickou aproximaci derivace funkce pomocí centrální diference.",
-    odpoved=>"\(\displaystyle\frac{f(x+h)-f(x-h)}{2h}\)",
+    nadpis=>"Aproximace druhé derivace",
+    otazka=>"Označte výraz, který udává numerickou aproximaci druhé derivace funkce.",
+    odpoved=>"\(\displaystyle\frac{f(x+h)-2f(x)+f(x-h)}{h^2}\)",
     moznosti=>[
 "\(\displaystyle\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}\)",
 "\(\displaystyle\lim_{h\to 0}\frac{f(x+h)+f(x)}{2h}\)",
 "\(\displaystyle\frac{f(x+h)-f(x)}{h}\)",
-"\(\displaystyle\frac{f(x+h)-2f(x)+f(x-h)}{h^2}\)",
+"\(\displaystyle\frac{f(x+h)-f(x-h)}{2h}\)",
 ],
 }
 ];

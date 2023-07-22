@@ -13,18 +13,19 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
-
 $data =
 [
 {
-nadpis=>"Kdy se používá derivace?",
-otazka=>"Uveďte, který bod nejlépe vystihuje situaci, kdy využíváme souvislost derivace a rychlosti růstu.",
-odpoved=>"Pokud známe časový průběh nějaké veličiny (hodnoty veličiny jako funkci času), můžeme pomocí derivace určit v každém okamžiku rychlost růstu této veličiny.",
-moznosti=>[
-"Pokud známe časový průběh nějaké veličiny (hodnoty veličiny jako funkci času), můžeme pomocí derivace určit na každém podintervalu průměrnou rychlost růstu této veličiny.",
-"Pokud známe okamžitou rychlost růstu a výchozí stav, můžeme pomocí derivace určit časový průběh veličiny.",
-"Pokud známe rychlost růstu na každém podintervalu a výchozí stav, můžeme pomocí derivace určit časový průběh veličiny.",
-]}
+    nadpis=>"Bolzanova věta",
+    otazka=>"Co slovně vyjadřuje  Bolzanova věta?",
+    odpoved=>"Spojitá funkce, která mění znaménko, má mezi znaménkovými změnami nulový bod.",
+    moznosti=>[
+"Spojitá funkce, která mění znaménko, má mezi znaménkovými změnami maximum.",
+"Každá funkce, která má nulový bod, mění na intervalu obsahujícím tento bod znaménko.",
+"Každá funkce, která má nulový bod, je v tomto bodě spojitá.",
+"Nulový bod funkce můžeme najít pomocí Newtonovy iterační metody.",
+],
+}
 ];
 
 # Pocet otazek
@@ -56,7 +57,7 @@ BEGIN_PGML
 
 ## [$na]
 
-[$ot]*
+[$ot]
 
 [_]{$radio}
 
@@ -66,7 +67,7 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 
-[$od]*
+[$od]
 
 END_PGML_SOLUTION
 

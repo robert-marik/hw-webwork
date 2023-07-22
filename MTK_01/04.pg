@@ -14,7 +14,7 @@ $data =
 [
 {
     obrazek=>"konvice",
-    nadpis=>"Slovní interpretace derivace",
+    nadpis=>"Slovní interpretace derivace podle času",
     otazka=>"V rychlovarné konvici vaříte vodu na čaj z pokojové teploty 18 stupňů Celsia.
 Čas měřený ve sekundách od zapnutí konvice a označíme \(t\).
 Funkce \(T(t)\) udává teplotu vody v čase \(t\). Najděte slovní interpretaci derivace funkce \(T\), tj. najděte slovní interpretaci pro derivaci \[\frac{\mathrm dT}{\mathrm dt}.\]",

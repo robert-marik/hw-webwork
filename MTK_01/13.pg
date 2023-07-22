@@ -1,69 +1,71 @@
-##################################################
-
 DOCUMENT(); 
 loadMacros(
 "PGstandard.pl",
-"contextFraction.pl",
 "PGML.pl",
 "MathObjects.pl",
+"parserRadioButtons.pl",
 "PGcourse.pl",
 );
 TEXT(beginproblem());
-$showPartialCorrectAnswers = 1;
 
-$var='x';
-$aa=non_zero_random(2,5);
-$aa=3;
 
-if ( $aa == 2) {$temp="";} else {$temp=$aa;}
+Context("Numeric")->variables->are("l"=>['Real',limits=>[1,5]]);
 
-$b=non_zero_random(2,6,1);
-do {$c=non_zero_random(-10,10);} until (( abs($c) != $aa ) and ( abs($c) != 1));
-do {$d=non_zero_random(1,10); } until ( $c != $d );
-
-Context("Numeric")->variables->are($var=>['Real',limits=>[1,100]]);
-Context("Fraction");
-$a=Fraction(1,$aa);
-
-$f=Formula("$c*x^($a)+$d/x^$b")->reduce();   # funkce
-#$answer = $f->D();   # derivace
-$answer=Formula("$c*$a*x^($a-1)-$d*$b/x^($b+1)");   # funkce
+$radio    =  RadioButtons([[
+"Změnu rychlosti dinosaura při prodloužení délky kroku o jednotku.",
+"Změnu rychlosti dinosaura při prodloužení stehenní kosti o jednotku.",
+"Změnu délky stehenní kosti dinosaura nutnou pro zvýšení rychlosti dinosaura o jednotku.",
+"Změnu délky stehenní kosti dinosaura nutnou vyvolanou zvýšením rychlosti dinosaura o jednotku.",
+"Změnu délky kroku dinosaura nutnou pro zvýšení rychlosti o jednotku.",
+"Změnu délky kroku dinosaura nutnou udržení rychlosti při délce stehenní kosti zvýšené o jednotku.",
+]],0);
 
 BEGIN_PGML
 
-## Derivace mocninných funkcí se záporným nebo racionálním exponentem
+## Délka kroku dinosaura a jeho rychlost běhu
 
-Derivace mocninné funkce je dána vzorcem [```\left(x^n\right)'=\frac{\mathrm d}{\mathrm dx}\left(x^n\right)=n x^{n-1}```]
-a tento vzorec zahrnuje i záporné nebo racionální hodnoty mocniny [`n`]. Protože platí [```\sqrt[n]{x}=x^{\frac 1n}```] a
-[``` \frac{1}{x^n}=x^{-n},```] můžeme
-psát (pomocí zkrácené Lagrangeovy notace) například 
-[```\left(7\sqrt[4]{x}+\frac{8}{x^3}\right)'=7(x^{\frac 14})'+8(x^{-3})'=7\cdot \frac 14  x^{-\frac 34}+8\cdot (-3)x^{-4}=\frac 74 x^{-\frac 34}-\frac{24}{x^4}.```]
-Tento výsledek můžeme zapsat například ve tvaru *7/4 \*x^(-3/4) - 24/x^4*.
+[@ image("dinosaurus.jpg", width=>400) @]*
 
-------------
+Rychlost jakou dosahovali dvounozí dinosauři se dá odhadnout ze vzdálenosti jejich stop a z délky stehenní kosti. První takový odhad představil v roce 1976 bristký zoolog [@ htmlLink("https://en.wikipedia.org/wiki/Robert_McNeill_Alexander","Robert McNeill Alexander")@]* ve tvaru
+[``` v=0.25 \sqrt g l^{1.67} h^{-1.17},```]
+kde [`v`] je rychlost dinosaura v metrech za sekundu, [`h`] je (zjednodušeně řečeno) délka stehenní kosti v metrech, [`l`] je délka kroku v metrech a [`g`] je tíhové zrychlení v metrech za sekundu na druhou.
+
+Uvažujme stále stejného dinosaura, tj. [`h`] je konstantní a hraje v našem případě roli parametru. Rychlost je tedy funkcí délky kroku, [``` v=v(l).```]
+Pro konkrétního dinosaura můžeme mít například
+[``` v(l)=0.8 l^{1.67}```]
+a jak bývá někdy v takovýchto situacích zvykem, neuvažujeme ve vzorci jednotky, ale doplníme k němu informaci, že délku kroku určujeme v metrech a rychlost v metrech za sekundu.
+
+**Úkol. Vypočtěte derivaci této funkce a najděte slovní interpretaci této derivace.**
 
 
-Napište derivaci [`` f'([$var]) ``] funkce [``` f([$var])=[$c]\sqrt[[$temp]]{x}+\frac{[$d]}{x^[$b]} .```] Příklad je analogický výše uvedenému vzoru.
+### Výpočet derivace
 
->>[`` f'([$var])=\frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$c]\sqrt[[$temp]]{x}+\frac{[$d]}{x^[$b]} \Bigr) ={}``]
-[_____________________]{$answer->cmp(limits=>[1,6])}<<
+>>[`` \frac{\mathrm dv}{\mathrm dl}={}``][____________________]{"0.8*1.67 * l **(0.67)"}<<
+
+### Interpretace derivace 
+
+Derivace vyjadřuje
+
+   [_]{$radio}
+
+_Obrázek: pixabay.com, DariuszSankowski_
+
 
 END_PGML
 
-$showHint = 1;
-BEGIN_PGML_HINT
-Platí [```(\sqrt[[$temp]]{x})'=\left(x^{\frac {1}{[$aa]}}\right)'=\frac 1{[$aa]}\cdot x^{\frac {1}{[$aa]}-1}```] a
-[```\left(\frac 1{x^{[$b]}}\right)'=\left({x^{-[$b]}}\right)'=-[$b]\cdot x^{-[$b]-1}.```] Využijte tyto derivace a věty pro počítání s derivacemi, jako derivace součtu a derivace konstantního násobku.
-END_PGML_HINT
-
 
 BEGIN_PGML_SOLUTION
-Platí [```(\sqrt[[$temp]]{x})'=\left(x^{\frac {1}{[$aa]}}\right)'=\frac 1{[$aa]}\cdot x^{\frac {1}{[$aa]}-1}```] a
-[```\left(\frac 1{x^{[$b]}}\right)'=\left({x^{-[$b]}}\right)'=-[$b]\cdot x^{-[$b]-1}.```] Využijeme tyto derivace a věty pro počítání s derivacemi, jako derivace součtu a derivace konstantního násobku.
 
-[``` f'([$var])=[$answer]```]
+Derivace rychlosti [`v`] dinosaura podle délky kroku [`l`] je
+[``` \frac{\mathrm dv}{\mathrm dl}=0.8\cdot 1.67 l^{0.67}.```]
+
+Udává, jak rychle se mění rychlosti [`v`] dinosaura v závislosti na délce kroku [`l`]. 
+
+Protože obrat "jak rychle se mění rychlost" je neobratný, můžeme rychlost lépe interpretovat jako změnu měnící se veličiny při jednotkovém navýšení vstupních dat. 
+
+Tedy změna rychlosti dinosaura při prodloužení délky kroku o jednotku. Případně v jednotkách můžem říci, že derivace udává o kolik metrů za sekundu je vyšší rychlost dinosaura při kroku o metr delším.
+
 
 END_PGML_SOLUTION
-
 
 ENDDOCUMENT();

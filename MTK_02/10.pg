@@ -1,59 +1,57 @@
-##################################################
+DOCUMENT();
 
-DOCUMENT(); 
-loadMacros(
-"PGstandard.pl",
-"PGML.pl",
-"MathObjects.pl",
-"PGcourse.pl",
+loadMacros('PGstandard.pl', 'PGML.pl', 
+'parserCheckboxList.pl', 'PGcourse.pl');
+
+@correct_answers =  (
+"Konstanta úměrnosti \(k\) má fyzikální jednotku rovnu převrácené hodnotě jednotky času, \(\mathrm{min}^{-1}\).",
+"Model vyjadřuje, že rychlost poklesu teploty je úměrná teplotnímu rozdílu tělesa a okolí.",
+"Konstanta úměrnosti \(k\) číselně vyjadřuje rychlost ochlazování v situaci, kdy je jednotkový rozdíl teploty tělesa a okolí.",
+"Pro kávu v plechovém hrnku s je konstanta \(k\) větší, než pro kávu v termohrnku.",
 );
-TEXT(beginproblem());
-$showPartialCorrectAnswers = 1;
-$showHint = 1;
 
-Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]],'dT'=>'Real', 'dx'=>'Real', 'dc'=>'Real', 'T'=>'Real', 't'=>'Real', 'k'=>'Real','p'=>'Real','c'=>'Real','x'=>'Real');
+@incorrect_answers = (
+"Konstanta úměrnosti \(k\) má fyzikální jednotku rovnu jednotce času, \(\mathrm{min}\).",
+"Model vyjadřuje, že rychlost poklesu teploty je úměrná teplotě okolí.",
+"Konstanta úměrnosti \(k\) číselně vyjadřuje rychlost ochlazování na začátku pokusu.",
+"Konstanta úměrnosti \(k\) číselně vyjadřuje rychlost dobu nutnou pro ochlazení tělesa na poloviční teplotu.",
+"Konstanta úměrnosti \(k\) číselně vyjadřuje rychlost dobu nutnou pro ochlazení tělesa tak, aby teplotní rozdíl byl poloviční než na počátku.",
+"Pro kávu v plechovém hrnku s je konstanta \(k\) menší, než pro kávu v termohrnku."
+);    
 
-$k=random(15,28,1);
-$p=random(25,58,1);
+$li = MODES (HTML => "<li>", TeX => "\item");
+$ul = MODES (HTML => "<ul>", TeX => "\begin{itemize}");
+$end_ul = MODES (HTML => "</ul>", TeX => "\end{itemize}");
+$ans = "Správná tvrzení: $ul $li " . join( "$li ", @correct_answers ) . "$end_ul Nesprávná tvrzení:$ul $li " . join( "$li ", @incorrect_answers ) . "$end_ul";
+
+$n_correct = random(2, 4);
+$n_incorrect = 5 - $n_correct;
+
+@OK = random_subset($n_correct,@correct_answers);
+@not_OK = random_subset($n_incorrect,@incorrect_answers);
+@ans = (0..$n_correct-1);
+
+$checks = CheckboxList([[@OK,@not_OK]],[@ans]);
 
 BEGIN_PGML
 
-## Matematické modely se dvěma procesy
+# Newtonův zákon ochlazování
 
-[@ image("pozarnik.jpg", width=>400) @]*
+Newtonův zákon ochlazování je možno popsat rovnicí [``` \frac{\mathrm dT}{\mathrm dt}=-k(T-T_0),```] kde [`T`] je teplota horkého tělesa v prostředí o teplotě [`T_0`] a [`k`] je konstanta úměrnosti. (Název zákon ochlazování je pouze historický, model platí i pro tepelnou výměnu, kdy studené těleso je v teplém okolním prostředí a ohřívá se.)
 
-Derivace popisuje rychlost změny a proto je vhodná pro popis dějů probíhajících známou rychlostí. Toto nevylučuje ani rychlosti, které se mění v čase a v těchto případech je derivace vlastně přirozený nástroj pro studium zadaného problému.
+Teplotu měříme ve stupních Celsia, čas v minutách.
 
-Někdy na rychlost změny má vliv více procesů a potom se jejich vlivy sčítají. Například při dopadu konstantního tepelného výkonu na těleso se zvyšuje teplota tohoto tělesa absorbováním dopadající energie. Teplota tedy roste konstantní rychlostí. Označme tuto konstantu [`k_1`]. Kromě toho těleso také vyzařuje teplo a toto vyzařování je podle vyzařovacího zákona úměrné čtvrté mocnině teploty. Proto vlivem vyzařování teplota klesá rychlostí úměrnou [`T^4`]. Označme tuto konstantu [`k_2`]. Matematický model celého procesu je poté [``` \frac{\mathrm dT}{\mathrm dt} =k_1 - k_2 T^4.```] Tento matematický model je užitečný například při posouzení odolnosti ochranných obleků proti požáru, kde fyzikálními vlastnostmi a způsobem výroby umíme ovlivnit velikosti příslušných konstant. Řešením matematického modelu umíme prozkoumat vlastnosti ochranného obleku dříve, než vyrobíme testovací vzorek.
+Zatrhněte všechny pravdivé výroky.
 
-Pokusíme se o podobné u modelů dalších procesů. Vždy budou hrát roli dva faktory a jejich působení se budou sčítat resp. odečítat.
-
------
-
-* Do chráněné lokality proudí znečišťující látky. Rychlost s jakou v dané lokalitě přibývají je [`[$k]`] jednotek za týden. Naštěstí je však látka nestabilní a rozkládá se. Za týden se samovolně rozloží [`[$p]`] procent látky. Napište výsledný matematický model pro vývoj množství znečišťující látky v dané lokalitě. Množství látky označte [`x`] a sledujte jej jako funkci času. Jednotku času volte pro maximální pohodlí jeden týden. (Nezapomeňte procenta převést na desetinné číslo nebo na setiny.)
->> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{Formula("[$k]-[$p]*x/100")}<<
-* Nechť [`x`] označuje velikost populace zvěře v dané lokalitě. Předpokládejme, že rychlost s jakou roste populace je úměrná velikosti populace. Konstantu úměrnosti označme [`k`]. Předpokládejme dále, že populace je vystavena lovu konstantní intenzity. Tuto intenzitu (množství odlovené zvěře za jednotku času) označme [`p`]. Napište výsledný matematický model pro růst takové populace.
->> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{Formula("k*x-p")}<<
-* Nechť [`c`] označuje koncentraci léku v krvi pacienta. Z farmakokinetiky je známo, že díky odbourávání klesá koncentrace rychlostí úměrnou této koncentraci. Konstantu úměrnosti označme [`k`]. Předpokládejme dále, že pacient je napojený na infuzi, která mu zvyšuje koncentraci léku v krvi konstantní rychlostí.  Tuto rychlost označme [`p`]. Napište výsledný matematický model pro růst takové koncentrace.
->> [``\frac{\mathrm dc}{\mathrm dt}=``][__________]{Formula("p-c*k")}<<
+[_]{$checks}
 
 
 END_PGML
 
-BEGIN_PGML_HINT
-Postupujte podle vzoru a podle příkladů ve cvičeních a na přednášce. Například v první úloze se znečišťující látkou bude na pravé straně figurovat rychlost [`[$k]`], se kterou množství látek v oblasti narůstá a rychlost [`[$p/100]*x`], s jakou se látky rozkládají.
-END_PGML_HINT
-
 BEGIN_PGML_SOLUTION
-Přímým přepisem slovního zadání do kvantitativních pojmů dostáváme pro jednotlivé modely rovnice
-[``` \frac{\mathrm dx}{\mathrm dt}= [$k]-[$p/100] x,```]
-[``` \frac{\mathrm dx}{\mathrm dt}= kx-p```]
-a
-[``` \frac{\mathrm dc}{\mathrm dt}= p-kc.```]
-Vždy se kladně promítne proces, který působí nárůst a záporně proces, který způsobí pokles sledovaníé veličiny. Pokud je rychlost konstantní, je příslušný člen přímo roven příslušné konstantě. Pokud je úměrný sledované veličině, je nutno použít předepsanou konstantu úměrnosti. 
+[$checks->correct_ans]
 
+[@ $ans @]*
 END_PGML_SOLUTION
-
-
 
 ENDDOCUMENT();

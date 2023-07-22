@@ -1,122 +1,78 @@
-##################################################
+DOCUMENT();
 
-DOCUMENT(); 
 loadMacros(
 "PGstandard.pl",
-"PGML.pl",
-"parserRadioButtons.pl",
 "MathObjects.pl",
+"parserRadioButtons.pl",
 "PGcourse.pl",
+"PGML.pl"
 );
+
+
 TEXT(beginproblem());
-$showPartialCorrectAnswers = 1;
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
 
-$var='x';
-$x0=random(-2,2);
-$a=non_zero_random(-1,2,1);
-$b=random(-2,2,1);
-$c=random(-2,2,1);
-$d=random(-2,4,1);
 
-Context("Numeric")->variables->are($var=>'Real');
-Context()->flags->set(
-     reduceConstants => 0,
-     reduceConstantFunctions => 0,
-   );
+$data =
+[
+{
+nadpis=>"Kompromis při použití lineární aproximace",
+otazka=>"Při lineární aproximaci se musíme chtě nechtě dopustit jistého kompromisu. Výsledkem je totiž „jenom“ aproximace. Evidentně bychom lineární aproximaci nepoužívali, kdybychom z jejího využití neměli nějaký benefit. O jaký benefit se jedná?",
+odpoved=>"Můžeme komplikovanou funkční závislost nahradit jednoduchou funkční závislostí a zjednodušit si tak následné výpočty.",
+moznosti=>[
+"Můžeme rozšířit definiční obor funkce do bodů, ve kterých nebyla definována.",
+"Můžeme v každém bodě v určitém okolí bodu, ve kterém píšeme aproximaci, určit derivaci funkce.",
+"Můžeme z chování funkce v daném bodě identifikovat rychlost růstu v okolních bodech, aniž bychom využívali derivaci."
+]}
+];
 
-$funkce=Formula("$a*$var^3+$b*$var^2+$c*$var+$d")->reduce();   # funkce
-$derivacefunkce=Formula("3*$a*$var^2+2*$b*$var+$c")->reduce();   # derivace funkce
-$derivacefunkce2=Formula("6*$a*$var+2*$b")->reduce();   # derivace funkce
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
 
-$hodnota=$a*$x0*$x0*$x0+$b*$x0*$x0+$c*$x0+$d;
-$hodnotaSol=Formula("$a*($x0)^3+$b*($x0)^2+$c$x0+$d");
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
 
-$hodnotaDer=Formula("3*$a*($x0)^2+2*$b*$x0+$c");
-$hodnotaderivace=3*$a*$x0*$x0+2*$b*$x0+$c;
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
 
-$hodnotaDer2=Formula("6*$a*$x0+2*$b");
-$hodnotaderivace2=6*$a*$x0+2*$b;
 
-$answer=Formula("$hodnota+$hodnotaderivace*(x-$x0)")->reduce();   # tecna
 
-$ansP="Lineární aproximace podhodnocuje.";
-$ansN="Lineární aproximace nadhodnocuje.";
-if ($hodnotaderivace2 > 0)
-{$answer1=$ansP;}
-else
-{$answer1=$ansN;}
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
 
-$mc1 = RadioButtons(
-    [ $ansP, 
-      $ansN, 
-      "Ani jedno tvrzení není správně.",
-    ],
-      $answer1, 
-    last => ["Ani jedno tvrzení není správně."],
-    labels => ["A", "B", "C"] );
 
 BEGIN_PGML
 
-## Chyba při lineární aproximaci funkce
+## [$na]
 
-Z pasáží o Taylorově polynomu je možno odvodit, že aproximace lineární funkcí podhodnocuje skutečnou funkční hodnotu, pokud je druhá derivace kladná a nadhodnocuje, pokud je druhá derivace záporná. Graficky je v prvním případě graf funkce nad tečnou (říkáme, že funkce je konvexní) a ve druhém případě pod tečnou (říkáme, že funkce je konkávní).
+[$ot]*
 
-* [`f''(a)>0`] ... lineární aproximace podhodnocuje, graf je nad tečnou
-* [`f''(a)<0`] ... lineární aproximace nadhodnocuje, graf je pod tečnou
+[_]{$radio}
 
-Uvažujme funkci
-[```f(x)=[$funkce] ```]
-a budeme hledat lineární aproximaci v bodě [`a=[$x0]`]
-
-Derivace funkce je
->>[``f'(x)={}``]
-[_____________________]{$derivacefunkce}.<<
-
-Lineární aproximace této funkce v okolí bodu [`a=[$x0]`] je  
->>[`` f([$var])\approx {}``]
-[_____________________]{$answer}.<<
-
-Rozhodněte pomocí druhé derivace, zda lineární aproximace uvedená v této úloze podhodnocuje či nadhodnocuje skutečnou funkční hodnotu.
-
-[_]{$mc1}
-
+_[$zdroj]_
 
 END_PGML
 
-$showHint = 1;
-BEGIN_PGML_HINT
-Použijte vzorce pro derivování a pro lineární aproximaci. Postup je analogický dříve uvedeným příkladům a pokud jste tyto příklady zvládli, jediná chyba může být v derivování nebo v dosazování hodnot. Trpělivě si překontrolujte derivaci i dosazení a v případě nouze si vezměte na pomoc kalkulačku, nebo MATLAB nebo Sage.
-
-Pro volbu správné odpovědi v poslední otázce se řiďte znaménkem druhé derivace.
-Druhá derivace je [```f''(x)=[$derivacefunkce2].```]
-
-END_PGML_HINT
-
-
 BEGIN_PGML_SOLUTION
-Použijeme vzorec pro lineární aproximaci a dosadíme do něj bod, ve kterém aproximaci píšeme, funkční hodnotu a derivaci v tomto bodě. Funkční hodnotu i derivaci si musíme vypočítat: funkční hodnotu dosazením do funkčního předpisu, hodnotu derivace dosazením do předpisu pro derivaci
 
-Funkční hodnota v bodě [`[$x0]`]
-[``` f([$x0])=[$hodnotaSol]=[$hodnota]```]
-Derivace a hodnota derivace v bodě [`[$x0]`] jsou
-[```f'(x)=[$derivacefunkce]```]
-a
-[``` f'([$x0])=[$hodnotaderivace].```]
-
-Prostým dosazením těchto hodnot do vzorce dostáváme (s desetinnými čísly)
-[``` f([$var])\approx [$answer].```]
-
-
-Druhá derivace a hodnota druhé derivace v bodě [`[$x0]`] jsou
-[```f''(x)=[$derivacefunkce2]```]
-a
-[```f''([$x0])=[$hodnotaderivace2].```]
-
-Znaménko druhé derivace indikuje správnou odpověď: _[$answer1]_
-
-(V závislosti na znaménku může počítač zaměnit pořadí sčítanců, což však nehraje roli.)
+[$od]*
 
 END_PGML_SOLUTION
 
+};
+# konec cyklu
+
 
 ENDDOCUMENT();
+

@@ -1,0 +1,50 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+ 
+$data =
+{
+otazka=>"Sledujeme změny teploty v homogenní stěně. Stěna o tloušťce 40cm odděluje dvě prostředí o teplotě 0 a 20 stupňů Celsa. Vlevo je studené a vpravo teplé prostředí, osa \(x\) směřuje doprava. Teplota ve stěně se ustálila a s časem se nemění. Teplota je tedy funkcí pouze polohy ve stěně. Jaká bude derivace teploty podle polohy, tj. jaká bude hodnota \[\frac{\mathrm dT}{\mathrm dx}?\] Vyberte co nejvhodnější odpověď.",
+nadpis=>"Derivace teploty podle polohy",
+moznosti=>[
+"\(0.5 ^\circ\mathrm C/\mathrm {cm}\) (podíl změny teploty a intervalu, na kterém tato změna nastala)",
+"\(2 \,\mathrm{cm}/^\circ\mathrm C\) (podíl tloušťky stěny a změny teploty)",
+"\(20 ^\circ\mathrm C\) (změna teploty)",
+"\(-0.5 ^\circ\mathrm C/\mathrm {cm}\) (podíl změny teploty a intervalu, na kterém tato změna nastala a se zohledněním znaménka vyjadřujícího směr poklesu)",
+"\(-20 ^\circ\mathrm C\) (změna teploty se započtením znaménka zohledňujícího směr poklesu)",
+"\(-2\, \mathrm{cm}/^\circ\mathrm C\) (podíl tloušťky stěny a změny teploty, druhé z toho ještě se započtením poklesu směrem od teplejšího prostředí)"
+],
+vysvetleni=>"Při derivaci teploty podle \(x\) se zajímáme o rychlost růstu teploty jako funkce proměnné \(x\). Osa \(x\) míří doprava, tedy směrem, kterým teplota roste. Nárůst je 20 stupňů Celsia a je na úseku 40 centimetrů. Pro rychlost růstu tento nárůst musíme přepočítat na jeden centimetr, což činí \[\frac {20\,{}^{\circ}\mathrm{C}}{40\,\mathrm{cm}}=0.5 ^\circ\mathrm {C}/\mathrm {cm}.\] $PAR Poznámka: ve skutečnosti okraje stěny nemají stejnou teplotu jako okolí, roli zde hraje přestup tepla vyjádřený koeficientem přestupu tepla. Proto reálný gradient bude o něco menší."}
+;
+
+$radio    =  RadioButtons([$data->{moznosti}],0);
+
+BEGIN_PGML
+
+## [$data->{nadpis}]
+
+[$data->{otazka}]*
+
+[_]{$radio}
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$data->{vysvetleni}]*
+
+END_PGML_SOLUTION
+
+ENDDOCUMENT();
+

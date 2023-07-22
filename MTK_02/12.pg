@@ -1,82 +1,57 @@
 DOCUMENT();
 
-loadMacros(
-"PGstandard.pl",
-"MathObjects.pl",
-"parserRadioButtons.pl",
-"PGcourse.pl",
-"PGML.pl"
+loadMacros('PGstandard.pl', 'PGML.pl', 
+'parserCheckboxList.pl', 'PGcourse.pl');
+
+@correct_answers =  (
+"Konstanta úměrnosti \(k\) má fyzikální jednotku rovnu převrácené hodnotě jednotky času, \(\mathrm{den}^{-1}\).",
+"Zákon vyjadřuje, že rychlost rozpadu je úměrná množství nerozpadnutého materiálu.",
+"Konstanta úměrnosti \(k\) je číselně vyjadřuje rychlost rozpadu  v situaci, kdy se rozpadá jednotkové množství materiálu.",
+"Pro prvek, který se rozpadá rychleji, je konstanta \(k\) větší.",
+"Funkce \(x(t)\) je klesající funkce."
 );
 
+@incorrect_answers = (
+"Konstanta úměrnosti má fyzikální jednotku rovnu jednotce času, \(\mathrm{den}\).",
+"Konstanta úměrnosti má fyzikální jednotku rovnu jednotce hmotnosti za času, \(\mathrm{gram}/\mathrm{den}\).",
+"Rychlost rozpadu narůstá s časem. Materiál se rozpadá stále rychleji (funkce \(x(t)\) klesá, pravá strana rovnice tedy také klesá a derivace na levé straně proto klesá také).",
+"Konstanta úměrnosti číselně vyjadřuje rychlost dobu nutnou pro to, aby se rozpadlo poloviční množství materiálu.",
+"Pro prvek, který se rozpadá rychleji, je konstanta \(k\) menší, protože po uplynutí jednotky času je prvku menší množství.",
+);    
 
-TEXT(beginproblem());
-$showPartialCorrectAnswers = 0;
-$showHint = 1;
+$li = MODES (HTML => "<li>", TeX => "\item");
+$ul = MODES (HTML => "<ul>", TeX => "\begin{itemize}");
+$end_ul = MODES (HTML => "</ul>", TeX => "\end{itemize}");
+$ans = "Správná tvrzení: $ul $li " . join( "$li ", @correct_answers ) . "$end_ul Nesprávná tvrzení:$ul $li " . join( "$li ", @incorrect_answers ) . "$end_ul";
 
+$n_correct = random(1, 4);
+$n_incorrect = 5 - $n_correct;
 
+@OK = random_subset($n_correct,@correct_answers);
+@not_OK = random_subset($n_incorrect,@incorrect_answers);
+@ans = (0..$n_correct-1);
 
-
-$data =
-[
-{
-    nadpis=>"Aproximace derivace",
-    otazka=>"Označte výraz, který udává numerickou aproximaci derivace funkce pomocí centrální diference.",
-    odpoved=>"\(\displaystyle\frac{f(x+h)-f(x-h)}{2h}\)",
-    moznosti=>[
-"\(\displaystyle\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}\)",
-"\(\displaystyle\lim_{h\to 0}\frac{f(x+h)+f(x)}{2h}\)",
-"\(\displaystyle\frac{f(x+h)-f(x)}{h}\)",
-"\(\displaystyle\frac{f(x+h)-2f(x)+f(x-h)}{h^2}\)",
-],
-}
-];
-
-# Pocet otazek
-$pocet=@$data;
-$posledni=$pocet-1;  # indexujeme od nuly
-
-# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
-if ($DEBUG) {@pole = (0..$posledni);}
-   else {@pole=(random(0,$posledni));}
-
-# Cyklus pres otazky (jednu nebo vsechny)
-foreach $i (@pole)
-{
-
-
-
-# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
-# s interpretaci hranatych zavorek
-$ot       =  $data->[$i]->{otazka};
-$na       =  $data->[$i]->{nadpis};
-$obrazek  =  $data->[$i]->{obrazek};
-$od       =  $data->[$i]->{odpoved};
-$zdroj    =  $data->[$i]->{zdroj};
-@moznosti =@{$data->[$i]->{moznosti}};
-$radio    =  RadioButtons([[$od,@moznosti]],0);
-
+$checks = CheckboxList([[@OK,@not_OK]],[@ans]);
 
 BEGIN_PGML
 
-## [$na]
+# Radioaktivní rozpad
 
-[$ot]
+Radioaktivní rozpad je možno popsat rovnicí [``` \frac{\mathrm dx}{\mathrm dt}=-kx,```] kde [`x`] je množství nerozpadnutého materiálu a [`k`] je konstanta úměrnosti.
 
-[_]{$radio}
+Množství materiálu měříme v gramech, čas ve dnech.
 
-_[$zdroj]_
+Zatrhněte všechny pravdivé výroky.
+
+[_]{$checks}
+
 
 END_PGML
 
 BEGIN_PGML_SOLUTION
+[$checks->correct_ans]
 
-[$od]*
-
+[@ $ans @]*
 END_PGML_SOLUTION
 
-};
-# konec cyklu
-
-
 ENDDOCUMENT();
-

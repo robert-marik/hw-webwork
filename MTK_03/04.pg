@@ -1,65 +1,50 @@
-##################################################
+DOCUMENT();
 
-DOCUMENT(); 
 loadMacros(
 "PGstandard.pl",
-"PGML.pl",
 "MathObjects.pl",
+"parserRadioButtons.pl",
 "PGcourse.pl",
+"PGML.pl"
 );
+
+
 TEXT(beginproblem());
-$showPartialCorrectAnswers = 1;
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
 
-$var='x';
-$a=non_zero_random(-4,4,1);
-do { $b=non_zero_random(-8,8,1) } until ( abs($b) > 1 );
-$c=non_zero_random(-10,10);
+$data =
+{
+nadpis=>"Jednotka derivace průměru stromu",
+otazka=>"Veličina \(x\) je funkce času a udává průměr stromu jako funkci času. V jakých jednotkách může být vyjádřena derivace \(\displaystyle\frac{\mathrm dx}{\mathrm dt}\)?",
+moznosti=>[
+"V milimetrech za rok. (Například přírůstek za jeden rok.)",
+"V letech na milimetr. (Například počet let nutných pro milimetrový přírůstek.)",
+"V milimetrech. (Například celkový přírůstek.)",
+"V letech. (Například stáří stromu.)",
+],
+vysvetleni=>"V milimetrech za rok. Jednotka derivace průměru podle času je podílem jednotky průměru (například milimetr) a jednotky času (například rok). Tedy milimetr lomeno rok, což vhodněji vyjadřujeme obratem milimetr za rok. (Podobně jako rychlost pohybu auta udáváme v kilometrech za hodinu.)"}
+;
 
-Context("Numeric")->variables->are($var=>'Real');
 
-$answer=Formula("$a+$b*($var-$c)")->reduce();   # funkce
+$radio    =  RadioButtons([$data->{moznosti}],0);
 
 
 BEGIN_PGML
 
-## Lineární aproximace 
+## [$data->{nadpis}]
 
-Derivaci je možno využít k lineární aproximaci funkcí. Pracujme s funkcí, která mají derivaci. Existence derivace mimo jiné zajistí spojitost funkce. K přibližnému nahrazení funkce využíváme vzorec
-[``` f(x)\approx f(a)+f'(a)(x-a),```]
-kde [`a`] je bod v jehož okolí aproximaci provádíme a [`f(a)`] a [`f'(a)`] jsou funkční hodnota a hodnota derivace v tomto bodě. Aproximace je pouze lokální a platí pouze v nějakém okolí bodu [`a`], ale jedná se o mocný inženýrský nástroj a na přednáškách jsme si ukázali mnoho aplikací tohoto vzorce.
+[$data->{otazka}]*
 
-Jako konkrétní příklad, má-li funkce v bodě [`a=2`] funkční hodnotu a derivaci postupně
-[``` f(2)=4,\quad f'(2)=-5,```]
-je funkce v okolí bodu [`x=2`] přibližně dána vzorcem
-[``` f(x)\approx 4-5(x-2)```]
-
-------------
-
-Najděte lineární aproximaci funkce [`f(x)`] v okolí bodu [`a=[$c]`], jestliže platí
-[``` f([$c])=[$a],\quad f'([$c])=[$b].```]
-Příklad je analogický výše uvedenému vzoru.
-
->>[`` f([$var])\approx {}``]
-[_____________________]{$answer}<<
+[_]{$radio}
 
 END_PGML
 
-$showHint = 1;
-BEGIN_PGML_HINT
-Použijte vzorec pro lineární aproximaci a dosaďte do něj bod, ve kterém aproximaci píšeme, funkční hodnotu a derivaci v tomto bodě. Inspirujte se příkladem uvedeným v zadání.
-
-END_PGML_HINT
-
-
 BEGIN_PGML_SOLUTION
-Použijeme vzorec pro lineární aproximaci a dosadíme do něj bod, ve kterém aproximaci píšeme, funkční hodnotu a derivaci v tomto bodě. Tyto hodnoty jsou přímo zadány.
 
-Prostým dosazením zadaných hodnot do vzorce dostáváme
-[``` f([$var])\approx[$answer].```]
-
-(V závislosti na znaménku může počítač zaměnit pořadí sčítanců, což však nehraje roli.)
+[$data->{vysvetleni}]*
 
 END_PGML_SOLUTION
 
-
 ENDDOCUMENT();
+

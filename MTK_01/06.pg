@@ -17,7 +17,7 @@ $showHint = 1;
 $data =
 [
 {
-nadpis=>"Derivace",
+nadpis=>"Derivace v aplikacích",
 otazka=>["Derivace slouží k nalezení rychlosti změny (růstu) veličiny v čase.","Dokážete si představit, co se za touto formulací skrývá? Která formulace nejvýstižněji popisuje roli derivace podle času v aplikačních úlohách?"],
 odpoved=>"Vstupem je časový průběh veličiny (funkce udávající hodnotu v libovolném časovém okamžiku) a výstupem je funkce, udávající okamžitou rychlost růstu v libovolném časovém okamžiku.",
 moznosti=>[

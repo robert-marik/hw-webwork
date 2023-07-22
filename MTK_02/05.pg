@@ -1,56 +1,54 @@
-DOCUMENT();
+##################################################
 
+DOCUMENT(); 
 loadMacros(
 "PGstandard.pl",
+"PGML.pl",
 "MathObjects.pl",
-"parserRadioButtons.pl",
 "PGcourse.pl",
-"PGML.pl"
 );
-
-
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
-$radio1 = RadioButtons(
-[[
-"\(\displaystyle \frac{\mathrm dS}{\mathrm dt}=2\pi r\frac{\mathrm dr}{\mathrm dt}=2\pi\cdot 230 \cdot 30\,\mathrm{km}^2/\mathrm{rok}\)$BR$BR$BR",
-"\(\displaystyle \frac{\mathrm dS}{\mathrm dt}=\pi r^2\frac{\mathrm dr}{\mathrm dt}=2\pi\cdot (230)^2 \cdot 30\,\mathrm{km}^2/\mathrm{rok}\)$BR$BR$BR",
-"\(\displaystyle \frac{\mathrm dS}{\mathrm dr}=\pi r^2\frac{\mathrm dr}{\mathrm dt}=\pi\cdot (230)^2 \cdot 30\,\mathrm{km}^2/\mathrm{rok}\)$BR$BR$BR",
-"\(\displaystyle \frac{\mathrm dS}{\mathrm dt}=\pi r^2\frac{\mathrm dr}{\mathrm dt}\implies \frac{\mathrm dr}{\mathrm dt}=\frac{\frac {\mathrm dS}{\mathrm dt}}{\pi r^2}=\frac{230}{\pi \cdot (30)^2}\,\mathrm{km}^2/\mathrm{rok}\)$BR$BR$BR",
-]],0);  # První odpověď správná
-
+Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]],'dr'=>'Real', 'r'=>'Real', 'V'=>'Real', 't'=>'Real', 'dV'=>'Real');
 
 BEGIN_PGML
 
+## Souvislost mezi rychlostmi změn dvou veličin
 
-## Derivace a rychlost šíření výskytu ondatry
+[@ image("koreny.jpg", width=>400) @]*
 
-[@ image("ondatra.jpg", width=>400) @]*
+V prvním cvičení z Matematiky jsme sledovali požár suché trávy šířící se v kruhu a ze vztahu [```S=\pi r^2```] a ze známé rychlosti [``\frac{\mathrm dr}{\mathrm dt}``] s jakou se zvětšuje poloměr spáleniště jsme dokázali určit rychlost s jakou roste obsah spáleniště vztahem [```\frac{\mathrm dS}{\mathrm dt}=2\pi r \frac{\mathrm dr}{\mathrm dt}.```]
 
-V roce 1905 vysadil na svém panství hrabě Colloredo-Mansfeld několik
-párů ondatry, které dovezl z Ameriky. Ondatra se díky absenci
-přirozených nepřátel rychle rozšířila po celé Evropě. Předpokládejme,
-že oblast zasažená rozšířením ondatry má tvar kruhu o poloměru [``230\,
-\mathrm{km}``] a tento poloměr roste rychlostí [``30
-\,\mathrm{km}/\mathrm{rok}``]. Vyznačte výpočet který udává rychlost s jakou se šíří plocha území zasaženého ondatrou (tj. rychlost s jakou roste obsah kruhu).
-Vycházíme ze vzorce pro obsah kruhu [```S=\pi r^2.```]
+Nyní se pokusíme o podobný výpočet o dimenzi výše, tj. pro kouli. Můžeme si představit, že sledujeme kulové bakterie žijící na kořenech stromů, pod mikroskopem určujeme rychlost s jakou se mění jejich poloměr a chceme určit rychlost, s jakou se mění jejich objem. (Že bakterie není přesně ve tvaru koule nevadí, obdobný výpočet jenom s jinou konstantou úměrnosti mezi objemem a třetí mocninou vhodného délkového parametru platí i pro bakterie jiného tvaru.)
 
-[_]{$radio1}
-       
+------------
+
+Objem koule je dán vztahem [```V=\frac 43 \pi r^3```] a poloměr se zvětšuje zadanou rychlostí [``\frac{\mathrm d r}{\mathrm dt}``]. Jak rychle roste objem?
+
+Pište *dr/dt* pro rychlost s jakou roste poloměr.
+
+>>[``\frac{\mathrm dV}{\mathrm dt}={}``][_____________________]{"4*pi*r^2*dr/dt"}<<
+
+
 END_PGML
 
 $showHint = 1;
 BEGIN_PGML_HINT
-Úloha je analogická úloze na rozšiřování požáru z úvodního cvičení k předmětu Matematika.
+Známe derivaci poloměru podle času a potřebujeme znát derivaci objemu podle času. Protože známe objem jako funkci poloměru, můžeme najít derivaci objemu podle poloměru. K derivaci objemu podle času se poté dostaneme, pokud budeme závislost objemu na čase brát zprostředkovaně přes poloměr. Použijte vzorec pro derivaci složené funkce.
+
+Ve vzorci pro objem koule je třetí mocnina poloměru vynásobena konstantou [``\frac 43 \pi``]. Proto budeme derivovat pomocí vzorce pro derivaci násobku a poté vzorce pro derivaci mocninné funkce. Práce je podobná příkladu s rozšiřováním spáleniště ve tvaru kruhu v úvodním cvičení.
 END_PGML_HINT
 
 
-
 BEGIN_PGML_SOLUTION
-Potřebujeme znát derivaci obsahu podle času. Protože známe obsah jako funkci poloměru, můžeme najít derivaci obsahu podle poloměru. K derivaci obsahu podle času se dostaneme použitím derivace složené funkce.
-[``` \frac{\mathrm dS}{\mathrm dt}=2\pi r\frac{\mathrm dr}{\mathrm dt}=2\pi\cdot 230 \cdot 30\,\mathrm{km}^2/\mathrm{rok}.```]
+Známe derivaci poloměru podle času a potřebujeme znát derivaci objemu podle času. Protože známe objem jako funkci poloměru, můžeme najít derivaci objemu podle poloměru. K derivaci objemu podle času se poté dostaneme, pokud budeme závislost objemu na čase brát zprostředkovaně přes poloměr.
+
+Ve vzorci pro objem koule je třetí mocnina poloměru vynásobena konstantou [``\frac 43 \pi``]. Proto platí
+[``` \frac{\mathrm dV}{\mathrm dr} =\frac 43 \pi 3r^3=4\pi r^2.```]
+Použitím derivace složené funkce dostáváme
+[``` \frac{\mathrm dV}{\mathrm dt} = \frac{\mathrm dV}{\mathrm dr} \frac{\mathrm dr}{\mathrm dt} = 4\pi r^2 \frac{\mathrm dr}{\mathrm dt}.```]
 END_PGML_SOLUTION
 
-ENDDOCUMENT();
 
+ENDDOCUMENT();

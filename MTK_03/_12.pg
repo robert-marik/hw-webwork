@@ -8,22 +8,23 @@ loadMacros(
 "PGML.pl"
 );
 
-
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
-
 $data =
 [
 {
-nadpis=>"Lineární aproximace",
-otazka=>"Lineární aproximace pomocí derivace je nahrazení obecné funkce funkcí lineární. Výhodou je, že lineární funkce je jedna z nejjednodušších funkcí. Nevýhodou je, že aproximace je pouze lokální. Co toto znamená?",
-odpoved=>"Pro lineární aproximaci musí být zadána funkce a bod. Aproximace platí jenom v okolí tohoto bodu.",
-moznosti=>[
-"Pro lineární aproximaci musí být zadána funkce a její derivace. Aproximace platí pouze tehdy, je-li derivace lokalizována do kladných hodnot.",
-"Otázka je zavádějící. Lokálnost aproximace je jenom ustálený výraz pro linearitu funkce, pomocí které se aproximuje. Žádná omezení naznačená v ostatních variantách nejsou potřeba."
-]}
+    nadpis=>"Graf sudé funkce",
+    otazka=>"Jaká vlastnost slouží k identifikaci sudé funkce?",
+    odpoved=>"Graf je osově symetrický podle osy \(y\).",
+    moznosti=>[
+    "Graf je osově symetrický podle osy \(x\).",
+"Graf je bodově symetrický podle počátku.",
+"Graf je rostoucí křivka."
+],
+   last => "Žádná z nabízených možností.",
+}
 ];
 
 # Pocet otazek
@@ -47,15 +48,16 @@ $na       =  $data->[$i]->{nadpis};
 $obrazek  =  $data->[$i]->{obrazek};
 $od       =  $data->[$i]->{odpoved};
 $zdroj    =  $data->[$i]->{zdroj};
+$last    =  $data->[$i]->{last};
 @moznosti =@{$data->[$i]->{moznosti}};
-$radio    =  RadioButtons([[$od,@moznosti]],0);
+$radio    =  RadioButtons([[$od,@moznosti],$last],0);
 
 
 BEGIN_PGML
 
 ## [$na]
 
-[$ot]*
+[$ot]
 
 [_]{$radio}
 
@@ -65,7 +67,7 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 
-[$od]*
+[$od]
 
 END_PGML_SOLUTION
 

@@ -22,9 +22,7 @@ $answer = $f->D();   # derivace
 
 BEGIN_PGML
 
-Tato úloha je stejná jako předchozí, jenom pro jinou funkci. 
-
-## Derivace mocninné funkce 2
+## Derivace mocninné funkce
 
 Derivace mocninné funkce je dána vzorcem [```\left(x^n\right)'=\frac{\mathrm d}{\mathrm dx}\left(x^n\right)=n x^{n-1}.```]
 Slovy: _mocninnou funkci derivujeme tak, že exponent použijeme před funkcí jako konstantní násobek a zmenšíme jej o jedničku._

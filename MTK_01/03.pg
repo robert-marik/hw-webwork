@@ -1,56 +1,45 @@
-DOCUMENT(); 
+DOCUMENT();
 loadMacros(
-"PGstandard.pl",
-"PGML.pl",
-"MathObjects.pl",
-"parserRadioButtons.pl",
-"PGcourse.pl",
+    "PGstandard.pl",  "PGML.pl",
+    "MathObjects.pl", "parserRadioButtons.pl",
+    "PGcourse.pl",
 );
 TEXT(beginproblem());
 
 ADD_CSS_FILE("css/gpt.css");
 
-
-$radio = RadioButtons([
-"Odpověď je matematicky správná a vystihuje podstatu věci.",
-"Odpověď je matematicky v zásadě správná. Má drobné mouchy v terminologii, což může být způsobeno překladem.",
-"Odpověď je matematicky špatně, nedefinuje přímou úměrnost a používá vlastní a nesrozumitelnou terminologii."
-],2);
-
+$radio = RadioButtons(
+    [
+        "Odpověď je matematicky správná a vystihuje podstatu věci.",
+        "Odpověď je matematicky v zásadě správná. Má drobné mouchy v terminologii, což může být způsobeno překladem.",
+        "Odpověď je matematicky špatně, nedefinuje přímou úměrnost a používá vlastní a nesrozumitelnou terminologii."
+    ],
+    2
+);
 
 BEGIN_PGML
 
 
 ## Chat GPT a přímá úměrnost
 
-Dotaz na přímou úměrnost může být past. Člověk se s tímto pojmem setká už na základní škole, ale tam je pojem přímá úměrnost nutně zjednodušený. Například proto, že si v aplikacích v této fázi vzdělávání žáci těžko představí práci s něčím jiným, než s kladnými čísly. V dalších fázích vzdělávání už nastupují zpřesnění a přednášce jsme se setkali s plně obecnou definicí přímé úměrnosti, jka se používá v aplikacích v přírodních a technických vědách.
+Dotaz na přímou úměrnost může být past. Člověk se s tímto pojmem setká už na základní škole, ale tam je pojem přímá úměrnost nutně zjednodušený. Například proto, že si v aplikacích v této fázi vzdělávání žáci těžko představí práci s něčím jiným, než s kladnými čísly. V dalších fázích vzdělávání už nastupují zpřesnění. Na přednášce jsme se setkali s plně obecnou definicí přímé úměrnosti, jak se používá v aplikacích v přírodních a technických vědách.
 
 Zvládne AI podat definici přímé úměrnosti, nebo zůstane na úrovni jenom částečně správného chápání, na úrovni základní školy či ještě níže? 
 
+END_PGML
+TEXT(MODES(HTML => "<div class='GPT'>", TeX => "\begin{quote}\itshape"));
+BEGIN_PGML
 
-----
-----
-**PŘEPIS KOMUNIKACE S CHATGPT**
-
-
-**Otázka:** 
+**Otázka pro GPT:** 
 
 V maximálně třech větách vysvětli, kdy se závislost dvou veličin nazývá přímá úměrnost.
 
-END_PGML
-TEXT(MODES(HTML => "<div class='GPT'>", TeX => "\par")); 
-BEGIN_PGML
-
-**Odpověď:** (červen 2023)
+**Odpověď GPT:** (červen 2023)
 
 Závislost dvou veličin se nazývá přímá úměrnost, pokud se zvyšováním hodnoty jedné veličiny zvyšuje i hodnota druhé veličiny a naopak, pokles jedné veličiny způsobuje pokles druhé veličiny, přičemž vztah mezi nimi je lineární a přímý.
 
-**KONEC PŘEPISU**
-----
-----
-
 END_PGML
-TEXT(MODES(HTML => "</div>", TeX => "\par")); 
+TEXT(MODES(HTML => "</div>", TeX => "\end{quote}"));
 BEGIN_PGML
 
 Jaký máte z odpovědi dojem?
@@ -60,25 +49,22 @@ Jaký máte z odpovědi dojem?
 
 END_PGML
 
-
 BEGIN_PGML_SOLUTION
 
 
 Odpověď vygenerovaná ChatGPT není akceptovatelná jako správná a srozumitelná odpověď. 
 
-To, že s rostoucí hodnotou jedné veličiny roste i hodnota druhé veličiny je definice rostoucí funkce. U přímé úměrnosti je důležité, že se obě veličiny mění stejným násobkem. V odpovědi je toto nahrazeno nesprávný, a nejasným tvrzením, že vztah mezi veličinami je lineární a přímý. První část tohoto tvrzení není správně, protože napříkald lineární závislost [```y=2x+6```] není přímou úměrností. Druhá část tohoto tvrzení je nejasná, protože obrat, že "vztah je přímý" se v matematice nepoužívá, není nijak definován a je matoucí.
+To, že s rostoucí hodnotou jedné veličiny roste i hodnota druhé veličiny je definice rostoucí funkce. U přímé úměrnosti je důležité, že se obě veličiny mění stejným násobkem. V odpovědi je toto nahrazeno nesprávným a nejasným tvrzením, že vztah mezi veličinami je lineární a přímý. První část tohoto tvrzení není správně, protože napříkald lineární závislost [```y=2x+6```] není přímou úměrností. Druhá část tohoto tvrzení je nejasná, protože obrat, že "vztah je přímý" se v matematice nepoužívá, není nijak definován a je matoucí.
 
-Krátkou a jasnou definici můžeme nabídnout ve dvou variantách. Vyjádřenou buď slovně, nebo pomocí symbolů. Níže jsou obě možnosti:
+Krátkou a jasnou definici můžeme nabídnout ve více variantách. Vyjádřenou buď slovně, nebo pomocí symbolů. Všechy následující odrážky jsou ekvivalentní definice přímé úměrnosti.
 
 * Mezi veličinami je vztah přímé úměrnosti, pokud je jedna veličina je násobkem druhé.
+* Mezi veličinami je vztah přímé úměrnosti, pokud je podíl těchto veličin konstantní.
 * Mezi veličinami [`x`] a [`y`] je vztah přímé úměrnosti, pokud [```y=kx```] pro nějakou konstantu [`k`].
 
-PS: Protože konstanta úměrnosti může být i záporná, nemusí být přímů úměrnost rostoucí,. ale může být i klesající. Například všechny konstitutivní zákony v technických aplikacích tuto podmínku splňují. Proto ani tvrzení, že se "zvyšováním hodnoty jedné veličiny se zvyšuje i hodnota druhé veličiny" není pravdivé. 
+PS: Protože konstanta úměrnosti může být i záporná, nemusí být přímá úměrnost rostoucí, ale může být i klesající. Například všechny konstitutivní zákony v technických aplikacích tuto podmínku splňují. Proto  tvrzení, že se "zvyšováním hodnoty jedné veličiny se zvyšuje i hodnota druhé veličiny" není ani pravdivé.
 
 
 END_PGML_SOLUTION
-
-
-
 
 ENDDOCUMENT();

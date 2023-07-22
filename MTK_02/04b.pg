@@ -1,0 +1,50 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+ 
+
+$data =
+{
+otazka=>"Veličina \(x\) udává průměr stromu v závislosti na vzdálenosti $h$ od paty stromu. Vyberte tvrzení, které nejlépe vystihuje situaci pro většinu stromů.",
+nadpis=>"Derivace průměru stromu jako funkce výšky",
+moznosti=>[
+"Derivace \(\displaystyle\frac{\mathrm dx}{\mathrm dh}\) je záporná, protože ve větší výšce je strom štíhlejší. ",
+"Derivace \(\displaystyle\frac{\mathrm dx}{\mathrm dh}\) je kladná, protože ve větší výšce je strom štíhlejší. ",
+"Derivace \(\displaystyle\frac{\mathrm dx}{\mathrm dh}\) je kladná, protože ve větší výšce je více biomasy mezi patou stromu a zadanou výškou. ",
+"Derivace \(\displaystyle\frac{\mathrm dx}{\mathrm dh}\) je kladná, protože vzdálenost mezi patou stromu a místem na stromě nemůže být záporná. "],
+vysvetleni=>"Ve větší výšce je průměr stromu menší. Tedy průměr s rostoucí výškou klesá. To znamená, že derivace průměru jako funkce výšky je záporná. (Derivace průměru podle výšky je záporná.)"}
+;
+
+
+$radio    =  RadioButtons([$data->{moznosti}],0);
+
+
+BEGIN_PGML
+
+## [$data->{nadpis}]
+
+[$data->{otazka}]*
+
+[_]{$radio}
+
+END_PGML
+
+BEGIN_PGML_SOLUTION
+
+[$data->{vysvetleni}]*
+
+END_PGML_SOLUTION
+
+ENDDOCUMENT();
+

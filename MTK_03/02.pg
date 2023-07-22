@@ -1,77 +1,60 @@
 DOCUMENT();
 
-loadMacros(
-"PGstandard.pl",
-"MathObjects.pl",
-"parserRadioButtons.pl",
-"PGcourse.pl",
-"PGML.pl"
+loadMacros('PGstandard.pl', 'PGML.pl', 'parserCheckboxList.pl', 'PGcourse.pl');
+
+
+@correct_answers =  (
+"Jednotka derivace je kilogram za den (tj. kilogram lomeno den).",
+"Pokud je derivace numericky blízká k nule, celková hmotnost ryb se s časem prakticky nemění.",
+"Derivace vyjadřuje rychlost růstu, tedy změnu množství ryb za jednotku času.",
 );
 
+@incorrect_answers = (
+"Pokud je derivace kladná a konstantní, roste velikost populace exponenciálně.",
+"Jednotka derivace je kilogram krát den.",
+"Derivace nemůže být v tomto případě záporná.",
+"Jednotka derivace je kilogram.",
+"Derivace vyjadřuje rychlost růstu, tedy čas nutný k zvýšení populace o jeden kilogram.",
+);    
 
-TEXT(beginproblem());
-$showPartialCorrectAnswers = 0;
-$showHint = 1;
+$n_correct = 2;
+$n_incorrect = 2;
 
+@OK = random_subset($n_correct,@correct_answers);
+@not_OK = random_subset($n_incorrect,@incorrect_answers);
+@ans = (0..$n_correct-1);
 
-$data =
-[
-{
-    nadpis=>"Základní konstitutivní vztahy",
-    otazka=>"Konstitutivní vztahy mezi skalárními veličinami, jako Fourierův zákon, Darcyho zákon, Fickův zákon, Hookův zákon, mají tvar přímé úměrnosti. Zaškrtněte správné vysvětlení tohoto fenoménu.",
-    odpoved=>"Jedná se o lineární aproximace obecných zákonitostí. V aproximaci figuruje z podstaty věci funkce, procházející počátkem a proto jeden člen z lineární aproximace vypadne a zůstane přímá úměrnost.",
-    moznosti=>[
-"Je to důsledek známého jevu, že příroda je ze své podstaty lineární a všechny fyzikální zákonitosti mají tvar přímé úměrnosti.",
-"Je to důsledek spojitosti obou veličin. Závislosti mezi fyzikálními veličinami jsou z principu spojité.",
-"Není rozumné vysvětlení uvedeného fenoménu. Jevy popsané těmito zákony (vedení tepla, proudění podzemní vody, difuze, elastická deformace) mají všechny zcela jinou podstatu a proto neexistuje jednotné vysvětlení.",
-],
-}
-];
+$checks = CheckboxList([[@OK,@not_OK]],[@ans]);
 
-# Pocet otazek
-$pocet=@$data;
-$posledni=$pocet-1;  # indexujeme od nuly
-
-# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
-if ($DEBUG) {@pole = (0..$posledni);}
-   else {@pole=(random(0,$posledni));}
-
-# Cyklus pres otazky (jednu nebo vsechny)
-foreach $i (@pole)
-{
-
-
-
-# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
-# s interpretaci hranatych zavorek
-$ot       =  $data->[$i]->{otazka};
-$na       =  $data->[$i]->{nadpis};
-$obrazek  =  $data->[$i]->{obrazek};
-$od       =  $data->[$i]->{odpoved};
-$zdroj    =  $data->[$i]->{zdroj};
-@moznosti =@{$data->[$i]->{moznosti}};
-$radio    =  RadioButtons([[$od,@moznosti]],0);
-
+$li = MODES (HTML => "<li>", TeX => "\item");
+$ul = MODES (HTML => "<ul>", TeX => "\begin{itemize}");
+$end_ul = MODES (HTML => "</ul>", TeX => "\end{itemize}");
+$ans = "Správná tvrzení: $ul $li " . join( "$li ", @correct_answers ) . "$end_ul Nesprávná tvrzení:$ul $li " . join( "$li ", @incorrect_answers ) . "$end_ul";
 
 BEGIN_PGML
 
-## [$na]
 
-[$ot]
+# Derivace a ryby v rybníce 
 
-[_]{$radio}
+[@ image("school-of-fish.jpg", width=>400) @]*
+
+Veličina [`x`] udává množství ryb v kilogramech v rybníce. Je funkcí času, který měříme ve dnech.
+Vyberte správná trvzení o derivaci [``\frac{\mathrm dx}{\mathrm dt}.``]
+
+Zatrhněte všechny pravdivé výroky.
+
+[_]{$checks}
+
+_Obrázek: Antranias, 
+https://pixabay.com/photos/school-of-fish-fishes-water-waters-355371/_
+
 
 END_PGML
 
 BEGIN_PGML_SOLUTION
+[$checks->correct_ans]
 
-[$od]*
-
+[@ $ans @]*
 END_PGML_SOLUTION
 
-};
-# konec cyklu
-
-
 ENDDOCUMENT();
-

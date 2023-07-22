@@ -14,19 +14,16 @@ $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
 
-
-
 $data =
 [
 {
-    nadpis=>"Aproximace derivace",
-    otazka=>"Označte výraz, který udává numerickou aproximaci derivace funkce pomocí centrální diference.",
-    odpoved=>"\(\displaystyle\frac{f(x+h)-f(x-h)}{2h}\)",
+    nadpis=>"Sudost funkce",
+    otazka=>"K čemu je užitečná sudost funkce?",
+    odpoved=>"Symetrické úlohy mají symetrická řešení a ta jsou popsána sudými funkcemi.",
     moznosti=>[
-"\(\displaystyle\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}\)",
-"\(\displaystyle\lim_{h\to 0}\frac{f(x+h)+f(x)}{2h}\)",
-"\(\displaystyle\frac{f(x+h)-f(x)}{h}\)",
-"\(\displaystyle\frac{f(x+h)-2f(x)+f(x-h)}{h^2}\)",
+"Sudé funkce pomáhají aproximovat obecné funkce pomocí Taylorova polynomu.",
+"Řešení všech běžných fyzikálních úloh je popsáno právě sudými funkcemi.",
+"Rovnovážné polohy, nebo obecněji minima potenciálu, jsou popsány sudou funkcí.",
 ],
 }
 ];
@@ -70,7 +67,7 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 
-[$od]*
+[$od]
 
 END_PGML_SOLUTION
 

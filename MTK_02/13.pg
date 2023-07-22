@@ -1,106 +1,59 @@
-DOCUMENT();        # This should be the first executable line in the problem.
+##################################################
 
+DOCUMENT(); 
 loadMacros(
-  "PGstandard.pl",
-  "PGchoicemacros.pl",
-  "PGnumericalmacros.pl",
-  "parserRadioButtons.pl",
-  "niceTables.pl",
-  "PGML.pl",
-  "PGcourse.pl"
+"PGstandard.pl",
+"PGML.pl",
+"MathObjects.pl",
+"PGcourse.pl",
 );
-
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-$ka = random(1,5,.001);
-$kb = random(1,5,.001);
-$K=random(5,10,.1);
-$index=random(1,7,1);
-$step=random(2,5,1);
+Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]],'dT'=>'Real', 'dx'=>'Real', 'dc'=>'Real', 'T'=>'Real', 't'=>'Real', 'k'=>'Real','p'=>'Real','c'=>'Real','x'=>'Real');
 
-
-@xx=(0,1,2,3,4,5,6,7,8);
-
-@fx=();
-@x=();
-for (my $i = 0; $i < 9; $i++) {
-    push @x, 1.0*$step*$xx[$i];
-    push @fx, 15.02+int($K*exp($xx[$i]/10)*100)/100;
-}
-
-
-$answer=($fx[$index+1]-$fx[$index-1])/(2*$step);
-
-Context()->flags->set(tolerance => 0.001, tolType => "absolute");
-
-
-$mc1 = RadioButtons(
-    [[ "Rychlost s jakou roste teplota v čase, ve stupních Celsia za minutu.", 
-      "Čas nutný ke zvýšení teploty o jeden stupeň Celsia, v minutách na stupeň Celsia.",
-      "Intenzitu zdroje tepla nutnou pro zvýšení teploty o jeden stupeň Celsia, ve wattech na stupeň Celsia",
-      "Práce vykonaná zdrojem tepla při zvýšení teploty vzorku o jeden stupeň Celsia za minutu, v kilowathodinách na minutu a stupeň Celsia. ",
-      "Rychlost s jakou je nutno dodávat energii, aby se uržela vždy aktuální teplota dřeva, v joulech za minutu na stupeň Celsia"
-]],
-      0 );
-
+$k=random(15,28,1);
+$p=random(25,58,1);
 
 BEGIN_PGML
 
-## Aproximace derivace konečnými diferencemi
+## Matematické modely se dvěma procesy
 
-[@ image("sauna.jpg", width=>400) @]*
+[@ image("pozarnik.jpg", width=>400) @]*
 
+Derivace popisuje rychlost změny a proto je vhodná pro popis dějů probíhajících známou rychlostí. Toto nevylučuje ani rychlosti, které se mění v čase a v těchto případech je derivace vlastně přirozený nástroj pro studium zadaného problému.
 
-Definice derivace [```\frac{\mathrm df}{\mathrm dx}=\lim_{h\to 0}\frac{f(x+h)-f(x)}h```] nás může inspirovat k aproximaci derivace pomocí dopředné diference vztahem
-[```\frac{\mathrm df}{\mathrm dx}\approx \frac{f(x+h)-f(x)}h.```]
-Z analýzy pomocí Taylorova polynomu však víme o přesnější aproximaci, pomocí centrální diference vztahem
-[```\frac{\mathrm df}{\mathrm dx}\approx \frac{f(x+h)-f(x-h)}{2h}.```]
+Někdy na rychlost změny má vliv více procesů a potom se jejich vlivy sčítají. Například při dopadu konstantního tepelného výkonu na těleso se zvyšuje teplota tohoto tělesa absorbováním dopadající energie. Teplota tedy roste konstantní rychlostí. Označme tuto konstantu [`k_1`]. Kromě toho těleso také vyzařuje teplo a toto vyzařování je podle vyzařovacího zákona úměrné čtvrté mocnině teploty. Proto vlivem vyzařování teplota klesá rychlostí úměrnou [`T^4`]. Označme tuto konstantu [`k_2`]. Matematický model celého procesu je poté [``` \frac{\mathrm dT}{\mathrm dt} =k_1 - k_2 T^4.```] Tento matematický model je užitečný například při posouzení odolnosti ochranných obleků proti požáru, kde fyzikálními vlastnostmi a způsobem výroby umíme ovlivnit velikosti příslušných konstant. Řešením matematického modelu umíme prozkoumat vlastnosti ochranného obleku dříve, než vyrobíme testovací vzorek.
 
-Uvažujte následující funkci danou tabulkou. Udává závislost teploty [`T`] ve vzorku dřeva na čase [`t`] po vystavení tohoto vzorku dřeva zdroji tepla.
+Pokusíme se o podobné u modelů dalších procesů. Vždy budou hrát roli dva faktory a jejich působení se budou sčítat resp. odečítat.
 
-[@ DataTable(
-  [
-    [["\\(t\\ (\\mathrm{min})\\)", midrule => 1,headerrow=>1],@x],["\\(T\\ ({}^\\circ\\mathrm{C})\\)",@fx]
-  ], 
-  caption => 'Funkce zadaná tabulkou'
-); @]*
+-----
 
-
-Určete pomocí centrální diference odhad derivace v čase [`t=[$x[$index]]\, \mathrm{min}`].
-
->>
-[``\left.\frac{\mathrm dT}{\mathrm dt}\right|_{t=[$x[$index]]}\approx{}``]
-[_________________________________]{($fx[$index+1]-$fx[$index-1])/(2*$step)}
-<<
-
-Přesnost vyhodnocování je pro tuto úlohu nastavena na tři desetinná místa. Abyste se vyhnuli použití kalkulaček, nemusíte derivaci zadávat jedním desetinným číslem, ale můžete napsat, jak bude vypadat dosazení do vzorce. Desetinné číslo reprezentující odpověď uvidíte po stisknutí tlačítka pro náhled. Můžete však odpověď nechat v původním neupraveném tvaru a odeslat ke kontrole správnosti.
-
----
-
-Vyberte správnou slovní interpretaci a jednotku pro právě vypočtenou derivaci.
-
-[_]{$mc1}
+* Do chráněné lokality proudí znečišťující látky. Rychlost s jakou v dané lokalitě přibývají je [`[$k]`] jednotek za týden. Naštěstí je však látka nestabilní a rozkládá se. Za týden se samovolně rozloží [`[$p]`] procent látky. Napište výsledný matematický model pro vývoj množství znečišťující látky v dané lokalitě. Množství látky označte [`x`] a sledujte jej jako funkci času. Jednotku času volte pro maximální pohodlí jeden týden. (Nezapomeňte procenta převést na desetinné číslo nebo na setiny.)
+>> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{Formula("[$k]-[$p]*x/100")}<<
+* Nechť [`x`] označuje velikost populace zvěře v dané lokalitě. Předpokládejme, že rychlost s jakou roste populace je úměrná velikosti populace. Konstantu úměrnosti označme [`k`]. Předpokládejme dále, že populace je vystavena lovu konstantní intenzity. Tuto intenzitu (množství odlovené zvěře za jednotku času) označme [`p`]. Napište výsledný matematický model pro růst takové populace.
+>> [``\frac{\mathrm dx}{\mathrm dt}=``][__________]{Formula("k*x-p")}<<
+* Nechť [`c`] označuje koncentraci léku v krvi pacienta. Z farmakokinetiky je známo, že díky odbourávání klesá koncentrace rychlostí úměrnou této koncentraci. Konstantu úměrnosti označme [`k`]. Předpokládejme dále, že pacient je napojený na infuzi, která mu zvyšuje koncentraci léku v krvi konstantní rychlostí.  Tuto rychlost označme [`p`]. Napište výsledný matematický model pro růst takové koncentrace.
+>> [``\frac{\mathrm dc}{\mathrm dt}=``][__________]{Formula("p-c*k")}<<
 
 
 END_PGML
 
 BEGIN_PGML_HINT
-Je nutné do vzorce pro centrální diferenci
-[```\frac{\mathrm df}{\mathrm dx}\approx \frac{f(x+h)-f(x-h)}{2h}```]
-dosadit dvě hodnoty dohledatelné v tabulce ([`[$fx[$index+1]]`] a [`[$fx[$index-1]]`]) a délku kroku [`[$step]`]. Než se do toho pustíte, prohlédněte si ještě jednou tabulku a polohu těchto hodnot vzhledem k místu, v němž počítáme derivaci.
+Postupujte podle vzoru a podle příkladů ve cvičeních a na přednášce. Například v první úloze se znečišťující látkou bude na pravé straně figurovat rychlost [`[$k]`], se kterou množství látek v oblasti narůstá a rychlost [`[$p/100]*x`], s jakou se látky rozkládají.
 END_PGML_HINT
 
-
 BEGIN_PGML_SOLUTION
-Je nutné do vzorce pro centrální diferenci
-[```\frac{\mathrm df}{\mathrm dx}\approx \frac{f(x+h)-f(x-h)}{2h}```]
-dosadit dvě hodnoty dohledatelné v tabulce ([`[$fx[$index+1]]`] a [`[$fx[$index-1]]`]) a délku kroku [`[$step]`]. 
-Dosazením dostáváme
-[```\left.\frac{\mathrm dT}{\mathrm dt}\right|_{t=[$x[$index]]}\approx \frac{[$fx[$index+1]]-[$fx[$index-1]]}{2 \cdot [$step]}=[$answer].```]
+Přímým přepisem slovního zadání do kvantitativních pojmů dostáváme pro jednotlivé modely rovnice
+[``` \frac{\mathrm dx}{\mathrm dt}= [$k]-[$p/100] x,```]
+[``` \frac{\mathrm dx}{\mathrm dt}= kx-p```]
+a
+[``` \frac{\mathrm dc}{\mathrm dt}= p-kc.```]
+Vždy se kladně promítne proces, který působí nárůst a záporně proces, který způsobí pokles sledovaníé veličiny. Pokud je rychlost konstantní, je příslušný člen přímo roven příslušné konstantě. Pokud je úměrný sledované veličině, je nutno použít předepsanou konstantu úměrnosti. 
 
-Derivace vyjadřuje rychlost s jakou roste teplota v čase a udáváme ji ve stupních Celsia za minutu.
 END_PGML_SOLUTION
 
-ENDDOCUMENT();       # This should be the last executable line in the problem.
+
+
+ENDDOCUMENT();

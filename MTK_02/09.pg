@@ -10,56 +10,55 @@ loadMacros(
 );
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
-$showHint = 1;
 
-$T0=random(15,28,1);
+Context("Numeric")->variables->are('h'=>'Real', 'dh'=>'Real', 'k'=>'Real', 'V'=>'Real', 't'=>'Real', 'dt'=>'Real');
 
-Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]],'dT'=>'Real', 'T'=>'Real', 't'=>'Real', 'k'=>'Real');
+$h=random(10,20,1);
+$dhdt=random(1,8,1)/10;
+
+$answer=Formula("2*$h*$dhdt*k");
 
 BEGIN_PGML
 
-## Derivace v matematických modelech
+## Poldr
 
-[@ image("kapka.jpg", width=>400) @]*
+Uvažujme krychli o objemu [`V`] a délce hrany [`a`]. Tyto veličiny spolu souvisí vztahem [``` V=a^3.```] Pokud se délka hrany mění rychlostí [``\frac{\mathrm da}{\mathrm dt},``]
+můžeme vypočítat rychlost s jakou roste objem krychle vztahem
+[```\frac{\mathrm dV}{\mathrm dt} = \frac{\mathrm dV}{\mathrm da} \frac{\mathrm da}{\mathrm dt}=3a^2 \frac{\mathrm da}{\mathrm dt}.```]
+V následujícím příkladu se pokusíme o něco podobného pro známé hodnoty měnící se veličiny a rychlosti její změny.
 
-Derivace popisuje rychlost změny a proto je vhodná pro popis dějů probíhajících rychlostí, která se mění v čase. Vlastně je to jediný nástroj, který můžeme na takové úlohy použít. Například kapka vody v atmosféře při kondenzaci roste tak, že rychlost s jakou roste objem [`V`] je úměrná povrchu [`S`]. Matematicky vyjádřeno, platí  [```\frac{\mathrm dV}{\mathrm dt}=kS,```]
-kde [`k`] je konstanta související s volbou jednotek, s tvarem kapky, "ochotou" vody kondenzovat a dalšími parametry úlohy. Vzhledem k výše vyjmenované široké škále podmínek na nichž závisí velikost konstanty [`k`] o ní čistě s použitím matematiky nemůžeme nic říct. Proto nás nebude zajímat její hodnota a budeme s touto konstantou pracovat jako s parametrem. Vždy se však snažíme, aby konstanty úměrnosti v modelech byly kladné. Proto například při vypařování kapky, které se opět děje rychlostí úměrnou povrchu, píšeme
-[```-\frac{\mathrm dV}{\mathrm dt}=kS,```]
-nebo elegantněji
-[```\frac{\mathrm dV}{\mathrm dt}=-kS.```]
-Objem se totiž při vypařování zmenšuje, jeho derivace je záporná a rychlost vypařování je záporně vzatá změna objemu.
+-------
 
-Pokusíme se o podobné u modelu tepelné výměny. Je to opět obdoba příkladu řešeného na cvičení, ale rozmyslete si růst nebo klesání zkoumané veličiny.
+[@ image("poldr.png", width=>400) @]*
 
------
+Poldr má tvar koryta s trojúhelníkovým průřezem. Objem [`V`] vody v poldru souvisí s hloubkou [`h`] vody vztahem [```V=kh^2,```]
+kde [`k`] je konstanta. (Numerická hodnota konstanty závisí na tom, jaký úhel je u dna poldru, jak je poldr dlouhý, a také na tom, jaké jednotky používáme pro hloubku vody a jaké jednotky pro objem vody.) Nechť je konstanta [`k`] zvolena tak, že vzorec má na vstupu hloubku vody v centimetrech a objem vody v poldru vychází numericky v metrech krychlových. Jednotka času bude hodina.
 
-## Newtonův zákon tepelné výměny
 
-[@ image("studeny_napoj.jpg", width=>400) @]*
+Předpokládejme, že hloubka vody v poldru je [``h=[$h]\mathrm{cm}``] a hloubka roste (v běžné řeči používáme spíše obrat hladina roste) rychlostí [``\frac{\mathrm dh}{\mathrm dt}=[$dhdt] \mathrm{cm}/\mathrm{hod}.``] Jak rychle přibývá celkové množství vody v poldru, tj. jak rychle v této situaci roste objem vody v poldru?
 
-Newtonův zákon tepelné výměny je možné použít
-pro studium tepelné výměny pro tělesa, u nichž nehraje podstatnou roli vedení tepla. Při jisté aproximaci by takovým tělesem mohla být sklenice chladného nápoje. Podle tohoto zákona je  rychlost s jakou roste teplota chladného tělesa v kontaktu s okolím přímo úměrná rozdílu teplot. 
+>>[``\frac{\mathrm dV}{\mathrm dt}={}``] [______________]{$answer->cmp()->withPostFilter(AnswerHints(Formula("2*k*h*dh/dt") => "Jste na dobré cestě, ale ještě je nutno dosadit zadané hodnoty pro h a dh/dt."))}[``\mathrm {m}^3/\mathrm{hod}``]<<
 
-Zformulujte výše uvedený mechanismus matematicky pro případ studeného nápoje o teplotě [`T`] v místnosti o teplotě [`[$T0] ^\circ\mathrm C`]. 
+**Poznámka 1.** Vaše odpověď by měla obsahovat konstantu [`k`], jejíž hodnota nebyla zadána a kromě toho již jen číselné údaje. Vše je v jednotkách kompatibilních se zadaným vzorcem (hloubka v centimetrech, objem v metrech krychlových) a jednotky není nutné uvažovat. Nehledejte v příkladě žádný chyták, nepřevádějte žádné jednotky, jenom vyjádřete rychlost a dosaďte zadané hodnoty. Nezapomeňte, že můžete zadat i součin čísel, nemusíte násobení provádět bokem na kalkulačce a psát až výslednou odpověď.
 
-* Nejprve zapište, jaký je rozdíl teplot místnosti a nápoje. Pořadí v rozdílu volte tak, aby rozdíl vyšel kladný.
->>Rozdíl teplot je [__________]{Formula("[$T0]-T")->cmp()->withPostFilter(AnswerHints(Formula("-[$T0]+T") => "Velikost rozdílu je v pořádku, ale znaménko je opačné. Uvažte vzájemný vztah mezi teplotou nápoje a místnosti a od větší hodnoty odečtěte tu menší."))}.<<
-* Dále sestavte matematický model. Na levé straně rovnice je rychlost, s jakou roste teplota nápoje v čase. Na pravou stranu napište výraz, který udává, že tato rychlost je úměrná  rozdílu teplot. Konstantu úměrnosti označte [`k`] a model naformulujte tak, aby tato konstanta byla kladná.
->>[``\frac{\mathrm dT}{\mathrm dt}={}``][_____________________]{Formula("k*([$T0]-T)")->cmp()->withPostFilter(AnswerHints(Formula("k*(-[$T0]+T)") => "Pravá strana je správně až na znaménko. Ověřte si, že máte správně podchyceno, že teplota studeného nápoje roste a konstanta úměrnosti je kladná.",Formula("([$T0]-T)") => "Chybí konstanta úměrnosti."))}<<
-
+**Poznámka 2.** Nezapomeňte, že desetinná čísla zadáváme s desetinnou tečkou a ne s desetinnou čárkou. 
 
 END_PGML
 
+$showHint = 1;
 BEGIN_PGML_HINT
-Toto je klasická úloha na aplikace derivací. Zkuste si ještě jednou pročíst podobnou úlohu z první přednášky a cvičení a modifikovat na míru našemu zadání.
+Známe derivaci výšky hladiny [`h`] podle času a potřebujeme znát derivaci objemu [`V`] podle času. Protože známe objem jako funkci výšky hladiny, můžeme najít derivaci objemu podle výšky hladiny. K derivaci objemu podle času se poté dostaneme, pokud budeme závislost objemu na čase brát zprostředkovaně přes výšku hladiny. Použijte vzorec pro derivaci složené funkce.
 END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
-Teplota místnosti je [`[$T0]{}^\circ\mathrm {C}`]. Teplota nápoje je [`T`] a tato teplota je menší než teplota místnosti. Rozdíl teplot je roven výrazu
->> [`` [$T0]-T ``] <<
-a výsledná rovnice má tvar
-[``` \frac{\mathrm dT}{\mathrm dt} = k\cdot ([$T0]-T).```]
+Známe derivaci výšky hladiny [`h`] podle času, [``\frac{\mathrm dh}{\mathrm dt}=[$dhdt]``] a potřebujeme znát derivaci objemu [`V`] podle času, [``\frac{\mathrm dV}{\mathrm dt}``]. Protože známe objem jako funkci výšky hladiny, [```V=kh^2,```] můžeme najít derivaci objemu podle výšky hladiny,
+[```\frac{\mathrm dV}{\mathrm dh}=k\cdot 2h.```]
+K derivaci objemu podle času se poté dostaneme, pokud budeme závislost objemu na čase brát zprostředkovaně přes výšku hladiny.
+[```\frac{\mathrm dV}{\mathrm dt}=\frac{\mathrm dV}{\mathrm dh} \frac{\mathrm dh}{\mathrm dt}=k\cdot 2h \frac{\mathrm dh}{\mathrm dt}.```]
+Po dosazení zadaných hodnot dostáváme 
+[```\frac{\mathrm dV}{\mathrm dt}=[$answer].```]
+
 END_PGML_SOLUTION
 
 

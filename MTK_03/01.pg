@@ -1,73 +1,54 @@
-DOCUMENT(); 
-loadMacros(
-"PGstandard.pl",
-"PGML.pl",
-"MathObjects.pl",
-"parserRadioButtons.pl",
-"PGcourse.pl",
+DOCUMENT();
+
+loadMacros('PGstandard.pl', 'PGML.pl', 'PGchoicemacros.pl',
+'parserCheckboxList.pl', 'PGcourse.pl');
+
+@correct_answers =  (
+"Jednotka derivace je stejná jako jednotka podílu \(\displaystyle\frac{x}{t}\).",
+"Pokud je derivace numericky blízká k nule, veličina \(x\) se s časem prakticky nemění.",
+"Pokud je \(x\) přímo úměrné \(t\), získáme derivací konstantu úměrnosti.",
+"Derivace vyjadřuje změnu veličiny \(x\) za jednotku času." 
 );
-TEXT(beginproblem());
+
+@incorrect_answers = (
+"Jednotka derivace je stejná jako jednotka veličiny \(x\).",
+"Pokud je derivace nezávislá na čase, je veličina \(x\) také nezávislá na čase, tj. konstantní.",
+"Derivace vyjadřuje změnu veličiny \(x\) na zadaném časovém intervalu.", 
+"Derivace má stejné znaménko jako veličina \(x\)." 
+);    
+
+$n_correct = random(2, 3);
+$n_incorrect = 4 - $n_correct;
 
 
-Context("Numeric")->variables->are("l"=>['Real',limits=>[1,5]]);
+@OK = @correct_answers[ NchooseK(scalar(@correct_answers),$n_correct) ];
+@not_OK = @incorrect_answers[ NchooseK(scalar(@incorrect_answers),$n_incorrect) ];
+@ans = (0..$n_correct-1);
 
-$radio    =  RadioButtons([[
-"Změnu rychlosti dinosaura při prodloužení délky kroku o jednotku.",
-"Změnu rychlosti dinosaura při prodloužení stehenní kosti o jednotku.",
-"Změnu délky stehenní kosti dinosaura nutnou pro zvýšení rychlosti dinosaura o jednotku.",
-"Změnu délky stehenní kosti dinosaura nutnou vyvolanou zvýšením rychlosti dinosaura o jednotku.",
-"Změnu délky kroku dinosaura nutnou pro zvýšení rychlosti o jednotku.",
-"Změnu délky kroku dinosaura nutnou udržení rychlosti při délce stehenní kosti zvýšené o jednotku.",
-]],0);
+$checks = CheckboxList([[@OK,@not_OK]],[ @ans ]);
+
+$li = MODES (HTML => "<li>", TeX => "\item");
+$ul = MODES (HTML => "<ul>", TeX => "\begin{itemize}");
+$end_ul = MODES (HTML => "</ul>", TeX => "\end{itemize}");
+$ans = "Správná tvrzení: $ul $li " . join( "$li ", @correct_answers ) . "$end_ul Nesprávná tvrzení:$ul $li " . join( "$li ", @incorrect_answers ) . "$end_ul";
 
 BEGIN_PGML
 
+# Vše okolo derivace podle času
 
+Vyberte správná tvrzení o derivaci [``\frac{\mathrm dx}{\mathrm dt},``] kde [`t`] je čas.
 
-## Slovní interpretace  derivace
+Zatrhněte všechny pravdivé výroky.
 
-[@ image("dinosaurus.jpg", width=>400) @]*
-
-Rychlost jakou dosahovali dvounozí dinosauři se dá odhadnout ze vzdálenosti jejich stop a z délky stehenní kosti. První takový odhad představil v roce 1976 bristký zoolog [@ htmlLink("https://en.wikipedia.org/wiki/Robert_McNeill_Alexander","Robert McNeill Alexander")@]* ve tvaru
-[``` v=0.25 \sqrt g l^{1.67} h^{-1.17},```]
-kde [`v`] je rychlost dinosaura v metrech za sekundu, [`h`] je (zjednodušeně řečeno) délka stehenní kosti v metrech, [`l`] je délka kroku v metrech a [`g`] je tíhové zrychlení v metrech za sekundu na druhou.
-
-Uvažujme stále stejného dinosaura, tj. [`h`] je konstantní a hraje v našem případě roli parametru. Rychlost je tedy funkcí délky kroku, [``` v=v(l).```]
-Pro konkrétního dinosaura můžeme mít například
-[``` v(l)=0.8 l^{1.67}```]
-a jak bývá někdy v takovýchto situacích zvykem, neuvažujeme ve vzorci jednotky, ale doplníme k němu informaci, že délku kroku určujeme v metrech a rychlost v metrech za sekundu.
-
-**Úkol. Vypočtěte derivaci této funkce a najděte slovní interpretaci této derivace.**
-
-
-### Výpočet derivace
-
->>[`` \frac{\mathrm dv}{\mathrm dt}={}``][____________________]{"0.8*1.67 * l **(0.67)"}<<
-
-### Interpretace derivace 
-
-Derivace vyjadřuje
-
-   [_]{$radio}
-
-_Obrázek: pixabay.com, DariuszSankowski_
+[_]{$checks}
 
 
 END_PGML
 
-
 BEGIN_PGML_SOLUTION
+[$checks->correct_ans]
 
-Derivace rychlosti [`v`] dinosaura podle délky kroku [`l`] je
-[``` \frac{\mathrm dv}{\mathrm dl}=0.8\cdot 1.67 l^{0.67}.```]
-
-Udává, jak rychle se mění rychlosti [`v`] dinosaura v závislosti na délce kroku [`l`]. 
-
-Protože obrat "jak rychle se mění rychlost" je neobratný, můžeme rychlost lépe interpretovat jako změnu měnící se veličiny při jednotkovém navýšení vstupních dat. 
-
-Tedy změna rychlosti dinosaura při prodloužení délky kroku o jednotku. Případně v jednotkách můžem říci, že derivace udává o kolik metrů za sekundu je vyšší rychlost dinosaura při kroku o metr delším.
-
-
+[@ $ans @]*
 END_PGML_SOLUTION
 
 ENDDOCUMENT();

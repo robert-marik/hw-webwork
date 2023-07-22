@@ -17,17 +17,13 @@ $showHint = 1;
 $data =
 [
 {
-nadpis=>"Hodnota derivace",
-otazka=>"Derivace slouží k nalezení rychlosti změny (růstu) veličiny v čase. 
-<BR>
-<BR>
-Dokážete si představit, co se za touto formulací skrývá? Která formulace nejvýstižnějí popisuje situaci, kdy veličina \(x(t)\) popisuje závislost polohy nějakého objektu na čase a derivace této veličiny je \(\frac{\mathrm{d}x}{\mathrm {d}t}=-2\,\mathrm {m}/\mathrm{s}\)? <br><br>Poznámka: Polohu objektu určujeme jako souřadnici na vodorovné ose a osa má směr doprava.",
-odpoved=>"Objekt se pohybuje rychlostí dva metry za sekundu směrem doleva.",
-moznosti=>[
-"Objekt se pohybuje rychlostí dva metry za sekundu a zpomaluje.",
-"Objekt se pohybuje rychlostí dva metry za sekundu a couvá.",
-"Otázka nemá smysl, derivace polohy podle času je rychlost a ta nemůže být záporná.",
-]}
+    nadpis=>"Buckinghamův \(\Pi\) teorém",
+    otazka=>"Jaký je význam Buckinghamova \(\Pi\) teorému? K čemu slouží bezrozměrné parametry?",
+    odpoved=>"Bezrozměrné parametry umožňují minimalizovat počet proměnných vystupujících ve fyzikálních zákonech",
+    moznosti=>[
+"Bezrozměrné parametry zjednodušují úlohu díky absenci fyzikálních jednotek.",
+"Bezrozměrné parametry usnadňují výpočet derivací a s tím souvisejících rychlostí změn fyzikálních veličin",],
+}
 ];
 
 # Pocet otazek
@@ -57,7 +53,7 @@ $radio    =  RadioButtons([[$od,@moznosti]],0);
 
 BEGIN_PGML
 
-## [$na]
+## [$na]*
 
 [$ot]*
 

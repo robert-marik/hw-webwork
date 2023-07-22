@@ -28,7 +28,7 @@ Velkým pomocníkem při studiu čehokoliv je umělá inteligence. Vyzkoušel js
 [```x^2 - x - 6 = 0.```]
 
 END_PGML
-TEXT(MODES(HTML => "<div class='GPT'>")); 
+TEXT(MODES(HTML => "<div class='GPT'>", TeX => "\begin{quote}")); 
 BEGIN_PGML
 
 **Odpověď:**
@@ -67,7 +67,7 @@ Takže řešením rovnice [```x^2 - x - 6 = 0```] jsou [`x = 3`] a [`x = -2`].
 
 
 END_PGML
-TEXT(MODES(HTML => "</div>")); 
+TEXT(MODES(HTML => "</div>", TeX => "\end{quote}")); 
 BEGIN_PGML
 
 
