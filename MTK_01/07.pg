@@ -12,7 +12,7 @@ $radio = RadioButtons(
     [ [
         "Rychlost růstu teploty ve smyslu změny teploty ve stupních Celsia na jednom centimetru tloušťky stěny.",
         "Rozdíl teplot v místnosti a vně domu.",
-        "Délka odpovídající teplotnímu rozdílu jednoho centimetru.",
+        "Délka odpovídající teplotnímu rozdílu jednoho stupně Celsia.",
         "Rychlost růstu teploty ve smyslu změny teploty za jednotku času. Tato rychlost je nulová, protože podle předpokladu jsou všechny teploty ustálené."
     ] ],
     0

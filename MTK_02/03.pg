@@ -16,7 +16,7 @@ $showHint = 1;
 
 $data =
 {
-otazka=>" Veličina \(N\) udává velikost populace a její derivace podle času má numericky nízkou hodnotu, tj. je blízká nule. Co to znamená pro vývoj populace? Vyberte nehvhodnější tvrzení.",
+otazka=>"Veličina \(N\) udává velikost populace a její derivace podle času má numericky nízkou hodnotu, tj. je blízká nule. Co to znamená pro vývoj populace? Vyberte nejvhodnější tvrzení.",
 nadpis=>"Derivace velikosti populace podle času",
 moznosti=>[
 "Velikost populace se prakticky nemění. Populace je blízko svého stacionárního stavu.",

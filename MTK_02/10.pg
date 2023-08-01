@@ -14,8 +14,8 @@ loadMacros('PGstandard.pl', 'PGML.pl',
 "Konstanta úměrnosti \(k\) má fyzikální jednotku rovnu jednotce času, \(\mathrm{min}\).",
 "Model vyjadřuje, že rychlost poklesu teploty je úměrná teplotě okolí.",
 "Konstanta úměrnosti \(k\) číselně vyjadřuje rychlost ochlazování na začátku pokusu.",
-"Konstanta úměrnosti \(k\) číselně vyjadřuje rychlost dobu nutnou pro ochlazení tělesa na poloviční teplotu.",
-"Konstanta úměrnosti \(k\) číselně vyjadřuje rychlost dobu nutnou pro ochlazení tělesa tak, aby teplotní rozdíl byl poloviční než na počátku.",
+"Konstanta úměrnosti \(k\) číselně vyjadřuje dobu nutnou pro ochlazení tělesa na poloviční teplotu.",
+"Konstanta úměrnosti \(k\) číselně vyjadřuje dobu nutnou pro ochlazení tělesa tak, aby teplotní rozdíl byl poloviční než na počátku.",
 "Pro kávu v plechovém hrnku s je konstanta \(k\) menší, než pro kávu v termohrnku."
 );    
 
@@ -38,6 +38,8 @@ BEGIN_PGML
 # Newtonův zákon ochlazování
 
 Newtonův zákon ochlazování je možno popsat rovnicí [``` \frac{\mathrm dT}{\mathrm dt}=-k(T-T_0),```] kde [`T`] je teplota horkého tělesa v prostředí o teplotě [`T_0`] a [`k`] je konstanta úměrnosti. (Název zákon ochlazování je pouze historický, model platí i pro tepelnou výměnu, kdy studené těleso je v teplém okolním prostředí a ohřívá se.)
+
+Jako modelový příklad horkého tělesa si můžeme představit horkou kávu v hrníčku.
 
 Teplotu měříme ve stupních Celsia, čas v minutách.
 

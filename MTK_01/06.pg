@@ -72,6 +72,8 @@ BEGIN_PGML_SOLUTION
 
 [$od]*
 
+Vstupem je například údaj o teplotě v každém okamžiku během tepelné modfikace dřeva a výstupem je údaj o rychlosti růstu teploty v každém okamžiku tohoto procesu.
+
 END_PGML_SOLUTION
 
 };
