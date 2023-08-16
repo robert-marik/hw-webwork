@@ -1,50 +1,69 @@
+###########################
+#  Initialization
+
 DOCUMENT();
 
 loadMacros(
   "PGstandard.pl",
-  "PGML.pl",
-  "parserFormulaUpToConstant.pl",
+   "PGML.pl",
+  "PGchoicemacros.pl",   
+  'draggableSubsets.pl', 
   "PGcourse.pl"
 );
 
-TEXT(&beginproblem);
-
-$showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-Context()->variables->are(t=>'Real');
+do
+{
+@perm = shuffle(3);
+} until ( ($perm[0] != 0) ||  ($perm[1] != 1) || ($perm[2] != 2) );
 
-$a=random(5,20,1);
-$b=random(6,10,1);
-$k=random(1,4,1);
-$kk=2*$k;
-$c=random(150,200,1);
-$prim=Formula("[$c] t - [$k]t^2")->reduce();
+$draggable = DraggableSubsets(
+[ 
+"\[\int r(t)\,\mathrm dt\]",
+"\[\int_0^T r(t)\,\mathrm dt\]",
+"\[N_0+\int_0^T r(t)\,\mathrm dt\]",
+"\[N_0+\int_0^t r(s)\,\mathrm ds\]",
+"\[r(0)+\int_0^T r(t)\,\mathrm dt\]",
+"\[r(0)+\int_0^t r(s)\,\mathrm ds\]",
+"\[\frac{1}{N_0}\int_0^T r(t)\,\mathrm dt\]",
+"\[\frac{1}{T}\int_0^T r(t)\,\mathrm dt\]",
+],
+[[3],[1],[7],[0,2,4,5,6]],
+DefaultSubsets => [
+{label => "Množství toxinů jako funkce času.", indices => []},
+{label => "Nárůst množství toxinů za čas \(T\).", indices => []},
+{label => "Průměrná rychlost růstu množství toxinů za čas \(T\)", indices => []},
+{label => "Nabídka matematických výrazů.", indices => [0,1,2,3,4,5,6,7]},
+],
+AllowNewBuckets => 0,
+OrderedSubsets => 1
+);
+
+
+
+###########################
+#  Main text
 
 BEGIN_PGML
 
-## Vytékající voda a praktický význam integrálu
+## Množství toxinů
 
-[@ image("cisterna.jpg", width=>400) @]*
+Do lokality proudí toxiy. Na počátku je zde [`N_0`] toxinů a jejich množství roste rychlostí [`r`]. Přesuňte ke každé veličině výraz, který umožní tuto veličinu vypočítat.
 
-Při zásobování vodou se někdy musíme uchýlit k použití cisteren. Vypouštění cisterny je poté typický děj probíhající proměnnou rychlostí, protože během odběru se snižuje tlak v místě výpusti a rychlost vytékání se snižuje.
-
-Předpokládejme, že voda vytéká z ventilu u dna cisterny rychlostí  [`r(t)=[$c]-[$kk]t`] litrů za minutu, kde [`0 \le t \le 50.`]  Najděte objem vody (v litrech), který vyteče z nádrže za [$a] minut.
-
-V tomto příkladě tedy máme zadánu rychlost s jakou se mění jistá veličina a úkolem je najít celkovou změnu této veličiny. To je přesně případ řešitelný pomocí integrálu. Musíme tedy vypočítat [``` \int_0^{[$a]}[$c]-[$kk]*t\,\mathrm dt.```]
-
-Mezivýpočet:[``\int [$c]-[$kk]t \,\mathrm dt={}``][________]{$prim->cmp(upToConstant=>1)}
-
-Odpověď: Vyteče [________________]{$c*$a-$k*($a**2)} litrů vody.
+[_]{$draggable}
 
 END_PGML
 
 
 BEGIN_PGML_SOLUTION
-Množství vody bude integrál z rychlosti, se kterou voda vytéká.
-[``` \int_0^{[$a]} [$c]-[$kk]t \,\mathrm dt = \left[[$prim] \right] _{0}^{[$a]}=[$c]\cdot[$a] - [$k]\cdot ([$a])^2```]
+
+Množství toxinů jako funkce času je [``N_0+\int_0^t r(s)\,\mathrm ds``] (počáteční množství zvýšené o přírůstek od počátku do obecného časového okamžiku [`t`]).
+
+Nárůst množství toxinů za čas [`T`] je [``\int_0^T r(t)\,\mathrm dt``] (určitý integrál z rychlosti).
+
+Průměrná rychlost růstu množství toxinů za čas [`T`] je [``\frac 1T \int_0^T r(t)\,\mathrm dt``] (nárůst za uvažovaný čas dělený časem).
+
 END_PGML_SOLUTION
-
-
 
 ENDDOCUMENT();

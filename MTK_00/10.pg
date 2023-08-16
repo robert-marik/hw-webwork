@@ -28,7 +28,7 @@ Velkým pomocníkem při studiu čehokoliv je umělá inteligence. Vyzkoušel js
 [```x^2 - x - 6 = 0.```]
 
 END_PGML
-TEXT(MODES(HTML => "<div class='GPT'>", TeX => "\begin{quote}")); 
+TEXT(MODES(HTML => "<div class='GPT'>", TeX => "\begin{quote} \itshape")); 
 BEGIN_PGML
 
 **Odpověď:**
@@ -75,6 +75,8 @@ Jaký máte z řešení dojem?
 
 [_]{$radio}
 
+
+Tato úloha je podobná výběru z možností, ale skutečnost, že vobu vyznačují radiobuttony místo checkboxů znamená, že jenom jedna z možností je správně.
 
 END_PGML
 

@@ -1,89 +1,93 @@
 DOCUMENT();
 
 loadMacros(
-"PGstandard.pl",
-"MathObjects.pl",
-"parserRadioButtons.pl",
-"PGcourse.pl",
-"PGML.pl"
+    "PGstandard.pl",
+    "PGML.pl",
+    "parserFormulaUpToConstant.pl",
+    "answerHints.pl",
+    "PGcourse.pl",
 );
 
-
 TEXT(beginproblem());
-$showPartialCorrectAnswers = 0;
+
+$showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-$data =
-[
-{
-nadpis=>"Monotonie integrálu",
-otazka=>"Mějme funkce \(f\) a \(g\) definované na intervalu \([a,b]\) takové, že na tomto intervalu platí \[f(x)\geq g(x).\] Jaký je vztah mezi integrály těchto funkcí?",
-odpoved=>"\(\displaystyle\int _a^b f(x)\,\mathrm dx\geq \int _a^b g(x)\,\mathrm dx\)",
-moznosti=>[
-"\(\displaystyle\int _a^b g(x)\,\mathrm dx\geq \int _a^b f(x)\,\mathrm dx\)",
-"Není možné rozhodnout bez znalosti monotonie funkcí.",
-"Není možné rozhodnout bez znalosti analytických předpisů funkcí.",
-],
-},
-{
-nadpis=>"Znaménko integrálu",
-otazka=>"Jaké znaménko má integrál \(\displaystyle\int _0^1 \frac {e^{ax}}{x^2+1}\,\mathrm dx?\) Parametr \(a\) může nabývat libovolnou reálnou hodnotu",
-odpoved=>"Kladné, protože integrovaná funkce je kladná.",
-moznosti=>[
-"Kladné, protože integrovaná funkce je rostoucí.",
-"Kladné pro \(a\geq 0\) (protože integrovaná funkce je pro tyto hodnoty parametru rostoucí) a záporné pro \(a<0\) (protože integrovaná funkce je klesající).",
-"Žádné, integrál neexistuje.",
-],
-}
-];
+Context()->variables->are(t=>'Real',a=>'Real');
+Context()->flags->set(
+     reduceConstants => 0,
+     reduceConstantFunctions => 0,
+   );
 
-# Pocet otazek
-$pocet=@$data;
-$posledni=$pocet-1;  # indexujeme od nuly
+do { $n=random(2,4,1); } until ( $n != 6 );
+$n1=$n+1;
+$a=random(1,2,1);
+$a=0;
+do { $b=random(3,5,1); } until ( $b - $a > 1) ;
+#$c=non_zero_random(-2,3);
+$c=0;
+$d=non_zero_random(1,3);
+$cil=non_zero_random(1,12);
 
-# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
-$DEBUG=1;
-if ($DEBUG) {@pole = (0..$posledni);}
-   else {@pole=(random(0,$posledni));}
+$funkce=Formula("a*$d*t^($n)")->reduce();
+#$prim=Formula("a*($c*t+$d/($n1)*t^($n1))");
+#$int=Formula("a*($c*$b+$d/($n1)*($b)^($n1)-($c*$a+$d/($n1)*($a)^($n1)))");
+#$stredni=Formula("a/($b-$a)*($c*$b+$d/($n1)*($b)^($n1)-($c*$a+$d/($n1)*($a)^($n1)))");
+$prim=Formula("(a*$d)/($n1)*t^($n1)");
+$int=Formula("a*$d/($n1)*($b)^($n1)-(a*$d/($n1)*($a)^($n1))");
+$stredni=Formula("1/($b-$a)*a*($d/($n1)*($b)^($n1)-($d/($n1)*($a)^($n1)))");
+$answer=$cil/(1/($b-$a)*($d/($n1)*$b**($n1)-($d/($n1)*$a**($n1))));
 
-# Cyklus pres otazky (jednu nebo vsechny)
-foreach $i (@pole)
-{
+Context()->flags->set(
+     reduceConstants => 1,
+     reduceConstantFunctions => 1,
+   );
 
-
-
-# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
-# s interpretaci hranatych zavorek
-$ot       =  $data->[$i]->{otazka};
-$na       =  $data->[$i]->{nadpis};
-$obrazek  =  $data->[$i]->{obrazek};
-$od       =  $data->[$i]->{odpoved};
-$zdroj    =  $data->[$i]->{zdroj};
-@moznosti =@{$data->[$i]->{moznosti}};
-$radio    =  RadioButtons([[$od,@moznosti]],0);
-
+$stredni2=Formula("a*($d/($n1)*($b)^($n1)-($d/($n1)*($a)^($n1)))/($b-$a)")->reduce();
 
 BEGIN_PGML
 
-## [$na]
+## Výpočet parametru pro cílovou střední hodnotu
 
-[$ot]*
+Tento příklad je obdobou předchozího, ale funkce obsahuje parametr [`a`] a zadanou střední hodnotu. Cílem je najít střední hodnotu jako funkci parametru [`a`] a poté najít hodnotu parametru [`a`], pro kterou je střední hodnota rovna předem danému číslu.
 
-[_]{$radio}
+Například platí (v proměnné [`t`]) [``` \int_0^3 2at^2\,\mathrm dt=\left[\frac {2a}3 t^3\right]_0^3=18a.```] To znamená, že střední hodnota funkce [`2at^2`] na intervalu [`[0,3]`] je  [``` \frac 1{3-0}\int_0^3 2at^2\,\mathrm dt=\frac 13 \cdot 18 a =6a.```]
 
-_[$zdroj]_
+Pokud požadujeme, aby cílová střední hodnota byla rovna jedné, řešíme rovnici [``` 6a=1 ```] a odsud [`a=\frac 16`]. Výpočty tohoto druhu provádíme ve statistice, statistické fyzice, systémové biologii apod.
+
+Nyní zkusíme něco podobného s jinými hodnotami.
+
+--------------------
+
+Je dána funkce [`` [$funkce] ``]  proměnné [`t`] s reálným parametrem [`a`]. Určete hodnotu parametru [`a`] tak, aby střední hodnota této funkce na intervalu [`[[$a],[$b]]`] byla rovna [`[$cil]`].
+
+Střední hodnota je [``\frac1{[$b]-[$a]} \int_{[$a]}^{[$b]} [$funkce]\,\mathrm dt ={}``][_________________________]{$stredni->cmp()->withPostFilter(AnswerHints(
+Formula("$prim") => "Jste na dobré cestě. Toto je ale primitivní funkce. Ještě musíte vypočítat určitý integrál a střední hodnotu.",
+Formula("$int") => "Jste na dobré cestě. Toto je ale určitý integrál. Ještě musíte vypočítat střední hodnotu. Vydělte délkou intervalu."
+))
+}
+
+Střední hodnota je rovna číslu [$cil] pro [``a={}``][__________]{$answer}.
 
 END_PGML
 
-BEGIN_PGML_SOLUTION
+BEGIN_PGML_HINT
+Primitivní funkce je [``[$prim]``]. Použijte tuto funkci na nalezení určitého integrálu a poté vydělte délkou intervalu. Tímto naleznete střední hodnotu závislou na parametru [`a`]. Položte tuto střední hodnotu rovnu hodnotě [`[$cil]`] a vyřešte získanou rovnici vzhledem k [`a`].
+END_PGML_HINT
 
-[$od]
+BEGIN_PGML_SOLUTION
+Použijeme vztah
+[``` \int [$funkce]\,\mathrm dt=[$prim]+C.```]
+Odsud (v neupraveném tvaru pro snazší rozšifrování, jak jme získané výrazy dostali)
+[```\int_{[$a]}^{[$b]} [$funkce]\,\mathrm dt =[$int] ```]
+a 
+[```\frac 1{[$b]-[$a]}\int_{[$a]}^{[$b]} [$funkce]\,\mathrm dt =[$stredni]
+=[$stredni2]
+.```]
+ Máme tedy rovnici [``` [$stredni2]=[$cil]```]
+ s řešením [``` a=[$answer].```]
 
 END_PGML_SOLUTION
 
-};
-# konec cyklu
-
 
 ENDDOCUMENT();
-

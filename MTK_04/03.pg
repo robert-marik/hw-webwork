@@ -1,80 +1,86 @@
 DOCUMENT();
 
 loadMacros(
-    "PGstandard.pl",
-    "PGML.pl",
-    "parserFormulaUpToConstant.pl",
-    "PGcourse.pl",
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
 );
 
+
 TEXT(beginproblem());
-
 $showPartialCorrectAnswers = 1;
-$showHint = 1;
 
-Context()->flags->set(
-     reduceConstants => 0,
-     reduceConstantFunctions => 0,
-   );
+@odpovedi=(
+"\(\displaystyle 5000 + \frac 1{36}\int_0^{36} (50+10\sqrt t)\,\mathrm dt\)",
+"\(\displaystyle 50+10\sqrt{36} + \int_0^{36} (50+10\sqrt t)\,\mathrm dt\)",
+"\(\displaystyle {36}\cdot 5000 + \frac {36}{5000}\int_0^{5000} (50+10\sqrt t)\,\mathrm dt\)",
+"\(\displaystyle 5000 + \frac 1{5000}\int_0^{5000} (50+10\sqrt t)\,\mathrm dt\)",
+"\(\displaystyle \frac 1{36}\int_0^{5000} (50+10\sqrt t)\,\mathrm dt\)",
+"\(\displaystyle \frac 1{5000}\int_0^{36} (50+10\sqrt t)\,\mathrm dt\)",
+"\(\displaystyle \int_0^{36} (50+10\sqrt t)\,\mathrm dt\)"
+);
 
+# fisher_yates_shuffle( \@array ) : generate a random permutation
+# of @array in place, podle https://www.oreilly.com/library/view/perl-cookbook/1565922433/ch04s18.html
+sub fisher_yates_shuffle {
+    $array = shift;
+    $i;
+    for ($i = @$array; --$i; ) {
+        $j = random(0,$i);
+        next if $i == $j;
+        @$array[$i,$j] = @$array[$j,$i];
+    }
+}
 
-$k=random(3,6,1);
-$n=random(2,8,1);
+fisher_yates_shuffle( ~~@odpovedi );    # permutes @array in place
 
-$k1=$k+1;
-$n1=$n-1;
+$radio1 = RadioButtons(
+[[
+"\(\displaystyle 5000 + \int_0^{36} (50+10\sqrt t)\,\mathrm dt\)",
+@odpovedi[0..3]
+]],0,separator=>"$BR$BR");  # První odpověď správná
 
-$int1=Compute("$k/($k1)x^(($k1)/($k))")->with(limits =>[1,3]);
-$int2=Compute("-1/(($n1) * x^($n1))")->reduce();
-$int3=Formula("ln(x)")->with(limits =>[1,5]);
+#$radio1->choose(3);
+
 
 BEGIN_PGML
 
-## Mocninné funkce s neceločíselným nebo záporným exponentem
 
-Některé funkce nejsou formálně zapsány jako mocninné funkce, ale umíme je do tohoto tvaru přepsat. Jedná se zejména o odmocniny a zlomky s mocninou ve jmenovateli. Přitom používáme vzorce
-[``` \sqrt[k]{x}=x^{\frac 1k}```]
-a
-[``` \frac {1}{x^k}=x^{-k}.```]
-Po této úpravě jsme schopni počítat integrály pomocí vzorce pro integrál mocninné funkce
- [``` \int x^n\,\mathrm dx=\frac1{n+1}x^{n+1}+C.```]
- Například
- [``` \int \sqrt[k]{x} \,\mathrm dx=\int x^{\frac 1k}\,\mathrm dx=\frac{1}{\frac 1k+1}x^{\frac 1k +1}.```]
-(Pozor na výjimku u [``\int \frac 1x\, \mathrm dx``], což je přímo vzorec.)
+## Město rostoucí měnící se rychlostí
 
-Vypočtěte následující integrály.
->>[``\int \sqrt[[$k]]{x}\,\mathrm dx ={}``][_________________________]{$int1->cmp(upToConstant=>1)}[``{}+C``] <<
+[@ image("parkour.jpg", width=>400) @]*
 
->>[``\int \frac 1{x^{[$n]}}\,\mathrm dx ={}``][_________________________]{$int2->cmp(upToConstant=>1)}[``{}+C``] <<
 
->>[``\int \frac 1x \,\mathrm dx ={}``][_________________________]{$int3->cmp(upToConstant=>1)}[``{}+C``] <<
 
-Poznámka: porovnávání správné a vložené odpovědi je nastaveno na kladná čísla, nemusíte si dělat starosti se zápisem absolutní hodnoty apod.
+Město je možno chápat jako organismus rostoucí proměnnou rychlostí. Více obyvatel má způsobí větší porodnost a rychlejší růst, své ovšem hraje i prostor pro rozšiřování a další růst, dostupnost zdrojů a další faktory. Ač se nám může zdát, že tyto faktory jsou exaktně neuchopitelné, dají se dopředu do jisté míry odhadnout a tento odhad budoucího růstu je důležitý pro jakékoliv plánování.
+
+Předpokládejme, že [`t`] měsíců od současnosti je rychlost růstu počtu obyvatel města [``` g(t)=50+10\sqrt t```] obyvatel za měsíc. V současnosti má město 5000 obyvatel. Kolik obyvatel bude město mít za tři roky?
+
+Návod: Evidentně musíme sečíst současný stav a přírůstek za tři roky. 
+
+----
+
+Vyberte výraz, který udává počet obyvatel po třech letech, tj. po 36 měsících?.
+
+[_]{$radio1}
 
 END_PGML
 
+
+$showHint = 1;
 BEGIN_PGML_HINT
-Použijte vztah
-[``` \int x^n\,\mathrm dx=\frac1{n+1}x^{n+1}+C```]
-pro [`n=\frac{1}{[$k]}`] a [`n=-[$n]`]. Poslední integrál je přímo vzorec. 
+Musíte sečíst současnou velikost populace a nárůst za nejbližší tři roky. Současná velikost populace je zadána v textu. Nárůst za tři roky dokážeme vypočítat pomocí vhodného určitého integrálu.
 END_PGML_HINT
 
+
+
 BEGIN_PGML_SOLUTION
-Použijeme vztah
-[``` \int x^n\,\mathrm dx=\frac1{n+1}x^{n+1}+C```]
-pro [`n=\frac{1}{[$k]}`] a [`n=-[$n]`]. Poslední integrál je přímo vzorec.
-
-Dostáváme následující. 
->>[``\int \sqrt[[$k]]{x}\,\mathrm dx =[$int1]+C``] <<
-
->>[``\int \frac 1{x^{[$n]}}\,\mathrm dx =[$int2]+C``] <<
-
->>[``\int \frac 1x \,\mathrm dx =\ln|x|+C``] <<
-
-
-(Je možné, že počítač nahradí zlomek desetinným číslem a musíte zpětně "rozšifrovat", o jaký zlomek se jedná.)
-
+Musíte sečíst současnou velikost populace a nárůst za nejbližší tři roky. Současná velikost populace je zadána v textu. Změna je vyjádřena určitým integrálem rychlosti v příslušných mezích.
+Celková hodnota po uplynutí daného času je tedy
+[```5000 + \int_0^{36} (50+10\sqrt t)\,\mathrm dt.```]
 END_PGML_SOLUTION
 
-
 ENDDOCUMENT();
+

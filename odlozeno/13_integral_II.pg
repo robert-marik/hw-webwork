@@ -8,6 +8,7 @@ loadMacros(
 "PGML.pl"
 );
 
+
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
@@ -15,15 +16,23 @@ $showHint = 1;
 $data =
 [
 {
-    nadpis=>"Integrál rychlosti",
-    otazka=>"Nechť \(r(t)\) je rychlost s jakou se mění veličina \(f(t)\). Určete slovní interpretaci integrálu \[\int r(t)\,\mathrm dt.\]",
-    odpoved=>"Časový průběh veličiny \(f(t)\) posunutý nanejvýše o aditivní konstantu. Tuto aditivní konstantu dokážeme určit například z počátečního stavu.",
-    moznosti=>[
-"Časový průběh veličiny \(f(t)\) daný jednoznačně.",
-"Rychlost s jakou se mění rychlost změny veličiny \(f(t)\).",
-"Obsah plochy pod křivkou danou grafem funkce \(r(t)\).",
-"Obsah plochy pod křivkou danou grafem funkce \(r(x)\).",
-],
+nadpis=>"Střední hodnota",
+otazka=>"Jak vypočteme střední hodnotu funkce \(g\) na intervalu \([0,a]\)?",
+odpoved=>"\(\displaystyle \frac 1{a} \int _0^a g(x)\,\mathrm dx\)",
+moznosti=>
+[
+"\(\displaystyle \frac 1{b-a} \int _a^b g(x)\,\mathrm dx\)",
+"\(\displaystyle \frac {g(0)+g(a)}{2}\)",
+]
+},
+{
+nadpis=>"Střední hodnota lineární funkce",
+otazka=>"Jak vypočteme střední hodnotu funkce \(f\) na intervalu \([a,b]\) v případě, kdy je funkce \(f\) lineární?",
+odpoved=>"Jako aritmetický průměr funkčních hodnot na levém a pravém konci, tj. \(\displaystyle \frac {f(a)+f(b)}{2}\).",
+moznosti=>[
+"Jako aritmetický průměr funkčních hodnot na levém a pravém konci, tj. \(\displaystyle \frac {f(b)-f(a)}{2}\).",
+"Pomocí obecného vzorce pro střední hodnotu, neexistuje kratší výpočet.",
+]
 }
 ];
 
@@ -31,6 +40,7 @@ $data =
 $pocet=@$data;
 $posledni=$pocet-1;  # indexujeme od nuly
 
+$DEBUG=1;
 # Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
 if ($DEBUG) {@pole = (0..$posledni);}
    else {@pole=(random(0,$posledni));}

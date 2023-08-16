@@ -1,55 +1,62 @@
 DOCUMENT();
 
 loadMacros(
-"PGstandard.pl",
-"MathObjects.pl",
-"parserRadioButtons.pl",
-"PGcourse.pl",
-"PGML.pl"
+    "PGstandard.pl",
+    "PGML.pl",
+    "parserFormulaUpToConstant.pl",
+    "PGcourse.pl",
 );
 
-
 TEXT(beginproblem());
+
 $showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-$radio = RadioButtons(
-["Počet litrů, které vytečou z nádrže za první tři hodiny.",
- "Rychlost, s jakou vytéká olej po prvních třech hodinách.",
- "Počet litrů oleje, které po třech hodinách zůstane v nádrži.",
- "Průměrná rychlost s jakou vytéká olej během prvních tří hodin."
-],0);  # První odpověď správná
+Context()->flags->set(
+     reduceConstants => 0,
+     reduceConstantFunctions => 0,
+   );
+
+$n=random(3,11,1);
+$n1=$n+1;
+
+$funkce=Formula("x^($n)");
+$int=Formula("1/($n1)*x^($n1)")->with(limits =>[1,2]);
 
 
 BEGIN_PGML
 
-## Unikající toxický odpad
+## Neurčitý integrál mocninné funkce
 
-[@ image("toxicky_odpad.jpg", width=>400) @]*
+Integrál mocninné funkce počítáme pomocí vzorce [``` \int x^n\,\mathrm dx=\frac1{n+1}x^{n+1}+C.```]
+Slovně: mocninnou funkci integrujeme tak, že exponent zvýšíme o jedničku a připíšeme i do jmenovatele.
+Například
+[``` \int x^{12}\,\mathrm dx=\frac 1{13}x^{13}+C,```]
+což je možné zapsat jako *1/13 \* x^(13)* (integrační konstantu do odpovědi nepište).
 
-Pomocí určitého integrálu můžeme ze zadané rychlosti určit celkovou změnu veličiny.
 
-Pokud je rychlost konstantní, nemusíme se s integrálem vůbec obtěžovat a změnu veličiny určíme prostým násobením. Stejně jako například dráhu při pohybu konstatnní rychlostí.
+Vypočtěte následující integrál.
+>>[``\int [$funkce]\,\mathrm dx ={}``][_________________________]{$int->cmp(upToConstant=>1)}[``{}+C``] <<
 
-Pokud však rychlost konstantní není, musíme místo násobení zapojit určitý integrál v příslušných mezích. Pokud integrujeme rychlost s jakou se mění sledovaná veličina, je výsledkem změna sledované veličiny.
+Poznámka: U této ani u dalších otázek v této domácí úloze nezapisujte integrační konstantu "[`{}+C`]", která je už předepsána automaticky. 
 
-V tomto příkladě zkusíme opačný přístup: máme zadán integrál a úkolem je podat slovní interpretaci. 
-
-Toxický odpad uniká z barelu rychlostí [`r(t)`] litrů za minutu, kde [`t`] je čas v minutách. Co vyjadřuje integrál [``\int_{0}^{\,180} {r(t)}\,\mathrm dt``]?
-
-[_]{$radio}
-    
 END_PGML
 
 BEGIN_PGML_HINT
-Musíte si uvědomit jaký časový interval sledujeme tj. jaká je dolní a horní mez integrálu, a rychlost jaké veličiny se integruje. Pokud se vám slovní interpretace těžko formuluje, můžete si rychlost vytékání představit tak, že to je rychost, s jakou narůstá hladina toxického odpadu v okolí barelu.
+Použijte vzorec
+[``` \int x^n\,\mathrm dx=\frac1{n+1}x^{n+1}+C```]
+pro [`n=[$n]`]. Tedy v tomto případě máme [``` n+1=[$n1].```]
+
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
-Doba 180 minut odpovídá třem hodinám. Na tomto intervalu integrujeme rychlost s jakou uniká toxický odpad. Výsledkem po integraci je množství toxického odpadu, které za danou dobu vyteklo.
+Použijeme vzorec
+[``` \int x^n\,\mathrm dx=\frac1{n+1}x^{n+1}+C```]
+pro [`n=[$n]`]. Tedy v tomto případě máme [``` n+1=[$n1]```]
+a proto
+[``` \int [$funkce]\,\mathrm dx=[$int]+C.```]
 
-Pokud se vám slovní interpretace těžko formuluje, můžete si rychlost vytékání představit tak, že to je rychost, s jakou narůstá hladina toxického odpadu v okolí barelu.
 END_PGML_SOLUTION
 
-ENDDOCUMENT();
 
+ENDDOCUMENT();

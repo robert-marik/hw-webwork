@@ -1,86 +1,67 @@
 DOCUMENT();
 
 loadMacros(
-"PGstandard.pl",
-"MathObjects.pl",
-"parserRadioButtons.pl",
-"PGcourse.pl",
-"PGML.pl"
+    "PGstandard.pl",
+    "PGML.pl",
+    "parserFormulaUpToConstant.pl",
+    "PGcourse.pl",
 );
-
 
 TEXT(beginproblem());
+
 $showPartialCorrectAnswers = 1;
+$showHint = 1;
 
-@odpovedi=(
-"\(\displaystyle 5000 + \frac 1{36}\int_0^{36} (50+10\sqrt t)\,\mathrm dt\)",
-"\(\displaystyle 50+10\sqrt{36} + \int_0^{36} (50+10\sqrt t)\,\mathrm dt\)",
-"\(\displaystyle {36}\cdot 5000 + \frac {36}{5000}\int_0^{5000} (50+10\sqrt t)\,\mathrm dt\)",
-"\(\displaystyle 5000 + \frac 1{5000}\int_0^{5000} (50+10\sqrt t)\,\mathrm dt\)",
-"\(\displaystyle \frac 1{36}\int_0^{5000} (50+10\sqrt t)\,\mathrm dt\)",
-"\(\displaystyle \frac 1{5000}\int_0^{36} (50+10\sqrt t)\,\mathrm dt\)",
-"\(\displaystyle \int_0^{36} (50+10\sqrt t)\,\mathrm dt\)"
-);
+Context()->flags->set(
+     reduceConstants => 0,
+     reduceConstantFunctions => 0,
+   );
 
-# fisher_yates_shuffle( \@array ) : generate a random permutation
-# of @array in place, podle https://www.oreilly.com/library/view/perl-cookbook/1565922433/ch04s18.html
-sub fisher_yates_shuffle {
-    $array = shift;
-    $i;
-    for ($i = @$array; --$i; ) {
-        $j = random(0,$i);
-        next if $i == $j;
-        @$array[$i,$j] = @$array[$j,$i];
-    }
-}
+$n=random(2,7,1);
+$n1=$n+1;
+$a=random(2,7,1);
+$b=random(-6,7,1);
+$c=random(-6,7,1);
 
-fisher_yates_shuffle( ~~@odpovedi );    # permutes @array in place
+if ($b>0) {$btxt=" +{} ".$b;} else {$btxt=" -{} ".(-$b);}
+if ($c>0) {$ctxt=" +{} ".$c;} else {$ctxt=" -{} ".(-$c);}
 
-$radio1 = RadioButtons(
-[[
-"\(\displaystyle 5000 + \int_0^{36} (50+10\sqrt t)\,\mathrm dt\)",
-@odpovedi[0..3]
-]],0,separator=>"$BR$BR");  # První odpověď správná
+$funkce=Formula("$a*x^($n)+$b*x^2+$c")->reduce();
 
-#$radio1->choose(3);
-
+$int=Formula("$a*1/($n1)*x^($n1)+$b*1/3*x^3+$c*x");
+$int2=Formula("$a/($n1)*x^($n1)+$b/3*x^3+$c*x");
 
 BEGIN_PGML
 
+## Neurčitý integrál polynomu
 
-## Město rostoucí měnící se rychlostí
+Integrál polynomu počítáme tak, že integrujeme jednotlivé mocniny a přitom používáme věty o integrálu součtu a konstantního násobku. Například
+[``` \int 3x^9+5x^2-97\,\mathrm dx=\frac 3{10}x^{10}+\frac 53 x^3 - 97 x +C,```]
+kdy ve vzorci pro integrál mocninné funkce používáme postupně [`n=9`], [`n=2`] a [`n=0`].
+Tento výsledek je možno zapsat jako *3/10 \* x^(10) + 5/3 \* x^3 - 97x*. 
 
-[@ image("parkour.jpg", width=>400) @]*
-
-
-
-Město je možno chápat jako organismus rostoucí proměnnou rychlostí. Více obyvatel má způsobí větší porodnost a rychlejší růst, své ovšem hraje i prostor pro rozšiřování a další růst, dostupnost zdrojů a další faktory. Ač se nám může zdát, že tyto faktory jsou exaktně neuchopitelné, dají se dopředu do jisté míry odhadnout a tento odhad budoucího růstu je důležitý pro jakékoliv plánování.
-
-Předpokládejme, že [`t`] měsíců od současnosti je rychlost růstu počtu obyvatel města [``` g(t)=50+10\sqrt t```] obyvatel za měsíc. V současnosti má město 5000 obyvatel. Kolik obyvatel bude město mít za tři roky?
-
-Návod: Evidentně musíme sečíst současný stav a přírůstek za tři roky. 
-
-----
-
-Vyberte výraz, který udává počet obyvatel po třech letech, tj. po 36 měsících?.
-
-[_]{$radio1}
+Vypočtěte následující integrál.
+>>[``\int [$funkce]\,\mathrm dx ={}``][_________________________]{$int->cmp(upToConstant=>1)}[``{}+C``] <<
 
 END_PGML
 
-
-$showHint = 1;
 BEGIN_PGML_HINT
-Musíte sečíst současnou velikost populace a nárůst za nejbližší tři roky. Současná velikost populace je zadána v textu. Nárůst za tři roky dokážeme vypočítat pomocí vhodného určitého integrálu.
+Použijte vztah
+[``` \int [$funkce]\,\mathrm dx=[$a]\int x^{[$n]}\,\mathrm dx [$btxt]\int x^{2}\,\mathrm dx [$ctxt]\int 1\,\mathrm dx```]
+ a vypočtěte jednotlivé integrály pomocí vzorce
+ [``` \int x^n\,\mathrm dx=\frac1{n+1}x^{n+1}+C.```]
 END_PGML_HINT
 
-
-
 BEGIN_PGML_SOLUTION
-Musíte sečíst současnou velikost populace a nárůst za nejbližší tři roky. Současná velikost populace je zadána v textu. Změna je vyjádřena určitým integrálem rychlosti v příslušných mezích.
-Celková hodnota po uplynutí daného času je tedy
-[```5000 + \int_0^{36} (50+10\sqrt t)\,\mathrm dt.```]
+Použijeme vztah
+[``` \int [$funkce]\,\mathrm dx=[$a]\int x^{[$n]}\,\mathrm dx [$btxt]\int x^{2}\,\mathrm dx [$ctxt]\int 1\,\mathrm dx```]
+a po výpočtu integrálů pomocí vzorce
+ [``` \int x^n\,\mathrm dx=\frac1{n+1}x^{n+1}+C```]
+ dostáváme
+ [``` \int [$funkce]\,\mathrm dx=[$int2]+C.```]
+(Je možné, že počítač nahradí zlomek desetinným číslem a musíte zpětně "rozšifrovat", o jaký zlomek se jedná.)
+
 END_PGML_SOLUTION
 
-ENDDOCUMENT();
 
+ENDDOCUMENT();

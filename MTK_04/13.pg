@@ -8,21 +8,22 @@ loadMacros(
 "PGML.pl"
 );
 
+
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
+
 $data =
 [
 {
-    nadpis=>"Integrál rychlosti",
-    otazka=>"Nechť \(r(t)\) je rychlost s jakou se mění veličina \(f(t)\). Určete slovní interpretaci integrálu \[\int r(t)\,\mathrm dt.\]",
-    odpoved=>"Časový průběh veličiny \(f(t)\) posunutý nanejvýše o aditivní konstantu. Tuto aditivní konstantu dokážeme určit například z počátečního stavu.",
+    nadpis=>"Jednoznačnost primitivní funkce",
+    otazka=>"Je primitivní funkce dána jednoznačně?",
+    odpoved=>"Ne, ale je dána jednoznačně až na aditivní konstantu.",
     moznosti=>[
-"Časový průběh veličiny \(f(t)\) daný jednoznačně.",
-"Rychlost s jakou se mění rychlost změny veličiny \(f(t)\).",
-"Obsah plochy pod křivkou danou grafem funkce \(r(t)\).",
-"Obsah plochy pod křivkou danou grafem funkce \(r(x)\).",
+"Ne a ani není znám univerzální popis množiny všech primitivních funkcí.",
+"Ano, z rychlosti je vždy možné zrekonstruovat měnící se  veličinu.",
+"Ano, jinak by tento pojem nebyl přesně definován a nemohli bychom s ním v matematice pracovat.",
 ],
 }
 ];
@@ -56,7 +57,7 @@ BEGIN_PGML
 
 ## [$na]
 
-[$ot]*
+[$ot]
 
 [_]{$radio}
 
@@ -66,7 +67,7 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 
-[$od]*
+[$od]
 
 END_PGML_SOLUTION
 

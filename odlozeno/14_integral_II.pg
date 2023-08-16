@@ -16,44 +16,6 @@ $showHint = 1;
 $data =
 [
 {
-nadpis=>"Monotonie integrálu",
-otazka=>"Mějme funkce \(f\) a \(g\) definované na intervalu \([a,b]\) takové, že na tomto intervalu platí \[f(x)\geq g(x).\] Jaký je vztah mezi integrály těchto funkcí?",
-odpoved=>"\(\displaystyle\int _a^b f(x)\,\mathrm dx\geq \int _a^b g(x)\,\mathrm dx\)",
-moznosti=>[
-"\(\displaystyle\int _a^b g(x)\,\mathrm dx\geq \int _a^b f(x)\,\mathrm dx\)",
-"Není možné rozhodnout bez znalosti monotonie funkcí.",
-"Není možné rozhodnout bez znalosti analytických předpisů funkcí.",
-],
-},
-{
-nadpis=>"Znaménko integrálu",
-otazka=>"Jaké znaménko má integrál \(\displaystyle\int _0^1 \frac {e^{ax}}{x^2+1}\,\mathrm dx?\) Parametr \(a\) může nabývat libovolnou reálnou hodnotu",
-odpoved=>"Kladné, protože integrovaná funkce je kladná.",
-moznosti=>[
-"Kladné, protože integrovaná funkce je rostoucí.",
-"Kladné pro \(a\geq 0\) (protože integrovaná funkce je pro tyto hodnoty parametru rostoucí) a záporné pro \(a<0\) (protože integrovaná funkce je klesající).",
-"Žádné, integrál neexistuje.",
-]},
-{
-nadpis=>"Střední hodnota",
-otazka=>"Jak vypočteme střední hodnotu funkce \(g\) na intervalu \([0,a]\)?",
-odpoved=>"\(\displaystyle \frac 1{a} \int _0^a g(x)\,\mathrm dx\)",
-moznosti=>
-[
-"\(\displaystyle \frac 1{b-a} \int _a^b g(x)\,\mathrm dx\)",
-"\(\displaystyle \frac {g(0)+g(a)}{2}\)",
-]
-},
-{
-nadpis=>"Střední hodnota lineární funkce",
-otazka=>"Jak vypočteme střední hodnotu funkce \(f\) na intervalu \([a,b]\) v případě, kdy je funkce \(f\) lineární?",
-odpoved=>"Jako aritmetický průměr funkčních hodnot na levém a pravém konci, tj. \(\displaystyle \frac {f(a)+f(b)}{2}\).",
-moznosti=>[
-"Jako aritmetický průměr funkčních hodnot na levém a pravém konci, tj. \(\displaystyle \frac {f(b)-f(a)}{2}\).",
-"Pomocí obecného vzorce pro střední hodnotu, neexistuje kratší výpočet.",
-]
-},
-{
 nadpis=>"Postačující podmínka pro integrovatelnost",
 otazka=>"Jaká podmínka je postačující podmínkou pro existenci neurčitého integrálu funkce \(f\) na intervalu \(I\).",
 odpoved=>"Spojitost. Každá spojitá funkce je integrovatelná.",
@@ -78,8 +40,8 @@ moznosti=>[
 $pocet=@$data;
 $posledni=$pocet-1;  # indexujeme od nuly
 
-# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
 $DEBUG=1;
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
 if ($DEBUG) {@pole = (0..$posledni);}
    else {@pole=(random(0,$posledni));}
 
@@ -114,7 +76,7 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 
-[$od]
+[$od]*
 
 END_PGML_SOLUTION
 

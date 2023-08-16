@@ -1,68 +1,76 @@
 DOCUMENT();
 
 loadMacros(
-    "PGstandard.pl",
-    "PGML.pl",
-    "parserFormulaUpToConstant.pl",
-    "PGcourse.pl",
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
 );
+
 
 TEXT(beginproblem());
 
-$showPartialCorrectAnswers = 1;
 $showHint = 1;
+$showPartialCorrectAnswers = 1;
 
-$a=random(2,10,1);
-$b=random(2,10,1);
-$c=random(1,10,1)*random(-1,1,2);
-$d=random(0,1,1);
+$radio1 = RadioButtons(
+[[
+"\(\displaystyle \int_0^6 r(t)\,\mathrm dt\)$BR$BR",
+"\(\displaystyle -10+\int_0^6 r(t)\,\mathrm dt\)$BR$BR",
+"\(\displaystyle 22-\int_0^6 r(t)\,\mathrm dt\)$BR$BR",
+"\(\displaystyle -10+22+\int_0^6 r(t)\,\mathrm dt\)$BR$BR",
+"\(\displaystyle -10+22-\int_0^6 r(t)\,\mathrm dt\)$BR$BR",
+]],0);  # První odpověď správná
 
-if ($d==0)
-{
-    $funkce=Formula("$b+e^($c*x)");
-    $int=Formula("$b*x+e^($c*x)/($c)")->with(limits =>[-1,1]);
-}
-else
-{ 
-    $funkce=Formula("$b*e^($c*x)"); 
-    $int=Formula("$b*exp($c*x)/($c)")->with(limits =>[-1,1]);
-}
+$radio2 = RadioButtons(
+[[
+"\(\displaystyle \int_0^6 r(t)\,\mathrm dt\)$BR$BR",
+"\(\displaystyle -10+\int_0^6 r(t)\,\mathrm dt\)$BR$BR",
+"\(\displaystyle 22-\int_0^6 r(t)\,\mathrm dt\)$BR$BR",
+"\(\displaystyle -10+22+\int_0^6 r(t)\,\mathrm dt\)$BR$BR",
+"\(\displaystyle -10+22-\int_0^6 r(t)\,\mathrm dt\)$BR$BR",
+]],1);  # Druhá odpověď správná
 
-$funkce=$funkce -> reduce();
 
 BEGIN_PGML
 
-## Integrál exponenciální funkce
 
-Integrál exponenciální funkce s lineární vnitřní složkou můžeme vypočítat pomocí vzorce [``\int e^{ax}\,\mathrm dx=\frac 1a e^{ax}+C``]. Například tedy platí
-[``` \int 5+3e^{7x}\,\mathrm dx= 5x + \frac 37 e^{7x}+C.```]
-Tento výsledek je možné zapsat jako *5x+3/7 \* exp(7x)* nebo *5x + 3/7 \* e^(7x)*.
+## Akumulátor
 
------------------------------
+[@ image("auto-zima.jpg", width=>400) @]*
 
-Postupem analogickým uvedenému vzoru vypočtěte následující integrál.
->>[``\int [$funkce]\,\mathrm dx ={}``][_________________________]{$int->cmp(upToConstant=>1)}[``{}+C``] <<
+Teplota studeného akumulátoru přeneseného v zimě v 18:00 z venkovního prostředí o teplotě [`-10 ^\circ\mathrm C`] do místnosti o pokojové teplotě [`22 ^\circ\mathrm C`] roste rychlostí [`` r(t) {}^\circ\mathrm{C}/\mathrm{hod}``], kde [`t`] je čas v hodinách od okamžiku přinesení akumulátoru.
 
+Vyjádřete pomocí těchto informací změnu teploty mezi okamžikem přinesení a půlnocí a teplotu akumulátoru o půlnoci.
+
+----
+
+Vyberte výraz, který udává, o kolik se zvýší teplota akumulátoru od přinesení dovnitř do půlnoci.
+
+[_]{$radio1}
+    
+----
+
+Vyberte výraz, který udává teplotu akumulátoru v okamžiku půlnoci.
+
+[_]{$radio2}
+    
 END_PGML
 
-Context()->texStrings;
-
 BEGIN_PGML_HINT
-V tomto případě se vzorec [```\int e^{ax}\,\mathrm dx=\frac 1a e^{ax}+C```] redukuje na
-[```\int e^{[$c]x}\,\mathrm dx=\frac 1{[$c]} e^{[$c]x}+C.```]
+Změna měnící se veličiny je určena určitým integrálem rychlosti v příslušných mezích. Celková hodnota po změně je změna přičtená k původní hodnotě. 
 END_PGML_HINT
 
+
 BEGIN_PGML_SOLUTION
-V tomto případě se vzorec [```\int e^{ax}\,\mathrm dx=\frac 1a e^{ax}+C```] redukuje na
-[```\int e^{[$c]x}\,\mathrm dx=\frac 1{[$c]} e^{[$c]x}+C.```]
-Odsud
-
->>[```\int [$funkce]\,\mathrm dx = [$int] +C```]. <<
-
-(Tento výsledek je vygenerován automaticky a je možné, že existuje hezčí zápis.)
-
+Změna je vyjádřena určitým integrálem rychlosti v příslušných mezích. V našem případě tedy [``` \int_0^6 r(t)\,\mathrm dt. ```]
+Celková hodnota po uplynutí daného času je součtem počáteční hodnoty a změny. V našem případě tedy [``` -10+\int_0^6 r(t)\,\mathrm dt. ```]
 END_PGML_SOLUTION
 
-
-
 ENDDOCUMENT();
+
+
+
+
+

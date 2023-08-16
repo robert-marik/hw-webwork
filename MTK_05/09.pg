@@ -1,51 +1,60 @@
 DOCUMENT();
 
 loadMacros(
-"PGstandard.pl",
-"MathObjects.pl",
-"parserRadioButtons.pl",
-"PGcourse.pl",
-"PGML.pl"
+    "PGstandard.pl",
+    "PGML.pl",
+    "parserFormulaUpToConstant.pl",
+    "PGcourse.pl",
 );
 
 TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-$radio = RadioButtons(
-[["Nárůst hmotnosti stromu v kilogramech mezi pátým a desátým rokem.",
-"Nárůst hmotnosti stromu v kilogramech za prvních pět let života.",
-"Průměrná rychlost růstu hmotnosti stromu v kilogramech za rok za prvních pět let života.",
-"Průměrná rychlost růstu hmotnosti stromu v kilogramech za rok mezi pátým a desátým rokem.",
-"Okamžitá rychlost růstu hmotnosti v kilogramech za rok po pěti letech života.",
-"Okamžitá rychlost růstu hmotnosti v kilogramech za pět let po pěti letech života.",
-]],
-3);  # odpovedi se permutuji
+Context()->variables->are(r=>'Real');
+Context()->flags->set(
+     reduceConstants => 0,
+     reduceConstantFunctions => 0,
+   );
+
+$n=random(2,7,1);
+$n1=$n-1;
+$k=random(5,15,1);
+$b=random(2,5,1);
+
+$funkce=Formula("$k/r^($n)");
+$prim=Formula("-$k/($n1*(r^($n1)))");
+$int=Formula("-$k/($n1*(($b)^($n1)))+($k/($n1))");
+
 
 BEGIN_PGML
 
-## Růst stromu a slovní interpretace integrálu
+## Výpočet určitého integrálu mocninné funkce se záporným exponentem
 
-[@ image("strom.jpg", width=>400) @]*
+Výpočet integrálu mocninné funkce se záporným exponentem byl součástí minulé sady domácích úloh. Teď se k němu vrátíme s určitým integrálem. 
 
-V následujících dvou příkladech se vrátíme ke slovní interpretaci určitého integrálu. Jak víme, tento integrál umožňuje odvodit změnu veličiny z rychlosti, s jakou se tato veličina mění. V následujícím příkladě je ještě tento integrál vydělen délkou intervalu, po který tato změna probíhala. Jedná se tedy, podobně jako rychlost, o jakousi změnu vztaženou k jednotce času.
 
-----------------------------
+Vypočtěte následující integrál.
+>>[``\int_{1}^{[$b]} [$funkce]\,\mathrm dr ={}``][_________________________]{$int} <<
 
-Nechť [`w'(t)`] označuje rychlost růstu hmotnosti stromu v kilogramech za rok. Jak je možno interpretovat integrál [``` \frac{1}{10-5}\int_{5}^{\,10} {w'(t)}\,\mathrm dt```] pro tento případ?
-
-[_]{$radio}
-
+Nemusíte upravovat výsledek na jediné číslo. Zapište jej v tvaru, který je pro Vás nejpřirozenější nebo nejsnazší pro odpovězení.
 
 END_PGML
 
 BEGIN_PGML_HINT
-Integrál, tj. celkovou změnu, dělíme dobou, za jakou tato změn nastala. Jedná se tedy o průměrnou rychlost. Časové rozmezí definují meze.
+Pozorně počítejte neurčitý integrál a změnu primitivní funkce na zadaném intervalu.
+Neurčitý integrál je
+[```\int [$funkce]\,\mathrm dr =[$prim]. ```]
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
-Určitým integrálem rychlosti v příslušných mezích je vyjádřena změna měnící se veličiny. Po vydělení délkou časového intervalu máme průměrnou rychlost. Odpověď vidíme i tak, že vzorec formálně odpovídá integrální střední hodnotě funkce. Správná odpověď je tedy "Průměrná rychlost růstu hmotnosti stromu v kilogramech za rok mezi pátým a desátým rokem."
-END_PGML_SOLUTION
+Použijeme vztah
+[``` \int [$funkce]\,\mathrm dr=[$prim]+C.```]
+Odsud
+[```\int_{1}^{[$b]} [$funkce]\,\mathrm dr =[$int] ```]
 
+END_PGML_SOLUTION
 
 
 ENDDOCUMENT();

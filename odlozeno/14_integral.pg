@@ -8,21 +8,22 @@ loadMacros(
 "PGML.pl"
 );
 
+
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
 
+
 $data =
 [
 {
-    nadpis=>"Integrál rychlosti",
-    otazka=>"Nechť \(r(t)\) je rychlost s jakou se mění veličina \(f(t)\). Určete slovní interpretaci integrálu \[\int r(t)\,\mathrm dt.\]",
-    odpoved=>"Časový průběh veličiny \(f(t)\) posunutý nanejvýše o aditivní konstantu. Tuto aditivní konstantu dokážeme určit například z počátečního stavu.",
+    nadpis=>"Integrál a aditivní veličina",
+    otazka=>"S integrálem se setkáváme tam, kde se pracuje s aditivními veličinami. Co rozumíme pojmem aditivní veličina?",
+    odpoved=>"Veličina, která se dá u objektu určit tak, že ji nejprve určíme pro jednotlivé komponenty objektu a poté všechny dílčí příspěvky sečteme. Například hmotnost.",
     moznosti=>[
-"Časový průběh veličiny \(f(t)\) daný jednoznačně.",
-"Rychlost s jakou se mění rychlost změny veličiny \(f(t)\).",
-"Obsah plochy pod křivkou danou grafem funkce \(r(t)\).",
-"Obsah plochy pod křivkou danou grafem funkce \(r(x)\).",
+    "Veličina, kterou v matematických operacích nemá smysl uvažovat jinak než s operací sčítání. Například obsah.",
+"Veličina, která sama o sobě nemá žádný význam. Pro interpretaci musíme přidat další fyzikální parametry. Příkladem je celková síla na přehradu.",
+"Veličina, kterou můžeme jenom zvětšovat a nemůžeme ji zmenšovat. Například kvadratický moment."
 ],
 }
 ];
@@ -56,7 +57,7 @@ BEGIN_PGML
 
 ## [$na]
 
-[$ot]*
+[$ot]
 
 [_]{$radio}
 
@@ -66,7 +67,7 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 
-[$od]*
+[$od]
 
 END_PGML_SOLUTION
 

@@ -1,69 +1,50 @@
 DOCUMENT();
 
 loadMacros(
-    "PGstandard.pl",
-    "PGML.pl",
-    "parserFormulaUpToConstant.pl",
-    "PGcourse.pl",
+  "PGstandard.pl",
+  "PGML.pl",
+  "parserFormulaUpToConstant.pl",
+  "PGcourse.pl"
 );
 
-TEXT(beginproblem());
+TEXT(&beginproblem);
 
 $showPartialCorrectAnswers = 1;
 $showHint = 1;
 
 Context()->variables->are(t=>'Real');
-Context()->flags->set(
-     reduceConstants => 0,
-     reduceConstantFunctions => 0,
-   );
 
-$a=random(15,35,1);
-$b=random(3,8,1)/10;
-$n=random(1,2,1);
-$n1=$n+1;
-$mez=random(2,4);
-if ($mez==2) {$slovne="dvě";}
-if ($mez==3) {$slovne="tři";}
-if ($mez==4) {$slovne="čtyři";}
-
-$funkce=Formula("$a-$b*t^($n)")->reduce();
-$prim=Formula("$a*t-$b/($n1)*t^($n1)");
-$int=Formula("$a*$mez-$b/($n1)*($mez)^($n1)");
-
-
+$a=random(5,20,1);
+$b=random(6,10,1);
+$k=random(1,4,1);
+$kk=2*$k;
+$c=random(150,200,1);
+$prim=Formula("[$c] t - [$k]t^2")->reduce();
 
 BEGIN_PGML
 
-## Termohrnek z rozemleté televize
+## Vytékající voda a praktický význam integrálu
 
-[@ image("televizory.jpg", width=>400) @]*
+[@ image("cisterna.jpg", width=>400) @]*
 
-Ještě jednou se vrátíme k nejdůležitější aplikaci integrálu, tj. k přepočtu rychlosti změny na celkovou změnu.
+Při zásobování vodou se někdy musíme uchýlit k použití cisteren. Vypouštění cisterny je poté typický děj probíhající proměnnou rychlostí, protože během odběru se snižuje tlak v místě výpusti a rychlost vytékání se snižuje.
 
-Termohrnek bez atestu, vyrobený z rozemletého plastu ze staré elektroniky, uvolňuje do nápoje zdravotně závadné materiály. Například zpomalovače hoření, BFR. Předpokládejme, že tempo se kterým se BFR vylučuje do nápoje se snižuje s rostoucí kontaminací nápoje a s klesající teplotou nápoje, tj. klesá v čase. Vhodným modelem může být například [``` r(t)=([$funkce]) \,\mathrm{\mu g}/\mathrm{hod},```] kde [`r(t)`] je rychlost vylučování BFR do nápoje v čase [`t`] v mikrogramech za hodinu a [`t`] je čas v hodinách. Vypočtěte, jaké množství BFR se do nápoje uvolní za první [$slovne] hodiny. Výsledek zadejte číslem v mikrogramech.
+Předpokládejme, že voda vytéká z ventilu u dna cisterny rychlostí  [`r(t)=[$c]-[$kk]t`] litrů za minutu, kde [`0 \le t \le 50.`]  Najděte objem vody (v litrech), který vyteče z nádrže za [$a] minut.
 
+V tomto příkladě tedy máme zadánu rychlost s jakou se mění jistá veličina a úkolem je najít celkovou změnu této veličiny. To je přesně případ řešitelný pomocí integrálu. Musíme tedy vypočítat [``` \int_0^{[$a]}[$c]-[$kk]*t\,\mathrm dt.```]
 
-1. Vypočtěte neurčitý integrál.
-    >> [`` \int [$funkce] \,\mathrm dt={}``][__________________]{$prim->cmp(upToConstant=>1)}[``+C``]<<
-1. Vypočtěte, jaké množství BFR se do nápoje uvolní za první [$slovne] hodiny. Výsledek zadejte číslem v mikrogramech.
-    >> Uvolní se [_________________________]{$int}[`` \mathrm {\mu g}``] BFR.<<
+Mezivýpočet:[``\int [$c]-[$kk]t \,\mathrm dt={}``][________]{$prim->cmp(upToConstant=>1)}
 
+Odpověď: Vyteče [________________]{$c*$a-$k*($a**2)} litrů vody.
 
 END_PGML
 
-BEGIN_PGML_HINT
-Použijte určitý integrál [``` \int_0^{[$mez]} [$funkce]\,\mathrm dt.```]
-Neurčitý integrál je [``` \int [$funkce]\,\mathrm dt=[$prim]+C.```]
-
-END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
-Množství BFR, které se uvolní do nápoje,  bude integrál z rychlosti, jakou  toto uvolňování probíhá. (Můžeme toto množství uvažovat jako celkový objem BFR v původně čistém nápoji a toto množství se mění zadanou rychlostí  [`r(t)=([$funkce]) \,\mathrm{\mu g}/\mathrm{hod}).`] Použijeme proto určitý integrál [``` \int_0^{[$mez]} [$funkce]\,\mathrm dt.```]
-Neurčitý integrál je [``` \int [$funkce]\,\mathrm dt=[$prim]+C.```]
-Určitý integrál a odpověď na otázku je potom [``` \int_0^{[$mez]} [$funkce]\,\mathrm dt=\left[[$prim]\right]_0^{[$mez]}=[$int].```]
-
+Množství vody bude integrál z rychlosti, se kterou voda vytéká.
+[``` \int_0^{[$a]} [$c]-[$kk]t \,\mathrm dt = \left[[$prim] \right] _{0}^{[$a]}=[$c]\cdot[$a] - [$k]\cdot ([$a])^2```]
 END_PGML_SOLUTION
+
 
 
 ENDDOCUMENT();

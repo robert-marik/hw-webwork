@@ -1,78 +1,77 @@
 DOCUMENT();
 
 loadMacros(
-"PGstandard.pl",
-"MathObjects.pl",
-"parserRadioButtons.pl",
-"PGcourse.pl",
-"PGML.pl"
+    "PGstandard.pl",
+    "PGML.pl",
+    "PGcourse.pl",
 );
 
-
 TEXT(beginproblem());
-$showPartialCorrectAnswers = 0;
+
+$showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-$data =
-[
+$b=random(2,10,1);
+$c=random(-1,1,2);
+$d=non_zero_random(-10,18,2);
+$f=random(-10,10,1);
+$n=random(3,6,1);
+$n1=$n+1;
+
+Context("Numeric")->variables->add(a=>"Real");
+$showPartialCorrectAnswers = 1;
+
+if ($d==0)
 {
-    nadpis=>"Primitivní funkce",
-    otazka=>"Který z bodů vyjadřuje, že funkce \(F(x)\) je primitivní funkcí k \(f(x)\).",
-    odpoved=>"Derivace funkce \(F(x)\) je rovna \(f(x)\).",
-    moznosti=>[
-"Derivace funkce \(f(x)\) je rovna \(F(x)\).",
-"Derivace funkce \(F(x)\) je rovna součtu \(f(x)\) a integrační konstanty.",
-"Derivace funkce \(f(x)\) je rovna součtu \(F(x)\) a integrační konstanty.",
-],
+    $funkce=Formula("$b+e^($c*a*x)")->reduce();
+    $int=Formula("$b*x+e^($c*a*x)/($c*a)")->reduce();
 }
-];
+else
+{ 
+    $funkce=Formula("$b*e^($c*a*x)")->reduce(); 
+    $int=Formula("$b*e^($c*a*x)/($c*a)")->reduce();
+}
 
-# Pocet otazek
-$pocet=@$data;
-$posledni=$pocet-1;  # indexujeme od nuly
+$funkce2=Formula("$d*x+a*x^($n)")->reduce(); 
+$int2=Formula("1/2*($d)*x^2+a/$n1*x^($n1)")->reduce();
 
-# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
-if ($DEBUG) {@pole = (0..$posledni);}
-   else {@pole=(random(0,$posledni));}
-
-# Cyklus pres otazky (jednu nebo vsechny)
-foreach $i (@pole)
-{
-
-
-
-# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
-# s interpretaci hranatych zavorek
-$ot       =  $data->[$i]->{otazka};
-$na       =  $data->[$i]->{nadpis};
-$obrazek  =  $data->[$i]->{obrazek};
-$od       =  $data->[$i]->{odpoved};
-$zdroj    =  $data->[$i]->{zdroj};
-@moznosti =@{$data->[$i]->{moznosti}};
-$radio    =  RadioButtons([[$od,@moznosti]],0);
+sub mycheck {
+  my ($correct, $student, $ansHash) = @_;
+  Value->Error("Try again") if cos($student)==sqrt(3)/2;
+  return $correct->D(x) == $student->D(x);
+}
 
 
 BEGIN_PGML
 
-## [$na]
+## Integrál s parametrem
 
-[$ot]*
+Integrály s parametrem nejsou nic jiného než klasické integrály s drobnou  modifikací: namísto hodnot koeficientů vyjádřených numerickou hodnotou obsahují parametr. Z hlediska výpočtu se nic nemění. Proto například můžeme psát
+[``` \int 7x^3+a x^8\,\mathrm dx=\frac 74 x^4+\frac a9 x^9+C.```]
 
-[_]{$radio}
+--------------------------
 
-_[$zdroj]_
+Vypočtěte integrál funkce proměnné [`x`] s parametrem [`a`].
+
+>>[``\int [$funkce2]\,\mathrm dx ={}``][_________________________]{$int2->cmp(vars=>["x","a"] , checker=>~~&mycheck )}[``{}+C``] <<
+
+>>[``\int [$funkce]\,\mathrm dx ={}``][_________________________]{$int->cmp(vars=>["x","a"] , checker=>~~&mycheck )}[``{}+C``] <<
 
 END_PGML
 
-BEGIN_PGML_SOLUTION
+BEGIN_PGML_HINT
+Úloha je podobná jako předchozí, jenom je místo čísla parametr [`a`]. Představte si místo parametru číslo, 
+END_PGML_HINT
 
-[$od]*
+BEGIN_PGML_SOLUTION
+Úloha je podobná jako předchozí, jenom je místo čísla parametr [`a`]. 
+
+[```\int [$funkce2]\,\mathrm dx =[$int2]+C```]
+[```\int [$funkce]\,\mathrm dx =[$int]+C```]
 
 END_PGML_SOLUTION
 
-};
-# konec cyklu
+
 
 
 ENDDOCUMENT();
-

@@ -1,78 +1,78 @@
 DOCUMENT();
 
 loadMacros(
-    "PGstandard.pl",
-    "PGML.pl",
-    "parserFormulaUpToConstant.pl",
-    "PGcourse.pl",
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
 );
 
-TEXT(beginproblem());
 
-$showPartialCorrectAnswers = 1;
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
 $showHint = 1;
 
-Context()->flags->set(
-     reduceConstants => 0,
-     reduceConstantFunctions => 0,
-   );
+
+$data =
+[
+{
+nadpis=>"Kdy se používá neurčitý integrál?",
+otazka=>"Uveďte, který bod nejlépe vystihuje situaci, kdy využíváme neurčitý integrál jako operaci inverzní k derivaci.",
+odpoved=>"Pokud známe okamžitou rychlost růstu, můžeme pomocí integrálu určit časový průběh veličiny. K určení integrační konstanty je nutné znát výchozí stav.",
+moznosti=>[
+"Pokud známe časový průběh nějaké veličiny (hodnoty veličiny jako funkci času), můžeme pomocí integrálu určit v každém okamžiku rychlost růstu této veličiny. Integrační konstantu stanovíme z počátečního a koncového stavu.",
+"Pokud známe časový průběh nějaké veličiny (hodnoty veličiny jako funkci času), můžeme pomocí integrálu určit na každém podintervalu průměrnou rychlost růstu této veličiny. Integrační konstanta je libovolná.",
+"Pokud známe rychlost růstu na každém podintervalu, můžeme pomocí integrálu určit časový průběh veličiny. Integrační konstantu určíme jako změnu na celém intervalu.",
+]}
+];
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
 
 
-$N=random(4,9,1);
-$a=random(2,10,2);
-$b=random(-7,11,2);
-$c=random(2,10,2);
-$d=random(-9,11,2);
 
-$funkce1=Formula("($a*x+$b)^3")->reduce();
-$int1=Formula("(1/4)* (1/($a)) *($a*x+$b)^4")->with(limits =>[-1,1]);
-$funkce2=Formula("($c*x+$d)^($N)")->reduce();
-$N1=$N+1;
-$int2=Formula("1/($N1)*(1/$c)*($c*x+$d)^($N1)")->with(limits =>[-1,1]);
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
 
 BEGIN_PGML
 
-## Složená funkce s lineární vnitřní složkou
+## [$na]
 
-Funkce tvaru [`f(ax+b)`] můžeme integrovat podle vztahu [``` \int f(ax+b)\,\mathrm dx=\frac 1a F(ax+b)+C,```]
-kde [`F`] je primitivní funkcí k [`f`], tj.
-[``` \int f(x)\,\mathrm dx=F(x)+C.```]
+[$ot]*
 
-Je-li například funkce [`f`] mocninná funkce, je funkce [`F`] mocninná funkce s exponentem navýšeným o jedničku a vynásobená faktorem obsahujícím tento navýšený exponent ve jmenovateli. Například pro třetí mocninu máme [```f(x)=x^3```] a [```F(x)=\frac 14 x^4.```] Odsud poté například (pro [`ax+b=7x-15`])
-[```\int(7x-15)^3\,\mathrm dx=\frac 1{7}\cdot \frac 14 \cdot (7x-15)^4+C, ```]
-což můžeme zapsat jako *1/(7\*4) \* (7x-15)^4*.
+[_]{$radio}
 
--------------
-
-Vypočtěte následující integrály.
->>[``\int [$funkce1]\,\mathrm dx ={}``][_________________________]{$int1->cmp(upToConstant=>1)}[``{}+C``] <<
-
->>[``\int [$funkce2]\,\mathrm dx ={}``][_________________________]{$int2->cmp(upToConstant=>1)}[``{}+C``] <<
+_[$zdroj]_
 
 END_PGML
 
-BEGIN_PGML_HINT
-Použijte vztah
-[``` \int x^n\,\mathrm dx=\frac1{n+1}x^{n+1}+C```]
-pro [`n=3`] a [`n=[$N]`].
-
-Slovně by bylo možno vyjádřit postup tak, že exponent se o jedničku zvýší, přídá se ještě i do jmenovatele a dále se do jmenovatele přidá koeficient, který uvnitř závorky násobí proměnnou [`x`], tj. v případě prvního integrálu [`[$a]`] a v případě druhého integrálu [`[$c]`].
-END_PGML_HINT
-
 BEGIN_PGML_SOLUTION
-Použijeme vztah
-[``` \int x^n\,\mathrm dx=\frac1{n+1}x^{n+1}+C```]
-pro [`n=3`] a [`n=[$N]`].
 
-Slovně by bylo možno vyjádřit potup tak, že exponent se o jedničku zvýší, přídá se ještě i do jmenovatele a dále se do jmenovatele přidá koeficient, který uvnitř závorky násobí proměnnou [`x`], tj. v případě prvního integrálu [`[$a]`] a v případě druhého integrálu [`[$c]`].
+[$od]*
 
-Dostáváme následující. 
->>[``\int [$funkce1]\,\mathrm dx =\frac 1{4\cdot [$a]}([$a]x+[$b])^4+C``] <<
-
->>[``\int [$funkce2]\,\mathrm dx =\frac 1{[$N1]\cdot [$c]}([$c]x+[$d])^{[$N1]}+C``] <<
-
-(Je možné, že počítač nahradí zlomek desetinným číslem a musíte zpětně "rozšifrovat", o jaký zlomek se jedná.)
 END_PGML_SOLUTION
+
+};
+# konec cyklu
 
 
 ENDDOCUMENT();
+

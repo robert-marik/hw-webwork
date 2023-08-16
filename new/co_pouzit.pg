@@ -18,23 +18,27 @@ do
 @perm = shuffle(6);
 } until ( ($perm[0] != 0) ||  ($perm[1] != 1) || ($perm[2] != 2) || ($perm[3] != 3) || ($perm[4] != 4)|| ($perm[5] != 5));
 
-$draggable = DraggableSubsets(
-[ 
+$odpovedi = [ 
 "Znám časový průběh \(y\) a zajímá mne změna \(y\) na zadaném intervalu.",
 "Znám časový průběh \(y\) a zajímá mne rychlost změny. Vím, že děj probíhá rovnoměrně (tj. konstantní rychlostí).",
 "Znám časový průběh \(y\) a zajímá mne rychlost změny. Vím, že děj nemusí probíhat rovnoměrně (tj. nemusí probíhat konstantní rychlostí).",
 "Znám rychlost změny a výchozí stav, zajímá mne časový průběh \(y\). Rychlost závisí pouze na čase.",
 "Znám rychlost změny a zajímá mne změna \(y\) na zadaném intervalu. Rychlost závisí pouze na čase.",
 "Znám rychlost změny a výchozí stav, zajímá mne časový průběh \(y\). Rychlost závisí na čase a na \(y\).",
-],
+];
+
+$nadpis = ["Rozdíl", "Podíl", "Derivace", "Neurčitý integrál", "Určitý integrál", "Diferenciální rovnice"];
+
+$draggable = DraggableSubsets(
+$odpovedi,
 [[0],[1],[2],[3],[4],[5]],
 DefaultSubsets => [
-{label => "Rozdíl", indices => [$perm[0]]},
-{label => "Podíl", indices => [$perm[1]]},
-{label => "Derivace", indices => [$perm[2]]},
-{label => "Neurčitý integrál", indices => [$perm[3]]},
-{label => "Určitý integrál", indices => [$perm[4]]},
-{label => "Diferenciální rovnice", indices => [$perm[5]]},
+{label => $nadpis->[0], indices => [$perm[0]]},
+{label => $nadpis->[1], indices => [$perm[1]]},
+{label => $nadpis->[2], indices => [$perm[2]]},
+{label => $nadpis->[3], indices => [$perm[3]]},
+{label => $nadpis->[4], indices => [$perm[4]]},
+{label => $nadpis->[5], indices => [$perm[5]]},
 ],
 AllowNewBuckets => 0,
 OrderedSubsets => 1
@@ -60,6 +64,19 @@ END_PGML
 
 
 BEGIN_PGML_SOLUTION
+
+*[@ $nadpis->[0] @]:* [@ $odpovedi->[0] @]
+
+*[@ $nadpis->[1] @]:* [@ $odpovedi->[1] @]
+
+*[@ $nadpis->[2] @]:* [@ $odpovedi->[2] @]
+
+*[@ $nadpis->[3] @]:* [@ $odpovedi->[3] @]
+
+*[@ $nadpis->[4] @]:* [@ $odpovedi->[4] @]
+
+*[@ $nadpis->[5] @]:* [@ $odpovedi->[5] @]
+
 
 END_PGML_SOLUTION
 
