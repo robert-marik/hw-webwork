@@ -1,64 +1,128 @@
 DOCUMENT();
 
-loadMacros(
-    "PGstandard.pl",
-    "PGML.pl",
-    "parserFormulaUpToConstant.pl",
-    "PGcourse.pl",
+loadMacros('PGstandard.pl', 'PGML.pl', 'PGtikz.pl',
+'parserCheckboxList.pl', 'PGcourse.pl');
+
+
+ $TikZ = createTikZImage();
+ $TikZ->BEGIN_TIKZ
+ \draw[->] (0,0)--(0,2) node[right]{\(\frac{\mathrm dv}{\mathrm dt}\)};
+ \draw[->] (0,0)--(4,0) node[right]{\(v\)};
+ \draw[red] (-0.3,1.7) -- (3.5,-1);
+ END_TIKZ
+
+@correct_answers =  (
+"Pravá strana je klesající funkcí rychlosti \(v\).",
+"Pravá strana má jeden nulový bod.",
+"Rovnice má jeden stacionární bod.",
+"Rovnice má jeden stabilní stacionární bod.",
+"Pro malé rychlosti platí, že rychlost roste.",
+"Pro velké rychlosti platí, že rychlost klesá.",
+"Při pohybu v prostředí s větším odporem bude konstanta \(k_2\) větší.",
+"Rychlost se ustálí na hodnotě \(\displaystyle \frac{k_1}{k_2}\).",
+"Konstanta \(k_1\) má jednotku rovnu podílu jednotky rychlosti a jednotky času, například \(\mathrm{m}\cdot\mathrm{s}^{-2}\).",
+"Konstanta \(k_2\) má jednotku rovnu převrácené hodnotě času, například \(\mathrm{s}^{-1}\).",
+"Rychlost tělesa vypuštěného z klidu roste, ale jenom do určité limitní hodnoty."
 );
 
-TEXT(beginproblem());
+@incorrect_answers = (
+"Pravá strana je rostoucí funkcí rychlosti \(v\).",
+"Pravá strana má dva nulové body.",
+"Rovnice nemá žádný stacionární bod.",
+"Rovnice má jeden nestabilní stacionární bod.",
+"Pro malé rychlosti platí, že rychlost klesá.",
+"Pro velké rychlosti platí, že rychlost roste.",
+"Při pohybu v prostředí s větším odporem bude konstanta \(k_2\) menší.",
+"Rychlost se ustálí na hodnotě konstanty \(\displaystyle k_2\).",
+"Konstanta \(k_1\) má jednotku rovnu převrácené hodnotě času, například \(\mathrm{s}^{-1}\).",
+"Konstanta \(k_2\) má jednotku rovnu podílu jednotky rychlosti a jednotky času, například \(\mathrm{m}\cdot\mathrm{s}^{-2}\).",
+"Rychlost tělesa vypuštěného z klidu neohraničeně roste.",
+);    
 
-$showPartialCorrectAnswers = 1;
-$showHint = 1;
+$li = MODES (HTML => "<li>", TeX => "\item");
+$ul = MODES (HTML => "<ul>", TeX => "\begin{itemize}");
+$end_ul = MODES (HTML => "</ul>", TeX => "\end{itemize}");
+$answers = "Správná tvrzení: $ul $li " . join( "$li ", @correct_answers ) . "$end_ul Nesprávná tvrzení:$ul $li " . join( "$li ", @incorrect_answers ) . "$end_ul";
 
-Context()->variables->are(t=>'Real');
-Context()->flags->set(
-     reduceConstants => 0,
-     reduceConstantFunctions => 0,
-   );
+#$n_correct = random(2, 6);
+#$n_incorrect = 10 - $n_correct;
+#@OK = random_subset($n_correct,@correct_answers);
+#@not_OK = random_subset($n_incorrect,@incorrect_answers);
+#@ans = (0..$n_correct-1);
+#$checks = CheckboxList([[@OK,@not_OK]],[@ans]);
 
-$n=random(2,5,1);
-$n1=$n+1;
-$a=random(2,5,1);
-$b=random(3,5,1);
-$c=random(1,5,1);
-
-$funkce=Formula("$b+$c*t^($n)");
-$prim=Formula("$b*t+$c/($n1)*t^($n1)");
-$int=Formula("$b*$a+$c/($n1)*($a)^($n1)");
-$str=Formula("($b*$a+$c/($n1)*($a)^($n1))/($a)");
+@ans=();
+@varianty=();
+@list = (0..10);
+foreach (@list)
+{
+    $a = random(0,1);
+  if ($a==1)
+  {
+      push(@ans,($_));
+      push(@varianty,$correct_answers[$_]);
+  }
+  else
+  {
+      push(@varianty,$incorrect_answers[$_]);
+  }
+}
+$checks = CheckboxList([@varianty],[@ans]);
 
 
 BEGIN_PGML
 
-## Výpočet integrálů
+# Pohyb v prostředí s odporovou silou
 
 
-Vypočtěte následující neurčitý integrál, určitý integrál a střední hodnotu.
+Dlouho si lidé mysleli, že aby se těleso pohybovalo rychle, musí na něj působit velká síla. Revoluci v tomto chápání způsobil Isaac Newton, který prokázal, že těleso si rychlost udržuje, pokud na něj nepůsobí žádná síla (zákon setrvačnosti) a že působení síly navyšuje rychlost (zákon síly). 
 
->>[``\int [$funkce]\,\mathrm dt ={}``][_________________________]{$prim->cmp(upToConstant=>1)} <<
+V prostředí, ve kterém působí konstantní síla urychlující těleso a odporová síla úměrná rychlosti má pohybová rovnice tvar 
+[``` \frac{\mathrm dv}{\mathrm dt}=k_1-k_2v,```]
+kde [`v`] je rychlost pohybu, [`k_1`] je konstanta související s působící konstantní silou (například gravitace při volném pádu) a člen [`k_2v`] je odporová síla prostředí, která roste s rostoucí rychlostí.
 
->>[``\int_{0}^{[$a]} [$funkce]\,\mathrm dt ={}``][_________________________]{$int} <<
+Zatrhněte všechna tvrzení, která jsou pravdivá. Nezávislou proměnnou (neznámou v rovnici) je rychlost, derivujeme podle času a obě konstanty [`k_1`] a [`k_2`] jsou kladné. 
 
->>[``\frac 1{[$a]}\int_{0}^{[$a]} [$funkce]\,\mathrm dt ={}``][_________________________]{$str} <<
+
+[_]{$checks}
+
 
 END_PGML
 
 BEGIN_PGML_HINT
-Použijte neurčitý integrál
-[``` \int t^{[$n]}\,\mathrm dt=\frac1{[$n1]}t^{[$n1]}+C```] a vypočtěte změnu primitivní funkce na intervalu [`[0,[$a]]`], tj. rozdíl funkční hodnoty v [`[$a]`] a [`0`].
+
+ [!Graf pravé strany!]{$TikZ}{250}
+
+Pravá strana jako funkce proměnné [`v`] je zachycena na obrázku. Odsud je možno vyčíst odpovědi na monotonii jak pravé strany, tak řešení rovnice, dále počet stacionárních bodů a jejich stabilitu.
+
+Jednotky konstant použitých v modelu se dají poznat z toho, že všechny členy v rovnici, tj. derivace nalevo a oba členy napravo (konstanta [`k_1`] i součin [`k_2 v`]) musí mít stejnou jednotku a že jednotka derivace je stejná jako jednotka podílu.
+
+V prostředí s větším odporem musí být odporová síla [`k_2v`] větší a odsud poznáme, zda v takovém prostředí je [`k_2`] větší nebo menší.
+
+Poloha stacionárního bodu (tj. hodnota, na které se ustálí rychlost) je hodnotou rychlosti, pro kterou je pravá strana rovnice nulová.
+
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
-Použijeme vztah
-[``` \int [$funkce]\,\mathrm dt=[$prim]+C.```]
-Odsud
-[```\int_{0}^{[$a]} [$funkce]\,\mathrm dt =[$int]. ```]
-Po vydělení hodnotou [`` [$a] ``] dostáváme střední hodnotu [`` [$str]. ``]
 
-(Vztahy jsou automaticky vygenerovány a pravděpodobně je možné je upravit do hezčího tvaru.)
+
+ [!Graf pravé strany!]{$TikZ}{250}
+
+Pravá strana jako funkce proměnné [`v`] je zachycena na obrázku. Odsud je možno vyčíst odpovědi na monotonii jak pravé strany, tak řešení rovnice, dále počet stacionárních bodů a jejich stabilitu.
+
+Jednotky konstant použitých v modelu se dají poznat z toho, že všechny členy v rovnici, tj. derivace nalevo a oba členy napravo (konstanta [`k_1`] i součin [`k_2 v`]) musí mít stejnou jednotku a že jednotka derivace je stejná jako jednotka podílu.
+
+V prostředí s větším odporem musí být odporová síla [`k_2v`] větší a odsud poznáme, zda v takovém prostředí je [`k_2`] větší nebo menší.
+
+Poloha stacionárního bodu (tj. hodnota, na které se ustálí rychlost) je hodnotou rychlosti, pro kterou je pravá strana rovnice nulová.
+
+---
+
+[$checks->correct_ans]
+
+---
+
+[@ $answers @]*
 END_PGML_SOLUTION
-
 
 ENDDOCUMENT();

@@ -1,67 +1,77 @@
-DOCUMENT(); 
+###########################
+#  Initialization
+
+DOCUMENT();
+
 loadMacros(
-"PGstandard.pl",
-"PGML.pl",
-"MathObjects.pl",
-"PGessaymacros.pl",
-"PGcourse.pl",
+  "PGstandard.pl",
+   "PGML.pl",
+  "PGchoicemacros.pl",   
+  'draggableSubsets.pl', 
+  "PGcourse.pl"
 );
-TEXT(beginproblem());
 
-ADD_CSS_FILE("css/left.css");
+$showHint = 1;
 
-TEXT(MODES(
-    HTML => "<style>.problem-content textarea {width:100%;}</style>",
-));
+do
+{
+@perm = shuffle(6);
+} until ( ($perm[0] != 0) ||  ($perm[1] != 1) || ($perm[2] != 2) || ($perm[3] != 3) || ($perm[4] != 4)|| ($perm[5] != 5));
 
-TEXT(MODES(
-    HTML => "<style>th:nth-child(4) {width:300px;} </style>",
-));
+$odpovedi = [ 
+"Znám časový průběh \(y\) a zajímá mne změna \(y\) na zadaném intervalu.",
+"Znám časový průběh \(y\) a zajímá mne rychlost změny. Vím, že děj probíhá rovnoměrně (tj. konstantní rychlostí).",
+"Znám časový průběh \(y\) a zajímá mne rychlost změny. Vím, že děj nemusí probíhat rovnoměrně (tj. nemusí probíhat konstantní rychlostí).",
+"Znám rychlost změny a výchozí stav, zajímá mne časový průběh \(y\). Rychlost závisí pouze na čase.",
+"Znám rychlost změny a zajímá mne změna \(y\) na zadaném intervalu. Rychlost závisí pouze na čase.",
+"Znám rychlost změny a výchozí stav, zajímá mne časový průběh \(y\). Rychlost závisí na čase a na \(y\).",
+];
+
+$nadpis = ["Rozdíl", "Podíl", "Derivace", "Neurčitý integrál nebo integrál jako funkce meze", "Určitý integrál", "Diferenciální rovnice"];
+
+$draggable = DraggableSubsets(
+$odpovedi,
+[[0],[1],[2],[3],[4],[5]],
+DefaultSubsets => [
+{label => $nadpis->[0], indices => [$perm[0]]},
+{label => $nadpis->[1], indices => [$perm[1]]},
+{label => $nadpis->[2], indices => [$perm[2]]},
+{label => $nadpis->[3], indices => [$perm[3]]},
+{label => $nadpis->[4], indices => [$perm[4]]},
+{label => $nadpis->[5], indices => [$perm[5]]},
+],
+AllowNewBuckets => 0,
+OrderedSubsets => 1
+);
+
+
+
+###########################
+#  Main text
 
 BEGIN_PGML
 
+## Který nástroj použít na kterou úlohu?
 
-## Diferenciální rovnice
+Uvažujme úlohu, kdy se veličina [`y`] mění v čase. Spárujte nástroj se specifikací nutných vstupních údajů a možností na výstupu. Pokud je více možností, volte tu nejjednodušší.
 
-Diferenciální rovnice jsou rovnice, obsahující derivace. Řeší se integrováním. Proto se ve všech kurzech matematiky probírají až po derivacích a integrálech. Historie však šla v určitém smyslu naopak a derivace i integrály byly vlastně vymyšleny proto, aby bylo možné pracovat s diferenciálními rovnicemi a řešit je. 
+[_]{$draggable}
 
-**Úkol pro tento týden: Zkuste krátce vysvětlit, proč mají diferenciální rovnice takové důležité postavení v popisu
-přírodních dějů a jevů. Vyhněte se opsání první věty z Wikipedie, ale snažte se sestavit vlastní formulaci. Opět je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
-
-END_PGML
-
-
-BEGIN_TEXT
-\{essay_box(10,80)\}
-END_TEXT
-
-
-#Essay Boxs use the essay_cmp evaluator.
-ANS(essay_cmp());
-
-
-BEGIN_PGML
- 
-Samozřejmostí je ucelený text, celá věta nebo celý odstavec s dodržením interpunkce a stavby věty (podmět, sloveso, další větné členy). Cílem je vyzkoušet si, zda umíte dát srozumitelnou a jasně formulovanou odpověď.
- 
 END_PGML
 
 BEGIN_PGML_SOLUTION
 
-Není jediná správná odpověď.
+*[@ $nadpis->[0] @]:* [@ $odpovedi->[0] @]
 
-* Pokud pojmeme obecněji, můžeme napsat, že diferenciální rovnice se
-  vyskytují jako matematický model situací, kdy potřebujeme modelovat
-rychlost změny nějaké veličiny a tato rychlost (derivace) souvisí s hodnotou
-sledované veličiny. Jednoduchým příkladem je rychlost změny teploty při
-tepelné výměně, protože rychlost s jakou se mění teplota souvisí s teplotním
-rozdílem a tedy i s teplotou samotnou.
-* Pokud pojmeme konkrétněji, můžeme zmínit některý z řady modelů, které jsme
-formulovali na přednášce či ve cvičení. Přitom některé modely jsou obecné a
-důležité (například logistický růst populace, růst populace s lovem,
-radioaktivní rozpad, tepelná výměna, vedení tepla) a některé sloužily jenom
-jako trénink přepisu slovního zadání do matematického modelu (rozklad listí
-v lese apod). Vhodnější je samořejmě zmínit spíše důležitější modely. 
+*[@ $nadpis->[1] @]:* [@ $odpovedi->[1] @]
+
+*[@ $nadpis->[2] @]:* [@ $odpovedi->[2] @]
+
+*[@ $nadpis->[3] @]:* [@ $odpovedi->[3] @]
+
+*[@ $nadpis->[4] @]:* [@ $odpovedi->[4] @]
+
+*[@ $nadpis->[5] @]:* [@ $odpovedi->[5] @]
 
 END_PGML_SOLUTION
 

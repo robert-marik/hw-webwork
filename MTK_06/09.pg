@@ -1,93 +1,137 @@
-##################################################
-
-DOCUMENT(); 
+DOCUMENT();
 loadMacros(
 "PGstandard.pl",
-"PGML.pl",
 "MathObjects.pl",
-"answerHints.pl",
-"PGcourse.pl",
+"PGML.pl",
+"PGchoicemacros.pl",   
+'draggableSubsets.pl',
+"PGtikz.pl"
 );
 TEXT(beginproblem());
 
-$showPartialCorrectAnswers = 1;
 $showHint = 1;
 
-Context("Numeric")->variables->are('dx'=>['Real',limits=>[1,100]], 'dy'=>'Real', 'y'=>'Real', 'x'=>'Real');
-Context()->variables->set(dx => {TeX => '{\mathrm dx}'});
-Context()->variables->set(dy => {TeX => '{\mathrm dy}'});
-
-
-$a=non_zero_random(-5,5);
-$b=non_zero_random(1,5);
-do { $c=non_zero_random(-7,7,2); } until ($c!=$a);
-$d=non_zero_random(-6,10,1);
-
-$n=random(0,1);
-
-if ($n==1)
+do
 {
-$rovnice=Formula("e^($a*y+$b)*(x^2+$d)")->reduce();
-$RHS=Formula("(x^2+$d)*dx")->reduce();
-$akce="vydělení";
-$cim=Formula("e^($a*y+$b)")->reduce();
-$LHS=Formula("e^(-$a*y-$b)*dy")->reduce();
-}
-else
+@perm = shuffle(8);
+} until ( ($perm[0] != 0) ||  ($perm[1] != 1) || ($perm[2] != 2) || ($perm[3] != 3) || ($perm[4] != 4)|| ($perm[5] != 5) || ($perm[6] != 6) || ($perm[7] != 7));
+
+$odpovedi = [ 
+"Populace bakterií roste v prostředí s neomezenou úživností.",
+"Množství radioaktivího prvku se snižuje rozpadem.",
+"Horká káva se ochlazuje na teplotu místnosti.",
+"Studená zmrzlina se ohřívá na teplotu místnosti.",
+"Ryba roste s věkem.",
+"Populace bakterií roste v prostředí s omezenou nosnou kapacitou.",
+"Množství nečistot v jezeře se snižuje vlivem samočištění jezera.",
+"Vlhkost čerstvého dřeva klesá k rovnovážné vlhkosti."
+];
+
+$a = 
+[
+"\draw[red]  plot[domain=0:2] (\x,1/250*exp(\x*3))",
+"\draw[red]  plot[domain=0:2] (\x,0.9*exp(-\x*3))",
+"\draw[red]  plot[domain=0:2] (\x,0.2+0.7*exp(-\x*3))",
+"\draw[red]  plot[domain=0:2] (\x,0.8-0.6*exp(-\x*3))",
+"\draw[red]  plot[domain=0:2] (\x,.95/(1+exp(-(\x*6-4))))"
+];
+
+@graphs = ();
+
+foreach (0,1,2,3,4)
 {
-$rovnice=Formula("e^($a*x+$b)*(y^2+$d)")->reduce();
-$RHS=Formula("e^($a*x+$b)*dx")->reduce();
-$akce="vydělení";
-$cim=Formula("(y^2+$d)")->reduce();
-$LHS=Formula("dy/(y^2+$d)")->reduce();
+$graph_image = createTikZImage();
+$graph_image->tikzLibraries("arrows.meta");
+$graph_image->BEGIN_TIKZ
+\clip(-0.3,-0.3) rectangle (2,1);
+\draw[->] (0,0)--(2,0);
+\draw[->] (0,0) -- (0,1);
+$a->[$_];
+END_TIKZ
+$graphs[$_] = $graph_image;
 }
 
+$nadpis = [
+image($graphs[0], width => 200, tex_size => 300), 
+image($graphs[1], width => 200, tex_size => 300), 
+image($graphs[2], width => 200, tex_size => 300), 
+image($graphs[3], width => 200, tex_size => 300), 
+image($graphs[4], width => 200, tex_size => 300), 
+];
 
+$draggable = DraggableSubsets(
+$odpovedi,
+[[0],[1,6],[2,7],[3,4],[5]],
+DefaultSubsets => [
+{label => "Neohraničený růst ".$nadpis->[0], indices => [$perm[0],$perm[5]]},
+{label => "Pokles k nule ".$nadpis->[1], indices => [$perm[1],$perm[6]]},
+{label => "Pokles k rovnovážné hodnotě ".$nadpis->[2], indices => [$perm[2],$perm[7]]},
+{label => "Růst k rovnovážné hodnotě, rychlý počáteční náběh ".$nadpis->[3], indices => [$perm[3]]},
+{label => "Růst k rovnovážné hodnotě, pomalý počáteční náběh".$nadpis->[4], indices => [$perm[4]]},
+],
+AllowNewBuckets => 0,
+OrderedSubsets => 1
+);
 
 BEGIN_PGML
 
-## Separace u separovatelné diferenciální rovnice
+# Růstové křivky
 
-Separovatelné rovnice jsou rovnice, kde dokonce umíme určit obecné řešení. Zopakujte si postup řešení těchto rovnic podle přednášky a cvičení. Formálně derivaci chápeme jako podíl diferenciálů a násobením a dělením vhodnými veličinami se snažíme oddělit proměnné tak, aby jedna z proměnných byla vlevo a druhá vpravo. 
+Na obrázcích jsou křivky, jak by mohl vypadat průběh závislosti sledované veličiny na čase. K tomu jsou modelované situace. Přesuňte situace ke správným obrázkům.
 
-Například  rovnici
-[``` \frac{\mathrm dy}{\mathrm dx}= e^y(3x^7-6)```]
-můžeme po vydělení faktorem [``e^y``] a vynásobení faktorem [`` \mathrm dx``] přepsat do tvaru
-[```e^{-y}\mathrm dy= (3x^7-6)\mathrm dx.```]
-(Všimněte si dobrého mravu nahradit zlomek [`` \frac 1{e^y}``] výrazem [`` e^{-y}``].)
-Levou stranu můžeme v programu WeBWork zapsat například jako *exp(-y) \* dy* nebo *e^(-y) \* dy*.
+Na všech osách je vodorovně čas a svisle sledovaná veličina. K některým grafům budou přiřazeny dva modely.
 
-Podobně, rovnici
-[``` \frac{\mathrm dy}{\mathrm dx}= e^x(3y^7-6)```]
-můžeme po vydělení faktorem [`` 3y^7-6``] přepsat do tvaru
-[```\frac {\mathrm dy}{3y^7-6}= e^x\mathrm dx.```]
-(Všimněte si dobrého mravu napsat diferenciál [`` \mathrm dy``] do čitatele zlomku.)
-Levou stranu můžeme v programu WeBWork zapsat například jako *dy/(3y^7-6)*.
+Několik rad:
 
-V následujícím příkladě zkusíme podobnou úlohu, pouze s jinými čísly a funkcemi. Podle výrazu na pravé straně poznáte, jakým výrazem rovnici násobíme nebo dělíme a co zůstane na straně levé.
+* Pojmy jako samočištění jezera nebo nosná kapacita prostředí si můžete ujasnit v přednášce o diferenciálních rovnicích. 
+* Na úrovni populací je pro malé populace většinou pomalý růst (málo jedinců má málo mláďat).
+* Na úrovni jednotlivce je na začátku většinou rychlý růst (mláďata rostou rychle).
+* Při radioaktivním rozpadu nestabilního prvku se nakonec všechno rozpadne.
 
---------------------
-
-Odseparujte proměnné v následující rovnici. [```  \frac{\mathrm dy}{\mathrm dx}=[$rovnice] ```]
-
->> [_______________]{$LHS}[``{}=[$RHS]``]<<
+[_]{$draggable}
 
 END_PGML
 
-BEGIN_PGML_HINT
-Proměnné odseparujeme po vynásobení rovnice
-[```  \frac{\mathrm dy}{\mathrm dx}=[$rovnice] ```]
-výrazem [``\mathrm dx ``] a [$akce] výrazem [`` [$cim]``].
-END_PGML_HINT
-
-
 BEGIN_PGML_SOLUTION
-Po vynásobení rovnice
-[```  \frac{\mathrm dy}{\mathrm dx}=[$rovnice] ```]
-výrazem [``\mathrm dx ``] a [$akce] výrazem [`` [$cim]``] dostáváme [``` [$LHS]=[$RHS].```]
+
+---
+
+[@ image($graphs[0], width => 200, tex_size => 300) @]*
+
+[@ $odpovedi->[0] @]
+
+---
+
+[@ image($graphs[1], width => 200, tex_size => 300) @]*
+
+[@ $odpovedi->[1] @]
+
+[@ $odpovedi->[6] @]
+
+
+---
+
+[@ image($graphs[2], width => 200, tex_size => 300) @]*
+
+[@ $odpovedi->[2] @]
+
+[@ $odpovedi->[7] @]
+
+---
+
+[@ image($graphs[3], width => 200, tex_size => 300) @]*
+
+[@ $odpovedi->[3] @]
+
+[@ $odpovedi->[4] @]
+
+
+---
+
+[@ image($graphs[4], width => 200, tex_size => 300) @]*
+
+[@ $odpovedi->[5] @]
+
 END_PGML_SOLUTION
 
-COMMENT('Uses PGML.');
-
 ENDDOCUMENT();
-

@@ -1,49 +1,65 @@
-DOCUMENT(); 
+###########################
+#  Initialization
+
+DOCUMENT();
+
 loadMacros(
-"PGstandard.pl",
-"PGML.pl",
-"MathObjects.pl",
-"PGessaymacros.pl",
-"PGcourse.pl",
+  "PGstandard.pl",
+   "PGML.pl",
+  "PGchoicemacros.pl",   
+  'draggableSubsets.pl', 
+  "PGcourse.pl"
 );
-TEXT(beginproblem());
 
-ADD_CSS_FILE("css/left.css");
+$showHint = 1;
 
-TEXT(MODES(
-    HTML => "<style>.problem-content textarea {width:100%;}</style>",
-));
+do
+{
+@perm = shuffle(4);
+} until ( ($perm[0] != 0) ||  ($perm[1] != 1) || ($perm[2] != 2) || ($perm[3] != 3) );
+
+$draggable = DraggableSubsets(
+[ 
+"Rychlost růstu populace je konstantní.",
+"Rychlost růstu populace není konstantní, víme, jak se mění v čase.",
+"Rychlost růstu populace není konstantní, víme, jak se mění s rostoucí velikostí populace.",
+"Rychlost růstu populace není konstantní, víme, jak se mění s časem a s rostoucí velikostí populace.",
+
+],
+[[0],[1],[2],[3]],
+DefaultSubsets => [
+{label => "Elementární matematika, přímá úměrnost\[N(t)=N_0+r\times t\]", indices => [$perm[0]]},
+{label => "Integrál jako funkce horní meze\[N(t)=N_0+\int_0^t r(s)\,\mathrm ds\]", indices => [$perm[1]]},
+{label => "Autonomní diferenciální rovnice\[\frac{\mathrm dN}{\mathrm dt}=r(N),\quad N(0)=N_0\]", indices => [$perm[2]]},
+{label => "Neautonomní diferenciální rovnice\[\frac{\mathrm dN}{\mathrm dt}=r(N,t),\quad N(0)=N_0\]", indices => [$perm[3]]},
+],
+AllowNewBuckets => 0,
+OrderedSubsets => 1
+);
+
+
+
+###########################
+#  Main text
 
 BEGIN_PGML
 
+## Modelování dynamiky populací
 
-## Derivace
+Klasickým případem, kdy známe rychlost měnící se veličiny a zajímá nás tato veličina je sledování velikosti populace na základě rychlostí jejího růstu.
 
-Na Wikipedii a ve středoškolských učebnicích se většinou derivace chápe v první řadě jako směrnice tečny. Pro nás a pro popis fyzikálních dějů a jevů v přírodě a v materiálu je podstatnější role derivace jako rychlosti změny. Někdy se však v aplikacích využívá i role derivace jako směrnice tečny. Je to zejména při lineární aproximaci funkce, se kterou jsme se seznámili v úvodu semestru. 
+Přitom používáme různé nástroje, podle toho, zda je rychlost konstantní či nekonstantní a zda se rychlost řídí časem či velikostí populace.
 
-**Úkol pro tento týden: Zkuste krátce vysvětlit, jaké jsou silné a slabé stránky lineární aproximace. Napište, k čemu je tato aproximace užitečná a na co je potřeba při jejím použití dávat pozor. Jako obvykle je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
+Spárujete dostupné nástroje se situací, kdy je tento nástroj vhodné použít. Pokud je více možností, volte tu nejjednodušší. Ve všech situacích modelujeme populaci, která se z počátečního stavu o velikosti [`N_0`] vyvíjí rychlostí [`r`]. Tato rychlost je buď konstantní, nebo závislá pouze na čase, nebo závislá pouze na velikosti populace, nebo závislá na čase i na velikosti populace.
+
+[_]{$draggable}
 
 END_PGML
-
-
-BEGIN_TEXT
-\{essay_box(10,80)\}
-END_TEXT
-
-BEGIN_PGML
- 
-Samozřejmostí je ucelený text, celá věta nebo celý odstavec s dodržením interpunkce a stavby věty (podmět, sloveso, další větné členy). Cílem je vyzkoušet si, zda umíte dát srozumitelnou a jasně formulovanou odpověď.
- 
-END_PGML
-
-#Essay Boxs use the essay_cmp evaluator.
-ANS(essay_cmp());
-
 
 BEGIN_PGML_SOLUTION
+Pokud je rychlost růstu konstantní, stačí nám elementární matematika a velikost je součinem rychlosti a času, podobně jako dráha pohybu probíhajícího konstantní rychlostí. Pokud se rychlost růstu mění s časem, musíme namísto součinu použít integrál. Můžeme použít buď neurčitý integrál a poté stanovit integrační konstantu, nebo přímo použít integrál jako funkci horní meze. 
 
-...
-
+Pokud rychlost souvisí s velikostí populace, nestačí již integrál, ale je nutné použít aparát diferenciálních rovnic. Pokud rychlost závisí POUZE na velikosti populace, stačí autonomní diferenciální rovnice, v opačném případě obecné diferenciální rovnice prvního řádu.
 END_PGML_SOLUTION
 
 ENDDOCUMENT();
