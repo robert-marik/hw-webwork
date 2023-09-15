@@ -1,45 +1,60 @@
-##################################################
+###########################
+#  Initialization
 
-DOCUMENT(); 
+DOCUMENT();
+
 loadMacros(
-"PGstandard.pl",
-"PGML.pl",
-"MathObjects.pl",
-"PGcourse.pl",
+  "PGstandard.pl",
+   "PGML.pl",
+  "PGchoicemacros.pl",   
+  'draggableSubsets.pl', 
+  "PGcourse.pl"
 );
-TEXT(beginproblem());
-$showPartialCorrectAnswers = 1;
 
-Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]],'dr'=>'Real', 'r'=>'Real', 'V'=>'Real', 't'=>'Real', 'dV'=>'Real');
+
+do
+{
+@perm = shuffle(4);
+} until ( ($perm[0] != 0) ||  ($perm[1] != 1) || ($perm[2] != 2) || ($perm[3] != 3) );
+
+$draggable = DraggableSubsets(
+[ 
+"Kočka",
+"Pes",
+"Labuť",
+"Ryba"
+],
+[[0],[1],[2],[3]],
+DefaultSubsets => [
+{label => "Loví myši.", indices => [$perm[0]]},
+{label => "Hlídá dům.", indices => [$perm[1]]},
+{label => "Je věrná svému partnerovi.", indices => [$perm[2]]},
+{label => "Žije ve vodě.", indices => [$perm[3]]},
+],
+AllowNewBuckets => 0,
+OrderedSubsets => 1
+);
+
+
+
+###########################
+#  Main text
 
 BEGIN_PGML
 
-## Označení derivace podílem diferenciálů
+## Přesun variant
 
-V předchozím příkladu jsme vypočítali derivaci, ale někdy derivaci potřebujeme zadat jako odpověď, nebo součást odpovědi. To je zejmnéna všude tam, kde se praccuje s rychlostí změny veličiny.
+V některých případech budete přesouvat objekty do boxů podle  kategorií. Někdy budou objekty rozházené a vaším úkolem bude je přesunout správně. To je například zde. Přesuňte živočichy pod činnost, která je pro tyto živočichy typická. V každém rámečku bude jeden živočich.
 
-Derivace zapisujeme (viz. přednáška) pomocí čárky, nebo jako podíl diferenciálů. Například derivaci funkce [``f(x)``] označujeme výrazem [``\frac{\mathrm df}{\mathrm dx}``]. Toto bychom na počítači zapsali jako *df/dx*.
+Někdy budou ve výchozím stavu objekty v zásobníku a z něj si je budete brát. Někdy bude jiný počet kategorií a přesouvaných objektů, a některé kaegorie budou moci obsahovat více než jeden objekt.
 
-Zapište derivaci funkce [``r``] v bodě [``t``] pomocí podílu diferenciálů. 
+Vyzkoušejte si i jak systém reaguje na nesprávnou odpověď. Chybové hlášky jsou v angličtině, v případě potřeby použijte automatický překladač.
 
->>Derivace veličiny [``r``] podle [``t``] je [___________________________]{"dr/dt"}<<
-
-_Návod:_ Odpověď bude obsahovat dvouznakové slovo *dr*, dvouznakové slovo *dt* a znak pro dělení, tj. lomítko */*.
+[_]{$draggable}
 
 
 END_PGML
 
 $showHint = 1;
-BEGIN_PGML_HINT
-Řešením je "podíl" výrazů dr a dt.
-END_PGML_HINT
-
-
-BEGIN_PGML_SOLUTION
-
-Řešením je dr/dt.
-
-END_PGML_SOLUTION
-
 
 ENDDOCUMENT();

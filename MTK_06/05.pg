@@ -3,7 +3,7 @@ DOCUMENT() ;        # This should be the first executable line in the problem.
 loadMacros(
   "PGstandard.pl",
   "PGchoicemacros.pl",
-  "PGgraphmacros.pl",
+  "PGtikz.pl",
   "PGML.pl",
   "PGcourse.pl"
 );
@@ -21,18 +21,43 @@ $pb = random(2, 5,.1);
 $pc = random(2, 5,.1);
 $pd = random(2, 5,.1);
 $sign = non_zero_random(-1,1,1);
+$msign = -$sign;
 
-$graph = init_graph(0,-4,8,4,axes =>[0,0], grid =>[8,8]);
-$hermite_obj = new Hermite( [0, $a,  $c, $d,8],
-                            [-5*$sign, 0,0,0, 5*$sign],
-                            [$sign, $sign*$pa, -$sign*$pc, $sign*$pd, $sign]);
-$fun_obj = new Fun($hermite_obj->rf_f,$graph);
+$graph_image = createTikZImage();
+
+$graph_image->BEGIN_TIKZ
+  \begin{scope}
+\clip (-0.5,-4) rectangle (8,4);
+\draw[->,ultra thick] (-0.5,0) -- (8,0) node[above left,outer sep=2pt]{\(x\)};
+\draw[->,ultra thick] (0,-4) -- (0,4) node[below right,outer sep=2pt]{\(y\)};
+\draw [step=1,color=gray] (0,-4) grid (8,4);
+\draw [step=1,color=gray, thin, dashed, shift={(-0.5,0.5)}] (0.5,-4.5) grid (9,4.5);
+\begin{scope}[yscale=$msign,xscale=1]
+  \draw[red,ultra thick] (0,5)
+  to[out = 180-50]  ($a,0) 
+  to[out = -50, in = 180+50]  ($c,0)
+  to[in = 180-50, out = 50]  ($d,0)
+  to[out = -50] (8,-5);
+\end{scope}
+\foreach \x in {1,2,3,4,5,6,7}  {\draw (\x,0) node[below, outer sep=0pt] {\(\x\)};}
+\end{scope}
+END_TIKZ 
+
+#\foreach \x in {-10,-8,...,-2,2,4,...,10} \draw[thin] (\x,5pt) -- (\x,-5pt) node[below]{\(\x\)};
+#\foreach \y in {-10,-8,...,-2,2,4,...,10} \draw[thin] (5pt,\y) -- (-5pt,\y) node[left]{\(\y\)};
+#\draw[<->,red] plot[domain={-3.2+$a}:{3.2+$a}] (\x,{pow(\x-$a,2)+$b});
+
+#$graph = init_graph(0,-4,8,4,axes =>[0,0], grid =>[8,8]);
+#$hermite_obj = new Hermite( [0, $a,  $c, $d,8],
+#                            [-5*$sign, 0,0,0, 5*$sign],
+#                            [$sign, $sign*$pa, -$sign*$pc, $sign*$pd, $sign]);
+#$fun_obj = new Fun($hermite_obj->rf_f,$graph);
 
 
 BEGIN_PGML
 ## Stabilita autonomní diferenciální rovnice
 
-[@ image( insertGraph($graph) ,width=>400,height=>400,tex_size=>600) @]*
+[@ image($graph_image, width => 400, tex_size => 800) @]*
 
 V této úloze se budeme zabývat rovnicemi typu [``` \frac{\mathrm dx}{\mathrm dt}=f(x),```]
 tj. autonomními rovnicemi. Slovem autonomní je vyjádřeno, že pravá strana nezávisí na čase [`t`].
@@ -42,7 +67,7 @@ stacionární body a jejich stabilitu. Důvodem je to, že po uběhnutí
 dostatečně dlouhého času se řešení ustálí na hodnotě odpovídající
 některému stabilnímu stacionárnímu bodu. Z teorie víme, že pokud má pravá strana v uvažovaném stacionárním bodě kladnou derivaci, je tento stacionární bod nestabilní. V případě záporné derivace naopak stabilní. Graficky znaménko derivace poznáme z monotonie.
 
-Na obrázku je graf funkce [`f(x)`], která je pravou stranou uvažované diferenciální rovnice. Tučná vodorovná čára uprostřed je osa [`x`]. Obrázek je nakreslen pro [`0\leq x\leq 8`] a případné nulové body funkce [`f`] jsou buď celá čísla nebo uprostřed mezi celými čísly. Vidíme tři průsečíky grafu funkce s osou [`x`], tj. tři nulové body funkce [`f`]. Rovnice má tedy tři stacionární body.
+Na obrázku je graf funkce [`f(x)`], která je pravou stranou uvažované diferenciální rovnice. Uprostřed je osa [`x`]. Obrázek je nakreslen pro [`0\leq x\leq 8`] a případné nulové body funkce [`f`] jsou buď celá čísla nebo uprostřed mezi celými čísly. Vidíme tři průsečíky grafu funkce s osou [`x`], tj. tři nulové body funkce [`f`]. Rovnice má tedy tři stacionární body.
 END_PGML
 
 BEGIN_TEXT

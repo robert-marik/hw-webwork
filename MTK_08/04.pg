@@ -210,7 +210,7 @@ Mějme zobrazení [` T: \mathbb{R}^2 \to \mathbb{R}^2 `] definované dle obrázk
 BeginTable().
   AlignedRow([ $fig[0],"\\( \\Large \\stackrel{T}{\\to} \\)", $fig[1] ]).
   TableSpace(5,0).
-  AlignedRow(["vzory"," " ,"obrazy"]).
+  AlignedRow([" vzory"," " ," obrazy"]).
 EndTable().$PAR
 @]***
 

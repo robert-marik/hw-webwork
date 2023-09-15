@@ -1,73 +1,52 @@
-###########################
-#  Initialization
-
 DOCUMENT();
 
 loadMacros(
-  "PGstandard.pl",
-   "PGML.pl",
-  'draggableSubsets.pl', 
-  "PGcourse.pl"
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGcourse.pl",
+"PGML.pl"
 );
 
-$draggable = DraggableSubsets(
-[ 
-"\[\frac{\mathrm dh}{\mathrm dt}\]",
-"\[\frac{\mathrm dh}{\mathrm dV}\]",
-"\[\frac{\mathrm dV}{\mathrm dt}\]",
-"\[\frac{\mathrm dV}{\mathrm dh}\]"
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
+
+$data =
+{
+otazka=>"Která matice reprezentuje otočení o pravý úhel proti směru hodinových ručiček?",
+nadpis=>"Matice rotace o pravý úhel",
+vysvetleni=>"\(\begin{pmatrix}0&-1\\1&0\end{pmatrix}\)",
+}
+;
+
+$radio    =  RadioButtons([
+[
+"\(\begin{pmatrix}0&-1\\1&0\end{pmatrix}\)",
+"\(\begin{pmatrix}0&1\\-1&0\end{pmatrix}\)",
+"\(\begin{pmatrix}1&0\\0&1\end{pmatrix}\)",
+"\(\begin{pmatrix}-1&0\\0&1\end{pmatrix}\)",
+"\(\begin{pmatrix}-1&0\\0&-1\end{pmatrix}\)",
 ],
-[[2],[0],[1],[3]],
-DefaultSubsets => [
-{label => "Rychlost, s jakou se roste objem hromady v čase, tj. změna objemu za jednotku času.", indices => [0..3]},
-{label => "Rychlost, s jakou se roste výška hromady v čase, tj. změna výšky za jednotku času.", indices => []},
-{label => "Rychlost, s jakou se roste výška hromady jako funkce objemu, tj. změna výšky při změně objemu o jednotku.", indices => []},
-{label => "Rychlost, s jakou se roste objem hromady jako funkce výšky, tj. změna objemu při změně výšky o jednotku.", indices => []},
-],
-AllowNewBuckets => 0,
-OrderedSubsets => 1
-);
-
-
-
-###########################
-#  Main text
+"jiná matice než jsou nabízené",
+"uvedenou transformaci není možné zapsat pomocí maticového součinu",
+],0);
 
 BEGIN_PGML
 
-## Slovní interpretace derivace
+## [$data->{nadpis}]
 
-Derivace vyjadřuje rychlost s jakou se mění závislá veličina při změně nezávislé veličiny. Uvažujme například kapku vody v atmosféře. Předpokládejme, že kapka roste a její objem [`V`] i poloměr [`r`] se mění s časem. Potom je rychlost, s jakou se mění její objem v čase, vyjádřena derivací [``\frac{\mathrm dV}{\mathrm dt}``]. Podobně, rychlost, s jakou roste její poloměr v čase, je dána derivací [``\frac{\mathrm dr}{\mathrm dt}``]. Má smysl se ptát například i na rychlost s jakou roste objem jako funkce poloměru, tj. jaká je změna objemu ne za jednotku času, ale při změně poloměru o jednotku. Toto by bylo vyjádřeno derivací [``\frac{\mathrm dV}{\mathrm dr}``].
+[$data->{otazka}]*
 
-V tomto příkladě se podobný postup pokusíme aplikovat ne na kouli, ale na kužel.
-
------
-
-[@ image("hromada.jpg", width=>400) @]*
-
-Na hromadu sypkého materiálu přisypáváme další a další materiál. Tvar hromady je dán geometrickými a fyzikálními vlastnostmi materiálu. To v praxi znamená, že hromada má tvar kužele se stálým poměrem poloměru podstavy a výšky. Objem [`V`] je tedy jednoznačně určen výškou [`h`] a naopak. Obě tyto veličiny se při přisypávání dalšího materiálu na hromadu mění v čase. Čas označíme [`t`].
-
-Určete, která derivace je spjata s jednotlivými slovními formulacemi. Přetáhněte derivace do chlívečku se správným nadpisem. Každá derivace patří do jednoho chlívečku. V prvním chlívečku zůstane jenom jedna a ostatní přesunete na patřičná místa.
-
-[_]{$draggable}
-
-_Obrázek: pixabay.com, Derks24_
+[_]{$radio}
 
 END_PGML
 
-$showHint = 1;
-BEGIN_PGML_HINT
-Pozorně čtěte, rychlost změny jaké veličiny sledujeme a co je nezávislou proměnnou. Poté najděte označení těchto veličin v zadání.
-END_PGML_HINT
-
-
 BEGIN_PGML_SOLUTION
 
-* Rychlost, s jakou se roste objem hromady v čase je derivace objemu podle času, tj. [`` \frac{\mathrm dV}{\mathrm dt}``].
-* Rychlost, s jakou se roste výška hromady v čase je derivace výšky podle  času,  tj. [`` \frac{\mathrm dh}{\mathrm dt}``].
-* Rychlost, s jakou se roste výška hromady jako funkce objemu je derivace výšky podle objemu, tj. [`` \frac{\mathrm dh}{\mathrm dV}``].
-* Rychlost, s jakou se roste objem hromady jako funkce výšky je derivace objemu podle výšky, tj. [`` \frac{\mathrm dV}{\mathrm dh}``].
+[$data->{vysvetleni}]*
 
 END_PGML_SOLUTION
 
 ENDDOCUMENT();
+

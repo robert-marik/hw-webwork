@@ -73,6 +73,8 @@ Grafy funkcí jsou na obrázku. Modrý graf je grafem funkce [`f(x)`], červený
 
 Určete počet a stabilitu stacionárních bodů této diferenciální rovnice. Odpovězte na otázku týkající se počtu stacionárních bodů a stability stacionárního bodu, který je nejvíce vlevo.
 
+První souřadnice průsečíků jsou celá čísla nebo v polovině mezi celými čísly.
+
 END_PGML
 
 BEGIN_TEXT

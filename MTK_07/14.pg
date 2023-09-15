@@ -25,16 +25,6 @@ moznosti=>[
 "Obraz je záporným vektoru, má tedy opačný směr.",
 "Obraz je kolmý na vzor a jejich skalární součin je nulový."
 ]
-},
-{
-nadpis=>"Matice s vlastními směry ve směru souřadných os.",
-otazka=>"Jak vypadá nejobecnější možná matice, která má vlastní vektory ve směru jednotlivých os?",
-odpoved=>"Je diagonální",
-moznosti=>[
-"Je nulová",
-"Je kladná",
-"Je jednotková",
-]
 }
 ];
 

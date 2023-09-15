@@ -1,85 +1,81 @@
-DOCUMENT(); 
+DOCUMENT();
+
 loadMacros(
 "PGstandard.pl",
-"PGML.pl",
 "MathObjects.pl",
-"PGessaymacros.pl",
+"parserRadioButtons.pl",
 "PGcourse.pl",
+"PGML.pl"
 );
+
+
 TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
 
-ADD_CSS_FILE("css/left.css");
+$data =
+[
+{
+nadpis=>"Matice s vlastními směry ve směru souřadných os.",
+otazka=>"Jak vypadá nejobecnější možná matice, která má vlastní vektory ve směru jednotlivých os?",
+odpoved=>"Je diagonální",
+moznosti=>[
+"Je nulová",
+"Je čtvercová",
+"Je kladná",
+"Je jednotková",
+]
+}
+];
 
-TEXT(MODES(
-    HTML => "<style>.problem-content textarea {width:100%;}</style>",
-));
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
 
-TEXT(MODES(
-    HTML => "<style>th:nth-child(4) {width:300px;} </style>",
-));
+$DEBUG=1;
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
 
 BEGIN_PGML
 
+## [$na]
 
-## Tenzorové veličiny
+[$ot]
 
-Při popisu fyzikálních dějů se fyzika střední školy obejde s běžnými skalárními nebo vektorovými veličinami. V lineární algebře zavádíme nový pojem, matice, které ve fyzice odpovídají tenzorům (přesněji tenzorům druhého řádu). Máme na paměti, že vždy se snažíme o co nejsnazší popis přírody a o co nejjednodušší model reálného stavu. To znamená, že bez matic (tenzorů) by to v některých případech asi nešlo. 
+[_]{$radio}
 
-**Úkol pro tento týden: Zkuste krátce vysvětlit, v jakých případech a proč je nezbytné využití maticových (tenzorových) veličin. Jako obvykle je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
+_[$zdroj]_
 
 END_PGML
-
-BEGIN_TEXT
-\{essay_box(10,80)\}
-END_TEXT
-
-
-BEGIN_PGML
- 
-Samozřejmostí je ucelený text, celá věta nebo celý odstavec s dodržením interpunkce a stavby věty (podmět, sloveso, další větné členy). Cílem je vyzkoušet si, zda umíte dát srozumitelnou a jasně formulovanou odpověď.
- 
-END_PGML
-
-#Essay Boxs use the essay_cmp evaluator.
-ANS(essay_cmp());
-
 
 BEGIN_PGML_SOLUTION
 
-*Příklad správné odpovědi:* Na popis izotropních materiálů, kdy vektorový podnět má vektorovu
-odezvu
-stejným směrem stačí skalární veličiny. Pokud však studujeme anizotropní
-materiály, které mají v různých směrech různé vlasntosti a díky tomu směr
-podnětu a odezvy nemusí být stejný, musíme mít nástroj, který umožní
-zobrazovat vektor na vektor mířící jiným směrem. To skalární veličiny
-nedokáží, maticové veličiny však ano.
-
-*Příklady špatných opdovědí*
-
-* Matice můžeme využít například při přepisu lineárních rovnic do maticového zápisu.
-  (Ano, toto je pravdivé tvrzení, ale nesouvisí s otázkou.  Otázka se
-neptala na to, k čemu jsou matice.) 
-* Při výpočtu lineárních rovnic nebo v
-teorii grafů.  (Tvrzení je pravdivé, ale netýká se tématu nastíněného v
-otázce a naopak se dotýká tématu teorie grafů, které jsme se nevěnovali a
-nejsem si jistý, jestli ji ovládá autor odpovědi.) 
-* Matice sú usporiadané
-entice čisel, ktoré nám umožnujú robiť rôzne operácie s danými čislami.  Je
-to zápis lineárnej transformácie.  (Ano, ale opět mimo téma.) 
-* Matice se
-dají využít k výpoočtu soustav lineárních rovnic, k šifrování a dešifrování. 
-Dále se dají použít ve statistice, biologii, mechanice atd. (Ano, ale opět mimo téma.
-Navíc si nejsem jistý, jestli autor opdovědi ovládá kryptografii, statistiku,
-biologické modely, ...)
-* Matice se využívají k výpočtům tam, kde mají veličiny daný svůj směr. lze to využít i v
-praxi. (Ano, ale chybí to podstatné, že vektor na vstupu nemusí mířit
-stejným směrem jako vektor na výstupu, což by bez matic, jenom se skalárními
-veličinami, nešlo.) 
-* Matice vám umožňují zapisovat velká datová pole jednoduchým a jasným
-  způsobem.  Díky maticím je možné zpracovat obrovské množství informací bez
-  velkého úsilí a času.  Matice, včetně, se používají k řešení ekonomických
-  úloh. (Opět mimo téma otázky.)
+[$od]
 
 END_PGML_SOLUTION
 
+};
+# konec cyklu
+
+
 ENDDOCUMENT();
+

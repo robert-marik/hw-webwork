@@ -1,53 +1,80 @@
-DOCUMENT(); 
+DOCUMENT();
+
 loadMacros(
 "PGstandard.pl",
-"PGML.pl",
 "MathObjects.pl",
-"PGessaymacros.pl",
+"parserRadioButtons.pl",
 "PGcourse.pl",
+"PGML.pl"
 );
+
+
 TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
 
-ADD_CSS_FILE("css/left.css");
 
-TEXT(MODES(
-    HTML => "<style>.problem-content textarea {width:100%;}</style>",
-));
+$data =
+[
+{
+nadpis=>"Rovnice vedení tepla",
+otazka=>"Rovnice vedení tepla \[{\varrho c\frac{\partial T}{\partial t}=  \nabla\cdot\bigl(D\nabla T\bigr)}\] je speciálním případem difuzní rovnice \[{\frac{\partial u}{\partial t}=  \sigma + \nabla\cdot\bigl(D\nabla u\bigr)}.\] Proč jsou v rovnici vedení tepla  přítomny na levé straně kromě derivace přítomny ještě další fyzikální konstanty, když tyto konstanty v difuzní rovnici nejsou?",
+odpoved=>"V případě rovnice vedení tepla dochází k transportu tepla, ale sledujeme teplotu. Proto je potřeba přepočítat změny teploty na dodané teplo.",
+moznosti=>[
+"Jedná se o převedení konstanty vyjadřující působení zdrojů z pravé strany na levou a přejmenování konstanty podle fyzikálních zvyklostí.",
+"Protože termodynamická teplota nemůže klesnout pod absolutní nulu, je nutné na levé straně přidat členy, které toto chování rovnice zaručí.",
+"Tyto konstanty dokáží znaménkem rozlišit, zda je o nárůst teploty nebo úbytek teploty, protože při vedení tepla může teplota růst i klesat."]}
+];
 
-TEXT(MODES(
-    HTML => "<style>th:nth-child(4) {width:300px;} </style>",
-));
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
 
 BEGIN_PGML
 
+## [$na]
 
-## Rovnice kontinuity
 
-Rovnice kontinuity [``` \frac{\partial u}{\partial t}=\sigma - \mathop{\mathrm{div}}\vec j```] je základním nástrojem pro popis transportu látky či energie v přírodě, v látce, v životním prostředí. 
 
-**Úkol pro tento týden: Rovnice kontinuity je vlastně bilance vyjádřená v daném místě látky či prostředí. Podle toho, jaké členy do této bilance započítáme, dokážeme odhalit, jaké procesy je možné modelovat. Jaké tři věci nebo efekty se skrývají pod třemi členy v matematické formulaci rovnice kontinuity? Jaké děje jsou v této rovnici pomocí uvedených členů započítány? Jako obvykle je vhodné najít určitý kompromis mezi výstižným a přesným, ale současně krátkým a nekomplikovaným tvrzením.**
+
+[$ot]*
+
+[_]{$radio}
+
+_[$zdroj]_
 
 END_PGML
-
-
-BEGIN_TEXT
-\{essay_box(10,80)\}
-END_TEXT
-
-BEGIN_PGML
- 
-Samozřejmostí je ucelený text, celá věta nebo celý odstavec s dodržením interpunkce a stavby věty (podmět, sloveso, další větné členy). Cílem je vyzkoušet si, zda umíte dát srozumitelnou a jasně formulovanou odpověď.
- 
-END_PGML
-
-#Essay Boxs use the essay_cmp evaluator.
-ANS(essay_cmp());
-
 
 BEGIN_PGML_SOLUTION
 
-...
+[$od]*
 
 END_PGML_SOLUTION
 
+};
+# konec cyklu
+
+
 ENDDOCUMENT();
+

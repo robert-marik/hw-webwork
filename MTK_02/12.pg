@@ -13,7 +13,7 @@ loadMacros('PGstandard.pl', 'PGML.pl',
 
 @incorrect_answers = (
 "Konstanta úměrnosti má fyzikální jednotku rovnu jednotce času, \(\mathrm{den}\).",
-"Konstanta úměrnosti má fyzikální jednotku rovnu jednotce hmotnosti za času, \(\mathrm{gram}/\mathrm{den}\).",
+"Konstanta úměrnosti má fyzikální jednotku rovnu jednotce hmotnosti za jednotku času, \(\mathrm{gram}/\mathrm{den}\).",
 "Rychlost rozpadu narůstá s časem. Materiál se rozpadá stále rychleji (funkce \(x(t)\) klesá, pravá strana rovnice tedy také klesá a derivace na levé straně proto klesá také).",
 "Konstanta úměrnosti číselně vyjadřuje rychlost dobu nutnou pro to, aby se rozpadlo poloviční množství materiálu.",
 "Pro prvek, který se rozpadá rychleji, je konstanta \(k\) menší, protože po uplynutí jednotky času je prvku menší množství.",

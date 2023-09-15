@@ -53,7 +53,7 @@ BEGIN_PGML
 
 ## Který nástroj použít na kterou úlohu?
 
-Uvažujme úlohu, kdy se veličina [`y`] mění v čase. Spárujte nástroj se specifikací nutných vstupních údajů a možností na výstupu. Pokud je více možností, volte tu nejjednodušší.
+Uvažujme úlohu, kdy se veličina [`y`] mění v čase. Spárujte nástroj se specifikací nutných vstupních údajů a možnostmi na výstupu. Pokud je více možností, volte tu nejjednodušší. Na konci byste měli mít pod každou operací nebo pod každým nástrojem jednu specifikaci vstupů a výstupů.
 
 [_]{$draggable}
 
