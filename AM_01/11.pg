@@ -1,103 +1,75 @@
-###########################
-#  Initialization
 DOCUMENT();
 
 loadMacros(
-  "PGstandard.pl",
-   "PGchoicemacros.pl",
-   "PGML.pl",
-  'draggableSubsets.pl', 
-  "PGcourse.pl"
+"PGstandard.pl",
+"MathObjects.pl",
+"parserRadioButtons.pl",
+"PGML.pl",
+"PGcourse.pl",
 );
 
-
-#
-#  Add correct questions and answers
-#
-@a = (
-"\(\displaystyle\frac{\partial T}{\partial t}\)", "Časová změna teploty, tj. rychlost s jakou v daném místě roste teplota jako funkce času.",
-"\(\displaystyle\frac{\partial T}{\partial x}\)", "Rychlost s jakou v daném okamžiku roste teplota ve směru osy \(x\)",
-"\(\displaystyle-\frac{\partial T}{\partial x}\)", "Rychlost s jakou v daném okamžiku klesá teplota ve směru osy \(x\)",
-"\(\displaystyle-\lambda\frac{\partial T}{\partial x}\)", "Tok tepla",
-"\(\displaystyle\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", "Rychlost s jakou roste tok tepla ve směru osy \(x\)",
-"\(\displaystyle-\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", "Rychlost s jakou klesá tok tepla ve směru osy \(x\)"
-);
+TEXT(beginproblem());
 
 
-@perm = shuffle(6);
+$radio = RadioButtons(
+["Záporná, protože lék se odbourává a jeho množství s časem klesá.",
+"Kladná, protože čas nemůže klesat",
+"Kladná, protože při větší dávce léku je v těle větší koncentrace léku.",
+"Pro malou dávku záporná, pro velkou dávku kladná, protože při použití derivace součinu dostaneme funkci měnící znaménko.",
+"Nulová, protože po podání počáteční dávky se další lék nepodává.",
+"Pro malou dávku kladná a pro velkou dávku záporná, protože od jisté koncentrace je lék již nebezpečný"],
+0);  # První odpověď správná
 
-@i = ($a[1],$a[3],$a[5],$a[7],$a[9],$a[11]);
-@l = ($a[0],$a[2],$a[4],$a[6],$a[8],$a[10]);
-
-$draggable = DraggableSubsets(
-[ 
-$i[0],
-$i[1],
-$i[2],
-$i[3],
-$i[4],
-$i[5],
-],
+$radio2 = RadioButtons(
 [
-[0],
-[1],
-[2],
-[3],
-[4],
-[5],
-],
-DefaultSubsets => [
-{label => $l[0], indices => [$perm[0]]},
-{label => $l[1], indices => [$perm[1]]},
-{label => $l[2], indices => [$perm[2]]},
-{label => $l[3], indices => [$perm[3]]},
-{label => $l[4], indices => [$perm[4]]},
-{label => $l[5], indices => [$perm[5]]},
-],
-AllowNewBuckets => 0,
-OrderedSubsets => 1
-);
-
-
-###########################
-#  Main text
+"Záporná, protože lék se odbourává a jeho množství s časem klesá.",
+"Kladná, protože čas nemůže klesat",
+"Kladná, protože při větší dávce léku je v těle větší koncentrace léku.",
+"Pro malou dávku záporná, pro velkou dávku kladná, protože při použití derivace součinu dostaneme funkci měnící znaménko.",
+"Nulová, protože po podání počáteční dávky se další lék nepodává.",
+"Pro malou dávku kladná a pro velkou dávku záporná, protože od jisté koncentrace je lék již nebezpečný"],
+2);  
 
 BEGIN_PGML
 
-## Fyzikální interpretace členů z jednorozměrné rovnice vedení tepla
+## Koncentrace léku v těle
 
+[@ image("lek.jpg", width=>300) @]*
 
-Rovnice vedení tepla v jedné dimenzi má tvar
-[``` \rho  c \frac{\partial T}{\partial t}=\frac{\partial}{\partial x}
-\left(\lambda \frac{\partial T}{\partial x}\right).```]
+Pacientovi je jednorázově podán lék. Tento lék se v těle s časem odbourává podle farmakokinetických zákonů. Předpokládejme, že lék byl podán nitrožilně, což znamená, že koncentrace léku v krvi se prakticky okamžitě skokově zvýší a dále již je lék odbouráván fyziologickými procesy.
 
-Abychom v ní zřetelně viděli tok, můžeme v ní také nechat záporná znaménka, tj. psát
-[``` \rho  c\frac{\partial T}{\partial t}=-\frac{\partial}{\partial x}
-\left(-\lambda \frac{\partial T}{\partial x}\right).```]
+Uvažujme koncentraci [`C(x,t)`] (v jednotce mg/litr) léku v těle pacienta jako funkci počáteční dávky [`x`] a času od aplikace [`t`].
 
-Pro jednotlivé složky této rovnice podejte jejich slovní interpretaci. Každá část rovnice má jednu z uvedených slovních interpretací, ale ty jsou přeházené. Přesuňte je myší na správná místa.
+*Část 1:* Jaké znaménko má derivace podle času, tj. [``\frac{\partial C}{\partial t}``]? Je tato derivace kladná nebo záporná? Nebo není možné rozhodnout?
 
-[_]{$draggable}
+[_]{$radio}
+
+-------
+
+*Část 2:* Jaké znaménko má derivace podle počáteční dávky, tj. [``\frac{\partial C}{\partial x}``]? Je tato derivace kladná nebo záporná? Nebo není možné rozhodnout?
+
+[_]{$radio2}
 
 END_PGML
 
 
-############################
-#  Answer evaluation
+$showHint = 1;
 
-$showPartialCorrectAnswers = 0;
+BEGIN_PGML_HINT
+Jednorázově byla navýšena koncentrace léku v těle, lék se postupně odobourává. Ani v jednom případě není nutné nic počítat, jenom rozmyslete jak lék funguje a jak se to projeví na derivacích.
 
+Pro derivaci podle času přemýšlejte, jestli při stejné počáteční dávce koncentrace léku roste či klesá s časem.
+
+Pro derivaci podle počáteční dávky uvažujte třeba dva pacienty, kteří obdrželi každý jinou počáteční dávku a rozmyslete, který z pacientů bude mít po uplynutí referenční doby jaký obsah léku v těle.
+END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
+Jednorázově byla navýšena koncentrace léku v těle, lék se postupně odobourává. Ani v jednom případě není nutné nic počítat, jenom rozmyslete jak lék funguje a jak se to projeví na derivacích.
 
-* [@ $a[1] @] je [@ $a[0] @].
-* [@ $a[3] @] je [@ $a[2] @].
-* [@ $a[5] @] je [@ $a[4] @].
-* [@ $a[7] @] je [@ $a[6] @].
-* [@ $a[9] @] je [@ $a[8] @].
-* [@ $a[11] @] je [@ $a[10] @].
+Pro derivaci podle času přemýšlíme, jestli při stejné počáteční dávce koncentrace léku roste či klesá s časem.
+Lék se odbourává a množství i koncentrace léku klesají. Derivace podle času je záporná. 
 
-
+Derivace podle počáteční dávky udává, jak se změní koncentrace léku, pokud je počáteční dávka vyšší. Evidentně vyšší dávka znamená i vyšší koncentraci. Nejenom v okamžiku podání léku, ale i po uplynutí nějakého pevného časového intervalu. Derivace podle počáteční dávky je kladná. 
 END_PGML_SOLUTION
 
 ENDDOCUMENT();

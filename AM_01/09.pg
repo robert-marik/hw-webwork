@@ -1,60 +1,172 @@
+# DESCRIPTION
+# Problem from Calculus, multi-variable, Hughes-Hallett et al.,
+# originally from 5ed (with updates)
+# WeBWorK problem written by Gavin LaRose, <glarose@umich.edu>
+# ENDDESCRIPTION
+
 DOCUMENT();
 
 loadMacros(
-"PGstandard.pl",
-"MathObjects.pl",
-"parserRadioButtons.pl",
-"PGML.pl",
-"PGcourse.pl",
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "niceTables.pl",	
+    "PGML.pl",
+  "PGcourse.pl"
 );
 
+## Tagged by glr 06/22/09
+
+
+## DBsubject(Calculus - multivariable)
+## DBchapter(Differentiation of multivariable functions)
+## DBsection(Partial derivatives)
+## Institution(University of Michigan)
+## Author(Gavin LaRose)
+## MLT(2varapp)
+## MLTleader(1)
+## Level(5)
+## MO(1)
+## TitleText1('Calculus')
+## AuthorText1('Hughes-Hallett')
+## EditionText1('5')
+## Section1('14.1')
+## Problem1('13')
+## TitleText2('Calculus')
+## AuthorText2('Hughes-Hallett')
+## EditionText2('6')
+## Section2('14.1')
+## Problem2('14')
+## TitleText3('Applied Calculus')
+## AuthorText3('Hughes-Hallett')
+## EditionText3('4')
+## Section3('9.Review')
+## Problem3('17')
+## KEYWORDS('partial', 'derivative', 'multivariable', 'functions')
+
+## Textbook tags
+## HHChapter1('Differentiating Functions of Several Variables')
+
+Context("Numeric");
+$showPartialCorrectAnswers = 1;
+
+@wt = ( [ 31, 25, 19, 13,  7,   1,  -5, -11 ],
+        [ 27, 21, 15,  9,  3,  -4, -10, -16 ],
+        [ 25, 19, 13,  6,  0,  -7, -13, -19 ],
+        [ 24, 17, 11,  4, -2,  -9, -15, -22 ],
+        [ 23, 16,  9,  3, -4, -11, -17, -24 ] );
+
+$t0ind = random(0,7,1);
+$w0ind = random(1,3,1);
+
+$w0 = 5*($w0ind + 1);
+$t0 = 5*(7-$t0ind);
+
+
+$t1ind = 0;
+$w1ind = random(0,4,1);
+$w1 = 5*($w1ind + 1);
+$t1 = 5*(7-$t1ind);
+
+$fw = Compute( ($wt[$w0ind+1]->[$t0ind] - $wt[$w0ind-1]->[$t0ind])/10 );
+$fwnum = "$wt[$w0ind+1]->[$t0ind] - $wt[$w0ind-1]->[$t0ind]";
+
+
+if ( $t1ind == 0 ) {
+    $ft = Compute( ($wt[$w1ind]->[0] - $wt[$w1ind]->[1])/5 );
+    $ftnum = "($wt[$w1ind]->[0] - $wt[$w1ind]->[1])";
+} 
+
+Context()->texStrings;
 TEXT(beginproblem());
-
-
-$radio = RadioButtons(
-["Kladná v každém bodě, protože v každém bodě se kostka ohřívá.","Záporná  v každém bodě, protože v každém bodě se kostka ohřívá.","Nulová, vzhledem k symetrii úlohy.","Vepředu kladná, vzadu záporná, protože stěny se ohřejí rychle a teplota od stěn směrem dovnitř klesá.","Vepředu záporná, vzadu kladná, protože stěny se ohřejí rychle a teplota od stěn dovnitř klesá."],
-0);  # První odpověď správná
-
-$radio2 = RadioButtons(
-["Kladná v každém bodě, protože v každém bodě se kostka ohřívá.","Záporná  v každém bodě, protože v každém bodě se kostka ohřívá.","Nulová, vzhledem k symetrii úlohy.","Vepředu kladná, vzadu záporná, protože stěny se ohřejí rychle a teplota od stěn směrem dovnitř klesá.","Vepředu záporná, vzadu kladná, protože stěny se ohřejí rychle a teplota od stěn dovnitř klesá."],
-3);  
-
-
 
 BEGIN_PGML
 
-## Dřevěná kostka v peci pro teplotní modifikaci
+# Pocitová teplota
 
-Dřevěnou kostku o délce strany [``10\,\mathrm{cm}``] dáme do pece k teplotní modifikaci a pec zapneme. Pec se ohřeje rychle, od vzduchu v peci se rychle ohřejí stěny a ty potom předávají teplo dál do kostky. Co se bude dít s jednotlivými parciálními derivacemi teploty? Pro jednoznačnost orientujme souřadnicové osy podle obrázku. Přední stranou kostky rozumíme tu, která je na obrázku vidět. Veličina [`T`] je teplota kostky a tato se může měnit podle toho, jak běží čas a které místo kostky sledujeme. Je tedy funkcí čtyř proměnných [``` T=T(t,x,y,z).```]
+V následující tabulce je zadána pocitová teplota [`C(w,T)`] jako funkce rychlosti větru [`w`] v mílích za hodinu a skutečné teploty ve stupních Farenheita.
 
-[@ image("drevena_kostka.png", width=>300) @]*
-
-*Část 1:* Jaké znaménko má derivace podle času, tj. [``\frac{\partial T}{\partial t}``]? Je tato derivace kladná nebo záporná? Nebo nulová? Vyberte správnou odpověď a správné zdůvodnění.
-
-[_]{$radio}
-
--------
-
-*Část 2:* Jaké znaménko má derivace podle polohy? Pro konkrétnost uvažujme například derivaci ve směru osy [`x`], tj. [``\frac{\partial T}{\partial x}``].
-Je tato derivace kladná nebo záporná? Nebo nulová? Vyberte správnou odpověď a správné zdůvodnění.
-
-[_]{$radio2}
+[@ DataTable( 
+   [
+   [["", midrule => 1,headerrow=>1], "\\(T=35\\)", "\\(T=30\\)", "\\(T=25\\)", "\\(T=20\\)", "\\(T=15\\)",
+        "\\(T=10\\)", "\\(T=5\\)", "\\(T=0\\)" 
+        ], 
+  ["\\(w=5\\)",  @{$wt[0]}],
+  [ "\\(w=5\\)",  @{$wt[0]} ],
+  [ "\\(w=10\\)", @{$wt[1]} ],
+  [ "\\(w=15\\)", @{$wt[2]} ],
+  [ "\\(w=20\\)", @{$wt[3]} ],
+  [ "\\(w=25\\)", @{$wt[4]} ]
+        ], 
+        caption => "Pocitová teplota jako funkce teploty \\(T\\)a rychosti větru \\(w\\)."
+        );
+@]*
 
 END_PGML
 
+BEGIN_TEXT
 
-$showHint = 1;
 
-BEGIN_PGML_HINT
-Pro derivaci podle času přemýšlejte, jestli teplota s časem roste, či klesá a jak tato monotonie souvisí s derivací.
+${BBOLD}(a)$EBOLD
+Odhadněte parciální derivaci \(\displaystyle \frac{\partial C}{\partial w}\) v bodě \(($w0, $t0) \), tj. pro \(w=$w0\) a \(T=$t0\).$BR
+\( \displaystyle\frac{\partial C}{\partial w} ($w0, $t0) \approx \) \{ ans_rule(35) \}
+$BR
 
-Pro derivaci podle polohy uvažte, že stěny se ohřejí a předávají teplo dovnitř kostky. Můžete si nakreslit průběh teploty jako funkci polohy. Na začátku a na konci bude teplota vyšší než uprostřed a proto bude průběh mít tvar písmene "U". Z tohoto rozboru poznáte monotonii a znaménko derivace. Potom je již potřeba jen správně určit, který konec odpovídá přední a který zadní stěně.
-END_PGML_HINT
+$PAR
+${BBOLD}(b)$EBOLD
+Odhadněte paricální derivace \(\displaystyle \frac{\partial C}{\partial T}\) v bodě \(($w1, $t1) \), tj. pro \(w=$w1\) a \(T=$t1\).$BR
+\(\displaystyle \frac{\partial C}{\partial T} ($w1, $t1) \approx \) \{ ans_rule(35) \}
+$BR
 
-BEGIN_PGML_SOLUTION
-Pokud umístíme kostku do pece, její teplota v každém bodě poroste s časem a derivace podle času je kladná v každém bodě.
+END_TEXT
 
-O znaménku derivace podle polohy rozhoduje to, zda teplota ve směru osy roste či klesá. Nejprve se ohřejí stěny a od nich se ohřívá vnitřek. Teplota na zadní straně tedy ve směru osy [`x`] klesá (osa míří dovnitř kostky a od stěny dovnitř klesá teplota) a vepředu roste (osa míří ven z kostky a z vnitřku kostky na stěnu teplota roste). Proto je vzadu derivace záporná a vepředu kladná. 
-END_PGML_SOLUTION
+BEGIN_PGML
+
+**Poznámka:** Nejpřesnější odhad parciální derivace je pomocí _centrální diference_. Například pro derivaci podle první proměnné funkce [`f(x,y)`] platí [```\frac{\partial f}{\partial x}\approx \frac{f(x+h,y)-f(x-h,y)}{2h}.```] Podobně je možno použít i _dopřednou diferenci_ 
+[```\frac{\partial f}{\partial x}\approx \frac{f(x+h,y)-f(x,y)}{h}```] nebo _zpětnou diferenci_ [```\frac{\partial f}{\partial x}\approx \frac{f(x,y)-f(x-h,y)}{h}.```] Tyto dvě diference jsou méně přesnými aproximacemi derivace a volíme je zpravidla pouze, pokud není vyhnutí. Například pokud nemáme potřebné údaje pro centrální diferenci k dispozici, tj. v tomto případě, pokud je bod, ve kterém derivaci počítáme, u kraje tabulky.
+
+**Použijte pro výpočet derivace centrální diferenci a pouze pokud to není možné, použijte příslušnou jednostrannou diferenci.**
+
+_(Přeložená a upravená úloha z OPL repozitáře programu WeBWorK, autor Gavin LaRose, zdroj Applied Calculus, Hughes-Hallett.)_
+
+END_PGML
+
+Context()->normalStrings;
+
+ANS( $fw->cmp() );
+$fwval = $fw;
+
+ANS( $ft->cmp() );
+$ftval = $ft;
+
+Context()->texStrings;
+SOLUTION(EV3(<<'END_SOLUTION'));
+$PAR Řešení. $PAR
+
+${BBOLD}(a)$EBOLD
+Paricální derivaci \( \frac{\partial C}{\partial w}\) v bodě \(($w0, $t0) \)
+vypočteme pomocí centrální diference \[ \frac{\partial C}{\partial w}(w_0, T_0) \approx \frac{f(w_0 + h,T_0) - f(w_0-h,T_0)}{2h}, \] protože při dané teplotě máme pocitovou teplotu při vyšší i nižší rychlosti větru. Vezmeme tedy tyto dvě hodnoty a vypočteme podíl změny pocitové teploty a změny rychlosti větru.
+Odsud
+\[ \frac{\partial C}{\partial w}($w0, $t0) \approx \frac{$fwnum}{10} = $fwval. \]
+$PAR
+
+Hodnota je záporná, protože při intenzivnějším větru pociťujeme větší zimu.
+
+$PAR
+
+${BBOLD}(b)$EBOLD
+Pro paricální derivaci \( \frac{\partial C}{\partial T}\) v bodě \(($w1, $t1) \)
+musíme použít zpětnou diferenci
+\[ \frac{\partial C}{\partial T}(w_0, T_0) \approx \frac{f(w_0,T_0) - f(w_0,T_0-h)}{h}, \] protože při zadané hodnotě větru nemáme informace o vyšší teplotě.
+Odsud
+\[ \frac{\partial C}{\partial T}($w1, $t1) \approx \frac{$ftnum}{5} = $ftval. \]
+$PAR
+
+Hodnota je kladná, protože pokud je větší teplota, pociťujeme oteplení.
+
+END_SOLUTION
+Context()->normalStrings;
+
+
 
 ENDDOCUMENT();

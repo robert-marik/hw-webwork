@@ -1,86 +1,103 @@
+###########################
+#  Initialization
 DOCUMENT();
 
 loadMacros(
-"PGstandard.pl",
-"MathObjects.pl",
-"parserRadioButtons.pl",
-"PGcourse.pl",
-"PGML.pl"
+  "PGstandard.pl",
+   "PGchoicemacros.pl",
+   "PGML.pl",
+  'draggableSubsets.pl', 
+  "PGcourse.pl"
 );
 
 
-TEXT(beginproblem());
-$showPartialCorrectAnswers = 0;
-$showHint = 1;
+#
+#  Add correct questions and answers
+#
+@a = (
+"\(\displaystyle\frac{\partial T}{\partial t}\)", "Časová změna teploty, tj. rychlost s jakou v daném místě roste teplota jako funkce času.",
+"\(\displaystyle\frac{\partial T}{\partial x}\)", "Rychlost s jakou v daném okamžiku roste teplota ve směru osy \(x\)",
+"\(\displaystyle-\frac{\partial T}{\partial x}\)", "Rychlost s jakou v daném okamžiku klesá teplota ve směru osy \(x\)",
+"\(\displaystyle-\lambda\frac{\partial T}{\partial x}\)", "Tok tepla",
+"\(\displaystyle\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", "Rychlost s jakou roste tok tepla ve směru osy \(x\)",
+"\(\displaystyle-\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", "Rychlost s jakou klesá tok tepla ve směru osy \(x\)"
+);
 
 
-$data =
-[
-{
-    obrazek=>"vedeni_tepla",
-    nadpis=>"Rovnice vedení tepla",
-    otazka=>"Rovnice vedení tepla v jednorozměrném materiálu má tvar \[ \rho c\frac{\partial T}{\partial t}=-\frac{\partial}{\partial x}\left(-k\frac{\partial T}{\partial x}\right). \] Co vyjadřuje člen \[ -k\frac{\partial T}{\partial x} \] nacházející se uvnitř závorky na pravé straně?",
-    odpoved=>"Tok tepla.",    
-    moznosti=>[
-"Spád teploty",
-"Rychlost růstu toku tepla v ose \(x\)",
-"Rychlost růstu toku tepla ve směru opačném k ose \(x\)",
-"Rychlost změny teploty v čase",
-"Rychlost změny teploty v ose \(x\)",
-"Rychlost poklesu teploty v ose \(x\)",
+@perm = shuffle(6);
+
+@i = ($a[1],$a[3],$a[5],$a[7],$a[9],$a[11]);
+@l = ($a[0],$a[2],$a[4],$a[6],$a[8],$a[10]);
+
+$draggable = DraggableSubsets(
+[ 
+$i[0],
+$i[1],
+$i[2],
+$i[3],
+$i[4],
+$i[5],
 ],
-zdroj=>"Obrázek: pixabay.com, autor ptdh"
-}
-];
+[
+[0],
+[1],
+[2],
+[3],
+[4],
+[5],
+],
+DefaultSubsets => [
+{label => $l[0], indices => [$perm[0]]},
+{label => $l[1], indices => [$perm[1]]},
+{label => $l[2], indices => [$perm[2]]},
+{label => $l[3], indices => [$perm[3]]},
+{label => $l[4], indices => [$perm[4]]},
+{label => $l[5], indices => [$perm[5]]},
+],
+AllowNewBuckets => 0,
+OrderedSubsets => 1
+);
 
-# Pocet otazek
-$pocet=@$data;
-$posledni=$pocet-1;  # indexujeme od nuly
 
-# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
-if ($DEBUG) {@pole = (0..$posledni);}
-   else {@pole=(random(0,$posledni));}
-
-# Cyklus pres otazky (jednu nebo vsechny)
-foreach $i (@pole)
-{
-
-
-
-# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
-# s interpretaci hranatych zavorek
-$ot       =  $data->[$i]->{otazka};
-$na       =  $data->[$i]->{nadpis};
-$obrazek  =  $data->[$i]->{obrazek};
-$od       =  $data->[$i]->{odpoved};
-$zdroj    =  $data->[$i]->{zdroj};
-@moznosti =@{$data->[$i]->{moznosti}};
-$radio    =  RadioButtons([[$od,@moznosti]],0);
-
+###########################
+#  Main text
 
 BEGIN_PGML
 
-## [$na]
+## Fyzikální interpretace členů z jednorozměrné rovnice vedení tepla
 
-[@ image("$obrazek.jpg", width=>400) @]*
 
-[@ $ot @]*
+Rovnice vedení tepla v jedné dimenzi má tvar
+[``` \rho  c \frac{\partial T}{\partial t}=\frac{\partial}{\partial x}
+\left(\lambda \frac{\partial T}{\partial x}\right).```]
 
-[_]{$radio}
+Abychom v ní zřetelně viděli tok, můžeme v ní také nechat záporná znaménka, tj. psát
+[``` \rho  c\frac{\partial T}{\partial t}=-\frac{\partial}{\partial x}
+\left(-\lambda \frac{\partial T}{\partial x}\right).```]
 
-_[$zdroj]_
+Pro jednotlivé složky této rovnice podejte jejich slovní interpretaci. Každá část rovnice má jednu z uvedených slovních interpretací, ale ty jsou přeházené. Přesuňte je myší na správná místa.
+
+[_]{$draggable}
 
 END_PGML
 
+
+############################
+#  Answer evaluation
+
+$showPartialCorrectAnswers = 0;
+
+
 BEGIN_PGML_SOLUTION
 
-[$od]
+* [@ $a[1] @] je [@ $a[0] @].
+* [@ $a[3] @] je [@ $a[2] @].
+* [@ $a[5] @] je [@ $a[4] @].
+* [@ $a[7] @] je [@ $a[6] @].
+* [@ $a[9] @] je [@ $a[8] @].
+* [@ $a[11] @] je [@ $a[10] @].
+
 
 END_PGML_SOLUTION
 
-};
-# konec cyklu
-
-
 ENDDOCUMENT();
-

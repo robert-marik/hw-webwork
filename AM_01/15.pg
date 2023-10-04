@@ -1,58 +1,123 @@
-DOCUMENT(); 
+# DESCRIPTION
+# Problem from Calculus, multi-variable, Hughes-Hallett et al.,
+# originally from 5ed (with updates)
+# WeBWorK problem written by Gavin LaRose, <glarose@umich.edu>
+
+DOCUMENT();
+
 loadMacros(
-"PGstandard.pl",
-"PGML.pl",
-"MathObjects.pl",
-"PGessaymacros.pl",
-"PGcourse.pl",
+  "PGstandard.pl",
+  #"PGchoicemacros.pl",
+  #"MathObjects.pl",
+  "PGtikz.pl",
+  "PGML.pl",
+  "parserRadioButtons.pl",
+  "PGcourse.pl"
 );
+
+## Tagged by glr 06/22/09
+
+
+## DBsubject(Calculus - multivariable)
+## DBchapter(Differentiation of multivariable functions)
+## DBsection(Partial derivatives)
+## Institution(University of Michigan)
+## Author(Gavin LaRose)
+## Level(5)
+## MO(1)
+## TitleText1('Calculus')
+## TitleText2('Calculus')
+## TitleText3('Calculus')
+## AuthorText1('Hughes-Hallett')
+## AuthorText2('Hughes-Hallett')
+## AuthorText3('Hughes-Hallett')
+## EditionText1('5')
+## EditionText2('6')
+## EditionText3('7')
+## Section1('14.1')
+## Section2('14.1')
+## Section3('14.1')
+## Problem1('26')
+## Problem2('31')
+## Problem3('37')
+## KEYWORDS('partial', 'derivative', 'multivariable', 'functions')
+
+## Textbook tags
+## HHChapter1('Differentiating Functions of Several Variables')
+
+#Context("Numeric");
+#$showPartialCorrectAnswers = 1;
+
+$TikZ = createTikZImage();
+
+$TikZ->BEGIN_TIKZ
+\begin{scope}[x=.20cm,y=.010cm, ultra thick]
+ \draw[->] (0,0)--(0,600) node[left]{\(H\)};
+ \draw[->] (0,0)--(40,0) node[right]{\(T\)};
+ \draw[red] plot[domain=0:40] (\x,(585 - 15.75*\x + 0.2*\x*\x)) ;
+ \draw[red] plot[domain=0:40] (\x,(430 - 11.25*\x + 0.1375*\x*\x));
+ \draw[red] plot[domain=0:40] (\x,(290 - 6*\x + 0.05*\x*\x));
+ \draw[red] plot[domain=0:40] (\x,(145 - 3.125*\x + 0.03125*\x*\x));
+ \draw(40,70) node[right] {\(H(T,0.1)\)};   
+ \draw(40,120) node[right] {\(H(T,0.2)\)};   
+ \draw(40,200) node[right] {\(H(T,0.3)\)};   
+ \draw(40,300) node[right] {\(H(T,0.4)\)};   
+\end{scope}
+END_TIKZ
+
+
+$radioT = RadioButtons([
+"Parciální derivace je kladná, protože při konstantním \(w\) je \(H\) rostoucí funkcí \(T\).",
+"Parciální derivace je kladná, protože při konstantním \(H\) je \(w\) rostoucí funkcí \(T\).",
+"Parciální derivace je záporná, protože při konstantním \(w\) je \(H\) klesající funkcí \(T\).",
+"Parciální derivace je záporná, protože při konstantním \(H\) je \(w\) klesající funkcí \(T\).",
+"Paricální derivace střídá znaménko, žádná z předchozích odpovědí není platná na celém definičním oboru.",
+"Není možné rozhodnout na základě uvedených informací."
+],2);
+
+
+
+$radiow = RadioButtons([
+"Parciální derivace je kladná, protože při konstantním \(T\) je \(H\) rostoucí funkcí \(w\).",
+"Parciální derivace je kladná, protože při konstantním \(H\) je \(T\) rostoucí funkcí \(w\).",
+"Parciální derivace je záporná, protože při konstantním \(T\) je \(H\) klesající funkcí \(w\).",
+"Parciální derivace je záporná, protože při konstantním \(H\) je \(T\) klesající funkcí \(w\).",
+"Paricální derivace střídá znaménko, žádná z předchozích odpovědí není platná na celém definičním oboru.",
+"Není možné rozhodnout na základě uvedených informací."
+],0);
+
+
 TEXT(beginproblem());
-
-ADD_CSS_FILE("css/left.css");
-
-TEXT(MODES(
-    HTML => "<style>.problem-content textarea {width:100%;}</style>",
-));
-
-TEXT(MODES(
-    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
-));
-
 BEGIN_PGML
 
+# Mlha na letišti
 
-## Parciální derivace 
+Mlha z letiště může být odstraněna ohřátím vzduchu. Množství potřebného tepla souvisí s teplotou a vlhkostí vzduchu. Graf zobrazuje potřebné teplo [`H(T,w)`] (v kaloriích na kubický metr) jako funkci teploty 
+[`T`] (ve stupních Celsia) a vlhkosti [`w`] (v gramech na metr krychlový).  Graf zobrazuje teplo jako funkci teploty pro vybrané hodnoty vlhkosti. 
+
+[!Grafy!]{$TikZ}{400}
+
+---
+
+**Jaké znaménko má parciální derivace [``\frac{\partial H}{\partial T}``]?**
+[_]{$radioT}
+
+---
+**Jaké znaménko má parciální derivace [``\frac{\partial H}{\partial w}``]?**
+[_]{$radiow}
 
 
-V úvodu předmětu se seznamujeme s pojmem parciální derivace. V čem je lepší než obyčejná derivace? Jak byste rozdíl mezi derivacemi osvětlili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je vhodné kromě obyčejných derivací znát i derivace parciální? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si o parciální derivaci chtěl zjistit více.
+_(Úloha je zpracována podle https://github.com/openwebwork/webwork-open-problem-library/blob/main/OpenProblemLibrary/Michigan/Chap14Sec1/Q26.pg.)_
 
 END_PGML
-
-
-BEGIN_TEXT
-\{essay_box(10,80)\}
-END_TEXT
-
-
-
-BEGIN_PGML
-
-Hodnocení není automatické. Úlohu boduje ručně vyučující. 
-
-END_PGML
-
-
 
 BEGIN_PGML_SOLUTION
 
-Obyčejná derivace dokáže zachytit změnu funkce jedné proměnné. Paricální derivace umožňuje pracovat s funkcemi více proměnných. Například při modelování prostupu tepla stěnou dokážeme zachytit. Zde spád teploty (derivace teploty podle prostorové souřadnice) řídí rychlost vedení tepla a tím i rychlost změny teploty (derivaci teploty podle času). A změna teploty zpětně ovlivňuje spád tepla. Matematický model tedy musí pracovat s rychlostí změny jak v čase tak v prostoru a bez parciálních derivací by se neobešel. 
+Každá křivka ukazuje, jak závisí teplo [`H`] na teplotě [`T`] při konstantní vlhkosti [`w`]. Každá křivka je klesající a proto při konstantní vlhkosti potřebné teplo klesá s teplotou. Parciální derivace [`\frac{\partial H}{\partial T}`] je záporná.
+
+Pro posuzení parciální derivace [`\frac{\partial H}{\partial w}`] musíme sledovat chování tepla při konstantní teplotě. Konstantní teplota odpovídá svislým čarám v grafu. Směrem zdola nahoru podél libovolné svislé čáry roste [`H`] (protože jdeme ve směru osy [`H`]) a roste i [`w`] (vidíme v popiscích čar, [`w`] roste z hodnoty 0.1 pro spodní křivku na hodnotu 0.4 pro křivku nejvýše). Protože při konstantní teplotě roste teplo současně s vlhostí, je paricální derivace [`\frac{\partial H}{\partial w}`] kladná.
 
 END_PGML_SOLUTION
-
-
-#Essay Boxs use the essay_cmp evaluator.
-ANS(essay_cmp());
-
 
 
 ENDDOCUMENT();

@@ -19,7 +19,7 @@ $data =
 {
     obrazek=>"ryby",
     otazka=>"Hmotnost objektu souvisí s jeho velikostí. U některých živočišných druhů, jako jsou například mnohé ryby, mají mláďata přibližně stejný tvar jako dospělí a proto je u těchto druhů hmotnost \(m\) svázána se třetí mocninou délky \(l\) vztahem \[m= kl^3.\] Jak byste tento vztah přečetli slovně?",
-    odpoved=>"Hmotnost je přímo úměrná třetí mocnině její délky.",
+    odpoved=>"Hmotnost ryby je přímo úměrná třetí mocnině její délky.",
     zdroj=>"Obrázek: wikimedia.org, autor: Hamid Badar Osmany",
     moznosti=>["Hmotnost ryby je nepřímo úměrná třetí mocnině její délky.",
 	  "Hmotnost ryby je nepřímo úměrná třetí odmocnině její délky.",

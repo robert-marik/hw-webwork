@@ -23,7 +23,7 @@ BEGIN_PGML
 
 ## Otázka s odpovědí ve tvaru matematického výrazu
 
-Výsledky úkolů bývají matematické výrazy, ať už čísla obsahující matematické operace, nebo funkce. Musíme být schopni je zapisovat v podobě srozumitelné počítačům. Většina z Vás zná alespoň základy z práce s programy typu MS Excel, Geogebra a podobně. Není to nijak složité, základy jsou shrnuty [@ htmlLink("http://user.mendelu.cz/marik/wiki/doku.php?id=webwork#zapis_matematickych_vyrazu_v_systemu_webwork","v tomto dokumentu.") @]*
+Výsledky úkolů bývají matematické výrazy, ať už čísla obsahující matematické operace, nebo funkce. Musíme být schopni je zapisovat v podobě srozumitelné počítačům. Většina z Vás zná alespoň základy z práce s programy typu MS Excel, Geogebra a podobně. Není to nijak složité, základy jsou shrnuty [@ htmlLink("https://raw.githubusercontent.com/robert-marik/hw-webwork/master/cheatsheet/cheatsheet.pdf","v tomto dokumentu.") @]*
 
 1. Najděte kladné řešení rovnice [```x^2-2=0.```]
     *  Kladné řešení rovnice [``x^2-2=0``] je [`x={}`][__________]{$f}.
