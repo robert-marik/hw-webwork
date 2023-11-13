@@ -1,58 +1,82 @@
-DOCUMENT(); 
+DOCUMENT();
+
 loadMacros(
 "PGstandard.pl",
-"PGML.pl",
 "MathObjects.pl",
-"PGessaymacros.pl",
+"parserRadioButtons.pl",
 "PGcourse.pl",
+"PGML.pl"
 );
+
+
 TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
 
-ADD_CSS_FILE("css/left.css");
+$DEBUG=1;
 
-TEXT(MODES(
-    HTML => "<style>.problem-content textarea {width:100%;}</style>",
-));
+$data =
+[
+{
+    nadpis=>"Křivkový integrál druhého druhu a změna orientace křivky",
+    otazka=>"Jak se změní křivkový integrál druhého druhu, pokud změníme orientaci křivky?",
+    odpoved=>"Změní znaménko.",
+    moznosti=>[
+"Nezmění se.",
+"Vynuluje se.",
+"Zvětší se nebo zmenší o délku křivky v závislosti na znaménku.",
+],
+},
+];
 
-TEXT(MODES(
-    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
-));
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
 
 BEGIN_PGML
 
 
-## Křivkový integrál
+## [$na]
 
+[@ $ot @]*
 
-Jak byste tento pojem přiblížili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je pojem z nadpisu tak užitečný? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si chtěl zjistit více.
+[_]{$radio}
 
-END_PGML
-
-
-BEGIN_TEXT
-\{essay_box(10,80)\}
-END_TEXT
-
-
-
-BEGIN_PGML
-
-Hodnocení není automatické. Úlohu boduje ručně vyučující. 
+_[$zdroj]_
 
 END_PGML
-
-
 
 BEGIN_PGML_SOLUTION
 
-Všechny integrály umožňují provést sumaci pro veličinu, která se nesestává z konečně mnoha příspěvků, ale pro stavení této veličiny je nutné započítat nekonečně mnoho příspěvků spojitě rozložených v nějaké množině. Křivkový integrál používáme pro sečtení příspěvků spojitě rozložených podél křivky. Významnou aplikací je výpočet práce, což je možno využít k definování potenciální energie. 
+[$od]
 
 END_PGML_SOLUTION
 
-
-#Essay Boxs use the essay_cmp evaluator.
-ANS(essay_cmp());
-
+};
+# konec cyklu
 
 
 ENDDOCUMENT();
+

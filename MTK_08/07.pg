@@ -13,6 +13,8 @@ TEXT(beginproblem());
 
 Context("Numeric")->variables->add(lambda=>"Real");
 
+do {
+
 $l1=non_zero_random(-5,5);
 $l2=non_zero_random(-5,5);
 $eN=non_zero_random(-1,1);
@@ -43,6 +45,9 @@ $a11=$i11*$s11+$i12*$s21;
 $a12=$i11*$s12+$i12*$s22;
 $a21=$i21*$s11+$i22*$s21;
 $a22=$i21*$s12+$i22*$s22;
+
+} until 
+((abs($a11)+abs($a12)+abs($a21)+abs($a22)<150) && ($a12*$a21 != 0));
 
 $kontrola1=$l1*$l1-($a11+$a22)*$l1+($a11*$a22-$a12*$a21);
 $kontrola2=$l2*$l2-($a11+$a22)*$l2+($a11*$a22-$a12*$a21);

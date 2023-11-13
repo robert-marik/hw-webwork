@@ -36,21 +36,11 @@ $data =
 "Obsah množiny obepnutý křivkou.",
 ],
 },
-{
-    nadpis=>"Křivkový integrál druhého druhu a změna orientace křivky",
-    otazka=>"Jak se změní křivkový integrál druhého druhu, pokud změníme orientaci křivky?",
-    odpoved=>"Změní znaménko.",
-    moznosti=>[
-"Nezmění se.",
-"Vynuluje se.",
-"Zvětší se nebo zmenší o délku křivky v závislosti na znaménku.",
-],
-},
 ];
 
 BEGIN_PGML
 
-Tato otázka má tři části. Každá má právě jednu správnou odpověď. V případě částečného úspěchu dostanete odpovídající částečný počet bodů, ale nebude zveřejněno, ve které části je odpověď správná. Po případné opravě se zobrazuje vždy nejlepší dosažené hodnocení.
+Tato otázka má dvě části. Každá má právě jednu správnou odpověď. V případě částečného úspěchu dostanete odpovídající částečný počet bodů, ale nebude zveřejněno, ve které části je odpověď správná. Po případné opravě se zobrazuje vždy nejlepší dosažené hodnocení.
 
 END_PGML
 

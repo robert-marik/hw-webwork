@@ -1,50 +1,81 @@
-DOCUMENT(); 
+DOCUMENT();
+
 loadMacros(
 "PGstandard.pl",
-"PGML.pl",
 "MathObjects.pl",
-"PGessaymacros.pl",
+"parserRadioButtons.pl",
 "PGcourse.pl",
+"PGML.pl"
 );
+
+
 TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showHint = 1;
 
-ADD_CSS_FILE("css/left.css");
+$data =
+[
+{
+    nadpis=>"Gradient a vrstevnice",
+    otazka=>"Jaký je vztah gradientu a vrstevnic funkce dvou proměnných?",
+    odpoved=>"Gradient je kolmý na vrstevnice a míří směrem k vyšším funkčním hodnotám.",
+    moznosti=>[
+"Gradient je kolmý na vrstevnice a míří směrem k nižším funkčním hodnotám.",
+"Gradient je rovnoběžný s vrstevnicemi a vyšší hodnoty jsou po levé straně.",
+"Gradient je rovnoběžný s vrstevnicemi a vyšší hodnoty jsou po pravé straně.",
+"Gradient je rovnoběžný s vrstevnicemi a má jednotkovou délku.",
+],
+    last => "Obecně neplatí ani jedno tvrzení. Zejména ne v anizotropních materiálech.",
+}
+];
 
-TEXT(MODES(
-    HTML => "<style>.problem-content textarea {width:100%;}</style>",
-));
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
 
-TEXT(MODES(
-    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
-));
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$obrazek  =  $data->[$i]->{obrazek};
+$od       =  $data->[$i]->{odpoved};
+$zdroj    =  $data->[$i]->{zdroj};
+$last    =  $data->[$i]->{last};
+
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti],$last],0);
+
 
 BEGIN_PGML
 
-
-## Gradient
-
-
-První z diferenciálních operátorů, se kterými se seznamujeme, je gradient. Jak byste tento pojem přiblížili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je gradient tak užitečný v technické praxi? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si o gradientu chtěl zjistit více.
-
-END_PGML
+## [$na]
 
 
-BEGIN_TEXT
-\{essay_box(10,80)\}
-END_TEXT
+[@ $ot @]*
 
-
-
-BEGIN_PGML
-
-Hodnocení není automatické. Úlohu boduje ručně vyučující. 
+[_]{$radio}
 
 END_PGML
 
+BEGIN_PGML_SOLUTION
 
-#Essay Boxs use the essay_cmp evaluator.
-ANS(essay_cmp());
+[$od]
 
+END_PGML_SOLUTION
+
+};
+# konec cyklu
 
 
 ENDDOCUMENT();
+
