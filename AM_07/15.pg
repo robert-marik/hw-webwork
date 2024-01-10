@@ -1,58 +1,50 @@
-DOCUMENT(); 
-loadMacros(
-"PGstandard.pl",
-"PGML.pl",
-"MathObjects.pl",
-"PGessaymacros.pl",
-"PGcourse.pl",
+DOCUMENT();
+
+loadMacros('PGstandard.pl', 'PGML.pl', 
+'parserCheckboxList.pl', 'PGcourse.pl');
+
+@correct_answers =  (
+"Křivkový integrál druhého druhu uvažovaného pole nezávisí na integrační cestě.",
+"Pole je gradientem nějaké skalární funkce.",
+"Křivkový integrál uvažovanho pole po uzavřené křivce je roven nule."
 );
-TEXT(beginproblem());
 
-ADD_CSS_FILE("css/left.css");
+@incorrect_answers = (
+"Pole je divergencí nějakého vektorového pole.",
+"Divergence vektorového pole je nulová.",
+"Křivkový integrál uvažovaného pole po uzavřené křivce je vždy nenulový.",
+"Křivkový integrál uvažovaného pole po uzavřené křivce může být nenulový."
+);    
 
-TEXT(MODES(
-    HTML => "<style>.problem-content textarea {width:100%;}</style>",
-));
+$li = MODES (HTML => "<li>", TeX => "\item");
+$ul = MODES (HTML => "<ul>", TeX => "\begin{itemize}");
+$end_ul = MODES (HTML => "</ul>", TeX => "\end{itemize}");
+$ans = "Správná tvrzení: $ul $li " . join( "$li ", @correct_answers ) . "$end_ul Nesprávná tvrzení:$ul $li " . join( "$li ", @incorrect_answers ) . "$end_ul";
 
-TEXT(MODES(
-    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
-));
+$n_correct = random(2, 3);
+$n_incorrect = 5 - $n_correct;
 
-BEGIN_PGML
+@OK = random_subset($n_correct,@correct_answers);
+@not_OK = random_subset($n_incorrect,@incorrect_answers);
+@ans = (0..$n_correct-1);
 
-
-## Difuzní rovnice
-
-
-Jak byste tento pojem přiblížili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je pojem z nadpisu tak užitečný? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si chtěl zjistit více.
-
-END_PGML
-
-
-BEGIN_TEXT
-\{essay_box(10,80)\}
-END_TEXT
-
-
+$checks = CheckboxList([[@OK,@not_OK]],[@ans]);
 
 BEGIN_PGML
 
-Hodnocení není automatické. Úlohu boduje ručně vyučující. 
+# Výběr z možností
+
+Uvažujme křivkový integrál vektorového pole, které má nulovou rotaci. Zatrhněte všechny pravdivé výroky.
+
+[_]{$checks}
+
 
 END_PGML
-
-
 
 BEGIN_PGML_SOLUTION
+[$checks->correct_ans]
 
-Difuzní rovnice je matematický aparát umožňující jednotným způsobem zachytit libovolný transportní děj. Jsou schopny zachytit transport látky (například rovnice difuze) nebo energie (například rovnice vedení tepla). Z praktického hlediska se jedná o vyjádření celkové bilance hustoty stavové veličiny, kdy to této bilance je započítán tranpsort, akumulace a vznik veličiny. Kdykolivb jsme schopni takovou bilanci nafomrulovat, je difuzní rovnice nástrojem pro stavnovení předpovědi, jak rychle bude docházet k tranposrtu, jak rychle bude nastolena rovnováha, kterým směrem transport bude porbíhat a podobně.
-
+[@ $ans @]*
 END_PGML_SOLUTION
-
-
-#Essay Boxs use the essay_cmp evaluator.
-ANS(essay_cmp());
-
-
 
 ENDDOCUMENT();

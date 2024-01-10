@@ -1,62 +1,137 @@
-DOCUMENT(); 
+DOCUMENT();
 loadMacros(
 "PGstandard.pl",
-"PGML.pl",
 "MathObjects.pl",
-"PGessaymacros.pl",
-"PGcourse.pl",
+"PGML.pl",
+"PGchoicemacros.pl",   
+'draggableSubsets.pl',
+"PGtikz.pl"
 );
 TEXT(beginproblem());
 
-ADD_CSS_FILE("css/left.css");
+$showHint = 1;
 
-TEXT(MODES(
-    HTML => "<style>.problem-content textarea {width:100%;}</style>",
-));
+do
+{
+@perm = shuffle(8);
+} until ( ($perm[0] != 0) ||  ($perm[1] != 1) || ($perm[2] != 2) || ($perm[3] != 3) || ($perm[4] != 4)|| ($perm[5] != 5) || ($perm[6] != 6) || ($perm[7] != 7));
 
-TEXT(MODES(
-    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
-));
+$odpovedi = [ 
+"Populace bakterií roste v prostředí s neomezenou úživností.",
+"Množství radioaktivího prvku se snižuje rozpadem.",
+"Horká káva se ochlazuje na teplotu místnosti.",
+"Studená zmrzlina se ohřívá na teplotu místnosti.",
+"Ryba roste s věkem.",
+"Populace bakterií roste v prostředí s omezenou nosnou kapacitou.",
+"Množství nečistot v jezeře se snižuje vlivem samočištění jezera.",
+"Vlhkost čerstvého dřeva klesá k rovnovážné vlhkosti."
+];
+
+$a = 
+[
+"\draw[red]  plot[domain=0:2] (\x,1/250*exp(\x*3))",
+"\draw[red]  plot[domain=0:2] (\x,0.9*exp(-\x*3))",
+"\draw[red]  plot[domain=0:2] (\x,0.2+0.7*exp(-\x*3))",
+"\draw[red]  plot[domain=0:2] (\x,0.8-0.6*exp(-\x*3))",
+"\draw[red]  plot[domain=0:2] (\x,.95/(1+exp(-(\x*6-4))))"
+];
+
+@graphs = ();
+
+foreach (0,1,2,3,4)
+{
+$graph_image = createTikZImage();
+$graph_image->tikzLibraries("arrows.meta");
+$graph_image->BEGIN_TIKZ
+\clip(-0.3,-0.3) rectangle (2,1);
+\draw[->] (0,0)--(2,0);
+\draw[->] (0,0) -- (0,1);
+$a->[$_];
+END_TIKZ
+$graphs[$_] = $graph_image;
+}
+
+$nadpis = [
+image($graphs[0], width => 200, tex_size => 300), 
+image($graphs[1], width => 200, tex_size => 300), 
+image($graphs[2], width => 200, tex_size => 300), 
+image($graphs[3], width => 200, tex_size => 300), 
+image($graphs[4], width => 200, tex_size => 300), 
+];
+
+$draggable = DraggableSubsets(
+$odpovedi,
+[[0],[1,6],[2,7],[3,4],[5]],
+DefaultSubsets => [
+{label => "Neohraničený růst ".$nadpis->[0], indices => [$perm[0],$perm[5]]},
+{label => "Pokles k nule ".$nadpis->[1], indices => [$perm[1],$perm[6]]},
+{label => "Pokles k rovnovážné hodnotě ".$nadpis->[2], indices => [$perm[2],$perm[7]]},
+{label => "Růst k rovnovážné hodnotě, rychlý počáteční náběh ".$nadpis->[3], indices => [$perm[3]]},
+{label => "Růst k rovnovážné hodnotě, pomalý počáteční náběh".$nadpis->[4], indices => [$perm[4]]},
+],
+AllowNewBuckets => 0,
+OrderedSubsets => 1
+);
 
 BEGIN_PGML
 
+# Růstové křivky
 
-## Diferenciální rovnice
+Na obrázcích jsou křivky, jak by mohl vypadat průběh závislosti sledované veličiny na čase. K tomu jsou modelované situace. Přesuňte situace ke správným obrázkům.
 
+Na všech osách je vodorovně čas a svisle sledovaná veličina. K některým grafům budou přiřazeny dva modely.
 
-Jak byste tento pojem přiblížili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je pojem z nadpisu tak užitečný? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si chtěl zjistit více.
+Několik rad:
 
-END_PGML
+* Pojmy jako samočištění jezera nebo nosná kapacita prostředí si můžete ujasnit v přednášce o diferenciálních rovnicích. 
+* Na úrovni populací je pro malé populace většinou pomalý růst (málo jedinců má málo mláďat).
+* Na úrovni jednotlivce je na začátku většinou rychlý růst (mláďata rostou rychle).
+* Při radioaktivním rozpadu nestabilního prvku se nakonec všechno rozpadne.
 
-
-BEGIN_TEXT
-\{essay_box(10,80)\}
-END_TEXT
-
-
-
-BEGIN_PGML
-
-Hodnocení není automatické. Úlohu boduje ručně vyučující. 
+[_]{$draggable}
 
 END_PGML
-
 
 BEGIN_PGML_SOLUTION
 
-Diferenciální rovnice jsou důležité tím, že umožňují zachytit vztah mezi měnící se veličinou a rychlostí změny této veličiny. Platí, že 
+---
 
-* v přírodě děje probíhají přirozeně tak, že se příroda snaží nastolit určitou rovnováhu a
-* tento proces je tím intenzivnější, čím více je rovnováha narušena.
+[@ image($graphs[0], width => 200, tex_size => 300) @]*
 
-Protože diferenciální rovnice jsou schopny zaychtit jak vzdálenost od rovnováhy (pomocí vhodné veličiny), tak rychlost konvergence k rovnováze (derivace veličiny podle času), jsou přirozeným matematickým vyjádřením naprosté většiny přirodních a fyzikálních dějů. V důsledku tohoto jsou diferenicální rovnice nejběžnějším vyjadřovacím jazykem při popisu přírody. Bez diferenciální rovnic jsme schopni popsat pouze velmi speciální případy, jako například děje probíhající konstantními rychlostmi, jak to známe ze středoškolské fyziky. S diferenciálními rovnicemi tato omezení na konstantní rychlosti odpadají. 
+[@ $odpovedi->[0] @]
+
+---
+
+[@ image($graphs[1], width => 200, tex_size => 300) @]*
+
+[@ $odpovedi->[1] @]
+
+[@ $odpovedi->[6] @]
+
+
+---
+
+[@ image($graphs[2], width => 200, tex_size => 300) @]*
+
+[@ $odpovedi->[2] @]
+
+[@ $odpovedi->[7] @]
+
+---
+
+[@ image($graphs[3], width => 200, tex_size => 300) @]*
+
+[@ $odpovedi->[3] @]
+
+[@ $odpovedi->[4] @]
+
+
+---
+
+[@ image($graphs[4], width => 200, tex_size => 300) @]*
+
+[@ $odpovedi->[5] @]
 
 END_PGML_SOLUTION
-
-
-#Essay Boxs use the essay_cmp evaluator.
-ANS(essay_cmp());
-
-
 
 ENDDOCUMENT();
