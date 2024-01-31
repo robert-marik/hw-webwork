@@ -1,55 +1,46 @@
-DOCUMENT(); 
-loadMacros(
-"PGstandard.pl",
-"PGML.pl",
-"MathObjects.pl",
-"PGessaymacros.pl",
-"PGcourse.pl",
+DOCUMENT();
+
+loadMacros('PGstandard.pl', 'PGML.pl', 
+'parserCheckboxList.pl', 'PGcourse.pl');
+
+@correct_answers =  (
+"Parciální derivace",
+"Gradient",
+"Divergence",
+"Rotace",
+"Divergence gradientu"
 );
-TEXT(beginproblem());
 
-ADD_CSS_FILE("css/left.css");
+@incorrect_answers = ();    
 
-TEXT(MODES(
-    HTML => "<style>.problem-content textarea {width:100%;}</style>",
-));
+$li = MODES (HTML => "<li>", TeX => "\item");
+$ul = MODES (HTML => "<ul>", TeX => "\begin{itemize}");
+$end_ul = MODES (HTML => "</ul>", TeX => "\end{itemize}");
+$ans = "Správná tvrzení: $ul $li " . join( "$li ", @correct_answers ) . "$end_ul Nesprávná tvrzení:$ul $li " . join( "$li ", @incorrect_answers ) . "$end_ul";
 
-TEXT(MODES(
-    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
-));
+$n_correct = random(2, 4);
 
-BEGIN_PGML
+@OK = random_subset($n_correct,@correct_answers);
 
-## Rotace
+@ans = (0..$n_correct-1);
 
-Poslední z "velkých" a slavných diferenciálních operátorů, se kterými se seznamujeme, je rotace. Jak byste tento pojem přiblížili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je rotace tak užitečná? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si o rotaci chtěl zjistit více.
-
-END_PGML
-
-
-BEGIN_TEXT
-\{essay_box(10,80)\}
-END_TEXT
-
-
+$checks = CheckboxList([[@OK]],[@ans]);
 
 BEGIN_PGML
 
-Hodnocení není automatické. Úlohu boduje ručně vyučující. 
+# Linearita
+
+Seznámili jsme se již s několika diferenciálními operátory. U každého určete, zda se jedná o lineární operátor, tj. zda zachovává součet a násobení konstantou.
+
+Zatrhněte všechny pravdivé výroky.
+
+[_]{$checks}
+
 
 END_PGML
-
 
 BEGIN_PGML_SOLUTION
-
-Diferenciální operátor rotace je je důležitý při stanovení, zda v daném vektortovém poli existuje kmenová funkce. Tím je totiž možno přecházet od vektorového popisu děje k popisu skalárnímu. Skalární popis je jednodušší a navíc se často dá dále zjednodušit pomocí zákona zachování. 
-
+Všechny uvedené operátory jsou lineární.
 END_PGML_SOLUTION
-
-
-#Essay Boxs use the essay_cmp evaluator.
-ANS(essay_cmp());
-
-
 
 ENDDOCUMENT();

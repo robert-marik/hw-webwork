@@ -10,6 +10,12 @@ loadMacros(
 "otazky.pl"
 );
 
+#$suma_ascii = 0;
+#foreach my $znak (split //, $studentLogin) {
+#    # Získáme ASCII hodnotu znaku a přičteme ji k celkové sumě
+#    $suma_ascii += ord($znak);
+#}
+#SRAND($suma_ascii);
 
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
@@ -42,7 +48,6 @@ $od       =  $otazky->[$i]->{odpoved};
 $spravnavolba = $otazky->[$i]->{nastroj};
 $radio    =  RadioButtons([@moznosti],$spravnavolba);
 $variantaslovne  = ${$odpovedi}[$spravnavolba];
-
 
 BEGIN_PGML
 

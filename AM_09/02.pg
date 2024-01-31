@@ -32,16 +32,6 @@ moznosti=>[
 "\(f'(x_0)<0\), takový bod zaručuje, že systém nikdy nemůže přejít do ustáleného stavu",
 "\(f'(0)>0\), takový bod zaručuje, že systém nikdy nemůže přejít do ustáleného stavu",
 ]
-},
-{
-nadpis=>"Oscilace okolo stacionárního bodu",
-otazka=>"Vysvětlete, jak poznáme, jestli řešení dvourozměrného autonomního systému oscilují okolo stacionárního bodu. (Nerozlišujeme cykly ani to, zda amplituda oscilací roste či klesá.)",
-odpoved=>"Vlastní čísla Jacobiho matice v tomto bodě mají nenulovou imaginární složku",
-moznosti=>[
-"Jacobiho matice má v tomto bodě záporný determinant.",
-"Obě pravé strany jsou v tomto bodě nulové.",
-"Obě pravé strany mají v tomto bodě opačný charakter monotonie (jedna roste a druhá klesá, nebo naopak).",
-]
 }
 ];
 

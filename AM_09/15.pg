@@ -1,59 +1,77 @@
-DOCUMENT(); 
+DOCUMENT();
+
 loadMacros(
 "PGstandard.pl",
-"PGML.pl",
 "MathObjects.pl",
-"PGessaymacros.pl",
+"parserRadioButtons.pl",
 "PGcourse.pl",
+"PGML.pl"
 );
+
+
 TEXT(beginproblem());
 
-ADD_CSS_FILE("css/left.css");
 
-TEXT(MODES(
-    HTML => "<style>.problem-content textarea {width:100%;}</style>",
-));
+$data =
+[
+{
+nadpis=>"Oscilace okolo stacionárního bodu",
+otazka=>"Vysvětlete, jak poznáme, jestli řešení dvourozměrného autonomního systému oscilují okolo stacionárního bodu. (Nerozlišujeme cykly ani to, zda amplituda oscilací roste či klesá.)",
+odpoved=>"Vlastní čísla Jacobiho matice v tomto bodě mají nenulovou imaginární složku",
+moznosti=>[
+"Jacobiho matice má v tomto bodě záporný determinant.",
+"Obě pravé strany jsou v tomto bodě nulové.",
+"Obě pravé strany mají v tomto bodě opačný charakter monotonie (jedna roste a druhá klesá, nebo naopak).",
+]
+}
+];
 
-TEXT(MODES(
-    HTML => "<style>th:nth-child(4) {width:300px;}</style>",
-));
+
+# Pocet otazek
+$pocet=@$data;
+$posledni=$pocet-1;  # indexujeme od nuly
+
+$DEBUG=1;
+
+# Vybereme bud vsechny nebo jednu otazku, podle nastaveni ladiciho parametru
+if ($DEBUG) {@pole = (0..$posledni);}
+   else {@pole=(random(0,$posledni));}
+
+# Cyklus pres otazky (jednu nebo vsechny)
+foreach $i (@pole)
+{
+
+
+
+# Ulozeni textu do samostatnych promennych, aby nebyly problemy v PGML bloku
+# s interpretaci hranatych zavorek
+$ot       =  $data->[$i]->{otazka};
+$na       =  $data->[$i]->{nadpis};
+$od       =  $data->[$i]->{odpoved};
+@moznosti =@{$data->[$i]->{moznosti}};
+$radio    =  RadioButtons([[$od,@moznosti]],0);
+
 
 BEGIN_PGML
 
+## [$na]
 
-## Stacionární řešení autonomní diferenciální rovnice
 
+[@ $ot @]*
 
-Jak byste tento pojem přiblížili naprostému laikovi? Jak byste se mu pokusili co nejjednodušeji nastínit, o co se zhruba jedná a proč je pojem z nadpisu tak užitečný? Snažte se o krátkou ale výstižnou odpověď, která posluchače nadchne tak, aby si chtěl zjistit více.
+[_]{$radio}
 
-Uvažujte jednodimenzionální případ, tj. skalární rovnici [``` \frac{\mathrm dx}{\mathrm dt}=f(x). ```]
 
 END_PGML
-
-
-BEGIN_TEXT
-\{essay_box(10,80)\}
-END_TEXT
-
-
-
-BEGIN_PGML
-
-Hodnocení není automatické. Úlohu boduje ručně vyučující. 
-
-END_PGML
-
 
 BEGIN_PGML_SOLUTION
 
-Stacionární řešení jsou význačná tím, že se dají snadno nalézt a  přináší důležité informaci o chování všech řešení. Snadno najít se dají proto, že namísto diferenciální rovnice stačí řešit algebraickou rovnici. Jejich přínos je v tom, že všechna ohraničená řešení diferenciální rovnice konvergují ke stabilním stacionárním řešením a oblasti atraktivity těchto řešení jsou odděleny nestabilními stacionárními řešeními. 
+[$od]
 
 END_PGML_SOLUTION
 
-
-#Essay Boxs use the essay_cmp evaluator.
-ANS(essay_cmp());
-
+};
+# konec cyklu
 
 
 ENDDOCUMENT();
