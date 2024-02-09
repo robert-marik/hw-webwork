@@ -11,6 +11,13 @@ loadMacros(
 );
 
 
+$suma_ascii = 0;
+foreach my $znak (split //, $studentLogin) {
+    # Získáme ASCII hodnotu znaku a přičteme ji k celkové sumě
+    $suma_ascii += ord($znak);
+}
+SRAND($suma_ascii);
+
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showHint = 1;
