@@ -34,7 +34,7 @@ BEGIN_PGML
 
 # Výběr z možností
 
-Uvažujme křivkový integrál vektorového pole, které má nulovou rotaci. Zatrhněte všechny pravdivé výroky.
+Uvažujme křivkový integrál vektorového pole, které má nulovou rotaci. Zatrhněte všechny pravdivé výroky. (Předpokládejte dostatečně hladké funkce a dostatečně pěkné oblasti, aby nikde nebyl problém se splněním podmínek pro platnost vět z přednášky.)
 
 [_]{$checks}
 
