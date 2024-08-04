@@ -16,7 +16,7 @@ $showHint = 1;
 $data =
 {
 otazka=>"Studené těleso bylo přemístěno do teplé místnosti. Jeho teplota \(T\) roste v čase podle vztahu \[\frac{\mathrm dT}{\mathrm dt}=-k(T-T_0),\]
-kde \(T_0\) je teplota místnosti a \(k\) konstanta úměrnosti z Newtonova zákona ochlazování. Vyberte správné tvrzení o jednotkce konstanty \(k\).",
+kde \(T_0\) je teplota místnosti a \(k\) konstanta úměrnosti z Newtonova zákona ochlazování. Vyberte správné tvrzení o jednotce konstanty \(k\).",
 nadpis=>"Jednotka konstanty z modelu tepelné výměny",
 moznosti=>[
 "Jednotkou konstanty \(k\) je převrácená hodnota jednotky času, protože po součinu s teplotou musí mít pravá strana stejnou jednotku jako derivace teploty podle času a jednotka této derivace je podílem jednotky teploty a času.",
@@ -24,7 +24,7 @@ moznosti=>[
 "Konstanta \(k\) nemá žádnou jednotku, protože konstanty, které jsou ve fyzice konstantami úměrnosti, žádné fyzikální jednotky nemají. Nedpovídají totiž reálně měřitelným veličinám.",
 "Konstanta \(k\) má stejnou jednotku jako je jednotka teploty, protože fyzikálně odpovídá rozdílu počáteční teploty a teploty místnoti.",
 "Konstanta \(k\) má stejnou jednotku jako je jednotka teploty, protože fyzikálně odpovídá nárůstu teploty za jednotku času.",
-"Konstanta \(k\) nemá žádnou jednotku, protože konstanty na levé straně rovnice je výraz udávaný v jednotkách teploty (derivace je rychlost růstu teploty) a na pravé straně musí vycházet stejná jednotka.",
+"Konstanta \(k\) nemá žádnou jednotku, protože na levé straně rovnice je výraz udávaný v jednotkách teploty (derivace je rychlost růstu teploty) a na pravé straně musí vycházet stejná jednotka.",
 ],
 vysvetleni=>"Derivace na levé straně má jednotku rovnu podílu jednotky teploty a jednotky času. Na pravé straně musí být stejná jednotka. Protože napravo figuruje součin teplotního rozdílu (udává se ve stejných jednotkách jako teplota) s konstantou \(k\), musí se jednotka času dostat do jmenovatele právě prostřednictvím konstanty \(k\). Tedy jednotka této konstanty musí mít ve jmenovateli jednotku času."}
 ;
