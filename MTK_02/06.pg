@@ -45,7 +45,7 @@ BEGIN_PGML_SOLUTION
 Známe derivaci poloměru podle času a potřebujeme znát derivaci objemu podle času. Protože známe objem jako funkci poloměru, můžeme najít derivaci objemu podle poloměru. K derivaci objemu podle času se poté dostaneme, pokud budeme závislost objemu na čase brát zprostředkovaně přes poloměr.
 
 Ve vzorci pro objem koule je třetí mocnina poloměru vynásobena konstantou [``\frac 43 \pi``]. Proto platí
-[``` \frac{\mathrm dV}{\mathrm dr} =\frac 43 \pi 3r^3=4\pi r^2.```]
+[``` \frac{\mathrm dV}{\mathrm dr} =\frac 43 \pi 3r^2=4\pi r^2.```]
 Použitím derivace složené funkce dostáváme
 [``` \frac{\mathrm dV}{\mathrm dt} = \frac{\mathrm dV}{\mathrm dr} \frac{\mathrm dr}{\mathrm dt} = 4\pi r^2 \frac{\mathrm dr}{\mathrm dt}.```]
 END_PGML_SOLUTION

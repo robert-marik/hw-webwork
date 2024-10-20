@@ -13,7 +13,7 @@ ADD_CSS_FILE("css/gpt.css");
 
 $radio = RadioButtons([
 "Řešení je matematicky správné a je podrobně okomentované a plně srozumitelné.",
-"Řešení je matematicky správné, ale je hůře srozumitelné, protože používá neobvyklé slovní obraty.",
+"Řešení je matematicky správné, ale je hůře srozumitelné, protože používá neobvyklé slovní obraty, jako simplifikace nebo kvadratický vzorec (obojí jsou doslovné překlady z angličtiny a v češtině se nepoužívají, používáme obraty úprava a vzorec pro řešení kvadratické rovnice).",
 "Řešení je matematicky špatně."
 ],1);
 

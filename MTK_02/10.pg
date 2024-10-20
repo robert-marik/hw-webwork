@@ -7,7 +7,7 @@ loadMacros('PGstandard.pl', 'PGML.pl',
 "Konstanta úměrnosti \(k\) má fyzikální jednotku rovnu převrácené hodnotě jednotky času, \(\mathrm{min}^{-1}\).",
 "Model vyjadřuje, že rychlost poklesu teploty je úměrná teplotnímu rozdílu tělesa a okolí.",
 "Konstanta úměrnosti \(k\) číselně vyjadřuje rychlost ochlazování v situaci, kdy je jednotkový rozdíl teploty tělesa a okolí.",
-"Pro kávu v plechovém hrnku s je konstanta \(k\) větší, než pro kávu v termohrnku.",
+"Pro kávu v plechovém hrnku je konstanta \(k\) větší, než pro kávu v termohrnku.",
 );
 
 @incorrect_answers = (
@@ -16,7 +16,7 @@ loadMacros('PGstandard.pl', 'PGML.pl',
 "Konstanta úměrnosti \(k\) číselně vyjadřuje rychlost ochlazování na začátku pokusu.",
 "Konstanta úměrnosti \(k\) číselně vyjadřuje dobu nutnou pro ochlazení tělesa na poloviční teplotu.",
 "Konstanta úměrnosti \(k\) číselně vyjadřuje dobu nutnou pro ochlazení tělesa tak, aby teplotní rozdíl byl poloviční než na počátku.",
-"Pro kávu v plechovém hrnku s je konstanta \(k\) menší, než pro kávu v termohrnku."
+"Pro kávu v plechovém hrnku je konstanta \(k\) menší, než pro kávu v termohrnku."
 );    
 
 $li = MODES (HTML => "<li>", TeX => "\item");
