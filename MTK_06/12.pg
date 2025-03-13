@@ -47,6 +47,7 @@ $answers = "Správná tvrzení: $ul $li " . join( "$li ", @correct_answers ) . "
 @ans=();
 @varianty=();
 @list = (0..6);
+$ncorrect = 0;
 foreach (@list)
 {
     $a = random(0,1);
@@ -54,6 +55,7 @@ foreach (@list)
   {
       push(@ans,($_));
       push(@varianty,$correct_answers[$_]);
+      $ncorrect = $ncorrect + 1;
   }
   else
   {
@@ -75,6 +77,7 @@ kde [`N`] je velikost populace, [`K`] je nosná kapacita prostředí a  [`r`] je
 
 Zatrhněte všechna tvrzení, která jsou pravdivá. Nezávislou proměnnou (neznámou v rovnici) je velikost populace [`N`], derivujeme podle času a obě konstanty [`r`] a [`K`] jsou kladné. 
 
+(Počet pravdivých tvrzení je [$ncorrect].)
 
 [_]{$checks}
 

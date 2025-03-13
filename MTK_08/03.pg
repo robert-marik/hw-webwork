@@ -113,7 +113,7 @@ Matice [``A=[$B]``] má vlastní hodnotu [`\lambda=[$l2]`]. Najděte vlastní ve
 
 ------------------
 
-Následující příklad bystě měli být schopni vypočítat jenom pomocí vhodného maticového součinu a bez hledání všech vlastních hodnot.
+Následující příklad byste měli být schopni vypočítat jenom pomocí vhodného maticového součinu a bez hledání všech vlastních hodnot.
 
 Matice [``B=[$A]``] má vlastní vektor [`\vec v=[$v1]`]. Najděte příslušnou vlastní hodnotu [`\lambda`] této matice.
 

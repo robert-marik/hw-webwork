@@ -44,7 +44,7 @@ BEGIN_PGML
 Veličina [`x`] udává množství ryb v kilogramech v rybníce. Je funkcí času, který měříme ve dnech.
 Vyberte správná trvzení o derivaci [``\frac{\mathrm dx}{\mathrm dt}.``]
 
-Zatrhněte všechny pravdivé výroky.
+Zatrhněte všechny pravdivé výroky (počet pravdivých výroků je [$n_correct]).
 
 [_]{$checks}
 
