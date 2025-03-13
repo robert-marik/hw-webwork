@@ -53,19 +53,22 @@ Toto je aplikace přímo jako stvořená pro operátor divergence. Divergence ud
 
 -------------------------
 
-Vypočtěte množství stavové veličiny, která vzniká při stacionárním proudění popsaném vektorovým polem [``` \vec F(x,y)=([$P])\vec i +\left([$Q]\right)\vec j```] v krychli o hraně délky [$hrana] se středem v bodě [` ([$x0],[$y0]) `].
+Vypočtěte množství stavové veličiny, která vzniká při stacionárním proudění popsaném vektorovým polem [``` \vec F(x,y,z)=([$P])\vec i +\left([$Q]\right)\vec j
++ 0 \vec k```] v krychli o hraně délky [$hrana] se středem v bodě [`
+([$x0],[$y0],0) `].
 
 Vypočtěte nejprve divergenci obecně.
->>[``\nabla \cdot \vec F(x,y)={}``][____________________________________]{$divergence}<<
+>>[``\nabla \cdot \vec F(x,y,z)={}``][____________________________________]{$divergence}<<
 
-Poté vypočtěte nejprve divergenci v bodě [`([$x0],[$y0])`].
->>[``\nabla \cdot \vec F([$x0],[$y0])={}``][____________________________________]{$divergenceBod}<<
+Poté vypočtěte nejprve divergenci v bodě [`([$x0],[$y0],0)`].
+>>[``\nabla \cdot \vec F([$x0],[$y0],0)={}``][____________________________________]{$divergenceBod}<<
 
 Poté vypočtěte objem krychle o hraně délky [`[$hrana]`].
 >>[``V={}``][____________________________________]{$objem}<<
 
-Nakonec vypočtěte celkový tok jako součin objemu a divergence v bodě  [`([$x0],[$y0])`].
->>[``V \cdot (\nabla \cdot \vec F([$x0],[$y0]))={}``][____________________________________]{$tok}<<
+Nakonec vypočtěte celkový tok jako součin objemu a divergence v bodě
+[`([$x0],[$y0],0)`].
+>>[``V \cdot (\nabla \cdot \vec F([$x0],[$y0],0))={}``][____________________________________]{$tok}<<
 
 Poznámka: Nezapomeňte, že oddělovačem desetinných míst je tečka. 
 
