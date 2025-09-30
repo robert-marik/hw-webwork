@@ -26,10 +26,10 @@ $draggable = DraggableSubsets(
 ],
 [[0],[1],[2],[3]],
 DefaultSubsets => [
-{label => "Rychlost, s jakou se roste objem hromady v čase, tj. změna objemu za jednotku času.", indices => [$perm[0]]},
-{label => "Rychlost, s jakou se roste výška hromady v čase, tj. změna výšky za jednotku času.", indices => [$perm[1]]},
-{label => "Rychlost, s jakou se roste výška hromady jako funkce objemu, tj. změna výšky při změně objemu o jednotku.", indices => [$perm[2]]},
-{label => "Rychlost, s jakou se roste objem hromady jako funkce výšky, tj. změna objemu při změně výšky o jednotku.", indices => [$perm[3]]},
+  {label => "Rychlost, s jakou se roste objem hromady v &#269;ase, tj. zm&#283;na objemu za jednotku &#269;asu.", indices => [$perm[0]]},
+  {label => "Rychlost, s jakou se roste v&#253;&#353;ka hromady v &#269;ase, tj. zm&#283;na v&#253;&#353;ky za jednotku &#269;asu.", indices => [$perm[1]]},
+  {label => "Rychlost, s jakou se roste v&#253;&#353;ka hromady jako funkce objemu, tj. zm&#283;na v&#253;&#353;ky p&#345;i zm&#283;n&#283; objemu o jednotku.", indices => [$perm[2]]},
+  {label => "Rychlost, s jakou se roste objem hromady jako funkce v&#253;&#353;ky, tj. zm&#283;na objemu p&#345;i zm&#283;n&#283; v&#253;&#353;ky o jednotku.", indices => [$perm[3]]},
 ],
 AllowNewBuckets => 0,
 OrderedSubsets => 1
