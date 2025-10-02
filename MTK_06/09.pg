@@ -23,8 +23,8 @@ $odpovedi = [
 "Studen&aacute; zmrzlina se oh&#345;&iacute;v&aacute; na teplotu m&iacute;stnosti.",
 "Ryba roste s v&#283;kem.",
 "Populace bakteri&iacute; roste v prost&#345;ed&iacute; s omezenou nosnou kapacitou.",
-"Mno&#382;stv&iacute; nečistot v jeze&#345;e se sni&#382;uje vlivem samoči&#353;t&#283;n&iacute; jezera.",
-"Vlhkost čerstv&eacute;ho d&#345;eva kles&aacute; k rovnov&aacute;&#382;n&eacute; vlhkosti."
+"Mno&#382;stv&iacute; ne&ccaron;istot v jeze&#345;e se sni&#382;uje vlivem samo&ccaron;i&#353;t&#283;n&iacute; jezera.",
+"Vlhkost &ccaron;erstv&eacute;ho d&#345;eva kles&aacute; k rovnov&aacute;&#382;n&eacute; vlhkosti."
 ];
 
 $a = 
@@ -63,11 +63,11 @@ $draggable = DraggableSubsets(
 $odpovedi,
 [[0],[1,6],[2,7],[3,4],[5]],
 DefaultSubsets => [
-{label => "Neohraničený růst ".$nadpis->[0], indices => [$perm[0],$perm[5]]},
+{label => "Neohrani&#269;en&#253; r&#367;st ".$nadpis->[0], indices => [$perm[0],$perm[5]]},
 {label => "Pokles k nule ".$nadpis->[1], indices => [$perm[1],$perm[6]]},
-{label => "Pokles k rovnovážné hodnotě ".$nadpis->[2], indices => [$perm[2],$perm[7]]},
-{label => "Růst k rovnovážné hodnotě, rychlý počáteční náběh ".$nadpis->[3], indices => [$perm[3]]},
-{label => "Růst k rovnovážné hodnotě, pomalý počáteční náběh".$nadpis->[4], indices => [$perm[4]]},
+{label => "Pokles k rovnov&#283;&#382;n&#233; hodnot&#283; ".$nadpis->[2], indices => [$perm[2],$perm[7]]},
+{label => "R&#367;st k rovnov&#283;&#382;n&#233; hodnot&#283;, rychl&#253; po&#269;Ã¡te&#269;n&#237; n&#225;b&#283;h ".$nadpis->[3], indices => [$perm[3]]},
+{label => "R&#367;st k rovnov&#283;&#382;n&#233; hodnot&#283;, pomal&#253; po&#269;Ã¡te&#269;n&#237; n&#225;b&#283;h".$nadpis->[4]},
 ],
 AllowNewBuckets => 0,
 OrderedSubsets => 1
