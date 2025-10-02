@@ -66,8 +66,8 @@ DefaultSubsets => [
 {label => "Neohrani&#269;en&#253; r&#367;st ".$nadpis->[0], indices => [$perm[0],$perm[5]]},
 {label => "Pokles k nule ".$nadpis->[1], indices => [$perm[1],$perm[6]]},
 {label => "Pokles k rovnov&#283;&#382;n&#233; hodnot&#283; ".$nadpis->[2], indices => [$perm[2],$perm[7]]},
-{label => "R&#367;st k rovnov&#283;&#382;n&#233; hodnot&#283;, rychl&#253; po&#269;Ã¡te&#269;n&#237; n&#225;b&#283;h ".$nadpis->[3], indices => [$perm[3]]},
-{label => "R&#367;st k rovnov&#283;&#382;n&#233; hodnot&#283;, pomal&#253; po&#269;Ã¡te&#269;n&#237; n&#225;b&#283;h".$nadpis->[4], indices => [$perm[4]]},
+{label => "R&#367;st k rovnov&aacute;&#382;n&#233; hodnot&#283;, rychl&#253; po&#269;&aacute;te&#269;n&#237; n&#225;b&#283;h ".$nadpis->[3], indices => [$perm[3]]},
+{label => "R&#367;st k rovnov&aacute;&#382;n&#233; hodnot&#283;, pomal&#253; po&#269;&aacute;te&#269;n&#237; n&#225;b&#283;h".$nadpis->[4], indices => [$perm[4]]},
 ],
 AllowNewBuckets => 0,
 OrderedSubsets => 1
