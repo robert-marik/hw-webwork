@@ -20,9 +20,9 @@ do
 
 $draggable = DraggableSubsets(
 [ 
-"Množství vytečeného oleje za \(T\) jednotek času.",
-"Průměrná rychlost vytékání oleje za \(T\) jednotek času.",
-"Množství vytečeného oleje jako funkce času.",
+"Mno&#382;stv&iacute; vyte&#269;en&eacute;ho oleje za \(T\) jednotek &#269;asu.",
+"Pr&#367;m&#283;rn&aacute; rychlost vyt&eacute;k&aacute;n&iacute; oleje za \(T\) jednotek &#269;asu.",
+"Mno&#382;stv&iacute; vyte&#269;en&eacute;ho oleje jako funkce &#269;asu.",
 ],
 [[0],[1],[2]],
 DefaultSubsets => [
@@ -33,8 +33,6 @@ DefaultSubsets => [
 AllowNewBuckets => 0,
 OrderedSubsets => 1
 );
-
-
 
 ###########################
 #  Main text

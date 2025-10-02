@@ -31,10 +31,10 @@ $draggable = DraggableSubsets(
 ],
 [[3],[1],[7],[0,2,4,5,6]],
 DefaultSubsets => [
-{label => "Množství toxinů jako funkce času.", indices => []},
-{label => "Nárůst množství toxinů za čas \(T\).", indices => []},
-{label => "Průměrná rychlost růstu množství toxinů za čas \(T\)", indices => []},
-{label => "Nabídka matematických výrazů.", indices => [0,1,2,3,4,5,6,7]},
+{label => "Mno&#382;stv&iacute; toxin&#367; jako funkce &#269;asu.", indices => []},
+{label => "N&aacute;r&#367;st mno&#382;stv&iacute; toxin&#367; za &#269;as \(T\).", indices => []},
+{label => "Pr&#367;m&#283;rn&aacute; rychlost r&#367;stu mno&#382;stv&iacute; toxin&#367; za &#269;as \(T\)", indices => []},
+{label => "Nab&iacute;dka matematick&yacute;ch v&yacute;raz&#367;.", indices => [0,1,2,3,4,5,6,7]},
 ],
 AllowNewBuckets => 0,
 OrderedSubsets => 1

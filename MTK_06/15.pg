@@ -19,15 +19,23 @@ do
 } until ( ($perm[0] != 0) ||  ($perm[1] != 1) || ($perm[2] != 2) || ($perm[3] != 3) || ($perm[4] != 4)|| ($perm[5] != 5));
 
 $odpovedi = [ 
-"Znám časový průběh \(y\) a zajímá mne změna \(y\) na zadaném intervalu.",
-"Znám časový průběh \(y\) a zajímá mne rychlost změny. Vím, že děj probíhá rovnoměrně (tj. konstantní rychlostí).",
-"Znám časový průběh \(y\) a zajímá mne rychlost změny. Vím, že děj nemusí probíhat rovnoměrně (tj. nemusí probíhat konstantní rychlostí).",
-"Znám rychlost změny a výchozí stav, zajímá mne časový průběh \(y\). Rychlost závisí pouze na čase.",
-"Znám rychlost změny a zajímá mne změna \(y\) na zadaném intervalu. Rychlost závisí pouze na čase.",
-"Znám rychlost změny a výchozí stav, zajímá mne časový průběh \(y\). Rychlost závisí na čase a na \(y\).",
+"Zn&aacute;m časov&yacute; pr&#367;b&#283;h \(y\) a zaj&iacute;m&aacute; mne zm&#283;na \(y\) na zadan&eacute;m intervalu.",
+"Zn&aacute;m časov&yacute; pr&#367;b&#283;h \(y\) a zaj&iacute;m&aacute; mne rychlost zm&#283;ny. V&iacute;m, &#382;e d&#283;j prob&iacute;h&aacute; rovnom&#283;rn&#283; (tj. konstantn&iacute; rychlost&iacute;).",
+"Zn&aacute;m časov&yacute; pr&#367;b&#283;h \(y\) a zaj&iacute;m&aacute; mne rychlost zm&#283;ny. V&iacute;m, &#382;e d&#283;j nemus&iacute; prob&iacute;hat rovnom&#283;rn&#283; (tj. nemus&iacute; prob&iacute;hat konstantn&iacute; rychlost&iacute;).",
+"Zn&aacute;m rychlost zm&#283;ny a v&yacute;choz&iacute; stav, zaj&iacute;m&aacute; mne časov&yacute; pr&#367;b&#283;h \(y\). Rychlost z&aacute;vis&iacute; pouze na čase.",
+"Zn&aacute;m rychlost zm&#283;ny a zaj&iacute;m&aacute; mne zm&#283;na \(y\) na zadan&eacute;m intervalu. Rychlost z&aacute;vis&iacute; pouze na čase.",
+"Zn&aacute;m rychlost zm&#283;ny a v&yacute;choz&iacute; stav, zaj&iacute;m&aacute; mne časov&yacute; pr&#367;b&#283;h \(y\). Rychlost z&aacute;vis&iacute; na čase a na \(y\).",
 ];
 
-$nadpis = ["Rozdíl", "Podíl", "Derivace", "Neurčitý integrál nebo integrál jako funkce meze", "Určitý integrál", "Diferenciální rovnice"];
+$nadpis = [
+"Rozd&iacute;l", 
+"Pod&iacute;l", 
+"Derivace", 
+"Neurčit&yacute; integr&aacute;l nebo integr&aacute;l jako funkce meze", 
+"Určit&yacute; integr&aacute;l", 
+"Diferenci&aacute;ln&iacute; rovnice"
+];
+
 
 $draggable = DraggableSubsets(
 $odpovedi,
