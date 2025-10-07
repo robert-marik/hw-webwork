@@ -19,17 +19,17 @@ do
 
 $draggable = DraggableSubsets(
 [ 
-"Kočka",
+"Kocka",
 "Pes",
-"Labuť",
+"Labut",
 "Ryba"
 ],
 [[0],[1],[2],[3]],
 DefaultSubsets => [
-{label => "Loví myši.", indices => [$perm[0]]},
-{label => "Hlídá dům.", indices => [$perm[1]]},
-{label => "Je věrná svému partnerovi.", indices => [$perm[2]]},
-{label => "Žije ve vodě.", indices => [$perm[3]]},
+{label => "Lovi mysi.", indices => [$perm[0]]},
+{label => "Hlida dum.", indices => [$perm[1]]},
+{label => "Je verna svemu partnerovi.", indices => [$perm[2]]},
+{label => "Zije ve voda.", indices => [$perm[3]]},
 ],
 AllowNewBuckets => 0,
 OrderedSubsets => 1
