@@ -39,7 +39,6 @@ Zkusíme si zapsat matematické výrazy, které jsou o něco složitěší než 
 
 Nalevo je vždy výsledek, který máte přepsat napravo. Zapište odpověď klasicky, jak jste postupovali doposud. Můžete použít [@ htmlLink("https://raw.githubusercontent.com/robert-marik/hw-webwork/master/cheatsheet/cheatsheet.pdf","cheatsheet") @]* s nápovědou pro zápis matematických výrazů. Toto je nejsnazší cesta pro lidi zběhlé v problematice a pro jendoduché výrazy.
 
-Můžete si pomoci použitím prohlížeče Chrome a nainstalováním pluginu [@ htmlLink("https://chrome.google.com/webstore/detail/webwork-mathview/jcphgophoinpfmbnfecgekaeaoocbogd","WeBWorK MathView") @]*, který  při zadávání vzorce rovnou vykresluje náhled.
 
 >>[``[$f1]={}``][_______________________________]{$f1}<<
 
