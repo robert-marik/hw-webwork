@@ -15,12 +15,18 @@ loadMacros(
 #  Add correct questions and answers
 #
 @a = (
-"\(\displaystyle\frac{\partial T}{\partial t}\)", "Časová změna teploty, tj. rychlost s jakou v daném místě roste teplota jako funkce času.",
-"\(\displaystyle\frac{\partial T}{\partial x}\)", "Rychlost s jakou v daném okamžiku roste teplota ve směru osy \(x\)",
-"\(\displaystyle-\frac{\partial T}{\partial x}\)", "Rychlost s jakou v daném okamžiku klesá teplota ve směru osy \(x\)",
-"\(\displaystyle-\lambda\frac{\partial T}{\partial x}\)", "Tok tepla",
-"\(\displaystyle\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", "Rychlost s jakou roste tok tepla ve směru osy \(x\)",
-"\(\displaystyle-\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", "Rychlost s jakou klesá tok tepla ve směru osy \(x\)"
+"\(\displaystyle\frac{\partial T}{\partial t}\)", 
+"&Ccaron;asov&aacute; zm&#283;na teploty, tj. rychlost s jakou v dan&eacute;m m&iacute;st&#283; roste teplota jako funkce &#269;asu.",
+"\(\displaystyle\frac{\partial T}{\partial x}\)", 
+"Rychlost s jakou v dan&eacute;m okam&#382;iku roste teplota ve sm&#283;ru osy \(x\)",
+"\(\displaystyle-\frac{\partial T}{\partial x}\)", 
+"Rychlost s jakou v dan&eacute;m okam&#382;iku kles&aacute; teplota ve sm&#283;ru osy \(x\)",
+"\(\displaystyle-\lambda\frac{\partial T}{\partial x}\)", 
+"Tok tepla",
+"\(\displaystyle\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", 
+"Rychlost s jakou roste tok tepla ve sm&#283;ru osy \(x\)",
+"\(\displaystyle-\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", 
+"Rychlost s jakou kles&aacute; tok tepla ve sm&#283;ru osy \(x\)"
 );
 
 
