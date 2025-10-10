@@ -15,11 +15,16 @@ loadMacros(
 #  Setup
 
 @a = (
-"Z venku dokonale izolovaná stěna. Na hranici \(x=L\) nedochází k toku tepla.", "Tok tepla pro \(x=L\) je roven nule.",
-"Vnitřní část stěny je udržovaná na konstantní teplotě.", "Je zadána konstantní hodnota teploty pro \(x=0\).",
-"Stěna je zvenku osvětlená a zahřívaná Sluncem. Na vnější hranici je konstantní tok tepla směrem do stěny.", "Je zadána nenulová konstantní hodnota toku pro \(x=L\).",
-"Stěna je zvenku ochlazována prouděním vzduchu. Tok tepla mezi stěnou a okolím je úměrný rozdílu teplot stěny a okolí.", "Je zadán vztah mezi tokem pro \(x=L\) a teplotou v bodě \(x=L\).",
-"Stěna je zevnitř ohřívána prouděním vzduchu od radiátorů. Tok tepla mezi stěnou a okolím je úměrný rozdílu teplot stěny a okolí", "Je zadán vztah mezi tokem pro \(x=0\) a teplotou v bodě \(x=0\)."
+"Z venku dokonale izolovan&aacute; st&#283;na. Na hranici \(x=L\) nedoch&aacute;z&iacute; k toku tepla.", 
+"Tok tepla pro \(x=L\) je roven nule.",
+"Vnit&#345;n&iacute; &#269;&#225;st st&#283;ny je udr&#382;ovan&aacute; na konstantn&iacute; teplot&#283;.", 
+"Je zad&aacute;na konstantn&iacute; hodnota teploty pro \(x=0\).",
+"St&#283;na je zvenku osv&#283;tlen&aacute; a zah&#345;&iacute;van&aacute; Sluncem. Na vn&#283;j&scaron;&iacute; hranici je konstantn&iacute; tok tepla sm&#283;rem do st&#283;ny.", 
+"Je zad&aacute;na nenulov&aacute; konstantn&iacute; hodnota toku pro \(x=L\).",
+"St&#283;na je zvenku ochlazov&aacute;na proud&#283;n&iacute;m vzduchu. Tok tepla mezi st&#283;nou a okol&iacute;m je &uacute;m&#283;rn&yacute; rozd&iacute;lu teplot st&#283;ny a okol&iacute;", 
+"Je zad&aacute;n vztah mezi tokem pro \(x=L\) a teplotou v bod&#283; \(x=L\).",
+"St&#283;na je zevn&iacute;t&#345; oh&#345;&iacute;v&aacute;na proud&#283;n&iacute;m vzduchu od radi&aacute;tor&#367;. Tok tepla mezi st&#283;nou a okol&iacute;m je &uacute;m&#283;rn&yacute; rozd&iacute;lu teplot st&#283;ny a okol&iacute;", 
+"Je zad&aacute;n vztah mezi tokem pro \(x=0\) a teplotou v bod&#283; \(x=0\)."
 );
 
 
