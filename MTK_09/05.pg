@@ -20,12 +20,12 @@ do
 
 $draggable = DraggableSubsets(
 [ 
-"Rychlost s jakou roste množstv&iacute; stavov&eacute; veličiny v čase.",
-"Rychlost s jakou kles&aacute; množstv&iacute; stavov&eacute; veličiny v čase.",
-"Zes&iacute;len&iacute; toku při pr&uring;chodu dan&yacute;m bodem.",
-"Zeslaben&iacute; toku při pr&uring;chodu dan&yacute;m bodem.",
-"V&yacute;konnost zdrojů a spotřebičů.",
-"Celkov&eacute; množstv&iacute; stavov&eacute; veličiny"
+"Rychlost s jakou roste mno&#382;stv&#237; stavov&#233; veli&#269;iny v &#269;ase.",
+"Rychlost s jakou kles&#225; mno&#382;stv&#237; stavov&#233; veli&#269;iny v &#269;ase.",
+"Zes&#237;len&#237; toku p&#345;i pr&#367;chodu dan&yacute;m bodem.",
+"Zeslaben&#237; toku p&#345;i pr&#367;chodu dan&yacute;m bodem.",
+"V&#253;konnost zdroj&#367; a spot&#345;ebi&#269;&#367;.",
+"Celkov&#233; mno&#382;stv&#237; stavov&#233; veli&#269;iny"
 ],
 [[0],[4],[3],[1,2,5]],
 DefaultSubsets => [
