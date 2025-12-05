@@ -32,7 +32,7 @@ DefaultSubsets => [
 {label => "\[\frac{\partial u}{\partial t}\]", indices => []},
 {label => "\[\sigma\]", indices => []},
 {label => "\[-\mathop{\mathrm{div}}\vec j\]", indices => []},
-{label => "Skladiště", indices => [$perm[0],$perm[1],$perm[2],$perm[3],$perm[4],$perm[5]]},
+{label => "Nabidka", indices => [$perm[0],$perm[1],$perm[2],$perm[3],$perm[4],$perm[5]]},
 ],
 AllowNewBuckets => 0,
 OrderedSubsets => 1
