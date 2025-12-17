@@ -20,18 +20,18 @@ do
 
 $draggable = DraggableSubsets(
 [ 
-"Rychlost růstu populace je konstantní.",
-"Rychlost růstu populace není konstantní, víme, jak se mění v čase.",
-"Rychlost růstu populace není konstantní, víme, jak se mění s rostoucí velikostí populace.",
-"Rychlost růstu populace není konstantní, víme, jak se mění s časem a s rostoucí velikostí populace.",
+"Rychlost r&uring;stu populace je konstantn&iacute;.",
+"Rychlost r&uring;stu populace nen&iacute; konstantn&iacute;, v&iacute;me, jak se m&#283;n&iacute; v &#269;ase.",
+"Rychlost r&uring;stu populace nen&iacute; konstantn&iacute;, v&iacute;me, jak se m&#283;n&iacute; s rostouc&iacute; velikost&iacute; populace.",
+"Rychlost r&uring;stu populace nen&iacute; konstantn&iacute;, v&iacute;me, jak se m&#283;n&iacute; s &#269;asem a s rostouc&iacute; velikost&iacute; populace.",
 
 ],
 [[0],[1],[2],[3]],
 DefaultSubsets => [
-{label => "Elementární matematika, přímá úměrnost\[N(t)=N_0+r\times t\]", indices => [$perm[0]]},
-{label => "Integrál jako funkce horní meze\[N(t)=N_0+\int_0^t r(s)\,\mathrm ds\]", indices => [$perm[1]]},
-{label => "Autonomní diferenciální rovnice\[\frac{\mathrm dN}{\mathrm dt}=r(N),\quad N(0)=N_0\]", indices => [$perm[2]]},
-{label => "Neautonomní diferenciální rovnice\[\frac{\mathrm dN}{\mathrm dt}=r(N,t),\quad N(0)=N_0\]", indices => [$perm[3]]},
+{label => "Element&aacute;rn&iacute; matematika, p&#345;&iacute;m&aacute; &uacute;m&#283;rnost\[N(t)=N_0+r\times t\]", indices => [$perm[0]]},
+{label => "Integr&aacute;l jako funkce horn&iacute; meze\[N(t)=N_0+\int_0^t r(s)\,\mathrm ds\]", indices => [$perm[1]]},
+{label => "Autonomn&iacute; diferenci&aacute;ln&iacute; rovnice\[\frac{\mathrm dN}{\mathrm dt}=r(N),\quad N(0)=N_0\]", indices => [$perm[2]]},
+{label => "Neautonomn&iacute; diferenci&aacute;ln&iacute; rovnice\[\frac{\mathrm dN}{\mathrm dt}=r(N,t),\quad N(0)=N_0\]", indices => [$perm[3]]},
 ],
 AllowNewBuckets => 0,
 OrderedSubsets => 1

@@ -18,13 +18,13 @@ do
 } until ( ($perm[0] != 0) ||  ($perm[1] != 1) || ($perm[2] != 2) || ($perm[3] != 3) || ($perm[4] != 4) || ($perm[5] != 5) );
 
 # Questions and answers
-@a = ( 
-"Rychlost růstu populace kořisti.","\[\frac{\mathrm dx}{\mathrm dt}\]",
-"Rychlost růstu populace dravce.","\[\frac{\mathrm dy}{\mathrm dt}\]",
-"Porodnost v populaci kořisti.","\[ax\]",
-"Úbytek v populaci kořisti způsobený přítomností dravce.","\[bxy\]",
-"Úmrtnost v populaci dravce.","\[cy\]",
-"Posílení reproduce dravce v případě, že má k dispozici kořist.","\[dxy\]",
+@a = (
+"Rychlost r&uring;stu populace ko&#345;isti.","\[\frac{\mathrm dx}{\mathrm dt}\]",
+"Rychlost r&uring;stu populace dravce.","\[\frac{\mathrm dy}{\mathrm dt}\]",
+"Porodnost v populaci ko&#345;isti.","\[ax\]",
+"&Uacute;bytek v populaci ko&#345;isti zp&#367;soben&yacute; p&#345;&iacute;tomnost&iacute; dravce.","\[bxy\]",
+"&Uacute;mrtnost v populaci dravce.","\[cy\]",
+"Pos&iacute;len&iacute; reproduce dravce v p&#345;&iacute;pad&#283;, &#382;e m&aacute; k dispozici ko&#345;ist.","\[dxy\]",
 );
 
 
