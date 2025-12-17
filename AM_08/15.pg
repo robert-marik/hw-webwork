@@ -17,15 +17,16 @@ do
 } until ( ($perm[0] != 0) ||  ($perm[1] != 1) || ($perm[2] != 2) || ($perm[3] != 3) || ($perm[4] != 4)|| ($perm[5] != 5) || ($perm[6] != 6) || ($perm[7] != 7));
 
 $odpovedi = [ 
-"Populace bakterií roste v prostředí s neomezenou úživností.",
-"Množství radioaktivího prvku se snižuje rozpadem.",
-"Horká káva se ochlazuje na teplotu místnosti.",
-"Studená zmrzlina se ohřívá na teplotu místnosti.",
-"Ryba roste s věkem.",
-"Populace bakterií roste v prostředí s omezenou nosnou kapacitou.",
-"Množství nečistot v jezeře se snižuje vlivem samočištění jezera.",
-"Vlhkost čerstvého dřeva klesá k rovnovážné vlhkosti."
+"Populace bakteri&iacute; roste v prost&#345;ed&iacute; s neomezenou &#250;živnost&iacute;.",
+"Mno&#382;stv&iacute; radioaktiv&iacute;ho prvku se sni&#382;uje rozpadem.",
+"Hork&aacute; k&aacute;va se ochlazuje na teplotu m&iacute;stnosti.",
+"Studen&aacute; zmrzlina se oh&#345;&#237;v&aacute; na teplotu m&iacute;stnosti.",
+"Ryba roste s v&#283;kem.",
+"Populace bakteri&iacute; roste v prost&#345;ed&iacute; s omezenou nosnou kapacit&oacute;u.",
+"Mno&#382;stv&iacute; ne&#269;istot v jezere se sni&#382;uje vlivem samo&#269;i&scaron;t&#283;n&iacute; jezera.",
+"Vlhkost &#269;erstv&eacute;ho d&#345;eva kles&aacute; k rovnov&aacute;&#382;n&eacute; vlhkosti."
 ];
+
 
 $a = 
 [

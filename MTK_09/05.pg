@@ -20,19 +20,19 @@ do
 
 $draggable = DraggableSubsets(
 [ 
-"Rychlost s jakou roste množství stavové veličiny v čase.",
-"Rychlost s jakou klesá množství stavové veličiny v čase.",
-"Zesílení toku při průchodu daným bodem.",
-"Zeslabení toku při průchodu daným bodem.",
-"Výkonnost zdrojů a spotřebičů.",
-"Celkové množství stavové veličiny"
+"Rychlost s jakou roste mno&#382;stv&#237; stavov&#233; veli&#269;iny v &#269;ase.",
+"Rychlost s jakou kles&#225; mno&#382;stv&#237; stavov&#233; veli&#269;iny v &#269;ase.",
+"Zes&#237;len&#237; toku p&#345;i pr&#367;chodu dan&yacute;m bodem.",
+"Zeslaben&#237; toku p&#345;i pr&#367;chodu dan&yacute;m bodem.",
+"V&#253;konnost zdroj&#367; a spot&#345;ebi&#269;&#367;.",
+"Celkov&#233; mno&#382;stv&#237; stavov&#233; veli&#269;iny"
 ],
 [[0],[4],[3],[1,2,5]],
 DefaultSubsets => [
 {label => "\[\frac{\partial u}{\partial t}\]", indices => []},
 {label => "\[\sigma\]", indices => []},
 {label => "\[-\mathop{\mathrm{div}}\vec j\]", indices => []},
-{label => "Skladiště", indices => [$perm[0],$perm[1],$perm[2],$perm[3],$perm[4],$perm[5]]},
+{label => "Nabidka", indices => [$perm[0],$perm[1],$perm[2],$perm[3],$perm[4],$perm[5]]},
 ],
 AllowNewBuckets => 0,
 OrderedSubsets => 1
