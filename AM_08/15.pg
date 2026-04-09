@@ -17,7 +17,7 @@ do
 } until ( ($perm[0] != 0) ||  ($perm[1] != 1) || ($perm[2] != 2) || ($perm[3] != 3) || ($perm[4] != 4)|| ($perm[5] != 5) || ($perm[6] != 6) || ($perm[7] != 7));
 
 $odpovedi = [ 
-"Populace bakteri&iacute; roste v prost&#345;ed&iacute; s neomezenou &#250;živnost&iacute;.",
+"Populace bakteri&iacute; roste v prost&#345;ed&iacute; s neomezenou &#250;&#382;ivnost&iacute;.",
 "Mno&#382;stv&iacute; radioaktiv&iacute;ho prvku se sni&#382;uje rozpadem.",
 "Hork&aacute; k&aacute;va se ochlazuje na teplotu m&iacute;stnosti.",
 "Studen&aacute; zmrzlina se oh&#345;&#237;v&aacute; na teplotu m&iacute;stnosti.",
@@ -64,11 +64,11 @@ $draggable = DraggableSubsets(
 $odpovedi,
 [[0],[1,6],[2,7],[3,4],[5]],
 DefaultSubsets => [
-{label => "Neohraničený růst ".$nadpis->[0], indices => [$perm[0],$perm[5]]},
+{label => "Neohrani&#269;en&yacute; r&#367;st ".$nadpis->[0], indices => [$perm[0],$perm[5]]},
 {label => "Pokles k nule ".$nadpis->[1], indices => [$perm[1],$perm[6]]},
-{label => "Pokles k rovnovážné hodnotě ".$nadpis->[2], indices => [$perm[2],$perm[7]]},
-{label => "Růst k rovnovážné hodnotě, rychlý počáteční náběh ".$nadpis->[3], indices => [$perm[3]]},
-{label => "Růst k rovnovážné hodnotě, pomalý počáteční náběh".$nadpis->[4], indices => [$perm[4]]},
+{label => "Pokles k rovnov&aacute;&#382;n&eacute; hodnot&#283; ".$nadpis->[2], indices => [$perm[2],$perm[7]]},
+{label => "R&#367;st k rovnov&aacute;&#382;n&eacute; hodnot&#283;, rychl&yacute; po&#269;&aacute;te&#269;n&iacute; n&aacute;b&#283;h ".$nadpis->[3], indices => [$perm[3]]},
+{label => "R&#367;st k rovnov&aacute;&#382;n&eacute; hodnot&#283;, pomal&yacute; po&#269;&aacute;te&#269;n&iacute; n&aacute;b&#283;h ".$nadpis->[4], indices => [$perm[4]]},
 ],
 AllowNewBuckets => 0,
 OrderedSubsets => 1
