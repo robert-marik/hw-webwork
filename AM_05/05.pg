@@ -176,9 +176,9 @@ if ( $pickem[1] < 2 ) {
 if ( $pickem[2] < 2 ) {
     $expl1 = $expl1." $BR Platí \(\displaystyle\int_{C_3}\vec F\,\mathrm d\vec r < 0\), protože křivka míří doleva a vektorové pole doprava.";
 } elsif ( $pickem[2] == 2 || $pickem[2] == 3 ) {
-    $expl1 = $expl1." $BR Platí \(\displaystyle\int_{C_4}\vec F\,\mathrm d\vec r = 0\), protože křivka je kolmá k vektorovému poli.";
+    $expl1 = $expl1." $BR Platí \(\displaystyle\int_{C_3}\vec F\,\mathrm d\vec r = 0\), protože křivka je kolmá k vektorovému poli.";
 } else {
-    $expl1 = $expl1." $BR Platí \(\displaystyle\int_{C_5}\vec F\,\mathrm d\vec r > 0\), protože křivka míří stejným směrem jako vektorové pole.";
+    $expl1 = $expl1." $BR Platí \(\displaystyle\int_{C_3}\vec F\,\mathrm d\vec r > 0\), protože křivka míří stejným směrem jako vektorové pole.";
 }
 
 @whichPos = ();
@@ -201,9 +201,9 @@ if ( @whichNeg > 1 ) {
     }
     $twosignexpl = "Oba integrály " .
         "\(\displaystyle\int_{C" . ($whichNeg[0]+1) . "}\vec F\,\mathrm d\vec r\) a " .
-	"\(\displaystyle\int_{C" . ($whichNeg[1]+1) . "}\vec F\,\mathrm d\vec r\) jsou záporné a musíme porovnat jejich vzájemnou velikost zvážením úhlu mezi křivkou a vektorovým polem (délka křivky je příbližně stejná, tedy hlavní roli hraje úhel)." .
+	"\(\displaystyle\int_{C" . ($whichNeg[1]+1) . "}\vec F\,\mathrm d\vec r\) jsou záporné a musíme porovnat jejich vzájemnou velikost zvážením úhlu mezi křivkou a vektorovým polem (délka křivky je příbližně stejná, tedy hlavní roli hraje úhel). " .
 	"Protože \($largercurve\) je více napříč " .
-	"vektorovým polem a méně proti jeho směru" .
+	"vektorovým polem a méně proti jeho směru, " .
 	"je integrál podél \($largercurve\) větší (záporný a blíže k nule) " .
 	"než podél \($smallercurve\).$PAR";
 } elsif ( @whichPos > 1 ) {

@@ -75,7 +75,7 @@ Základním modelem pro růst populace vystavené vnitroduhové konkurenci je lo
 [``` \frac{\mathrm dN}{\mathrm dt}=rN\left(1-\frac NK\right),```]
 kde [`N`] je velikost populace, [`K`] je nosná kapacita prostředí a  [`r`] je invazní parametr.
 
-Zatrhněte všechna tvrzení, která jsou pravdivá. Nezávislou proměnnou (neznámou v rovnici) je velikost populace [`N`], derivujeme podle času a obě konstanty [`r`] a [`K`] jsou kladné. 
+Zatrhněte všechna tvrzení, která jsou pravdivá. Závislou proměnnou (neznámou funkcí v rovnici) je velikost populace [`N`], nezávislou proměnnou je čas [`t`], podle kterého derivujeme, a obě konstanty [`r`] a [`K`] jsou kladné. 
 
 (Počet pravdivých tvrzení je [$ncorrect].)
 

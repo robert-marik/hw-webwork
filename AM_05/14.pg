@@ -82,7 +82,7 @@ $gr[0]->stamps( closed_circle(2,0,'red') );
 
 #######################
 $s[1] = random(-1,1,2);
-if ($s[1]= -($s[0])) { $s[1]=-($s[1]); }
+if ($s[1] == -($s[0])) { $s[1]=-($s[1]); }
 $orientace = random(-1,1,2);
 $answer[1] = "nulový"; 
 VectorField2D(

@@ -23,7 +23,7 @@ Context()->flags->set(
      reduceConstants => 0,
      reduceConstantFunctions => 0,
    );
-
+# TODO: vyloucit mozny infleni bod
 $funkce=Formula("$a*$var^3+$b*$var^2+$c*$var+$d")->reduce();   # funkce
 $derivacefunkce=Formula("3*$a*$var^2+2*$b*$var+$c")->reduce();   # derivace funkce
 $derivacefunkce2=Formula("6*$a*$var+2*$b")->reduce();   # derivace funkce

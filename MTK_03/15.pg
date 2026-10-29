@@ -38,7 +38,7 @@ $derivacefunkce=$funkce->D('x');
 $funkcexn=Formula("$m*cos(xn)+$mm*e^xn-$a*xn^($n)-$b")->reduce();   # funkce
 $derivacefunkcexn=$funkcexn->D('xn');
 
-$answer=Formula("xn-$funkcexn/$derivacefunkcexn")->reduce(); 
+$answer=Formula("xn-($funkcexn)/($derivacefunkcexn)")->reduce(); 
 
 BEGIN_PGML
 

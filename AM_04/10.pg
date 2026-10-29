@@ -106,7 +106,7 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 Platí
-[``` \int [$Pa]\,\mathrm dx =[$Pint]+C(y)```]
+[``` \int [$P]\,\mathrm dx =[$Pint]+C(y)```]
 a
 [``` \int [$Q]\,\mathrm dy =[$Qint]+C(x).```]
 Odsud vidíme, že skalární potenciál je

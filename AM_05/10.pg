@@ -90,7 +90,7 @@ END_PGML
 
 BEGIN_PGML_HINT
 
-Pro výpočet [`` \frac{\mathrm d}{\mathrm dr} \vec r(t)``] derivujeme jednotlivé komponenty vektorového pole [`\vec r(t).`]
+Pro výpočet [`` \frac{\mathrm d}{\mathrm dt} \vec r(t)``] derivujeme jednotlivé komponenty křivky [`\vec r(t).`]
 
 Pro vyjádření [`\vec F(\vec r(t))`] stačí do [``` \vec F=[$F]```] dosadit  [```x=[$r1]```] a [```y=[$r2]```] a případně upravit.
 
@@ -102,7 +102,7 @@ BEGIN_PGML_SOLUTION
 Řešení níže jsou  vygenerována automaticky a pravděpodobně je možné je dále upravit, což již je mimo možnosti systému WeBWorK. Sami si vynásobte mocniny se stejným základem nebo konstanty atd.
 
 
-Pro výpočet [`` \frac{\mathrm d}{\mathrm dr} \vec r(t)``] derivujeme jednotlivé komponenty vektorového pole [`\vec r(t).`]
+Pro výpočet [`` \frac{\mathrm d}{\mathrm dt} \vec r(t)``] derivujeme jednotlivé komponenty křivky [`\vec r(t).`]
 Platí [```\frac{\mathrm d}{\mathrm dt}([$r1])=[$ansr1] ```] a [```\frac{\mathrm d}{\mathrm dt}([$r2])=[$ansr2]. ```] Derivace je tedy [```\frac{\mathrm d }{\mathrm dt}\vec r(t)=[$answerR]. ```]
 
 Pro vyjádření [`\vec F(\vec r(t))`] stačí do [``` \vec F=[$F]```] dosadit [```x=[$r1]```] a [```y=[$r2]```] a případně upravit. Vychází [```\vec F(\vec r(t))=[$answerF]. ```]

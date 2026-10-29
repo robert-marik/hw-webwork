@@ -41,8 +41,8 @@ Tento příklad je analogický jako příklad předešlý, obsahuje navíc param
 Například pro vektorové pole
 [``` \vec F(x,y,z)=x^2z\vec i + (x+ay^2)\vec j + xy\vec k```]
 jsou parciální derivace 
-[``` \frac{\partial }{\partial x}(x^2y)=2xz,```]
-[``` \frac{\partial }{\partial y}(x+y^2)=2ay```]
+[``` \frac{\partial }{\partial x}(x^2z)=2xz,```]
+[``` \frac{\partial }{\partial y}(x+ay^2)=2ay```]
 a
 [``` \frac{\partial }{\partial z}(xy)=0.```]
 Divergence je

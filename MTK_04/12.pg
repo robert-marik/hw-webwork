@@ -23,6 +23,8 @@ $a=random(2,10,2);
 $b=random(-7,11,2);
 $c=random(2,10,2);
 $d=random(-9,11,2);
+$btxt = ($b<0) ? "-".(-$b) : "+$b";
+$dtxt = ($d<0) ? "-".(-$d) : "+$d";
 
 $funkce1=Formula("($a*x+$b)^3")->reduce();
 $int1=Formula("(1/4)* (1/($a)) *($a*x+$b)^4")->with(limits =>[-1,1]);
@@ -67,9 +69,9 @@ pro [`n=3`] a [`n=[$N]`].
 Slovně by bylo možno vyjádřit potup tak, že exponent se o jedničku zvýší, přídá se ještě i do jmenovatele a dále se do jmenovatele přidá koeficient, který uvnitř závorky násobí proměnnou [`x`], tj. v případě prvního integrálu [`[$a]`] a v případě druhého integrálu [`[$c]`].
 
 Dostáváme následující. 
->>[``\int [$funkce1]\,\mathrm dx =\frac 1{4\cdot [$a]}([$a]x+[$b])^4+C``] <<
+>>[``\int [$funkce1]\,\mathrm dx =\frac 1{4\cdot [$a]}([$a]x[$btxt])^4+C``] <<
 
->>[``\int [$funkce2]\,\mathrm dx =\frac 1{[$N1]\cdot [$c]}([$c]x+[$d])^{[$N1]}+C``] <<
+>>[``\int [$funkce2]\,\mathrm dx =\frac 1{[$N1]\cdot [$c]}([$c]x[$dtxt])^{[$N1]}+C``] <<
 
 (Je možné, že počítač nahradí zlomek desetinným číslem a musíte zpětně "rozšifrovat", o jaký zlomek se jedná.)
 END_PGML_SOLUTION

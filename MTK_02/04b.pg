@@ -16,7 +16,7 @@ $showHint = 1;
 
 $data =
 {
-otazka=>"Veličina \(x\) udává průměr stromu v závislosti na vzdálenosti $h$ od paty stromu. Vyberte tvrzení, které nejlépe vystihuje situaci pro většinu stromů.",
+otazka=>"Veličina \(x\) udává průměr stromu v závislosti na vzdálenosti \(h\) od paty stromu. Vyberte tvrzení, které nejlépe vystihuje situaci pro většinu stromů.",
 nadpis=>"Derivace průměru stromu jako funkce výšky",
 moznosti=>[
 "Derivace \(\displaystyle\frac{\mathrm dx}{\mathrm dh}\) je záporná, protože ve větší výšce je strom štíhlejší. ",

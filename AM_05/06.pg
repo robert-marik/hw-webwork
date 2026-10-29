@@ -85,7 +85,7 @@ if (($otocit)*($s[0])>0) {$sign0='kladný' ; $dir0='stejným'} else
 #######################
 $s[1] = random(-1,1,2);
 $otocit = random(-1,1,2);
-if ($s[1]= -($s[0])) { $s[1]=-($s[1]); }
+if ($s[1] == -($s[0])) { $s[1]=-($s[1]); }
 if ($s[1]*($otocit)==1) {
   $answer[1] = "Záporný";
 } else {

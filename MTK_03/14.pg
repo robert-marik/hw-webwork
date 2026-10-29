@@ -81,11 +81,11 @@ Teplotu určíme přímým dosazením hodnoty [`x=[$w]`] do funkce [```T(x)=[$fu
 Po zderivování funkce, dosazení hodnoty [`x=[$w]`] do derivace a vynásobení hodnotou [`\Delta x=[$dx]`] určíme odpověď na druhou část otázky.
 
 Po zderivování funkce dostáváme derivaci
-[``` \frac{\mathrm dT}{\mathrm dt}=[$derivacefunkce].```]
+[``` \frac{\mathrm dT}{\mathrm dx}=[$derivacefunkce].```]
 Po dosazení hodnoty [`x=[$w]`] do této derivace dostáváme
-[``` \frac{\mathrm dT}{\mathrm dt}([$w])=[$hodnotaDer].```]
+[``` \frac{\mathrm dT}{\mathrm dx}([$w])=[$hodnotaDer].```]
 Po vynásobení hodnotou [`\Delta x=[$dx]`] získáme finální rozkolísání teploty
-[``` \frac{\mathrm dT}{\mathrm dt}([$w]) \Delta x=[$answer].```]
+[``` \frac{\mathrm dT}{\mathrm dx}([$w]) \Delta x=[$answer].```]
 END_PGML_SOLUTION
 
 

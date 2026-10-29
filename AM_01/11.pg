@@ -40,13 +40,13 @@ Pacientovi je jednorázově podán lék. Tento lék se v těle s časem odbourá
 
 Uvažujme koncentraci [`C(x,t)`] (v jednotce mg/litr) léku v těle pacienta jako funkci počáteční dávky [`x`] a času od aplikace [`t`].
 
-*Část 1:* Jaké znaménko má derivace podle času, tj. [``\frac{\partial C}{\partial t}``]? Je tato derivace kladná nebo záporná? Nebo není možné rozhodnout?
+*Část 1:* Jaké znaménko má derivace podle času, tj. [``\frac{\partial C}{\partial t}``]? Je tato derivace kladná nebo záporná?
 
 [_]{$radio}
 
 -------
 
-*Část 2:* Jaké znaménko má derivace podle počáteční dávky, tj. [``\frac{\partial C}{\partial x}``]? Je tato derivace kladná nebo záporná? Nebo není možné rozhodnout?
+*Část 2:* Jaké znaménko má derivace podle počáteční dávky, tj. [``\frac{\partial C}{\partial x}``]? Je tato derivace kladná nebo záporná?
 
 [_]{$radio2}
 

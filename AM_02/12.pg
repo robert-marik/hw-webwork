@@ -61,7 +61,7 @@ Následující příklad je analogický, jenom s jinými čísly, jinými funkce
 ----------------
 
 
-Pro  homogenní izotropní materiál s koeficientem tepelné vodivosti [`\lambda=\begin{bmatrix}[$lambda1]&[$lambda3]\\[$lambda3]&[$lambda2]\end{bmatrix}`] je rozložení teploty určené analýzou snímku z termokamery dáno funkcí [``` T(x,y)=[$T]. ```]
+Pro  homogenní anizotropní materiál s koeficientem tepelné vodivosti [`\lambda=\begin{bmatrix}[$lambda1]&[$lambda3]\\[$lambda3]&[$lambda2]\end{bmatrix}`] je rozložení teploty určené analýzou snímku z termokamery dáno funkcí [``` T(x,y)=[$T]. ```]
 
 Určete gradient teploty a odpovídající tok tepla. 
 
@@ -92,7 +92,7 @@ Gradient určíme přímm derivováním jako vektor
 
 Přímým násobením vidíme, že
 [```\begin{aligned}-\lambda \nabla T &=
--\begin{bmatrix}[$lambda1]&[$lambda3]\\[$lambda3]&[$lambda2]\end{bmatrix}[$u]
+-\begin{bmatrix}[$lambda1]&[$lambda3]\\[$lambda3]&[$lambda2]\end{bmatrix}[$ans1]
 \\&=
 -([$u1])
 \begin{bmatrix}[$lambda1]\\[$lambda3]\end{bmatrix}

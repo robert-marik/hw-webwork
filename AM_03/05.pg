@@ -58,7 +58,7 @@ END_PGML
 
 BEGIN_PGML_HINT
 Pozorně počítejte derivace. Platí
-[``` \frac{\partial }{\partial y}([$P])=[$dP]. ```]
+[``` \frac{\partial }{\partial x}([$P])=[$dP]. ```]
 a
 [``` \frac{\partial }{\partial y}([$Q])=[$dQ]. ```]
 END_PGML_HINT

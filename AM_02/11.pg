@@ -42,7 +42,7 @@ BEGIN_PGML
 
 [@ image("drevo.jpg", width=>400) @]*
 
-Uvažujme dvourozměrný homogenní a ortotropní  materiál, kde jsou osy zvoleny v charakteristických směrech. Díky těmto vlastnostem jsou koeficient tepelné vodivosti a difuzní koeficient konstantní a tok (tepla nebo difuzní tok) jsou diagonální matice a násobení matic se redukuje na relativně snadný případ. Typickým případem ortotropního materiálu je ten nejdostupnější a nejkrásnější, dřevo. Také látky, kde nějakým způsobem došlo k uspořádání stavebních elementů, byť původně uspořádaných chaoticky. Například kov válcovaný za studena nebo napnutá guma. 
+Uvažujme dvourozměrný homogenní a ortotropní  materiál, kde jsou osy zvoleny v charakteristických směrech. Díky těmto vlastnostem jsou koeficient tepelné vodivosti a difuzní koeficient konstantní diagonální matice a násobení matic se redukuje na relativně snadný případ. Typickým případem ortotropního materiálu je ten nejdostupnější a nejkrásnější, dřevo. Také látky, kde nějakým způsobem došlo k uspořádání stavebních elementů, byť původně uspořádaných chaoticky. Například kov válcovaný za studena nebo napnutá guma. 
 
 
 Konkrétně pro rozložení teploty dané funkcí [``` T(x,y)=x^2+xy```]  a koeficient tepelné vodivosti [`\lambda=\begin{pmatrix}0.3&0\\0&0.5\end{pmatrix}`] je gradientem teploty vektor [`\nabla T=\begin{pmatrix} 2x+y\\x\end{pmatrix}`] a tok tepla je dán vztahem
@@ -56,7 +56,7 @@ Následující příklad je analogický, jenom s jinými čísly, jinými funkce
 ----------------
 
 
-Pro  homogenní izotropní materiál s koeficientem tepelné vodivosti [`\lambda=\begin{bmatrix}[$lambda1]&0\\0&[$lambda2]\end{bmatrix}`]
+Pro  homogenní ortotropní materiál s koeficientem tepelné vodivosti [`\lambda=\begin{bmatrix}[$lambda1]&0\\0&[$lambda2]\end{bmatrix}`]
 je rozložení teploty dáno funkcí [``` T(x,y)=[$T]. ```]
 Určete gradient teploty a odpovídající tok tepla. 
 

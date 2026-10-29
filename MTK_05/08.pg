@@ -14,6 +14,7 @@ $showHint = 1;
 
 Context()->variables->are(t=>'Real');
 
+# TODO: opravit, aby rychlost nemohla byt zaporna
 $a=random(5,20,1);
 $b=random(6,10,1);
 $k=random(1,4,1);

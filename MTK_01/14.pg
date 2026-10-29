@@ -15,9 +15,9 @@ $radio    =  RadioButtons([[
 "Změnu rychlosti dinosaura při prodloužení délky kroku o jednotku.",
 "Změnu rychlosti dinosaura při prodloužení stehenní kosti o jednotku.",
 "Změnu délky stehenní kosti dinosaura nutnou pro zvýšení rychlosti dinosaura o jednotku.",
-"Změnu délky stehenní kosti dinosaura nutnou vyvolanou zvýšením rychlosti dinosaura o jednotku.",
+"Změnu délky stehenní kosti dinosaura vyvolanou zvýšením rychlosti dinosaura o jednotku.",
 "Změnu délky kroku dinosaura nutnou pro zvýšení rychlosti o jednotku.",
-"Změnu délky kroku dinosaura nutnou udržení rychlosti při délce stehenní kosti zvýšené o jednotku.",
+"Změnu délky kroku dinosaura nutnou pro udržení rychlosti při délce stehenní kosti zvýšené o jednotku.",
 ]],0);
 
 BEGIN_PGML
