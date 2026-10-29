@@ -57,7 +57,7 @@ else { $D2="\frac{\partial }{\partial x}\left(".$Dkx2." \frac{\partial  u}{\part
 BEGIN_PGML
 
 
-## Difuzní rovnice v materiálech speciálních vlastostí
+## Difuzní rovnice v materiálech speciálních vlastností
 
 Dvourozměrná obecná difuzní rovnice (popisující nestacionární děj, umožňující započítání zdrojů a pracující s nejobecnějším materiálem) má tvar
 [``` \frac{\partial u}{\partial t}=
@@ -82,7 +82,7 @@ Vyberte správnou odpověď.
 
 -------
 
-[``` [$lhs1] = [$zdroj1]  [$D1]  ```]
+[``` [$lhs1] = [$zdroj1] [$D1] ```]
 
 Obsahuje rovnice zdroje?
 
@@ -103,7 +103,7 @@ Popisuje rovnice stacionární děj?
 
 -------
 
-[``` [$lhs2] = [$zdroj2]  [$D2]  ```]
+[``` [$lhs2] = [$zdroj2] [$D2] ```]
 
 Obsahuje rovnice zdroje?
 
@@ -147,11 +147,11 @@ Pročtěte si pečlivě původ jednotlivých členů rovnice a zaměřte se na �
 * Je difuzní koeficient závislý na poloze nebo na stavové veličině? Pokud ne, tj. pro lineární a homogenní materiál, budou difuzní členy zjednodušeny do tvaru součinu difuzního koeficientu a druhé derivace.
 
 * Mezi stacionárností a nestacionárností rozhodujeme podle přítomnosti či nepřítomnosti členu [``\frac{\partial u}{\partial t}.``]
-* Mezi existencí a neexistencí zdrojů rozhodujeme podle přítomnosti či nepřítomnosti členu  bez derivací, například [``\sigma.``]
-* Mezi izotropií a anizotropíí rozhodujeme podle toho, jestli jsou difuzní koeficienty rovny společné konstnantě, například [`D`], nebo jestli jsou rozlišeny například indexy [`D_x`] a [`D_y`].
-* Mezi homogenitou a lineárními vlastnostmi, či mezi případem kdy alespoň jedna z těchto podmínek je porušena, rozhodujeme podle toho, zda difuzní členy jsou ve tvaru druhých derivací [`` D_x\frac{\partial ^2 u}{\partial x^2}``], nebo ve tvaru kvaziderivací [`` \frac{\partial }{\partial x}\left(D_x\frac{\partial u}{\partial x}\right)``].
+* Mezi existencí a neexistencí zdrojů rozhodujeme podle přítomnosti či nepřítomnosti členu bez derivací, například [``\sigma.``]
+* Mezi izotropií a anizotropií rozhodujeme podle toho, jestli jsou difuzní koeficienty rovny společné konstantě, například [`D`], nebo jestli jsou rozlišeny například indexy [`D_x`] a [`D_y`].
+* Mezi homogenitou a lineárními vlastnostmi, či mezi případem, kdy alespoň jedna z těchto podmínek je porušena, rozhodujeme podle toho, zda difuzní členy jsou ve tvaru druhých derivací [`` D_x\frac{\partial ^2 u}{\partial x^2}``], nebo ve tvaru kvaziderivací [`` \frac{\partial }{\partial x}\left(D_x\frac{\partial u}{\partial x}\right)``].
 
-Jestli jste pozorovali správně poznáte porovnáním své odpovědi se správným řešením. (Tlačítko "Nechám se poddat", nebo zatrhnout checkbox nabízející zobrazení správného řešení a znovu odeslat odpověď.)
+Jestli jste pozorovali správně, poznáte porovnáním své odpovědi se správným řešením. (Tlačítko "Nechám se poddat", nebo zatrhnout checkbox nabízející zobrazení správného řešení a znovu odeslat odpověď.)
 
 
 END_PGML_SOLUTION

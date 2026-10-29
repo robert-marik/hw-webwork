@@ -18,10 +18,10 @@ $data =
 {
 nadpis=>"Matice rotace",
 otazka=>"Pro jaký úhel je matice rotace diagonální?",
-odpoved=>"Vždy když \(\sin\theta=0\), tj. pro úhly \(0^{\circ}\) a \(180^\circ\).",
+odpoved=>"Vždy, když \(\sin\theta=0\), tj. pro úhly \(0^{\circ}\) a \(180^\circ\).",
 moznosti=>[
-"Vždy když \(\cos\theta=0\), tj. pro úhly \(90^{\circ}\) a \(-90^\circ\).",
-"Vždy když \(\cos\theta\sin\theta=0\), tj. pro úhly \(0^\circ\), \(90^{\circ}\) \(180^\circ\) a \(-90^\circ\).",
+"Vždy, když \(\cos\theta=0\), tj. pro úhly \(90^{\circ}\) a \(-90^\circ\).",
+"Vždy, když \(\cos\theta\sin\theta=0\), tj. pro úhly \(0^\circ\), \(90^{\circ}\), \(180^\circ\) a \(-90^\circ\).",
 "Nikdy.",
 "Vždy."]
 }
@@ -61,8 +61,6 @@ BEGIN_PGML
 [$ot]
 
 [_]{$radio}
-
-_[$zdroj]_
 
 END_PGML
 

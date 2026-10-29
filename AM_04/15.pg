@@ -3,6 +3,8 @@ DOCUMENT();
 loadMacros('PGstandard.pl', 'PGML.pl', 
 'parserCheckboxList.pl', 'PGcourse.pl');
 
+TEXT(beginproblem());
+
 @correct_answers =  (
 "Parciální derivace",
 "Gradient",
@@ -32,7 +34,7 @@ BEGIN_PGML
 
 Seznámili jsme se již s několika diferenciálními operátory. U každého určete, zda se jedná o lineární operátor, tj. zda zachovává součet a násobení konstantou.
 
-Zatrhněte všechny pravdivé výroky.
+Zatrhněte všechny lineární operátory.
 
 [_]{$checks}
 

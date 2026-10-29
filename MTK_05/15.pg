@@ -27,7 +27,7 @@ moznosti=>[
 },
 {
 nadpis=>"Znaménko integrálu",
-otazka=>"Jaké znaménko má integrál \(\displaystyle\int _0^1 \frac {e^{ax}}{x^2+1}\,\mathrm dx?\) Parametr \(a\) může nabývat libovolnou reálnou hodnotu",
+otazka=>"Jaké znaménko má integrál \(\displaystyle\int _0^1 \frac {e^{ax}}{x^2+1}\,\mathrm dx?\) Parametr \(a\) může nabývat libovolné reálné hodnoty.",
 odpoved=>"Kladné, protože integrovaná funkce je kladná.",
 moznosti=>[
 "Kladné, protože integrovaná funkce je rostoucí.",
@@ -55,7 +55,7 @@ moznosti=>[
 },
 {
 nadpis=>"Postačující podmínka pro integrovatelnost",
-otazka=>"Jaká podmínka je postačující podmínkou pro existenci neurčitého integrálu funkce \(f\) na intervalu \(I\).",
+otazka=>"Jaká podmínka je postačující podmínkou pro existenci neurčitého integrálu funkce \(f\) na intervalu \(I\)?",
 odpoved=>"Spojitost. Každá spojitá funkce je integrovatelná.",
 moznosti=>[
 "Nenulovost. Každá funkce, která nemá nulové body, je integrovatelná.",
@@ -107,8 +107,6 @@ BEGIN_PGML
 [$ot]*
 
 [_]{$radio}
-
-_[$zdroj]_
 
 END_PGML
 

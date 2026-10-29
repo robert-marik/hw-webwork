@@ -37,11 +37,11 @@ Context()->flags->set(tolerance => 0.001, tolType => "absolute");
 
 
 $mc1 = RadioButtons(
-    [[ "Rychlost s jakou roste teplota v čase, ve stupních Celsia za minutu.", 
+    [[ "Rychlost, s jakou roste teplota v čase, ve stupních Celsia za minutu.", 
       "Čas nutný ke zvýšení teploty o jeden stupeň Celsia, v minutách na stupeň Celsia.",
       "Intenzitu zdroje tepla nutnou pro zvýšení teploty o jeden stupeň Celsia, ve wattech na stupeň Celsia",
-      "Práce vykonaná zdrojem tepla při zvýšení teploty vzorku o jeden stupeň Celsia za minutu, v kilowathodinách na minutu a stupeň Celsia. ",
-      "Rychlost s jakou je nutno dodávat energii, aby se uržela vždy aktuální teplota dřeva, v joulech za minutu na stupeň Celsia"
+      "Práce vykonaná zdrojem tepla při zvýšení teploty vzorku o jeden stupeň Celsia za minutu, v kilowatthodinách na minutu a stupeň Celsia. ",
+      "Rychlost, s jakou je nutno dodávat energii, aby se udržela vždy aktuální teplota dřeva, v joulech za minutu na stupeň Celsia"
 ]],
       0 );
 
@@ -100,7 +100,7 @@ dosadit dvě hodnoty dohledatelné v tabulce ([`[$fx[$index+1]]`] a [`[$fx[$inde
 Dosazením dostáváme
 [```\left.\frac{\mathrm dT}{\mathrm dt}\right|_{t=[$x[$index]]}\approx \frac{[$fx[$index+1]]-[$fx[$index-1]]}{2 \cdot [$step]}=[$answer].```]
 
-Derivace vyjadřuje rychlost s jakou roste teplota v čase a udáváme ji ve stupních Celsia za minutu.
+Derivace vyjadřuje rychlost, s jakou roste teplota v čase, a udáváme ji ve stupních Celsia za minutu.
 END_PGML_SOLUTION
 
 ENDDOCUMENT();       # This should be the last executable line in the problem.

@@ -25,7 +25,7 @@ $data =
     odpoved=>"\(\displaystyle \int _C -2x\,\mathrm dx+(x+y)\,\mathrm dy\)",
     moznosti=>[
 "\(\displaystyle \int _C 2x\,\mathrm dx+(x+y)\,\mathrm dy\)",
-"\(\displaystyle \int _C x-y\,\mathrm dx+2x\,\mathrm dy\)",
+"\(\displaystyle \int _C (x-y)\,\mathrm dx+2x\,\mathrm dy\)",
 "\(\displaystyle \int _C (x+y)\,\mathrm dx+2x\,\mathrm dy\)",
 ],
 },
@@ -64,7 +64,7 @@ BEGIN_PGML
 
 [_]{$radio}
 
-_[$zdroj]_
+
 
 END_PGML
 

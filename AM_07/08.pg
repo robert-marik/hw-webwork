@@ -99,34 +99,34 @@ END_PGML
 
 BEGIN_PGML_HINT
 
-Musíte najít hodnotu parametru pro kterou jsou stejné parciální derivace
+Musíte najít hodnotu parametru, pro kterou jsou stejné parciální derivace
 [``` \frac{\partial }{\partial x} ([$Q]) ```]
 a 
 [``` \frac{\partial }{\partial y} ([$P]) ```]
 a dále pracovat s touto hodnotou parametru způsobem stejným jako v předchozích dvou příkladech.
 
 Pro tuto hodnotu musíte vypočítat integrály
-[``` \int [$P]\,\mathrm dx ```]
+[``` \int ([$P])\,\mathrm dx ```]
 a
-[``` \int [$Q]\,\mathrm dy ```]
+[``` \int ([$Q])\,\mathrm dy ```]
 a z výsledku sestavit skalární potenciál.
 
-Poté musíte určit nárůst skalárního potenciálu mezi body   [`([$bodX],[$bodY])`] a [`(1,1)`].
+Poté musíte určit nárůst skalárního potenciálu mezi body [`([$bodX],[$bodY])`] a [`(1,1)`].
 
 END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
-Musíme najít hodnotu parametru pro kterou jsou stejné derivace
+Musíme najít hodnotu parametru, pro kterou jsou stejné derivace
 [``` \frac{\partial }{\partial x} ([$Q])=[$dQ] ```]
 a 
 [``` \frac{\partial }{\partial y} ([$P])=[$dP]. ```]
 Tyto derivace jsou stejné pro [`a=[$nasobek1]`].
 
 Platí
-[``` \int [$Pa]\,\mathrm dx =[$Pint]+C(y)```]
+[``` \int ([$Pa])\,\mathrm dx =[$Pint]+C(y)```]
 a
-[``` \int [$Q]\,\mathrm dy =[$Qint]+C(x).```]
+[``` \int ([$Q])\,\mathrm dy =[$Qint]+C(x).```]
 Skalární potenciál je (jednoznačně až na případnou aditivní konstantu)
 [``` \varphi(x,y)=[$potencial].```]
 

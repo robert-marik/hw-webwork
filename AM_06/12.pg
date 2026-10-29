@@ -36,7 +36,7 @@ BEGIN_PGML
 
 ## Výpočet obsahu vody v plošném materiálu
 
-V plošném materiálu, který je umístěn v rovině tak, že odpovídá jednotkovému čtverci [``` \begin{gathered}0\leq x\leq 1 \\ 0 \leq y \leq 1\end{gathered}```] je množství vody v bodě [`(x,y)`] dáno vztahem
+V plošném materiálu, který je umístěn v rovině tak, že odpovídá jednotkovému čtverci [``` \begin{gathered}0\leq x\leq 1 \\ 0 \leq y \leq 1\end{gathered}```], je množství vody v bodě [`(x,y)`] dáno vztahem
 [``` \sigma (x,y)=[$f] \,\mathrm{g}/\mathrm{cm}^2.```]
 
 Koncentrace vody roste se vzdáleností od počátku. Proto je realistické předpokládat (nakreslete si obrázek), že průměrná koncentrace vody v desce bude vyšší než koncentrace v geometrickém středu. 

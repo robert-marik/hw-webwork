@@ -14,10 +14,10 @@ $data =
 [
 {
     nadpis=>"Fyzikální jednotka divergence",
-    otazka=>"Tok energie (přesněji jeho hustota) ve trojrozměrném světě je udáván v jednotkách watt na metr čtvereční. Udává, jaká energie projde za jednotku času plochou o jednotkovém obsahu postavenou kolmo na tok. V jakých jednotkách bude vycházet divergence tohoto toku?",
+    otazka=>"Tok energie (přesněji jeho hustota) v trojrozměrném světě je udáván v jednotkách watt na metr čtvereční. Udává, jaká energie projde za jednotku času plochou o jednotkovém obsahu postavenou kolmo na tok. V jakých jednotkách bude vycházet divergence tohoto toku?",
     odpoved=>"Ve wattech na metr krychlový.",
     moznosti=>[
-    "V joulech na metr čtverečení.",
+    "V joulech na metr čtvereční.",
     "V joulech.",
     "V joulech za sekundu.",
     "Ve wattech na metr.",

@@ -10,23 +10,25 @@ loadMacros(
   "PGcourse.pl"
 );
 
+TEXT(beginproblem());
+
 
 #
 #  Add correct questions and answers
 #
 @a = (
 "\(\displaystyle\frac{\partial T}{\partial t}\)", 
-"&Ccaron;asov&aacute; zm&#283;na teploty, tj. rychlost s jakou v dan&eacute;m m&iacute;st&#283; roste teplota jako funkce &#269;asu.",
+"&Ccaron;asov&aacute; zm&#283;na teploty, tj. rychlost, s jakou v dan&eacute;m m&iacute;st&#283; roste teplota jako funkce &#269;asu.",
 "\(\displaystyle\frac{\partial T}{\partial x}\)", 
-"Rychlost s jakou v dan&eacute;m okam&#382;iku roste teplota ve sm&#283;ru osy \(x\)",
+"Rychlost, s jakou v dan&eacute;m okam&#382;iku roste teplota ve sm&#283;ru osy \(x\)",
 "\(\displaystyle-\frac{\partial T}{\partial x}\)", 
-"Rychlost s jakou v dan&eacute;m okam&#382;iku kles&aacute; teplota ve sm&#283;ru osy \(x\)",
+"Rychlost, s jakou v dan&eacute;m okam&#382;iku kles&aacute; teplota ve sm&#283;ru osy \(x\)",
 "\(\displaystyle-\lambda\frac{\partial T}{\partial x}\)", 
 "Tok tepla",
 "\(\displaystyle\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", 
-"Rychlost s jakou roste tok tepla ve sm&#283;ru osy \(x\)",
+"Rychlost, s jakou roste tok tepla ve sm&#283;ru osy \(x\)",
 "\(\displaystyle-\frac{\partial}{\partial x} \left(-\lambda \frac{\partial T}{\partial x}\right)\)", 
-"Rychlost s jakou kles&aacute; tok tepla ve sm&#283;ru osy \(x\)"
+"Rychlost, s jakou kles&aacute; tok tepla ve sm&#283;ru osy \(x\)"
 );
 
 
@@ -74,11 +76,11 @@ BEGIN_PGML
 
 
 Rovnice vedení tepla v jedné dimenzi má tvar
-[``` \rho  c \frac{\partial T}{\partial t}=\frac{\partial}{\partial x}
+[``` \rho c \frac{\partial T}{\partial t}=\frac{\partial}{\partial x}
 \left(\lambda \frac{\partial T}{\partial x}\right).```]
 
 Abychom v ní zřetelně viděli tok, můžeme v ní také nechat záporná znaménka, tj. psát
-[``` \rho  c\frac{\partial T}{\partial t}=-\frac{\partial}{\partial x}
+[``` \rho c\frac{\partial T}{\partial t}=-\frac{\partial}{\partial x}
 \left(-\lambda \frac{\partial T}{\partial x}\right).```]
 
 Pro jednotlivé složky této rovnice podejte jejich slovní interpretaci. Každá část rovnice má jednu z uvedených slovních interpretací, ale ty jsou přeházené. Přesuňte je myší na správná místa.

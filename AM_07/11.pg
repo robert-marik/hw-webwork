@@ -59,13 +59,13 @@ Uvažujte křivkový integrál
 [``` \int_{\partial M} \Bigl([$P]\Bigr)\,\mathrm dx+\Bigl([$Q]\Bigr) \mathrm dy```]
 po kladně orientované hranici množiny [`M`]. Přepište tento integrál pomocí Greenovy věty
 [```
-\oint_{\partial M}P(x,y)\mathrm{d}x +Q(x,y)\mathrm{d}y =   \iint_{M}{\left(\frac{\partial Q(x,y)}{\partial x}-\frac{\partial P(x,y)}{\partial y}\right)}\,\mathrm{d}x \mathrm{d}y.
+\oint_{\partial M}P(x,y)\mathrm{d}x +Q(x,y)\mathrm{d}y = \iint_{M}{\left(\frac{\partial Q(x,y)}{\partial x}-\frac{\partial P(x,y)}{\partial y}\right)}\,\mathrm{d}x \mathrm{d}y.
 ```]
-jako dvojnásobný integrál přes množinu [`M`].
+jako dvojný integrál přes množinu [`M`].
 
->> [``  \oint_{\partial M} \Bigl([$P]\Bigr)\,\mathrm dx+\Bigl([$Q]\Bigr)\,\mathrm dy=\iint_M``][___________________]    [``\,\mathrm dx\mathrm dy``] <<
+>> [`` \oint_{\partial M} \Bigl([$P]\Bigr)\,\mathrm dx+\Bigl([$Q]\Bigr)\,\mathrm dy=\iint_M``][___________________] [``\,\mathrm dx\mathrm dy``] <<
 
-*Poznámka.* Mezivýpočty jsou méně honorovány (za každou parciální derivaci pouze 10 procent celkového hodnocení za příklad) a po odeslání vidíte, jestli je  máte správně. Výsledek za zbylých 60 procent bodů.
+*Poznámka.* Mezivýpočty jsou méně honorovány (za každou parciální derivaci pouze 10 procent celkového hodnocení za příklad) a po odeslání vidíte, jestli je máte správně. Výsledek za zbylých 60 procent bodů.
 
 END_PGML
 
@@ -73,7 +73,7 @@ BEGIN_PGML_HINT
 
 Musíme ve vzorci
 [```
-\oint_{\partial M}P(x,y)\mathrm{d}x +Q(x,y)\mathrm{d}y =   \iint_{M}{\left(\frac{\partial Q(x,y)}{\partial x}-\frac{\partial P(x,y)}{\partial y}\right)}\,\mathrm{d}x \mathrm{d}y.
+\oint_{\partial M}P(x,y)\mathrm{d}x +Q(x,y)\mathrm{d}y = \iint_{M}{\left(\frac{\partial Q(x,y)}{\partial x}-\frac{\partial P(x,y)}{\partial y}\right)}\,\mathrm{d}x \mathrm{d}y.
 ```]
 identifikovat, jaké parciální derivace potřebujeme, a poté tyto parciální derivace ve správném pořadí odečíst.
 
@@ -89,7 +89,7 @@ Při výpočtu parciálních derivací používáme pro nás již běžná pravi
 
 Musíme ve vzorci
 [```
-\oint_{\partial M}P(x,y)\mathrm{d}x +Q(x,y)\mathrm{d}y =   \iint_{M}{\left(\frac{\partial Q(x,y)}{\partial x}-\frac{\partial P(x,y)}{\partial y}\right)}\,\mathrm{d}x \mathrm{d}y.
+\oint_{\partial M}P(x,y)\mathrm{d}x +Q(x,y)\mathrm{d}y = \iint_{M}{\left(\frac{\partial Q(x,y)}{\partial x}-\frac{\partial P(x,y)}{\partial y}\right)}\,\mathrm{d}x \mathrm{d}y.
 ```]
 identifikovat, jaké parciální derivace potřebujeme, a poté tyto parciální derivace ve správném pořadí odečíst.
 

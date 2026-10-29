@@ -20,7 +20,7 @@ do {$d=non_zero_random(-10,10); } until ( $c != $d );
 
 Context("Numeric")->variables->are($var=>['Real',limits=>[1,2]],$par=>['Real',limits=>[1,2]]);
 
-$f=Formula("$par*[$var]^$a+$d*[$var]^$b+$c")->reduce();   # funkce
+$f=Formula("$par*($var)^$a+$d*($var)^$b+$c")->reduce();   # funkce
 $vzorec1=Formula("$a*($var)^($a-1)")->reduce();
 $vzorec2=Formula("$b*($var)^($b-1)")->reduce();
 
@@ -30,14 +30,14 @@ BEGIN_PGML
 
 ## Derivace funkce s parametrem namísto koeficientu
 
-Tento příklad je stejného typu jako příklady předchozí. Rozdíl je jenom v tom, že namísto jedné z konstant pracujeme s parametrem. Postup výpočtu derivace je (až na detail v zápise kdy místo konkrétního čísla pracujeme s parametrem) zcela totožný. Odpověď bude funkcí proměnné [`[$var]`] a bude obsahovat parametr [`[$par]`]. Jinými slovy: stejně jako v zadání funkce, i v odpovědi budou dvě písmenka.
+Tento příklad je stejného typu jako příklady předchozí. Rozdíl je jenom v tom, že namísto jedné z konstant pracujeme s parametrem. Postup výpočtu derivace je (až na detail v zápise, kdy místo konkrétního čísla pracujeme s parametrem) zcela totožný. Odpověď bude funkcí proměnné [`[$var]`] a bude obsahovat parametr [`[$par]`]. Jinými slovy: stejně jako v zadání funkce, i v odpovědi budou dvě písmenka.
 
 Pokud bychom se o něco podobného snažili například pro funkci [```f(x)=x^7+cx^3```] proměnné [`x`] s parametrem [`c`], měli bychom
 [``` \frac{\mathrm d}{\mathrm dx}\left(x^7+cx^3\right)=7x^6+3cx^2.```]
 
 ------------
 
-Napište derivaci [`` \frac{\mathrm df}{\mathrm d[$var]} ``] funkce [``` f([$var])=[$f] ```]  proměnné [`[$var]`] závislé na parametru [`[$par]`].
+Napište derivaci [`` \frac{\mathrm df}{\mathrm d[$var]} ``] funkce [``` f([$var])=[$f] ```] proměnné [`[$var]`] závislé na parametru [`[$par]`].
 
 >>[`` \frac{\mathrm d}{\mathrm d[$var]}\Bigl( [$f]\Bigr) ={}``]
 [_____________________]{$answer}<<
@@ -55,7 +55,7 @@ BEGIN_PGML_SOLUTION
 Platí [```\frac{\mathrm d}{\mathrm d[$var]}[$var]^{[$a]}=[$vzorec1],```] 
 [```\frac{\mathrm d}{\mathrm d[$var]}[$var]^{[$b]}=[$vzorec2]```] a [``` \frac{\mathrm d}{\mathrm d[$var]}[$c] =0.```] Využijeme tyto derivace a věty pro počítání s derivacemi, jako derivace součtu a derivace konstantního násobku.
 Výsledek je 
-[```  \frac{\mathrm df}{\mathrm d[$var]}=[$answer->reduce();].```]
+[``` \frac{\mathrm df}{\mathrm d[$var]}=[$answer->reduce();].```]
 
 (Automaticky vygenerované řešení, které je pravděpodobně možné dále upravit.)
 

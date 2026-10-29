@@ -22,22 +22,22 @@ nastroj=>0
 },
 {
 uloha=>"Máme veličinu \(X\) závislou na více vstupních datech, tj. na více jiných veličinách. Chceme udělat citlivostní analýzu, tj. zjistit, která veličina má zanedbatelný vliv a která podstatný vliv na změnu veličiny \(X\).",
-odpoved=>"Parciální derivace udává změnu závislé veličiny způsobené jednotkovou změnou nezávislé veličiny. Zanedbatelný vliv mají veličiny s numericky malou derivací (přesně, ji s derivací blízkou k nule) a podstatný vliv veličiny s numericky velkou derivací (hodně kladnou nebo hodně zápornou).",
+odpoved=>"Parciální derivace udává změnu závislé veličiny způsobenou jednotkovou změnou nezávislé veličiny. Zanedbatelný vliv mají veličiny s numericky malou derivací (přesněji, s derivací blízkou k nule) a podstatný vliv veličiny s numericky velkou derivací (hodně kladnou nebo hodně zápornou).",
 nastroj=>0
 },
 {
-uloha=>"Máme vzorec pro pocitovou teplotu a potřebujeme vědět, jak se změny vstupních dat (změna okolní teploty a rychlosti větru) projevuje na změnách této teploty. Tedy potřebujeme znát odhad změny pocitové teploty při rychlosti větru o jednotku vyšší (a stejné teplotě). Nebo naopak, odhad změny pocitové teploty při stejné rychlosti větru a teplotě o jednotku vyšší.",
+uloha=>"Máme vzorec pro pocitovou teplotu a potřebujeme vědět, jak se změny vstupních dat (změna okolní teploty a rychlosti větru) projevují na změnách této teploty. Tedy potřebujeme znát odhad změny pocitové teploty při rychlosti větru o jednotku vyšší (a stejné teplotě). Nebo naopak, odhad změny pocitové teploty při stejné rychlosti větru a teplotě o jednotku vyšší.",
 odpoved=>"Popsané informace jsou přímo interpretacemi parciální derivace funkce více proměnných. Odpovědí je tedy pojem parciální derivace.",
 nastroj=>0
 },
  #################### diferenciální rovnice
 {
-uloha=>"Sledujete veličinu měnící se v čase. Tato rychlost souvisí s numerickou hodnotou sledované veličiny a rádi bychom získali časový průběh veličiny. Obyčejné násobení nestačí, protože rychlost není konstantní. Obyčejná integrace rychlosti také nestačí, protože uvažovaná rychlost změny veličiny souvisí i s hodnotou této veličiny, tj. s funkcí, kterou teprve hledáme.",
+uloha=>"Sledujete veličinu měnící se v čase. Rychlost její změny souvisí s numerickou hodnotou sledované veličiny a rádi bychom získali časový průběh veličiny. Obyčejné násobení nestačí, protože rychlost není konstantní. Obyčejná integrace rychlosti také nestačí, protože uvažovaná rychlost změny veličiny souvisí i s hodnotou této veličiny, tj. s funkcí, kterou teprve hledáme.",
 odpoved=>"Rychlost je derivace podle času a souvislost mezi touto rychlostí a hodnotou veličiny představuje diferenciální rovnici. Úlohu budeme řešit pomocí diferenciálních rovnic.",
 nastroj=>1
 },
 {
-uloha=>"Máme počáteční data pro veličinu, která nás zajímá a model, který popisuje časový vývoj veličiny. Tento model používá fakt, že v každém okamžiku je dána rychlost změny. Chceme zjistit, za jak dlouho dosáhne veličina stacionárního neměnného stavu.",
+uloha=>"Máme počáteční data pro veličinu, která nás zajímá, a model, který popisuje časový vývoj veličiny. Tento model používá fakt, že v každém okamžiku je dána rychlost změny. Chceme zjistit, za jak dlouho dosáhne veličina stacionárního neměnného stavu.",
 odpoved=>"Rychlost je derivace podle času a zadána je tedy diferenciální rovnice (model popisující časový vývoj) a počáteční podmínka (výchozí stav, počáteční data). Jistě tedy využijeme aparát diferenciálních rovnic.",
 nastroj=>1
 },
@@ -49,7 +49,7 @@ nastroj=>2
 },
 {
 uloha=>"Sledujete navzájem interagující populace. Jsou definovány vztahy mezi těmito populacemi a tyto vztahy udávají, jak silně jedna populace podporuje či brzdí vývoj druhé populace. Zajímá nás, zda je realistická koexistence, nebo zda dojde ke konkurenčnímu vyloučení některé populace. Dále nás zajímá, jaký bude časový vývoj, tj. například jak rychlé bude vymírání konkurenčně méně úspěšného druhu.",
-odpoved=>"Rychlosti jsou derivace a sledujeme derivace každé z populací podle času. Interakce mezi populacemi vyjádříme jako diferenciální rovnice a protože jich je několik, dostaneme autonomní systém.",
+odpoved=>"Rychlosti jsou derivace a sledujeme derivace každé z populací podle času. Interakce mezi populacemi vyjádříme jako diferenciální rovnice, a protože jich je několik, dostaneme autonomní systém.",
 nastroj=>2
 },
    ########## křivkový integrál
@@ -70,7 +70,7 @@ odpoved=>"Popsaný úkol přesně sedí na kvadratický moment průřezu nosník
 nastroj=>4
 },
 {
-uloha=>"V každém bodě plošného materiálu známe výkon zdrojů produkujících teplo (tj. energie dodaná za jednotku času na jednotku plochy). Tento výkon není konstantní a proto není možné celkový výkon vyjádřit pomocí součinu obsahu a výkonu na jednotku obsahu. Jak tedy vypočteme celkový výkon v tomto případě?",
+uloha=>"V každém bodě plošného materiálu známe výkon zdrojů produkujících teplo (tj. energie dodaná za jednotku času na jednotku plochy). Tento výkon není konstantní, a proto není možné celkový výkon vyjádřit pomocí součinu obsahu a výkonu na jednotku obsahu. Jak tedy vypočteme celkový výkon v tomto případě?",
 odpoved=>"Popsaný úkol je přesně důvodem, proč zavádíme dvojný integrál. Umožňuje nám posčítat příspěvky rozložené ve dvourozměrné množině.",
 nastroj=>4
 },
@@ -91,13 +91,13 @@ odpoved=>"Transportní jevy jsou popsány difuzní rovnicí. Správnou odpověd�
 nastroj=>5
 },
 {
-uloha=>"Máme termosnímek materiálu a z něj odvozený tok tepla. Chceme vědět, v kterých  místech (a zda vůbec) se materiál ohřívá, ve kterých se ochlazuje a jak rychle. Víme, že v materiálu nejsou dodatečné zdroje tepla.",
-odpoved=>"Popsaná úloha je přesně úloha kvantitativně vyjádřena rovnicí vedení tepla. Rovnice vedení tepla je speciální případ difuzní rovnice.",
+uloha=>"Máme termosnímek materiálu a z něj odvozený tok tepla. Chceme vědět, v kterých místech (a zda vůbec) se materiál ohřívá, ve kterých se ochlazuje a jak rychle. Víme, že v materiálu nejsou dodatečné zdroje tepla.",
+odpoved=>"Popsaná úloha je přesně úloha kvantitativně vyjádřená rovnicí vedení tepla. Rovnice vedení tepla je speciální případ difuzní rovnice.",
 nastroj=>5
 },
  ## rotace
 {
-uloha=>"Máme v prostoru definováno vektorové pole a chceme zjistit, jestli je možné přejít ke skalárním popisu tohoto vektorového pole. Tedy jestli je možno definovat pro toto vektorové pole skalární potenciál. To bude znamenat, že křivkový integrál v takovém poli nebude záviset na integrační cestě. Jak posoudíme, zda skalární potenciál existuje? Vyberte možnost, která nevyžaduje výpočet křivkového integrálu.",
+uloha=>"Máme v prostoru definováno vektorové pole a chceme zjistit, jestli je možné přejít ke skalárnímu popisu tohoto vektorového pole. Tedy jestli je možno definovat pro toto vektorové pole skalární potenciál. To bude znamenat, že křivkový integrál v takovém poli nebude záviset na integrační cestě. Jak posoudíme, zda skalární potenciál existuje? Vyberte možnost, která nevyžaduje výpočet křivkového integrálu.",
 odpoved=>"Vektorové pole má skalární potenciál právě tehdy, když má nulovou rotaci.",
 nastroj=>6,
 },
@@ -124,14 +124,14 @@ odpoved=>"Popsaná závislost je závislost toku na záporně vzatém gradientu 
 nastroj=>8
 },
 {
-uloha=>"Máme koncentraci vody ve dřevěném materiálu (množství vody v libovolném bodě) a známe materiálové vlastnosti. Zajímá nás, jak rychle a jakým směrem se množství vody přesunuje z místa, kde je vlhkost vysoká, do místa, kde je vlhkost nižší.",
+uloha=>"Máme koncentraci vody ve dřevěném materiálu (množství vody v libovolném bodě) a známe materiálové vlastnosti. Zajímá nás, jak rychle a jakým směrem se množství vody přesouvá z místa, kde je vlhkost vysoká, do místa, kde je vlhkost nižší.",
 odpoved=>"Popsaná závislost je závislost difuzního toku ve dřevě na záporně vzatém gradientu koncentrace. Tato závislost je vyjádřena konstitutivním zákonem. (Fickův zákon.)",
 nastroj=>8
 },
         ## Greenova veta
 {
 uloha=>"Máme představu, jak funguje fyzikální zákon v materiálu, a chceme z toho kvůli otestování hypotéz vyvodit pozorovatelné a měřitelné důsledky. Jaký nástroj dokáže přemostit propast mezi lokální a globální formulací fyzikálních zákonů?",
-odpoved=>"Greenova věta je přesně to, co potřebujeme pro přechod mezi lokální a globální formulací libovolným směrem. Je to díky tomu, že potřebujeme přepočítat tok přes hranici (vyjádřen křivkovým integrálem) na součet příspěvků v celkovému přírůstku nebo poklesu v každém místě množiny.",
+odpoved=>"Greenova věta je přesně to, co potřebujeme pro přechod mezi lokální a globální formulací libovolným směrem. Je to díky tomu, že potřebujeme přepočítat tok přes hranici (vyjádřený křivkovým integrálem) na součet příspěvků k celkovému přírůstku nebo poklesu v každém místě množiny.",
 nastroj=>9
 },
 ];

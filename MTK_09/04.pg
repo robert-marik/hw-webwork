@@ -70,17 +70,17 @@ BEGIN_PGML
 
 ### Instrukce
 
-Následující příklad je poněkud komplexnější, než příklady, se kterými jste se setkávali dosud. Je nutné použít i jakési menší početní dovednosti (výpočty jsou snadné, ale je jich několik) a zkombinovat je se znalostí toho, co se má počítat a jak se to má počítat. Abychom předešli frustraci a rozčarování z neúspěchu, můžete si příklad vyzkoušet nanečisto [@  htmlLink("https://um.mendelu.cz/webwork2/html2xml?&answersSubmitted=0&sourceFilePath=problems/difuzni_rce/vedeni_tepla_vypocet.pg&problemSeed=123&displayMode=MathJax&courseID=daemon&userID=demon&course_password=demonek&outputformat=simpleM&language=cs_CZ","zde"); @]* a prohlédnout video s řešením pro jiné hodnoty [@ htmlLink("https://youtu.be/rMYvafCY0Js?t=3539","zde pro příklad ze cvičení");  @]* a [@  htmlLink("https://youtu.be/rMYvafCY0Js?t=3917","zde pro příklad z WeBWorKu"); @]*
+Následující příklad je poněkud komplexnější než příklady, se kterými jste se setkávali dosud. Je nutné použít i jakési menší početní dovednosti (výpočty jsou snadné, ale je jich několik) a zkombinovat je se znalostí toho, co se má počítat a jak se to má počítat. Abychom předešli frustraci a rozčarování z neúspěchu, můžete si příklad vyzkoušet nanečisto [@  htmlLink("https://um.mendelu.cz/webwork2/html2xml?&answersSubmitted=0&sourceFilePath=problems/difuzni_rce/vedeni_tepla_vypocet.pg&problemSeed=123&displayMode=MathJax&courseID=daemon&userID=demon&course_password=demonek&outputformat=simpleM&language=cs_CZ","zde"); @]* a prohlédnout video s řešením pro jiné hodnoty [@ htmlLink("https://youtu.be/rMYvafCY0Js?t=3539","zde pro příklad ze cvičení");  @]* a [@  htmlLink("https://youtu.be/rMYvafCY0Js?t=3917","zde pro příklad z WeBWorKu"); @]*
 
 [@ image("teplo.jpg", width=>400) @]*
 
-Prozkoumáme cestu od rozložení teploty k rovnici vedení tepla. Úkolů je příliš mnoho na to, aby bylo možné sem dát vypočítaný vzor podle kterého můžete postupovat. Odkazy na analogické výpočty však máte v odstavci výše a analogický příklad se počítal ve cvičení. 
+Prozkoumáme cestu od rozložení teploty k rovnici vedení tepla. Úkolů je příliš mnoho na to, aby bylo možné sem dát vypočítaný vzor, podle kterého můžete postupovat. Odkazy na analogické výpočty však máte v odstavci výše a analogický příklad se počítal ve cvičení. 
 
 
 ## Gradient teploty, tok, zesilování versus zeslabování toku
 
 
-Uvažujme teplotu desky ležící v množině [``` \begin{gathered} 0\leq x\leq 2 \\ 0\leq y\leq 2\end{gathered}```] V jednotlivých krocích najdete gradient, tok, divergenci toku. Abyste si byli jisti, že se počítání ubírá správným směrem, můžete po každé části odeslat a zkontrolovat správnost odpovědí.
+Uvažujme teplotu desky ležící v množině [``` \begin{gathered} 0\leq x\leq 2 \\ 0\leq y\leq 2\end{gathered}.```] V jednotlivých krocích najdete gradient, tok, divergenci toku. Abyste si byli jisti, že se počítání ubírá správným směrem, můžete po každé části odeslat a zkontrolovat správnost odpovědí.
 
 ### 1. Gradient (hnací síla dávající do pohybu energii ve formě tepla)
 
@@ -99,7 +99,7 @@ Vypočtěte obě parciální derivace a gradient [``\nabla T ``] teploty [```T(x
 
 _Tok vyjadřuje odezvu na podnět. Udává, jak "poslušně" materiál reaguje na podnět, zda je odezva ve směru podnětu, či zda se stáčí do preferovaného směru._
 
-Uvažujme materiál s tenzorem tepelné vodivosti [``` \lambda=\begin{pmatrix} [$lxx] & [$lxy] \\ [$lxy] & [$lyy] \end{pmatrix}.```] Tok tepla je dán vztahem [``` \vec q = -\lambda \nabla T,```] kde předchozí součin chápeme v maticovém smyslu, tj. počítáme lineární kombinace sloupců matice [``\lambda``], kde koeficienty  v lineární kombinaci jsou záporné vzaté komponenty gradientu [``\nabla T``]. Najděte  tok tepla.
+Uvažujme materiál s tenzorem tepelné vodivosti [``` \lambda=\begin{pmatrix} [$lxx] & [$lxy] \\ [$lxy] & [$lyy] \end{pmatrix}.```] Tok tepla je dán vztahem [``` \vec q = -\lambda \nabla T,```] kde předchozí součin chápeme v maticovém smyslu, tj. počítáme lineární kombinace sloupců matice [``\lambda``], kde koeficienty v lineární kombinaci jsou záporně vzaté komponenty gradientu [``\nabla T``]. Najděte tok tepla.
 
 >> [``\vec q={}``][__________________]*{$tok}<<
 
@@ -166,7 +166,7 @@ Při derivování podle [`x`] uvažujeme proměnnou [`y`] jako parametr a naopak
 
 _Tok vyjadřuje odezvu na podnět. Udává, jak "poslušně" materiál reaguje na podnět, zda je odezva ve směru podnětu, či zda se stáčí do preferovaného směru._
 
-Uvažujme materiál s tenzorem tepelné vodivosti [``` \lambda=\begin{pmatrix} [$lxx] & [$lxy] \\ [$lxy] & [$lyy] \end{pmatrix}.```] Tok tepla je dán vztahem [``` \vec q = -\lambda \nabla T,```] kde předchozí součin chápeme v maticovém smyslu, tj. počítáme lineární kombinace sloupců matice [``\lambda``], kde koeficienty v lineární kombinaci jsou komponenty záporné vzatého gradientu [``-\nabla T``], tj.
+Uvažujme materiál s tenzorem tepelné vodivosti [``` \lambda=\begin{pmatrix} [$lxx] & [$lxy] \\ [$lxy] & [$lyy] \end{pmatrix}.```] Tok tepla je dán vztahem [``` \vec q = -\lambda \nabla T,```] kde předchozí součin chápeme v maticovém smyslu, tj. počítáme lineární kombinace sloupců matice [``\lambda``], kde koeficienty v lineární kombinaci jsou komponenty záporně vzatého gradientu [``-\nabla T``], tj.
 [``` -\nabla T= \begin{pmatrix}[$mdTx]\\[$mdTy]\end{pmatrix}.```]
 V našem případě
 [```\vec q=

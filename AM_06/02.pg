@@ -32,10 +32,10 @@ do
 }
 until ($m != $n);
 
-$F=Compute("t^([$m])")->reduce();
-$G=Compute("t^([$n])")->reduce();
-$Fx=Compute("x^([$m])")->reduce();
-$Gy=Compute("y^([$n])")->reduce();
+$F=Compute("t^($m)")->reduce();
+$G=Compute("t^($n)")->reduce();
+$Fx=Compute("x^($m)")->reduce();
+$Gy=Compute("y^($n)")->reduce();
 
 $g = $a + $b;
 $h = $c + $d;

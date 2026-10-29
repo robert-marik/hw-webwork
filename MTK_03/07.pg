@@ -59,8 +59,6 @@ BEGIN_PGML
 
 [_]{$radio}
 
-_[$zdroj]_
-
 END_PGML
 
 BEGIN_PGML_SOLUTION

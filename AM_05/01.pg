@@ -23,7 +23,7 @@ $data =
     odpoved=>"Jedna křivka může mít více parametrických vyjádření, ta mohou být poměrně odlišná.",
     moznosti=>[
 "Každá křivka má právě jedno parametrické vyjádření.",
-"Každá křivka má více parametrických vyjádření, která jsou dány jednoznačně až na aditivní konstantu.",
+"Každá křivka má více parametrických vyjádření, která jsou dána jednoznačně až na aditivní konstantu.",
 ],
 },
 {
@@ -33,7 +33,7 @@ $data =
     moznosti=>[
 "Délku křivky.",
 "Normálový vektor ke křivce.",
-"Obsah množiny obepnutý křivkou.",
+"Obsah množiny obepnuté křivkou.",
 ],
 },
 ];
@@ -79,7 +79,7 @@ BEGIN_PGML
 
 [_]{$radio}
 
-_[$zdroj]_
+
 
 END_PGML
 

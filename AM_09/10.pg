@@ -42,13 +42,13 @@ BEGIN_PGML
 
 ## Jacobiho matice autonomního systému
 
-Obecný autonomní systém je poměrně těžké vyřešit i v relativně jednoduchých případech. Proto při analýze těchto systémů využíváme aproximaci pomocí linearizace. Dá se totiž ukázat, že v okolí stacionárních bodů se původní systém chová stejně, jako linearizovaný systém. To je poměrně velké usnadnění, protože chování lineárního systému můžeme charakterizovat pomocí vlastních čísel. 
+Obecný autonomní systém je poměrně těžké vyřešit i v relativně jednoduchých případech. Proto při analýze těchto systémů využíváme aproximaci pomocí linearizace. Dá se totiž ukázat, že v okolí stacionárních bodů se původní systém chová stejně jako linearizovaný systém. To je poměrně velké usnadnění, protože chování lineárního systému můžeme charakterizovat pomocí vlastních čísel. 
 
 ------
 
 V sadě úloh věnovaných gradientu jsme se věnovali i Jacobiho matici. Vzpomínáte? Teď budeme potřebovat lineární aproximaci autonomního systému. 
 
-Například  autonomní systém [``` \begin{aligned}\frac{\mathrm dx}{\mathrm dt}&=x^3-x+4y\\\frac{\mathrm dy}{\mathrm dt}&=\sin (x)\end{aligned}```] má jistě stacionární bod [``(0,0),``] protože v tomto bodě jsou pravé strany obou rovnic nulové. Výpočte derivací pravých stran podle jendotlivých proměnných vidíme, že Jacobiho matice má tvar
+Například autonomní systém [``` \begin{aligned}\frac{\mathrm dx}{\mathrm dt}&=x^3-x+4y\\\frac{\mathrm dy}{\mathrm dt}&=\sin (x)\end{aligned}```] má jistě stacionární bod [``(0,0),``] protože v tomto bodě jsou pravé strany obou rovnic nulové. Výpočtem derivací pravých stran podle jednotlivých proměnných vidíme, že Jacobiho matice má tvar
 [``` J(x,y) = \begin{pmatrix}3x^2-1 & 4 \\ \cos (x) & 0\end{pmatrix}```] a Jacobiho matice v počátku je
 [``` J(0,0) = \begin{pmatrix}-1 & 4 \\ 1 & 0\end{pmatrix}.```]
 Proto se v okolí počátku systém chová stejně jako lineární systém

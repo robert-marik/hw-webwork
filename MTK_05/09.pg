@@ -38,7 +38,7 @@ Výpočet integrálu mocninné funkce se záporným exponentem byl součástí m
 Vypočtěte následující integrál.
 >>[``\int_{1}^{[$b]} [$funkce]\,\mathrm dr ={}``][_________________________]{$int} <<
 
-Nemusíte upravovat výsledek na jediné číslo. Zapište jej v tvaru, který je pro Vás nejpřirozenější nebo nejsnazší pro odpovězení.
+Nemusíte upravovat výsledek na jediné číslo. Zapište jej ve tvaru, který je pro Vás nejpřirozenější nebo nejsnazší pro odpovězení.
 
 END_PGML
 

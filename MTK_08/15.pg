@@ -12,7 +12,7 @@ $showHint                  = 1;
 
 $data = {
     otazka =>
-        "Je dán vektor \(\vec u\) a matice \(A\). Obrazem vektoru \(\vec u\) při zobrazení pomocí matice \(A\) je opět vektor \(\vec u\). Vyberte správné tvrzení. $PAR Pokud je správých tvrzení více, vyberte to, které obsahuje nejdetailnější informaci.",
+        "Je dán vektor \(\vec u\) a matice \(A\). Obrazem vektoru \(\vec u\) při zobrazení pomocí matice \(A\) je opět vektor \(\vec u\). Vyberte správné tvrzení. $PAR Pokud je správných tvrzení více, vyberte to, které obsahuje nejdetailnější informaci.",
     nadpis   => "Matice zobrazuje vektor na sebe sama",
     moznosti => [
         "Vektor \(\vec u\) je vlastním vektorem příslušným vlastnímu číslu jedna.",
@@ -24,7 +24,7 @@ $data = {
         "Vektor \(\vec u\) míří ve směru některé ze souřadnicových os.",
     ],
     vysvetleni =>
-        "Vektor \(\vec u\) je vlastním vektorem příslušným vlastnímu číslu jedna. To plyne přímo z definice vlastních čísel a vlastních vektorů jako speciální případ, kdy vlastní číslo je rovno jedné. Na délce vektoru nezávisí. O ostatních vektorech se nemluví a matice tedy nemusí být ani diagonální a ani jednotková."
+        "Vektor \(\vec u\) je vlastním vektorem příslušným vlastnímu číslu jedna. To plyne přímo z definice vlastních čísel a vlastních vektorů jako speciální případ, kdy vlastní číslo je rovno jedné. Na délce vektoru nezávisí. O ostatních vektorech se nemluví a matice tedy nemusí být ani diagonální, ani jednotková."
 };
 
 $radio = RadioButtons([ $data->{moznosti} ], 0);

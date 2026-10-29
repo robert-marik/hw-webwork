@@ -16,7 +16,7 @@ $showPartialCorrectAnswers = 1;
 
 $radio1 = RadioButtons(
 [[
-"Rychlost s jakou klesá hladina vody při jednotkové výšce hladiny.",
+"Rychlost, s jakou klesá hladina vody při jednotkové výšce hladiny.",
 "Výška hladiny v okamžiku jednotkové rychlosti poklesu hladiny.",
 "Čas, za který se hladina sníží na polovinu.",
 "Počáteční výška hladiny.",
@@ -32,7 +32,7 @@ BEGIN_PGML
 
 Diferenciální rovnice [``` \frac{\mathrm dh}{\mathrm dt}=-\frac{S_1}{S_2}\sqrt{2g}\sqrt {h}```]
 udává rychlost, s jakou klesá hladina v nádrži se svislými stěnami, povrchem dna [`S_2`], průřezem výpusti [`S_1`], ve které je hladina vody [`h`] ode dna. Veličina [`g`] je tíhové zrychlení. To je poměrně komplikovaná rovnice. Pro snazší práci je možno ji přepsat do tvaru
-[``` \frac{\mathrm dh}{\mathrm dt}=-k\sqrt {h}```] a konstantu úměrnosti [`k=\frac{S_1}{S_2}\sqrt{2g}`] interpretovat jako ...  Jak? Jak byste slovně vyjádřili význam konstanty [`k`]?
+[``` \frac{\mathrm dh}{\mathrm dt}=-k\sqrt {h}```] a konstantu úměrnosti [`k=\frac{S_1}{S_2}\sqrt{2g}`] interpretovat jako ... Jak? Jak byste slovně vyjádřili význam konstanty [`k`]?
 
 [_]{$radio1}
     

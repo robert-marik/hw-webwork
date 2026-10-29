@@ -49,13 +49,13 @@ Zopakujte si postup řešení ODR se separovanými proměnnými podle přednáš
 [``` \frac{\mathrm dx}{\mathrm dt}= 5(3x^7-6)```]
 můžeme po vydělení faktorem [``(3x^7-6)``] a vynásobení faktorem [`` \mathrm dt``] přepsat do tvaru
 [```\frac1{3x^7-6}\mathrm dx= 5\mathrm dt.```]
-Levou stranu můžeme v programu WeBWork zapsat například jako *1/(3x^7-6) \* dx*.
+Levou stranu můžeme v programu WeBWorK zapsat například jako *1/(3x^7-6) \* dx*.
 
 V následujícím příkladě zkusíme podobnou úlohu, pouze s jinými čísly. Podle výrazu na pravé straně poznáte, jakým výrazem rovnici násobíme nebo dělíme a co zůstane na straně levé.
 
 --------------------
 
-Odseparujte proměnné v následující rovnici. [```  \frac{\mathrm dx}{\mathrm dt}=[$rovnice] ```]
+Odseparujte proměnné v následující rovnici. [``` \frac{\mathrm dx}{\mathrm dt}=[$rovnice] ```]
 
 >> [_______________]{$uprava}[``{}=\mathrm dt``]<<
 
@@ -63,14 +63,14 @@ END_PGML
 
 BEGIN_PGML_HINT
 Proměnné odseparujeme po vynásobení rovnice
-[```  \frac{\mathrm dx}{\mathrm dt}=[$rovnice] ```]
+[``` \frac{\mathrm dx}{\mathrm dt}=[$rovnice] ```]
 výrazem [``\mathrm dt ``] a [$akce] výrazem [`` [$co]``].
 END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
 Po vynásobení rovnice
-[```  \frac{\mathrm dx}{\mathrm dt}=[$rovnice] ```]
+[``` \frac{\mathrm dx}{\mathrm dt}=[$rovnice] ```]
 výrazem [``\mathrm dt ``] a [$akce] výrazem [`` [$co]``] dostáváme [``` [$uprava]=\mathrm dt.```]
 END_PGML_SOLUTION
 

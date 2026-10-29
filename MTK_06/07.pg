@@ -40,7 +40,7 @@ $funkce=Compute("$a*x**($k)+$b*x+$c")->reduce;
 $derivace=Compute("$k*$a*x**($km1)+$b")->reduce;
 
 BEGIN_PGML
-## Stablita autonomní diferenciální rovnice podle derivace pravé strany
+## Stabilita autonomní diferenciální rovnice podle derivace pravé strany
 
 V této úloze se budeme zabývat rovnicí [``` \frac{\mathrm dx}{\mathrm dt}=[$funkce],```]
 kde pro jednoduchost pro pravou stranu zavedeme označení [``` f(x)=[$funkce]. ```]

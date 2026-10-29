@@ -54,7 +54,7 @@ BEGIN_PGML
 
 
 
-Město je možno chápat jako organismus rostoucí proměnnou rychlostí. Více obyvatel má způsobí větší porodnost a rychlejší růst, své ovšem hraje i prostor pro rozšiřování a další růst, dostupnost zdrojů a další faktory. Ač se nám může zdát, že tyto faktory jsou exaktně neuchopitelné, dají se dopředu do jisté míry odhadnout a tento odhad budoucího růstu je důležitý pro jakékoliv plánování.
+Město je možno chápat jako organismus rostoucí proměnnou rychlostí. Více obyvatel způsobí větší porodnost a rychlejší růst, své ovšem hraje i prostor pro rozšiřování a další růst, dostupnost zdrojů a další faktory. Ač se nám může zdát, že tyto faktory jsou exaktně neuchopitelné, dají se dopředu do jisté míry odhadnout a tento odhad budoucího růstu je důležitý pro jakékoliv plánování.
 
 Předpokládejme, že [`t`] měsíců od současnosti je rychlost růstu počtu obyvatel města [``` g(t)=50+10\sqrt t```] obyvatel za měsíc. V současnosti má město 5000 obyvatel. Kolik obyvatel bude město mít za tři roky?
 
@@ -62,7 +62,7 @@ Návod: Evidentně musíme sečíst současný stav a přírůstek za tři roky.
 
 ----
 
-Vyberte výraz, který udává počet obyvatel po třech letech, tj. po 36 měsících?.
+Vyberte výraz, který udává počet obyvatel po třech letech, tj. po 36 měsících.
 
 [_]{$radio1}
 

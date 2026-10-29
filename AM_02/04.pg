@@ -44,8 +44,8 @@ Vypočtěte gradient funkce [``` f(x,y,z)=[$funkce].```]
 END_PGML
 
 BEGIN_PGML_HINT
-Pozorně počítejte derivace. Například derivace podle [`x`] je [``` \frac{\partial f}{\partial x}=[$dfx]. ```]
-a toto je možné zapsat jako [$dfx] .
+Pozorně počítejte derivace. Například derivace podle [`x`] je [``` \frac{\partial f}{\partial x}=[$dfx], ```]
+a toto je možné zapsat jako [$dfx].
 END_PGML_HINT
 
 

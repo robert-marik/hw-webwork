@@ -20,9 +20,9 @@ nadpis=>"Inverzní matice",
 otazka=>"Co rozumíme inverzní maticí k zadané matici?",
 odpoved=>"Součin matice a matice inverzní je roven jednotkové matici.",
 moznosti=>[
-"Součet matice a matice invertní je roven nulové matici.",
+"Součet matice a matice inverzní je roven nulové matici.",
 "Matice je symetrická podél hlavní diagonály.",
-"Matice se symetrická podél vedlejší diagonály.",
+"Matice je symetrická podél vedlejší diagonály.",
 "Matice jsou navzájem převrácené.",
 ]
 },
@@ -72,8 +72,6 @@ BEGIN_PGML
 [$ot]
 
 [_]{$radio}
-
-_[$zdroj]_
 
 END_PGML
 

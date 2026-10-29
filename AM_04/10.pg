@@ -78,7 +78,7 @@ Obě derivace jsou stejné a existuje skalární potenciál.
 Platí
 [``` \int P(x,y)\,\mathrm dx=\int 2xy^3\,\mathrm dx= x^2 y^3 + C_1(y)```]
 a
-[``` \int Q(x,y)\,\mathrm dy=\int 3x^2y^2+ ay^3\,\mathrm dy=x^2 y^3 + \frac a4 y^4 + C_2(x).```]
+[``` \int Q(x,y)\,\mathrm dy=\int (3x^2y^2+ ay^3)\,\mathrm dy=x^2 y^3 + \frac a4 y^4 + C_2(x).```]
 Odsud identifikujeme skalární potenciál 
 [``` f(x,y)=x^2y^3 + \frac a4 y^4 +C,```]
 kde [`C`] je libovolná reálná konstanta. 
@@ -96,9 +96,9 @@ END_PGML
 BEGIN_PGML_HINT
 
 Musíme vypočítat integrály
-[``` \int [$P]\,\mathrm dx ```]
+[``` \int ([$P])\,\mathrm dx ```]
 a
-[``` \int [$Q]\,\mathrm dy ```]
+[``` \int ([$Q])\,\mathrm dy ```]
 a z výsledku sestavit skalární potenciál.
 
 END_PGML_HINT
@@ -106,9 +106,9 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 Platí
-[``` \int [$P]\,\mathrm dx =[$Pint]+C(y)```]
+[``` \int ([$P])\,\mathrm dx =[$Pint]+C(y)```]
 a
-[``` \int [$Q]\,\mathrm dy =[$Qint]+C(x).```]
+[``` \int ([$Q])\,\mathrm dy =[$Qint]+C(x).```]
 Odsud vidíme, že skalární potenciál je
 [``` f(x,y)=[$potencial]+C.```]
 

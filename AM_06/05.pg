@@ -86,12 +86,12 @@ END_PGML
 BEGIN_TEXT
 \{
 ColumnTable(
-"Nechť \(R\) je lichoběžník na obrázku a \( f(x,y) \) je funkce definovaná na  \( R \).  Převeďte dvojný integrál na dvojnásobný (s vnější integrací podle proměnné \(x\)) a určete meze.".
+"Nechť \(R\) je lichoběžník na obrázku a \( f(x,y) \) je funkce definovaná na \( R \). Převeďte dvojný integrál na dvojnásobný (s vnější integrací podle proměnné \(x\)) a určete meze.".
 $PAR.
 "\[ \displaystyle
 \iint\limits_R f(x,y) \, \mathrm dx\mathrm dy
 =
-\int_A^B  \int_C^D f(x,y) \, \mathrm dy \, \mathrm dx
+\int_A^B \int_C^D f(x,y) \, \mathrm dy \, \mathrm dx
 \]".
 $al1->print_q(),
 $BCENTER.
@@ -126,24 +126,24 @@ Context()->texStrings;
 
 BEGIN_HINT
 Množina je zdola ohraničena přímkou procházející body
-\( ( $xmin, $ymin) \) a\( ( $xmax , $ymid) \). Tato přímka má rovnici
+\( ( $xmin, $ymin) \) a \( ( $xmax , $ymid) \). Tato přímka má rovnici
 \( y = $m ($xclen) $yclen \).
 
 Oblast integrace je definována nerovnostmi \[$xmin \le x \le $xmax\] a
-\[ $m ($xclen) $yclen  \le y \le $ymax.\] Použijte tuto informaci a správně tyto informace přiřaďte k mezím.
+\[ $m ($xclen) $yclen \le y \le $ymax.\] Použijte tuto informaci a správně tyto informace přiřaďte k mezím.
 END_HINT
 
 
 BEGIN_SOLUTION
 $PAR Řešení $BR $BR
 Množina je zdola ohraničena přímkou procházející body
-\( ( $xmin, $ymin) \) a\( ( $xmax , $ymid) \). Tato přímka má rovnici
+\( ( $xmin, $ymin) \) a \( ( $xmax , $ymid) \). Tato přímka má rovnici
 \( y = $m ($xclen) $yclen \).
 
 Oblast integrace je definována nerovnostmi \[$xmin \le x \le $xmax\] a
-\[ $m ($xclen) $yclen  \le y \le $ymax.\]
+\[ $m ($xclen) $yclen \le y \le $ymax.\]
 $BR
-Tedy \[ \iint_R  f(x,y) \,\mathrm dx\mathrm dy = \int_{$xmin}^{$xmax} \int_{$m ($xclen) $yclen }^{$ymax}
+Tedy \[ \iint_R f(x,y) \,\mathrm dx\mathrm dy = \int_{$xmin}^{$xmax} \int_{$m ($xclen) $yclen }^{$ymax}
 f(x,y) \, \mathrm dy \mathrm dx. \]
 END_SOLUTION
 

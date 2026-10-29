@@ -16,11 +16,11 @@ $data =
 [
 {
     nadpis=>"Integrál rychlosti",
-    otazka=>"Nechť \(r(t)\) je rychlost s jakou se mění veličina \(f(t)\). Určete slovní interpretaci integrálu \[\int r(t)\,\mathrm dt.\]",
+    otazka=>"Nechť \(r(t)\) je rychlost, s jakou se mění veličina \(f(t)\). Určete slovní interpretaci integrálu \[\int r(t)\,\mathrm dt.\]",
     odpoved=>"Časový průběh veličiny \(f(t)\) posunutý nanejvýše o aditivní konstantu. Tuto aditivní konstantu dokážeme určit například z počátečního stavu.",
     moznosti=>[
 "Časový průběh veličiny \(f(t)\) daný jednoznačně.",
-"Rychlost s jakou se mění rychlost změny veličiny \(f(t)\).",
+"Rychlost, s jakou se mění rychlost změny veličiny \(f(t)\).",
 "Obsah plochy pod křivkou danou grafem funkce \(r(t)\).",
 "Obsah plochy pod křivkou danou grafem funkce \(r(x)\).",
 ],
@@ -59,8 +59,6 @@ BEGIN_PGML
 [$ot]*
 
 [_]{$radio}
-
-_[$zdroj]_
 
 END_PGML
 

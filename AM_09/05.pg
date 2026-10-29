@@ -20,8 +20,8 @@ s pravou stranou ve formě rozdílu. Situace je stejná jako pro obecnou rovnici
 
 Opět stačí minimální množství informace: nemusíme znát řešení zadané diferenciální rovnice, nemusíme dokonce znát ani analytické předpisy funkcí na pravé straně rovnice. Stačí hodnoty [`f(x_0)`], [`g(x_0)`], [` f'(x_0)`] a [` g'(x_0)`] a z nich umíme určit, zda je bod [`x_0`] stacionárním bodem a zda odpovídá stabilnímu stavu, či nestabilnímu.
 
-* Pokud je [`f(x_0)=g(x_0)`], je bod [`x_0`] stacionárním bodem a tento bod je stabilní pokud platí [`f'(x_0)<g'(x_0)`] a nestabilní pokud platí [`f'(x_0)>g'(x_0)`].
-* Pokud je [`f(x_0)=g(x_0)`] a [`f'(x_0)=g'(x_0),`] jedná se o stacionární bod , ale o jeho stabilitě není možno rozhodnout jenom z těchto informací.
+* Pokud je [`f(x_0)=g(x_0)`], je bod [`x_0`] stacionárním bodem a tento bod je stabilní, pokud platí [`f'(x_0)<g'(x_0)`], a nestabilní, pokud platí [`f'(x_0)>g'(x_0)`].
+* Pokud je [`f(x_0)=g(x_0)`] a [`f'(x_0)=g'(x_0),`] jedná se o stacionární bod, ale o jeho stabilitě není možno rozhodnout jenom z těchto informací.
 * Pokud je [`f(x_0)\neq g(x_0),`] nejedná se o stacionární bod a o stabilitě nemá smysl hovořit.
 
 
@@ -63,7 +63,7 @@ Pro funkci [`f`] platí [`f([$x0])=[$fx0]`] a [`f'([$x0])=[$dfx0].`]
 
 Pro funkci [`g`] platí [`g([$x0])=[$gx0]`] a [`g'([$x0])=[$dgx0].`]
 
-Rozhodněte, zda [```x=[$x0]```] je stacionárním bodem rovnice [``` \frac{\mathrm dx}{\mathrm dt}=f(x)-g(x) ```] a pokud ano, rozhodněte o jeho stabilitě.
+Rozhodněte, zda [```x=[$x0]```] je stacionárním bodem rovnice [``` \frac{\mathrm dx}{\mathrm dt}=f(x)-g(x) ```], a pokud ano, rozhodněte o jeho stabilitě.
 
 [_]{$radio}
 

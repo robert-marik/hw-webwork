@@ -11,6 +11,8 @@ loadMacros(
   "PGcourse.pl"
 );
 
+TEXT(beginproblem());
+
 #$refreshCachedImages=1;
 
 
@@ -194,7 +196,7 @@ Vektorová pole jsou pohyblivá a je možné je přesouvat myší. Přesuňte je
 END_PGML
 
 BEGIN_PGML_SOLUTION
-Představte si graf vrtevnic a vektorové pole položiné na sobě a dívejte se, zda vektory jsou kolmé k vrstevnicím.
+Představte si graf vrstevnic a vektorové pole položené na sobě a dívejte se, zda vektory jsou kolmé k vrstevnicím.
 
 [@ $vf[0] @]* [@ $contours[0] @]* 
 

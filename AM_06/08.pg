@@ -64,14 +64,14 @@ BEGIN_PGML
 
 Vypočtěte dvojný integrál
 >> [``\displaystyle
-\iint_D  \left(x^2+[$a] y\right) \, \mathrm dx\mathrm dy={}``]
+\iint_D \left(x^2+[$a] y\right) \, \mathrm dx\mathrm dy={}``]
 [____________]{$ans}
 <<
-kde [`D`] je množina ohraničená křivkami [` y=x,`] a [`y=x^3,`] na intervalu [`0\leq x \leq  1.`]
+kde [`D`] je množina ohraničená křivkami [` y=x`] a [`y=x^3`] na intervalu [`0\leq x \leq 1.`]
 
 *Poznámka:* Jako mezivýsledek vypočtěte (a zde si zkontrolujte) vnitřní integrál.
 >> [``\displaystyle
-\int_{x^3}^x  \left(x^2+[$a] y\right) \, \mathrm dy={}``]
+\int_{x^3}^x \left(x^2+[$a] y\right) \, \mathrm dy={}``]
 [_________________________________]{$ans2}
 <<
 

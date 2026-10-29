@@ -22,7 +22,7 @@ odpoved=>"Obraz je násobkem vektoru, má tedy stejný nebo opačný směr.",
 moznosti=>[
 "Obraz je kladným násobkem vektoru, má tedy stejný směr.",
 "Obraz je nulovým násobkem vektoru, má nulovou velikost.",
-"Obraz je záporným vektoru, má tedy opačný směr.",
+"Obraz je záporným násobkem vektoru, má tedy opačný směr.",
 "Obraz je kolmý na vzor a jejich skalární součin je nulový."
 ]
 }
@@ -62,8 +62,6 @@ BEGIN_PGML
 [$ot]
 
 [_]{$radio}
-
-_[$zdroj]_
 
 END_PGML
 

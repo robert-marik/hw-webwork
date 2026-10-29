@@ -71,7 +71,7 @@ BEGIN_PGML
 ## Výpočet křivkového integrálu druhého druhu
 
 
-Je dána křivka [` \vec r(t)=[$r]`] pro [`t\in [0,[$tmax]]`] a vektorové pole [`\vec F(x,y)=[$F].`] 
+Je dána křivka [` \vec r(t)=[$r]`] pro [`t\in [0,[$tmax]]`] a vektorové pole [`\vec F(x,y)=[$F].`] Najděte nejprve derivaci křivky (tečný vektor).
 
 >>[``\frac{\mathrm d}{\mathrm dt} \vec r(t)={} ``][___________________________________________]{$answerR} <<
 
@@ -88,7 +88,7 @@ Nakonec najděte hodnotu integrálu vektorového pole po zadané křivce.
 >>[``\int_C \vec F\,{\mathrm d} \vec r={} ``][_____________________________________]{$answerKI} <<
 
 
-(Nezapomeňte tam kde je odpovědí vektor zadat odpověď jako vektor, tj. ve formátu *<...,...>* nebo *(...)\*i+(...)\*j*.)
+(Nezapomeňte tam, kde je odpovědí vektor, zadat odpověď jako vektor, tj. ve formátu *<...,...>* nebo *(...)\*i+(...)\*j*.)
 
 
 END_PGML
@@ -97,7 +97,7 @@ BEGIN_PGML_HINT
 
 Pro výpočet [`` \frac{\mathrm d}{\mathrm dt} \vec r(t)``] derivujeme jednotlivé komponenty křivky [`\vec r(t).`]
 
-Pro vyjádření [`\vec F(\vec r(t))`] stačí do [``` \vec F=[$F]```] dosadit  [```x=[$r1]```] a [```y=[$r2]```] a případně upravit.
+Pro vyjádření [`\vec F(\vec r(t))`] stačí do [``` \vec F=[$F]```] dosadit [```x=[$r1]```] a [```y=[$r2]```] a případně upravit.
 
 Skalární součin vypočítáme vynásobením odpovídajících si komponent a sečtením těchto součinů.
 
@@ -115,9 +115,9 @@ Po výpočtu skalárního součinu dostáváme
 ([$ansr1])\cdot([$Fxt])+([$ansr2])\cdot([$Fyt])=
 [$answerFR]. ```]
 
-Tento výraz musíme integrovat v mezích příslušejících hodnotě parametru a výsledkem je hodnota integrálu.
+Tento výraz musíme integrovat v mezích příslušejících hodnotám parametru a výsledkem je hodnota integrálu.
 
-[```\int_C \vec F\,{\mathrm d} \vec r=\int_{0}^{[$tmax]}[$answerFR]\,\mathrm dt=\left[[$answerKIP]\right]_0^{[$tmax]}=[$answerKI] ```]
+[```\int_C \vec F\,{\mathrm d} \vec r=\int_{0}^{[$tmax]}\left([$answerFR]\right)\,\mathrm dt=\left[[$answerKIP]\right]_0^{[$tmax]}=[$answerKI] ```]
 
 
 					      

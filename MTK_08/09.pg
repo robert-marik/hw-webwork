@@ -55,7 +55,7 @@ Context()->texStrings;
 BEGIN_PGML
 ## Extremální vlastnosti vlastních čísel
 
-Matice  [``` A=\begin{pmatrix} [$a11]&[$a12]\\[$a21]&[$a22]\end{pmatrix} ```] má vlastní čísla [`\lambda_1=[$l1]`] a [`\lambda_2=[$l2]`].
+Matice [``` A=\begin{pmatrix} [$a11]&[$a12]\\[$a21]&[$a22]\end{pmatrix} ```] má vlastní čísla [`\lambda_1=[$l1]`] a [`\lambda_2=[$l2]`].
 To znamená, že každý vektor se zobrazí na vektor alespoň [$l1]-násobné délky a nejvýše [$l2]-násobné délky.
 
 Například vektor [`u=\begin{pmatrix}[$u1]\\[$u2]\end{pmatrix}`] se zobrazí na [`u'=Au=\begin{pmatrix}[$v1]\\[$v2]\end{pmatrix}`].
@@ -73,21 +73,21 @@ Níže v úkolu ručně ověříme vztah pro jednu matici a jeden vektor.
 
 --------
 
-Uvažujte stejnou matici  [``` A=\begin{pmatrix} [$a11]&[$a12]\\[$a21]&[$a22]\end{pmatrix} ```] jako ve výše uvedeném příkladě. Připomeňme, že vlastní čísla jsou  [`\lambda_1=[$l1]`] a [`\lambda_2=[$l2]`].
+Uvažujte stejnou matici [``` A=\begin{pmatrix} [$a11]&[$a12]\\[$a21]&[$a22]\end{pmatrix} ```] jako ve výše uvedeném příkladě. Připomeňme, že vlastní čísla jsou [`\lambda_1=[$l1]`] a [`\lambda_2=[$l2]`].
 
 Pokuste se ověřit (podobně jako výše u vektoru [`u`]) pro vektor
  [`U=\begin{pmatrix}[$U1]\\[$U2]\end{pmatrix}`], že délka obrazu tohoto vektoru vydělená délkou tohoto vektoru je také mezi minimální a maximální vlastní hodnotou.
 
 * Délka vektoru [`U`] je (pomocí předchozího příkladu nebo pomocí Pythagorovy věty)
 >>[`` ||U||=\sqrt{U^TU}=\sqrt{([$U1])^2+([$U2])^2}={}``][_______]{$normaU}.<<
-* Obraz  [`U'`] vektoru [`U`] je
+* Obraz [`U'`] vektoru [`U`] je
 >>[`` U'=\begin{pmatrix} [$a11]&[$a12]\\[$a21]&[$a22]\end{pmatrix} \begin{pmatrix}[$U1]\\[$U2]\end{pmatrix} ={}``][___________]*{$obraz}.<<
 * Délka vektoru [`U'`] je 
 >>[``||U'||=\sqrt{U'^TU'}={}``][__________________________]{$normaUU}.<<
 * Podíl délek obrazu a vzoru je
 >>[`` \frac{||U'||}{||U||}={}``][__________________________]{$podil}.<<
 
-Úloha bude jistě reagovat na případné necitlivé zaokrouhlování. Snažte se nezaokrouhlovat (můžete psát například něco jako *sqrt(7^2+6^2)*) nebo alespoň nezaokrouhlovat více než je nutné.
+Úloha bude jistě reagovat na případné necitlivé zaokrouhlování. Snažte se nezaokrouhlovat (můžete psát například něco jako *sqrt(7^2+6^2)*) nebo alespoň nezaokrouhlovat více, než je nutné.
 
 END_PGML
 
@@ -98,7 +98,7 @@ END_PGML_HINT
 BEGIN_PGML_SOLUTION
 * Délka vektoru [`U`] je odmocnina ze součtu druhých mocnin komponent vektoru [`U`], tj.
 [``` ||U||=\sqrt{U^TU}=\sqrt{([$U1])^2+([$U2])^2}\approx [$normaU].```]
-* Obraz  [`U'`] vektoru [`U`] je výsledkem maticového součinu matice s vektorem, tj. 
+* Obraz [`U'`] vektoru [`U`] je výsledkem maticového součinu matice s vektorem, tj. 
 [``` U'=\begin{pmatrix} [$a11]&[$a12]\\[$a21]&[$a22]\end{pmatrix} \begin{pmatrix}[$U1]\\[$U2]\end{pmatrix} =[$obraz].```]
 * Délka vektoru [`U'`] je odmocnina ze součtu druhých mocnin komponent vektoru [`U'`], tj.
 [```||U'||=\sqrt{U'^TU'}=\sqrt{([$obraz->element(1,1)])^2+([$obraz->element(2,1)])^2}\approx [$normaUU].```]

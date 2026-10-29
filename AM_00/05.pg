@@ -11,6 +11,8 @@ loadMacros(
   "PGcourse.pl"
 );
 
+TEXT(beginproblem());
+
 
 do
 {
@@ -29,7 +31,7 @@ DefaultSubsets => [
 {label => "Lovi mysi.", indices => [$perm[0]]},
 {label => "Hlida dum.", indices => [$perm[1]]},
 {label => "Je verna svemu partnerovi.", indices => [$perm[2]]},
-{label => "Zije ve voda.", indices => [$perm[3]]},
+{label => "Zije ve vode.", indices => [$perm[3]]},
 ],
 AllowNewBuckets => 0,
 OrderedSubsets => 1
@@ -44,11 +46,11 @@ BEGIN_PGML
 
 ## Přesun variant
 
-V některých případech budete přesouvat objekty do boxů podle  kategorií. Někdy budou objekty rozházené a vaším úkolem bude je přesunout správně. To je například zde. Přesuňte živočichy pod činnost, která je pro tyto živočichy typická. V každém rámečku bude jeden živočich.
+V některých případech budete přesouvat objekty do boxů podle kategorií. Někdy budou objekty rozházené a vaším úkolem bude je přesunout správně. To je například zde. Přesuňte živočichy pod činnost, která je pro tyto živočichy typická. V každém rámečku bude jeden živočich.
 
-Někdy budou ve výchozím stavu objekty v zásobníku a z něj si je budete brát. Někdy bude jiný počet kategorií a přesouvaných objektů, a některé kaegorie budou moci obsahovat více než jeden objekt.
+Někdy budou ve výchozím stavu objekty v zásobníku a z něj si je budete brát. Někdy bude jiný počet kategorií a přesouvaných objektů, a některé kategorie budou moci obsahovat více než jeden objekt.
 
-Vyzkoušejte si i jak systém reaguje na nesprávnou odpověď. Chybové hlášky jsou v angličtině, v případě potřeby použijte automatický překladač.
+Vyzkoušejte si i, jak systém reaguje na nesprávnou odpověď. Chybové hlášky jsou v angličtině, v případě potřeby použijte automatický překladač.
 
 [_]{$draggable}
 

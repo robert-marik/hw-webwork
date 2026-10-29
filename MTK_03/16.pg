@@ -6,7 +6,7 @@ loadMacros('PGstandard.pl', 'PGML.pl',
 @correct_answers =  (
 "Newtonova iterační metoda je odvozena z lineární aproximace funkce.",
 "Vzorec pro Newtonovu iterační metodu je \(\displaystyle x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}\).",
-"Pokud Newtonova metoda konverguje, konverguje velice rychle. S každým krokem se přibližně zdvojnásobí počet desetiných míst výsledku.",
+"Pokud Newtonova metoda konverguje, konverguje velice rychle. S každým krokem se přibližně zdvojnásobí počet desetinných míst výsledku.",
 "Newtonova metoda slouží k hledání nulových bodů funkce a tím i k řešení nelineárních rovnic." ,
 "Newtonova metoda spočívá v tom, že výsledek se postupně zpřesňuje opakovanou aplikací iteračního vzorce."
 );
@@ -36,7 +36,7 @@ BEGIN_PGML
 
 # Newtonova metoda
 
-Newtonova (též Newtonova—Raphsonova) metoda je jedna z nedůležitějších aplikací derivace. Ujasněme si, k čemu tato metoda slouží a jak se používá.
+Newtonova (též Newtonova–Raphsonova) metoda je jedna z nejdůležitějších aplikací derivace. Ujasněme si, k čemu tato metoda slouží a jak se používá.
 
 Zatrhněte všechny pravdivé výroky.
 

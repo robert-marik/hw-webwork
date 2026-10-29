@@ -84,7 +84,7 @@ BEGIN_PGML
 
 # Pocitová teplota
 
-V následující tabulce je zadána pocitová teplota [`C(w,T)`] jako funkce rychlosti větru [`w`] v mílích za hodinu a skutečné teploty ve stupních Farenheita.
+V následující tabulce je zadána pocitová teplota [`C(w,T)`] jako funkce rychlosti větru [`w`] v mílích za hodinu a skutečné teploty ve stupních Fahrenheita.
 
 [@ DataTable( 
    [
@@ -97,7 +97,7 @@ V následující tabulce je zadána pocitová teplota [`C(w,T)`] jako funkce ryc
   [ "\\(w=20\\)", @{$wt[3]} ],
   [ "\\(w=25\\)", @{$wt[4]} ]
         ], 
-        caption => "Pocitová teplota jako funkce teploty \\(T\\)a rychosti větru \\(w\\)."
+        caption => "Pocitová teplota jako funkce teploty \\(T\\) a rychlosti větru \\(w\\)."
         );
 @]*
 
@@ -113,7 +113,7 @@ $BR
 
 $PAR
 ${BBOLD}(b)$EBOLD
-Odhadněte paricální derivace \(\displaystyle \frac{\partial C}{\partial T}\) v bodě \(($w1, $t1) \), tj. pro \(w=$w1\) a \(T=$t1\).$BR
+Odhadněte parciální derivaci \(\displaystyle \frac{\partial C}{\partial T}\) v bodě \(($w1, $t1) \), tj. pro \(w=$w1\) a \(T=$t1\).$BR
 \(\displaystyle \frac{\partial C}{\partial T} ($w1, $t1) \approx \) \{ ans_rule(35) \}
 $BR
 
@@ -143,7 +143,7 @@ SOLUTION(EV3(<<'END_SOLUTION'));
 $PAR Řešení. $PAR
 
 ${BBOLD}(a)$EBOLD
-Paricální derivaci \( \frac{\partial C}{\partial w}\) v bodě \(($w0, $t0) \)
+Parciální derivaci \( \frac{\partial C}{\partial w}\) v bodě \(($w0, $t0) \)
 vypočteme pomocí centrální diference \[ \frac{\partial C}{\partial w}(w_0, T_0) \approx \frac{f(w_0 + h,T_0) - f(w_0-h,T_0)}{2h}, \] protože při dané teplotě máme pocitovou teplotu při vyšší i nižší rychlosti větru. Vezmeme tedy tyto dvě hodnoty a vypočteme podíl změny pocitové teploty a změny rychlosti větru.
 Odsud
 \[ \frac{\partial C}{\partial w}($w0, $t0) \approx \frac{$fwnum}{10} = $fwval. \]
@@ -154,7 +154,7 @@ Hodnota je záporná, protože při intenzivnějším větru pociťujeme větš�
 $PAR
 
 ${BBOLD}(b)$EBOLD
-Pro paricální derivaci \( \frac{\partial C}{\partial T}\) v bodě \(($w1, $t1) \)
+Pro parciální derivaci \( \frac{\partial C}{\partial T}\) v bodě \(($w1, $t1) \)
 musíme použít zpětnou diferenci
 \[ \frac{\partial C}{\partial T}(w_0, T_0) \approx \frac{f(w_0,T_0) - f(w_0,T_0-h)}{h}, \] protože při zadané hodnotě větru nemáme informace o vyšší teplotě.
 Odsud

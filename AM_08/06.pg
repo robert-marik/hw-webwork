@@ -15,7 +15,7 @@ Context("Numeric")->variables->are('k'=>'Real', 'r'=>'Real', 'l'=>'Real', 'T'=>'
 
 $T0=random(10,20,1);
 
-$r1=Formula("r-k*(T-[$T0])");
+$r1=Formula("r-k*(T-($T0))");
 
 
 BEGIN_PGML
@@ -29,15 +29,15 @@ Dřevo tvořící stěny dřevěné chaty je v prostředí s konstantní teploto
 
 Napište matematický model popisující danou situaci. Konstantu úměrnosti označte [`k`]. Model formulujte tak, aby konstanta úměrnosti byla kladná.
 >> [``\frac{\mathrm dT}{\mathrm dt}=``][__________]{$r1->cmp()->withPostFilter(AnswerHints(
-Formula("r+k*(T-[$T0])") => "Jste na dobré cestě. Buď máte přehozené členy v rozdílu, nebo neuvažujete, že se chata ochlazuje.",
-Formula("r*k*(T-[$T0])") => "Jste na dobré cestě. Jenom musíte zohlednit, že rychlost není úměrná současně oběma efektům, ale jejich součtu, resp. rozdílu.",
-Formula("-k*(T-[$T0])") => "Jste na dobré cestě. Ještě je potřeba zohlednit konstantní intenzitu ohřevu."
+Formula("r+k*(T-($T0))") => "Jste na dobré cestě. Buď máte přehozené členy v rozdílu, nebo neuvažujete, že se chata ochlazuje.",
+Formula("r*k*(T-($T0))") => "Jste na dobré cestě. Jenom musíte zohlednit, že rychlost není úměrná současně oběma efektům, ale jejich součtu, resp. rozdílu.",
+Formula("-k*(T-($T0))") => "Jste na dobré cestě. Ještě je potřeba zohlednit konstantní intenzitu ohřevu."
 ))}<<
 
 END_PGML
 
 BEGIN_PGML_HINT
-Teplotu ovlivňují dva procesy a jejich efekt se sčítá. Jeden má na rychlost růstu teploty kladný konstantní vliv, druhý záporný a úměrný rozdílu [`(T-[$T0])`]. Dejte také pozor na to, že jsou předepsány písmena pro označení konstant úměrnosti.
+Teplotu ovlivňují dva procesy a jejich efekt se sčítá. Jeden má na rychlost růstu teploty kladný konstantní vliv, druhý záporný a úměrný rozdílu [`(T-[$T0])`]. Dejte také pozor na to, že jsou předepsána písmena pro označení konstant úměrnosti.
 END_PGML_HINT
 
 

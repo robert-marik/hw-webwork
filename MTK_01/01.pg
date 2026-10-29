@@ -18,7 +18,7 @@ $data =
 [
 {
     obrazek=>"ryby",
-    otazka=>"Hmotnost objektu souvisí s jeho velikostí. U některých živočišných druhů, jako jsou například mnohé ryby, mají mláďata přibližně stejný tvar jako dospělí a proto je u těchto druhů hmotnost \(m\) svázána se třetí mocninou délky \(l\) vztahem \[m= kl^3.\] Jak byste tento vztah přečetli slovně?",
+    otazka=>"Hmotnost objektu souvisí s jeho velikostí. U některých živočišných druhů, jako jsou například mnohé ryby, mají mláďata přibližně stejný tvar jako dospělí, a proto je u těchto druhů hmotnost \(m\) svázána se třetí mocninou délky \(l\) vztahem \[m= kl^3.\] Jak byste tento vztah přečetli slovně?",
     odpoved=>"Hmotnost ryby je přímo úměrná třetí mocnině její délky.",
     zdroj=>"Obrázek: wikimedia.org, autor: Hamid Badar Osmany",
     moznosti=>["Hmotnost ryby je nepřímo úměrná třetí mocnině její délky.",
@@ -30,7 +30,7 @@ $data =
 ,
 {
     obrazek=>"hvezdy",
-    otazka=>"Ve vědě zpravidla navazuje každý vědec na své předchůdce. Klasickou ukázkou je odvození gravitačního zákona. Na začátku byla podrobná pozorování pohybu planet, která vykonal Tycho Brahe. Z nich později Johanes Keppler vyvodil geniální zákony pro pohyb planet. Na tuto činnost navázal později Isaac Newton, který brilantní analýzou, v níž položil základy diferenciálního a integrálního počtu. Newton prokázal, že Keplerovy zákony je možné odvodit matematickou cestou, pokud mezi gravitační silou \(F\) působící mezi dvěma objekty a jejich vzdáleností \(r\) je vztah tvaru \[F=\frac k{r^2}.\] Jak byste tento vztah mezi gravitační silou a vzdáleností vyjádřili slovně?",
+    otazka=>"Ve vědě zpravidla navazuje každý vědec na své předchůdce. Klasickou ukázkou je odvození gravitačního zákona. Na začátku byla podrobná pozorování pohybu planet, která vykonal Tycho Brahe. Z nich později Johannes Kepler vyvodil geniální zákony pro pohyb planet. Na tuto činnost navázal později Isaac Newton, který brilantní analýzou, v níž položil základy diferenciálního a integrálního počtu, prokázal, že Keplerovy zákony je možné odvodit matematickou cestou, pokud mezi gravitační silou \(F\) působící mezi dvěma objekty a jejich vzdáleností \(r\) je vztah tvaru \[F=\frac k{r^2}.\] Jak byste tento vztah mezi gravitační silou a vzdáleností vyjádřili slovně?",
     odpoved=>"Gravitační síla je nepřímo úměrná druhé mocnině vzdálenosti.",
     moznosti=>["Gravitační síla je přímo úměrná druhé mocnině vzdálenosti.",
 	  "Gravitační síla je přímo úměrná druhé odmocnině vzdálenosti.",
@@ -43,12 +43,12 @@ $data =
 ,
 {
     obrazek=>"kukacky",
-    otazka=>"Jedním z pravidelných dějů je kmitání kyvadla. Pomocí něj se dokonce dříve měřil čas. Pro matematické kyvadlo délky \(l\) je perioda \(T\) dána vzorcem  \[T=2\pi \sqrt{\frac lg},\]  kde \(g\) je tíhové zrychlení. Jak byste tento vztah mezi periodou \(T\) a délkou kyvadla \(l\) vyjádřili slovně?",
+    otazka=>"Jedním z pravidelných dějů je kmitání kyvadla. Pomocí něj se dokonce dříve měřil čas. Pro matematické kyvadlo délky \(l\) je perioda \(T\) dána vzorcem \[T=2\pi \sqrt{\frac lg},\] kde \(g\) je tíhové zrychlení. Jak byste tento vztah mezi periodou \(T\) a délkou kyvadla \(l\) vyjádřili slovně?",
     odpoved=>"Perioda kyvadla je přímo úměrná odmocnině z délky kyvadla.",
     moznosti=>[
 	  "Perioda kyvadla je nepřímo úměrná odmocnině z délky kyvadla.",
 	  "Perioda kyvadla je přímo úměrná druhé mocnině délky kyvadla.",
-	  "Perioda kyvadla je nepřímo úměrná druhé mocnině z délky kyvadla.",
+	  "Perioda kyvadla je nepřímo úměrná druhé mocnině délky kyvadla.",
 	  "Perioda kyvadla je přímo úměrná délce kyvadla.",
 	  "Perioda kyvadla je nepřímo úměrná délce kyvadla.",
 	 ],

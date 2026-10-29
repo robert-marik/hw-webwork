@@ -22,7 +22,7 @@ BEGIN_PGML
 
 
 
-## Slovní interpretace  derivace podle prostorové souřadnice
+## Slovní interpretace derivace podle prostorové souřadnice
 
 Derivaci zpravidla interpretujeme jako rychlost a rychlost zase máme nejčastěji spojenou s rychlostí změny v čase. 
 
@@ -40,7 +40,7 @@ BEGIN_PGML_SOLUTION
 
 Rychlost růstu teploty ve smyslu změny teploty ve stupních Celsia na jednom centimetru tloušťky stěny.
 
-Derivace [``\frac{\mathrm dT}{\mathrm dx}``]  je rychlost růstu [`T`] jako funkce [`x`] a tím je myšlena změna [`T`] vyvolaná změnou [`x`] o jednotku.
+Derivace [``\frac{\mathrm dT}{\mathrm dx}``] je rychlost růstu [`T`] jako funkce [`x`] a tím je myšlena změna [`T`] vyvolaná změnou [`x`] o jednotku.
 
 END_PGML_SOLUTION
 

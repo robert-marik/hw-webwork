@@ -9,6 +9,8 @@ loadMacros(
   "PGcourse.pl"
 );
 
+TEXT(beginproblem());
+
 ADD_CSS_FILE("css/more_buckets.css");
 
 
@@ -24,7 +26,7 @@ do
 "Porodnost v populaci ko&#345;isti.","\[ax\]",
 "&Uacute;bytek v populaci ko&#345;isti zp&#367;soben&yacute; p&#345;&iacute;tomnost&iacute; dravce.","\[bxy\]",
 "&Uacute;mrtnost v populaci dravce.","\[cy\]",
-"Pos&iacute;len&iacute; reproduce dravce v p&#345;&iacute;pad&#283;, &#382;e m&aacute; k dispozici ko&#345;ist.","\[dxy\]",
+"Pos&iacute;len&iacute; reprodukce dravce v p&#345;&iacute;pad&#283;, &#382;e m&aacute; k dispozici ko&#345;ist.","\[dxy\]",
 );
 
 
@@ -61,9 +63,9 @@ BEGIN_PGML
 
 [@ image("predator.jpg", width=>400) @]*
 
-Klasickými aplikacemi diferenciálních rovnic jsou populační modely. Ty jsou i oblíbenou ukázkou aplikací, protože jejich analýza nevyžaduje žádné fyzikální, ekonomické nebo sociologické znalosti. Každý zná alespoň trochu koloběh života a dokáže si představit růst nebo skomírání populací rostlin či živočichů. Pokusíme se některé modely naformulovat v přednášce číslo 12 a také si prohlédneme některé výstupy z těchto modelů. Na stávající úkol však tato přednáška nemá vliv. Pozorně se zamyslete, jak vypadají rovnice, jak matematicky vyjadřujeme rychlost, co která proměnná v modelu znamená a určitě se Vám podaří spárovat slovní popis členů a jejich matematické vyjádření. Díky tomu máme možnost uvedenou interkaci dvou druhů analyzovat a modelovat.
+Klasickými aplikacemi diferenciálních rovnic jsou populační modely. Ty jsou i oblíbenou ukázkou aplikací, protože jejich analýza nevyžaduje žádné fyzikální, ekonomické nebo sociologické znalosti. Každý zná alespoň trochu koloběh života a dokáže si představit růst nebo skomírání populací rostlin či živočichů. Pokusíme se některé modely naformulovat v přednášce číslo 12 a také si prohlédneme některé výstupy z těchto modelů. Na stávající úkol však tato přednáška nemá vliv. Pozorně se zamyslete, jak vypadají rovnice, jak matematicky vyjadřujeme rychlost, co která proměnná v modelu znamená, a určitě se Vám podaří spárovat slovní popis členů a jejich matematické vyjádření. Díky tomu máme možnost uvedenou interakci dvou druhů analyzovat a modelovat.
 
-Nejjednodušší model dravce a kořisti je [@ htmlLink("https://en.wikipedia.org/wiki/Lotka%E2%80%93Volterra_equations","Lotkův Volterrův model")@]*, který má tvar [``` \begin{aligned}
+Nejjednodušší model dravce a kořisti je [@ htmlLink("https://en.wikipedia.org/wiki/Lotka%E2%80%93Volterra_equations","Lotkův–Volterrův model")@]*, který má tvar [``` \begin{aligned}
 \frac{\mathrm dx}{\mathrm dt}&=ax-bxy,\\
 \frac{\mathrm dy}{\mathrm dt}&=-cy+dxy,
 \end{aligned}```]
@@ -88,12 +90,12 @@ END_PGML_HINT
 BEGIN_PGML_SOLUTION
 
 
-* Rychlost s jakou roste populace kořisti je [``\frac{\mathrm dx}{\mathrm dt}``], derivace velikosti populace kořisti podle času.
+* Rychlost, s jakou roste populace kořisti, je [``\frac{\mathrm dx}{\mathrm dt}``], derivace velikosti populace kořisti podle času.
 * Porodnost v populaci kořisti je [`ax`]. Je to člen, který ovlivňuje růst populace kořisti pozitivně.
 * Úbytek v populaci kořisti způsobený přítomností dravce je [`bxy`]. Je to člen, který přispívá k růstu populace kořisti negativně.
-* Rychlost s jakou roste populace dravce je [``\frac{\mathrm dy}{\mathrm dt}``], derivace velikosti populace dravce podle času.
+* Rychlost, s jakou roste populace dravce, je [``\frac{\mathrm dy}{\mathrm dt}``], derivace velikosti populace dravce podle času.
 * Úmrtnost v populaci dravce je [`cy`]. Je to člen, který ovlivňuje populaci dravce negativně.
-* Posílení reproduce dravce v případě, že má k dispozici kořist je [`dxy`] a jedná se o člen, který ovlivňuje populaci dravce kladně.
+* Posílení reprodukce dravce v případě, že má k dispozici kořist, je [`dxy`] a jedná se o člen, který ovlivňuje populaci dravce kladně.
 END_PGML_SOLUTION
 
 ENDDOCUMENT();

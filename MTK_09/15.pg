@@ -18,12 +18,12 @@ $data =
 [
 {
 nadpis=>"Rovnice vedení tepla",
-otazka=>"Rovnice vedení tepla \[{\varrho c\frac{\partial T}{\partial t}=  \nabla\cdot\bigl(D\nabla T\bigr)}\] je speciálním případem difuzní rovnice \[{\frac{\partial u}{\partial t}=  \sigma + \nabla\cdot\bigl(D\nabla u\bigr)}.\] Proč jsou v rovnici vedení tepla  přítomny na levé straně kromě derivace přítomny ještě další fyzikální konstanty, když tyto konstanty v difuzní rovnici nejsou?",
+otazka=>"Rovnice vedení tepla \[{\varrho c\frac{\partial T}{\partial t}= \nabla\cdot\bigl(D\nabla T\bigr)}\] je speciálním případem difuzní rovnice \[{\frac{\partial u}{\partial t}= \sigma + \nabla\cdot\bigl(D\nabla u\bigr)}.\] Proč jsou v rovnici vedení tepla na levé straně kromě derivace přítomny ještě další fyzikální konstanty, když tyto konstanty v difuzní rovnici nejsou?",
 odpoved=>"V případě rovnice vedení tepla dochází k transportu tepla, ale sledujeme teplotu. Proto je potřeba přepočítat změny teploty na dodané teplo.",
 moznosti=>[
 "Jedná se o převedení konstanty vyjadřující působení zdrojů z pravé strany na levou a přejmenování konstanty podle fyzikálních zvyklostí.",
 "Protože termodynamická teplota nemůže klesnout pod absolutní nulu, je nutné na levé straně přidat členy, které toto chování rovnice zaručí.",
-"Tyto konstanty dokáží znaménkem rozlišit, zda je o nárůst teploty nebo úbytek teploty, protože při vedení tepla může teplota růst i klesat."]}
+"Tyto konstanty dokáží znaménkem rozlišit, zda jde o nárůst teploty nebo úbytek teploty, protože při vedení tepla může teplota růst i klesat."]}
 ];
 
 # Pocet otazek
@@ -61,8 +61,6 @@ BEGIN_PGML
 [$ot]*
 
 [_]{$radio}
-
-_[$zdroj]_
 
 END_PGML
 

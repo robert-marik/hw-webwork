@@ -37,7 +37,7 @@ BEGIN_PGML
 
 [@ image("drevo.jpg", width=>400) @]*
 
-Uvažujme dvourozměrný homogenní a ortotropní  materiál, kde jsou osy zvoleny v charakteristických směrech. Díky těmto vlastnostem jsou koeficient tepelné vodivosti a difuzní koeficient konstantní diagonální matice a násobení matic se redukuje na relativně snadný případ. Konkrétně pro gradient teploty daný vektorem [`\nabla T=\begin{pmatrix} x+y\\3y^2\end{pmatrix}`] a koeficient tepelné vodivosti [`\lambda=\begin{pmatrix}0.3&0\\0&0.5\end{pmatrix}`], je tok tepla dán vztahem
+Uvažujme dvourozměrný homogenní a ortotropní materiál, kde jsou osy zvoleny v charakteristických směrech. Díky těmto vlastnostem jsou koeficient tepelné vodivosti a difuzní koeficient konstantní diagonální matice a násobení matic se redukuje na relativně snadný případ. Konkrétně pro gradient teploty daný vektorem [`\nabla T=\begin{pmatrix} x+y\\3y^2\end{pmatrix}`] a koeficient tepelné vodivosti [`\lambda=\begin{pmatrix}0.3&0\\0&0.5\end{pmatrix}`] je tok tepla dán vztahem
 [```\vec q=-\lambda \nabla T=-\begin{pmatrix}0.3&0\\0&0.5\end{pmatrix} \begin{pmatrix} x+y\\3y^2\end{pmatrix}
 =\begin{pmatrix} -0.3(x+y)\\-1.5y^2\end{pmatrix}.
 ```]
@@ -50,7 +50,7 @@ Typickým případem ortotropního materiálu je ten nejdostupnější a nejkrá
 ----------------
 
 
-Pro  homogenní ortotropní materiál s koeficientem tepelné vodivosti [`\lambda=\begin{bmatrix}[$lambda1]&0\\0&[$lambda2]\end{bmatrix}`] určete tok tepla v místě, ve kterém je gradient teploty dán vektorem
+Pro homogenní ortotropní materiál s koeficientem tepelné vodivosti [`\lambda=\begin{bmatrix}[$lambda1]&0\\0&[$lambda2]\end{bmatrix}`] určete tok tepla v místě, ve kterém je gradient teploty dán vektorem
 [``\nabla T=[$u]``].
 >> [``\vec q=-\lambda \nabla T =-\begin{bmatrix}[$lambda1]&0\\0&[$lambda2]\end{bmatrix}[$u]={}``][_________________]*{$ans}<<
 

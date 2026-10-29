@@ -23,7 +23,7 @@ BEGIN_PGML
 ## Poldr
 
 Uvažujme krychli o objemu [`V`] a délce hrany [`a`]. Tyto veličiny spolu souvisí vztahem [``` V=a^3.```] Pokud se délka hrany mění rychlostí [``\frac{\mathrm da}{\mathrm dt},``]
-můžeme vypočítat rychlost s jakou roste objem krychle vztahem
+můžeme vypočítat rychlost, s jakou roste objem krychle vztahem
 [```\frac{\mathrm dV}{\mathrm dt} = \frac{\mathrm dV}{\mathrm da} \frac{\mathrm da}{\mathrm dt}=3a^2 \frac{\mathrm da}{\mathrm dt}.```]
 V následujícím příkladu se pokusíme o něco podobného pro známé hodnoty měnící se veličiny a rychlosti její změny.
 
@@ -39,7 +39,7 @@ Předpokládejme, že hloubka vody v poldru je [``h=[$h]\mathrm{cm}``] a hloubka
 
 >>[``\frac{\mathrm dV}{\mathrm dt}={}``] [______________]{$answer->cmp()->withPostFilter(AnswerHints(Formula("2*k*h*dh/dt") => "Jste na dobré cestě, ale ještě je nutno dosadit zadané hodnoty pro h a dh/dt."))}[``\mathrm {m}^3/\mathrm{hod}``]<<
 
-**Poznámka 1.** Vaše odpověď by měla obsahovat konstantu [`k`], jejíž hodnota nebyla zadána a kromě toho již jen číselné údaje. Vše je v jednotkách kompatibilních se zadaným vzorcem (hloubka v centimetrech, objem v metrech krychlových) a jednotky není nutné uvažovat. Nehledejte v příkladě žádný chyták, nepřevádějte žádné jednotky, jenom vyjádřete rychlost a dosaďte zadané hodnoty. Nezapomeňte, že můžete zadat i součin čísel, nemusíte násobení provádět bokem na kalkulačce a psát až výslednou odpověď.
+**Poznámka 1.** Vaše odpověď by měla obsahovat konstantu [`k`], jejíž hodnota nebyla zadána, a kromě toho již jen číselné údaje. Vše je v jednotkách kompatibilních se zadaným vzorcem (hloubka v centimetrech, objem v metrech krychlových) a jednotky není nutné uvažovat. Nehledejte v příkladě žádný chyták, nepřevádějte žádné jednotky, jenom vyjádřete rychlost a dosaďte zadané hodnoty. Nezapomeňte, že můžete zadat i součin čísel, nemusíte násobení provádět bokem na kalkulačce a psát až výslednou odpověď.
 
 **Poznámka 2.** Nezapomeňte, že desetinná čísla zadáváme s desetinnou tečkou a ne s desetinnou čárkou. 
 
@@ -52,7 +52,7 @@ END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
-Známe derivaci výšky hladiny [`h`] podle času, [``\frac{\mathrm dh}{\mathrm dt}=[$dhdt]``] a potřebujeme znát derivaci objemu [`V`] podle času, [``\frac{\mathrm dV}{\mathrm dt}``]. Protože známe objem jako funkci výšky hladiny, [```V=kh^2,```] můžeme najít derivaci objemu podle výšky hladiny,
+Známe derivaci výšky hladiny [`h`] podle času, [``\frac{\mathrm dh}{\mathrm dt}=[$dhdt]``], a potřebujeme znát derivaci objemu [`V`] podle času, [``\frac{\mathrm dV}{\mathrm dt}``]. Protože známe objem jako funkci výšky hladiny, [```V=kh^2,```] můžeme najít derivaci objemu podle výšky hladiny,
 [```\frac{\mathrm dV}{\mathrm dh}=k\cdot 2h.```]
 K derivaci objemu podle času se poté dostaneme, pokud budeme závislost objemu na čase brát zprostředkovaně přes výšku hladiny.
 [```\frac{\mathrm dV}{\mathrm dt}=\frac{\mathrm dV}{\mathrm dh} \frac{\mathrm dh}{\mathrm dt}=k\cdot 2h \frac{\mathrm dh}{\mathrm dt}.```]

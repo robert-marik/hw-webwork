@@ -16,10 +16,10 @@ $data =
     obrazek=>"divergence",
     nadpis=>"Slovní interpretace divergence",
     otazka=>"Která formulace vystihuje slovně praktický význam divergence?",
-    odpoved=>"Zesílení toku stavové veličiny v daném místě, přepočtený na jednotkové množství látky.",
+    odpoved=>"Zesílení toku stavové veličiny v daném místě, přepočtené na jednotkové množství látky.",
     moznosti=>[
-    "Zeslabení toku stavové veličiny v daném místě, přepočtený na jednotkové množství látky.",
-    "Zeslabení toku stavové veličiny v daném místě, přepočtený na nekonečně malý objem látky.",
+    "Zeslabení toku stavové veličiny v daném místě, přepočtené na jednotkové množství látky.",
+    "Zeslabení toku stavové veličiny v daném místě, přepočtené na nekonečně malý objem látky.",
     "Objem materiálu nutný pro zeslabení toku stavové veličiny o jednotku toku za jednotku času.",
     "Objem materiálu nutný pro zesílení toku stavové veličiny o jednotku.",
     "Intenzita toku stavové veličiny v daném místě.",

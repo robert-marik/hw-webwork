@@ -5,7 +5,8 @@ loadMacros(
 "PGML.pl",
 "PGchoicemacros.pl",   
 'draggableSubsets.pl',
-"PGtikz.pl"
+"PGtikz.pl",
+"PGcourse.pl"
 );
 TEXT(beginproblem());
 

@@ -24,7 +24,7 @@ moznosti=>[
 "Velikost populace je vysoká a mění se rychle (populace je přemnožená a rychle se dál množí).",
 "Velikost populace je vysoká a mění se rychle (populace je přemnožená a množí se dál již pomalu).",
 ],
-vysvetleni=>"Derivace je rychlost růstu a podle zadání je tato rychlost blízká k nule. Tedy populace se mění malou rychlostí, prakticky se nemění v čase. Jestli se jedná o velkou populaci či malou populaci není možné z informace o derivaci usuzovat, obě varianty jsou příppustné. Proto tvrzení, která operují s velikostí populace v absolutních číslech (malá resp. velká populace) nemohou být správnou odpovědí."}
+vysvetleni=>"Derivace je rychlost růstu a podle zadání je tato rychlost blízká k nule. Tedy populace se mění malou rychlostí, prakticky se nemění v čase. Jestli se jedná o velkou populaci či malou populaci, není možné z informace o derivaci usuzovat, obě varianty jsou přípustné. Proto tvrzení, která operují s velikostí populace v absolutních číslech (malá resp. velká populace), nemohou být správnou odpovědí."}
 ;
 
 

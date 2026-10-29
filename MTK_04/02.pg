@@ -35,11 +35,11 @@ Nechť [`w'(t)`] označuje rychlost růstu hmotnosti stromu v kilogramech za rok
 END_PGML
 
 BEGIN_PGML_HINT
-Určitým integrálem rychlosti v příslušných mezích je vyjářena změna měnící se veličiny. Půjde tedy o nárůst hmotnosti stromu. Časový interval učují meze.
+Určitým integrálem rychlosti v příslušných mezích je vyjádřena změna měnící se veličiny. Půjde tedy o nárůst hmotnosti stromu. Časový interval určují meze.
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
-Určitým integrálem rychlosti v příslušných mezích je vyjářena změna měnící se veličiny. Půjde tedy o nárůst hmotnosti stromu. Časový interval učují meze. Správná odpověď je: _Nárůst hmotnosti stromu v kilogramech mezi pátým a desátým rokem._
+Určitým integrálem rychlosti v příslušných mezích je vyjádřena změna měnící se veličiny. Půjde tedy o nárůst hmotnosti stromu. Časový interval určují meze. Správná odpověď je: _Nárůst hmotnosti stromu v kilogramech mezi pátým a desátým rokem._
 END_PGML_SOLUTION
 
 

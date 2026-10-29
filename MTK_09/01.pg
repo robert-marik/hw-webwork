@@ -34,7 +34,7 @@ V této sadě úloh budeme prozkoumávat parciální derivace. To jsou ideální
 
 #### Výpočet parciálních derivací
 
-Parciální derivace počítáme stejně jako klasické derivace, jenom dáváme pozor na to, podle které proměnné se derivuje. Pro tuto proměnnou používáme příslušné vztahy z diferenciálního počtu funkcí jedné proměnné a zbylé proměnné jsou považovány za parametry. Například funkci [```f(x,y)=x^2 + 3y^5```] derivujeme podle [`x`] jako kvadratickou funkci [`x^2`] zvětšenou o aditivní konstantu  [`3y^5`]. Proto platí [``` \frac{\partial f}{\partial x}=2x.```] Při derivaci podle [`y`] tuto funkci chápeme jako mocninu pátého stupně [`y^5`] s konstantním násobkem [`3`] a aditivní konstantou [`x^2`], tj.  [``` \frac{\partial f}{\partial y}=3\cdot 5y^4=15y^4.```]
+Parciální derivace počítáme stejně jako klasické derivace, jenom dáváme pozor na to, podle které proměnné se derivuje. Pro tuto proměnnou používáme příslušné vztahy z diferenciálního počtu funkcí jedné proměnné a zbylé proměnné jsou považovány za parametry. Například funkci [```f(x,y)=x^2 + 3y^5```] derivujeme podle [`x`] jako kvadratickou funkci [`x^2`] zvětšenou o aditivní konstantu [`3y^5`]. Proto platí [``` \frac{\partial f}{\partial x}=2x.```] Při derivaci podle [`y`] tuto funkci chápeme jako mocninu pátého stupně [`y^5`] s konstantním násobkem [`3`] a aditivní konstantou [`x^2`], tj. [``` \frac{\partial f}{\partial y}=3\cdot 5y^4=15y^4.```]
 
 ---------------
 

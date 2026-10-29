@@ -28,7 +28,7 @@ $radio    =  RadioButtons([
 "\(\begin{pmatrix}-1&0\\0&1\end{pmatrix}\)",
 "\(\begin{pmatrix}-1&0\\0&-1\end{pmatrix}\)",
 ],
-"jiná matice než jsou nabízené",
+"jiná matice, než jsou nabízené",
 "uvedenou transformaci není možné zapsat pomocí maticového součinu",
 ],0);
 

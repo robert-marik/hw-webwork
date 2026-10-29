@@ -3,10 +3,12 @@ DOCUMENT();
 loadMacros('PGstandard.pl', 'PGML.pl', 
 'parserCheckboxList.pl', 'PGcourse.pl');
 
+TEXT(beginproblem());
+
 @correct_answers =  (
 "Křivkový integrál druhého druhu uvažovaného pole nezávisí na integrační cestě.",
 "Pole je gradientem nějaké skalární funkce.",
-"Křivkový integrál uvažovanho pole po uzavřené křivce je roven nule."
+"Křivkový integrál uvažovaného pole po uzavřené křivce je roven nule."
 );
 
 @incorrect_answers = (

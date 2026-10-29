@@ -103,7 +103,7 @@ END_PGML_HINT
 BEGIN_PGML_SOLUTION
 Stacionární body jsou body, kde se křivky protínají. Proto je počet stacionárních bodů [$ans1].
 
-Stabilitu poznáte podle toho, která křivka je výše a která níže. Pro stabilní stacionární bod potřebujeme, aby v levém okolí řešení rostlo (modrá křivka nad červenou) a v pravém okolí klesalo (modrá křivka pod červenou).  V tomto případě je levý stacionární bod [$ans2].
+Stabilitu poznáte podle toho, která křivka je výše a která níže. Pro stabilní stacionární bod potřebujeme, aby v levém okolí řešení rostlo (modrá křivka nad červenou) a v pravém okolí klesalo (modrá křivka pod červenou). V tomto případě je levý stacionární bod [$ans2].
 
 Poznámka: Tento příklad byl mnohokrát vyzkoušen. Pokud přesto něco selhalo a popsané řešení neodpovídá obrázku, informujte prosím vyučujícího. 
 

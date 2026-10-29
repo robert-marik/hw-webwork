@@ -44,7 +44,7 @@ BEGIN_PGML
 
 ## Newtonova metoda
 
-Newtonova metoda je efektivní nástroj pro hledání nulových bodů funkce, tj. pro řešení rovnice [``` f(x)=0.```] Je založena na lineární aproximaci funkce [`f(x)`] v bodě [`x_n`] (počáteční odhad řešení), tj.  na rovnici [``` f(x)\approx f(x_n)+f'(x_n)(x-x_n).```]
+Newtonova metoda je efektivní nástroj pro hledání nulových bodů funkce, tj. pro řešení rovnice [``` f(x)=0.```] Je založena na lineární aproximaci funkce [`f(x)`] v bodě [`x_n`] (počáteční odhad řešení), tj. na rovnici [``` f(x)\approx f(x_n)+f'(x_n)(x-x_n).```]
 Pokud najdeme nulovou hodnotu pravé strany, bude tato hodnota novou aproximací přesného řešení rovnice. Označíme ji [`x_{n+1}`] a vztah [``` 0= f(x_n)+f'(x_n)(x_{n+1}-x_n)```] po vyřešení vzhledem k [`x_{n+1}`] vede na iterační vzorec [``` x_{n+1}=x_n-\frac{f(x_n)}{f'(x_{n})}.```]
 
 --------
@@ -69,7 +69,7 @@ END_PGML
 $showHint = 1;
 BEGIN_PGML_HINT
 
-Rovnici upravte tak, že převedeme pravou stranu doleva (nebo naopak). Například 
+Rovnici upravte tak, že převedete pravou stranu doleva (nebo naopak). Například 
 [``` [$funkce]=0.```]
 
 Uvažujte funkci 

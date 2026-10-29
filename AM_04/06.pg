@@ -37,7 +37,7 @@ Uvažujme vektorové pole v rovině, kde první komponenta závisí jenom na pro
 [``` \vec F(x,y)= f(x)\vec i+g(y)\vec j + 0\vec k.```]
 O funkcích [`f(x)`] a [`g(y)`] předpokládejme, že mají dostatečnou hladkost pro výpočet rotace, tj. že mají derivace. Tyto derivace budeme označovat [`f'(x)`] a [`g'(y)`].
 
-Vypočtěte rotaci vektorového pole  [``\vec F(x,y),``] tj.
+Vypočtěte rotaci vektorového pole [``\vec F(x,y),``] tj.
 
 >>
 [``\nabla \times \vec F = \begin{vmatrix}\vec i& \vec j & \vec k\\
@@ -46,7 +46,7 @@ f(x)& g(y) & 0
 \end{vmatrix}={}``][________________]{$answer}.
 <<
 
-Nezapomeňte zadat odpověď jako vektor, tj. ve formátu *<0,0,...>* nebo *(...)\*k*. (Máme dvourozměrné vektorové pole a rotace tedy bude mít první dvě komponenty nulové.) Funkce [`f`] a [`g`] a jejich derivace můžeme zapsat jako [|f(x)|], [|g(y)|],  [|f'(x)|], [|g'(y)|].
+Nezapomeňte zadat odpověď jako vektor, tj. ve formátu *<0,0,...>* nebo *(...)\*k*. (Máme dvourozměrné vektorové pole a rotace tedy bude mít první dvě komponenty nulové.) Funkce [`f`] a [`g`] a jejich derivace můžeme zapsat jako [|f(x)|], [|g(y)|], [|f'(x)|], [|g'(y)|].
 
 END_PGML
 
@@ -68,7 +68,7 @@ Platí (pro úplnost zapisujeme i s proměnnými)
 [``` \frac{\partial }{\partial x}g(y)=0```]
 a
 [``` \frac{\partial }{\partial y}f(x)=0.```]
-Rotace je tedy nulová. Nezávisle na konkrétním tvaru funkcí [`f(x)`] a [`g(y)`] bude rotace nulová. Studované  vektorové pole je vždy konzervativní. Má nulovou rotaci a dá se k němu zavést skalární potenciál.
+Rotace je tedy nulová. Nezávisle na konkrétním tvaru funkcí [`f(x)`] a [`g(y)`] bude rotace nulová. Studované vektorové pole je vždy konzervativní. Má nulovou rotaci a dá se k němu zavést skalární potenciál.
 
 END_PGML_SOLUTION
 

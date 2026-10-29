@@ -3,6 +3,8 @@ DOCUMENT();
 loadMacros('PGstandard.pl', 'PGML.pl', 
 'parserCheckboxList.pl', 'PGcourse.pl');
 
+TEXT(beginproblem());
+
 @correct_answers =  (
 "Pes je savec.",
 "Kočka má čtyři nohy.",
@@ -37,7 +39,7 @@ BEGIN_PGML
 
 Některé otázky budou obsahovat možnosti, z nichž některé jsou správné a některé ne. Máte zatrhnout tvrzení, která jsou pravdivá. Vyzkoušejte si na následující ukázce.
 
-Snažte se nejenom o správnou odpověď, ale zkuste zatrhnout i jiný počet než je počet správných odpovědí, nebo místo některé správné odpovědi zatrhnout nesprávnou. Prostudujte si hlášení, která někdy obdržíte ve výsledkové tabulce při těchto neúspěšných pokusech. (Jako všude v úvodní sadě se nemusíte bát, že vyčerpáte počet povolených pokusů. Hlášení jsou v angličtině, ale jedná se o jednoduché instrukce snadno srozumitelné i lidem s malou znalostí angličtiny. Případně můžete použít automatický překladač.)
+Snažte se nejenom o správnou odpověď, ale zkuste zatrhnout i jiný počet, než je počet správných odpovědí, nebo místo některé správné odpovědi zatrhnout nesprávnou. Prostudujte si hlášení, která někdy obdržíte ve výsledkové tabulce při těchto neúspěšných pokusech. (Jako všude v úvodní sadě se nemusíte bát, že vyčerpáte počet povolených pokusů. Hlášení jsou v angličtině, ale jedná se o jednoduché instrukce snadno srozumitelné i lidem s malou znalostí angličtiny. Případně můžete použít automatický překladač.)
 
 
 

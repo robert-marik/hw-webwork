@@ -17,7 +17,7 @@ $data =
 [
 {
     nadpis=>"Bolzanova věta",
-    otazka=>"Co slovně vyjadřuje  Bolzanova věta?",
+    otazka=>"Co slovně vyjadřuje Bolzanova věta?",
     odpoved=>"Spojitá funkce, která mění znaménko, má mezi znaménkovými změnami nulový bod.",
     moznosti=>[
 "Spojitá funkce, která mění znaménko, má mezi znaménkovými změnami maximum.",
@@ -60,8 +60,6 @@ BEGIN_PGML
 [$ot]
 
 [_]{$radio}
-
-_[$zdroj]_
 
 END_PGML
 

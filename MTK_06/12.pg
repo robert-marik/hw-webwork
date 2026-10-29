@@ -27,7 +27,7 @@ loadMacros('PGstandard.pl', 'PGML.pl', 'PGtikz.pl',
 "Jediným stabilním stacionárním bodem je \(N=0\).",
 "Pro malé hodnoty populace je řešení klesající. Malá populace vymře.",
 "Pro velké počáteční hodnoty populace je řešení rostoucí. Populace může explodovat a růst neomezeně.",
-"Nejrychlejší růst populace je při velikosti rovné  nosné kapacitě prostředí.",
+"Nejrychlejší růst populace je při velikosti rovné nosné kapacitě prostředí.",
 "Pokud zvětšíme hodnotu invazního parametru \(r\), hodnoty stacionárních bodů se zmenší stejným násobkem.",
 "Pokud zvětšíme hodnotu nosné kapacity prostředí \(K\), stabilní stacionární bod se nezmění.",
 );    
@@ -71,9 +71,9 @@ BEGIN_PGML
 
 [!Graf pravé strany!]{$TikZ}{250}
 
-Základním modelem pro růst populace vystavené vnitroduhové konkurenci je logistická rovnice 
+Základním modelem pro růst populace vystavené vnitrodruhové konkurenci je logistická rovnice 
 [``` \frac{\mathrm dN}{\mathrm dt}=rN\left(1-\frac NK\right),```]
-kde [`N`] je velikost populace, [`K`] je nosná kapacita prostředí a  [`r`] je invazní parametr.
+kde [`N`] je velikost populace, [`K`] je nosná kapacita prostředí a [`r`] je invazní parametr.
 
 Zatrhněte všechna tvrzení, která jsou pravdivá. Závislou proměnnou (neznámou funkcí v rovnici) je velikost populace [`N`], nezávislou proměnnou je čas [`t`], podle kterého derivujeme, a obě konstanty [`r`] a [`K`] jsou kladné. 
 
@@ -97,7 +97,7 @@ END_PGML_HINT
 BEGIN_PGML_SOLUTION
 
 
-Pravá strana jako funkce proměnné [`N`] je zachycena na obrázku. Odsud je možno vyčíst odpovědi na monotonii řešení rovnice, dále počet stacionárních bodů a jejich stabilitu. Malá řešení rostou až dokud nedorostou hodnoty [`K`], protože pro malé velikosti populace je parabola nad vodorovnou osou. Velká řešení k hodnotě [`K`] klesají, protože pro [`N`] větší než [`K`] je parabola pod vodorovnou osou.
+Pravá strana jako funkce proměnné [`N`] je zachycena na obrázku. Odsud je možno vyčíst odpovědi na monotonii řešení rovnice, dále počet stacionárních bodů a jejich stabilitu. Malá řešení rostou, až dokud nedorostou hodnoty [`K`], protože pro malé velikosti populace je parabola nad vodorovnou osou. Velká řešení k hodnotě [`K`] klesají, protože pro [`N`] větší než [`K`] je parabola pod vodorovnou osou.
 
 Poloha stacionárních bodů se určí jako nulové body pravé strany a odsud jednoznačně vyplyne, na kterých parametrech stacionární body závisí a jak. Stabilní stacionární bod je [`N=K`] a při zvětšení [`K`] se tento stacionární bod zvětší (populace doroste do vyššího počtu). Druhý parametr nemá na tento stacionární bod vliv.
 

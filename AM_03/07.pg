@@ -39,7 +39,7 @@ $divergence = Formula("$dP+$dQ")->reduce;
 $divergenceBod=($k)*($x0)**($k-1)*($y0)**2+$l*($x0)**($n)*($y0)**($l-1)+($m)*($c)*($y0)**($c-1);
 
 
-$ans=2; $longans="Divergence v bodě je nulová. V daném místě není ani zdroj ani spotřebič.";
+$ans=2; $longans="Divergence v bodě je nulová. V daném místě není ani zdroj, ani spotřebič.";
 
 if ($divergenceBod > 0)
 {$ans=0; $longans="Divergence v bodě je kladná. V daném místě je zdroj stavové veličiny."; }
@@ -50,7 +50,7 @@ if ($divergenceBod < 0)
 $radio = RadioButtons(
 ["V daném místě je zdroj stavové veličiny.",
 "V daném místě je spotřebič stavové veličiny.",
-"V daném místě se veličina zachovává, není zde ani zdroj ani spotřebič."
+"V daném místě se veličina zachovává, není zde ani zdroj, ani spotřebič."
 ],
 $ans); 
 
@@ -69,7 +69,7 @@ tj.
 [``` \nabla\cdot(\vec F) = \sigma.```]
 Divergence je tedy přímo rovna hustotě zdrojů. (Pokud nevíte, o čem se mluví, přečtěte si přednášku a zkoukněte video o divergenci a rovnici kontinuity.)
 
-Divergence nám udává, zda tok v daném místě zesiluje či zeslabuje. U kladné divergence tok zesiluje (pokud je proudění stacionární, je v tomto místě zdroj) a u záporné divergence tok slábne (pokud je proudění stacionární, je v tomto místě spotřebič). Je-li divergence nulová, tok ani nezesiluje ani neslábne a pole je v tomto bodě nezřídlové (anglicky také _incompressible_, tj. nestlačitelné). Pojem "nezřídlový" vyplývá z toho, že zdroje umístěné uvnitř toku si představujeme jako zřídla.
+Divergence nám udává, zda tok v daném místě zesiluje či zeslabuje. U kladné divergence tok zesiluje (pokud je proudění stacionární, je v tomto místě zdroj) a u záporné divergence tok slábne (pokud je proudění stacionární, je v tomto místě spotřebič). Je-li divergence nulová, tok ani nezesiluje, ani neslábne a pole je v tomto bodě nezřídlové (anglicky také _incompressible_, tj. nestlačitelné). Pojem "nezřídlový" vyplývá z toho, že zdroje umístěné uvnitř toku si představujeme jako zřídla.
 
 Připomeňme ještě, že spotřebiče jsou zdroje se zápornou vydatností.
 

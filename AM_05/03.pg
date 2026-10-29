@@ -11,6 +11,8 @@ loadMacros(
   "PGcourse.pl"
 );
 
+TEXT(beginproblem());
+
 #$refreshCachedImages=1;
 
 #SRAND($psvn);

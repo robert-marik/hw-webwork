@@ -3,6 +3,8 @@ DOCUMENT();
 loadMacros('PGstandard.pl', 'PGML.pl', 'PGtikz.pl',
 'parserCheckboxList.pl', 'PGcourse.pl');
 
+TEXT(beginproblem());
+
 
  $TikZ = createTikZImage();
  $TikZ->BEGIN_TIKZ
@@ -77,9 +79,9 @@ BEGIN_PGML
 # Pohyb v prostředí s odporovou silou
 
 
-Dlouho si lidé mysleli, že aby se těleso pohybovalo rychle, musí na něj působit velká síla. Revoluci v tomto chápání způsobil Isaac Newton, který prokázal, že těleso si rychlost udržuje, pokud na něj nepůsobí žádná síla (zákon setrvačnosti) a že působení síly navyšuje rychlost (zákon síly). 
+Dlouho si lidé mysleli, že aby se těleso pohybovalo rychle, musí na něj působit velká síla. Revoluci v tomto chápání způsobil Isaac Newton, který prokázal, že těleso si rychlost udržuje, pokud na něj nepůsobí žádná síla (zákon setrvačnosti), a že působení síly navyšuje rychlost (zákon síly). 
 
-V prostředí, ve kterém působí konstantní síla urychlující těleso a odporová síla úměrná rychlosti má pohybová rovnice tvar 
+V prostředí, ve kterém působí konstantní síla urychlující těleso a odporová síla úměrná rychlosti, má pohybová rovnice tvar 
 [``` \frac{\mathrm dv}{\mathrm dt}=k_1-k_2v,```]
 kde [`v`] je rychlost pohybu, [`k_1`] je konstanta související s působící konstantní silou (například gravitace při volném pádu) a člen [`k_2v`] je odporová síla prostředí, která roste s rostoucí rychlostí.
 

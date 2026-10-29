@@ -97,12 +97,12 @@ END_PGML
 
 BEGIN_PGML_HINT
 
-Nemusíte počítat Sarussovým pravidlem uvedený determinant.  Inspirujte
+Nemusíte počítat Sarrusovým pravidlem uvedený determinant. Inspirujte
 se vzorcem
 [```\nabla \times \vec F=\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\vec k,```]
 kde
 [```\vec F=P\vec i+Q\vec j,```]
-a [`P`], [`Q`] jsou funkce dvou proměnných [`x`] , [`y`].
+a [`P`], [`Q`] jsou funkce dvou proměnných [`x`], [`y`].
 Musíte tedy vypočítat
 [```\nabla \times \vec F=\left( \frac{\partial }{\partial x} ([$v2])
 - \frac{\partial }{\partial y} ([$v1])\right)\cdot \vec k.```]
@@ -114,7 +114,7 @@ Použijeme vzorec
 [```\nabla \times \vec F=\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\vec k,```]
 kde
 [```\vec F=P\vec i+Q\vec j,```]
-a [`P`], [`Q`] jsou funkce dvou proměnných [`x`] , [`y`].
+a [`P`], [`Q`] jsou funkce dvou proměnných [`x`], [`y`].
 V našem případě máme [```\vec F=[$F].```]
 Musíme tedy vypočítat
 [```\nabla \times \vec F=\left( \frac{\partial }{\partial x} ([$v2])

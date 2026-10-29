@@ -22,7 +22,7 @@ $data =
     odpoved=>"Ne, ale je dána jednoznačně až na aditivní konstantu.",
     moznosti=>[
 "Ne a ani není znám univerzální popis množiny všech primitivních funkcí.",
-"Ano, z rychlosti je vždy možné zrekonstruovat měnící se  veličinu.",
+"Ano, z rychlosti je vždy možné zrekonstruovat měnící se veličinu.",
 "Ano, jinak by tento pojem nebyl přesně definován a nemohli bychom s ním v matematice pracovat.",
 ],
 }
@@ -60,8 +60,6 @@ BEGIN_PGML
 [$ot]
 
 [_]{$radio}
-
-_[$zdroj]_
 
 END_PGML
 

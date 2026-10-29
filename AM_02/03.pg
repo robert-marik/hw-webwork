@@ -36,7 +36,7 @@ Náš svět je trojrozměrný, ale přesto můžeme dimenzi úlohy často vhodn�
 
 V následujícím příkladě si zkusíme vypočítat gradient funkce tří proměnných. Postupuje se stejně jako v předchozích příkladech, pouze je vektor trojrozměrný.
 
-Například funkce [``` f(x,y,z)=x^2y+xz+y^2 ```] má parciální derivace [``` \frac{\partial f}{\partial x}=2xy+z,```] [``` \frac{\partial f}{\partial y}=x^2+2y```] a [``` \frac{\partial f}{\partial z}=x```] Její gradient je proto (zapsáno jako sloupcový vektor) [``` \nabla f=\begin{pmatrix}2xy+z \\ x^2+2y\\ x\end{pmatrix}.```] Pomocí jednotkových vektorů ve směru souřadnicových os můžeme tentýž výsledek psát také [``` \nabla f=(2xy+z)\vec i +(x^2+2y)\vec j+ x\vec k.```] Tento výsledek je možno zapsat jako uspořádanou trojici ohraničenou ostrými závorkami, nebo pomocí jednotkových vektorů. tj. *<2xy+z,x^2+2y,x>* nebo v ijk-notaci *(2xy+z)\*i +(x^2+2y)\*j+x\*k.*
+Například funkce [``` f(x,y,z)=x^2y+xz+y^2 ```] má parciální derivace [``` \frac{\partial f}{\partial x}=2xy+z,```] [``` \frac{\partial f}{\partial y}=x^2+2y```] a [``` \frac{\partial f}{\partial z}=x.```] Její gradient je proto (zapsáno jako sloupcový vektor) [``` \nabla f=\begin{pmatrix}2xy+z \\ x^2+2y\\ x\end{pmatrix}.```] Pomocí jednotkových vektorů ve směru souřadnicových os můžeme tentýž výsledek psát také [``` \nabla f=(2xy+z)\vec i +(x^2+2y)\vec j+ x\vec k.```] Tento výsledek je možno zapsat jako uspořádanou trojici ohraničenou ostrými závorkami, nebo pomocí jednotkových vektorů, tj. *<2xy+z,x^2+2y,x>* nebo v ijk-notaci *(2xy+z)\*i +(x^2+2y)\*j+x\*k.*
 
 ---------------
 
@@ -47,8 +47,8 @@ Vypočtěte gradient funkce [``` f(x,y,z)=[$funkce].```]
 END_PGML
 
 BEGIN_PGML_HINT
-Pozorně počítejte derivace. Například derivace podle [`x`] je [``` \frac{\partial f}{\partial x}=[$dfx]. ```]
-a toto je možné zapsat jako [$dfx] .
+Pozorně počítejte derivace. Například derivace podle [`x`] je [``` \frac{\partial f}{\partial x}=[$dfx], ```]
+a toto je možné zapsat jako [$dfx].
 END_PGML_HINT
 
 

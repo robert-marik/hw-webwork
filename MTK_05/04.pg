@@ -39,7 +39,7 @@ Nechť [`w'(t)`] označuje rychlost růstu hmotnosti stromu v kilogramech za rok
 END_PGML
 
 BEGIN_PGML_HINT
-Integrál, tj. celkovou změnu, dělíme dobou, za jakou tato změn nastala. Jedná se tedy o průměrnou rychlost. Časové rozmezí definují meze.
+Integrál, tj. celkovou změnu, dělíme dobou, za jakou tato změna nastala. Jedná se tedy o průměrnou rychlost. Časové rozmezí definují meze.
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION

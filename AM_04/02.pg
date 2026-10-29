@@ -87,7 +87,7 @@ END_PGML
 
 BEGIN_PGML_HINT
 
-Musíte vypočítat Sarussovým pravidlem uvedený determinant.  Inspirujte
+Musíte vypočítat Sarrusovým pravidlem uvedený determinant. Inspirujte
 se postupem ve vzorovém příkladě. Dejte pozor na derivování a na
 znaménka. Stačí jeden překlep a celá odpověď je hodnocena jako
 nesprávná.
@@ -99,7 +99,7 @@ END_PGML_HINT
 BEGIN_PGML_SOLUTION
 
 
-Musíme vypočítat Sarussovým pravidlem determinant
+Musíme vypočítat Sarrusovým pravidlem determinant
 [``` \nabla \times \vec F=\begin{vmatrix}\vec i&\vec j& \vec k \\ [$u1]&[$u2]&[$u3]\\
 [$v1]&[$v2]&[$v3]
 \end{vmatrix}.```]

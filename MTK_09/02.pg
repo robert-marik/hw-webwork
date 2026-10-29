@@ -28,7 +28,7 @@ BEGIN_PGML
 
 ## Parciální derivace jednočlenného polynomu dvou proměnných
 
-Parciální derivace počítáme stejně jako klasické derivace, jenom dáváme pozor na to, podle které proměnné se derivuje. Pro tuto proměnnou používáme příslušné vztahy z diferenciálního počtu funkcí jedné proměnné a zbylé proměnné jsou považovány za parametry. Například funkci [```f(x,y)=x^2 y^5```] derivujeme podle [`x`] jako kvadratickou funkci [`x^2`] opatřenou konstantním násobkem [`y^5`]. Proto platí [``` \frac{\partial f}{\partial x}=2xy^5.```] Při derivaci podle [`y`] tuto funkci chápeme jako mocninu pátého stupně [`y^5`] s konstantním násobkem [`x^2`], tj.  [``` \frac{\partial f}{\partial y}=x^2 \cdot 5y^4=5x^2y^4.```]
+Parciální derivace počítáme stejně jako klasické derivace, jenom dáváme pozor na to, podle které proměnné se derivuje. Pro tuto proměnnou používáme příslušné vztahy z diferenciálního počtu funkcí jedné proměnné a zbylé proměnné jsou považovány za parametry. Například funkci [```f(x,y)=x^2 y^5```] derivujeme podle [`x`] jako kvadratickou funkci [`x^2`] opatřenou konstantním násobkem [`y^5`]. Proto platí [``` \frac{\partial f}{\partial x}=2xy^5.```] Při derivaci podle [`y`] tuto funkci chápeme jako mocninu pátého stupně [`y^5`] s konstantním násobkem [`x^2`], tj. [``` \frac{\partial f}{\partial y}=x^2 \cdot 5y^4=5x^2y^4.```]
 
 ---------------
 

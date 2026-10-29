@@ -26,7 +26,7 @@ $sol=Formula("$acc - ($rdec)*y");
 $stac=Formula("$acc / ($rdec)");
 
 
-$radio=RadioButtons(["Všechna řešení konvergují nezávisle na počáteční podmínce ke stabilnímu stacionárnímu bodu.", "Řešení s malou počáteční podmínkou konvergují k nule (pokud je málo listí, tak  se rozpadne úplně), řešení od jisté hodnoty konvergují ke stacionárnímu bodu (nastolí se rovnováha).","Řešení s dostatečně velkou počáteční podmínkou jsou neohraničená (pokud je listí opravdu hodně, nestíhá se rozpadat a jeho množství roste), ostatní řešení konvergují ke stacionárnímu bodu (nastolí se rovnováha)."],0);
+$radio=RadioButtons(["Všechna řešení konvergují nezávisle na počáteční podmínce ke stabilnímu stacionárnímu bodu.", "Řešení s malou počáteční podmínkou konvergují k nule (pokud je málo listí, tak se rozpadne úplně), řešení od jisté hodnoty konvergují ke stacionárnímu bodu (nastolí se rovnováha).","Řešení s dostatečně velkou počáteční podmínkou jsou neohraničená (pokud je listí opravdu hodně, nestíhá se rozpadat a jeho množství roste), ostatní řešení konvergují ke stacionárnímu bodu (nastolí se rovnováha)."],0);
 
 Context()->texStrings;
 
@@ -36,7 +36,7 @@ BEGIN_PGML
 
 [@ image("autumn.jpg", width=>400) @]*
 
-Listy v lese padají na zem. Předpokládejme rychlost s jakou padají je [`[$acc]`]
+Listy v lese padají na zem. Předpokládejme, že rychlost, s jakou padají, je [`[$acc]`]
 gramů na centimetr čtvereční za rok. Současně se tyto listy rozpadají. Za rok se rozpadne [`[$dec]`] procent listí.  
 
 ### Model
@@ -59,7 +59,7 @@ Rovnice má jeden stacionární bod. Najděte jej.
 
 ### Kvalitativní popis chování řešení
 
-Vyberete správné tvrzení, týkající se daného modelu. 
+Vyberte správné tvrzení týkající se daného modelu. 
 
 [_]{$radio}
 
@@ -75,7 +75,7 @@ Modelem je diferenciální rovnice
 která má stacionární bod
 [``` y_0=[$stac]. ```]
 (Tento bod získáme jako nulový bod pravé strany.)
-K tomuto stacionárnímu bodu konvergují všechna řešení. Nezávisle na počáteční podmínce se nastolí rovnováha. V rovnováze listí přibývá stejnou rychlostí jako se rozkládá.
+K tomuto stacionárnímu bodu konvergují všechna řešení. Nezávisle na počáteční podmínce se nastolí rovnováha. V rovnováze listí přibývá stejnou rychlostí, jako se rozkládá.
 
 Stavu, kdy nejsou na počátku žádné listy, odpovídá podmínka [`y(0)=0`].
 

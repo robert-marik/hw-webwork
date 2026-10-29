@@ -26,10 +26,10 @@ $draggable = DraggableSubsets(
 ],
 [[0],[1],[2],[3]],
 DefaultSubsets => [
-  {label => "Rychlost, s jakou se roste objem hromady v &#269;ase, tj. zm&#283;na objemu za jednotku &#269;asu.", indices => [$perm[0]]},
-  {label => "Rychlost, s jakou se roste v&#253;&#353;ka hromady v &#269;ase, tj. zm&#283;na v&#253;&#353;ky za jednotku &#269;asu.", indices => [$perm[1]]},
-  {label => "Rychlost, s jakou se roste v&#253;&#353;ka hromady jako funkce objemu, tj. zm&#283;na v&#253;&#353;ky p&#345;i zm&#283;n&#283; objemu o jednotku.", indices => [$perm[2]]},
-  {label => "Rychlost, s jakou se roste objem hromady jako funkce v&#253;&#353;ky, tj. zm&#283;na objemu p&#345;i zm&#283;n&#283; v&#253;&#353;ky o jednotku.", indices => [$perm[3]]},
+  {label => "Rychlost, s jakou roste objem hromady v &#269;ase, tj. zm&#283;na objemu za jednotku &#269;asu.", indices => [$perm[0]]},
+  {label => "Rychlost, s jakou roste v&#253;&#353;ka hromady v &#269;ase, tj. zm&#283;na v&#253;&#353;ky za jednotku &#269;asu.", indices => [$perm[1]]},
+  {label => "Rychlost, s jakou roste v&#253;&#353;ka hromady jako funkce objemu, tj. zm&#283;na v&#253;&#353;ky p&#345;i zm&#283;n&#283; objemu o jednotku.", indices => [$perm[2]]},
+  {label => "Rychlost, s jakou roste objem hromady jako funkce v&#253;&#353;ky, tj. zm&#283;na objemu p&#345;i zm&#283;n&#283; v&#253;&#353;ky o jednotku.", indices => [$perm[3]]},
 ],
 AllowNewBuckets => 0,
 OrderedSubsets => 1
@@ -44,7 +44,7 @@ BEGIN_PGML
 
 ## Slovní interpretace derivace
 
-Derivace vyjadřuje rychlost s jakou se mění závislá veličina při změně nezávislé veličiny. Uvažujme například kapku vody v atmosféře. Předpokládejme, že kapka roste a její objem [`V`] i poloměr [`r`] se mění s časem. Potom je rychlost, s jakou se mění její objem v čase, vyjádřena derivací [``\frac{\mathrm dV}{\mathrm dt}``]. Podobně, rychlost, s jakou roste její poloměr v čase, je dána derivací [``\frac{\mathrm dr}{\mathrm dt}``]. Má smysl se ptát například i na rychlost s jakou roste objem jako funkce poloměru, tj. jaká je změna objemu ne za jednotku času, ale při změně poloměru o jednotku. Toto by bylo vyjádřeno derivací [``\frac{\mathrm dV}{\mathrm dr}``].
+Derivace vyjadřuje rychlost, s jakou se mění závislá veličina při změně nezávislé veličiny. Uvažujme například kapku vody v atmosféře. Předpokládejme, že kapka roste a její objem [`V`] i poloměr [`r`] se mění s časem. Potom je rychlost, s jakou se mění její objem v čase, vyjádřena derivací [``\frac{\mathrm dV}{\mathrm dt}``]. Podobně, rychlost, s jakou roste její poloměr v čase, je dána derivací [``\frac{\mathrm dr}{\mathrm dt}``]. Má smysl se ptát například i na rychlost, s jakou roste objem jako funkce poloměru, tj. jaká je změna objemu ne za jednotku času, ale při změně poloměru o jednotku. Toto by bylo vyjádřeno derivací [``\frac{\mathrm dV}{\mathrm dr}``].
 
 V tomto příkladě se podobný postup pokusíme aplikovat ne na kouli, ale na kužel.
 
@@ -70,10 +70,10 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 
-* Rychlost, s jakou se roste objem hromady v čase je derivace objemu podle času, tj. [`` \frac{\mathrm dV}{\mathrm dt}``].
-* Rychlost, s jakou se roste výška hromady v čase je derivace výšky podle  času,  tj. [`` \frac{\mathrm dh}{\mathrm dt}``].
-* Rychlost, s jakou se roste výška hromady jako funkce objemu je derivace výšky podle objemu, tj. [`` \frac{\mathrm dh}{\mathrm dV}``].
-* Rychlost, s jakou se roste objem hromady jako funkce výšky je derivace objemu podle výšky, tj. [`` \frac{\mathrm dV}{\mathrm dh}``].
+* Rychlost, s jakou roste objem hromady v čase, je derivace objemu podle času, tj. [`` \frac{\mathrm dV}{\mathrm dt}``].
+* Rychlost, s jakou roste výška hromady v čase, je derivace výšky podle času, tj. [`` \frac{\mathrm dh}{\mathrm dt}``].
+* Rychlost, s jakou roste výška hromady jako funkce objemu, je derivace výšky podle objemu, tj. [`` \frac{\mathrm dh}{\mathrm dV}``].
+* Rychlost, s jakou roste objem hromady jako funkce výšky, je derivace objemu podle výšky, tj. [`` \frac{\mathrm dV}{\mathrm dh}``].
 
 END_PGML_SOLUTION
 

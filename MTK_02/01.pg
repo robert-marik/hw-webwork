@@ -27,11 +27,11 @@ do
 
 $draggable = DraggableSubsets(
 [
-"Zm&#283;na  veli&#269;iny \(f\) za &#269;asov&#253; interval mezi okam&#382;iky \(t\) a \(t+h\).",
-"Pr&#367;m&#283;rn&#225; rychlost zm&#283;ny  veli&#269;iny \(f\) v okam&#382;iku \(t\).", 
-"Pr&#367;m&#283;rn&#225; rychlost zm&#283;ny  veli&#269;iny \(f\) za &#269;asov&#253; interval mezi okam&#382;iky \(t\) a \(t+h\).",
-"Okam&#382;it&#225; rychlost zm&#283;ny  veli&#269;iny \(f\) za &#269;asov&#253; interval mezi okam&#382;iky \(t\) a \(t+h\).",
-"Okam&#382;it&#225; rychlost zm&#283;ny  veli&#269;iny \(f\) v okam&#382;iku \(t\)."
+"Zm&#283;na veli&#269;iny \(f\) za &#269;asov&#253; interval mezi okam&#382;iky \(t\) a \(t+h\).",
+"Pr&#367;m&#283;rn&#225; rychlost zm&#283;ny veli&#269;iny \(f\) v okam&#382;iku \(t\).", 
+"Pr&#367;m&#283;rn&#225; rychlost zm&#283;ny veli&#269;iny \(f\) za &#269;asov&#253; interval mezi okam&#382;iky \(t\) a \(t+h\).",
+"Okam&#382;it&#225; rychlost zm&#283;ny veli&#269;iny \(f\) za &#269;asov&#253; interval mezi okam&#382;iky \(t\) a \(t+h\).",
+"Okam&#382;it&#225; rychlost zm&#283;ny veli&#269;iny \(f\) v okam&#382;iku \(t\)."
 ],
 [[1,3],[0],[2],[4]],
 DefaultSubsets => [
@@ -54,7 +54,7 @@ Derivace funkce [``f``] proměnné [``x``] je definována vztahem
 
 Podáme slovní interpretaci jednotlivých celků, ze kterých se skládá definice derivace. Uvažujme veličinu [``f``], která se mění v čase, tj. je funkcí proměnné [``t``]. 
 
-Tři části definice derivace v proměnné [``t``] jsou v nadpisech tří sloupečků. Pět možných slovních interpretací je v levém sloupci. Pouze tři z nich jsou relevantní. Přetáhněte je do správného sloupečku. Dvě nepoužité varianty ponechejte ve sloupečku původním.
+Tři části definice derivace v proměnné [``t``] jsou v nadpisech tří sloupečků. Pět možných slovních interpretací je v levém sloupci. Pouze tři z nich jsou relevantní. Přetáhněte je do správného sloupečku. Dvě nepoužité varianty ponechte ve sloupečku původním.
 
 [_]{$draggable}
 
@@ -78,8 +78,8 @@ BEGIN_PGML_SOLUTION
 Derivace je okamžitá rychlost změny a je to limita průměrné rychlosti změny. Tato průměrná rychlost změny je podílem změny a času, za který nastala. Varianty "průměrná rychlost v okamžiku ..." a "okamžitá rychlost na intervalu ..." nedávají smysl, okamžitá rychlost se nemůže vztahovat k intervalu, naopak průměrná rychlost se k intervalu vztahovat musí.
 
 * Výraz [```f(t+h)-f(t)```] je změna veličiny za časový interval mezi okamžiky [`t`] a [`t+h`], protože se jedná o rozdíl funkčních hodnot v těchto okamžicích.
-* Pokud výraz z předchocího bodu vydělíme délkou intervalu [`h`], dostaneme průměrnou rychlost změny na tomto intervalu, tj. [```\frac{f(t+h)-f(t)}{h}.```]
-* Pokud ve výrazu z předchocího bodu navíc uvažujeme limitu pro [`h`] jdoucí k nule, průměrná rychlost se transformuje na rychlost okamžitou v bodě [`t`], tj. [```\lim_{h\to 0}\frac{f(t+h)-f(t)}{h}.```]
+* Pokud výraz z předchozího bodu vydělíme délkou intervalu [`h`], dostaneme průměrnou rychlost změny na tomto intervalu, tj. [```\frac{f(t+h)-f(t)}{h}.```]
+* Pokud ve výrazu z předchozího bodu navíc uvažujeme limitu pro [`h`] jdoucí k nule, průměrná rychlost se transformuje na rychlost okamžitou v bodě [`t`], tj. [```\lim_{h\to 0}\frac{f(t+h)-f(t)}{h}.```]
 
 END_PGML_SOLUTION
 

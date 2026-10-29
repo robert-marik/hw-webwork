@@ -47,7 +47,7 @@ BEGIN_PGML
 
 [@ image("transpirace.jpg", width=>400) @]*
 
-V této sadě úloh se budeme věnovat diferenciálnímu operátoru rotace. Tento operátor je velmi důležitý, protože dokáže identifikovat, zda je k danému vektorovému poli zavést skalární potenciál. To je například gravitační potenciál a s ním související potenciální energie v případě pohybu v gravitačním poli. A z fyziky střední školy dobře víte, že potenciální energie je neocenitelná při studiu dějů, kde se celková energie zachovává a jenom se mění, například na energii kinetickou. Nemusíme mít detailní informace o průběhu děje v každém okamžiku, prostě jenom určíme z počáteční a koncové polohy změnu potenciální energie a z ní zjistíme změnu kinetické energie a nárůst rychlosti. Nemusíme počítat, jak dlouho změna trvala ani žádné další detaily.
+V této sadě úloh se budeme věnovat diferenciálnímu operátoru rotace. Tento operátor je velmi důležitý, protože dokáže identifikovat, zda je k danému vektorovému poli možno zavést skalární potenciál. To je například gravitační potenciál a s ním související potenciální energie v případě pohybu v gravitačním poli. A z fyziky střední školy dobře víte, že potenciální energie je neocenitelná při studiu dějů, kde se celková energie zachovává a jenom se mění, například na energii kinetickou. Nemusíme mít detailní informace o průběhu děje v každém okamžiku, prostě jenom určíme z počáteční a koncové polohy změnu potenciální energie a z ní zjistíme změnu kinetické energie a nárůst rychlosti. Nemusíme počítat, jak dlouho změna trvala ani žádné další detaily.
 
 Možnost zavedení skalárního potenciálu často naznačuje, že úlohu související s vektorovým polem je možno dramaticky zjednodušit. Příkladem je vodní potenciál při transpiraci rostlin. Tím je možno měřit například transpiraci stromů a jejich vliv na kvalitu života ve městech. Díky tomu dokážeme měřit, počítat a modelovat vliv parků, jako je ten na obrázku, na celkový komfort života ve městě.
 
@@ -55,7 +55,7 @@ Nejprve si představíme nástroj z analytické geometrie: vektorový součin. P
 
 --------------
 
-Vektorový součin vektorů [`\vec u=(u_1,u_2,u_3)^T=u_1\vec i+u_2 \vec j + u_3 \vec k`] a [`\vec v=(v_1,v_2,v_3)^T=v_1\vec i+  v_2\vec j + v_3 \vec k`] je definován jako determinant
+Vektorový součin vektorů [`\vec u=(u_1,u_2,u_3)^T=u_1\vec i+u_2 \vec j + u_3 \vec k`] a [`\vec v=(v_1,v_2,v_3)^T=v_1\vec i+ v_2\vec j + v_3 \vec k`] je definován jako determinant
 [``` \vec u\times \vec v = \begin{vmatrix}\vec i& \vec j & \vec k\\
 u_1 & u_2& u_3\\
 v_1& v_2 & v_3
@@ -84,7 +84,7 @@ END_PGML
 
 BEGIN_PGML_HINT
 
-Musíte vypočítat Sarussovým pravidlem determinant
+Musíte vypočítat Sarrusovým pravidlem determinant
 [``` \begin{vmatrix}\vec i&\vec j& \vec k \\ [$u1]&[$u2]&[$u3]\\
 [$v1]&[$v2]&[$v3]
 \end{vmatrix}.```]
@@ -95,7 +95,7 @@ END_PGML_HINT
 BEGIN_PGML_SOLUTION
 
 
-Musíme vypočítat Sarussovým pravidlem determinant
+Musíme vypočítat Sarrusovým pravidlem determinant
 [``` \vec u\times \vec v=\begin{vmatrix}\vec i&\vec j& \vec k \\ [$u1]&[$u2]&[$u3]\\
 [$v1]&[$v2]&[$v3]
 \end{vmatrix}.```]

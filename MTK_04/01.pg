@@ -19,7 +19,7 @@ $radio = RadioButtons(
 ["Počet litrů, které vytečou z nádrže za první tři hodiny.",
  "Rychlost, s jakou vytéká olej po prvních třech hodinách.",
  "Počet litrů oleje, které po třech hodinách zůstane v nádrži.",
- "Průměrná rychlost s jakou vytéká olej během prvních tří hodin."
+ "Průměrná rychlost, s jakou vytéká olej během prvních tří hodin."
 ],0);  # První odpověď správná
 
 
@@ -31,9 +31,9 @@ BEGIN_PGML
 
 Pomocí určitého integrálu můžeme ze zadané rychlosti určit celkovou změnu veličiny.
 
-Pokud je rychlost konstantní, nemusíme se s integrálem vůbec obtěžovat a změnu veličiny určíme prostým násobením. Stejně jako například dráhu při pohybu konstatnní rychlostí.
+Pokud je rychlost konstantní, nemusíme se s integrálem vůbec obtěžovat a změnu veličiny určíme prostým násobením. Stejně jako například dráhu při pohybu konstantní rychlostí.
 
-Pokud však rychlost konstantní není, musíme místo násobení zapojit určitý integrál v příslušných mezích. Pokud integrujeme rychlost s jakou se mění sledovaná veličina, je výsledkem změna sledované veličiny.
+Pokud však rychlost konstantní není, musíme místo násobení zapojit určitý integrál v příslušných mezích. Pokud integrujeme rychlost, s jakou se mění sledovaná veličina, je výsledkem změna sledované veličiny.
 
 V tomto příkladě zkusíme opačný přístup: máme zadán integrál a úkolem je podat slovní interpretaci. 
 
@@ -44,13 +44,13 @@ Toxický odpad uniká z barelu rychlostí [`r(t)`] litrů za minutu, kde [`t`] j
 END_PGML
 
 BEGIN_PGML_HINT
-Musíte si uvědomit jaký časový interval sledujeme tj. jaká je dolní a horní mez integrálu, a rychlost jaké veličiny se integruje. Pokud se vám slovní interpretace těžko formuluje, můžete si rychlost vytékání představit tak, že to je rychost, s jakou narůstá hladina toxického odpadu v okolí barelu.
+Musíte si uvědomit, jaký časový interval sledujeme, tj. jaká je dolní a horní mez integrálu, a rychlost jaké veličiny se integruje. Pokud se vám slovní interpretace těžko formuluje, můžete si rychlost vytékání představit tak, že to je rychlost, s jakou narůstá hladina toxického odpadu v okolí barelu.
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
-Doba 180 minut odpovídá třem hodinám. Na tomto intervalu integrujeme rychlost s jakou uniká toxický odpad. Výsledkem po integraci je množství toxického odpadu, které za danou dobu vyteklo.
+Doba 180 minut odpovídá třem hodinám. Na tomto intervalu integrujeme rychlost, s jakou uniká toxický odpad. Výsledkem po integraci je množství toxického odpadu, které za danou dobu vyteklo.
 
-Pokud se vám slovní interpretace těžko formuluje, můžete si rychlost vytékání představit tak, že to je rychost, s jakou narůstá hladina toxického odpadu v okolí barelu.
+Pokud se vám slovní interpretace těžko formuluje, můžete si rychlost vytékání představit tak, že to je rychlost, s jakou narůstá hladina toxického odpadu v okolí barelu.
 END_PGML_SOLUTION
 
 ENDDOCUMENT();

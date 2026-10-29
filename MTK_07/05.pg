@@ -54,7 +54,7 @@ BEGIN_PGML
 
 [@ image("zip.jpg", width=>400) @]*
 
-_Lineární kombinace funguje trošku jako zip, Když je to vhodné, umí zkombinovat dva nebo i více vektorů do jednoho, stejně jako dvě půlky zipu se spojí do jediného celku. Někdy to chceme naopak a chceme rozdělit vektor do lineární kombinace zadaných vektorů. Podobně, jako když se rozepíná zip. První z těchto dovedností se využívá například u maticového násobení. Sloupce první matice jsou jakési složky zipu a sloupce druhé matice říkají, jak máme nechat jednotlivé složky do sebe zapadnout. V následujících úlohách se zaměříme právě na maticové násobení. Nejprve si v tomto příkladě natrénujeme výpočet lineární kombinace. V dalších příkladech v podstatě totéž, ale v kontextu maticového násobení matice a sloupcového vektoru. V dalších příkladech se poté budeme věnovat násobení matic a nakonec si ukážeme praktické využití při hledání vektoru udávajícího tok tepla z vektoru udávajícího gradient teploty a z materiálové charakteristiky prostředí._
+_Lineární kombinace funguje trošku jako zip. Když je to vhodné, umí zkombinovat dva nebo i více vektorů do jednoho, stejně jako dvě půlky zipu se spojí do jediného celku. Někdy to chceme naopak a chceme rozdělit vektor do lineární kombinace zadaných vektorů. Podobně, jako když se rozepíná zip. První z těchto dovedností se využívá například u maticového násobení. Sloupce první matice jsou jakési složky zipu a sloupce druhé matice říkají, jak máme nechat jednotlivé složky do sebe zapadnout. V následujících úlohách se zaměříme právě na maticové násobení. Nejprve si v tomto příkladě natrénujeme výpočet lineární kombinace. V dalších příkladech v podstatě totéž, ale v kontextu maticového násobení matice a sloupcového vektoru. V dalších příkladech se poté budeme věnovat násobení matic a nakonec si ukážeme praktické využití při hledání vektoru udávajícího tok tepla z vektoru udávajícího gradient teploty a z materiálové charakteristiky prostředí._
 
 Uvažujme vektory [```\vec u=\begin{pmatrix}[$u1]\\[$u2]\end{pmatrix} \quad\text{ a }\quad
 \vec v=\begin{pmatrix}[$v1]\\[$v2]\end{pmatrix}.```]
@@ -63,9 +63,9 @@ Například lineární kombinace s koeficienty [`3`] a [`-2`] dává
 Najděte další dvě zadané lineární kombinace.
 
 
->> [`` [$l1] \vec u - \vec v =  {}``][________]*{$ansl} <<
+>> [`` [$l1] \vec u - \vec v = {}``][________]*{$ansl} <<
 
->> [`` [$k1] \vec u + [$k2] \vec v =  {}``][________]*{$ansk} <<
+>> [`` [$k1] \vec u + [$k2] \vec v = {}``][________]*{$ansk} <<
 
 (Z důvodů implementace v počítači je vektor v zápise výše ohraničen hranatými závorkami namísto kulatých. Jedná se o formalitu, na počítání to nemá vliv.)
 
@@ -83,9 +83,9 @@ END_PGML_HINT
 BEGIN_PGML_SOLUTION
 
 Přímým výpočtem dostáváme
-[``` [$l1] \vec u - \vec v = [$l1] \begin{pmatrix}[$u1]\\[$u2]\end{pmatrix}  - \begin{pmatrix}[$v1]\\[$v2]\end{pmatrix} = \begin{pmatrix}[$ansl1]\\[$ansl2]\end{pmatrix}```]
+[``` [$l1] \vec u - \vec v = [$l1] \begin{pmatrix}[$u1]\\[$u2]\end{pmatrix} - \begin{pmatrix}[$v1]\\[$v2]\end{pmatrix} = \begin{pmatrix}[$ansl1]\\[$ansl2]\end{pmatrix}```]
 a podobně
-[``` [$k1] \vec u + [$k2] \vec v =  \begin{pmatrix}[$ansk1]\\[$ansk2]\end{pmatrix}.```] 
+[``` [$k1] \vec u + [$k2] \vec v = \begin{pmatrix}[$ansk1]\\[$ansk2]\end{pmatrix}.```] 
 END_PGML_SOLUTION
 
 

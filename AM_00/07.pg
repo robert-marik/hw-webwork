@@ -20,7 +20,7 @@ $f=Vector("<5,0,x^2>");
 Context()->texStrings;
 BEGIN_PGML
 
-## Otázka s odpovědí  ve tvaru vektoru
+## Otázka s odpovědí ve tvaru vektoru
 
 Na některé otázky jsou odpovědí vektory nebo body. Body zadáváme jako uspořádané dvojice nebo trojice oddělené čárkou a ohraničené závorkami. Přesně jak jsme zvyklí při ručním zápise. Toto není složité a v případě nutnosti dostanete instrukce, jaký způsob zápisu použít.
 
@@ -40,7 +40,7 @@ Poslední možnost je podobná jako u matic. Každou komponentu zadáme do svéh
 
 >> [`\left(2,-\frac \pi2,0\right)={}`][_________]*{Vector("<2,-pi/2,0>")}<<
 
-Pokud u vektoru tvořeného čísly některou komponentu nezadáte správně, narozdíl od matice se zobrazí informace, která komponenta vektoru je špatně (pokud tuto vlastnost autor otázky nevypne). U vektorů, jejichž některá komponenta je funkce, tuto vlastnost nemáme.
+Pokud u vektoru tvořeného čísly některou komponentu nezadáte správně, na rozdíl od matice se zobrazí informace, která komponenta vektoru je špatně (pokud tuto vlastnost autor otázky nevypne). U vektorů, jejichž některá komponenta je funkce, tuto vlastnost nemáme.
 
 END_PGML
 ##################################################
@@ -51,7 +51,7 @@ Vektor [`(1,0,-8)`] zapíšeme například jako *<1,0,-8>* nebo *i-8k*.
 
 Vektor [`(0,x^3,3)`] zapíšeme například jako *<0,x^3,3>* nebo *x^3 \* j + 3k*.
 
-Poslední úloha je zřejmá, prostřední hodnotu zapíšeme například jako *-pi/2*
+Poslední úloha je zřejmá, prostřední hodnotu zapíšeme například jako *-pi/2*.
 
 END_PGML_SOLUTION
 

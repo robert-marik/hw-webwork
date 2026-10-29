@@ -15,7 +15,7 @@ $data =
 [
 {
 nadpis=>"Korfova růstová funkce I",
- otazka=>"Vyberte vhodné slovní vyjádření pro rovnici definující Korfovu funkci  pomocí rychlosti růstu.",
+ otazka=>"Vyberte vhodné slovní vyjádření pro rovnici definující Korfovu funkci pomocí rychlosti růstu.",
 odpoved=>"rychlost růstu je úměrná velikosti a nepřímo úměrná mocnině stáří",
 moznosti=>[
 "rychlost růstu je úměrná mocnině stáří a nepřímo úměrná velikosti",
@@ -27,7 +27,7 @@ moznosti=>[
 ,
 {
 nadpis=>"Korfova růstová funkce II",
- otazka=>"Vyberte vhodné slovní vyjádření pro rovnici definující Korfovu funkci  pomocí relativní rychlosti růstu.",
+ otazka=>"Vyberte vhodné slovní vyjádření pro rovnici definující Korfovu funkci pomocí relativní rychlosti růstu.",
 odpoved=>"relativní rychlost růstu je nepřímo úměrná mocnině stáří",
 moznosti=>[
 "relativní rychlost růstu je úměrná velikosti a nepřímo úměrná mocnině stáří",
@@ -56,9 +56,9 @@ BEGIN_PGML
 [@ image("trees.jpg", width=>400) @]*
 
 
-Základním nástrojem v modelování růstu lesních porostů z hlediska přírůstku jsou růstové funkce. Tyto růstové funkce jsou důležité pro oceňování lesa určitého stáří a mohou lišit podle místních podmínek, například podle podnebí. V Česku růst lesa dobře modeluje Korfova funkce, definovaná vztahem
+Základním nástrojem v modelování růstu lesních porostů z hlediska přírůstku jsou růstové funkce. Tyto růstové funkce jsou důležité pro oceňování lesa určitého stáří a mohou se lišit podle místních podmínek, například podle podnebí. V Česku růst lesa dobře modeluje Korfova funkce, definovaná vztahem
 [``` \frac{\mathrm dx}{\mathrm dt}=\frac{k x}{t^n},```]
-kde [`x`] je velikost, [`t`] stáří a [`k`] a [`n`] jsou konstanty. Jak byste tuto rovnici interpretovali slovně? Níže se nabízí dvě varianty, jedna pro rychlost růstu [``\frac{\mathrm dx}{\mathrm dt}``] a druhá pro relativní rychlost růstu
+kde [`x`] je velikost, [`t`] stáří a [`k`] a [`n`] jsou konstanty. Jak byste tuto rovnici interpretovali slovně? Níže se nabízejí dvě varianty, jedna pro rychlost růstu [``\frac{\mathrm dx}{\mathrm dt}``] a druhá pro relativní rychlost růstu
 [``\frac{\frac{\mathrm dx}{\mathrm dt}}{x}``], která je podílem rychlosti růstu a velikosti.
 
 _Obrázek: pixabay.com, autor pixel2013_

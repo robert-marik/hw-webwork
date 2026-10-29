@@ -39,9 +39,9 @@ BEGIN_PGML
 
 [@ image("ocel.jpg", width=>400) @]*
 
-_Izotropní jsou látky, kde stavební elementy jsou rozmístěny náhodně. Typickými příklady jsou v běžných podmínkách kov, sklo, papír nebo guma. Popis těchto materiálů je jednodušší než u anizotropních materiálů . Pokud však náhodnost porušíme (za studena válcovaná ocel, napnutá guma), izotropii ztratíme a situace je podobná situaci ve dřevu. Tomuto se budeme věnovat v příkladě na další straně. Nyní si zkusme ten jednodušší případ, izotropní._
+_Izotropní jsou látky, kde stavební elementy jsou rozmístěny náhodně. Typickými příklady jsou v běžných podmínkách kov, sklo, papír nebo guma. Popis těchto materiálů je jednodušší než u anizotropních materiálů. Pokud však náhodnost porušíme (za studena válcovaná ocel, napnutá guma), izotropii ztratíme a situace je podobná situaci ve dřevu. Tomuto se budeme věnovat v příkladě na další straně. Nyní si zkusme ten jednodušší případ, izotropní._
 
-Uvažujme dvourozměrný homogenní a izotropní materiál. Díky těmto vlastnostem jsou materiálové vlastnosti jako koeficient tepelné vodivosti nebo difuzní koeficient konstantní a skálární (nematicové). Tok tepla nebo difuzní tok jsou konstantními násobky gradientu teploty nebo koncentrace a mají směr opačný než je tento gradient, protože tok míří do míst s menší teplotou nebo koncentrací.
+Uvažujme dvourozměrný homogenní a izotropní materiál. Díky těmto vlastnostem jsou materiálové vlastnosti jako koeficient tepelné vodivosti nebo difuzní koeficient konstantní a skalární (nematicové). Tok tepla nebo difuzní tok jsou konstantními násobky gradientu teploty nebo koncentrace a mají směr opačný, než je tento gradient, protože tok míří do míst s menší teplotou nebo koncentrací.
 
 Například je-li rozložení teploty dáno funkcí
 [``` T(x,y)= x^2+xy```]
@@ -57,7 +57,7 @@ Následující příklad je analogický, jenom s jinými čísly, jinými funkce
 
 ----------------
 
-Pro  homogenní izotropní materiál s koeficientem tepelné vodivosti [`\lambda=[$lambda]`]
+Pro homogenní izotropní materiál s koeficientem tepelné vodivosti [`\lambda=[$lambda]`]
 je rozložení teploty dáno funkcí [``` T(x,y)=[$T]. ```]
 Určete gradient teploty a odpovídající tok tepla. 
 
@@ -67,7 +67,7 @@ Určete gradient teploty a odpovídající tok tepla.
 >> [``\vec q=-\lambda \nabla T ={}``][_________________]*{$ans2}<<
 
 Komponenty zapisujte jednotlivě do připravených polí. Nepoužívejte
-tedy ostré závorky ani ij-notaci.  Přesto, že jsou komponenty zapsány
+tedy ostré závorky ani ij-notaci. Přestože jsou komponenty zapsány
 odděleně, je odpověď vyhodnocována jako jediný objekt, vektor. Proto
 musí být obě komponenty správně. Pokud je správně jenom jedna
 komponenta nebo žádná, celá odpověď je vyhodnocena jako nesprávná.
@@ -82,7 +82,7 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 
-Derivování podle jednotlivých proměnných dostáváme gradient 
+Derivováním podle jednotlivých proměnných dostáváme gradient 
 [``\nabla T =[$ans1->reduce()]``].
 
 

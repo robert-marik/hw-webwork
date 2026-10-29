@@ -16,7 +16,7 @@ $data =
 [
 {
     obrazek=>"sloup",
-    otazka=>["U nosníku namáhaného na vzpěr je nutné, aby zatížení nepřekročilo jistou mez. Maximální zatížení nosníku daného průřezu souvisí délkou nosníku.", "Fyzikální analýzou je možné ukázat, že maximální svislá síla \(F\) působící v ose nosníku je nepřímo úměrná druhé mocnině jeho délky \(l\). Vyjádřete tento vztah matematicky."],
+    otazka=>["U nosníku namáhaného na vzpěr je nutné, aby zatížení nepřekročilo jistou mez. Maximální zatížení nosníku daného průřezu souvisí s délkou nosníku.", "Fyzikální analýzou je možné ukázat, že maximální svislá síla \(F\) působící v ose nosníku je nepřímo úměrná druhé mocnině jeho délky \(l\). Vyjádřete tento vztah matematicky."],
     odpoved=>"\(\displaystyle F=\frac k{l^2}\)",    
     moznosti=>[
 	  "\(\displaystyle F= k{l^2}\)",

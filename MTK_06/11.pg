@@ -16,16 +16,16 @@ $data =
 {
 otazka=>"Rovnice samočištění jezer má tvar 
 \[\frac{\mathrm dy}{\mathrm dt}=-ky,\]
-kde \(y\) je množství nečistot a \(k\) je konstanta spojená s vydatností průtoku a odtoku a s objemem jezera. Pro praktické využití je vhodné, dát konstantě \(k\) odpovídající praktický význam. Vyberte správnou variantu.",
+kde \(y\) je množství nečistot a \(k\) je konstanta spojená s vydatností průtoku a odtoku a s objemem jezera. Pro praktické využití je vhodné dát konstantě \(k\) odpovídající praktický význam. Vyberte správnou variantu.",
 nadpis=>"Konstanta z rovnice samočištění jezer",
 moznosti=>[
 "Konstanta \(k\) číselně udává rychlost úbytku nečistot v situaci, kdy nečistot v jezeře je jednotkové množství.",
-"Konstanta \(k\) číselně  udává rychlost úbytku nečistot na počátku procesu.",
+"Konstanta \(k\) číselně udává rychlost úbytku nečistot na počátku procesu.",
 "Konstanta \(k\) číselně udává čas nutný k vyplavení poloviny nečistot.",
 "Konstanta \(k\) číselně udává čas nutný k vyplavení jednotkového množství nečistot.",
-"Není možné odpovědět dokud nejsou specifikovány jednotky, ve kterých se měří množství nečistot.",
+"Není možné odpovědět, dokud nejsou specifikovány jednotky, ve kterých se měří množství nečistot.",
 ],
-vysvetleni=>"Vyjádření je zřejmé z toho, že pokud platí \(y=1\), rovnice se redukuje na  \[\frac{\mathrm dy}{\mathrm dt}=-k,\] tj. \(k\) je rychlost úbytku nečistot. Správná odpověď je: Konstanta \(k\) udává rychlost úbytku nečistot v situaci, kdy nečistot v jezeře je jednotkové množství.",
+vysvetleni=>"Vyjádření je zřejmé z toho, že pokud platí \(y=1\), rovnice se redukuje na \[\frac{\mathrm dy}{\mathrm dt}=-k,\] tj. \(k\) je rychlost úbytku nečistot. Správná odpověď je: Konstanta \(k\) udává rychlost úbytku nečistot v situaci, kdy nečistot v jezeře je jednotkové množství.",
 }
 ;
 

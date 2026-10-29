@@ -19,10 +19,10 @@ $data =
 {
     nadpis=>"Buckinghamův \(\Pi\) teorém",
     otazka=>"Jaký je význam Buckinghamova \(\Pi\) teorému? K čemu slouží bezrozměrné parametry?",
-    odpoved=>"Bezrozměrné parametry umožňují minimalizovat počet proměnných vystupujících ve fyzikálních zákonech",
+    odpoved=>"Bezrozměrné parametry umožňují minimalizovat počet proměnných vystupujících ve fyzikálních zákonech.",
     moznosti=>[
 "Bezrozměrné parametry zjednodušují úlohu díky absenci fyzikálních jednotek.",
-"Bezrozměrné parametry usnadňují výpočet derivací a s tím souvisejících rychlostí změn fyzikálních veličin",],
+"Bezrozměrné parametry usnadňují výpočet derivací a s tím souvisejících rychlostí změn fyzikálních veličin.",],
 }
 ];
 
@@ -58,8 +58,6 @@ BEGIN_PGML
 [$ot]*
 
 [_]{$radio}
-
-_[$zdroj]_
 
 END_PGML
 

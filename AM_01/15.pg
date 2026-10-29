@@ -71,7 +71,7 @@ $radioT = RadioButtons([
 "Parciální derivace je kladná, protože při konstantním \(H\) je \(w\) rostoucí funkcí \(T\).",
 "Parciální derivace je záporná, protože při konstantním \(w\) je \(H\) klesající funkcí \(T\).",
 "Parciální derivace je záporná, protože při konstantním \(H\) je \(w\) klesající funkcí \(T\).",
-"Paricální derivace střídá znaménko, žádná z předchozích odpovědí není platná na celém definičním oboru.",
+"Parciální derivace střídá znaménko, žádná z předchozích odpovědí není platná na celém definičním oboru.",
 "Není možné rozhodnout na základě uvedených informací."
 ],2);
 
@@ -82,7 +82,7 @@ $radiow = RadioButtons([
 "Parciální derivace je kladná, protože při konstantním \(H\) je \(T\) rostoucí funkcí \(w\).",
 "Parciální derivace je záporná, protože při konstantním \(T\) je \(H\) klesající funkcí \(w\).",
 "Parciální derivace je záporná, protože při konstantním \(H\) je \(T\) klesající funkcí \(w\).",
-"Paricální derivace střídá znaménko, žádná z předchozích odpovědí není platná na celém definičním oboru.",
+"Parciální derivace střídá znaménko, žádná z předchozích odpovědí není platná na celém definičním oboru.",
 "Není možné rozhodnout na základě uvedených informací."
 ],0);
 
@@ -93,7 +93,7 @@ BEGIN_PGML
 # Mlha na letišti
 
 Mlha z letiště může být odstraněna ohřátím vzduchu. Množství potřebného tepla souvisí s teplotou a vlhkostí vzduchu. Graf zobrazuje potřebné teplo [`H(T,w)`] (v kaloriích na kubický metr) jako funkci teploty 
-[`T`] (ve stupních Celsia) a vlhkosti [`w`] (v gramech na metr krychlový).  Graf zobrazuje teplo jako funkci teploty pro vybrané hodnoty vlhkosti. 
+[`T`] (ve stupních Celsia) a vlhkosti [`w`] (v gramech na metr krychlový). Graf zobrazuje teplo jako funkci teploty pro vybrané hodnoty vlhkosti. 
 
 [!Grafy!]{$TikZ}{400}
 
@@ -113,9 +113,9 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 
-Každá křivka ukazuje, jak závisí teplo [`H`] na teplotě [`T`] při konstantní vlhkosti [`w`]. Každá křivka je klesající a proto při konstantní vlhkosti potřebné teplo klesá s teplotou. Parciální derivace [`\frac{\partial H}{\partial T}`] je záporná.
+Každá křivka ukazuje, jak závisí teplo [`H`] na teplotě [`T`] při konstantní vlhkosti [`w`]. Každá křivka je klesající, a proto při konstantní vlhkosti potřebné teplo klesá s teplotou. Parciální derivace [`\frac{\partial H}{\partial T}`] je záporná.
 
-Pro posuzení parciální derivace [`\frac{\partial H}{\partial w}`] musíme sledovat chování tepla při konstantní teplotě. Konstantní teplota odpovídá svislým čarám v grafu. Směrem zdola nahoru podél libovolné svislé čáry roste [`H`] (protože jdeme ve směru osy [`H`]) a roste i [`w`] (vidíme v popiscích čar, [`w`] roste z hodnoty 0.1 pro spodní křivku na hodnotu 0.4 pro křivku nejvýše). Protože při konstantní teplotě roste teplo současně s vlhostí, je paricální derivace [`\frac{\partial H}{\partial w}`] kladná.
+Pro posouzení parciální derivace [`\frac{\partial H}{\partial w}`] musíme sledovat chování tepla při konstantní teplotě. Konstantní teplota odpovídá svislým čarám v grafu. Směrem zdola nahoru podél libovolné svislé čáry roste [`H`] (protože jdeme ve směru osy [`H`]) a roste i [`w`] (vidíme v popiscích čar, [`w`] roste z hodnoty 0.1 pro spodní křivku na hodnotu 0.4 pro křivku nejvýše). Protože při konstantní teplotě roste teplo současně s vlhkostí, je parciální derivace [`\frac{\partial H}{\partial w}`] kladná.
 
 END_PGML_SOLUTION
 

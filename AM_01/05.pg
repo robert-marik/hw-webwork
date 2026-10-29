@@ -92,7 +92,7 @@ Desetinná čísla nemusíte násobit mezi sebou, můžete je napsat ve tvaru so
 
 -------------------
 
-Vyberte správné tvrzení pro parciální derivaci  [``` \frac{\partial S}{\partial m} .```]
+Vyberte správné tvrzení pro parciální derivaci [``` \frac{\partial S}{\partial m} .```]
 
 
 [__]{$radio}
@@ -110,7 +110,7 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 
-Derivujeme vlastně jenom konstantní násobek mocninné funkce. Násobek je složen ze dvou faktorů: z numerické konstanty před funkcí a z mocniny proměnné, přes kterou se nederivuje.
+Derivujeme vlastně jenom konstantní násobek mocninné funkce. Násobek je složen ze dvou faktorů: z numerické konstanty před funkcí a z mocniny proměnné, podle které se nederivuje.
 
 [``` \frac{\partial S}{\partial m}= [$df] ```]							   
 

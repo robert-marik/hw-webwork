@@ -27,7 +27,7 @@ BEGIN_PGML
 
 ## Parciální derivace polynomu dvou proměnných
 
-Parciální derivace počítáme stejně jako klasické derivace, jenom dáváme pozor na to, podle které proměnné se derivuje. Pro tuto proměnnou používáme příslušné vztahy z diferenciálního počtu funkcí jedné proměnné a zbylé proměnné jsou považovány za parametry. Například funkci [```f(x,y)=x^2 y^5+y^6```] derivujeme podle [`x`] jako kvadratickou funkci opatřenou konstantním násobkem [`y^5`] a aditivní konstantou [`y^6`]. Proto platí [``` \frac{\partial f}{\partial x}=2xy^5.```] Při derivaci podle [`y`] tuto funkci chápeme jako součet dvou mocnin: mocniny pátého stupně s konstantním násobkem [`x^2`] a mocniny šestého stupně, tj.  [``` \frac{\partial f}{\partial y}=x^2 \cdot 5y^4+6y^5=5x^2y^4+6y^5.```]
+Parciální derivace počítáme stejně jako klasické derivace, jenom dáváme pozor na to, podle které proměnné se derivuje. Pro tuto proměnnou používáme příslušné vztahy z diferenciálního počtu funkcí jedné proměnné a zbylé proměnné jsou považovány za parametry. Například funkci [```f(x,y)=x^2 y^5+y^6```] derivujeme podle [`x`] jako kvadratickou funkci opatřenou konstantním násobkem [`y^5`] a aditivní konstantou [`y^6`]. Proto platí [``` \frac{\partial f}{\partial x}=2xy^5.```] Při derivaci podle [`y`] tuto funkci chápeme jako součet dvou mocnin: mocniny pátého stupně s konstantním násobkem [`x^2`] a mocniny šestého stupně, tj. [``` \frac{\partial f}{\partial y}=x^2 \cdot 5y^4+6y^5=5x^2y^4+6y^5.```]
 
 ---------------
 
@@ -43,7 +43,7 @@ END_PGML
 
 BEGIN_PGML_HINT
 
-Derivujte každý sčítanec zvlášť (stejně jako v předchozím příkladě) a derivace jednotlivých sčítanců sečteme. Pokud v některém sčítanci některá proměnná, podle které se derivuje, chybí, chová se tento sčítanec jako konstanta a protože derivace konstanty je nula, tak se ve výsledku neuplatní.
+Derivujte každý sčítanec zvlášť (stejně jako v předchozím příkladě) a derivace jednotlivých sčítanců sečtěte. Pokud v některém sčítanci některá proměnná, podle které se derivuje, chybí, chová se tento sčítanec jako konstanta a protože derivace konstanty je nula, tak se ve výsledku neuplatní.
 
 END_PGML_HINT
 

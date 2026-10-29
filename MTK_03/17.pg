@@ -6,7 +6,7 @@ loadMacros('PGstandard.pl', 'PGML.pl',
 @correct_answers =  (
 "Vzorec pro lineární aproximaci je \(f(x)\approx f(x_0)+f'(x_0)(x-x_0)\)",
 "Aby bylo možno lineární aproximaci použít, stačí znát funkční hodnotu a derivaci funkce v bodě \(x_0\).",
-"Aproximace je vždy lineární funkcí a proto s její pomocí získáme jednoduchý vzorec pro výpočet funkčních hodnot funkce \(f(x)\).",
+"Aproximace je vždy lineární funkcí, a proto s její pomocí získáme jednoduchý vzorec pro výpočet funkčních hodnot funkce \(f(x)\).",
 "Aproximace je spolehlivá jenom v okolí bodu \(x_0\). Na delším intervalu může dávat nespolehlivé výsledky." ,
 "Lineární aproximací funkce procházející počátkem v bodě \(x_0=0\) je přímá úměrnost."
 );

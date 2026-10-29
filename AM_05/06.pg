@@ -293,9 +293,9 @@ foreach my $i (0..5) {
 
 @explanation=("Vektorové pole a křivka směřují přibližně $dir0 směrem. Proto je integrál $sign0.",
 "Vektorové pole a křivka směřují $dir1 směrem. Proto je integrál $sign1.",
-"Vektorové pole je v každém bodě křivky kolmé na tuto křivku a proto je křivkový intergál nulový.",
+"Vektorové pole je v každém bodě křivky kolmé na tuto křivku, a proto je křivkový integrál nulový.",
 "Vektorové pole a křivka směřují přibližně $dir3 směrem. Proto je integrál $sign3.",
-"Vektorové pole je v každém bodě křivky kolmé na tuto křivku a proto je křivkový intergál nulový.",
+"Vektorové pole je v každém bodě křivky kolmé na tuto křivku, a proto je křivkový integrál nulový.",
 "Vektorové pole a křivka směřují přibližně $dir5 směrem. Proto je integrál $sign5.",
 );
 
@@ -339,7 +339,7 @@ END_TEXT
 install_problem_grader(~~&custom_problem_grader_fluid);
 $ENV{'grader_numright'} = [3,6];
 $ENV{'grader_scores'} = [0.5,1];
-$ENV{'grader_message'} = "Za 3 až pět správných odpovědí dostavate hodnocení 50%.";
+$ENV{'grader_message'} = "Za 3 až pět správných odpovědí dostáváte hodnocení 50%.";
 
 $showPartialCorrectAnswers = 0;
 
@@ -353,7 +353,7 @@ Všímáme si, kde je vektorové pole ve směru křivky a kdy je proti směru. V
 
 $PAR
 
-Následující odpovědi jsou vygenerovány automatem a  proto někdy mírně kostrbaté z jazykového hlediska. To, že pole a křivka míří "přibližně stejným směrem" znamená, že velikost úhlu mezi tečným vektorem ke křivce a vektorovým polem je menší než 90 stupňů. Obrat "přibližně opačný směr" značí úhel větší než 90 stupňů.
+Následující odpovědi jsou vygenerovány automatem, a proto jsou někdy mírně kostrbaté z jazykového hlediska. To, že pole a křivka míří "přibližně stejným směrem", znamená, že velikost úhlu mezi tečným vektorem ke křivce a vektorovým polem je menší než 90 stupňů. Obrat "přibližně opačný směr" značí úhel větší než 90 stupňů.
 
 
 $BR $BR

@@ -15,7 +15,7 @@ BEGIN_PGML
 ## Má zadané vektorové pole skalární potenciál?
 
 Vektorové pole [``` \vec F=P\vec i+Q\vec j```] (za předpokladu dostatečně hladkých složek) je gradientem nějaké skalární funkce [`f`], jestliže platí [``` \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}. ```] Toto je snadné si zapamatovat. Platí-li totiž
-[``` P=\frac {\partial f}{\partial x},\quad \text{a}\quad  Q=\frac{\partial f}{\partial y}```]
+[``` P=\frac {\partial f}{\partial x},\quad \text{a}\quad Q=\frac{\partial f}{\partial y}```]
 jsou obě parciální derivace [`` \frac{\partial P}{\partial y}``] a [`` \frac{\partial Q}{\partial x}``] rovny smíšené parciální derivaci funkce [``f``] a podle Schwarzovy věty jsou si rovny.
 
 Například komponenty vektorového pole [``` \vec F= x^2y\vec i+ x^3\vec j```]
@@ -118,7 +118,7 @@ Musíme vypočítat parciální derivace
 [``` \frac{\partial }{\partial x}\left([$fy]\right) ```]
 a
 [``` \frac{\partial }{\partial y}\left([$fx]\right) ```]
-a podle toho zda jsou nebo nejsou stejné správně usoudit na existenci nebo neexistenci skalárního potenciálu.
+a podle toho, zda jsou nebo nejsou stejné, správně usoudit na existenci nebo neexistenci skalárního potenciálu.
 
 END_PGML_HINT
 
@@ -130,7 +130,7 @@ Parciální derivace
 a
 [``` \frac{\partial }{\partial y}\left([$fx]\right) ```]
 [$jsou_nejsou]
-stejné a skalární potenciál k danému vektorovém poli [$existuje_neexistuje].
+stejné a skalární potenciál k danému vektorovému poli [$existuje_neexistuje].
 
 END_PGML_SOLUTION
 

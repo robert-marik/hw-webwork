@@ -11,6 +11,8 @@ loadMacros(
   "PGcourse.pl"
 );
 
+TEXT(beginproblem());
+
 $showHint = 1;
 
 do
@@ -46,11 +48,11 @@ BEGIN_PGML
 
 ## Modelování dynamiky populací
 
-Klasickým případem, kdy známe rychlost měnící se veličiny a zajímá nás tato veličina je sledování velikosti populace na základě rychlostí jejího růstu.
+Klasickým případem, kdy známe rychlost měnící se veličiny a zajímá nás tato veličina, je sledování velikosti populace na základě rychlostí jejího růstu.
 
 Přitom používáme různé nástroje, podle toho, zda je rychlost konstantní či nekonstantní a zda se rychlost řídí časem či velikostí populace.
 
-Spárujete dostupné nástroje se situací, kdy je tento nástroj vhodné použít. Pokud je více možností, volte tu nejjednodušší. Ve všech situacích modelujeme populaci, která se z počátečního stavu o velikosti [`N_0`] vyvíjí rychlostí [`r`]. Tato rychlost je buď konstantní, nebo závislá pouze na čase, nebo závislá pouze na velikosti populace, nebo závislá na čase i na velikosti populace.
+Spárujte dostupné nástroje se situací, kdy je tento nástroj vhodné použít. Pokud je více možností, volte tu nejjednodušší. Ve všech situacích modelujeme populaci, která se z počátečního stavu o velikosti [`N_0`] vyvíjí rychlostí [`r`]. Tato rychlost je buď konstantní, nebo závislá pouze na čase, nebo závislá pouze na velikosti populace, nebo závislá na čase i na velikosti populace.
 
 [_]{$draggable}
 

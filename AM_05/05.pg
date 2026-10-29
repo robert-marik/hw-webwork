@@ -109,7 +109,7 @@ for ( my $i=0; $i<3; $i++ ) {
 
 ## then the popups are
 @picked = num_sort( ($pickem[0], $pickem[1], $pickem[2]) );
-@intdesc = ( "?", "integral podel C1", "integral podel C2", "integral podel C3" );
+@intdesc = ( "?", "integrál podél C1", "integrál podél C2", "integrál podél C3" );
 $int1 = PopUp( [ @intdesc ], $intdesc[$invMap{$picked[0]} + 1] );
 $int2 = PopUp( [ @intdesc ], $intdesc[$invMap{$picked[1]} + 1] );
 $int3 = PopUp( [ @intdesc ], $intdesc[$invMap{$picked[2]} + 1] );
@@ -130,17 +130,17 @@ Křivkový integrál můžeme odhadnout podle obrázku. Představme si, že se j
 
 * Na úseku, kde je vektorové pole kolmé ke křivce, je příspěvek ke křivkovému integrálu nulový.
 * Na úseku, kde vektorové pole má s křivkou úhel menší než 90 stupňů, tj. křivka je jenom lehce odkloněná od směru vektorového pole, je příspěvek ke křivkovému integrálu kladný. Tento příspěvek je tím větší, čím je delší křivka, nebo silnější pole (delší vektory) nebo menší úhel mezi křivkou a polem. Pokud sledujeme jenom orientaci, je největší příspěvek v případě, že křivka je přesně ve směru vektorového pole, tj. vektorové pole je tečné ke křivce.
-* Na úseku, kde má vektorové pole s křivkou větší úhel než 90 stupňů, tj. křivka jde "proti" směrovému poli, je situace podobná jako výše, ale příslušná hodnota je záporná. Nejzápornější příspěvek k celkové hodnotě integrálu je tam, kde je křivka přesně proti vektorovému poli. 
+* Na úseku, kde má vektorové pole s křivkou větší úhel než 90 stupňů, tj. křivka jde "proti" vektorovému poli, je situace podobná jako výše, ale příslušná hodnota je záporná. Nejzápornější příspěvek k celkové hodnotě integrálu je tam, kde je křivka přesně proti vektorovému poli. 
 
 END_PGML
 
 
 BEGIN_TEXT
 
-Uvažujte vektorové pole  \( \vec{F} \) podle obrázku a tři křivky \( C_1 \), \( C_2 \) a \( C_3 \).
+Uvažujte vektorové pole \( \vec{F} \) podle obrázku a tři křivky \( C_1 \), \( C_2 \) a \( C_3 \).
 $PAR
 $PAR
-Seřaďte křivkové integrály  \( \displaystyle \int_{C_1} \vec{F} \,\mathrm d\vec{r} \),
+Seřaďte křivkové integrály \( \displaystyle \int_{C_1} \vec{F} \,\mathrm d\vec{r} \),
 \(\displaystyle \int_{C_2} \vec{F} \,\mathrm d\vec{r} \) a
 \(\displaystyle \int_{C_3} \vec{F} \,\mathrm d\vec{r} \) podle velikosti od nejmenšího po největší:
 $PAR
@@ -201,7 +201,7 @@ if ( @whichNeg > 1 ) {
     }
     $twosignexpl = "Oba integrály " .
         "\(\displaystyle\int_{C" . ($whichNeg[0]+1) . "}\vec F\,\mathrm d\vec r\) a " .
-	"\(\displaystyle\int_{C" . ($whichNeg[1]+1) . "}\vec F\,\mathrm d\vec r\) jsou záporné a musíme porovnat jejich vzájemnou velikost zvážením úhlu mezi křivkou a vektorovým polem (délka křivky je příbližně stejná, tedy hlavní roli hraje úhel). " .
+	"\(\displaystyle\int_{C" . ($whichNeg[1]+1) . "}\vec F\,\mathrm d\vec r\) jsou záporné a musíme porovnat jejich vzájemnou velikost zvážením úhlu mezi křivkou a vektorovým polem (délka křivky je přibližně stejná, tedy hlavní roli hraje úhel). " .
 	"Protože \($largercurve\) je více napříč " .
 	"vektorovým polem a méně proti jeho směru, " .
 	"je integrál podél \($largercurve\) větší (záporný a blíže k nule) " .
@@ -216,7 +216,7 @@ if ( @whichNeg > 1 ) {
     }
     $twosignexpl = "Oba integrály " .
         "\(\displaystyle\int_{C" . ($whichPos[0]+1) . "}\vec F\,\mathrm d\vec r\) a " .
-	"\(\displaystyle\int_{C" . ($whichPos[1]+1) . "}\vec F\,\mathrm d\vec r\) jsou kladné a musíme porovnat jejich vzájemnou velikost zvážením úhlu mezi křivkou a vektorovým polem (délka křivky je příbližně stejná, tedy hlavní roli hraje úhel). " .
+	"\(\displaystyle\int_{C" . ($whichPos[1]+1) . "}\vec F\,\mathrm d\vec r\) jsou kladné a musíme porovnat jejich vzájemnou velikost zvážením úhlu mezi křivkou a vektorovým polem (délka křivky je přibližně stejná, tedy hlavní roli hraje úhel). " .
 	"Protože \($largercurve\) je víc ve směru vektorového pole, je integrál podél \($largercurve\) větší než integrál podél \($smallercurve\).$PAR";
 } else {
     $twosignexpl = "";
@@ -230,7 +230,7 @@ Context()->texStrings;
 SOLUTION(EV3(<<'END_SOLUTION'));
 $PAR 
 Sledujeme směr křivek a vektorového pole.
-Porovnáme relativní velikosti integrálů zvážením úhlu mezi křivkou a vektorovým polem.  Křivka se směru vektorového pole produkuje kladný interál, křivka kolmá na pole nulový a křivka proti směru vektorového pole záporný interál.
+Porovnáme relativní velikosti integrálů zvážením úhlu mezi křivkou a vektorovým polem. Křivka ve směru vektorového pole produkuje kladný integrál, křivka kolmá na pole nulový a křivka proti směru vektorového pole záporný integrál.
 
 $PAR
 $expl1

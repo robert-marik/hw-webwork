@@ -103,7 +103,7 @@ Pokud chceme ze známého vlastního čísla [`\lambda`] určit vlastní vektor 
 v souřadnicích
 soustavu
 [``` \begin{pmatrix}3-2&-2\\1&0-2\end{pmatrix} \begin{pmatrix} v_1\\v_2\end{pmatrix}= \begin{pmatrix}1&-2\\1&-2\end{pmatrix} \begin{pmatrix} v_1\\v_2\end{pmatrix}=\begin{pmatrix}0\\0\end{pmatrix}.```]
-Protože jsme použili hodnotu [`\lambda`] rovnu vlastnímu číslu, má tato soustava nenulové řešení a ve dvourozměrném případě to znamená, že obě rovnice jsou stejné, nebo je jedna násobkem druhé. V našem případě [``` v_1-2v_2=0.```] Je proto snadné najít nějaké nenulové řešení, stačí zvolit libovolnou nenulovou jednu souřadnici vektoru [`\vec v`] a dopočítat druhou. Například pro [`v_2=1`] dostáváme [`v_1=2`] a vlastním vektorem je například vektor [``\vec v=\begin{pmatrix}2\\1\end{pmatrix}``].
+Protože jsme použili hodnotu [`\lambda`] rovnou vlastnímu číslu, má tato soustava nenulové řešení a ve dvourozměrném případě to znamená, že obě rovnice jsou stejné, nebo je jedna násobkem druhé. V našem případě [``` v_1-2v_2=0.```] Je proto snadné najít nějaké nenulové řešení, stačí zvolit libovolnou nenulovou jednu souřadnici vektoru [`\vec v`] a dopočítat druhou. Například pro [`v_2=1`] dostáváme [`v_1=2`] a vlastním vektorem je například vektor [``\vec v=\begin{pmatrix}2\\1\end{pmatrix}``].
 
 
 ------
@@ -127,7 +127,7 @@ Context()->normalStrings;
 #  Answer evaluation
 
 BEGIN_PGML_HINT
-Pro první příklad musíte vyřešit soustavu lineárních rovnic. Sledujte řešený příklad a případně další příklady ze cvičení čí přednášky.
+Pro první příklad musíte vyřešit soustavu lineárních rovnic. Sledujte řešený příklad a případně další příklady ze cvičení či přednášky.
 
 Ve druhém případě stačí vynásobit matici s vektorem a podívat se, na jaký násobek se vektor transformuje. Pokud máte potíže s násobením a chcete si správnost zkontrolovat, použijte MATLAB, Octave nebo Sage.
 END_PGML_HINT

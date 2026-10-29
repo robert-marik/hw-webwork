@@ -26,7 +26,7 @@ BEGIN_PGML
 
 [@ image("dinosaurus.jpg", width=>400) @]*
 
-Rychlost jakou dosahovali dvounozí dinosauři se dá odhadnout ze vzdálenosti jejich stop a z délky stehenní kosti. První takový odhad představil v roce 1976 bristký zoolog [@ htmlLink("https://en.wikipedia.org/wiki/Robert_McNeill_Alexander","Robert McNeill Alexander")@]* ve tvaru
+Rychlost, jakou dosahovali dvounozí dinosauři, se dá odhadnout ze vzdálenosti jejich stop a z délky stehenní kosti. První takový odhad představil v roce 1976 britský zoolog [@ htmlLink("https://en.wikipedia.org/wiki/Robert_McNeill_Alexander","Robert McNeill Alexander")@]* ve tvaru
 [``` v=0.25 \sqrt g l^{1.67} h^{-1.17},```]
 kde [`v`] je rychlost dinosaura v metrech za sekundu, [`h`] je (zjednodušeně řečeno) délka stehenní kosti v metrech, [`l`] je délka kroku v metrech a [`g`] je tíhové zrychlení v metrech za sekundu na druhou.
 
@@ -59,11 +59,11 @@ BEGIN_PGML_SOLUTION
 Derivace rychlosti [`v`] dinosaura podle délky kroku [`l`] je
 [``` \frac{\mathrm dv}{\mathrm dl}=0.8\cdot 1.67 l^{0.67}.```]
 
-Udává, jak rychle se mění rychlosti [`v`] dinosaura v závislosti na délce kroku [`l`]. 
+Udává, jak rychle se mění rychlost [`v`] dinosaura v závislosti na délce kroku [`l`]. 
 
 Protože obrat "jak rychle se mění rychlost" je neobratný, můžeme rychlost lépe interpretovat jako změnu měnící se veličiny při jednotkovém navýšení vstupních dat. 
 
-Tedy změna rychlosti dinosaura při prodloužení délky kroku o jednotku. Případně v jednotkách můžem říci, že derivace udává o kolik metrů za sekundu je vyšší rychlost dinosaura při kroku o metr delším.
+Tedy změna rychlosti dinosaura při prodloužení délky kroku o jednotku. Případně v jednotkách můžeme říci, že derivace udává, o kolik metrů za sekundu je vyšší rychlost dinosaura při kroku o metr delším.
 
 
 END_PGML_SOLUTION

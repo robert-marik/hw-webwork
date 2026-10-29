@@ -49,13 +49,13 @@ Context()->normalStrings;
 $showPartialCorrectAnswers = 1;
 
 BEGIN_PGML_HINT
-Na souřadnicích středu krychle nezáleží. Musíte vydělit tok (je zadaný) objemem krychle (délka hrany je zadána a objem vypočteme jako třetí mocninu). Nemusíte hledat kalkulačku, stačí zapsat výše popsanou hodnotu to odpovědního políčka a stroj hodnotu numericky dopočítá samostatně.
+Na souřadnicích středu krychle nezáleží. Musíte vydělit tok (je zadaný) objemem krychle (délka hrany je zadána a objem vypočteme jako třetí mocninu). Nemusíte hledat kalkulačku, stačí zapsat výše popsanou hodnotu do odpovědního políčka a stroj hodnotu numericky dopočítá samostatně.
 END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 Musíme vydělit tok (je zadaný) objemem krychle (délka hrany je zadána a objem vypočteme jako třetí mocninu).
 Tedy
-[``` \nabla \cdot \vec{F} ([$P[0]],[$P[1]],[$P[2]])  \approx \frac{[$flux]}{[$s]^3} \approx [$div].```]
+[``` \nabla \cdot \vec{F} ([$P[0]],[$P[1]],[$P[2]]) \approx \frac{[$flux]}{[$s]^3} \approx [$div].```]
 Na souřadnicích středu krychle nezáleží. 
 END_PGML_SOLUTION
 

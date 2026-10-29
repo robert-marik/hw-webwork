@@ -29,9 +29,6 @@ foreach my $i (0..10) {
 $from=random(0,6,1);
 do {  $to=random(2,10,1); } until ($to-$from)>2;
 
-$vstupy=$x[$from..$to];
-$vystupy=$fx[$from..$to];
-
 $a=$x[$from];
 $b=$x[$to];
 
@@ -55,7 +52,7 @@ BEGIN_PGML
 
 Lichoběžníkové pravidlo je nejjednodušší způsob numerického odhadu integrálu. Geometricky se zakládá na tom, že při výpočtu integrálu [``` \int_a^b f(x)\,\mathrm{d}x ```] rozdělíme interval [`[a,b]`] na stejně dlouhé podintervaly, vypočteme funkční hodnoty v krajních bodech těchto podintervalů a aproximujeme funkci lomenou čarou, která v krajních bodech podintervalů nabývá stejných hodnot. Pro praktický výpočet používáme vzorec [``` \int_a^bf(x)\,\mathrm dx\approx \frac h2\Bigl(
 {y_0}+2y_1+2y_2+\cdots+2y_{n-1}+{y_n}\Bigr),```]
-kde [`h`] je délka podintervalu a [`y_i`] jsou funkční body v krajních bodech podintervalů.
+kde [`h`] je délka podintervalu a [`y_i`] jsou funkční hodnoty v krajních bodech podintervalů.
 
     [@ DataTable(
            [
@@ -100,7 +97,7 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 
-Musíme použít funkční hodnoty v bodech mezi [`x=[$a]`] a [`x=[$b]`]. Krajní hodnoty vezmeme jednou, všechny ostatní vezmeme dvakrát a sečtěte. Tím dostaneme hodnotu součtu v závorce. Tuto vynásobíme vzdáleností mezi sousedními hodnotami [`x`], tj. číslem [`h=[$h]`] a vydělíme dvěma.
+Musíme použít funkční hodnoty v bodech mezi [`x=[$a]`] a [`x=[$b]`]. Krajní hodnoty vezmeme jednou, všechny ostatní vezmeme dvakrát a sečteme. Tím dostaneme hodnotu součtu v závorce. Tuto vynásobíme vzdáleností mezi sousedními hodnotami [`x`], tj. číslem [`h=[$h]`] a vydělíme dvěma.
 
 
 [`` \int_{[$a]}^{[$b]} f(x)\,\mathrm dx\approx \frac {[$h]}{2} \Bigl([@$vypocet@]* \Bigr)=[$integral] ``]

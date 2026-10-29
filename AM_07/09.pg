@@ -123,7 +123,7 @@ Musíme vypočítat parciální derivace
 [``` \frac{\partial }{\partial x}\left([$fy]\right) ```]
 a
 [``` \frac{\partial }{\partial y}\left([$fx]\right) ```]
-a podle toho zda jsou nebo nejsou stejné správně usoudit na existenci nebo neexistenci skalárního potenciálu a tím i na nulovost nebo možnou nenulovost daného integrálu.
+a podle toho, zda jsou nebo nejsou stejné, správně usoudit na existenci nebo neexistenci skalárního potenciálu a tím i na nulovost nebo možnou nenulovost daného integrálu.
 
 END_PGML_HINT
 
@@ -135,7 +135,7 @@ Parciální derivace
 a
 [``` \frac{\partial }{\partial y}\left([$fx]\right) ```]
 [$jsou_nejsou]
-stejné, skalární potenciál k danému vektorovém poli [$existuje_neexistuje].
+stejné, skalární potenciál k danému vektorovému poli [$existuje_neexistuje].
 [$nula_nenula]
 
 END_PGML_SOLUTION

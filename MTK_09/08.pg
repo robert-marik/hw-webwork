@@ -25,7 +25,7 @@ $data =
 {
     obrazek=>"fire",
     nadpis=>"Lesní požár",
-    otazka=>"Pomocí difuzní rovnice je možno modelovat postup lesního požáru. V tomto případě se používá rovnice vedení tepla, ve které jsou započítány zdroje. Model je zpravidla velmi hrubý a prosto stačí uvažovat prostředí jako homogenní s lineární odezvou a izotropní. Vyberte model vhodný pro zkoumání takového problému. Pokud je možných více variant, vyberte tu s nejjednodušším matematickým vyjádřením.",
+    otazka=>"Pomocí difuzní rovnice je možno modelovat postup lesního požáru. V tomto případě se používá rovnice vedení tepla, ve které jsou započítány zdroje. Model je zpravidla velmi hrubý a proto stačí uvažovat prostředí jako homogenní s lineární odezvou a izotropní. Vyberte model vhodný pro zkoumání takového problému. Pokud je možných více variant, vyberte tu s nejjednodušším matematickým vyjádřením.",
     odpoved=>"$t=\sigma+$Dx",    
     moznosti=>[
 "0=\sigma+$dx",
@@ -45,7 +45,7 @@ zdroj=>"Obrázek: pixabay.com, autor designerpoint"
 }
 ,
 { nadpis=>"Pohyb sedimentů",
-  otazka=>"Pomocí difuzní rovnice je možno modelovat pohyb sedimentů, jako dno plavebního kanálu zanášeného sedimenty, nebo pohyb tektonických vrstev a jejich vývoj v čase. Častým modelem je například model zachycující zákon zachování množství sedimentů. Tato úloha se často uvažuje pro dané množství sedimentů, tedy bez zdrojů. Prostředí se pro jednoduchost uvažuje homogenní a izotropní ale s nelineární odezvou. Vyberte model vhodný pro zkoumání takového problému. Pokud je možných více variant, vyberte tu s nejjednodušším matematickým vyjádřením.",
+  otazka=>"Pomocí difuzní rovnice je možno modelovat pohyb sedimentů, jako dno plavebního kanálu zanášeného sedimenty, nebo pohyb tektonických vrstev a jejich vývoj v čase. Častým modelem je například model zachycující zákon zachování množství sedimentů. Tato úloha se často uvažuje pro dané množství sedimentů, tedy bez zdrojů. Prostředí se pro jednoduchost uvažuje homogenní a izotropní, ale s nelineární odezvou. Vyberte model vhodný pro zkoumání takového problému. Pokud je možných více variant, vyberte tu s nejjednodušším matematickým vyjádřením.",
   odpoved=>"$t=$Dxa",
   moznosti=>["0=\sigma+$dx","$t=$dxa","0=$Dx"],
   obrazek=>"sedimenty",
@@ -117,12 +117,12 @@ END_PGML
 
 BEGIN_PGML_HINT
 
-V zadání je řečeno, jestli se mají uvažovat zdroje, anizotropie, homogenita atd. Pokud to není řešeno, je to jasné z kontextu. Stačí si toto uvědomit a poté se řídit obecnými zásadami. Viz níže.
+V zadání je řečeno, jestli se mají uvažovat zdroje, anizotropie, homogenita atd. Pokud to není řečeno, je to jasné z kontextu. Stačí si toto uvědomit a poté se řídit obecnými zásadami. Viz níže.
 
 * Je v rovnici derivace podle času? Pokud ano, je rovnice nestacionární a dokáže popsat časový vývoj, nestacionární děj. Pokud ne, je to stacionární rovnice a popisuje stacionární děj.
 * Je v rovnici člen bez derivace? Pokud ano, jedná se o člen udávající zdroje. Rovnice je schopna zachytit popis děje, kdy stavová veličina může vznikat či zanikat. Pokud tam tento člen není, je rovnice bezzdrojová.
 * V difuzní rovnici jsou vždy členy s derivací podle polohy. Jsou ve formě druhých derivací, nebo kvaziderivací? V prvním případě (druhé derivace) je rovnice vhodná pro popis homogenního materiálu s lineární materiálovou charakteristikou. V opačném případě je alespoň jedna z těchto podmínek porušena.
-* V difuzní rovnici jsou u členů s derivací podle polohy difuzní koeficienty. Jsou všech členech členech stejné, nebo jsou odlišeny, například indexem? Pokud jsou stejné, jedná se o rovnici pro izotropní materiál. Taková rovnice je jednodušší, ale nedokáže popsat materiál mající v různých směrech různé vlastnosti. To dokáže až rovnice, která používá v různých směrech různý difuzní koeficient.
+* V difuzní rovnici jsou u členů s derivací podle polohy difuzní koeficienty. Jsou ve všech členech stejné, nebo jsou odlišeny, například indexem? Pokud jsou stejné, jedná se o rovnici pro izotropní materiál. Taková rovnice je jednodušší, ale nedokáže popsat materiál mající v různých směrech různé vlastnosti. To dokáže až rovnice, která používá v různých směrech různý difuzní koeficient.
 
 
 

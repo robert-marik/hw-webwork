@@ -17,7 +17,7 @@ $data =
 [
 {
     nadpis=>"Primitivní funkce",
-    otazka=>"Který z bodů vyjadřuje, že funkce \(F(x)\) je primitivní funkcí k \(f(x)\).",
+    otazka=>"Který z bodů vyjadřuje, že funkce \(F(x)\) je primitivní funkcí k \(f(x)\)?",
     odpoved=>"Derivace funkce \(F(x)\) je rovna \(f(x)\).",
     moznosti=>[
 "Derivace funkce \(f(x)\) je rovna \(F(x)\).",
@@ -59,8 +59,6 @@ BEGIN_PGML
 [$ot]*
 
 [_]{$radio}
-
-_[$zdroj]_
 
 END_PGML
 

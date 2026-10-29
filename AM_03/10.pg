@@ -49,7 +49,7 @@ Předpokládejme, že máme zmapovaný tok stavové veličiny pomocí vektorové
 
 Například u stacionárního proudění tekutiny známe v každém bodě rychlost proudění a zajímá nás, zda voda prosakuje a kterým směrem. (Toto prosakování je z hlediska celkové bilance vody v proudu vznik nebo zánik a značí přítomnost zdrojů či spotřebičů.) 
 
-Toto je aplikace přímo jako stvořená pro operátor divergence. Divergence udává změnu v toku jednotkovým objemem. Pokud divergenci v bodě vynásobíme objemem, dostaneme odhad pro celkové množství stavové veličiny, které za jednotku času v daném objemu vznikne či zanikne.  U vody například kolik vody prosákne do toku nebo z toku ven.
+Toto je aplikace přímo jako stvořená pro operátor divergence. Divergence udává změnu v toku jednotkovým objemem. Pokud divergenci v bodě vynásobíme objemem, dostaneme odhad pro celkové množství stavové veličiny, které za jednotku času v daném objemu vznikne či zanikne. U vody například kolik vody prosákne do toku nebo z toku ven.
 
 -------------------------
 
@@ -60,7 +60,7 @@ Vypočtěte množství stavové veličiny, která vzniká při stacionárním pr
 Vypočtěte nejprve divergenci obecně.
 >>[``\nabla \cdot \vec F(x,y,z)={}``][____________________________________]{$divergence}<<
 
-Poté vypočtěte nejprve divergenci v bodě [`([$x0],[$y0],0)`].
+Poté vypočtěte divergenci v bodě [`([$x0],[$y0],0)`].
 >>[``\nabla \cdot \vec F([$x0],[$y0],0)={}``][____________________________________]{$divergenceBod}<<
 
 Poté vypočtěte objem krychle o hraně délky [`[$hrana]`].

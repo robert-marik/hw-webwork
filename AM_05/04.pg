@@ -109,7 +109,7 @@ for ( my $i=0; $i<3; $i++ ) {
 
 ## then the popups are
 @picked = num_sort( ($pickem[0], $pickem[1], $pickem[2]) );
-@intdesc = ( "?", "integral podel C1", "integral podel C2", "integral podel C3" );
+@intdesc = ( "?", "integrál podél C1", "integrál podél C2", "integrál podél C3" );
 
 @answer=(2,2,2);
 for ( my $i=0; $i<3; $i++ ) {
@@ -140,14 +140,14 @@ Křivkový integrál můžeme odhadnout podle obrázku. Představme si, že se j
 
 * Na úseku, kde je vektorové pole kolmé ke křivce, je příspěvek ke křivkovému integrálu nulový.
 * Na úseku, kde vektorové pole má s křivkou úhel menší než 90 stupňů, tj. křivka je jenom lehce odkloněná od směru vektorového pole, je příspěvek ke křivkovému integrálu kladný. Tento příspěvek je tím větší, čím je delší křivka, nebo silnější pole (delší vektory) nebo menší úhel mezi křivkou a polem. Pokud sledujeme jenom orientaci, je největší příspěvek v případě, že křivka je přesně ve směru vektorového pole, tj. vektorové pole je tečné ke křivce.
-* Na úseku, kde má vektorové pole s křivkou větší úhel než 90 stupňů, tj. křivka jde "proti" směrovému poli, je situace podobná jako výše, ale příslušná hodnota je záporná. Nejzápornější příspěvek k celkové hodnotě integrálu je tam, kde je křivka přesně proti vektorovému poli. 
+* Na úseku, kde má vektorové pole s křivkou větší úhel než 90 stupňů, tj. křivka jde "proti" vektorovému poli, je situace podobná jako výše, ale příslušná hodnota je záporná. Nejzápornější příspěvek k celkové hodnotě integrálu je tam, kde je křivka přesně proti vektorovému poli. 
 
 END_PGML
 
 
 BEGIN_TEXT
 
-Uvažujte vektorové pole  \( \vec{F} \) podle obrázku a tři křivky \( C_1 \), \( C_2 \) a \( C_3 \).
+Uvažujte vektorové pole \( \vec{F} \) podle obrázku a tři křivky \( C_1 \), \( C_2 \) a \( C_3 \).
 $PAR
 
 Určete znaménko jednotlivých integrálů.
@@ -186,8 +186,8 @@ Context()->normalStrings;
 BEGIN_PGML_SOLUTION
 
 Vektorové pole směřuje doprava. Tam, kde křivka směřuje doprava, nebo
-doprava nahoru nebo doprava dolů, bude křivkový integrál kladný. Tam
-kde křivka směřuje sisle nahoru nebo svisle dolů, bude křivkový
+doprava nahoru nebo doprava dolů, bude křivkový integrál kladný. Tam,
+kde křivka směřuje svisle nahoru nebo svisle dolů, bude křivkový
 integrál nulový. V opačném případě (křivka doleva, včetně doleva dolů nebo doleva nahoru) záporný.
 
 END_PGML_SOLUTION

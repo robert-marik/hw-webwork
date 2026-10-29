@@ -62,7 +62,7 @@ BEGIN_PGML
 
 Toto je kombinace úloh "Parametr zaručující nevírovost" a "Nalezení skalárního potenciálu funkce".
 
-Vektorové pole [``` \vec F=P\vec i+Q\vec j```] (za předpokladu dostatečně hladkých složek) je gradientem nějaké skalární funkce [`f`], jestliže platí [``` \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}. ```] Funkci [`f`], skalární potenciál vektorového pole [`\vec F`], najdeme integrováním. Protože platí [``` P=\frac {\partial f}{\partial x},\quad \text{a}\quad  Q=\frac{\partial f}{\partial y},```]
+Vektorové pole [``` \vec F=P\vec i+Q\vec j```] (za předpokladu dostatečně hladkých složek) je gradientem nějaké skalární funkce [`f`], jestliže platí [``` \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}. ```] Funkci [`f`], skalární potenciál vektorového pole [`\vec F`], najdeme integrováním. Protože platí [``` P=\frac {\partial f}{\partial x},\quad \text{a}\quad Q=\frac{\partial f}{\partial y},```]
 je (integrací podle [`x`], integrační konstanta může být funkcí proměnné [`y`])
 [``` f(x,y)=\int P(x,y) \,\mathrm dx +C_1(y)```]
 a (integrací podle [`y`], integrační konstanta může být funkcí proměnné [`x`])
@@ -80,7 +80,7 @@ Obě derivace jsou stejné pro [`a=2`] a jedině pro tuto hodnotu parametru [`a`
 Pro [`a=2`], tj. pro vektorové pole [``` \vec F=2 xy^3\vec i+(3x^2y^2+y^3)\vec j ```] platí
 [``` \int P(x,y)\,\mathrm dx=\int 2xy^3\,\mathrm dx= x^2 y^3 + C_1(y)```]
 a
-[``` \int Q(x,y)\,\mathrm dy=\int 3x^2y^2+ y^3\,\mathrm dy=x^2 y^3 + \frac 14 y^4 + C_2(x).```]
+[``` \int Q(x,y)\,\mathrm dy=\int (3x^2y^2+ y^3)\,\mathrm dy=x^2 y^3 + \frac 14 y^4 + C_2(x).```]
 Stejnou úvahou jako v předchozím příkladě identifikujeme skalární potenciál 
 [``` f(x,y)=x^2y^3 + \frac 14 y^4 +C,```]
 kde [`C`] je libovolná reálná konstanta. 
@@ -99,7 +99,7 @@ END_PGML
 
 BEGIN_PGML_HINT
 
-Musíte najít hodnotu parametru pro kterou jsou stejné [`` \frac{\partial Q}{\partial x} ``] a [`` \frac{\partial P}{\partial y}. ``]  Vypočtěte
+Musíte najít hodnotu parametru, pro kterou jsou stejné [`` \frac{\partial Q}{\partial x} ``] a [`` \frac{\partial P}{\partial y}. ``] Vypočtěte
 [``` \frac{\partial }{\partial x} ([$Q]) ```]
 a 
 [``` \frac{\partial }{\partial y} ([$P]) ```]
@@ -107,16 +107,16 @@ a dále pracujte s hodnotou parametru [`a`], která garantuje rovnost obou deriv
 
 
 Pro tuto hodnotu musíme vypočítat integrály
-[``` \int [$P]\,\mathrm dx ```]
+[``` \int ([$P])\,\mathrm dx ```]
 a
-[``` \int [$Q]\,\mathrm dy ```]
+[``` \int ([$Q])\,\mathrm dy ```]
 a z výsledku sestavit skalární potenciál.
 
 END_PGML_HINT
 
 
 BEGIN_PGML_SOLUTION
-Musíte najít hodnotu parametru pro kterou jsou stejné [`` \frac{\partial Q}{\partial x} ``] a [`` \frac{\partial P}{\partial y}. ``]  Platí
+Musíte najít hodnotu parametru, pro kterou jsou stejné [`` \frac{\partial Q}{\partial x} ``] a [`` \frac{\partial P}{\partial y}. ``] Platí
 [``` \frac{\partial }{\partial x} ([$Q])=[$dQ] ```]
 a 
 [``` \frac{\partial }{\partial y} ([$P])=[$dP]. ```]
@@ -125,9 +125,9 @@ Tyto derivace jsou stejné pro [`a=[$nasobek1]`].
 
 
 Platí
-[``` \int [$Pa]\,\mathrm dx =[$Pint]+C(y)```]
+[``` \int ([$Pa])\,\mathrm dx =[$Pint]+C(y)```]
 a
-[``` \int [$Q]\,\mathrm dy =[$Qint]+C(x).```]
+[``` \int ([$Q])\,\mathrm dy =[$Qint]+C(x).```]
 Skalární potenciál je
 [``` f(x,y)=[$potencial]+C.```]
 

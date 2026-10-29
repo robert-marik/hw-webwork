@@ -88,7 +88,7 @@ END_PGML
 
 BEGIN_PGML_HINT
 
-Stačí do [``` \vec F=[$F]```] dosadit  [```x=[$r1]```] a [```y=[$r2]```] a případně upravit.
+Stačí do [``` \vec F=[$F]```] dosadit [```x=[$r1]```] a [```y=[$r2]```] a případně upravit.
 
 END_PGML_HINT
 

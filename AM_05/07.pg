@@ -329,24 +329,24 @@ if ($s[3]>0) {$sign3='záporný' ; $dir3='opačným'} else
 {$sign3='kladný'; $dir3= 'stejným'};
 
 @explanation=("Půlkružnici rozdělíme na dvě čtvrtkružnice a porovnáváme příspěvky od těchto čtvrtkružnic. Rozhodující bude ta část, kde jsou delší vektory. Na této části vektory a křivka směřují přibližně $dir0 směrem. Proto je integrál $sign0.",
-"Křivku rozdělíme na čtyři části: dvě třičtvrtě-kružnice, jeden svislý a jeden vodorovný úsek. Příspěvek od vodorovného a svislého úseku je nulový, protože tyto úseky jsou kolmé na vektorové pole. Vektory podél větší kružnice mají větší velikost a směřují $dir1 směrem jako křivka. Proto je integrál $sign1.",
-"Křivku rozdělíme na čtyři části: dvě třičtvrtě-kružnice, jeden svislý a jeden vodorovný úsek. Vektory jsou kolmé ke kružnicím a proto je integrál podél částí kružnic nulový. Křivkové integrály podél rovných úseků jsou jeden kladný a jeden záporný a v absolutní hodnotě stejně velké. Proto se vykompenzují a integrál po celé křivce je nulový.",
+"Křivku rozdělíme na čtyři části: dvě třičtvrtěkružnice, jeden svislý a jeden vodorovný úsek. Příspěvek od vodorovného a svislého úseku je nulový, protože tyto úseky jsou kolmé na vektorové pole. Vektory podél větší kružnice mají větší velikost a směřují $dir1 směrem jako křivka. Proto je integrál $sign1.",
+"Křivku rozdělíme na čtyři části: dvě třičtvrtěkružnice, jeden svislý a jeden vodorovný úsek. Vektory jsou kolmé ke kružnicím, a proto je integrál podél částí kružnic nulový. Křivkové integrály podél rovných úseků jsou jeden kladný a jeden záporný a v absolutní hodnotě stejně velké. Proto se vykompenzují a integrál po celé křivce je nulový.",
 "Křivku rozdělíme na tři části, tři strany trojúhelníka. Křivkový integrál je nulový podél svislého a vodorovného úseku, protože zde je vektorové pole kolmé na křivku. Podél šikmého úseku směřují vektorové pole a křivka $dir3 směrem. Proto je integrál $sign3.",
-"Vektorové pole je v každém bodě křivky kolmé na tuto křivku a proto je křivkový intergál nulový.",
+"Vektorové pole je v každém bodě křivky kolmé na tuto křivku, a proto je křivkový integrál nulový.",
 "Křivkový integrál podél křivky v prvním kvadrantu je díky symetrii a opačnému znaménku vyvážen stejně velkým integrálem opačného znaménka ve třetím kvadrantu. Podobně druhý a čtvrtý kvadrant. Integrál je proto roven nule."
 );
 
 BEGIN_PGML
 ## Odhad křivkového integrálu po složené cestě
 
-Nyní rozšíříme předchozí příklad. Křivky jsou zpravidla z několika úseků. Na každém určíme, zda je křivkový integrál kladný, záporný nebo nulový a poté sečteme jednotlivé příspěvky. Opět platí, že
+Nyní rozšíříme předchozí příklad. Křivky jsou zpravidla z několika úseků. Na každém určíme, zda je křivkový integrál kladný, záporný nebo nulový, a poté sečteme jednotlivé příspěvky. Opět platí, že
 
 * pole kolmo na křivku nepřispívá k celkové hodnotě,
 * pole ve směru křivky přispívá k celkové hodnotě kladně, a to tím více, čím je větší délka vektorů tohoto pole, čím více je pole orientováno ve směru křivky a čím je křivka delší,
 * pole proti směru křivky přispívá k celkové hodnotě záporně, a to tím více, čím je větší délka vektorů tohoto pole, čím více je pole orientováno proti směru křivky a čím je křivka delší,
 * stejné pole podél delší křivky přispívá numericky více (tj. více kladně, nebo více záporně, podle vzájemné orientace křivky a pole).
 
-Pokud se u obrázku sejde část křivky s kladným příspěvkem a záporným příspěvkem, musíme porovnat vzájemnou velikost.  Sledujeme případnou symetrii (kladný a záporný příspěvek se vyruší), délku vektorů, délku příslušné části křivky a podobně.
+Pokud se u obrázku sejde část křivky s kladným příspěvkem a záporným příspěvkem, musíme porovnat vzájemnou velikost. Sledujeme případnou symetrii (kladný a záporný příspěvek se vyruší), délku vektorů, délku příslušné části křivky a podobně.
 V případě půlkružnice se situace mění podél křivky, proto je výhodné tuto půlkružnici rozdělit na dvě čtvrtkružnice a porovnat vzájemné příspěvky od těchto čtvrtkružnic.
 END_PGML
 
@@ -377,7 +377,7 @@ END_TEXT
 install_problem_grader(~~&custom_problem_grader_fluid);
 $ENV{'grader_numright'} = [2,4];
 $ENV{'grader_scores'} = [0.5,1];
-$ENV{'grader_message'} = "Za 2 až 3 správných odpovědí dostáváte hodnocení 50%.";
+$ENV{'grader_message'} = "Za 2 až 3 správné odpovědi dostáváte hodnocení 50%.";
 
 $showPartialCorrectAnswers = 0;
 
@@ -389,11 +389,11 @@ BEGIN_SOLUTION
 
 $PAR
 
-Všímáme si, kde je vektorové pole ve směru křivky a kdy je proti směru. Podle toho poznáme kladný a záporný příspěvek k celému integrálu. Pokud u jedné křivky máme i kladné i záporné příspěvky, musíme posoudit jejich velikost. Obecně dělší křivka a delší vektory vektorového pole podél křivky značí větší příspěvek k celkovému integrálu. Ze symetrie je někdy možno odhadnout, že kladný a záporný příspěvek jsou v abosolutní hodnotě stejně velké a proto se vyruší.
+Všímáme si, kde je vektorové pole ve směru křivky a kdy je proti směru. Podle toho poznáme kladný a záporný příspěvek k celému integrálu. Pokud u jedné křivky máme i kladné i záporné příspěvky, musíme posoudit jejich velikost. Obecně delší křivka a delší vektory vektorového pole podél křivky značí větší příspěvek k celkovému integrálu. Ze symetrie je někdy možno odhadnout, že kladný a záporný příspěvek jsou v absolutní hodnotě stejně velké, a proto se vyruší.
 
 $PAR
 
-Následující odpovědi jsou vygenerovány automatem a  proto někdy mírně kostrbaté z jazykového hlediska. To, že pole a křivka míří "přibližně stejným směrem" znamená, že velikost úhlu mezi tečným vektorem ke křivce a vektorovým polem je menší než 90 stupňů. Obrat "přibližně opačný směr" značí úhel větší než 90 stupňů.
+Následující odpovědi jsou vygenerovány automatem, a proto jsou někdy mírně kostrbaté z jazykového hlediska. To, že pole a křivka míří "přibližně stejným směrem", znamená, že velikost úhlu mezi tečným vektorem ke křivce a vektorovým polem je menší než 90 stupňů. Obrat "přibližně opačný směr" značí úhel větší než 90 stupňů.
 
  $BR $BR
 1. $explanationp[0] $BR $BR

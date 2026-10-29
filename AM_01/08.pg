@@ -65,7 +65,7 @@ BEGIN_PGML
 [@ image("inline.jpg", width=>400) @]*
 
     
-    Tabulka (volně podle _Parade Magazine_,  28. dubna 1994, ale se "zašuměnými" hodnotami pro zvýšení náhodnosti příkladu) ukazuje počet kalorií [`c`] spálených za minutu při jízdě na kolečkových burslích v závislosti na hmotnosti osoby ([`m`], v librách) a rychlosti pohybu ([`v`], v mílích za hodinu). 
+    Tabulka (volně podle _Parade Magazine_, 28. dubna 1994, ale se "zašuměnými" hodnotami pro zvýšení náhodnosti příkladu) ukazuje počet kalorií [`c`] spálených za minutu při jízdě na kolečkových bruslích v závislosti na hmotnosti osoby ([`m`], v librách) a rychlosti pohybu ([`v`], v mílích za hodinu). 
     
     [@ DataTable(
 	   [
@@ -88,7 +88,7 @@ BEGIN_PGML
 
 -------------------
 
-Vyberte správné tvrzení pro parciální derivaci  [`` \frac{\partial c}{\partial [$otazka]} .``]
+Vyberte správné tvrzení pro parciální derivaci [`` \frac{\partial c}{\partial [$otazka]} .``]
 
 
 [__]{$radio}
@@ -96,7 +96,7 @@ Vyberte správné tvrzení pro parciální derivaci  [`` \frac{\partial c}{\part
 
 --------------------
 
-Jednotky jsou schválně ponechány imperiální podle původního zdroje dat abychom se příliš nefixovali na konkrétní soustavu veličin. Nemusíte si s tím lámat hlavu, prostě hmotnost i rychlost měříme v jednotkách, které v některém kontextu lépe vyhovují (např. mimo Evropu). 
+Jednotky jsou schválně ponechány imperiální podle původního zdroje dat, abychom se příliš nefixovali na konkrétní soustavu veličin. Nemusíte si s tím lámat hlavu, prostě hmotnost i rychlost měříme v jednotkách, které v některém kontextu lépe vyhovují (např. mimo Evropu). 
 
 	  
 END_PGML
@@ -117,7 +117,7 @@ Při aproximaci derivací pomocí centrálních diferencí postupujeme podle vzo
 [```\frac{\partial f}{\partial x}\approx \frac{f(x+h,y)-f(x-h,y)}{2h}```]
 a
 [```\frac{\partial f}{\partial y}\approx \frac{f(x,y+h)-f(x,y-h)}{2h}.```]
-Stačí tedy vzorce adaptovat na na naše proměnné, najít požadované hodnoty v tabulce a tyto hodnoty použít.
+Stačí tedy vzorce adaptovat na naše proměnné, najít požadované hodnoty v tabulce a tyto hodnoty použít.
 Zjednodušeně: rozdíl dvou hodnot, které jsou okolo hodnoty, v níž počítáme parciální derivace, dělíme odpovídající změnou rychlosti nebo hmotnosti.
 
 V naší tabulce s rovnoměrnými kroky v obou nezávislých proměnných to znamená vlastně výpočet průměrné rychlosti změny veličiny [`c`] jako funkce proměnných [`v`] nebo [`m`] pro sousední hodnoty k hodnotě, odpovídající rychlosti [`v=[$spd[$sInd1]]`] a hmotnosti [`m=[$wgt[$wInd1]]`]. Sousední hodnota pro derivaci podle rychlosti je uvažována pro stejnou hmotnost, ale rychlost o sloupec před a o sloupec vzad. Podobně pro derivaci podle hmotnosti.
@@ -130,7 +130,7 @@ Analogicky počítáme derivaci podle rychlosti. Řídíme se hodnotou vlevo
 a vpravo od odpovídajícího místa v tabulce, protože v tabulce rychlost
 roste zleva doprava. Dělíme hodnotou [`2`], protože rychlost je
 odstupňována po mílích za hodinu a hodnoty, které odčítáme, dělí dvě
-míle za hodinu.  Tím dostaneme derivaci podle rychlost v kaloriích za
+míle za hodinu. Tím dostaneme derivaci podle rychlosti v kaloriích za
 minutu na míli za hodinu.
 
 [```\frac{\partial c}{\partial v}(v=[$spd[$sInd1]],m=[$wgt[$wInd1]])=\frac {[$cal[$wInd1]->[$sInd1+1]] -[$cal[$wInd1]->[$sInd1-1]]}{2}```]

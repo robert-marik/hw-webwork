@@ -39,20 +39,20 @@ $Dxa="\frac{\partial }{\partial x}\left(D\frac{\partial u}{\partial x}\right)+\f
 
 f(
 "Lesní požár",
-"Pomocí difuzní rovnice je možno modelovat lesní požár. V tomto případě se používá rovnice vedení tepla, ve které jsou započítány zdroje. Model je zpravidla velki hrubý a prosto stačí uvažovat prostředí jako homogenní s lineární odezvou a izotropní. Vyberte model vhodný pro zkoumání takového problému.",
+"Pomocí difuzní rovnice je možno modelovat lesní požár. V tomto případě se používá rovnice vedení tepla, ve které jsou započítány zdroje. Model je zpravidla velmi hrubý a proto stačí uvažovat prostředí jako homogenní s lineární odezvou a izotropní. Vyberte model vhodný pro zkoumání takového problému.",
 "$t=\sigma+$Dx","0=\sigma+$dx","$t=$dx","0=\sigma+$Dx"
 );
 
 
 f(
 "Konkurence mezi druhy",
-"Pomocí difuzní rovnice je možno modelovat konkurenci mezi rostlinnými či živočišnými druhy se zohledněním prstorového rozložení. Prostředí se uvažuje homogenní izotropní s lineární odezvou a v rovnici jsou obsaženy zdroje definující dynamiku populace (porodnost, úmrtnost, vliv vnirodruhové konkurence, vliv mezidruhové konkurence). Vyberte model vhodný pro modelování jedné populace a sledování jejího vývoje v čase.",
+"Pomocí difuzní rovnice je možno modelovat konkurenci mezi rostlinnými či živočišnými druhy se zohledněním prostorového rozložení. Prostředí se uvažuje homogenní izotropní s lineární odezvou a v rovnici jsou obsaženy zdroje definující dynamiku populace (porodnost, úmrtnost, vliv vnitrodruhové konkurence, vliv mezidruhové konkurence). Vyberte model vhodný pro modelování jedné populace a sledování jejího vývoje v čase.",
 "$t=\sigma+$Dx","0=\sigma+$dx","$t=$dx","0=\sigma+$Dx"
 );
 
 f(
 "Pohyb sedimentů",
-"Pomocí difuzní rovnice je možno modelovat pohyb sedimentů a tektonických vrstev a jejich vývoj v čase. Častým modelem je například model zachycující zákon zachování množství sedimentů. Tato úloha se často uvažuje pro dané množství sedimentů, tedy bez zdrojů. Prostředí se pro jednoduchost uvažuje homogenní a izotropní ale s nelineární odezvou. Vyberte model vhodný pro zkoumání takového problému.",
+"Pomocí difuzní rovnice je možno modelovat pohyb sedimentů a tektonických vrstev a jejich vývoj v čase. Častým modelem je například model zachycující zákon zachování množství sedimentů. Tato úloha se často uvažuje pro dané množství sedimentů, tedy bez zdrojů. Prostředí se pro jednoduchost uvažuje homogenní a izotropní, ale s nelineární odezvou. Vyberte model vhodný pro zkoumání takového problému.",
 "$t=$Dxa","0=\sigma+$dx","$t=$dxa","0=$Dx"
 );
 
@@ -82,12 +82,12 @@ O některých myšlenkách nebo matematických větách se říká, že jsou tak
 dokonale obecné, že nemají žádné uplatnění. Pokusme se ukázat, že to
 není případ difuzní rovnice. Následující ukázky jsou převzaty z
 literatury a někdy zjednodušeny na úroveň našeho kurzu. Vždy si
-přečtěte popis problému a podle popisu se snažte učit tvar difuzní
+přečtěte popis problému a podle popisu se snažte určit tvar difuzní
 rovnice, který je vhodný pro daný problém. Pokud je více možností,
-volte tu jednodušší. Pokud některá chrakteristika není specifikována,
+volte tu jednodušší. Pokud některá charakteristika není specifikována,
 volte co nejobecnější možnost. Například pokud není explicitně řečeno,
 že úloha má být stacionární, ani to nijak nevyplývá z formulace
-problému, použijeme pro takovou úlohu nestacionární rovnici. Pokud z povahy úlohy vyplývá, že nás zajímá vvývoj v čase, použijeme nestacionární rovnici automaticky.
+problému, použijeme pro takovou úlohu nestacionární rovnici. Pokud z povahy úlohy vyplývá, že nás zajímá vývoj v čase, použijeme nestacionární rovnici automaticky.
 
 
 

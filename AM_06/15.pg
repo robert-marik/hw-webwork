@@ -23,7 +23,7 @@ $data =
     odpoved=>"Ano. Například pokud integrujeme funkci, která má záporné funkční hodnoty. Záporný výsledek je stejně smysluplný jako jakýkoliv jiný.",
     moznosti=>[
 "Ano. V takovém případě však neexistuje fyzikální interpretace výsledku a jedná se jenom o matematickou konstrukci.",
-"Ne. Pokud vyjde hodnota dvojného interálu výpočtem záporná, jedná se o chybu ve výpočtu.",
+"Ne. Pokud vyjde hodnota dvojného integrálu výpočtem záporná, jedná se o chybu ve výpočtu.",
 ],
 },
 ];
@@ -63,7 +63,7 @@ BEGIN_PGML
 
 [_]{$radio}
 
-_[$zdroj]_
+
 
 END_PGML
 

@@ -10,12 +10,14 @@ loadMacros(
   "PGcourse.pl"
 );
 
+TEXT(beginproblem());
+
 
 ###########################
 #  Setup
 
 @a = (
-"Z venku dokonale izolovan&aacute; st&#283;na. Na hranici \(x=L\) nedoch&aacute;z&iacute; k toku tepla.", 
+"Zvenku dokonale izolovan&aacute; st&#283;na. Na hranici \(x=L\) nedoch&aacute;z&iacute; k toku tepla.", 
 "Tok tepla pro \(x=L\) je roven nule.",
 "Vnit&#345;n&iacute; &#269;&#225;st st&#283;ny je udr&#382;ovan&aacute; na konstantn&iacute; teplot&#283;.", 
 "Je zad&aacute;na konstantn&iacute; hodnota teploty pro \(x=0\).",
@@ -71,7 +73,7 @@ BEGIN_PGML
 
 Rovnice vedení tepla v jedné dimenzi je rovnice
 [```c \varrho \frac{\partial T}{\partial t}=\frac{\partial}{\partial x}
-\left(\lambda \frac{\partial T}{\partial x}\right).```] Zde [`T`] je teplota v daném místě a čase, derivace podle času [``\frac{\partial T}{\partial t}``] označuje rychlost s jakou se mění (roste) teplota a [``\frac{\partial T}{\partial x}``] je jednorozměrný gradient teploty (prostorová změna teploty). Tento gradient úzce souvisí s tokem podle Fourierova zákona a proto můžeme tok přepočítávat na derivaci teploty podle [`x`] a naopak.
+\left(\lambda \frac{\partial T}{\partial x}\right).```] Zde [`T`] je teplota v daném místě a čase, derivace podle času [``\frac{\partial T}{\partial t}``] označuje rychlost, s jakou se mění (roste) teplota, a [``\frac{\partial T}{\partial x}``] je jednorozměrný gradient teploty (prostorová změna teploty). Tento gradient úzce souvisí s tokem podle Fourierova zákona, a proto můžeme tok přepočítávat na derivaci teploty podle [`x`] a naopak.
 
 Uvedená rovnice může modelovat teplotní pole ve stěně, ve které zanedbáváme efekty spojené s chováním teplotního pole v rozích. Proto je nutné tuto rovnici doplnit ještě dalšími informacemi charakterizujícími podmínky, ve kterých se tato stěna nachází.
 
@@ -102,16 +104,16 @@ BEGIN_PGML_SOLUTION
 
 
 * [@ $a[1] @]: [@ $a[0] @].
-* [@ $a[3] @]:  [@ $a[2] @].
-* [@ $a[5] @]:  [@ $a[4] @].
-* [@ $a[7] @]:  [@ $a[6] @].
-* [@ $a[9] @]:  [@ $a[8] @].
+* [@ $a[3] @]: [@ $a[2] @].
+* [@ $a[5] @]: [@ $a[4] @].
+* [@ $a[7] @]: [@ $a[6] @].
+* [@ $a[9] @]: [@ $a[8] @].
 
 ---
 
 * Pokud se podmínka týká vnitřní strany stěny, formulujeme ji pro [`x=0`], pokud vnější, formulujeme podmínku pro [`x=L`], protože takto je úloha zadána.
 * Pokud je podmínkou zadána konstantní teplota, je ve formulaci podmínky hodnota [`T`] v příslušném bodě.
-* Pokud je předepsaný tok, ať již nulový, nebo konstantní, nebo úměrný rozdílu teplot, je podmínka formulována pro tok. Je-li zadán konstantní tok, i nulový, je předepsána hodnota tohoto toku. Je-li zadána souvilost mezi tokem a a teplotou, je obsahuje podmínka tok i teplotu.
+* Pokud je předepsaný tok, ať již nulový, nebo konstantní, nebo úměrný rozdílu teplot, je podmínka formulována pro tok. Je-li zadán konstantní tok, i nulový, je předepsána hodnota tohoto toku. Je-li zadána souvislost mezi tokem a teplotou, obsahuje podmínka tok i teplotu.
 END_PGML_SOLUTION
 
 

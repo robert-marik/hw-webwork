@@ -121,7 +121,7 @@ BeginTable().
   AlignedRow(["A","B"]).
 EndTable().
 $BR.
-"(Click on a graph to enlarge it)".
+"(Pro zvětšení klikněte na obrázek)".
 $ECENTER,
 indent => 0, separation => 30, valign => "TOP"
 )
@@ -154,7 +154,7 @@ $aa=Compute("$d*(1/($a1+$b+1)-1/($b+$a1/2+1))");
 
 Context()->texStrings;
 BEGIN_SOLUTION
-$PAR SOLUTION $BR $BR
+$PAR Řešení $BR $BR
 (a)
 Integrační obor je mezi parabolou \(y=x^2\) a přímkou \(y=x\). Tomu odpovídá obrázek $ALPHABET[$inv[0]]. Druhý obrázek by odpovídal integrálu
 \[ \displaystyle
@@ -170,7 +170,7 @@ $BR$BR
 (c) Výsledný integrál vypočteme po roznásobení závorky a integrování dvou mocninných funkcí.
 $BR
 \[ \def\textstyle{}\displaystyle \int_0^1\int_{x^2}^x $f \, \mathrm dy\mathrm dx
-= $d \int_0^1 x^{$apb1}-x^{$apb2}\mathrm dx
+= $d \int_0^1 (x^{$apb1}-x^{$apb2})\,\mathrm dx
 = $d \left[\frac 1{$ab2}x^{$ab2}-\frac 1{$ab3}x^{$ab3}\right]_0^1
 =$d \left[\frac 1{$ab2}-\frac 1{$ab3}\right]
 \]

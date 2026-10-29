@@ -36,7 +36,7 @@ $divergence = Formula("$dP+$dQ")->reduce;
 #$divergenceBod = Formula("$dPBod+$dQBod")->reduce;
 $divergenceBod=$k*($x0)**($k-1)*$y0+$l*($x0)*($y0)**($l-1)+$m*$c*$y0**($c-1);
 
-$ans=2; $longans="Divergence v bodě je nulová. Vektorové pole v je daném místě nezřídlové."; 
+$ans=2; $longans="Divergence v bodě je nulová. Vektorové pole je v daném místě nezřídlové."; 
 if ($divergenceBod > 0)
 {$ans=0; $longans="Divergence v bodě je kladná. Tok vektorového pole v daném místě zesiluje."; }
 if ($divergenceBod < 0)
@@ -46,7 +46,7 @@ if ($divergenceBod < 0)
 $radio = RadioButtons(
 ["Tok vektorového pole v daném místě zesiluje.",
 "Tok vektorového pole v daném místě slábne.",
-"Vektorové pole v je daném místě nezřídlové."
+"Vektorové pole je v daném místě nezřídlové."
 ],
 $ans); 
 
@@ -55,7 +55,7 @@ BEGIN_PGML
 
 ## Slovní interpretace divergence
 
-Divergence nám udává, zda tok v daném místě zesiluje či zeslabuje. U kladné divergence tok zesiluje (pokud je proudění stacionární, je v tomto místě zdroj) a u záporné divergence tok slábne (pokud je proudění stacionární, je v tomto místě spotřebič). Je-li divergence nulová, tok ani nezesiluje ani neslábne a pole je v tomto bodě nezřídlové (anglicky také _incompressible_, tj. nestlačitelné).
+Divergence nám udává, zda tok v daném místě zesiluje či zeslabuje. U kladné divergence tok zesiluje (pokud je proudění stacionární, je v tomto místě zdroj) a u záporné divergence tok slábne (pokud je proudění stacionární, je v tomto místě spotřebič). Je-li divergence nulová, tok ani nezesiluje, ani neslábne a pole je v tomto bodě nezřídlové (anglicky také _incompressible_, tj. nestlačitelné).
 
 -------------------------
 

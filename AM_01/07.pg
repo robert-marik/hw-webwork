@@ -3,6 +3,8 @@ DOCUMENT();
 loadMacros('PGstandard.pl', 'PGML.pl', 
 'parserCheckboxList.pl', 'PGcourse.pl');
 
+TEXT(beginproblem());
+
 $checks = CheckboxList([
 "\(f(2,1)\)",
 "\(f(2.01,1.01)\)",

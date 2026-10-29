@@ -33,7 +33,7 @@ $draggable = DraggableSubsets(
 DefaultSubsets => [
 {label => "Mno&#382;stv&iacute; toxin&#367; jako funkce &#269;asu.", indices => []},
 {label => "N&aacute;r&#367;st mno&#382;stv&iacute; toxin&#367; za &#269;as \(T\).", indices => []},
-{label => "Pr&#367;m&#283;rn&aacute; rychlost r&#367;stu mno&#382;stv&iacute; toxin&#367; za &#269;as \(T\)", indices => []},
+{label => "Pr&#367;m&#283;rn&aacute; rychlost r&#367;stu mno&#382;stv&iacute; toxin&#367; za &#269;as \(T\).", indices => []},
 {label => "Nab&iacute;dka matematick&yacute;ch v&yacute;raz&#367;.", indices => [0,1,2,3,4,5,6,7]},
 ],
 AllowNewBuckets => 0,
@@ -49,7 +49,7 @@ BEGIN_PGML
 
 ## Množství toxinů
 
-Do lokality proudí toxiy. Na počátku je zde [`N_0`] toxinů a jejich množství roste rychlostí [`r`]. Přesuňte ke každé veličině výraz, který umožní tuto veličinu vypočítat.
+Do lokality proudí toxiny. Na počátku je zde [`N_0`] toxinů a jejich množství roste rychlostí [`r`]. Přesuňte ke každé veličině výraz, který umožní tuto veličinu vypočítat.
 
 [_]{$draggable}
 

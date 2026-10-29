@@ -42,7 +42,7 @@ BEGIN_PGML
 
 V této sadě úloh se budeme věnovat lineární algebře. Základními objekty zájmu jsou mnohorozměrné veličiny a operátory umožňující rozumnou manipulaci s těmito veličinami. Tedy vektory a matice. Nejprve se budeme věnovat maticím a lineární kombinaci vektorů připomeneme až v souvislosti s násobením matic. Závěrečné příklady jsou věnovány využití maticového násobení k výpočtu toku tepla ze zadaného gradientu. Formálně se jedná o maticový součin zasazený do reálné aplikace.
 
-_V této sadě úloh jsou odpovědní políčka většinou komponenty matice nebo vektoru. Odpověď však není vyhodnocována políčko po políčku, ale jako celek tvořící matici nebo vektor. Pokud uděláte chybu třeba jenom v jedné komponentě, budou červeně jako chybné označeny komponenty všechny.._
+_V této sadě úloh jsou odpovědní políčka většinou komponenty matice nebo vektoru. Odpověď však není vyhodnocována políčko po políčku, ale jako celek tvořící matici nebo vektor. Pokud uděláte chybu třeba jenom v jedné komponentě, budou červeně jako chybné označeny komponenty všechny._
 
 ## Prvky matice
 
@@ -63,7 +63,7 @@ _V této sadě úloh jsou odpovědní políčka většinou komponenty matice neb
 END_PGML
 
 BEGIN_PGML_HINT
-Pozorně rozšifrujete, který prvek máme nalézt. Tento prvek poté identifikujte v matici. Například prvek [`` a_{[$i1][$j1]}``] je v řádku číslo [$i1] (počítáno od jedničky směrem shora dolů) a sloupci číslo [$j1] (počítáno od jedničky směrem zleva doprava).
+Pozorně rozšifrujte, který prvek máme nalézt. Tento prvek poté identifikujte v matici. Například prvek [`` a_{[$i1][$j1]}``] je v řádku číslo [$i1] (počítáno od jedničky směrem shora dolů) a sloupci číslo [$j1] (počítáno od jedničky směrem zleva doprava).
 END_PGML_HINT
 
 

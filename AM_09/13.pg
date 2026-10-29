@@ -60,7 +60,7 @@ elsif ( ($stopa)*($stopa) - 4*($determinant) < 0 )
 else
   {
      $reseni = 0;
-     $odpoved="Kořeny charakteristického polynomu jsou záporná  reálná čísla. Jedná se tedy o stabilní uzel.";
+     $odpoved="Kořeny charakteristického polynomu jsou záporná reálná čísla. Jedná se tedy o stabilní uzel.";
      if ( $stopa > 0 ) {
      	$reseni = $reseni + 2;
         $odpoved="Kořeny charakteristického polynomu jsou kladná reálná čísla. Jedná se tedy o nestabilní uzel.";
@@ -75,7 +75,7 @@ BEGIN_PGML
 
 # Stacionární bod lineárního autonomního systému
 
-V této úloze si projdeme celou cestu, od lineárního autonomního systému, přes chrakteristický polynom až po klasifikaci stacionárního bodu na základě vlastních čísel. 
+V této úloze si projdeme celou cestu, od lineárního autonomního systému, přes charakteristický polynom až po klasifikaci stacionárního bodu na základě vlastních čísel. 
 
 ------------------
 
@@ -89,7 +89,7 @@ v jeho stacionárním bodě [`([$x0],[$y0])`].
 
 ------------------
 
-Napište systém v maticovém, tvaru, tj. identifikujte matici [``A=
+Napište systém v maticovém tvaru, tj. identifikujte matici [``A=
 \begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}``] po přepsání systému do maticového tvaru [```\frac{\mathrm d}{\mathrm dt}\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{bmatrix}\begin{bmatrix}[$xmx0]\\[$ymy0]\end{bmatrix}```]
 
 >> [`` A={}``][___________]*{$matice} <<
@@ -99,7 +99,7 @@ _Poznámka: Lineární systém je sám svojí lineární aproximací. Odpověď 
 
 ---------------------
 
-Bod [`([$x0],[$y0])`] je stacionárním bodem systému. Matice systému je identifikována v předchozím kroku. Nyní najděte její charakteristický polynom [`P(\lambda)`] Jacobiho matice z předešlého kroku. Napište jej v proměnné lambda. Například *2\lambda^2-7lambda+2*.
+Bod [`([$x0],[$y0])`] je stacionárním bodem systému. Matice systému je identifikována v předchozím kroku. Nyní najděte její charakteristický polynom [`P(\lambda)`]. Napište jej v proměnné lambda. Pište například *2\*lambda^2-7\*lambda+2*.
 
 >> [``P(\lambda)={} ``][________________________________]{$polynom} <<
 
@@ -115,7 +115,7 @@ END_PGML
 
 
 BEGIN_PGML_SOLUTION
-Matice [`A`] je matice obsahující koeficinety u neznámých, tj. [``` A=[$matice].```]
+Matice [`A`] je matice obsahující koeficienty u neznámých, tj. [``` A=[$matice].```]
 
 Platí
 [``` \begin{vmatrix} [$dfx]-\lambda & [$dfy] \\ [$dgx] & [$dgy]-\lambda \end{vmatrix}= ([$dfx]-\lambda)([$dgy]-\lambda)-([$dfy])([$dgx])=[$polynom].```]

@@ -16,7 +16,7 @@ $data =
 [
 {
 nadpis=>"Transformace rovnice tepelné výměny",
- otazka=>"Uvažujme rovnici tepelné výměny s počáteční podmínkou, tj. úlohu ve tvaru \[\frac{\mathrm dT}{\mathrm dt}=-k(T-T_{\mathrm outside}),\quad T(0)=T_0.\] Jaká transformace převede tuto rovnici na tvar \[\frac{\mathrm dT}{\mathrm dt}=-kT,\quad T(0)=T_0,\] ve kterém nefiguruje venkovní teplota \(T_{\mathrm outside}\) a jak tuto transformaci můžeme popsat fyzikálně?",
+ otazka=>"Uvažujme rovnici tepelné výměny s počáteční podmínkou, tj. úlohu ve tvaru \[\frac{\mathrm dT}{\mathrm dt}=-k(T-T_{\mathrm{outside}}),\quad T(0)=T_0.\] Jaká transformace převede tuto rovnici na tvar \[\frac{\mathrm dT}{\mathrm dt}=-kT,\quad T(0)=T_0,\] ve kterém nefiguruje venkovní teplota \(T_{\mathrm{outside}}\), a jak tuto transformaci můžeme popsat fyzikálně?",
 odpoved=>"vhodné posunutí jednotky teploty tak, aby teplota okolí v nové stupnici byla nulová",
 moznosti=>[
 "vhodné zvětšení nebo zmenšení jednotky času tak, aby teplota okolí v nové stupnici byla nulová",
@@ -27,7 +27,7 @@ moznosti=>[
 ,
 {
    nadpis=>"Transformace rovnice tepelné výměny II",
-otazka=>"Uvažujme rovnici podle předchozího, kde jsme dosáhli toho, že rovnici popisujeme modelem \[\frac{\mathrm dT}{\mathrm dt}=-kT,\quad T(0)=T_0.\] Jaká transformace převede tuto rovnici na tvar \[\frac{\mathrm dT}{\mathrm dt}=-kT,\quad T(0)=1,\] ve kterém kromě venkovní teploty nefiguruje ani počáteční teplota \(T_0\) a jak tuto transformaci můžeme popsat fyzikálně?",
+otazka=>"Uvažujme rovnici podle předchozího, kde jsme dosáhli toho, že rovnici popisujeme modelem \[\frac{\mathrm dT}{\mathrm dt}=-kT,\quad T(0)=T_0.\] Jaká transformace převede tuto rovnici na tvar \[\frac{\mathrm dT}{\mathrm dt}=-kT,\quad T(0)=1,\] ve kterém kromě venkovní teploty nefiguruje ani počáteční teplota \(T_0\), a jak tuto transformaci můžeme popsat fyzikálně?",
 odpoved=>"vhodné zvětšení nebo zmenšení jednotky teploty tak, aby teplota na počátku byla jednotková",
 moznosti=>[
 "vhodné posunutí jednotky teploty tak, aby teplota na počátku byla jednotková",
@@ -39,7 +39,7 @@ moznosti=>[
 ,
 {
    nadpis=>"Transformace rovnice tepelné výměny III",
-otazka=>"Uvažujme rovnici podle předchozího, kde jsme dosáhli toho, že rovnici popisujeme modelem \[\frac{\mathrm dT}{\mathrm dt}=-kT,\quad T(0)=1.\] Jaká transformace převede tuto rovnici na tvar \[\frac{\mathrm dT}{\mathrm dt}=-T,\quad T(0)=1.\] ve kterém kromě venkovní teploty a počáteční teploty nefiguruje konstana \(k\) a jak tuto transformaci můžeme popsat fyzikálně?",
+otazka=>"Uvažujme rovnici podle předchozího, kde jsme dosáhli toho, že rovnici popisujeme modelem \[\frac{\mathrm dT}{\mathrm dt}=-kT,\quad T(0)=1.\] Jaká transformace převede tuto rovnici na tvar \[\frac{\mathrm dT}{\mathrm dt}=-T,\quad T(0)=1,\] ve kterém kromě venkovní teploty a počáteční teploty nefiguruje konstanta \(k\), a jak tuto transformaci můžeme popsat fyzikálně?",
 odpoved=>"vhodné zvětšení nebo zmenšení jednotky času tak, aby \(k\) bylo rovno jedné",
 moznosti=>[
 "vhodné posunutí jednotky teploty tak, aby teplota na počátku byla jednotková",

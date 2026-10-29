@@ -21,7 +21,7 @@ odpoved=>"Monotonie řešení je jednoznačně determinována znaménkem pravé 
 moznosti=>[
 "Znaménko řešení je jednoznačně determinováno znaménkem pravé strany rovnice.",
 "Znaménko řešení je jednoznačně determinováno charakterem monotonie pravé strany rovnice.",
-"Řešení rovnice i pravá strana rovnice mají stejnou monotonii, tj. buď současně klesají nebo současně rostou.",
+"Řešení rovnice i pravá strana rovnice mají stejnou monotonii, tj. buď současně klesají, nebo současně rostou.",
 ]
 },
 {

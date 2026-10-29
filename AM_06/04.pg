@@ -84,12 +84,12 @@ END_PGML
 BEGIN_TEXT
 \{
 ColumnTable(
-"Nechť \(R\) je obdélník na obrázku a \( f(x,y) \) je funkce definovaná na  \( R \).  Převeďte dvojný integrál na dvojnásobný (s vnější integrací podle proměnné \(x\)) a určete meze.".
+"Nechť \(R\) je obdélník na obrázku a \( f(x,y) \) je funkce definovaná na \( R \). Převeďte dvojný integrál na dvojnásobný (s vnější integrací podle proměnné \(x\)) a určete meze.".
 $PAR.
 "\[ \displaystyle
 \iint\limits_R f(x,y) \, \mathrm dx\mathrm dy
 =
-\int_A^B  \int_C^D f(x,y) \, \mathrm dy \, \mathrm dx
+\int_A^B \int_C^D f(x,y) \, \mathrm dy \, \mathrm dx
 \]".
 $al1->print_q(),
 $BCENTER.
@@ -129,7 +129,7 @@ $PAR Řešení $BR $BR
 Obdélník je definován nerovnostmi \($xmin \le x \le $xmax\) a
 \( $ymin \le y \le $ymax\)
 $BR
-Tedy \[ \iint_R  f(x,y) \,\mathrm dx\mathrm dy = \int_{$xmin}^{$xmax} \int_{$ymin}^{$ymax}
+Tedy \[ \iint_R f(x,y) \,\mathrm dx\mathrm dy = \int_{$xmin}^{$xmax} \int_{$ymin}^{$ymax}
 f(x,y) \, \mathrm dy \mathrm dx. \]
 END_SOLUTION
 
