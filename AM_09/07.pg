@@ -37,7 +37,7 @@ BEGIN_PGML
 [@ image("autumn.jpg", width=>400) @]*
 
 Listy v lese padají na zem. Předpokládejme rychlost s jakou padají je [`[$acc]`]
-gramů na centimetr čtverečení za rok. Současně se tyto listy rozpadají. Za rok se rozpadne [`[$dec]`] procent listí.  
+gramů na centimetr čtvereční za rok. Současně se tyto listy rozpadají. Za rok se rozpadne [`[$dec]`] procent listí.  
 
 ### Model
 

@@ -26,7 +26,7 @@ else
 
 $lxx=random(2,4);
 do {$lyy=random(1,4);} until ($lxx != $lyy);
-do {$lxy=non_zero_random(-2,3);} until ($lxy != $lxx);
+do {$lxy=non_zero_random(-2,3);} until (($lxy != $lxx) and ($lxx*$lyy > $lxy**2));
 
 Context("Numeric")->variables->add(y=>"Real");
 	

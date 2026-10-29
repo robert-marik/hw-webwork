@@ -120,15 +120,17 @@ ANS($al1->correct_ans );
 
 Context("Fraction");
 $m=Compute("$dy/$dx");
+$xclen = ($xmin < 0) ? "x+".(-$xmin) : "x-$xmin";
+$yclen = ($ymin < 0) ? "- ".(-$ymin) : "+ $ymin";
 Context()->texStrings;
 
 BEGIN_HINT
 Množina je zdola ohraničena přímkou procházející body
 \( ( $xmin, $ymin) \) a\( ( $xmax , $ymid) \). Tato přímka má rovnici
-\( y = $m (x-$xmin) + $ymin \).
+\( y = $m ($xclen) $yclen \).
 
 Oblast integrace je definována nerovnostmi \[$xmin \le x \le $xmax\] a
-\[ $m (x-$xmin) + $ymin  \le y \le $ymax.\] Použijte tuto informaci a správně tyto informace přiřaďte k mezím.
+\[ $m ($xclen) $yclen  \le y \le $ymax.\] Použijte tuto informaci a správně tyto informace přiřaďte k mezím.
 END_HINT
 
 
@@ -136,12 +138,12 @@ BEGIN_SOLUTION
 $PAR Řešení $BR $BR
 Množina je zdola ohraničena přímkou procházející body
 \( ( $xmin, $ymin) \) a\( ( $xmax , $ymid) \). Tato přímka má rovnici
-\( y = $m (x-$xmin) + $ymin \).
+\( y = $m ($xclen) $yclen \).
 
 Oblast integrace je definována nerovnostmi \[$xmin \le x \le $xmax\] a
-\[ $m (x-$xmin) + $ymin  \le y \le $ymax.\]
+\[ $m ($xclen) $yclen  \le y \le $ymax.\]
 $BR
-Tedy \[ \iint_R  f(x,y) \,\mathrm dx\mathrm dy = \int_{$xmin}^{$xmax} \int_{$m (x-$xmin) + $ymin }^{$ymax}
+Tedy \[ \iint_R  f(x,y) \,\mathrm dx\mathrm dy = \int_{$xmin}^{$xmax} \int_{$m ($xclen) $yclen }^{$ymax}
 f(x,y) \, \mathrm dy \mathrm dx. \]
 END_SOLUTION
 

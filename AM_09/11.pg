@@ -61,7 +61,7 @@ if ($diskriminant<0)
 {
 $realorcomplex="komplexně sdružené";
 $real=-(-$stopa)/2;
-$imag=sqrt(-$diskriminant)/2;
+$imag=Real(sqrt(-$diskriminant)/2);
 $lambda1="$real + $imag i";
 $lambda2="$real - $imag i";
 
@@ -69,8 +69,8 @@ $lambda2="$real - $imag i";
 else
 {
 $realorcomplex="reálné";
-$lambda1=(-$stopa-sqrt($diskriminant))/(2);
-$lambda2=(-$stopa+sqrt($diskriminant))/(2);
+$lambda1=Real(($stopa-sqrt($diskriminant))/(2));
+$lambda2=Real(($stopa+sqrt($diskriminant))/(2));
 }
 
 

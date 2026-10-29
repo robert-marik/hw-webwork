@@ -15,6 +15,7 @@ Context("Numeric")->variables->are('dt'=>['Real',limits=>[1,100]],'dT'=>'Real', 
 
 $k=random(15,28,1);
 $p=random(25,58,1);
+$p100 = $p/100;
 
 BEGIN_PGML
 
@@ -33,7 +34,7 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 Přímým přepisem slovního zadání do kvantitativních pojmů dostáváme rovnici
-[``` \frac{\mathrm dx}{\mathrm dt}= [$k]-[$p/100] x,```]
+[``` \frac{\mathrm dx}{\mathrm dt}= [$k]-[$p100] x,```]
 
 END_PGML_SOLUTION
 

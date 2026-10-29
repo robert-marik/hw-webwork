@@ -32,7 +32,7 @@ $derivacefunkce=Formula("(-$b*$a)*e^(-$b*x)+1")->reduce();
 $funkcexn=Formula("$a*e^(-$b*xn)-1+xn")->reduce();   # funkce
 $derivacefunkcexn=Formula("(-$b*$a)*e^(-$b*xn)+1")->reduce();
 
-$answer=Formula("xn-$funkcexn/$derivacefunkcexn")->reduce(); 
+$answer=Formula("xn-($funkcexn)/($derivacefunkcexn)")->reduce(); 
 
 BEGIN_PGML
 
@@ -40,7 +40,7 @@ BEGIN_PGML
 
 [@ image("virus.jpg", width=>400) @]*
 
-Newtonova metoda je efektivní nástroj pro hledání nulových bodů funkce, tj. pro řešení rovnice [``` f(x)=0.```] Je založena na lineární aproximaci funkce [`f(x)`] v bodě [`x_n`] (počáteční odhad řešení), tj.  na rovnici [``` f(x)\approx f(x_n)+f'(x_n)(x-x_n).```] Novou aproximaci [`x_n`] určujeme z podmínky
+Newtonova metoda je efektivní nástroj pro hledání nulových bodů funkce, tj. pro řešení rovnice [``` f(x)=0.```] Je založena na lineární aproximaci funkce [`f(x)`] v bodě [`x_n`] (počáteční odhad řešení), tj.  na rovnici [``` f(x)\approx f(x_n)+f'(x_n)(x-x_n).```] Novou aproximaci [`x_{n+1}`] určujeme z podmínky
 [``` 0=f(x_n)+f'(x_n)(x_{n+1}-x_n).```]
 Odvození iteračního vzorce pro tuto metodu jsme si procvičili dříve.
 Teď se k této problematice vracíme.

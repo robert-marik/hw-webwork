@@ -60,12 +60,13 @@ nastroj=>3
 },
 {
 uloha=>"Je dáno vektorové pole popisující silové působení a křivka definující počáteční a koncovou polohu objektu a také polohy objektu v průběhu pohybu. Chceme určit, jak velkou práci vykonalo silové pole při tomto přemístění objektu z počáteční polohy do polohy koncové.",
+odpoved=>"Práce silového pole podél křivky je přesně to, co počítá křivkový integrál druhého druhu.",
 nastroj=>3
 },
    ########## dvojný integrál
 {
-uloha=>"Máme dán nosník určitého průřezu a potřebujeme zjistit, jak se bude chovat při deformaci. Který nástroj využijeme při vyhodnocení toho, který průřez je vhodnější z hlediska dosažení nosníku? Podle čeho poznáme, který průřez lépe odolává deformaci?",
-odpoved=>"Popsaný úkol přesně sedí na kvadratický modul průřezu nosníku. To je veličina definovaná dvojným integrálem.",
+uloha=>"Máme dán nosník určitého průřezu a potřebujeme zjistit, jak se bude chovat při deformaci. Který nástroj využijeme při vyhodnocení toho, který průřez je vhodnější z hlediska tuhosti nosníku? Podle čeho poznáme, který průřez lépe odolává deformaci?",
+odpoved=>"Popsaný úkol přesně sedí na kvadratický moment průřezu nosníku. To je veličina definovaná dvojným integrálem.",
 nastroj=>4
 },
 {

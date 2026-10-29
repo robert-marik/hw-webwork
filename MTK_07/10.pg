@@ -47,7 +47,7 @@ Tato situace s nediagonální maticí nás může potkat i u ortotropních mater
 ----------------
 
 
-Pro  homogenní izotropní materiál s koeficientem tepelné vodivosti [`\lambda=\begin{bmatrix}[$lambda1]&[$lambda3]\\[$lambda3]&[$lambda2]\end{bmatrix}`] určete tok tepla v místě, ve kterém je gradient teploty dán vektorem
+Pro  homogenní anizotropní materiál s koeficientem tepelné vodivosti [`\lambda=\begin{bmatrix}[$lambda1]&[$lambda3]\\[$lambda3]&[$lambda2]\end{bmatrix}`] určete tok tepla v místě, ve kterém je gradient teploty dán vektorem
 [``\nabla T=[$u]``].
 >> [``\vec q=-\lambda \nabla T =-\begin{bmatrix}[$lambda1]&[$lambda3]\\[$lambda3]&[$lambda2]\end{bmatrix}[$u]={}``][_____________________________]*{$ans}<<
 

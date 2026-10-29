@@ -18,12 +18,12 @@ do
 
 $odpovedi = [ 
 "Populace bakteri&iacute; roste v prost&#345;ed&iacute; s neomezenou &#250;&#382;ivnost&iacute;.",
-"Mno&#382;stv&iacute; radioaktiv&iacute;ho prvku se sni&#382;uje rozpadem.",
+"Mno&#382;stv&iacute; radioaktivn&iacute;ho prvku se sni&#382;uje rozpadem.",
 "Hork&aacute; k&aacute;va se ochlazuje na teplotu m&iacute;stnosti.",
 "Studen&aacute; zmrzlina se oh&#345;&#237;v&aacute; na teplotu m&iacute;stnosti.",
 "Ryba roste s v&#283;kem.",
-"Populace bakteri&iacute; roste v prost&#345;ed&iacute; s omezenou nosnou kapacit&oacute;u.",
-"Mno&#382;stv&iacute; ne&#269;istot v jezere se sni&#382;uje vlivem samo&#269;i&scaron;t&#283;n&iacute; jezera.",
+"Populace bakteri&iacute; roste v prost&#345;ed&iacute; s omezenou nosnou kapacitou.",
+"Mno&#382;stv&iacute; ne&#269;istot v jeze&#345;e se sni&#382;uje vlivem samo&#269;i&scaron;t&#283;n&iacute; jezera.",
 "Vlhkost &#269;erstv&eacute;ho d&#345;eva kles&aacute; k rovnov&aacute;&#382;n&eacute; vlhkosti."
 ];
 
@@ -99,39 +99,39 @@ BEGIN_PGML_SOLUTION
 
 [@ image($graphs[0], width => 200, tex_size => 300) @]*
 
-[@ $odpovedi->[0] @]
+[@ $odpovedi->[0] @]*
 
 ---
 
 [@ image($graphs[1], width => 200, tex_size => 300) @]*
 
-[@ $odpovedi->[1] @]
+[@ $odpovedi->[1] @]*
 
-[@ $odpovedi->[6] @]
+[@ $odpovedi->[6] @]*
 
 
 ---
 
 [@ image($graphs[2], width => 200, tex_size => 300) @]*
 
-[@ $odpovedi->[2] @]
+[@ $odpovedi->[2] @]*
 
-[@ $odpovedi->[7] @]
+[@ $odpovedi->[7] @]*
 
 ---
 
 [@ image($graphs[3], width => 200, tex_size => 300) @]*
 
-[@ $odpovedi->[3] @]
+[@ $odpovedi->[3] @]*
 
-[@ $odpovedi->[4] @]
+[@ $odpovedi->[4] @]*
 
 
 ---
 
 [@ image($graphs[4], width => 200, tex_size => 300) @]*
 
-[@ $odpovedi->[5] @]
+[@ $odpovedi->[5] @]*
 
 END_PGML_SOLUTION
 

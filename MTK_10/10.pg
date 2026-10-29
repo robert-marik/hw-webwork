@@ -83,7 +83,7 @@ V prostředí, ve kterém působí konstantní síla urychlující těleso a odp
 [``` \frac{\mathrm dv}{\mathrm dt}=k_1-k_2v,```]
 kde [`v`] je rychlost pohybu, [`k_1`] je konstanta související s působící konstantní silou (například gravitace při volném pádu) a člen [`k_2v`] je odporová síla prostředí, která roste s rostoucí rychlostí.
 
-Zatrhněte všechna tvrzení, která jsou pravdivá. Nezávislou proměnnou (neznámou v rovnici) je rychlost, derivujeme podle času a obě konstanty [`k_1`] a [`k_2`] jsou kladné. 
+Zatrhněte všechna tvrzení, která jsou pravdivá. Závislou proměnnou (neznámou funkcí v rovnici) je rychlost, nezávislou proměnnou je čas, derivujeme podle času a obě konstanty [`k_1`] a [`k_2`] jsou kladné. 
 
 (Počet pravdivých tvrzení je [$ncorrect].)
 

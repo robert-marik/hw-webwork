@@ -39,7 +39,7 @@ $Sfx0 = random(0,1);
 $Sdfx0 = random(-3,3);
 $nasobek = random(1,2);
 $mocnina = random(1,2);
-$Sfx0=$Sfx0*($nasobek)*(-1**($mocnina));
+$Sfx0=$Sfx0*($nasobek)*((-1)**($mocnina));
 
 $fx0=random(0,3);
 $dfx0=random(-2,2);
@@ -47,9 +47,9 @@ $gx0=$fx0+$Sfx0;
 $dgx0=$dfx0-$Sdfx0;
 
 if ($Sfx0 != 0) {$reseni=2; $answer="Funkce \(f\) a \(g\) mají v bodě \($x0\) různé funkční hodnoty, bod není stacionárním bodem.";}
-elsif ($Sdfx0 < 0 ) {$reseni=0; $answer="Funkce \(f\) a \(g\) mají v bodě \($x0\) různé funkční hodnoty, bod je stacionárním bodem. Rozdíl \(f(x)-g(x)\) je v tomto bodě klesající a stacionární bod je stabilní.";}
-elsif ($Sdfx0 > 0 ) {$reseni=1;  $answer="Funkce \(f\) a \(g\) mají v bodě \($x0\) různé funkční hodnoty, bod je stacionárním bodem. Rozdíl \(f(x)-g(x)\) je v tomto bodě rostoucí a stacionární bod je nestabilní."}
-else {$reseni=3;  $answer="Funkce \(f\) a \(g\) mají v bodě \($x0\) různé funkční hodnoty, bod je stacionárním bodem. O jeho stabilitě však není možno pomocí prvních derivací rozhodnout, protože nedokážeme určit, zda je pravá strana v tomto bodě rostoucí či klesající."}
+elsif ($Sdfx0 < 0 ) {$reseni=0; $answer="Funkce \(f\) a \(g\) mají v bodě \($x0\) stejné funkční hodnoty, bod je stacionárním bodem. Rozdíl \(f(x)-g(x)\) je v tomto bodě klesající a stacionární bod je stabilní.";}
+elsif ($Sdfx0 > 0 ) {$reseni=1;  $answer="Funkce \(f\) a \(g\) mají v bodě \($x0\) stejné funkční hodnoty, bod je stacionárním bodem. Rozdíl \(f(x)-g(x)\) je v tomto bodě rostoucí a stacionární bod je nestabilní."}
+else {$reseni=3;  $answer="Funkce \(f\) a \(g\) mají v bodě \($x0\) stejné funkční hodnoty, bod je stacionárním bodem. O jeho stabilitě však není možno pomocí prvních derivací rozhodnout, protože nedokážeme určit, zda je pravá strana v tomto bodě rostoucí či klesající."}
 
 $radio=RadioButtons(["Stabilní stacionární bod","Nestabilní stacionární bod","Nejedná se o stacionární bod","Stacionární bod, o jehož stabilitě není možné rozhodnout z daných informací","Jiná odpověď"],$reseni);
 

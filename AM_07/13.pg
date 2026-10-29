@@ -48,6 +48,7 @@ $ans=Compute("$dQx-($dPy)")->reduce();
 Context()->flags->set(reduceConstants=>0); # Preserve constant formulas
 $citatel=Compute("($b*($m+1)-$a )");
 $Ans=Compute("($citatel)/($m+1)");
+$m1 = $m+1;
 
 BEGIN_PGML
 
@@ -107,7 +108,7 @@ Musíme ve vzorci
 identifikovat, jaké parciální derivace potřebujeme, a poté tyto parciální derivace ve správném pořadí odečíst. Tím najdeme funkci, kterou potřebujeme integrovat. Mělo by se jednat o lineární funkci a hodnotu integrálu můžeme vypočítat pomocí lineární kombinace integrálů z nápovědy.
 V našem případě
 [```
-\oint_{\partial M}P(x,y)\mathrm{d}x +Q(x,y)\mathrm{d}y =  [$citatel] \iint_{M}x^{[$m]} \,\mathrm{d}x \mathrm{d}y=\frac{[$citatel]}{[$m+1]}=[$Ans].
+\oint_{\partial M}P(x,y)\mathrm{d}x +Q(x,y)\mathrm{d}y =  [$citatel] \iint_{M}x^{[$m]} \,\mathrm{d}x \mathrm{d}y=\frac{[$citatel]}{[$m1]}=[$Ans].
 ```]
 
 

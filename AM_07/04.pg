@@ -122,7 +122,7 @@ Tato rovnost platí, oba výrazy jsou rovny společné hodnotě [``` [$ddxy]. ``
 Integrací podle jednotlivých proměnných dostáváme (až na aditivní konstantu, kterou můžeme položit rovnu nule)
 [``` \varphi(x,y)=[$potencial]```]
 a nárůst této funkce podél křivky je roven křivkovému integrálu. Tedy
-[``` \int_C ([$dx])\,\mathrm dx+([$dy]) \mathrm dy=\varphi([$bodX],[$bodY])-\varphi(0,0)=[$a]\times ([$bodX])^{[$m]}\times ([$bodY])^{[$n]}-0=[$answer].```]
+[``` \int_C ([$dx])\,\mathrm dx+([$dy]) \mathrm dy=\varphi([$bodX],[$bodY])-\varphi(0,0)=[$a]\times ([$bodX])^{[$m]}\times ([$bodY])^{[$n]}+[$aa]\times ([$bodX])^{[$mm]}\times ([$bodY])^{[$nn]}-0=[$answer].```]
 
 
 END_PGML_SOLUTION

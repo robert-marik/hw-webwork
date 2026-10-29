@@ -39,7 +39,7 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 
-Jedná se rychlost změny velikosti ostrova vzhledem k měnící se pestrosti osazenstva. Tj. o kolik musí být ostrov větší, aby se na něm uživil ještě jeden další živočišný druh.
+Jedná se o rychlost změny počtu druhů vzhledem k rozloze ostrova, tj. o kolik druhů více se na ostrově uživí, vzroste-li jeho rozloha o jednotku.
 
 END_PGML_SOLUTION
 

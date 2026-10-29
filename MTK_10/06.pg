@@ -92,8 +92,8 @@ BEGIN_PGML_SOLUTION
 * Porodnost v populaci kořisti je [`ax`]. Je to člen, který ovlivňuje růst populace kořisti pozitivně.
 * Úbytek v populaci kořisti způsobený přítomností dravce je [`bxy`]. Je to člen, který přispívá k růstu populace kořisti negativně.
 * Rychlost s jakou roste populace dravce je [``\frac{\mathrm dy}{\mathrm dt}``], derivace velikosti populace dravce podle času.
-* Úmrtnost v populaci dravce je [`cy`]". Je to člen, který ovlivňuje populaci dravce negativně.
-* Posílení reproduce dravce v případě, že má k dispozici kořist je [`dxy`]" a jedná se o člen, který ovlivňuje populaci kořisti kladně.
+* Úmrtnost v populaci dravce je [`cy`]. Je to člen, který ovlivňuje populaci dravce negativně.
+* Posílení reproduce dravce v případě, že má k dispozici kořist je [`dxy`] a jedná se o člen, který ovlivňuje populaci dravce kladně.
 END_PGML_SOLUTION
 
 ENDDOCUMENT();

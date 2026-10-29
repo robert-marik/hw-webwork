@@ -57,7 +57,7 @@ Spárujete dostupné nástroje se situací, kdy je tento nástroj vhodné použ�
 END_PGML
 
 BEGIN_PGML_SOLUTION
-Pokud je rychlost růstu konstantní, stačí nám elementární matematika a velikost je součinem rychlosti a času, podobně jako dráha pohybu probíhajícího konstantní rychlostí. Pokud se rychlost růstu mění s časem, musíme namísto součinu použít integrál. Můžeme použít buď neurčitý integrál a poté stanovit integrační konstantu, nebo přímo použít integrál jako funkci horní meze. 
+Pokud je rychlost růstu konstantní, stačí nám elementární matematika a přírůstek velikosti je součinem rychlosti a času, podobně jako dráha pohybu probíhajícího konstantní rychlostí. Pokud se rychlost růstu mění s časem, musíme namísto součinu použít integrál. Můžeme použít buď neurčitý integrál a poté stanovit integrační konstantu, nebo přímo použít integrál jako funkci horní meze. 
 
 Pokud rychlost souvisí s velikostí populace, nestačí již integrál, ale je nutné použít aparát diferenciálních rovnic. Pokud rychlost závisí POUZE na velikosti populace, stačí autonomní diferenciální rovnice, v opačném případě obecné diferenciální rovnice prvního řádu.
 END_PGML_SOLUTION

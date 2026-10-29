@@ -41,7 +41,7 @@ $fx0 = random(0,1);
 $dfx0 = random(-6,6);
 $nasobek = random(1,8);
 $mocnina = random(1,2);
-$fx0=$fx0*($nasobek)*(-1**($mocnina));
+$fx0=$fx0*($nasobek)*((-1)**($mocnina));
 
 if ($fx0 != 0) {$reseni=2; $answer="Pravá strana je v bodě \($x0\) různá od nuly, bod není stacionárním bodem.";}
 elsif ($dfx0 < 0 ) {$reseni=0; $answer="Pravá strana je v bodě \($x0\) rovna nule a je v tomto bodě klesající (derivace je záporná), bod je stabilním stacionárním bodem.";}

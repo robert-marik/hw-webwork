@@ -24,7 +24,7 @@ TEXT(beginproblem());
 "Rychlost, s jakou roste výkon zdrojů v množině \(M\)."
 );
 
-@perm=shuffle(7);
+@perm=shuffle(scalar(@moznosti));
 @inv = invert(@perm);
 
 @permMoznosti = @moznosti[@perm];
@@ -48,7 +48,7 @@ Uvažujme stavovou veličinu ve dvourozměrné oblasti [`M`], která  může mí
 * Tok přenášející stavovou veličinu označíme pomocí komponent, tj. [`(P(x,y),Q(x,y))`].
 
 
-Najděte slovní interpretaci následujících veličin. Pro pohodlí jsou všechny návrhy stejné a jsou ve stejném pořadí. Vyberte vždy ten správný. Hranice [`\partial M`] množiny [`M`] je kladně orientována v souladu s Greenovou větou (při obíhání podél křivky [`¨\partial M`] je oblast [`M`] vlevo).
+Najděte slovní interpretaci následujících veličin. Pro pohodlí jsou všechny návrhy stejné a jsou ve stejném pořadí. Vyberte vždy ten správný. Hranice [`\partial M`] množiny [`M`] je kladně orientována v souladu s Greenovou větou (při obíhání podél křivky [`\partial M`] je oblast [`M`] vlevo).
 
 ---
 
@@ -131,7 +131,7 @@ END_PGML
 
 BEGIN_PGML_SOLUTION
 
-Rešení k jednotlivým otázkám si můžete rozkliknout. Odpověď na poslední dvě otázky je stejná vzhledem ke Greenově větě.
+Řešení k jednotlivým otázkám si můžete rozkliknout. Odpověď na poslední dvě otázky je stejná vzhledem ke Greenově větě.
 
 END_PGML_SOLUTION
 

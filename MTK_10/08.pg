@@ -27,7 +27,7 @@ sub f {
    $text[$c]=$a;
    my @bb = map { "\(\displaystyle\qquad".$_."\)" } @b;
    $reseni[$c]=$bb[0];
-   $radio[$c]=RadioButtons([@bb],0);
+   $radio[$c]=RadioButtons([[@bb]],0);
    $c=$c+1;
 }
 

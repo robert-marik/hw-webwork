@@ -19,12 +19,12 @@ do{
     $c=random(-3,3,1);
     $d=(random(-1,1,2)+($b)*($c)) * ($a);
     $matice=Matrix([[$a,$b],[$c,$d]]);
-    $v1=Matrix([[non_zero_random(-1,1)],0]);
+    $v1=Matrix([[non_zero_random(-1,1)],[0]]);
     $invmatice=$matice->inverse;
     $matice=$invmatice*Matrix([[2,0],[0,non_zero_random(-1,1)]])*$matice;
     $ans=$invmatice*$v1;
 }
-until (max(abs($matice->element(1,1)),abs($matice->element(1,2)),abs($matice->element(2,1)),abs($matice->element(2,1)),abs($ans->element(1,1)),abs($ans->element(2,1)))<10);
+until (max(abs($matice->element(1,1)),abs($matice->element(1,2)),abs($matice->element(2,1)),abs($matice->element(2,2)),abs($ans->element(1,1)),abs($ans->element(2,1)))<10);
 $matice1=$matice;
 $ans1=$ans;
 
@@ -35,12 +35,12 @@ do{
     $c=random(-3,3,1);
     $d=(random(-1,1,2)+($b)*($c)) * ($a);
     $matice=Matrix([[$a,$b],[$c,$d]]);
-    $v1=Matrix([[non_zero_random(-1,1)],0]);
+    $v1=Matrix([[non_zero_random(-1,1)],[0]]);
     $invmatice=$matice->inverse;
     $matice=$invmatice*Matrix([[2,0],[non_zero_random(-1,1),non_zero_random(-1,1)]])*$matice;
     $ans=$invmatice*$v1;
 }
-until (max(abs($matice->element(1,1)),abs($matice->element(1,2)),abs($matice->element(2,1)),abs($matice->element(2,1)),abs($ans->element(1,1)),abs($ans->element(2,1)))<10);
+until (max(abs($matice->element(1,1)),abs($matice->element(1,2)),abs($matice->element(2,1)),abs($matice->element(2,2)),abs($ans->element(1,1)),abs($ans->element(2,1)))<10);
 $matice2=$matice;
 $ans2=$ans;
 
@@ -52,12 +52,12 @@ do{
     $c=random(-3,3,1);
     $d=(random(-1,1,2)+($b)*($c)) * ($a);
     $matice=Matrix([[$a,$b],[$c,$d]]);
-    $v1=Matrix([[non_zero_random(-1,1)],0]);
+    $v1=Matrix([[non_zero_random(-1,1)],[0]]);
     $invmatice=$matice->inverse;
     $matice=$invmatice*Matrix([[2,0],[0,non_zero_random(-1,1)]])*$matice;
     $ans=$invmatice*$v1;
 }
-until (max(abs($matice->element(1,1)),abs($matice->element(1,2)),abs($matice->element(2,1)),abs($matice->element(2,1)),abs($ans->element(1,1)),abs($ans->element(2,1)))<10);
+until (max(abs($matice->element(1,1)),abs($matice->element(1,2)),abs($matice->element(2,1)),abs($matice->element(2,2)),abs($ans->element(1,1)),abs($ans->element(2,1)))<10);
 $matice3=$matice;
 $ans3=$ans;
 
@@ -69,12 +69,12 @@ do{
     $c=random(-3,3,1);
     $d=(random(-1,1,2)+($b)*($c)) * ($a);
     $matice=Matrix([[$a,$b],[$c,$d]]);
-    $v1=Matrix([[non_zero_random(-1,1)],0]);
+    $v1=Matrix([[non_zero_random(-1,1)],[0]]);
     $invmatice=$matice->inverse;
     $matice=$invmatice*Matrix([[2,0],[non_zero_random(-1,1),non_zero_random(-1,1)]])*$matice;
     $ans=$invmatice*$v1;
 }
-until (max(abs($matice->element(1,1)),abs($matice->element(1,2)),abs($matice->element(2,1)),abs($matice->element(2,1)),abs($ans->element(1,1)),abs($ans->element(2,1)))<10);
+until (max(abs($matice->element(1,1)),abs($matice->element(1,2)),abs($matice->element(2,1)),abs($matice->element(2,2)),abs($ans->element(1,1)),abs($ans->element(2,1)))<10);
 $matice4=$matice;
 $ans4=$ans;
 
@@ -119,7 +119,7 @@ Například vektor [```\vec{a}=\begin{pmatrix}-1\\2\end{pmatrix}```] a matice
 což znamená, že vektor [`\vec{a}`] se zobrazuje na svůj trojnásobek a jedná se o vlastní vektor příslušný vlastnímu číslu [`3`]. Naopak, pro vektor
 [```\vec{b}=\begin{pmatrix}1\\1\end{pmatrix}```] platí
 [``` A\vec{b}=\begin{pmatrix}3\\2\end{pmatrix}+\begin{pmatrix}0\\4\end{pmatrix}=\begin{pmatrix}3\\6\end{pmatrix},```]
-což znamená, že vektor [`\vec{b}`] není vlastním vektorem. Vskutku, druhá souřadnice se zobrazením změní na trojnásobek, ale první souřadnice se změní jiným násobkem (minus trojnásobkem). Vzor a obraz tedy nejsou rovnoběžné a vektor není vlastním vektorem. Aby byl vlastním vektorem, musely by všechny komponenty obrazu být stejným násobkem vzoru.
+což znamená, že vektor [`\vec{b}`] není vlastním vektorem. Vskutku, první souřadnice se zobrazením změní na trojnásobek, ale druhá souřadnice se změní jiným násobkem (šestinásobkem). Vzor a obraz tedy nejsou rovnoběžné a vektor není vlastním vektorem. Aby byl vlastním vektorem, musely by všechny komponenty obrazu být stejným násobkem vzoru.
 
 ---------------------
 

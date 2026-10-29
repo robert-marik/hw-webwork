@@ -58,7 +58,7 @@ který umíme analyzovat pomocí vlastních čísel.
 ---------------
 
 
-Uvažujme autonomní systém [``` \begin{aligned}\frac{\mathrm dx}{\mathrm dt}&=[$P]\\\frac{\mathrm dx}{\mathrm dt}&=[$Q].\end{aligned}```]
+Uvažujme autonomní systém [``` \begin{aligned}\frac{\mathrm dx}{\mathrm dt}&=[$P]\\\frac{\mathrm dy}{\mathrm dt}&=[$Q].\end{aligned}```]
 
 Vypočtěte derivace pravých stran.
 

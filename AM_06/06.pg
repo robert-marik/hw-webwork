@@ -170,7 +170,7 @@ $BCENTER.
 "\( \displaystyle
 \iint\limits_\Omega f(x,y) \,\mathrm dx\mathrm dy
 =
-\int_A^B \int_C^D f(r\cos(\theta),r\sin(\theta)) \, r \, \mathrm dr \mathrm d\varphi
+\int_A^B \int_C^D f(r\cos(\varphi),r\sin(\varphi)) \, r \, \mathrm dr \mathrm d\varphi
 \)".
 $ECENTER.
 $PAR.
@@ -212,7 +212,7 @@ Množina je definována nerovnostmi [``` [$C]\leq r\leq [$D] ```] a [``` [$A]\le
 Integrál má tvar
 [``` \iint\limits_\Omega f(x,y) \,\mathrm dx\mathrm dy
 =
-\int_{[$A]}^{[$B]} \int_{[$C]}^{[$D]} f(r\cos(\theta),r\sin(\theta)) \, r \, \mathrm dr \mathrm d\varphi.
+\int_{[$A]}^{[$B]} \int_{[$C]}^{[$D]} f(r\cos(\varphi),r\sin(\varphi)) \, r \, \mathrm dr \mathrm d\varphi.
 ```]
 END_PGML_SOLUTION
 
